@@ -1,0 +1,68 @@
+{
+  "schema": "royale-phase2-formal-training-cohort.v1",
+  "artifact_kind": "source_only_formal_subset_native_trial_selection_not_trajectories",
+  "dataset_revision": "059d43a02138a34b1b3009cc2acc7630fb99a638",
+  "formal_denominator": 100,
+  "upstream_manifest": {
+    "path": "data/phase2/frozen_manifest.json",
+    "sha256": "47823338241815c22182347f2c46daf5a353f52c0d2e63d37e55d903e4945627"
+  },
+  "combined_manifest": {
+    "path": "data/phase2/learning/combined_source_manifest.json",
+    "sha256": "b7a6cfa3f2978ffc755d0002fff87a834d2bb00ebf6bbc399c8768cb661c1b28"
+  },
+  "learning_split_sha256": "17273b047da5a83436193477bfdca16f7ea1eb8f544f417ebf09fb77ee6e01e2",
+  "selection_rule": "Within original formal100 only, lossless source levels + no source abilities + >=1 Fireball/Arrows source label. For each unchanged train/validation split prefer source_actions>=25 then SHA256(phase2-native-learning-cohort-v1|dataset_revision|leakage_group), select first1. Fill below25 only if needed by same hash. No native or final source outcome read.",
+  "source_only_candidate_bias": "Limited spell-bearing, uniform-level, no-ability source subset; not formal100 success-rate estimation or full-game fidelity. Actual failed selected trials stay failed and excluded from strict training.",
+  "uses_source_final_outcome": false,
+  "uses_native_results": false,
+  "requested_counts": {
+    "train": 1,
+    "validation": 1
+  },
+  "counts": {
+    "train": 1,
+    "validation": 1
+  },
+  "source_candidate_count": 9,
+  "shortages": {},
+  "fallback_below_action_threshold": [],
+  "execution_plan": {
+    "independent_reset_runs_per_episode": 3,
+    "decision_grid_ticks": 5,
+    "trajectory_round": "r1_only_predeclared"
+  },
+  "native_runs_executed_by_this_tool": 0,
+  "training_samples_created": 0,
+  "entries": [
+    {
+      "source_episode_id": "91e21faee1ae4abbb424e759585bf2f0",
+      "split": "formal",
+      "leakage_group": "91e21faee1ae4abbb424e759585bf2f0",
+      "raw_row_index": 328,
+      "payload_sha256": "4da9640fa99c456ffa6ec93415947cdcfbae2c3c4f142e0a66f09227e8a47860",
+      "content_sha256": "0d00c053a22e5f7eee27cac60544bfe67f2f0addd43b2d95d929f70e1d475371",
+      "episode": "data/phase2/converted/source-v1/episodes/91e21faee1ae4abbb424e759585bf2f0.json",
+      "parse_valid": "pass",
+      "source_events": 53,
+      "learning_split": "train",
+      "group_selection_sha256": "3bf9cfd8927520e030da0d46a2eac46d1f45212f1b89c8579f53e579b74ca8a9",
+      "preferred_source_actions_at_least_25": true
+    },
+    {
+      "source_episode_id": "4038bd96de2c4976be40e487b5c3b636",
+      "split": "formal",
+      "leakage_group": "4038bd96de2c4976be40e487b5c3b636",
+      "raw_row_index": 212,
+      "payload_sha256": "0437b5e752c902e5a42cf20a644f1c10055447fd7b78b2752be72eac95659729",
+      "content_sha256": "fbfb407e7252aa675e8cbc63972cf2567bffabef39ff0a3bfc7fc1dc4a5799a0",
+      "episode": "data/phase2/converted/source-v1/episodes/4038bd96de2c4976be40e487b5c3b636.json",
+      "parse_valid": "pass",
+      "source_events": 62,
+      "learning_split": "validation",
+      "group_selection_sha256": "85a6a33839668be00d2f2a5b8d2241f23e20714662b085701ecf061c5039a235",
+      "preferred_source_actions_at_least_25": true
+    }
+  ],
+  "cohort_sha256": "0a321a77ac9bd5f83df185a1f7c9b1831824296e846dcbfa632c2e2565f2bf90"
+}

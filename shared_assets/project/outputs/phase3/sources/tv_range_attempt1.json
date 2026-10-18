@@ -1,0 +1,147 @@
+[
+  {
+    "tag": "raw_frame_metadata",
+    "source_path": "arena_01/01600528-75d9-429a-bb4b-7c5f062600a5/frames.parquet",
+    "revision": "f3a750881e008e0daf237afd45736231b51a955a",
+    "source_bytes": 488889400,
+    "schema": "frame_id: int64\nimage: struct<bytes: binary, path: string>\n  child 0, bytes: binary\n  child 1, path: string\nhash: string",
+    "rows": 589,
+    "row_groups": 1,
+    "selected_columns": [
+      "frame_id",
+      "hash"
+    ],
+    "selected_rows": 128,
+    "selected_path": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\raw_frame_metadata.selected.jsonl",
+    "status": "converted_selected_columns",
+    "requested_bytes": 78380,
+    "receipts": [
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/arena_01/01600528-75d9-429a-bb4b-7c5f062600a5/frames.parquet",
+        "range": "bytes 488823864-488889399/488889400",
+        "bytes": 65536,
+        "sha256": "51e882401618d825dc0368e9718f24f6dc2b4128acd4352a668e34757709253b",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\raw_frame_metadata\\000488823864-000488889399.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/arena_01/01600528-75d9-429a-bb4b-7c5f062600a5/frames.parquet",
+        "range": "bytes 4-1762/488889400",
+        "bytes": 1759,
+        "sha256": "a69a316a9f3cb1bbdea73be2214ffe25823b1dd6a7f1329c2af3f065c09edc79",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\raw_frame_metadata\\000000000004-000000001762.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/arena_01/01600528-75d9-429a-bb4b-7c5f062600a5/frames.parquet",
+        "range": "bytes 488877231-488888315/488889400",
+        "bytes": 11085,
+        "sha256": "fe1022a24aa74a202192038efb9c9929262cbde167145f6988d76ce45c2623dd",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\raw_frame_metadata\\000488877231-000488888315.bin"
+      }
+    ]
+  },
+  {
+    "tag": "processed_hand_elixir",
+    "source_path": "initial_training_hand_elixir.parquet",
+    "revision": "f3a750881e008e0daf237afd45736231b51a955a",
+    "source_bytes": 1388750868,
+    "schema": "card: string\nhand: list<element: string>\n  child 0, element: string\nelixir: halffloat\npng_bytes: binary\nx: int16\ny: int16\narena: string\nreplay: string\nframe: int16",
+    "rows": 3060,
+    "row_groups": 1,
+    "selected_columns": [
+      "card",
+      "hand",
+      "elixir",
+      "png_bytes",
+      "x",
+      "y",
+      "arena",
+      "replay"
+    ],
+    "status": "blocked",
+    "error": "ValueError('range budget would be exceeded')",
+    "requested_bytes": 84219,
+    "receipts": [
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/initial_training_hand_elixir.parquet",
+        "range": "bytes 1388685332-1388750867/1388750868",
+        "bytes": 65536,
+        "sha256": "303b3adf5a81f74625bed96a0e8283a09a94ff5dec9b582e95d182821c0eb1be",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_hand_elixir\\001388685332-001388750867.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/initial_training_hand_elixir.parquet",
+        "range": "bytes 4-2624/1388750868",
+        "bytes": 2621,
+        "sha256": "5df5a744942debeb3e96e4fb8896e18959f2344400f69459c347e2e25e5beebb",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_hand_elixir\\000000000004-000000002624.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/initial_training_hand_elixir.parquet",
+        "range": "bytes 2625-14476/1388750868",
+        "bytes": 11852,
+        "sha256": "77b2e72127740e7551b0d55e28c98d84fa248411e0c770c7db4d8821d8ebe6e2",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_hand_elixir\\000000002625-000000014476.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/initial_training_hand_elixir.parquet",
+        "range": "bytes 14477-18686/1388750868",
+        "bytes": 4210,
+        "sha256": "5c70eeb5776e1191b84d9c1859955a06afa2c8d0f25103d90a91edaacc27b4b3",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_hand_elixir\\000000014477-000000018686.bin"
+      }
+    ]
+  },
+  {
+    "tag": "processed_offset1",
+    "source_path": "training_offset_1.parquet",
+    "revision": "f3a750881e008e0daf237afd45736231b51a955a",
+    "source_bytes": 10016106287,
+    "schema": "card: string\nhand: list<element: string>\n  child 0, element: string\nelixir: halffloat\npng_bytes: binary\nx: int16\ny: int16\narena: string\nreplay: string\nframe: int16\noffset: int16",
+    "rows": 21848,
+    "row_groups": 1,
+    "selected_columns": [
+      "card",
+      "hand",
+      "elixir",
+      "png_bytes",
+      "x",
+      "y",
+      "arena",
+      "replay",
+      "offset"
+    ],
+    "status": "blocked",
+    "error": "ValueError('range budget would be exceeded')",
+    "requested_bytes": 198559,
+    "receipts": [
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/training_offset_1.parquet",
+        "range": "bytes 10016040751-10016106286/10016106287",
+        "bytes": 65536,
+        "sha256": "b5b75e9e795f748be7857ad0de5b46e3c6139c094b89cf48042765137fd7720f",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_offset1\\010016040751-010016106286.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/training_offset_1.parquet",
+        "range": "bytes 4-7906/10016106287",
+        "bytes": 7903,
+        "sha256": "7920d3f0a368346ba9a6568046bd6996e0da1ecc0d97fb2757b27a45cdc90b06",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_offset1\\000000000004-000000007906.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/training_offset_1.parquet",
+        "range": "bytes 7907-105554/10016106287",
+        "bytes": 97648,
+        "sha256": "a893c393cc782a228c97cd1634309d030d042e12d328ce1b61c98410844c8007",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_offset1\\000000007907-000000105554.bin"
+      },
+      {
+        "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/training_offset_1.parquet",
+        "range": "bytes 105555-133026/10016106287",
+        "bytes": 27472,
+        "sha256": "535629608a0fa9c0a7a95bc778c34bb0df284130bc361f393c8ad4b6cca4b586",
+        "local": "data\\phase3\\external\\raw\\tv\\f3a750881e008e0daf237afd45736231b51a955a\\range_samples\\processed_offset1\\000000105555-000000133026.bin"
+      }
+    ]
+  }
+]

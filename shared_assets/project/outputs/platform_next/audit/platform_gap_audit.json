@@ -1,0 +1,283 @@
+{
+  "schema": "royale-platform-gap-audit.v1",
+  "audited_date": "2026-10-18",
+  "method": "Read current adapter, minimal probe source and saved native evidence; recompute saved JSON counts and SHA256. This audit does not start the VM, connect to RPC or rerun historical acceptance.",
+  "scope": "Platform readiness and research observability, independent of policy strength",
+  "integration_failure_correction": {
+    "kind": "accidental_public_ssh_host_key_cache_outside_project",
+    "historical_path": "D:\\研究生\\Clash",
+    "bytes": 100,
+    "contains": "SSH ed25519 public host-key cache, not a private key",
+    "cause": "An unquoted space in the early OpenSSH UserKnownHostsFile option truncated the intended project cache path; not a user data location",
+    "status": "corrected_and_reverified",
+    "recovered_project_path": "outputs/platform_next/audit/recovered_accidental_known_hosts.txt",
+    "sha256": "bdc6be10d5a248880399796e016ff34b4d8022f136a56aaed9a4642052a67532",
+    "outside_original_path_exists_after_correction": false,
+    "verification": "Actual read-only project Python check confirmed100bytes, the recorded SHA256, an ssh-ed25519 public host-key line and historical outside path absent on2026-10-18. The final SSH configuration uses a project-relative ASCII known_hosts option and strict host-key checking."
+  },
+  "audit_target": "Existing phase2 backend, original conservative actor and immutable phase2 evidence before the new platform_next console integration. New console tests and research plugin coverage are reported separately in platform_next session/validation artifacts.",
+  "audit_verification": {
+    "status": "pass",
+    "date": "2026-10-18",
+    "rpc_calls": 0,
+    "checks_recomputed_from_saved_files": {
+      "input_hashes_match": true,
+      "formal_denominator": true,
+      "formal_quality": true,
+      "feedback_totals": true,
+      "render_counts": true,
+      "agent_outcomes": true
+    },
+    "meaning": "An actual project-local Python command reread every hashed input, recalculated formal row quality/feedback counts, frame-state kind occurrences and model outcomes, and asserted all six checks. This is an audit of existing evidence, not a new native run."
+  },
+  "conclusion": {
+    "fixed_local_native_battle_exists": true,
+    "saved_native_rendering_exists": true,
+    "saved_model_closed_loop_exists": true,
+    "current_policy_gets_all_exposed_state": false,
+    "all_native_internal_state_exposed": false,
+    "all_source_replays_reconstructed": false,
+    "official_full_interaction_equivalence_proven": false,
+    "meaning_of_all_information": "Research oracle may inspect every field currently returned by cr-minimal.v4 and all locally recorded requests/receipts. This is not every internal engine field and is not the information available to a fair player."
+  },
+  "locked_version": {
+    "client_package": "nullsroyale.rel.free",
+    "client_build": "15.535.13",
+    "content_version": "15.535.86",
+    "ticks_per_second": 20,
+    "native_tick_ms": 50,
+    "balance_date": "unknown",
+    "source_official_build_match": "unknown",
+    "time_origin": "Local first playable capture usually tick90; source time endpoint and click/deploy semantics are reconstruction hypotheses, not independently established official timing.",
+    "source_seed": "unknown",
+    "source_full_initial_hand_order": "unknown; bounded reconstruction from source actions, not recovered official seed",
+    "source_terminal_engine_tick": "unknown"
+  },
+  "current_research_oracle": {
+    "schema": "cr-minimal.v4",
+    "top_level_fields": [
+      "ok",
+      "schema",
+      "generation",
+      "tick",
+      "finalized",
+      "result",
+      "crowns",
+      "players",
+      "entities",
+      "plays",
+      "next"
+    ],
+    "both_players": {
+      "elixir": "exact native fixed point; 10000 units = 1 elixir",
+      "hand_tuple": [
+        "slot",
+        "root_card_id",
+        "dynamic_cost",
+        "packed_native_parameter",
+        "effective_command_card_id"
+      ],
+      "cycle": "current native cycle card IDs; private oracle information",
+      "ability_tuple": [
+        "button_state",
+        "remaining_cooldown_ms",
+        "configured_cooldown_ms",
+        "remaining_charges_raw",
+        "max_charges",
+        "native_unit_ids"
+      ],
+      "evolution_tuple": [
+        "deck_slot",
+        "card_id",
+        "evolvable",
+        "cycle_required",
+        "cycle_remaining",
+        "ready"
+      ],
+      "runtime_validity_caveat": "Minimal does not emit the controller/evolution runtime validity flags; an empty array does not by itself distinguish absent controller from unavailable runtime information. Numeric button meaning and exact ability identity are not fully exposed."
+    },
+    "entity_tuple": [
+      "native_id",
+      "owner",
+      "card_id",
+      "x",
+      "y",
+      "hp_or_null",
+      "max_hp_or_null",
+      "target_native_id_or_null",
+      "attack_cooldown_ms_or_null",
+      "kind",
+      "deployment_remaining_ms_or_null"
+    ],
+    "entity_kinds": [
+      "building",
+      "troop",
+      "projectile",
+      "area"
+    ],
+    "entity_kind_caveat": "Minimal kind is a coarse structural classification: nonprojectile with HP and card_id==-1 is building; other HP objects are called troop. Root card ID can be shared by spawned child objects; neither field is a complete unit archetype identity.",
+    "cooldown_precision": "Out-of-range values become null; valid remaining cooldown/deployment values are rounded up to 50ms in the probe.",
+    "card_play_tuple": [
+      "event_sequence",
+      "actual_visible_tick",
+      "owner",
+      "effective_card_global_id",
+      "cost"
+    ],
+    "scheduler_feedback": "Separate adapter journal retains requested card/position/tick, registration and injection receipts, consumption confirmation, actual tick or unknown.",
+    "capacity_boundary": "Minimal capture explicitly rejects object count above256, unreadable identity/pointer, bad event cursor or generation. A rejected capture is a failure, not an empty battlefield."
+  },
+  "current_conservative_actor": {
+    "schema": "royale-phase2-actor-conservative.v1",
+    "available": [
+      "current tick",
+      "actor native owner",
+      "own hand slot/card/cost",
+      "hand_complete",
+      "own exact elixir",
+      "own/opponent crowns",
+      "attested standard tower present/HP/maxHP"
+    ],
+    "omitted": [
+      "non-tower battlefield entities",
+      "projectiles",
+      "areas",
+      "opponent hand",
+      "opponent exact elixir",
+      "both full cycles",
+      "ability/evolution controller state",
+      "targets",
+      "cooldowns",
+      "packed parameters",
+      "source seed",
+      "future source commands"
+    ],
+    "reason": "Explicit conservative whitelist; it currently provides less battlefield information than a human player. Research oracle and fair actor are separate contracts.",
+    "affordability_mask": "Only current own hand and own budget; excludes placement, native command readiness and abilities. Strict learning adds a separately evidenced WAIT/Fireball/Arrows subspace."
+  },
+  "missing_or_unproven": [
+    {
+      "capability": "Per-attack, per-hit and damage attribution stream",
+      "status": "not exposed by active minimal profile",
+      "reason": "Only native CardPlay consumption hook is installed by minimal_capture. HP/target/cooldown snapshots do not prove which attack caused each HP change."
+    },
+    {
+      "capability": "Full projectile physics and area effects",
+      "status": "partial snapshots only",
+      "reason": "Objects have ID/owner/card/position/coarse kind, but minimal does not provide full source, target trajectory, velocity, configured damage/radius/remaining lifetime/status-effect semantics."
+    },
+    {
+      "capability": "Generic ability consumption and effect confirmation",
+      "status": "injection available; generic successful consumption unconfirmed",
+      "reason": "Controller snapshots and scheduler succeeded receipt are not a unique skill-consumption event. Formal failures are retained."
+    },
+    {
+      "capability": "Every unit/form identity and player visibility",
+      "status": "incomplete",
+      "reason": "Minimal card root may be0 or shared by child units; invisible/underground/special visibility is not attested for the current actor. Research oracle may show private entities only when explicitly labeled."
+    },
+    {
+      "capability": "All-card placement legality and complete agent action space",
+      "status": "incomplete",
+      "reason": "Current strict policy action proof is WAIT plus ordinary Fireball/Arrows. Low-level native card scheduling is broader but not a universal legal placement oracle."
+    },
+    {
+      "capability": "Exact replay initialization and all source actions",
+      "status": "incomplete",
+      "reason": "Source build/date/seed/full initial order are missing; four mixed-level formal episodes were rejected, nine initial-deal calibrations cycled, and abilities/unconfirmed plays remain."
+    },
+    {
+      "capability": "Independent official interaction timing truth",
+      "status": "not available",
+      "reason": "Formal100 has zero independently acquired official temporal references. Same-engine determinism and rendering consistency cannot prove official full interaction equivalence."
+    },
+    {
+      "capability": "Complete snapshot/fork and parallel isolated instances",
+      "status": "not supported by current adapter",
+      "reason": "Recovery is reset plus journal replay. Current VM/RPC must have a single owner; batch flags do not create isolated native engines."
+    }
+  ],
+  "formal100_evidence": {
+    "denominator": 100,
+    "recorded": 100,
+    "parse_valid": {
+      "pass": 100
+    },
+    "runtime_replayable": {
+      "pass": 10,
+      "fail": 90
+    },
+    "outcome_consistent": {
+      "pass": 63,
+      "fail": 23,
+      "not_run": 13,
+      "unknown": 1
+    },
+    "trajectory_validated": {
+      "not_available": 100
+    },
+    "official_trajectory_reference_count": 0,
+    "failure_primary_messages": {
+      "not_all_commands_uniquely_consumed_or_no_natural_terminal": 76,
+      "initial_deal_calibration_cycled": 9,
+      "lossy_source_level_normalization_rejected": 4,
+      "bounded_episode_wall_timeout": 1
+    },
+    "failed_episode_tags_overlap": {
+      "has_unconfirmed_ability": 74,
+      "has_unconfirmed_play_card": 13
+    },
+    "feedback_totals": {
+      "registered": 6197,
+      "native_injected": 6194,
+      "consumed": 5902,
+      "native_injection_failed": 3,
+      "injected_consumption_unknown": 292,
+      "not_submitted": 95
+    },
+    "caveat": "Counts summarize the frozen historical queue with its recorded backend hash. They are not rewritten as new dashboard results; failure tags overlap and are not causal diagnoses of official divergence."
+  },
+  "saved_render_evidence_recomputed": {
+    "path": "outputs/phase2/viewer/acceptance-001/rendered/states.jsonl",
+    "capture_count": 181,
+    "first_tick": 90,
+    "last_tick": 3648,
+    "max_entities_in_a_capture": 24,
+    "entity_occurrences_over_all_captures": {
+      "building": 1094,
+      "troop": 776,
+      "projectile": 127,
+      "area": 72
+    },
+    "caveat": "Occurrences are repeated snapshots, not unique entity/event counts. Capture interval exceeds one tick in parts, so transient events can be missed."
+  },
+  "saved_agent_evidence": {
+    "path": "outputs/phase2/native/agent_eval/acceptance-008/report.json",
+    "games": 10,
+    "natural_terminal": 10,
+    "with_model_consumption": 10,
+    "truncated": 0,
+    "wins": 0,
+    "losses": 10,
+    "caveat": "Restricted two-spell model, explicit spell-first fixture and inference prior; this proves saved native execution, not full card interaction coverage or intelligence."
+  },
+  "next_platform_acceptance": [
+    "Single entry starts a local dashboard without VM for archive mode.",
+    "Research oracle displays every current raw field with units/schema and unknown/null preserved.",
+    "Actor view remains visibly separate; oracle usage by any experimental policy is explicit.",
+    "Replay mode starts the pinned native runtime, displays actual same-game framebuffer, current raw state, source input and execution feedback.",
+    "Agent mode displays a newly running model battle, exact model observation/prediction, native request/consumption and terminal result.",
+    "Pause, continue, exact-step, stop and runtime ownership have working controls and saved evidence.",
+    "Missing combat/ability telemetry and official temporal references remain explicit open work; no UI label may turn unknown into confirmed."
+  ],
+  "input_sha256": {
+    "royale_phase2/backend.py": "f2ebab84e5c6d0a87c1755ae26fc27dec84c79b95f60cf3c287af30dae8a16d5",
+    "royale_phase2/visibility.py": "636020bc2ab7d856ab9541c1e20a8f7bc748e768ea37ab9e2174dcaa588f165e",
+    "royale_phase2/viewer.py": "b4162b3d310a01aa11edc76815497428e3b29840099a7cab7aa5fed99b22dfd1",
+    "third_party/phase2/jason/vendor/firstlight/probe/minimal_capture.inc": "18b929415117e92ad4a980c5de38b9be0502e388e4157868a9283ed9b2fa4b65",
+    "data/phase2/version_manifest.json": "48bcf651e56e00701180bc6e516e65a0f3a64416e73b8337591e50874b59bcba",
+    "outputs/phase2/formal_audit_complete.json": "ff783b69085ad4f0400048d9f1cbf0e2bcae5695a7dc1bf76469716fdb983b2c",
+    "outputs/phase2/viewer/acceptance-001/rendered/states.jsonl": "155af419ec52bbce9909087f429ea54beb78081601afd8327574e2f51aee0d06",
+    "outputs/phase2/native/agent_eval/acceptance-008/report.json": "a31e442e335213509c542dc01c9b274255acb4ea901e46711022fea853f4e657"
+  }
+}

@@ -1,0 +1,97 @@
+FirstLight_CR 源码审计（2026-10-18，未安装、未下载权重、未启动原生引擎）
+
+审计对象：Jaasssoooonnnnn/FirstLight_CR，固定 commit 3ade158c52bf33de3ffcea600ce380946b7de0d8。
+本地参考：third_party/phase2/firstlight/ACQUISITION.json 固定 GitLab firstlight3/FirstLight_CR@71944e3993b594b3cc89b38768b5e817dfbdbe0e。
+证据分层：下述架构为文档与源码核实；胜率、并行规模、名人堂成绩为作者报告；本机性能、权重加载、原生运行、快照确定性均未在本轮实测。
+
+一、最重要的结论
+
+这不是一条此前没有接触过的新路线。将 GitHub tree 的 blob SHA1 与本地文件按 Git 对象规则（blob+长度+NUL+字节）逐一比较，model.py、tensorizer.py、factory.py、tracking.py、contracts.py、config.py、decoding.py、ppo.py、learning.py、checkpoint.py、probe/cr_replay_probe.cpp 全部完全一致。battle_env.py 有差异：本地 232470 bytes，远端 234844 bytes。不能据此推断两个版本整体相同，但足以证明 V4 模型、动作、循环训练、完整 probe 的主要源代码已经在本地。
+
+因此当前问题不是缺少 V4 算法设计，而是我们运行的 cr-minimal.v4 与 FirstLight 完整 semantic/rich 契约之间尚未打通，以及本地尚无公开预训练 checkpoint。应优先做独立兼容性验证和完整观测可行性探针，避免再次从零复制一套通用 PPO。
+
+二、V4 的真实架构
+
+native_runner/training/v4/model.py:84 的 UniversalCardPolicyV4 是 model-free recurrent actor-critic，不是 Dreamer，也没有训练 latent dynamics 或 imagined rollout。
+
+输入不是像素：
+- 全局卡牌词表、静态属性、机制 profile、形态和效果 embedding。
+- 己方 8 张卡；对方最多 8 张已公开卡加 1 个 UNKNOWN 汇总 token。
+- 最多 6 塔、48 个因果战斗组、160 个组内实体、32 个近期事件。
+- 显式 14 通道空间平面与 32 通道 learned scatter；18×32 棋盘。
+- 实体关系（攻击、被攻击、生成、捕获、支持等）、单位/弹道/范围效果、全局资源与时间，以及上一步 semantic action。
+- 4 层、8 头 relation Transformer，CNN 空间分支，汇合宽度 896→512，唯一持久神经记忆是 512 维 LSTMCell；actor/critic 分支有 skip connection。
+
+动作表示比本地旧单帧 BC 完整得多：
+- 每 5 native ticks（250ms，4Hz）一次决策；FIRST_POLICY_DECISION_TICK=90，此前 observe warmup。
+- WAIT/ACT gate；从最多 6 个候选（4 手牌+2 ability controller）中 pointer 选动作。
+- 位置条件于选中的卡牌/候选，在 18×32 概率网格上选择。
+- 延迟为 0/50/100/150/200ms 五档；至多两个自回归微动作，另有 continue/stop gate。
+- ShadowCandidateLegality 在第二微动作前更新剩余圣水、已用候选/手牌、互斥技能、延迟顺序和建筑 footprint 排他区域。原生 mask 与解码再次校验 effective_elixir、手牌和位置。
+- 不可把它压缩成“卡槽+二维坐标回归”，也不能把 RNN 当成无状态 HTTP 调用。
+
+重要推理差异：PolicySession 正常解码保存模型延迟，但 offline_agent._rendered_action 会去掉 native_command_age_ticks，将渲染交互出牌设为 execute_offset_ticks=1、model_delay_ignored=True。headless 评估与 rendered 交互共享模型，并不意味着全部执行时序天然完全一致。我们应直接测量并固定执行协议。
+
+三、FAIR 的确做了什么，尚不能代表什么
+
+1. tensorizer._validate_observation_identity 拒绝 ORACLE。BattleEnv.observe 只产生 FAIR actor observation；_players 对敌方不输出 hand/deck/cycle/elixir_exact/private ability/evolution。
+2. tensorizer._card_sets 只从已发生公开事件与 enemy_player.revealed_cards 建立敌方卡 token；未公开的卡不作为真实ID送入神经网络，只给 UNKNOWN 数量。tracker 的初始卡状态为 UNKNOWN_INITIAL，见过的卡才按公开 action_executed 更新四次轮转。tests/test_training_v4_tensorizer.py 有 unknown 汇总、己方完整隐藏cycle顺序不改变输入、己方进化不泄漏同名敌牌的回归测试。因此“episode里含双方deck”本身不等于模型直接读到敌方全手牌。
+3. factory._public_tracker_v4 仍要求双方完整 deck 与 form/ability/evolution 配置；PolicyService start 也要求双方 initial_elixir。初始圣水只有在完整开局且规则明确时才可作为公共规则状态。中局接入不能读取敌方真实圣水后宣称公平。未知卡组实战还应改成已揭示卡动态注册与catalog允许形态superset，并做反事实不变性测试：只改敌方未揭示牌、未公开形态、真实手牌/圣水，已公开观测一致时 actor张量/动作必须一致。
+4. 对方圣水当前不是完全精确值：tracker用公开花费更新上界，未知技能花费存在时下界保守置0，scalar传上界及区间宽度。不要把它描述成自动精确记费或完整贝叶斯belief。
+5. 此仓库所谓 FAIR 是 semantic-fair 研究契约，不是人类读屏输入。_rich_context 将除 player-root 之外所有 arena objects 视为双方公共，注释认为 Royal Ghost 半透明、Tesla 地下形态、Suspicious Bush 都有公共渲染；visibility_runtime 又明确没有证明 owner-conditioned public/render producer。这个决定是代码内的公开场地语义假设，不能当已完成逐对象像素可见性验证。
+6. 模型确实使用精确实体/塔HP、target关系、冷却/攻击阶段剩余毫秒、charge阶段、伤害倍率、弹道伤害/半径、buff倒计时、部署剩余时间、精确原生坐标等。它没有直接暴露敌方私有手牌，但比人类画面可获得的精度和状态信息更丰富。若目标是人类信息水平的 agent，应将该模型先作为semantic benchmark/teacher，并另训带unknown与噪声的受限student；避免把FAIR、oracle和RGB三种评估混成一个胜率。
+
+四、学习与评估中可直接借鉴的部分
+
+- IL用原生重放回放动作，在当前引擎上再生成状态序列，按自然时间训练 LSTM，TBPTT chunk之间detach；不是随机打散单帧。ACT gate默认权重8，delay使用相邻档平滑，各动作head按自己的有效样本数归一化，value有独立mask。
+- producer保留 first_untrusted_tick、expert/executed counts、winner/crowns fidelity、真实terminal与来源时间结束区别；来源结束且未见真实terminal时不训练value。值得复用这些状态质量机制，但“当前版本重新执行得到的原生状态”仍不等于“历史那场比赛的真实逐帧状态”，版本/等级/形态错配必须另外记录。
+- recurrent PPO保留whole lanes和initial recurrent state，存rollout时动作logprob、mask与旧value；学习不重跑引擎；terminal不bootstrap、time-limit bootstrap并切断GAE跨局传播。PPO runtime默认gamma_per_decision=0.9997；不要把通用PPOConfig里的0.99误当历史主线实际训练gamma。
+- league.py 提供冻结anchor、历史snapshot、PFSP加权（兼顾接近五五开与薄弱对手），matchmaking实现卡组池/困难卡组与策略混合。是否启用每个功能仍由训练参数决定，不能把代码支持直接当发布模型的训练条件。
+- 公开 evaluator 保存checkpoint hash、match config、seed、side、胜负、正常terminal、truncation、非WAIT动作与拒绝数。它逐局换边且seed逐局递增，不是同一个seed的严格成对镜像；要复现论文式paired protocol应另写调度。
+- 作者训练史最有价值的教训：仅对被动IL取得80.10%曾误导选模，306胜中296局对方最多3次非WAIT动作。历史评估还给原始IL加15秒强制首次动作，General/Active IL没有，不能把默认evaluate的结果直接和历史表比较。
+- General历史报告在382局/对手、172候选卡组下对IL73.30%、ActiveIL60.21%；Hog2在760局/对手、固定专精卡组下对General88.03%。这些是作者历史结果，本轮无独立复现；“上名人堂”是作者账号成绩陈述，不能当官方标准benchmark。
+
+五、预训练权重适配成本
+
+仓库提供5个约48.4MB .pt及SHA256 manifest，General更通用，Hog2专精更强但更被动；专精配置含Hero Musketeer、Evolved Cannon和Evolved Skeletons，不能直接等价为旧版本普通2.6卡组。
+
+低成本：用现有静态catalog+完全相同V4 model加载权重，CPU执行纯推理fixture，核对manifest、checkpoint contract、输出有限值、LSTM reset与单局状态推进。serve_policy默认CPU且不连接游戏；不必为纯加载测试安装完整APK或运行PPO。
+
+中高成本：让当前minimal backend成为兼容ObservationV1 producer。V4严格绑定policy/observation/action版本、ModelConfig与card/ability/entity_archetype/effect/mechanic_profile五种catalog identity；model.load_state_dict(strict=True)。当前minimal缺少完整native_data_global_id、因果组、弹道效果与攻击阶段、原生placement/形态/技能runtime、部分手牌runtime映射。不能靠复制字段名与缺失填0宣称适配成功：那会产生与预训练分布不同的输入，部分字段更会直接fail closed。
+
+推荐先将完整FirstLight backend作为隔离候选，与原minimal并存、共享单实例互斥；通过rich telemetry/版本鉴定/动作执行/观测泄漏测试后才做小批对局。若只用minimal观测，则预训练V4更适合生成teacher数据或蒸馏目标，受限student沿用我们已验证的输入契约。无需把现有模型和历史证据删除后整体换仓库。
+
+本机CPU、单VM的限制：官方evaluate/offline_agent/serve_policy有CPU路径，cache builder可在Windows、1port、1resident-slot做小批。官方train_imitation_cache明确requires CUDA并初始化NCCL/DDP；PPO Linux launcher也面向CUDA/NCCL/AVD/Slurm配置。底层模型与loss可以复用到CPU小trainer，但官方集群脚本不能原封照搬。本轮不提供吞吐或训练耗时估计，因为没有实测。作者1,528并发/8GPU不能转为本机预期。
+
+六、快照和resident slot必须分开
+
+完整probe确实有snapshot-create/restore/release，不应沿用“整个上游无snapshot”的说法。create_state_snapshot调用原生StateSnapshot得到ByteStream，读取payload并保存FNV64和字节数；restore reset stream→deserialize header/body到同一manager→重新snapshot，核对tick、digest、bytes与battle_result可读性。额外保存/恢复tower troop runtime、completed steps，切换telemetry epoch。snapshot handle限定mode/generation/config，重置后失效；这是进程内原位恢复，不是任意克隆manager。
+
+尚未知：原生payload是否完整保存RNG、未来command queues、弹道和全部进程全局状态，没有逐字段或未来轨迹证明；probe外scheduled replay queue、Python BattleEnv事件游标/出生历史/公共tracker、tensorizer/LSTM也没有作为一体快照保存。tree未发现专用真实引擎分支确定性验收脚本；消费入口主要是training/replay_viewer.py，test_training_replay用stub验证seek，不能作为本机真实原生确定性证明。
+
+resident slot是新建独立GameStateManager并切换全局上下文，切slot还清snapshot context；它不是同一state的fork，也不是8个slot便自然8倍吞吐。多engine/slot增加可驻留对局容量，速度必须测总simulation ticks/s和端到端decisions/s。
+
+建议可行性实验：选含弹道、延迟动作、随机生成、技能与buff的中局锚点S，S→动作A→K ticks；restore(S)后同A，比较逐tick序列化digest、实体/资源、执行事件与终局；再做A/B分支隔离、重复restore、长时重演、渲染/headless模式、以及Python/RNN状态一起恢复测试。只有通过后，原生少候选搜索/teacher才进入设计主线。否则仍用现有journal重演，学习式世界模型保留为后续辅助路线。
+
+七、对总体设计的启发
+
+主线先采用：权威原生环境→经审计的语义或受限观测→公共事件tracker+LSTM→合法候选/卡牌条件位置策略→真人回放IL→多样冻结对手与历史池小批PPO→完整整局与行为评估。
+将Dreamer式短期预测头放在这个强基线后；有精确原生环境时无需先学习世界模型才开始策略学习。若fullprobe snapshot通过，先比较原生少候选短期评估是否值得，再决定潜空间规划/想象训练。视觉数据可作感知student训练、状态验证与域适配；公开动作回放可作IL/对手先验；各来源应按replay身份和动作指纹去重，避免同场RoyaleAPI回放跨源进入train/test。
+
+可复核源码链接（均固定commit）
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/model.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/config.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/tensorizer.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/tracking.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/factory.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/battle_env.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/checkpoint.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/decoding.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/producer.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/train_imitation_cache.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/evaluate.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/offline_agent.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/probe/cr_replay_probe.cpp
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/probe/resident_multimatch.inc
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/docs/training_history.md
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/checkpoints/manifest.json

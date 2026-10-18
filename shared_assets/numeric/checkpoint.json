@@ -1,0 +1,299 @@
+{
+  "schema": "royale-phase2-numpy-bc.v1",
+  "profile": "hard_e",
+  "scope": "Minimal native replay BC; no strength or official trajectory fidelity claim",
+  "environment": {
+    "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+    "numpy": "2.2.6"
+  },
+  "hard_e_training_count_met": true,
+  "counts_toward_phase2_G": true,
+  "native_agent_evaluation_completed": false,
+  "version_fingerprint_sha256": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+  "feature_configuration": {
+    "schema": "royale-phase2-public-actor-features.v1",
+    "card_vocabulary": [
+      26000000,
+      26000001,
+      26000003,
+      26000004,
+      26000009,
+      26000010,
+      26000011,
+      26000012,
+      26000013,
+      26000014,
+      26000015,
+      26000017,
+      26000018,
+      26000020,
+      26000021,
+      26000026,
+      26000027,
+      26000030,
+      26000033,
+      26000035,
+      26000036,
+      26000038,
+      26000039,
+      26000040,
+      26000041,
+      26000042,
+      26000043,
+      26000047,
+      26000048,
+      26000049,
+      26000050,
+      26000051,
+      26000052,
+      26000053,
+      26000055,
+      26000056,
+      26000057,
+      26000059,
+      26000060,
+      26000061,
+      26000083,
+      26000084,
+      26000085,
+      26000087,
+      26000097,
+      26000102,
+      27000000,
+      27000003,
+      27000006,
+      27000008,
+      27000009,
+      27000010,
+      27000012,
+      28000000,
+      28000001,
+      28000002,
+      28000003,
+      28000004,
+      28000007,
+      28000008,
+      28000011,
+      28000012,
+      28000015,
+      28000016,
+      28000024,
+      28000025,
+      28000026
+    ],
+    "vocabulary_source": "training whole-source groups only; unseen validation/test cards use UNK",
+    "time_scale_ticks": 12000,
+    "hp_scale": 100000,
+    "tower_order": [
+      [
+        "own",
+        "king"
+      ],
+      [
+        "own",
+        "left"
+      ],
+      [
+        "own",
+        "right"
+      ],
+      [
+        "opponent",
+        "king"
+      ],
+      [
+        "opponent",
+        "left"
+      ],
+      [
+        "opponent",
+        "right"
+      ]
+    ],
+    "excludes": [
+      "opponent_hand",
+      "opponent_exact_elixir",
+      "full_cycle",
+      "seed",
+      "future_events",
+      "packed_parameters",
+      "effective_form_ids",
+      "non_tower_entities",
+      "source_results",
+      "quality_metadata"
+    ]
+  },
+  "weights": {
+    "path": "outputs/phase2/learning_pipeline/model_g_variant/weights.npz",
+    "sha256": "60a75cabd3b83820057cb7b230456d773478d53cd8629d88c4744deaf46f4fb7"
+  },
+  "architecture": {
+    "hidden": 64,
+    "input_width": 304,
+    "slot_classes": 5,
+    "coordinate_head": "sigmoid2 native requested x/17999,y/31999; play-only MSE"
+  },
+  "training_configuration": {
+    "epochs": 20,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "seed": 19,
+    "play_class_weight_cap": 5000.0,
+    "class_weights": [
+      1.0,
+      335.7749938964844,
+      335.7749938964844,
+      335.7749938964844,
+      383.74285888671875
+    ],
+    "coordinate_loss_weight": 2.0,
+    "minimum_samples": 10000,
+    "selected_epoch": 1,
+    "selection": "minimum whole-source validation weighted CE+2MSE+L2; test never used for selection"
+  },
+  "training_data": {
+    "export_manifest": "outputs/phase2/learning_pipeline/export/export_manifest.json",
+    "export_manifest_sha256": "b3ce3882333b5ebae4132357072553ba95cc19d0d38f241b732d5d33ecad7307",
+    "parquet_sha256": "0879fec40ac9b19e4c156cfc921e7f707b1eea120ad12d20209d264a43adee6b",
+    "split_sha256": "17273b047da5a83436193477bfdca16f7ea1eb8f544f417ebf09fb77ee6e01e2",
+    "quality_grade_counts": {
+      "native_reconstructed_outcome_consistent_no_independent_trajectory_truth": 18440
+    },
+    "reconstruction_source_role_decisions": {
+      "learning_extension": 17080,
+      "formal": 1360
+    },
+    "formal_source_ids_by_learning_split": {
+      "train": [
+        "91e21faee1ae4abbb424e759585bf2f0"
+      ],
+      "validation": [],
+      "test": []
+    },
+    "whole_source_groups": {
+      "train": [
+        "2d3b0554db8b47608988d021d13569c5",
+        "3b9569ec92c7481e849b618da7f406a9",
+        "59320393066a4e939b05464164470e45",
+        "60e39f73bd1a44f7bd6638fcdfbddd8d",
+        "643c41a54acd4dd896ce8b086deca4b6",
+        "696227cd356c4ca4aed5aa283a4c57c3",
+        "8a9285c8c1a24a01a81452dce0556a30",
+        "91e21faee1ae4abbb424e759585bf2f0",
+        "a5aace74f2f340619fd44f9b87ebbf8f"
+      ],
+      "validation": [
+        "4aff499f59de40359c19e53bf8d6147e",
+        "8c3107a1b5dd42b6a491f0791446318d"
+      ],
+      "test": [
+        "6ccd16315939443783997b7eb3edfa47"
+      ]
+    },
+    "eligible_decisions": 18440,
+    "source_episodes": 12
+  },
+  "metrics": {
+    "train": {
+      "samples": 13431,
+      "whole_source_episodes": 9,
+      "wait_labels": 13400,
+      "play_labels": 31,
+      "slot_accuracy": 0.9383515747152111,
+      "wait_precision": 0.9991266375545852,
+      "wait_recall": 0.9391044776119403,
+      "play_precision": 0.023923444976076555,
+      "play_recall": 0.6451612903225806,
+      "card_accuracy_on_actual_play": 0.6129032258064516,
+      "mask_label_coverage": 1.0,
+      "action_choice_counts": {
+        "forced_wait_only_mask": 8039,
+        "at_least_one_play_available": 5392
+      },
+      "coordinate_units": "native_requested_coordinate; not impact/entity position",
+      "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+      "position_on_all_actual_play": {
+        "count": 31,
+        "mae_x": 4226.728646445659,
+        "mae_y": 4962.302272431312,
+        "mean_euclidean": 7003.991530533208
+      },
+      "position_when_card_correct": {
+        "count": 19,
+        "mae_x": 4369.602050213437,
+        "mae_y": 5065.915052677456,
+        "mean_euclidean": 7165.55813406687
+      }
+    },
+    "validation": {
+      "samples": 3348,
+      "whole_source_episodes": 2,
+      "wait_labels": 3336,
+      "play_labels": 12,
+      "slot_accuracy": 0.9444444444444444,
+      "wait_precision": 0.9968464206874803,
+      "wait_recall": 0.9475419664268585,
+      "play_precision": 0.011299435028248588,
+      "play_recall": 0.16666666666666666,
+      "card_accuracy_on_actual_play": 0.08333333333333333,
+      "mask_label_coverage": 1.0,
+      "action_choice_counts": {
+        "forced_wait_only_mask": 2727,
+        "at_least_one_play_available": 621
+      },
+      "coordinate_units": "native_requested_coordinate; not impact/entity position",
+      "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+      "position_on_all_actual_play": {
+        "count": 12,
+        "mae_x": 6280.111689057201,
+        "mae_y": 7237.655079307656,
+        "mean_euclidean": 10287.788427160114
+      },
+      "position_when_card_correct": {
+        "count": 1,
+        "mae_x": 4334.143254831433,
+        "mae_y": 12307.818112194538,
+        "mean_euclidean": 13048.646843112305
+      }
+    },
+    "test": {
+      "samples": 1661,
+      "whole_source_episodes": 1,
+      "wait_labels": 1652,
+      "play_labels": 9,
+      "slot_accuracy": 0.9114990969295605,
+      "wait_precision": 0.9953917050691244,
+      "wait_recall": 0.9152542372881356,
+      "play_precision": 0.014084507042253521,
+      "play_recall": 0.2222222222222222,
+      "card_accuracy_on_actual_play": 0.2222222222222222,
+      "mask_label_coverage": 1.0,
+      "action_choice_counts": {
+        "forced_wait_only_mask": 714,
+        "at_least_one_play_available": 947
+      },
+      "coordinate_units": "native_requested_coordinate; not impact/entity position",
+      "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+      "position_on_all_actual_play": {
+        "count": 9,
+        "mae_x": 5157.8060572875875,
+        "mae_y": 5610.1240004864,
+        "mean_euclidean": 8013.186281183949
+      },
+      "position_when_card_correct": {
+        "count": 2,
+        "mae_x": 5563.181427180767,
+        "mae_y": 4314.339755341411,
+        "mean_euclidean": 7517.755489419426
+      }
+    }
+  },
+  "learning_source_sha256": "2a4d95029a4a6903e9cc92c109066a0093c067c3c3cf0476a5d9e8cb9fb1d365",
+  "checkpoint_sha256": "dda9b9355c43d34a0ae1d68832bb52e39f3d596cc42c5d2ece78c5c8260c9725",
+  "inference_play_bias": 4.0,
+  "variant_of": {
+    "checkpoint_path": "outputs/phase2/learning_pipeline/model_aggressive/checkpoint.json",
+    "checkpoint_sha256": "5e18e7517dcbb6b0565b4f2c159bd851817194c9495fa9713695f359829e706b",
+    "scope": "Inference ranking prior only; tensors and frozen export unchanged"
+  }
+}

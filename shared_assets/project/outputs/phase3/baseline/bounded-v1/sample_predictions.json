@@ -1,0 +1,715 @@
+{
+  "sample_ids": [
+    "2d3b0554db8b47608988d021d13569c5:0:90",
+    "2d3b0554db8b47608988d021d13569c5:0:1850",
+    "2d3b0554db8b47608988d021d13569c5:0:3600",
+    "2d3b0554db8b47608988d021d13569c5:1:90",
+    "2d3b0554db8b47608988d021d13569c5:1:1845",
+    "2d3b0554db8b47608988d021d13569c5:1:3600",
+    "2d3b0554db8b47608988d021d13569c5:0:3551",
+    "3b9569ec92c7481e849b618da7f406a9:0:90",
+    "3b9569ec92c7481e849b618da7f406a9:0:1865",
+    "3b9569ec92c7481e849b618da7f406a9:0:3640",
+    "3b9569ec92c7481e849b618da7f406a9:1:90",
+    "3b9569ec92c7481e849b618da7f406a9:1:1865",
+    "3b9569ec92c7481e849b618da7f406a9:1:3640",
+    "3b9569ec92c7481e849b618da7f406a9:0:1836",
+    "3b9569ec92c7481e849b618da7f406a9:0:3337",
+    "59320393066a4e939b05464164470e45:0:90",
+    "59320393066a4e939b05464164470e45:0:2525",
+    "59320393066a4e939b05464164470e45:0:4965",
+    "59320393066a4e939b05464164470e45:1:90",
+    "59320393066a4e939b05464164470e45:1:2530",
+    "59320393066a4e939b05464164470e45:1:4965",
+    "59320393066a4e939b05464164470e45:1:2709",
+    "59320393066a4e939b05464164470e45:1:3915",
+    "59320393066a4e939b05464164470e45:1:4921",
+    "8a9285c8c1a24a01a81452dce0556a30:0:90",
+    "8a9285c8c1a24a01a81452dce0556a30:0:1745",
+    "8a9285c8c1a24a01a81452dce0556a30:0:3385",
+    "8a9285c8c1a24a01a81452dce0556a30:1:90",
+    "8a9285c8c1a24a01a81452dce0556a30:1:1740",
+    "8a9285c8c1a24a01a81452dce0556a30:1:3385",
+    "8a9285c8c1a24a01a81452dce0556a30:0:1276",
+    "8a9285c8c1a24a01a81452dce0556a30:0:3143",
+    "8a9285c8c1a24a01a81452dce0556a30:0:3354",
+    "696227cd356c4ca4aed5aa283a4c57c3:0:90",
+    "696227cd356c4ca4aed5aa283a4c57c3:0:1875",
+    "696227cd356c4ca4aed5aa283a4c57c3:0:3655",
+    "696227cd356c4ca4aed5aa283a4c57c3:1:90",
+    "696227cd356c4ca4aed5aa283a4c57c3:1:1875",
+    "696227cd356c4ca4aed5aa283a4c57c3:1:3655",
+    "696227cd356c4ca4aed5aa283a4c57c3:0:831",
+    "696227cd356c4ca4aed5aa283a4c57c3:0:2773",
+    "696227cd356c4ca4aed5aa283a4c57c3:0:3593",
+    "a5aace74f2f340619fd44f9b87ebbf8f:0:90",
+    "a5aace74f2f340619fd44f9b87ebbf8f:0:2060",
+    "a5aace74f2f340619fd44f9b87ebbf8f:0:4015",
+    "a5aace74f2f340619fd44f9b87ebbf8f:1:90",
+    "a5aace74f2f340619fd44f9b87ebbf8f:1:2060",
+    "a5aace74f2f340619fd44f9b87ebbf8f:1:4015",
+    "a5aace74f2f340619fd44f9b87ebbf8f:0:533",
+    "a5aace74f2f340619fd44f9b87ebbf8f:0:2841",
+    "a5aace74f2f340619fd44f9b87ebbf8f:0:3742",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:0:90",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:0:1850",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:0:3600",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:1:90",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:1:1845",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:1:3600",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:1:2009",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:1:2829",
+    "60e39f73bd1a44f7bd6638fcdfbddd8d:0:2876",
+    "643c41a54acd4dd896ce8b086deca4b6:0:90",
+    "643c41a54acd4dd896ce8b086deca4b6:0:2090",
+    "643c41a54acd4dd896ce8b086deca4b6:0:4085",
+    "643c41a54acd4dd896ce8b086deca4b6:1:90",
+    "643c41a54acd4dd896ce8b086deca4b6:1:2095",
+    "643c41a54acd4dd896ce8b086deca4b6:1:4085",
+    "643c41a54acd4dd896ce8b086deca4b6:0:2858",
+    "643c41a54acd4dd896ce8b086deca4b6:0:3328",
+    "643c41a54acd4dd896ce8b086deca4b6:0:4021",
+    "643c41a54acd4dd896ce8b086deca4b6:1:3315",
+    "8c3107a1b5dd42b6a491f0791446318d:0:90",
+    "8c3107a1b5dd42b6a491f0791446318d:0:2540",
+    "8c3107a1b5dd42b6a491f0791446318d:0:4975",
+    "8c3107a1b5dd42b6a491f0791446318d:1:90",
+    "8c3107a1b5dd42b6a491f0791446318d:1:2545",
+    "8c3107a1b5dd42b6a491f0791446318d:1:4975",
+    "8c3107a1b5dd42b6a491f0791446318d:1:1335",
+    "8c3107a1b5dd42b6a491f0791446318d:1:3596",
+    "8c3107a1b5dd42b6a491f0791446318d:1:4561",
+    "4aff499f59de40359c19e53bf8d6147e:0:90",
+    "4aff499f59de40359c19e53bf8d6147e:0:1835",
+    "4aff499f59de40359c19e53bf8d6147e:0:3600",
+    "4aff499f59de40359c19e53bf8d6147e:1:90",
+    "4aff499f59de40359c19e53bf8d6147e:1:1845",
+    "4aff499f59de40359c19e53bf8d6147e:1:3600",
+    "4aff499f59de40359c19e53bf8d6147e:1:451",
+    "4aff499f59de40359c19e53bf8d6147e:1:2718",
+    "4aff499f59de40359c19e53bf8d6147e:1:3329",
+    "6ccd16315939443783997b7eb3edfa47:0:90",
+    "6ccd16315939443783997b7eb3edfa47:0:2160",
+    "6ccd16315939443783997b7eb3edfa47:0:4230",
+    "6ccd16315939443783997b7eb3edfa47:1:90",
+    "6ccd16315939443783997b7eb3edfa47:1:2155",
+    "6ccd16315939443783997b7eb3edfa47:1:4230",
+    "6ccd16315939443783997b7eb3edfa47:1:1112",
+    "6ccd16315939443783997b7eb3edfa47:1:3461",
+    "6ccd16315939443783997b7eb3edfa47:1:3761",
+    "6ccd16315939443783997b7eb3edfa47:0:2641",
+    "6ccd16315939443783997b7eb3edfa47:0:3473",
+    "6ccd16315939443783997b7eb3edfa47:0:4196",
+    "91e21faee1ae4abbb424e759585bf2f0:0:90",
+    "91e21faee1ae4abbb424e759585bf2f0:0:1790",
+    "91e21faee1ae4abbb424e759585bf2f0:0:3510",
+    "91e21faee1ae4abbb424e759585bf2f0:1:90",
+    "91e21faee1ae4abbb424e759585bf2f0:1:1810",
+    "91e21faee1ae4abbb424e759585bf2f0:1:3510",
+    "91e21faee1ae4abbb424e759585bf2f0:0:1211",
+    "91e21faee1ae4abbb424e759585bf2f0:0:2436",
+    "91e21faee1ae4abbb424e759585bf2f0:0:3467"
+  ],
+  "predictions": [
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 7418,
+      "y": 17557
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 7474,
+      "y": 16570
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 8063,
+      "y": 16990
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000001,
+      "x": 8281,
+      "y": 20707
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 9620,
+      "y": 14060
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 9552,
+      "y": 16701
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000001,
+      "x": 9365,
+      "y": 15229
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 8768,
+      "y": 15463
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000001,
+      "x": 7355,
+      "y": 17283
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000001,
+      "x": 7468,
+      "y": 16995
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000001,
+      "x": 7223,
+      "y": 17484
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000001,
+      "x": 8551,
+      "y": 20499
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 7826,
+      "y": 19317
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000001,
+      "x": 9019,
+      "y": 15729
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 9194,
+      "y": 16188
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 8866,
+      "y": 16182
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000001,
+      "x": 8959,
+      "y": 15072
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 8810,
+      "y": 17347
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 8215,
+      "y": 15619
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 8294,
+      "y": 15734
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 9752,
+      "y": 17700
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 9930,
+      "y": 17991
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 8112,
+      "y": 17694
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 9180,
+      "y": 19364
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000001,
+      "x": 9201,
+      "y": 20016
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000001,
+      "x": 8842,
+      "y": 18723
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000001,
+      "x": 9824,
+      "y": 18359
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000001,
+      "x": 8763,
+      "y": 17948
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 10019,
+      "y": 17914
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 11371,
+      "y": 21916
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 9173,
+      "y": 19216
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 8590,
+      "y": 17601
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 10267,
+      "y": 18196
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 7925,
+      "y": 17079
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000001,
+      "x": 9182,
+      "y": 18296
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 9028,
+      "y": 17009
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 7918,
+      "y": 17944
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 6662,
+      "y": 19586
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 9068,
+      "y": 18366
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 7996,
+      "y": 18278
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 9734,
+      "y": 18480
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 7176,
+      "y": 17721
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 7932,
+      "y": 19267
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 7012,
+      "y": 18740
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 8780,
+      "y": 19531
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 7290,
+      "y": 18370
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 6376,
+      "y": 18027
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000001,
+      "x": 7834,
+      "y": 17808
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 7958,
+      "y": 17077
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 6630,
+      "y": 18693
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000001,
+      "x": 8304,
+      "y": 17936
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000001,
+      "x": 9864,
+      "y": 19664
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 7346,
+      "y": 19550
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 6948,
+      "y": 18594
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 7874,
+      "y": 19428
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 7886,
+      "y": 20246
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 6753,
+      "y": 17150
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 10006,
+      "y": 17955
+    },
+    {
+      "kind": "play_card",
+      "slot": 1,
+      "card": 28000000,
+      "x": 8788,
+      "y": 17577
+    },
+    {
+      "kind": "play_card",
+      "slot": 3,
+      "card": 28000000,
+      "x": 9436,
+      "y": 20335
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "wait"
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 8486,
+      "y": 18966
+    },
+    {
+      "kind": "play_card",
+      "slot": 0,
+      "card": 28000000,
+      "x": 9841,
+      "y": 17697
+    },
+    {
+      "kind": "play_card",
+      "slot": 2,
+      "card": 28000000,
+      "x": 10065,
+      "y": 16727
+    }
+  ],
+  "random_rng": {
+    "before": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 251731997205817200811191418303446616674,
+        "inc": 241891882627732591226704795252989272021
+      },
+      "has_uint32": 0,
+      "uinteger": 0
+    },
+    "after": {
+      "bit_generator": "PCG64",
+      "state": {
+        "state": 328141784634727083331670283200036210195,
+        "inc": 241891882627732591226704795252989272021
+      },
+      "has_uint32": 1,
+      "uinteger": 3424550032
+    },
+    "actions_sha256": "6cdaf86d9e9bf347966a2c31ef1da6c4db286933703c264096e9830cba2532d2"
+  }
+}

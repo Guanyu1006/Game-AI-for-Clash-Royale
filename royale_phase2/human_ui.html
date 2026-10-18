@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>你来下牌 · AI 来应对</title>
+<style>
+:root{color-scheme:dark;--bg:#0a111e;--panel:#142239;--line:#2c405b;--muted:#a8bbd2;--teal:#81e0c7;--human:#7dbdff;--ai:#ffbc8a;--danger:#ffada7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#162942,var(--bg) 62%);color:#f0f5fc;font:14px/1.5 system-ui,"Microsoft YaHei",sans-serif}button,input{font:inherit}button{background:#223954;color:#f3f8ff;border:1px solid #45607c;border-radius:9px;padding:9px 13px;cursor:pointer}button:hover{background:#315374}button:disabled{cursor:default;opacity:.43}button.primary{background:#196e68;border-color:#5bbba6}header{max-width:1260px;margin:auto;padding:22px 24px 15px;display:flex;align-items:center;justify-content:space-between;gap:20px}h1{font-size:25px;line-height:1.25;margin:0 0 5px}h2{font-size:17px;margin:0 0 12px}h3{font-size:14px;margin:0 0 5px}p{margin:0 0 10px}.muted{color:var(--muted)}.small{font-size:12px}.pill{display:inline-block;padding:4px 9px;border:1px solid var(--line);border-radius:20px;font-size:12px}.status{color:var(--teal)}main{max-width:1260px;padding:0 24px 24px;margin:auto;display:grid;grid-template-columns:minmax(330px,550px) minmax(300px,1fr);gap:22px;align-items:start}.panel{background:#142239e8;border:1px solid var(--line);border-radius:15px;padding:18px;margin-bottom:15px}.play-panel{padding:12px}.side-label{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 8px 9px}.side-label.ai{color:var(--ai)}.side-label.human{color:var(--human);padding:10px 8px 5px}.arena{width:100%;max-width:440px;max-height:68vh;aspect-ratio:9/16;position:relative;margin:auto;background:#050a11;border-radius:10px;overflow:hidden;outline:1px solid #41516b;touch-action:manipulation}.arena img{width:100%;height:100%;display:block;object-fit:contain;user-select:none;-webkit-user-drag:none}.arena.selecting{outline:2px solid var(--teal);cursor:crosshair}.arena.dragover{outline:3px solid #fff0a3}.request-point{display:none;position:absolute;width:25px;height:25px;border:2px solid #fff2b0;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #101a2ba0}.request-point:before,.request-point:after{content:"";position:absolute;background:#fff2b0;left:50%;top:50%;transform:translate(-50%,-50%)}.request-point:before{width:33px;height:1px}.request-point:after{width:1px;height:33px}.stream-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 3px 4px}.link-button{border:0;background:none;padding:2px 0;color:#a5d7ff;font-size:12px;text-decoration:underline}.fallback{color:#ffd69e}.hand{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 1px 2px}.card{position:relative;min-height:98px;border-radius:12px;padding:18px 6px 9px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:4px;background:linear-gradient(145deg,#2a4869,#162d48)}.card[draggable=true]{cursor:grab}.card.selected{border:2px solid #96f2d5;box-shadow:0 0 0 2px #96f2d52b;background:linear-gradient(145deg,#2b6f71,#193b52)}.card .cost{position:absolute;right:5px;top:5px;background:#8246bd;border:1px solid #b18ee1;min-width:23px;height:23px;line-height:21px;border-radius:50%;font-weight:700}.card .name{font-size:13px;font-weight:650}.card .hint{font-size:11px;color:#bfccdf}.card.empty{background:#0f1b2c;color:#8094ae;border-style:dashed}.elixir{color:#d9b2ff;font-weight:700}.instructions{padding:10px 4px 3px;color:#c3d2e5;font-size:12px}.mode-buttons{display:flex;gap:8px;margin:10px 0}.mode-buttons button{flex:1}.mode-buttons button.active{background:#275e69;border-color:#81e0c7}.actions{display:flex;flex-wrap:wrap;gap:8px}.message{min-height:42px;padding:10px 12px;border-radius:9px;background:#10243b;color:#cae3fc;overflow-wrap:anywhere;margin-top:12px}.message.error{background:#3c252d;color:var(--danger)}.message.success{color:#9ce6d3}.steps{display:flex;gap:5px;align-items:center;justify-content:space-between;margin:10px 0 8px;color:var(--muted);font-size:12px}.steps span{padding:4px 6px;background:#0d1b2d;border-radius:5px}.datum{padding:11px 0;border-bottom:1px solid var(--line)}.datum:last-child{border-bottom:0;padding-bottom:0}.datum .label{font-size:12px;color:var(--muted);margin-bottom:4px}.datum .value{font-size:16px}.reason{font-size:15px;color:#e1eaf5;line-height:1.65}.input-badges{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.input-badges span{font-size:12px;background:#233c55;padding:4px 8px;border-radius:6px}.receipt{color:var(--teal)}details{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}summary{cursor:pointer;color:#bad0e7}.fields{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0}.fields input{background:#0e1b2e;color:white;border:1px solid #45607c;border-radius:6px;width:90px;padding:7px}pre{font:11px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto;margin:10px 0 0;color:#cbd9ed}.path{overflow-wrap:anywhere}.bottom-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.disabled-note{color:var(--muted);font-size:12px}#endNotice{color:#ffe3aa;margin:8px 0}#streamWarning{display:none}#requestText{margin-top:7px;color:#f4dfa3;min-height:18px}
+@media(max-width:800px){header{padding:17px 15px;align-items:flex-start}h1{font-size:22px}main{padding:0 12px 20px;grid-template-columns:1fr;gap:0}.arena{max-height:65vh}.sidebar{width:100%}.panel{padding:15px}.play-panel{padding:10px}}@media(prefers-reduced-motion:no-preference){button{transition:background .12s,border-color .12s}}
+</style>
+</head>
+<body>
+<header><div><h1>你来下牌，AI 来应对</h1><div class="muted small">一场真实的本地原生对战 · 先体验，再改规则</div></div><div><span class="pill status" id="runStatus">正在连接</span><div class="small muted" id="clock">等待对局</div></div></header>
+<main>
+<section>
+<div class="panel play-panel">
+ <div class="side-label ai"><strong>上方：AI（红方）</strong><span class="small" id="aiKind">Python 规则</span></div>
+ <div id="arena" class="arena" tabindex="0" aria-label="游戏画面，选择手牌后点击战场下牌">
+  <img id="gameImage" alt="实际 Android 游戏直播画面" draggable="false"><span id="requestPoint" class="request-point"></span>
+ </div>
+ <div class="stream-bar"><span class="small muted" id="mediaStatus">等待画面</span><button class="link-button" id="mediaToggle">切换为截图</button></div>
+ <p id="streamWarning" class="small fallback">直播不可用，当前为最近截图。暂停或完成教学回合后更新，连续运行时可能不是最新画面。</p>
+ <div class="side-label human"><strong>下方：你（蓝方）</strong><span id="elixir" class="elixir">圣水 —</span></div>
+ <div class="hand" id="hand" aria-label="你的四张手牌"></div>
+ <div class="instructions" id="placementHelp">点选一张牌，再点战场；也可以把牌拖到画面上。松手或点击落点就会提交一次。</div>
+ <div class="small" id="requestText"></div>
+</div>
+<div class="panel">
+ <h2>先用教学回合</h2>
+ <div class="steps"><span>选牌 / 选点</span>→<span>你下牌</span>→<span>AI 看见后响应</span>→<span>1 秒后暂停</span></div>
+ <div class="mode-buttons"><button id="teachMode" class="active" aria-pressed="true">教学回合</button><button id="continuousMode" aria-pressed="false">连续对战</button></div>
+ <p class="muted small" id="modeHelp">每次下牌后运行 1 秒，再自动暂停。AI 也可能选择等待。</p>
+ <div class="actions"><button id="waitButton">不下牌，观察 1 秒</button><button id="runButton" class="primary" hidden>开始连续运行</button><button id="pauseButton">暂停</button></div>
+ <div id="message" class="message" role="status" aria-live="polite">等待场景准备完成。准备后先点一张手牌。</div>
+ <div id="endNotice" hidden></div>
+ <details id="advanced"><summary>高级：直接指定原生请求坐标</summary><p class="muted small">这是明确的坐标请求，不能当成引擎最终部署位置。</p><div class="fields"><label>x <input id="nativeX" type="number" min="0" max="17999" step="500" value="9000"></label><label>y <input id="nativeY" type="number" min="0" max="31999" step="500" value="24000"></label><button id="nativeSubmit">用所选卡牌提交</button></div></details>
+</div>
+</section>
+<aside class="sidebar">
+<div class="panel">
+ <h2>AI 这次怎样回应</h2>
+ <div class="datum"><div class="label" id="aiInputTick">尚无 AI 决策</div><div class="input-badges" id="aiInputs"></div><div class="small muted" id="aiInputMode">AI 读取结构化战场信息，画面供你观察。</div></div>
+ <div class="datum"><div class="label">规则实际走到的分支</div><div id="aiReason" class="reason">你下牌后，先让引擎确认，再由 AI 看新状态作出选择。</div><p class="small muted">这里是规则返回的分支说明，不是语言模型的思维过程。</p></div>
+ <div class="datum"><div class="label">最近决策动作</div><div class="value" id="aiAction">等待第一次决策</div></div>
+ <div class="datum"><div class="label">AI 最近一次已刷新执行反馈</div><div class="receipt" id="aiReceipt">还没有消费证据</div></div>
+</div>
+<div class="panel">
+ <h2>你的下牌是否执行</h2><div id="humanReceipt" class="receipt">尚无下牌反馈</div><p class="muted small" style="margin-top:8px">请求登记成功和卡牌真实消费是两步。未知保持未知，不会自动重发。</p>
+ <details id="research"><summary>展开研究信息与完整输入</summary><p class="small muted">当前画面请求点按固定布局转换；精确相机投影尚未验证，标记不代表最终落点。隐身、地下对象可见性及完整交互因果也尚未验证。</p><p id="sessionPath" class="small path"></p><p id="policyPath" class="small path"></p><pre id="researchJSON"></pre></details>
+ <div class="bottom-actions"><button id="captureButton">保存截图</button><button id="reportButton">保存报告</button><button id="refreshButton">刷新状态</button><button id="shutdownButton">结束本次演示</button></div>
+ <p class="disabled-note" style="margin-top:10px">结束控制台后，再用项目 Stop 入口关闭运行时。</p>
+</div>
+</aside>
+</main>
+<script>
+const token=__TOKEN__;
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let current=null,selected=null,pending=null,interactionMode='teach',polling=false,mediaMode='',streamFailed=false,forcePNG=false,lastPNG='',requestPoint=null,dragging=false,lastHandHTML='';
+const names=new Map();
+function message(text,type=''){ $('message').textContent=text; $('message').className='message'+(type?' '+type:''); }
+function isHumanReady(){return !!(current?.mode==='human'&&current.ready&&!current.terminal&&!current.error&&current.human);}
+function handCard(slot){return current?.human?.hand?.find(c=>c.slot===slot);}
+function cardName(id){return names.get(id)||('卡牌 '+id);}
+function canSelect(card){return isHumanReady()&&!pending&&card&&card.affordable===true;}
+function renderHand(){
+ const hand=current?.human?.hand||[];
+ const html=[0,1,2,3].map(slot=>{const card=hand.find(c=>c.slot===slot);
+  if(!card)return `<button class="card empty" disabled aria-label="槽位 ${slot+1} 等待补牌">等待补牌<span class="hint">槽位 ${slot+1}</span></button>`;
+  names.set(card.card,card.name||('卡牌 '+card.card));
+  const active=selected?.slot===slot&&selected.card===card.card;
+  const disabled=!canSelect(card);
+  return `<button class="card${active?' selected':''}" data-slot="${slot}" draggable="${!disabled}" ${disabled?'disabled':''} aria-pressed="${active}"><span class="cost">${esc(card.cost)}</span><span class="name">${esc(card.name||('卡牌 '+card.card))}</span><span class="hint">${card.affordable?'点选或拖动':'圣水不足'}</span></button>`;
+ }).join('');
+ if(!dragging&&html!==lastHandHTML){$('hand').innerHTML=html;lastHandHTML=html;}
+ $('arena').classList.toggle('selecting',!!selected&&!pending);
+ $('nativeSubmit').disabled=!selected||!!pending||!isHumanReady();
+}
+function selectCard(slot){
+ const card=handCard(slot);if(!canSelect(card))return false;
+ selected={slot:card.slot,card:card.card,generation:current.human.generation};
+ message(`已选 ${card.name||cardName(card.card)}。点击战场或拖到落点，松手后立即下牌。`);
+ renderHand();return true;
+}
+function imageBounds(){
+ const image=$('gameImage'),r=image.getBoundingClientRect();
+ const width=image.naturalWidth||current?.placement?.source_width||1080;
+ const height=image.naturalHeight||current?.placement?.source_height||1920;
+ const scale=Math.min(r.width/width,r.height/height);
+ return {left:r.left+(r.width-width*scale)/2,top:r.top+(r.height-height*scale)/2,width:width*scale,height:height*scale};
+}
+function normalizedPoint(clientX,clientY){
+ const b=imageBounds();if(!(b.width>0&&b.height>0))return null;
+ const u=(clientX-b.left)/b.width,v=(clientY-b.top)/b.height;
+ if(u<0||u>1||v<0||v>1)return null;
+ const p=current?.placement;if(!p||!Array.isArray(p.hit_rect))return null;
+ const [left,top,right,bottom]=p.hit_rect,x=u*p.source_width,y=v*p.source_height;
+ return x>=left&&x<=right&&y>=top&&y<=bottom?{u,v}:null;
+}
+function markRequest(point){
+ requestPoint=point;
+ const marker=$('requestPoint');
+ if(point.u===undefined){marker.style.display='none';$('requestText').textContent=`原生请求坐标：x=${point.x}，y=${point.y}；最终部署位置未验证。`;return;}
+ const b=imageBounds(),arena=$('arena').getBoundingClientRect();
+ marker.style.left=(b.left-arena.left+point.u*b.width)+'px';marker.style.top=(b.top-arena.top+point.v*b.height)+'px';marker.style.display='block';
+ $('requestText').textContent=`画面请求点：${(point.u*100).toFixed(1)}% / ${(point.v*100).toFixed(1)}%。按固定布局转换，标记不是最终部署点。`;
+}
+async function submitCard(point){
+ if(!selected||pending||!isHumanReady())return false;
+ const card=handCard(selected.slot);
+ if(!card||card.card!==selected.card||current.human.generation!==selected.generation){selected=null;renderHand();message('手牌或对局已经变化，请重新选牌。','error');return false;}
+ if(!canSelect(card)){message('这张牌当前无法使用，请重新查看手牌和圣水。','error');return false;}
+ markRequest(point);
+ return sendCommand(interactionMode==='teach'?'human_turn':'human_play',{...selected,...point});
+}
+async function sendCommand(command,data={}){
+ if(pending||!current||current.mode!=='human')return false;
+ pending={command,ticket:null,uncertain:false};renderControls();renderHand();
+ message(command==='human_turn'?'正在提交你的牌，并等待 AI 回应…':'正在提交操作…');
+ try{
+  const response=await fetch('/api/control',{method:'POST',headers:{'Content-Type':'application/json','X-Platform-Token':token},body:JSON.stringify({command,...data})});
+  const result=await response.json();
+  if(!response.ok){pending=null;selected=null;const next=response.status===401||response.status===403?'请刷新整个页面，确认正在操作当前演示。':'请重新选牌。';message('操作被拒绝：'+(result.error||response.status)+'。'+next,'error');renderControls();renderHand();return false;}
+  if(typeof result.ticket!=='string'){pending.uncertain=true;message('操作可能已收到，但缺少执行编号。请刷新页面并核对反馈，不要重复下牌。','error');return false;}
+  pending.ticket=result.ticket;
+  await poll();return true;
+ }catch(error){
+  pending.uncertain=true;
+  message('连接中断，执行结果未知。请刷新页面、核对最近下牌反馈后再操作；本页面不会重发。','error');
+  return false;
+ }
+}
+function readJob(state){
+ if(!pending?.ticket)return;
+ const job=state.jobs?.[pending.ticket];if(!job)return;
+ if(job.status==='done'){
+  const command=pending.command;pending=null;
+  if(command==='human_turn'||command==='human_play')selected=null;
+  if(command==='human_turn')message('本回合已结束并暂停。请看 AI 的输入、回应与双方真实消费。','success');
+  else if(command==='human_play')message('你的下牌请求已登记。连续运行中请查看真实消费反馈。','success');
+  else if(command==='human_wait')message('已观察 1 秒并暂停，可以继续下牌。','success');
+  else if(command==='shutdown')message('本次演示已关闭。需要时再使用项目 Stop 入口。');
+  else message('操作完成。','success');
+ }else if(job.status==='error'||job.status==='failed'){
+  pending=null;selected=null;message('操作失败：'+(job.error||'查看本次日志')+'。先核对反馈，再重新选牌。','error');
+ }
+}
+function receiptText(row){
+ if(!row)return '还没有消费证据';
+ const tick=row.card_event?.[1]??row.actual_execution_tick??row.tick;
+ const when=Number.isFinite(tick)?` · 游戏时间 ${(tick/20).toFixed(2)} 秒`:'';
+ if(row.card_consumed===true)return '已确认真实消费'+when;
+ if(row.card_consumed===false)return '尚未确认消费 / 未消费'+when;
+ return '已记录请求，消费状态未知'+when;
+}
+function renderAI(state){
+ const decision=state.ai?.last_decision||null,input=decision?.policy_input;
+ $('aiKind').textContent=state.ai?.kind==='python_rules'?'Python 战场规则':'AI';
+ if(!decision){$('aiInputTick').textContent='尚无 AI 决策';$('aiInputs').innerHTML='';$('aiAction').textContent='等待第一次决策';$('aiReason').textContent='你下牌后，先让引擎确认，再由 AI 看新状态作出选择。';$('aiInputMode').textContent='AI 读取结构化战场信息，画面供你观察。';}
+ else{
+  const entities=Array.isArray(input?.entities)?input.entities:[],history=Array.isArray(input?.history)?input.history:[];
+  const enemies=entities.filter(e=>e.owner===1).length;
+  $('aiInputTick').textContent='AI 最近一次看局势 · '+(Number.isFinite(decision.tick)?`游戏时间 ${(decision.tick/20).toFixed(2)} 秒`:'时间未知');
+  $('aiInputs').innerHTML=`<span>敌方对象 ${enemies}</span><span>场上对象 ${entities.length}</span><span>已发生下牌 ${history.length}</span>`;
+  const inputDescription={battlefield:'战场对象和已发生的下牌',player:'己方手牌、圣水和塔信息',researcher_oracle:'研究者全状态信息'}[input?.information_mode]||'尚未提供输入说明';
+  $('aiInputMode').textContent='AI 看到：'+inputDescription+'。特殊单位的可见性仍在验证中。';
+  const reason=decision.policy_reason;
+  $('aiReason').textContent=typeof reason==='string'?reason:reason?.summary||reason?.reason||'规则没有提供简短分支说明，可展开研究信息检查。';
+  const action=decision.model_action;
+  $('aiAction').textContent=action?.kind==='wait'?'选择等待':action?.kind==='play_card'?`${action.name||action.card_name||cardName(action.card)} · 请求 (${action.x}, ${action.y})`:'暂无已知动作';
+ }
+ const feedback=Array.isArray(state.feedback)?state.feedback:state.feedback?.actions||[];
+ $('aiReceipt').textContent=receiptText(feedback.filter(r=>r.owner===0).at(-1));
+ $('humanReceipt').textContent=receiptText(feedback.filter(r=>r.owner===1).at(-1));
+ $('sessionPath').textContent='证据目录：'+(state.folder||'准备中');
+ $('policyPath').textContent='AI 规则：'+(state.ai?.policy_path||'准备中');
+ if($('research').open)$('researchJSON').textContent=JSON.stringify({game_state:{tick:state.tick,ai_owner:0,human_owner:1},ai_decision:decision,human_last_action:state.human?.last_action,feedback,placement:state.placement},null,2);
+}
+function useFallback(){
+ const entering=mediaMode!=='png';mediaMode='png';const frame=current?.last_frame;
+ $('streamWarning').style.display='block';$('mediaToggle').textContent='重试直播';
+ $('mediaStatus').textContent=frame?`截图回退 · 游戏时间 ${(frame.tick/20).toFixed(2)} 秒`:'截图回退 · 等待画面';
+ $('mediaStatus').className='small fallback';
+ if(frame?.sha256&&(entering||frame.sha256!==lastPNG)){lastPNG=frame.sha256;$('gameImage').src='/api/frame?v='+encodeURIComponent(frame.sha256);}
+}
+function updateMedia(){
+ const stream=current?.stream;
+ if(stream?.available&&stream.running!==false&&!forcePNG&&!streamFailed){
+  if(mediaMode!=='mjpeg'){mediaMode='mjpeg';$('gameImage').src='/api/stream.mjpg';}
+  $('streamWarning').style.display='none';$('mediaToggle').textContent='切换为截图';$('mediaStatus').textContent='实际 Android 直播'+(Number.isFinite(stream.effective_fps)?` · 采集约 ${stream.effective_fps.toFixed(1)} 帧/秒`:'');$('mediaStatus').className='small muted';
+ }else useFallback();
+}
+function renderControls(){
+ const ready=isHumanReady(),busy=!!pending;
+ for(const id of ['waitButton','runButton','pauseButton'])$(id).disabled=!ready||busy;
+ for(const id of ['captureButton','reportButton'])$(id).disabled=current?.mode!=='human'||!current?.ready||!!current?.error||busy;
+ $('teachMode').disabled=busy;$('continuousMode').disabled=busy;$('shutdownButton').disabled=!current||busy;
+ $('waitButton').hidden=interactionMode!=='teach';$('runButton').hidden=interactionMode!=='continuous';
+ $('runButton').textContent=current?.playing?'暂停连续运行':'开始连续运行';
+ $('modeHelp').textContent=interactionMode==='teach'?'每次下牌后运行 1 秒，再自动暂停。AI 也可能选择等待。':'点击开始后持续运行；拖牌或点牌后点战场即可下牌。结束观察时请暂停。';
+ $('teachMode').classList.toggle('active',interactionMode==='teach');$('continuousMode').classList.toggle('active',interactionMode==='continuous');
+ $('teachMode').setAttribute('aria-pressed',String(interactionMode==='teach'));$('continuousMode').setAttribute('aria-pressed',String(interactionMode==='continuous'));
+}
+function applyState(state){
+ current=state;
+ if(selected&&(!handCard(selected.slot)||handCard(selected.slot).card!==selected.card||state.human?.generation!==selected.generation)){
+  selected=null;if(!pending)message('手牌或对局已经变化，请重新选牌。');
+ }
+ readJob(state);
+ $('clock').textContent=`游戏时间 ${Number.isFinite(state.tick)?(state.tick/20).toFixed(2):'—'} 秒`;
+ $('runStatus').textContent=state.terminal?'对局结束':pending?'操作处理中':state.playing?'对局运行中':state.ready?'已暂停，可下牌':'正在准备';
+ $('elixir').textContent=Number.isFinite(state.human?.elixir_raw)?'圣水 '+(state.human.elixir_raw/10000).toFixed(2):'圣水 —';
+ $('endNotice').hidden=!state.terminal;
+ if(state.terminal)$('endNotice').textContent=state.result===1?'本局结束：你获胜。':state.result===0?'本局结束：AI 获胜。':'本局已自然结束，请保存报告查看结果。';
+ if(state.mode!=='human')message('当前端口不是人机演示。请关闭旧控制台，使用人机演示入口后刷新页面。','error');
+ else if(state.error)message('本次对局出错：'+state.error+'。请保存日志，不要重复下牌。','error');
+ renderHand();renderControls();renderAI(state);updateMedia();
+}
+async function poll(){
+ if(polling)return;polling=true;
+ try{const response=await fetch('/api/state',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);applyState(await response.json());}
+ catch(error){if(!pending?.uncertain)message('状态暂时无法读取。请保持终端运行并稍后刷新；没有自动提交任何牌。','error');}
+ finally{polling=false;}
+}
+$('hand').addEventListener('click',event=>{const card=event.target.closest('[data-slot]');if(card&&!card.disabled)selectCard(Number(card.dataset.slot));});
+$('hand').addEventListener('dragstart',event=>{const card=event.target.closest('[data-slot]');dragging=true;if(!card||!selectCard(Number(card.dataset.slot))){dragging=false;event.preventDefault();return;}event.dataTransfer.setData('text/plain',JSON.stringify(selected));event.dataTransfer.effectAllowed='copy';});
+$('hand').addEventListener('dragend',()=>{dragging=false;$('arena').classList.remove('dragover');renderHand();});
+$('arena').addEventListener('click',event=>{if(!selected||pending)return;const point=normalizedPoint(event.clientX,event.clientY);if(point)submitCard(point);else message('请选择画面内的战场区域，不能点手牌栏或画面外。');});
+$('arena').addEventListener('dragover',event=>{if(selected&&!pending&&isHumanReady()){event.preventDefault();event.dataTransfer.dropEffect='copy';$('arena').classList.add('dragover');}});
+$('arena').addEventListener('dragleave',()=>$('arena').classList.remove('dragover'));
+$('arena').addEventListener('drop',event=>{
+ event.preventDefault();$('arena').classList.remove('dragover');if(pending)return;
+ try{const dropped=JSON.parse(event.dataTransfer.getData('text/plain'));if(!selected||dropped.slot!==selected.slot||dropped.card!==selected.card||dropped.generation!==selected.generation){message('拖动的手牌已经变化，请重新拖牌。','error');return;}}
+ catch(error){message('请从下方手牌栏拖动一张牌。');return;}
+ const point=normalizedPoint(event.clientX,event.clientY);if(point)submitCard(point);else message('请把牌放到画面内的战场区域。');
+});
+$('teachMode').onclick=()=>{interactionMode='teach';renderControls();if(current?.playing&&!pending)sendCommand('pause');};
+$('continuousMode').onclick=()=>{interactionMode='continuous';renderControls();};
+$('waitButton').onclick=()=>sendCommand('human_wait');
+$('runButton').onclick=()=>sendCommand(current?.playing?'pause':'play');
+$('pauseButton').onclick=()=>sendCommand('pause');
+$('captureButton').onclick=()=>sendCommand('capture');
+$('reportButton').onclick=()=>sendCommand('report');
+$('shutdownButton').onclick=()=>sendCommand('shutdown');
+$('refreshButton').onclick=()=>poll();
+$('nativeSubmit').onclick=()=>{const x=Number($('nativeX').value),y=Number($('nativeY').value);if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||x>17999||y<0||y>31999){message('原生坐标须为整数：x 0–17999，y 0–31999。','error');return;}submitCard({x,y});};
+$('mediaToggle').onclick=()=>{if(mediaMode==='mjpeg'){forcePNG=true;useFallback();}else{forcePNG=false;streamFailed=false;lastPNG='';mediaMode='';updateMedia();}};
+$('gameImage').onerror=()=>{if(mediaMode==='mjpeg'){streamFailed=true;useFallback();}else{$('mediaStatus').textContent='最近截图暂时不可用，请刷新状态或保存截图。';}};
+$('gameImage').onload=()=>{if(requestPoint)markRequest(requestPoint);};
+$('research').ontoggle=()=>{if(current)renderAI(current);};
+if(typeof window!=='undefined')window.addEventListener('resize',()=>{if(requestPoint)markRequest(requestPoint);});
+poll();setInterval(poll,400);
+</script>
+</body>
+</html>

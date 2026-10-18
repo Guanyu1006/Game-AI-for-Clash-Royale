@@ -1,0 +1,51 @@
+{
+  "schema": "phase3-bounded-baseline-audit.v1",
+  "created_utc": "2026-10-18T13:54:53.142852+00:00",
+  "configuration": {
+    "path": "outputs/phase3/baseline/bounded-v1/configuration.json",
+    "sha256": "2df6d8f6392faf9b4b7d506ebf794d7ecf3bee4d76107681974aeb013dab67ba"
+  },
+  "full_structural_counts": {
+    "export_rows": 26068,
+    "eligible_rows": 18440,
+    "episodes": 12,
+    "cards": {
+      "28000001": 19,
+      "28000000": 33
+    },
+    "splits": {
+      "train": {
+        "rows": 13431,
+        "episodes": 9
+      },
+      "validation": {
+        "rows": 3348,
+        "episodes": 2
+      },
+      "test": {
+        "rows": 1661,
+        "episodes": 1
+      }
+    }
+  },
+  "strict_evidence_sample_rows": 109,
+  "whole_export_strict_evidence_audit_complete": false,
+  "single_batch_mismatches": [],
+  "historical_decoder_mismatches": [],
+  "path_agreement_passed": true,
+  "random_reproducible": true,
+  "predictions": {
+    "path": "outputs/phase3/baseline/bounded-v1/sample_predictions.json",
+    "sha256": "4e1a466841cff52ed9d0f9460277e94d8dbd741aead79a61ce05e746004f0a94"
+  },
+  "elapsed_seconds": 3.8970784000002823,
+  "native_matches": 0,
+  "unbiased_accuracy": "not_computed_from_selected_sample",
+  "strength_improvement": "not_established",
+  "limitations": [
+    "Sample diagnostic only; complete canonical/typed counts are not full per-row evidence validation",
+    "Inherited phase2 play bias 4.0 has unknown historical selection provenance; not retuned here",
+    "Historical WAIT labels sampled every10ticks plus events vs original deployed controller20ticks",
+    "No independent official trajectory truth; no native wins/consumption measured"
+  ]
+}

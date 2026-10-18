@@ -1,0 +1,38 @@
+name: Portable CPU checks
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - "setup/codespaces-*"
+  pull_request:
+    paths:
+      - 'royale_*/**'
+      - 'tools/cloud/**'
+      - 'tests_cloud/**'
+      - 'tests_phase3/**'
+      - 'shared_assets/**'
+      - 'configure_codex.py'
+      - 'AGENTS.md'
+      - '.github/workflows/portable-check.yml'
+      - '.devcontainer/**'
+      - 'requirements-codespaces*.txt'
+permissions:
+  contents: read
+jobs:
+  portable:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Core dependencies only
+        run: python -m pip install -r requirements-codespaces.txt
+      - name: Restore reviewed assets
+        run: python tools/cloud/workspace.py restore
+      - name: Contract and migration checks
+        run: python tools/cloud/workspace.py test
+      - name: Actual numeric training smoke
+        run: python tools/cloud/workspace.py train --epochs 2

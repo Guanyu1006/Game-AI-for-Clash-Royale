@@ -1,0 +1,91 @@
+{
+  "github_commit": "3ade158c52bf33de3ffcea600ce380946b7de0d8",
+  "local_upstream_commit": "71944e3993b594b3cc89b38768b5e817dfbdbe0e",
+  "method": "SHA1 over Git blob header and raw local bytes; compared with GitHub git/trees response",
+  "files": [
+    {
+      "path": "native_runner/training/v4/model.py",
+      "bytes": 52085,
+      "git_blob_sha1": "3fe96a27a1b11880414be1398699becfebd09ece",
+      "github_sha": "3fe96a27a1b11880414be1398699becfebd09ece",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/tensorizer.py",
+      "bytes": 110148,
+      "git_blob_sha1": "a8e25c40659a8bc6cca489c1402ed938165c7bdb",
+      "github_sha": "a8e25c40659a8bc6cca489c1402ed938165c7bdb",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/factory.py",
+      "bytes": 13030,
+      "git_blob_sha1": "60091576eb20a913231e43c55eb832c33d96cc35",
+      "github_sha": "60091576eb20a913231e43c55eb832c33d96cc35",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/tracking.py",
+      "bytes": 38607,
+      "git_blob_sha1": "4c1cc0ac34ffd0d50c6e641ee34beec75b3534a8",
+      "github_sha": "4c1cc0ac34ffd0d50c6e641ee34beec75b3534a8",
+      "equal": true
+    },
+    {
+      "path": "native_runner/battle_env.py",
+      "bytes": 232470,
+      "git_blob_sha1": "de7a5df6252061265dc5e5a0a5a050376a08e720",
+      "github_sha": "0a338047b46791bd55c75ebdc0d87549cc7d6dd6",
+      "equal": false
+    },
+    {
+      "path": "native_runner/contracts.py",
+      "bytes": 133549,
+      "git_blob_sha1": "70564c5fa4469d785fba44bd063602640b731467",
+      "github_sha": "70564c5fa4469d785fba44bd063602640b731467",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/config.py",
+      "bytes": 12165,
+      "git_blob_sha1": "90fc94e6db80f250ce3a59da287882ad41298d9c",
+      "github_sha": "90fc94e6db80f250ce3a59da287882ad41298d9c",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/decoding.py",
+      "bytes": 31535,
+      "git_blob_sha1": "b210c97e8dea39c3ed8586aeedddfc135d852272",
+      "github_sha": "b210c97e8dea39c3ed8586aeedddfc135d852272",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/ppo.py",
+      "bytes": 7029,
+      "git_blob_sha1": "a0049497b36bc99b6f287b02c5306046aad286e5",
+      "github_sha": "a0049497b36bc99b6f287b02c5306046aad286e5",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/learning.py",
+      "bytes": 10418,
+      "git_blob_sha1": "7b73d55c484670599ba340a70ed1a4503eb95c45",
+      "github_sha": "7b73d55c484670599ba340a70ed1a4503eb95c45",
+      "equal": true
+    },
+    {
+      "path": "native_runner/training/v4/checkpoint.py",
+      "bytes": 4736,
+      "git_blob_sha1": "4554e22fefc5e76f912b0d537d0906d6cc352428",
+      "github_sha": "4554e22fefc5e76f912b0d537d0906d6cc352428",
+      "equal": true
+    },
+    {
+      "path": "native_runner/probe/cr_replay_probe.cpp",
+      "bytes": 402459,
+      "git_blob_sha1": "57116ef6162d37b3d21d1ffd1309343bab13fab4",
+      "github_sha": "57116ef6162d37b3d21d1ffd1309343bab13fab4",
+      "equal": true
+    }
+  ]
+}

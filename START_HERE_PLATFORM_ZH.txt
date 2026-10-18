@@ -1,0 +1,157 @@
+皇室战争项目：原生战斗研究平台快速入口
+更新：2026-10-18
+
+现在只想“自己下牌，看AI回应”
+  双击项目中的 play.cmd，或在本目录PowerShell执行 .\run_play.ps1。
+  手动访问 http://127.0.0.1:8770，等准备完成。你是下方蓝方，AI是上方红方。
+  用画面下方中文手牌点选后点战场，或拖到战场松手。
+  默认教学回合：下牌→AI读取新状态→总共推进1秒→自动暂停。
+  先看 phase2/PLAY_GUIDE_ZH.md。当前AI函数在 examples/human_ai_policy.py。
+  这是可解释规则基线，还没有给新演示AI做强化学习训练。
+  旧控制台如占用8770，先正常关闭并等待退出；每次重新启动后刷新网页。
+
+以下是进一步研究时的Archive/Replay/Agent工具路线，初次人机演示可先不读。
+
+先看哪份文档
+  完整操作和原理教程：phase2/PLATFORM_TUTORIAL_ZH.md
+  平台缺口与字段审计：outputs/platform_next/audit/platform_gap_audit.json
+
+这是当前电脑上已准备好的固定版本原生环境。
+它与第一阶段 start_demo.ps1 / 18765 近似模拟器是两个入口。
+本入口观察台为 http://127.0.0.1:8770，游戏版本15.535.13/content15.535.86。
+不需要官方账号，不进入官方在线对战。
+上次验收曾保留Archive观察台并关闭VM；当前状态请看页面和Doctor。
+若观察台已退出，再执行下面启动命令；不要重复占用同一8770端口。
+
+第一步：打开PowerShell，进入项目
+  Set-Location -LiteralPath 'D:\研究生\Clash Royal'
+
+第二步：先看历史原生画面，不启动虚拟机
+  .\run_platform.ps1 -Mode Archive
+  手动用浏览器访问 http://127.0.0.1:8770
+  点“播放已有画面”“下一帧”，拖动时间轴。
+  看“双方信息”“全部实体”“战场输入”“下牌与决策”“完整原始 JSON”。
+  这是历史原生证据，不是现在的AI自主运行。
+
+第三步：退出上一个控制台，再重建一场来源对局
+  终端按 Ctrl+C，或者页面点“关闭本次控制”。
+  每次切换模式或重新启动命令后，先刷新网页，再操作按钮。
+  .\run_platform.ps1 -Mode Replay -Speed 1 -Quantum 20
+  手动访问同一个URL，等页面显示“可观察原生状态”。
+  每个新Replay/Agent会先重启项目内Android容器，启动可能需几分钟。
+  旧已结束对局内存丢弃，资源文件和宿主保存日志保留。
+  先单步+1tick，再推进20tick，然后开始/暂停。
+  一tick是50ms。点“刷新下牌反馈”，区分注入和真实消费。
+  这是来源动作驱动的重建，不是AI选动作。
+
+第四步：退出Replay，再运行真实AI闭环
+  .\run_platform.ps1 -Mode Agent -Seed 20002 -Speed 1 -Quantum 20
+  默认加载现有保存模型，默认暂停；InformationMode=auto在旧BC下解析为player。
+  看当前保守观测、最近AI决策、model_action和实际下牌反馈。
+  当前AI读取结构化状态，不做截图识别；游戏画面用于你观察。
+  AI每20tick决策一次，不是每次单步都决策。
+  运行到自然终局，保存报告。
+  当前模型只选WAIT、普通火球、万箭；胜率不是这次平台展示目标。
+  若要保存这次真实Android录屏，在启动命令增加 -Record。
+  录屏墙钟长度与原生tick不同；暂停/传输/快放都会影响对应关系。
+
+第五步：用自己的Python规则代替模型
+  先退出上一控制台，再运行读取战场实体和已发生下牌历史的研究示例：
+  .\run_platform.ps1 -Mode Agent -PolicyFile examples/platform_battlefield_policy.py -InformationMode battlefield -Speed 1 -Quantum 20
+  编辑项目内示例或其副本的 decide(observation)，返回wait或play_card。
+  新默认auto：自定义PolicyFile自动用battlefield；旧BC自动保持player。
+  可以省略InformationMode，但初次操作建议明确写出。
+
+  怎么确认新策略真的看到战场信息：
+    刷新网页，在实验身份确认插件路径和information_mode=battlefield。
+    打开“战场输入”，看schema、tick、entities和history；开局为空可能正常。
+    推进到对手实际下牌和下一次AI决策，再看“下牌与决策”的policy_input。
+    policy_information_mode应为battlefield，schema应为royale-platform-battlefield-observation.v1。
+    该policy_input才是决策当时真正收到的快照，页面当前状态可能已经更晚。
+    再推进并刷新反馈，核对model_action、登记请求与实际消费，不能只看建议。
+
+  battlefield包含己方HUD、采集到的非塔实体和仅已发生真实消费历史，
+  不传对手手牌/精确圣水/私有轮转、raw或未来来源动作。
+  visibility仍为unknown，未验证隐身/地下可见性，不能称公平玩家输入。
+  requested_position仅在owner/tick/exactcard与journal都唯一匹配时附请求坐标；
+  actual_position始终null，不能把请求坐标当引擎最终落点或实际命中位置。
+
+  仍可显式选择保守player或含全部已采集研究字段的oracle：
+  .\run_platform.ps1 -Mode Agent -PolicyFile 'examples/platform_policy.py' -InformationMode player
+  .\run_platform.ps1 -Mode Agent -PolicyFile 'examples/platform_policy.py' -InformationMode oracle
+  保存的旧BC只支持player；不能直接改成battlefield/oracle并期待权重兼容。
+  研究插件可请求任意当前牌槽，但只检查槽位/费用/坐标边界。
+  全卡牌落点合法性与技能消费仍未完整证明，拒绝和未知必须记录。
+
+第六步：退出与停机
+  Ctrl+C / “关闭本次控制”只结束控制台，运行时可能仍保留。
+  在另一个PowerShell中切到项目目录后执行：
+  .\run_platform.ps1 -Mode Doctor
+  .\run_platform.ps1 -Mode Stop
+  最终默认Stop已经实测优雅关闭，不需要日常使用force。
+  若guest优雅停机超时，不代表已停止；先看runtime报告并结束控制器。
+  确认是本项目VM后，显式恢复：
+  .\.venv-phase2-core\Scripts\python.exe -B tools/phase2_platform_runtime.py down --force
+  该操作可能丢失未同步guest写入，最后再Doctor确认status=stopped。
+  不要同时运行两个Replay/Agent/旧viewer/批次控制器。
+  若8770占用，先关闭之前的控制台，不要广泛kill所有Python/QEMU。
+
+去哪里看本次结果
+  Replay/Agent：outputs/platform_next/sessions/<时间戳>-replay或agent/
+  report.json：自然终局、请求、消费、策略与当前覆盖范围。
+  observations.jsonl：命名后的全部原生已采集信息。
+  battlefield_observations.jsonl：每个新Replay/Agent采样的战场研究输入。
+  states.jsonl / wire.jsonl：原始状态与RPC。
+  decisions.jsonl：Agent实际输入模式、policy_input、动作与登记，是判断用了什么的依据。
+  execution_feedback.json：下牌执行确认与未知项。
+  frames/：本次真实原生PNG和tick/hash索引。
+  -Record时另有recording.json与part-*.mp4，需核对完整性和错误。
+  runtime启动失败：outputs/platform_next/runtime/latest.json。
+  新battlefield记录还需要独立审计；文件存在不代表全部字段或整局已经验证。
+  Replay也保存战场输入用于观察，但只重放来源动作，没有AI选动作。
+
+Windows PowerShell 5.1 的中文路径问题
+  新run_platform.ps1已经明确使用UTF-8读取JSON、捕获Python输出和写日志。
+  旧wrapper可能在runtime已ready后才报ConvertFrom-Json无效转义，
+  这是编码读取故障，不必因此重装VM。更新入口后，关闭旧控制台再重试。
+  若8770仍由原控制台占用，先回原终端Ctrl+C或页面“关闭本次控制”；不自动杀进程。
+  只读检查JSON时务必带-Encoding UTF8：
+  Get-Content -LiteralPath 'outputs/platform_next/runtime/latest.json' -Raw -Encoding UTF8 | ConvertFrom-Json
+  不访问VM/RPC的真实PS5.1编码回归：
+  .\.venv-phase2-core\Scripts\python.exe -B tools/phase2_launcher_encoding_check.py
+  证据：outputs/platform_next/fixes/20261018_launcher_encoding/powershell5.report.json。
+
+关于“所有信息”和“真实还原”
+  oracle能看到当前cr-minimal.v4采集的全部字段及双方私有信息。
+  这不等于原生程序所有内部信息：逐次攻击/伤害归因、完整buff、
+  投射物物理、通用技能成功、精确原型与可见性仍有缺口。
+  原生快照的null/unknown不能当零；血量下降不能自动归因给某次攻击。
+  现有正式100局中runtime通过10局，其他失败有完整分母与记录。
+  没有独立官方逐帧参考，不能宣称任意官方回放或所有官方交互等价。
+  下一阶段先补遥测、回放初始化/技能、完整动作合约和独立参考，
+  再研究更强策略。请按完整教程的验证记录判断实际完成范围。
+
+理解ZIP不是完整安装包；它不含专有游戏资源、虚拟机、环境和密钥。
+所有新文件与缓存保持在本项目目录，不需要全局安装。
+
+此前平台验收
+  Archive/Replay/保存模型Agent/自定义oracle短程与真实MP4都有运行证据。
+  最终新VM冷启动ready，再默认优雅Stop到stopped，4项目端口全部关闭。
+  SSH固定严格校验；serial无新公钥块时，以已有项目pin认证并核对boot ID。
+  分别通过：控制台/观测33测试，launcher18自测，guest停机helper3自测。
+  另有真实PS5.1编码回归通过；这不替代battlefield新策略的原生运行验证。
+  总报告：outputs/platform_next/platform_acceptance.json。
+  新battlefield示例的本次原生会话和独立审计结果，以完整教程后续实测记录为准，
+  不把旧BC/oracle的历史通过当成新插件已经完成整局。
+  独立官方逐帧参考与全官方交互仍未完成，详见完整教程。
+
+本次输入与启动修复实测（2026-10-18）
+  真实Windows PowerShell5.1已经成功执行你原来的Replay命令。
+  Replay90→400：2个非塔实体、3条实际下牌历史；新battlefield策略90→390：
+  15次决策=4出牌+11等待，策略4次及对手3次消费都确认，保存17帧。
+  两份新会话独立审计pass，相关58项单元回归全部通过。
+  这些是有界测试，均未自然终局；不算整局胜率或完整来源回放验收。
+  测试结束已正常Stop到stopped，未保留占用8770的控制台。
+  浏览器权限检查拒绝自动打开本地页面；请你手动访问URL核对显示。
+  具体证据与剩余限制见完整教程12.1节，汇总：
+  outputs/platform_next/fixes/20261018_battlefield/fix_acceptance.json

@@ -1,0 +1,22 @@
+{
+  "schema": "github-migration-exclusions.v1",
+  "original_project_preserved": true,
+  "categories": {
+    "environments_and_caches": ".venv*, .cache, .tmp, tmp remain local and are re-created from cloud profiles",
+    "native_runtime": "VM disks, APK/libg/resources, compiled probes/native extensions remain local; missing asset identities are retained in version manifest/EXTERNAL_ASSETS",
+    "raw_data_and_media": "Large original replays, source Parquet, screenshots/videos, full raw traces and downloaded papers remain local; reviewed pilot/indices/summaries included",
+    "credentials": "No private keys, tokens, account files, keystores or Git metadata are copied"
+  },
+  "source_release": {
+    "path": "outputs\\share\\RoyaleAI_NewSystem_20261018_215518.zip",
+    "sha256": "6ae3f7119ae675927c44404a32edcddabd154a2e13339efc9a37774b75d97b73"
+  },
+  "transformations": [
+    {
+      "path": "tools/phase2_native_build_apk.py",
+      "transformation": "Replace local debug signing password with environment variable; original local script retained"
+    }
+  ],
+  "all_current_models_migrated": false,
+  "model_scope": "Historical NumPy models from reviewed release, plus one runnable phase3 GRU; other local experiments stay in original project"
+}

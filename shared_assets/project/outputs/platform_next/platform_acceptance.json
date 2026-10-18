@@ -1,0 +1,197 @@
+{
+  "schema": "phase2-platform-operational-acceptance.v1",
+  "generated_utc": "2026-10-18T04:33:32.604042+00:00",
+  "status": "operational_core_verified_with_explicit_gaps",
+  "complete_all_official_interactions": false,
+  "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+  "scope": "Research observation/operation layer over the preserved fixed native baseline. Not a new training export or official fidelity acceptance.",
+  "implemented": [
+    "Unified project-local Archive/Replay/Agent console and startup/status/shutdown commands",
+    "Lossless cr-minimal.v4 researcher observation with field provenance, unknowns and snapshot deltas",
+    "Both players current hand/elixir/cycle/ability/evolution and all emitted entity rows",
+    "Cached HTTP state with content-addressed native frames, pause, exact tick and bounded advancement",
+    "Separate conservative player policy and explicit oracle research plugin decide(observation)",
+    "Decision/registration/native consumption feedback, raw wire/state logs, artifact audit and actual MP4 recording",
+    "Fresh Android container per new render session and preserved initialization failures",
+    "Chinese beginner operating tutorial and strategy replacement example"
+  ],
+  "verification": {
+    "unittests": {
+      "passed": 33,
+      "log": "outputs/platform_next/console/final_tests_33.log"
+    },
+    "replay": {
+      "start_tick": 90,
+      "last_tick": 3648,
+      "pngs_verified": 41,
+      "registered_actions": 43,
+      "native_events": 43,
+      "confirmed_consumptions_cross_checked": 33,
+      "replay_reference": {
+        "reference": "outputs\\phase2\\viewer\\acceptance-001\\headless\\anchors.json",
+        "sha256": "f262c2f7def1b437ea40514303cc20ed21c9d4de47a7ec47e0359f8e5abf87fe",
+        "five_points_equal": true,
+        "semantic_sha256": {
+          "90": "273004afead45621a397fb9442922d7eb1ace93b9357f8c43b7e3a53f309549a",
+          "1000": "bcf48f9f6feff48cfbd656434d131ebfe43f184ed5e50803a3b9e1189e0ecf2f",
+          "2000": "ddcd0ad55cc5dd3bf0b6cd600bf4cf5e071d0a7f3cf6773889393d9a0caf2281",
+          "3000": "6b1b633207b75b37ef36d43f3e0bd98b370cb7b1611d968d0552bb544d8d68d1",
+          "3648": "fb4e0ae38eedb87cac8eb7f3a4c1fc06ef5603108b3edad32c848b7d08a6b229"
+        }
+      }
+    },
+    "agent": {
+      "start_tick": 90,
+      "last_tick": 785,
+      "pngs_verified": 36,
+      "model_decision_kinds": {
+        "play_card": 1,
+        "wait": 34
+      },
+      "confirmed_by_controller": {
+        "model": 1,
+        "public_heuristic": 5
+      },
+      "native_terminal": true
+    },
+    "agent_result": {
+      "owner": 0,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "strength_claim": false
+    },
+    "custom_oracle": {
+      "start_tick": 90,
+      "last_tick": 190,
+      "confirmed_by_controller": {
+        "model": 2,
+        "public_heuristic": 2
+      },
+      "native_terminal": false,
+      "truncated": true
+    },
+    "transport_extra_observe": "outputs/platform_next/audit/extra_observe/consistency_audit.json"
+  },
+  "remaining_work": [
+    "Per-attack, hit, damage-source, buff, invisibility, shield and skill-consumption causal telemetry",
+    "Verified names, semantic entity types and level-scaled prototype-stat mappings",
+    "General placement/readiness legality and full action-space contracts beyond the old two-spell BC subspace",
+    "Independent official-version temporal references; arbitrary official replay reconstruction is not established",
+    "Ten unresolved source request identities in the demonstrated full replay (43 events, 33 strict pairings)",
+    "Public-visibility projection for non-tower units, fast snapshot/branching, multi-instance training isolation"
+  ],
+  "preserved_failures": [
+    "outputs/platform_next/checks/custom-oracle-001/report.json",
+    "outputs/platform_next/sessions/custom-oracle-002/error.log",
+    "outputs/platform_next/checks/final_stop.log",
+    "outputs/platform_next/checks/shutdown_recovery.log",
+    "outputs/platform_next/checks/final_lifecycle_up.log",
+    "outputs/platform_next/checks/final_lifecycle_up_fixed.log"
+  ],
+  "path_correction": {
+    "accidental_external_path": "D:/研究生/Clash",
+    "cause": "Unquoted space in OpenSSH UserKnownHostsFile option in the new launcher",
+    "verified_created_by_this_run": true,
+    "moved_into_project": "outputs/platform_next/audit/recovered_accidental_known_hosts.txt",
+    "external_path_exists": false
+  },
+  "evidence": {
+    "archive_http": {
+      "path": "outputs/platform_next/checks/archive-001/report.json",
+      "sha256": "620a1cd3bcd58e137c4625e1324b576c911a475b4d4d029b5afa09e89f041440"
+    },
+    "replay_http": {
+      "path": "outputs/platform_next/checks/replay-001/report.json",
+      "sha256": "b28f78f27d6dbfcecadf7946e7ec850af7780ed35b1cca7fd9f821dfd85eff10"
+    },
+    "replay_artifacts": {
+      "path": "outputs/platform_next/checks/replay-001/artifact_audit.json",
+      "sha256": "fe0927240c702d8036fb28c833cc446dc640d15cd9336835cbcad319e2688975"
+    },
+    "agent_http": {
+      "path": "outputs/platform_next/checks/agent-final/report.json",
+      "sha256": "b6e72ea309b84f10749691dbb583fc8081e407e56e902a1c84749efa271e60cd"
+    },
+    "agent_artifacts": {
+      "path": "outputs/platform_next/checks/agent-final/artifact_audit.json",
+      "sha256": "e9286760f58798a0506902bf0296872e8ea8fc58ef03cb005b8aba52f02411d8"
+    },
+    "agent_media": {
+      "path": "outputs/platform_next/checks/agent-final/media_audit.json",
+      "sha256": "3bf0c7c12810a82112affa6f1166b956185c3d209cc46b17ea92d4b7c2f6b1fc"
+    },
+    "custom_oracle_http": {
+      "path": "outputs/platform_next/checks/custom-oracle-003/report.json",
+      "sha256": "2fb359b516f66f0c7ae843e604d60265215f812a6d68df4aaf2269ce2b179c7e"
+    },
+    "custom_oracle_artifacts": {
+      "path": "outputs/platform_next/checks/custom-oracle-003/artifact_audit.json",
+      "sha256": "39005d4c72610599ee48e3694c5ae97fe14621fccbe1813b91c5a95b466975ee"
+    }
+  },
+  "tutorial": "phase2/PLATFORM_TUTORIAL_ZH.md",
+  "quick_start": "START_HERE_PLATFORM_ZH.txt",
+  "runtime_lifecycle": {
+    "final_status_report": "outputs/platform_next/runtime/latest.json",
+    "cold_start": {
+      "path": "outputs/platform_next/checks/cold_start_verified.log",
+      "status": "ready",
+      "vm_reused": false,
+      "host_key_trust": "existing_project_known_hosts_strict_auth"
+    },
+    "graceful_stop": {
+      "path": "outputs/platform_next/checks/shutdown_verified.log",
+      "status": "stopped",
+      "forced_vm_stop": false,
+      "ports": {
+        "22225": false,
+        "22226": false,
+        "55555": false,
+        "26789": false
+      }
+    },
+    "report": {
+      "status": "stopped",
+      "action": "down",
+      "report_path": "outputs\\platform_next\\runtime\\20261018T043010.739980Z-down-20664\\report.json",
+      "forced_vm_stop": null,
+      "guest_shutdown_preparation": {
+        "exit_code": 0,
+        "stdout": "outputs\\platform_next\\runtime\\20261018T043010.739980Z-down-20664\\005-guest_bounded_shutdown_prepare.stdout.log",
+        "stderr": "outputs\\platform_next\\runtime\\20261018T043010.739980Z-down-20664\\005-guest_bounded_shutdown_prepare.stderr.log",
+        "runtime_configuration_only": true
+      },
+      "verified_after": {
+        "schema": "phase2-platform-runtime.v1",
+        "action": "status",
+        "read_only_battle": true,
+        "rpc_commands_permitted": [
+          "status"
+        ],
+        "ports": {
+          "22225": false,
+          "22226": false,
+          "55555": false,
+          "26789": false
+        },
+        "rpc_mutation_performed": false,
+        "global_configuration_modified": false,
+        "vm": null,
+        "tunnel": null,
+        "listeners": [],
+        "unknown_port_owners": [],
+        "windows_inspection": "ok",
+        "status": "stopped",
+        "native_ready": false
+      }
+    }
+  },
+  "dashboard": {
+    "url": "http://127.0.0.1:8770",
+    "mode": "archive",
+    "screenshot": "outputs/platform_next/checks/console_deliverable.png"
+  }
+}

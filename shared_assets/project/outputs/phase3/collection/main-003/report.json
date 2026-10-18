@@ -1,0 +1,1497 @@
+{
+  "schema": "phase3-native-collection.v1",
+  "configuration_sha256": "b85d49c2e3a01257307e693e419d53ccde010360bdd096d6258efb625d441fb9",
+  "games": [
+    {
+      "game_index": 0,
+      "seed": 330000,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-000\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:48:40.246122+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 774,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 10
+      },
+      "cards": {
+        "26000001": 2,
+        "26000018": 2,
+        "26000003": 1,
+        "27000000": 2,
+        "26000014": 1,
+        "28000001": 2
+      },
+      "requests": 10,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "939304d87ed3836f71c1f4283aec995f622048ee9326ddd57d418f8164abbe39",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/initialization.json",
+          "sha256": "5b8e7154a9d53a7e4ace01df8d86bc7e28eafb668d7ee639dab97d8e6c254134"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/states.jsonl",
+          "sha256": "a4680cd68b46652b35eea3e2138535dc606a1b8f4fb60c718be1af77121b9d16"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/decisions.jsonl",
+          "sha256": "540548cbae3d7c5e83be30d5b3365742168dbda3bcdc0ebb48edfcc22d98d408"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/journal.json",
+          "sha256": "35d25912fbc1f9dd534057bbed843c040c11025b10032870ad46954039dcc3ae"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/execution_feedback.json",
+          "sha256": "24eb3231209e7a99593b049a29dc496ee71cb92dbb0b07f77e699b447f95d18d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/native_result.json",
+          "sha256": "6a50aa8825aaed92b39d1a91ff97906735f44763f58c4372d0e4715f8c9ca3f7"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-000/attempt-001/wire.jsonl",
+          "sha256": "c782377d7ffa59a2f7d6eeac17537549a97daa3ea7d67205df38b26cb5f931a3"
+        }
+      ],
+      "wall_seconds": 7.79700000000048,
+      "finished": "2026-10-18T13:48:48.050855+00:00"
+    },
+    {
+      "game_index": 1,
+      "seed": 330001,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-001\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:48:48.063139+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1899,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 22
+      },
+      "cards": {
+        "26000001": 4,
+        "28000000": 3,
+        "27000000": 4,
+        "26000018": 3,
+        "28000001": 3,
+        "26000014": 1,
+        "26000000": 3,
+        "26000003": 1
+      },
+      "requests": 22,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "60f14799ee4f0487b05648f601556dadee65b4a6ffd73fccfb0f53c2172b5952",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/initialization.json",
+          "sha256": "eb17335796a4320c170a63ff6f2825a1f347a75c252f36a38d44545042679492"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/states.jsonl",
+          "sha256": "874af027d969f4d1deb69ce2d99ed5f748c7bf2bc41c6e7d55a4dfc65eb9dfda"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/decisions.jsonl",
+          "sha256": "b2215fcd68eb8d7621b81133c57b8e6711dfbaaaef3b82a0faff0f9334f98995"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/journal.json",
+          "sha256": "4c24c441788a09beb71a612e396c8f42d85b3f2729b1843022b8edb3fe335f9c"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/execution_feedback.json",
+          "sha256": "6d0a16735493b97c5287ed750785197fb2a29eea0240b76bd6fcc0481af085b4"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/native_result.json",
+          "sha256": "708088c2376dd1db0d3e998a2a1317de32d3f225acd49ba74b9984965d75fa4e"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-001/attempt-001/wire.jsonl",
+          "sha256": "3ed74b8f99734ccaa1a5421290351d8e49e5848f627a3719a393dff22a544517"
+        }
+      ],
+      "wall_seconds": 15.82800000000043,
+      "finished": "2026-10-18T13:49:03.896564+00:00"
+    },
+    {
+      "game_index": 2,
+      "seed": 330002,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-002\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:49:03.909986+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 853,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        1
+      ],
+      "consumptions": {
+        "consumed": 11
+      },
+      "cards": {
+        "26000014": 1,
+        "28000001": 2,
+        "26000018": 2,
+        "26000003": 1,
+        "27000000": 1,
+        "26000000": 2,
+        "28000000": 1,
+        "26000001": 1
+      },
+      "requests": 11,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "01866436467b04feb20c6b8ca62f5399d6af528afe698ce94fe78cae7641df29",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/initialization.json",
+          "sha256": "833344b65f4352598108c78a5a1a6f2eff24929ac889fb36f7d9030ca4b390a7"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/states.jsonl",
+          "sha256": "3ac037e1b1cc4c11f1fd58820aeb5a107bd0cb771a06cc346874358aff537fbd"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/decisions.jsonl",
+          "sha256": "2f0d395b9286041f94d9f4cfd3cf2d6dfdaa8ed2fe2f07b626ac8a4cd736ec32"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/journal.json",
+          "sha256": "883b965c327d9943d0bfa84ccbed1afdf858e4ecdf5461accd6fd31a4e178978"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/execution_feedback.json",
+          "sha256": "82724a89b7edee4a6d6966532dba1ad47ed926dab6168d6c203b24cfecb1e0fd"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/native_result.json",
+          "sha256": "f82fc66c486a03cf5a863ae8cd5b2fda612528c17461d68bbc099fd36d5449b5"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-002/attempt-001/wire.jsonl",
+          "sha256": "5d78d5c364802efaf3085de6a70e45ba17f293f4a7c9d85ef10b05a2ee6f7c59"
+        }
+      ],
+      "wall_seconds": 8.07799999999952,
+      "finished": "2026-10-18T13:49:11.997145+00:00"
+    },
+    {
+      "game_index": 3,
+      "seed": 330003,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-003\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:49:12.011145+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1390,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 17
+      },
+      "cards": {
+        "26000018": 3,
+        "28000000": 2,
+        "28000001": 3,
+        "27000000": 2,
+        "26000000": 3,
+        "26000001": 2,
+        "26000003": 1,
+        "26000014": 1
+      },
+      "requests": 17,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "052732e6692611913c901ba6be34b58e5eab2c7aceba4abd595bb64500c12aed",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/initialization.json",
+          "sha256": "e4b74f267148b56513efc3e2ad23cb754ebcd13663f1de79254df548d1d7b545"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/states.jsonl",
+          "sha256": "e2a94cb0691d9bb7a595f3f61bcd4910195b67c331522418ff11fded58148cc0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/decisions.jsonl",
+          "sha256": "e94849e3cecb7306c74ea98a9bbce15ddbec55e6573087f5ccd4768862b60b5b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/journal.json",
+          "sha256": "e2b0a512afafd3e772a91656407ba14e200cd84411a786fbae3249ce1344466d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/execution_feedback.json",
+          "sha256": "96861f684c4d981d68a070bce5bff051988df408029240e4becdb4e113754dff"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/native_result.json",
+          "sha256": "8d6ebbb2ed0683c4393d142af2aff91e57bb3a24447c31bfcb4db380b1e55a5e"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-003/attempt-001/wire.jsonl",
+          "sha256": "05d1d725559cdceb54772ec8af2e5f239353d05879ddc6bb4371077097e58c1b"
+        }
+      ],
+      "wall_seconds": 12.592999999999847,
+      "finished": "2026-10-18T13:49:24.600452+00:00"
+    },
+    {
+      "game_index": 4,
+      "seed": 330004,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-004\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:49:24.613451+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 3601,
+      "winner_owner": 1,
+      "crowns": [
+        1,
+        2
+      ],
+      "consumptions": {
+        "consumed": 51
+      },
+      "cards": {
+        "26000003": 3,
+        "26000018": 7,
+        "28000001": 8,
+        "27000000": 8,
+        "28000000": 3,
+        "26000001": 8,
+        "26000000": 7,
+        "26000014": 7
+      },
+      "requests": 51,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "c0899e3fb9e0743de4300e72373acfa54ece7ebcfab2d4c5bc11ed28c7f5e3f7",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/initialization.json",
+          "sha256": "a7aae2f6fdd4f6b70a285c9bd57e61ce2439b6025b7b99de13df59fb10209973"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/states.jsonl",
+          "sha256": "e2f51668ef09bb76a39cb7a46d6a5bc485545fa4c4577c5a40b2aa3c20f3f446"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/decisions.jsonl",
+          "sha256": "224db6e23aaef3833f2122dd1f2b5efb3363f4f2a02eec7e020bb235c007e30d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/journal.json",
+          "sha256": "af1f80e9ee81641ac64abc26016ee591e8335318826168955d29c9a685c8e879"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/execution_feedback.json",
+          "sha256": "8ab4caaef8b06a7b95bea9407019306d97d25b39c45f062fe12fb3df17ddb871"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/native_result.json",
+          "sha256": "c43f562c72c71674f96988dfe18837edde023b4e5e060e68c5130e25d79ae432"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-004/attempt-001/wire.jsonl",
+          "sha256": "eaaf109f72ea94dc1985780691fe97345fa0f83fa07623442c681dd28623cf93"
+        }
+      ],
+      "wall_seconds": 31.57800000000043,
+      "finished": "2026-10-18T13:49:56.196794+00:00"
+    },
+    {
+      "game_index": 5,
+      "seed": 330005,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-005\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:49:56.210796+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 789,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 10
+      },
+      "cards": {
+        "26000018": 2,
+        "26000000": 2,
+        "28000000": 2,
+        "27000000": 1,
+        "26000001": 2,
+        "26000003": 1
+      },
+      "requests": 10,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "6cb1df6758744aa32542442c20d3e769d5cdcedaea8b4e45f48361999642b3f1",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/initialization.json",
+          "sha256": "04c2c712dfb1346d2ce7b7d533ef1bab089a98dde726dfbbe3b1b00e0738a6fa"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/states.jsonl",
+          "sha256": "1e3dc797235433164d4bea8809838f993b1d451954b2e18b38315f7a93043ac0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/decisions.jsonl",
+          "sha256": "fe2658baa9f61f180913db731597cf0284c799b3ef7aa2b213b1ae7861fb157b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/journal.json",
+          "sha256": "c4b63668808951cb95bfcb1863750c75cb145b3db251adc91137efa0781de8fc"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/execution_feedback.json",
+          "sha256": "828e2a3a17d747db4cdc08faeefee6a08231a57776cf91f1e8cdea62d6566492"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/native_result.json",
+          "sha256": "ef8d8acd4bf1a6ad34e7f1d16d67bbbd000ec3e0407f16e7bcddb78b405d5c02"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-005/attempt-001/wire.jsonl",
+          "sha256": "1cf1c27b2c2dd7b803506ac92387cb90ca8f4f8f6404b8472a159b47412f2e5c"
+        }
+      ],
+      "wall_seconds": 7.734000000000378,
+      "finished": "2026-10-18T13:50:03.945782+00:00"
+    },
+    {
+      "game_index": 6,
+      "seed": 330006,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-006\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:50:03.959774+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1641,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        1
+      ],
+      "consumptions": {
+        "consumed": 18
+      },
+      "cards": {
+        "26000014": 4,
+        "26000001": 3,
+        "26000018": 3,
+        "26000000": 1,
+        "28000000": 2,
+        "27000000": 2,
+        "28000001": 2,
+        "26000003": 1
+      },
+      "requests": 18,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "7eef4a022afd19b0db0fc88a1ce23595860a8b9cbfa779d1f5ce9d091a82b901",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/initialization.json",
+          "sha256": "cb67392d5b257ab211079ae71af0d9705221f08f3d05c3eb1e58516744cc6d6d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/states.jsonl",
+          "sha256": "abb009e03b6f27b354107ee12167c34a51522b8a5c22b5d9ee07bebb7d6ee1cb"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/decisions.jsonl",
+          "sha256": "1a69d55c6b5d3f5bf26ffd73c43c0d29bb6629c87b1dbce93043a5a6af4c30a6"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/journal.json",
+          "sha256": "7cdc8345178e54319be58bccbf60e8f4cf112fd3eaeea90a975f1a89615b80a0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/execution_feedback.json",
+          "sha256": "52edf678e1a4274ab3892c5e32064dfe5b9f02419b40876147fa04cdc9c81c24"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/native_result.json",
+          "sha256": "2a9b171430323f4c93d12d08fcaf463acbd64e60b0a5594ed4f37c9fde4a372b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-006/attempt-001/wire.jsonl",
+          "sha256": "2b83448bef336ba2be675ec2f5ac28e442c8d7f849eb29d23af2329ce887d0f3"
+        }
+      ],
+      "wall_seconds": 14.640000000000327,
+      "finished": "2026-10-18T13:50:18.609888+00:00"
+    },
+    {
+      "game_index": 7,
+      "seed": 330007,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-007\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:50:18.621392+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1507,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 19
+      },
+      "cards": {
+        "26000000": 3,
+        "27000000": 4,
+        "26000001": 3,
+        "26000018": 2,
+        "26000003": 1,
+        "28000001": 3,
+        "26000014": 2,
+        "28000000": 1
+      },
+      "requests": 19,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "8f2f58c754002379a230478b901afa9217fb5d90614d2a2a23d698183b2995cf",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/initialization.json",
+          "sha256": "f3afcc7466b3ad50b494f9964f507e29645685c9048c76e9fe712869598569a2"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/states.jsonl",
+          "sha256": "dc7731f12e0b9c458d8dec53ff8e16362d9e07d5586c198fa2a1ab07fa2d78b0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/decisions.jsonl",
+          "sha256": "507c2f3c54b1c630ed78bc57b4fd3f28f2ec9076eee4f2983db44b26c0d4b249"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/journal.json",
+          "sha256": "f20f8f7f2f340d1d4cf8e6f3ef6ff5e6f27731118ee5e003eae1b8fc3e791a6c"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/execution_feedback.json",
+          "sha256": "3d8224590d64ade53de55c164d6d15b883ab35e28135dedcb55aac875889d187"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/native_result.json",
+          "sha256": "e1af682bb680615d895e5a09fab7a10f20bff351ce69915a1179f77a57851bad"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-007/attempt-001/wire.jsonl",
+          "sha256": "7e29ce82786d9a8c1f67c8d96b11ccc6a5671515535a5b6df8d6d50ca97bc374"
+        }
+      ],
+      "wall_seconds": 13.280999999999949,
+      "finished": "2026-10-18T13:50:31.906499+00:00"
+    },
+    {
+      "game_index": 8,
+      "seed": 330008,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-008\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:50:31.920504+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 662,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 9
+      },
+      "cards": {
+        "26000014": 1,
+        "26000003": 2,
+        "26000001": 1,
+        "26000000": 2,
+        "27000000": 1,
+        "28000000": 1,
+        "28000001": 1
+      },
+      "requests": 9,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "6cd3503b398ff34303e54f568bdc5ba94f065d6adf9c3ecab13656816a6f567c",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/initialization.json",
+          "sha256": "de0af6bbb4822c81900826ced06647db197c802ead0835c1fb9ac10416b8e4a3"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/states.jsonl",
+          "sha256": "8d49021790b4ac5f105cc3955642980e6ed972dd9ceff197e7a38ae0de399edc"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/decisions.jsonl",
+          "sha256": "0dfaae9a8379698b28642b13c5cd7f0d9a48e9741aa847dcbbe45a49e1172d9f"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/journal.json",
+          "sha256": "ce0d5d1ed2fc4124c60647f9276d17f295ff28b03cf0df063b8283b8347aff75"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/execution_feedback.json",
+          "sha256": "8186b9e49efb704f810783e96cff7c2c88445871038727f39a731c402eb18380"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/native_result.json",
+          "sha256": "df0507031ccd94d8ce71edd027c90634fce2a03563d6178b9c57131064dfeb25"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-008/attempt-001/wire.jsonl",
+          "sha256": "7304eecf882a60e9edc7aa0dda094da277dc3efb5234a622654cd984203e30f2"
+        }
+      ],
+      "wall_seconds": 6.515999999999622,
+      "finished": "2026-10-18T13:50:38.432598+00:00"
+    },
+    {
+      "game_index": 9,
+      "seed": 330009,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-009\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:50:38.446106+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 3601,
+      "winner_owner": 0,
+      "crowns": [
+        1,
+        0
+      ],
+      "consumptions": {
+        "consumed": 51
+      },
+      "cards": {
+        "26000018": 7,
+        "26000000": 7,
+        "27000000": 7,
+        "26000014": 7,
+        "28000000": 5,
+        "28000001": 8,
+        "26000003": 3,
+        "26000001": 7
+      },
+      "requests": 51,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "4310f14c192369b4f0c76060940131d6c94ff117e0e1b87cee1edb97f11b92a2",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/initialization.json",
+          "sha256": "a417eb9a1361c2b07f4251e3e48f719bf90dc52a82876fc8bf206b9561fe29df"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/states.jsonl",
+          "sha256": "2aea08262cef28a1e6dbffb36dca3e4c3edfe797246c04055f784f2beff2d6f8"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/decisions.jsonl",
+          "sha256": "f048fe03b0f3017ae07526bd7d23aeb61112d63800e7470b3fd9525bfc4211ad"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/journal.json",
+          "sha256": "5d99dc6810e0ef2ecc1386dfa435ee23fb20f179a067291c139bf81ef0648e9b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/execution_feedback.json",
+          "sha256": "66dbde27cb1e2bfb1c70a1a3b72f2eedde59d98971a596dd9a32f3539ba93153"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/native_result.json",
+          "sha256": "240c76c2b00c0d37fa71335df11b1730e200c3b1c7582773da44678663f0a386"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-009/attempt-001/wire.jsonl",
+          "sha256": "3876644a64e115a0f1ef0a2456d3c1ca6c2bf5bf9defdb01580fb28762e70fd2"
+        }
+      ],
+      "wall_seconds": 30.21900000000005,
+      "finished": "2026-10-18T13:51:08.673876+00:00"
+    },
+    {
+      "game_index": 10,
+      "seed": 330010,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-010\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:51:08.686595+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2515,
+      "winner_owner": 1,
+      "crowns": [
+        1,
+        3
+      ],
+      "consumptions": {
+        "consumed": 29
+      },
+      "cards": {
+        "27000000": 4,
+        "26000014": 3,
+        "28000001": 4,
+        "26000000": 5,
+        "26000001": 4,
+        "26000003": 2,
+        "26000018": 4,
+        "28000000": 3
+      },
+      "requests": 29,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "9b26a1587a4df60feb00b8be392850cae8be44a24588458c02093507a8f0e71f",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/initialization.json",
+          "sha256": "91767473f515fd6e70e34104f1ae1fd40b1f89105408f1879af9349bb93c4fbe"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/states.jsonl",
+          "sha256": "a9fa0fe9351a174a5bf6749fd753ed1f02d7c75d39b7d0bf11e5d4b0c536117a"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/decisions.jsonl",
+          "sha256": "9627c922f13b5bd89ab2de1c2739c0855563a7718704406065f0b4b89820b12d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/journal.json",
+          "sha256": "1d9d1d9c908e14af6f506b7c9975546f78d483ad393213de08ca56ec2174755e"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/execution_feedback.json",
+          "sha256": "35e2c34d146305f067af09fd9c02e8db6b12ee9c3686351144ba2d0d465c04cd"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/native_result.json",
+          "sha256": "81071dc1bae57a0c5dd61df3aba38acc7128a37db17ac9fe46c9145de1d97cc3"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-010/attempt-001/wire.jsonl",
+          "sha256": "ffad39838c7880db3618b9d75d20a3f92d40fa38b4d1a59f915aef24a7c3af35"
+        }
+      ],
+      "wall_seconds": 22.640000000000327,
+      "finished": "2026-10-18T13:51:31.332058+00:00"
+    },
+    {
+      "game_index": 11,
+      "seed": 330011,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-011\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:51:31.345055+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2323,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 25
+      },
+      "cards": {
+        "26000003": 3,
+        "27000000": 4,
+        "28000000": 3,
+        "26000014": 4,
+        "26000000": 3,
+        "26000001": 4,
+        "28000001": 3,
+        "26000018": 1
+      },
+      "requests": 25,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "a97ce28f9c53e6d7d6cd4f17ff4598fd46be1632c85e941fbb1d98fd7f9bc924",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/initialization.json",
+          "sha256": "fd2a7001ff9f7ebc52cdca7e2f16f87cb268fab5cb36025199fb4fb079032c58"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/states.jsonl",
+          "sha256": "5a457f5f6ba05fa4780e61a8637ce889e83a20655a7df3022c10f7a336bc394b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/decisions.jsonl",
+          "sha256": "6280604ebf80f0ad6343700c74a60cb81dc338141910cbc0c1c0eac5c1287241"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/journal.json",
+          "sha256": "44e6b466c9d1c997167746a9816c68806d38d2ceee10d49db7a28d356bb9813b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/execution_feedback.json",
+          "sha256": "c524551ec229fbafb8983f8fc2b5279cb001c6ba31fbebdef713e9607ff2a6ca"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/native_result.json",
+          "sha256": "a1c0176242b11953788cad4d41b5309ade122bc2d1c29d262d1d46681c1abf11"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-011/attempt-001/wire.jsonl",
+          "sha256": "9e9fe73af4ca55b31103889b5be51eeef7992f50685a4d4946e46544f2c77fbb"
+        }
+      ],
+      "wall_seconds": 18.703999999999724,
+      "finished": "2026-10-18T13:51:50.057104+00:00"
+    },
+    {
+      "game_index": 12,
+      "seed": 330012,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-012\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:51:50.070084+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2338,
+      "winner_owner": 1,
+      "crowns": [
+        1,
+        3
+      ],
+      "consumptions": {
+        "consumed": 26
+      },
+      "cards": {
+        "26000003": 3,
+        "26000001": 5,
+        "26000018": 3,
+        "26000000": 4,
+        "28000000": 4,
+        "28000001": 3,
+        "26000014": 1,
+        "27000000": 3
+      },
+      "requests": 26,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "3e39f31a53df5f2108c0a4af3046d5a0b2d0fa01d021169fdc6e63bbc1782b4e",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/initialization.json",
+          "sha256": "6790fb2b64324b88c5c10b483182b73ae17ac5cf3e96e41ef88b4fd67dfc708d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/states.jsonl",
+          "sha256": "875745432643da054b8d43d4b6e43fd4604cb1da5c83bacc06d19db186f94db7"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/decisions.jsonl",
+          "sha256": "9b7f44cac69efde39047c58646361ef4547dd208214c55274e7a2649c5c72ae1"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/journal.json",
+          "sha256": "b7eb55442fe885e613ec7a1158bc346a42185c369a00de61d613dc441c70d984"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/execution_feedback.json",
+          "sha256": "bc2c4aec429f571ee4d9f60c45c0ee92d0d0e7cc4bb7bf303c78ea37bebddde9"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/native_result.json",
+          "sha256": "609dbe101416fbc3094436cf58b006edaadacf925b20981bbe96f7af39b6e971"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-012/attempt-001/wire.jsonl",
+          "sha256": "d8b80b14f659e574d5624c711ca7e35368d76b370717e88fb5c9098816c7e40d"
+        }
+      ],
+      "wall_seconds": 19.78099999999995,
+      "finished": "2026-10-18T13:52:09.852473+00:00"
+    },
+    {
+      "game_index": 13,
+      "seed": 330013,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-013\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:52:09.865388+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1870,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 21
+      },
+      "cards": {
+        "27000000": 3,
+        "26000018": 4,
+        "26000001": 3,
+        "26000014": 3,
+        "26000003": 1,
+        "28000001": 2,
+        "26000000": 3,
+        "28000000": 2
+      },
+      "requests": 21,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "9f30260fc76f39e5c7d6971492d9a39db22ea86485f9e7ba3047fc560b069fd4",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/initialization.json",
+          "sha256": "cabf6336c46bdc991ac6de56835b96abf6796a4d325b8d8d487977e3a803af10"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/states.jsonl",
+          "sha256": "d450275dbf53890410a7cd3637a5c6ef5b56199e58694859cdce378f52790219"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/decisions.jsonl",
+          "sha256": "1ca48413ca26667e19ce8ca1489d00dc5eacc4c9f9f2a869f6ff5b15942248fd"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/journal.json",
+          "sha256": "1ae59c4f8b5602a03ef2c63c19066638b0c461bab6d535bc07af09fa39a6fc99"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/execution_feedback.json",
+          "sha256": "6a8db1539ee95767c165d1cddc8a4d7245cfa176de7ed311d5f347230688e2a5"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/native_result.json",
+          "sha256": "fc754dc8836114643dbb53f69ade2039c05f4b0f88d6bb601391f816dbe7f3ff"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-013/attempt-001/wire.jsonl",
+          "sha256": "f683bfba978d8043dbc41a71c29241f116bbda5cbc666adb7437262a4881e23a"
+        }
+      ],
+      "wall_seconds": 16.42200000000048,
+      "finished": "2026-10-18T13:52:26.292802+00:00"
+    },
+    {
+      "game_index": 14,
+      "seed": 330014,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-014\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:52:26.305123+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1564,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 19
+      },
+      "cards": {
+        "26000018": 3,
+        "26000000": 2,
+        "28000001": 3,
+        "27000000": 3,
+        "26000001": 3,
+        "28000000": 2,
+        "26000014": 2,
+        "26000003": 1
+      },
+      "requests": 19,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "76caea9d4933505a36ff64910adad8b2b2a32e2a6a3168efc7962d6c354ec1cc",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/initialization.json",
+          "sha256": "6cab591cc1e9810cb1d6e9c5ee1e4a03f0164be3a0f58d88ba91237513e8d6d0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/states.jsonl",
+          "sha256": "3e14f1f66937e8d66802f9c60ed174e25e010d51144ba615bb0ba4a9c6e82947"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/decisions.jsonl",
+          "sha256": "dbba7ad27acc59d810ea17fb8f49c0a1626637a916e25762eddac6d9e8aa13d6"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/journal.json",
+          "sha256": "0990878a9899442bdd8020743aba6f86ea6f3a4af3545f0e7bcf5b3496a898c2"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/execution_feedback.json",
+          "sha256": "90b211453f58eb3f248ab5e7abb1b33dd29ee96705c312190967e0b91e49ead0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/native_result.json",
+          "sha256": "eb4262c551aa3c76d9a9650dd66728b608a5adb288f93a02cb24732e8f7116ca"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-014/attempt-001/wire.jsonl",
+          "sha256": "9381c72d4152b012ebf29d7192ce38ddff852934e2ceaf245cc99b87ae0bfc03"
+        }
+      ],
+      "wall_seconds": 14.217999999999847,
+      "finished": "2026-10-18T13:52:40.522945+00:00"
+    },
+    {
+      "game_index": 15,
+      "seed": 330015,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-015\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:52:40.536029+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2519,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        1
+      ],
+      "consumptions": {
+        "consumed": 30
+      },
+      "cards": {
+        "27000000": 4,
+        "26000001": 6,
+        "26000014": 3,
+        "26000000": 5,
+        "28000001": 4,
+        "28000000": 4,
+        "26000018": 3,
+        "26000003": 1
+      },
+      "requests": 30,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "9f18b5ffd3b58e8fc7e8e21b4b70b17a17ff00ea87f2df20e6d2aef7ab79d072",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/initialization.json",
+          "sha256": "c60b94b0690d33b0b453b7e8d5fb364fd4e740d48f7ea1ac94793546c27140ca"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/states.jsonl",
+          "sha256": "2d652c03545519e1b37c5a3b84aba9d5a9c5011dbdac9978b7da47ebbce1ebe8"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/decisions.jsonl",
+          "sha256": "f4eb953d8dd1ec73ca6b5fb3bda50b6ec3de8b1bfffb9bdbf012eae9134dc338"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/journal.json",
+          "sha256": "c121f50f25bc0bd12a17aa584db1029e16e3bac7c5598366952109314d318a1b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/execution_feedback.json",
+          "sha256": "e305e1c92a14d96bea8fe0cbad1ddd5deb586292ad48d9bcb93d4c7dbc1b49fd"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/native_result.json",
+          "sha256": "17755459a29277a1431f76438a684ee1225d529cb606d48226aa7b489d6f527b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-015/attempt-001/wire.jsonl",
+          "sha256": "f93ea4403dddc9894debf2475a2dfd229b05f97da36d7daffafc69093b4aa7ee"
+        }
+      ],
+      "wall_seconds": 20.17199999999957,
+      "finished": "2026-10-18T13:53:00.725153+00:00"
+    },
+    {
+      "game_index": 16,
+      "seed": 330016,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-016\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:53:00.740325+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 3116,
+      "winner_owner": 1,
+      "crowns": [
+        1,
+        3
+      ],
+      "consumptions": {
+        "consumed": 42
+      },
+      "cards": {
+        "26000018": 7,
+        "26000001": 7,
+        "26000000": 6,
+        "27000000": 6,
+        "26000003": 3,
+        "28000001": 5,
+        "28000000": 5,
+        "26000014": 3
+      },
+      "requests": 42,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "05a096337573416055e7682932237c556633a598df265ca673fe09b8671dd26d",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/initialization.json",
+          "sha256": "0cd42d5b773b9b7deeaf81ee35e59aa520f84fec5000c39a01a097dbadfcd852"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/states.jsonl",
+          "sha256": "30185e2fab0569af99c83095edbd62a63acef95ab9913025d8333cf06cf3fd9f"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/decisions.jsonl",
+          "sha256": "dfbbe2beeeeb11db3adff9a9b0fb2094e823c44f343fbd48c749304b82e4c5a9"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/journal.json",
+          "sha256": "b6461561be844a5c4c253c41d2cc5202fbb6e56e6a4565393639ee17abcd2f22"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/execution_feedback.json",
+          "sha256": "521788a0cc8416b9e75baf397dee1569df57c62a3153755d9536973a5dc09818"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/native_result.json",
+          "sha256": "7b0fe635ff4dea970e6449739075ab2e41f59d790e2718088eb9aa3ee655f905"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-016/attempt-001/wire.jsonl",
+          "sha256": "d977693d6aa9908926bfa0d6c76598152940e002fb43746452bcb34bcf5dfb97"
+        }
+      ],
+      "wall_seconds": 26.42200000000048,
+      "finished": "2026-10-18T13:53:27.174492+00:00"
+    },
+    {
+      "game_index": 17,
+      "seed": 330017,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-017\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:53:27.189041+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2624,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 31
+      },
+      "cards": {
+        "26000000": 5,
+        "28000000": 4,
+        "27000000": 5,
+        "26000018": 4,
+        "26000001": 4,
+        "26000014": 3,
+        "28000001": 4,
+        "26000003": 2
+      },
+      "requests": 31,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "8a7644dc63043115fe5a743d1456395e238601db4ce79e22c561ebafc717c2bc",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/initialization.json",
+          "sha256": "9294c4deaa42cec490de91f0cf9611e0e269604cc064937bdd7d15480a51f6b3"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/states.jsonl",
+          "sha256": "0f32071c8fe3fc69f119b316981389854819571536505df492d77c865c7b8d40"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/decisions.jsonl",
+          "sha256": "1d19130f4de99a654f89f3897eff69a5519b4a5c3d19d69476776873b1d13b24"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/journal.json",
+          "sha256": "b03d8344ebb3174ccf7071172b3fc4278b804dcb945552b5f1e43bd8dd846f14"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/execution_feedback.json",
+          "sha256": "d65b174e54a1c9d531f352cb6dddbbd7ab6e14389b7a35c12e66dc10d41c2818"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/native_result.json",
+          "sha256": "e63e6baa80cda98be07c0eb4ddfd023409a93755c7b74f62d3020a1641242c67"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-017/attempt-001/wire.jsonl",
+          "sha256": "9d595bb94bd044c83190696ab6fa6be327acadb87db44d3afdca1e8966942146"
+        }
+      ],
+      "wall_seconds": 22.28099999999995,
+      "finished": "2026-10-18T13:53:49.481772+00:00"
+    },
+    {
+      "game_index": 18,
+      "seed": 330018,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-018\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:53:49.495614+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1185,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 14
+      },
+      "cards": {
+        "26000001": 1,
+        "28000000": 3,
+        "27000000": 2,
+        "26000014": 2,
+        "26000003": 1,
+        "26000000": 2,
+        "28000001": 1,
+        "26000018": 2
+      },
+      "requests": 14,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "8bb6f9ccea459099d2a23f82dff1d907ed92ca63c891be9bbaf950a8caebcbce",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/initialization.json",
+          "sha256": "8292d9d1efcb7f7d2048dca8afed34f8be4c5f94c8a9c50d0885c9389bb3c455"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/states.jsonl",
+          "sha256": "cb98925fe5e4e86b14b7e1c0e81e389f724408125e7e3a6ee13bcbae6704f98e"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/decisions.jsonl",
+          "sha256": "db7efc2ece30c4b36b254976f068efad0d03000ac33836ebb93d9c6250ce9fd1"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/journal.json",
+          "sha256": "bd266bb22a40495610ec7366ca6453bdc5576c97938a13d84cb108d1cbe3d5cd"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/execution_feedback.json",
+          "sha256": "11ddbd02971cd1b9de607af2c4ea06f0d1a98b8132181da8c1c6932d1fc0d8fe"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/native_result.json",
+          "sha256": "03a514b8c534d1f1fe421d4d5431a8040fca7e022eb8a80d426e2c38ab2bfa15"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-018/attempt-001/wire.jsonl",
+          "sha256": "b95204a9a9b6f49cd82aa7056bd2cd6bdc97aa40d97b2de12fb82c36ea336b6e"
+        }
+      ],
+      "wall_seconds": 11.625,
+      "finished": "2026-10-18T13:54:01.126772+00:00"
+    },
+    {
+      "game_index": 19,
+      "seed": 330019,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-019\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:54:01.140776+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1216,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 15
+      },
+      "cards": {
+        "26000000": 3,
+        "26000001": 2,
+        "26000014": 2,
+        "27000000": 2,
+        "28000001": 2,
+        "26000003": 1,
+        "26000018": 2,
+        "28000000": 1
+      },
+      "requests": 15,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "5546557a07a10de3afbb3fc8a0b84606a260d296cb993d9ba48b49f26e34a119",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/initialization.json",
+          "sha256": "4b73ea683364c9a9f1c645c382088f45d9ab38f063377dbe6c70a27797aae429"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/states.jsonl",
+          "sha256": "e74566277e504b49bb7f44312b4d1567f4b72a5fad549c7719434c983ed9a5d1"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/decisions.jsonl",
+          "sha256": "3b6c09fb3082280bf65231487df6aba177e8fc58eaf59ba51d98d6b2a5430953"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/journal.json",
+          "sha256": "4cf76afb76c7b041c730e1ba06fe5e62a7bccc10adedf5bb7f740e1185e15ea5"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/execution_feedback.json",
+          "sha256": "dc6bcc553d2ba291c9ff83a319616c06d2b8c7fc42b3e7c7fcf888a98b2815a9"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/native_result.json",
+          "sha256": "683607f44ea10e10519d9e373f358f65032842055a1df5e80947c4d53c85e4df"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-019/attempt-001/wire.jsonl",
+          "sha256": "9ef20c5c919b5e50e2f45f3ec41e1547f035fd6459f1a74161b8e1916b987562"
+        }
+      ],
+      "wall_seconds": 10.32799999999952,
+      "finished": "2026-10-18T13:54:11.472026+00:00"
+    },
+    {
+      "game_index": 20,
+      "seed": 330020,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-020\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:54:11.486027+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 3559,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        1
+      ],
+      "consumptions": {
+        "consumed": 50
+      },
+      "cards": {
+        "28000001": 6,
+        "28000000": 7,
+        "26000000": 7,
+        "26000018": 6,
+        "26000003": 3,
+        "27000000": 7,
+        "26000001": 7,
+        "26000014": 7
+      },
+      "requests": 50,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "92da7de72fe9ef3438f15d8624d8117a20b81edbc19e08dacdc68395152c8add",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/initialization.json",
+          "sha256": "d95cf5cfaccad2cbc446eac988bf5246d821124c0a057315e4f2cc86b7a1b260"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/states.jsonl",
+          "sha256": "0faad92e18b64e2c7c8ccdf33f6617d042bd250a74172334f9c05ccd154c4a51"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/decisions.jsonl",
+          "sha256": "e70452d20da06510f73c0f98c38461e6ec063d4060c562946323df462368125d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/journal.json",
+          "sha256": "cb5f96ad0ae42eb6c54a1e383efcede28ff52b038bbdfb6a53848da4bb73549b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/execution_feedback.json",
+          "sha256": "514d4f9b9b6cd3cec19705eff486195f376aa4fc3eca4b3f30b7974e7f3d85fa"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/native_result.json",
+          "sha256": "afaa69dbbdb8059e9897d16e126f8c90c43d62ea81b8403b0c07218d6fd5453c"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-020/attempt-001/wire.jsonl",
+          "sha256": "145efb5bb9d3fee42e6b866c4517ff77064e7c53b350214eea44200185d989f3"
+        }
+      ],
+      "wall_seconds": 30.65599999999995,
+      "finished": "2026-10-18T13:54:42.159822+00:00"
+    },
+    {
+      "game_index": 21,
+      "seed": 330021,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-021\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:54:42.174240+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2320,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 27
+      },
+      "cards": {
+        "26000018": 3,
+        "26000003": 2,
+        "26000000": 5,
+        "28000000": 3,
+        "27000000": 4,
+        "26000001": 4,
+        "28000001": 4,
+        "26000014": 2
+      },
+      "requests": 27,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "308b515dee6043fb51e3ed864b7faafae98dff8a528930991ca01852f44ae35e",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/initialization.json",
+          "sha256": "a7ece13626d1bcb422feced0b548c7c451f9b7bbb917399f91f18874952587ea"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/states.jsonl",
+          "sha256": "dc309e676481e5beeb0694592ccdcb77aeb691281ef49a276388b7b1ad3577fa"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/decisions.jsonl",
+          "sha256": "dec6e0ec1890015be2b73889c4f6269e7108fced4c30698aa4d8a5a513a41d52"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/journal.json",
+          "sha256": "767c21a0b6b60dac713fbf40848699d5d8840235a34d6e1856544aafaf50d6ec"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/execution_feedback.json",
+          "sha256": "3e92cfd149cb7677baf6ffda1beb53d33a874c36939f4dc7cc72f6a8329c58ab"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/native_result.json",
+          "sha256": "dda365b394d89eae4d1d92f98d73ebd258993d04c7e2050f7bd50519846df00d"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-021/attempt-001/wire.jsonl",
+          "sha256": "c0deb0781635d6554a3e1135ce4e3428eddd2756ff51bfd26fd41769f1c402ac"
+        }
+      ],
+      "wall_seconds": 19.07800000000043,
+      "finished": "2026-10-18T13:55:01.259566+00:00"
+    },
+    {
+      "game_index": 22,
+      "seed": 330022,
+      "attempt": "outputs\\phase3\\collection\\main-003\\game-022\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T13:55:01.272763+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 1531,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 18
+      },
+      "cards": {
+        "26000014": 3,
+        "26000003": 2,
+        "28000001": 2,
+        "27000000": 3,
+        "28000000": 1,
+        "26000000": 3,
+        "26000001": 2,
+        "26000018": 2
+      },
+      "requests": 18,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "1e947a85a381171ab3bdf16d4c2ab6ef501a20cd45bfeb9fead0c4cfe967eee0",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/initialization.json",
+          "sha256": "d65de09f7f3abe7365efb09a2aaf354c545cf31bb50385b272dd671ffaa8928e"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/states.jsonl",
+          "sha256": "6b402fe69f8c576131dc62fa7f35fffd9fe754699d92c00f7c47816d72f141a4"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/decisions.jsonl",
+          "sha256": "a776eb3612d1dc92bdf25f437ea23e55fa30753d815ced5af019bcf4cfa0f324"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/journal.json",
+          "sha256": "aecefda75ffcd26b60d42d7524bead01ff4ddaf2610902a43d1ebba7e88aaec1"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/execution_feedback.json",
+          "sha256": "80f3507cc50848068c9b4b7e9519cbe527c77a09d80bee8c568960122075d924"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/native_result.json",
+          "sha256": "e27e39aa99d4aa29988aebee0d399b39698c8b6798105570c031cfd7ef83cc29"
+        },
+        {
+          "path": "outputs/phase3/collection/main-003/game-022/attempt-001/wire.jsonl",
+          "sha256": "697c20bfd3455468e87219d7a5052272ba1bd166f70fd9978d841e551649e61f"
+        }
+      ],
+      "wall_seconds": 13.063000000000102,
+      "finished": "2026-10-18T13:55:14.343144+00:00"
+    }
+  ],
+  "started": "2026-10-18T13:48:38.329492+00:00"
+}

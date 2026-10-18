@@ -1,0 +1,14 @@
+{
+  "game_index": 2,
+  "seed": 320002,
+  "attempt": "outputs\\phase3\\collection\\main-002\\game-002\\attempt-002",
+  "status": "failed",
+  "started": "2026-10-18T13:44:03.899928+00:00",
+  "natural_terminal": false,
+  "truncated": false,
+  "source_kind": "native_self_collected_public_rule_teacher",
+  "failure": "ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\研究生\\Clash Royal\\royale_phase3\\collection.py\", line 41, in collect\n    state=backend.reset(initialization)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\backend.py\", line 255, in reset\n    status = self._request('status')\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\backend.py\", line 208, in _request\n    response = self.client.request(command); record['response'] = deepcopy(response)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\probe.py\", line 52, in request\n    self.connect()\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\probe.py\", line 38, in connect\n    self.connection=socket.create_connection(self.address,timeout=self.timeout)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\63047\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\socket.py\", line 850, in create_connection\n    raise exceptions[0]\n  File \"C:\\Users\\63047\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\socket.py\", line 835, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\n",
+  "wall_seconds": 4.203000000000429,
+  "finished": "2026-10-18T13:44:08.101028+00:00"
+}

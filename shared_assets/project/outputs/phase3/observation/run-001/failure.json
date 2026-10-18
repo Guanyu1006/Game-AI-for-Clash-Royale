@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "error": "ValueError: Invalid entity y",
+  "command": ".venv-phase2-core/Scripts/python.exe -B outputs/phase3/observation/build_evidence.py --run-id run-001",
+  "stage": "saved native research entity projection",
+  "cause": "Research entity coordinates incorrectly reused legal deployment rectangle. Actual captured entity y exceeded31999.",
+  "resolution": "Preserve signed measured entity coordinates; deployment action bounds remain separate. Retry uses a fresh run ID."
+}

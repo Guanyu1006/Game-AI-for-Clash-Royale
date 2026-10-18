@@ -1,0 +1,1346 @@
+{
+  "schema": "royale-phase2-bc-learning-curve.v1",
+  "profile": "hard_e",
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.48913421714779576,
+      "validation_loss": 0.7659125655937195,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9383515747152111,
+        "wait_precision": 0.9991266375545852,
+        "wait_recall": 0.9391044776119403,
+        "play_precision": 0.023923444976076555,
+        "play_recall": 0.6451612903225806,
+        "card_accuracy_on_actual_play": 0.6129032258064516,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 4226.728646445659,
+          "mae_y": 4962.302272431312,
+          "mean_euclidean": 7003.991530533208
+        },
+        "position_when_card_correct": {
+          "count": 19,
+          "mae_x": 4369.602050213437,
+          "mae_y": 5065.915052677456,
+          "mean_euclidean": 7165.55813406687
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9444444444444444,
+        "wait_precision": 0.9968464206874803,
+        "wait_recall": 0.9475419664268585,
+        "play_precision": 0.011299435028248588,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.08333333333333333,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 6280.111689057201,
+          "mae_y": 7237.655079307656,
+          "mean_euclidean": 10287.788427160114
+        },
+        "position_when_card_correct": {
+          "count": 1,
+          "mae_x": 4334.143254831433,
+          "mae_y": 12307.818112194538,
+          "mean_euclidean": 13048.646843112305
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2949762994492504,
+      "validation_loss": 1.1199248162615298,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9735686099322463,
+        "wait_precision": 0.9989291724032431,
+        "wait_recall": 0.9746268656716418,
+        "play_precision": 0.047619047619047616,
+        "play_recall": 0.5483870967741935,
+        "card_accuracy_on_actual_play": 0.5161290322580645,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 3659.6553444838332,
+          "mae_y": 4637.385250206917,
+          "mean_euclidean": 6364.0868600862605
+        },
+        "position_when_card_correct": {
+          "count": 16,
+          "mae_x": 3070.6089798947796,
+          "mae_y": 4826.241408614442,
+          "mean_euclidean": 6085.720904849286
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9719235364396654,
+        "wait_precision": 0.9966299019607843,
+        "wait_recall": 0.9751199040767387,
+        "play_precision": 0.011904761904761904,
+        "play_recall": 0.08333333333333333,
+        "card_accuracy_on_actual_play": 0.08333333333333333,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 7359.212336591135,
+          "mae_y": 7110.790716484189,
+          "mean_euclidean": 10958.798263121682
+        },
+        "position_when_card_correct": {
+          "count": 1,
+          "mae_x": 3453.0221743136644,
+          "mae_y": 11692.97488462925,
+          "mean_euclidean": 12192.170593822591
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.27041118352321525,
+      "validation_loss": 1.116023378367424,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9488496761224033,
+        "wait_precision": 0.9997641509433962,
+        "wait_recall": 0.9490298507462687,
+        "play_precision": 0.03938115330520394,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.8709677419354839,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 3259.7178127948314,
+          "mae_y": 4354.128496207537,
+          "mean_euclidean": 5866.267098795874
+        },
+        "position_when_card_correct": {
+          "count": 27,
+          "mae_x": 3090.8293810381933,
+          "mae_y": 4112.383189478406,
+          "mean_euclidean": 5617.411318196694
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9507168458781362,
+        "wait_precision": 0.9968661861485427,
+        "wait_recall": 0.9535371702637889,
+        "play_precision": 0.012738853503184714,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 7916.570845914383,
+          "mae_y": 7366.675314495961,
+          "mean_euclidean": 11574.751852438892
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5438.862716011703,
+          "mae_y": 6271.021370649338,
+          "mean_euclidean": 9947.709664599535
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.24134090733487307,
+      "validation_loss": 1.3139743328356743,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9485518576427667,
+        "wait_precision": 0.9997640767536962,
+        "wait_recall": 0.9487313432835821,
+        "play_precision": 0.039160839160839164,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.8709677419354839,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 2861.4419210995397,
+          "mae_y": 3988.599507180914,
+          "mean_euclidean": 5310.940606738392
+        },
+        "position_when_card_correct": {
+          "count": 27,
+          "mae_x": 2798.905874433341,
+          "mae_y": 4055.39759641665,
+          "mean_euclidean": 5376.319416863108
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9492234169653524,
+        "wait_precision": 0.9971733668341709,
+        "wait_recall": 0.9517386091127098,
+        "play_precision": 0.018292682926829267,
+        "play_recall": 0.25,
+        "card_accuracy_on_actual_play": 0.25,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8647.5476147905,
+          "mae_y": 7754.988950011631,
+          "mean_euclidean": 12535.749795493504
+        },
+        "position_when_card_correct": {
+          "count": 3,
+          "mae_x": 4822.170803626378,
+          "mae_y": 6699.280870219071,
+          "mean_euclidean": 9855.325370635679
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.20676159371981576,
+      "validation_loss": 1.43922667396307,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9441590350681259,
+        "wait_precision": 0.9998419596997234,
+        "wait_recall": 0.9442537313432836,
+        "play_precision": 0.037371134020618556,
+        "play_recall": 0.9354838709677419,
+        "card_accuracy_on_actual_play": 0.9032258064516129,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 3013.849773142607,
+          "mae_y": 3773.920068494735,
+          "mean_euclidean": 5134.45913439191
+        },
+        "position_when_card_correct": {
+          "count": 28,
+          "mae_x": 2917.994164513158,
+          "mae_y": 3730.8584559123433,
+          "mean_euclidean": 5049.430372119134
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9686379928315412,
+        "wait_precision": 0.9969240233774224,
+        "wait_recall": 0.9715227817745803,
+        "play_precision": 0.020618556701030927,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 7934.6410240319865,
+          "mae_y": 7935.255498334765,
+          "mean_euclidean": 11999.47701633598
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5386.629865653813,
+          "mae_y": 6244.452834486961,
+          "mean_euclidean": 9850.220157740121
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.20228336993468665,
+      "validation_loss": 1.897318297022581,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9583798674707765,
+        "wait_precision": 0.9996887159533074,
+        "wait_recall": 0.9586567164179104,
+        "play_precision": 0.04647160068846816,
+        "play_recall": 0.8709677419354839,
+        "card_accuracy_on_actual_play": 0.8387096774193549,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 2630.1427275634583,
+          "mae_y": 3412.872162751613,
+          "mean_euclidean": 4579.308386074635
+        },
+        "position_when_card_correct": {
+          "count": 26,
+          "mae_x": 2440.846337350515,
+          "mae_y": 3259.560543644887,
+          "mean_euclidean": 4335.481739713252
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9823775388291517,
+        "wait_precision": 0.9969669396420989,
+        "wait_recall": 0.9853117505995204,
+        "play_precision": 0.0392156862745098,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8384.751754148552,
+          "mae_y": 8003.3661405270295,
+          "mean_euclidean": 12222.50311386941
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5428.598472379148,
+          "mae_y": 6342.434086441994,
+          "mean_euclidean": 9761.297676379723
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.182966514130386,
+      "validation_loss": 1.9352030024790763,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9574119574119574,
+        "wait_precision": 0.9996884007166783,
+        "wait_recall": 0.9576865671641791,
+        "play_precision": 0.045454545454545456,
+        "play_recall": 0.8709677419354839,
+        "card_accuracy_on_actual_play": 0.8387096774193549,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 2595.479870599124,
+          "mae_y": 3230.460885861228,
+          "mean_euclidean": 4354.547415486989
+        },
+        "position_when_card_correct": {
+          "count": 26,
+          "mae_x": 2356.406629642615,
+          "mae_y": 2971.4347895670394,
+          "mean_euclidean": 3997.21016758083
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.974910394265233,
+        "wait_precision": 0.9969437652811736,
+        "wait_recall": 0.9778177458033573,
+        "play_precision": 0.02631578947368421,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8273.676384760687,
+          "mae_y": 8019.604560901721,
+          "mean_euclidean": 12049.22745318285
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5369.192452542484,
+          "mae_y": 6198.981633588672,
+          "mean_euclidean": 9137.231884559273
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.18000781215205533,
+      "validation_loss": 2.1292861457395555,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9574864120318666,
+        "wait_precision": 0.9997662823309442,
+        "wait_recall": 0.9576865671641791,
+        "play_precision": 0.047058823529411764,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.8709677419354839,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 2086.295857586688,
+          "mae_y": 2970.937482883853,
+          "mean_euclidean": 3856.4473971277002
+        },
+        "position_when_card_correct": {
+          "count": 27,
+          "mae_x": 1958.455223997986,
+          "mae_y": 2646.5376550069564,
+          "mean_euclidean": 3543.011821534045
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9823775388291517,
+        "wait_precision": 0.9969669396420989,
+        "wait_recall": 0.9853117505995204,
+        "play_precision": 0.0392156862745098,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8828.226263199002,
+          "mae_y": 8202.720837444067,
+          "mean_euclidean": 12645.907450831408
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5352.37271784991,
+          "mae_y": 6178.996582329273,
+          "mean_euclidean": 9605.211834482852
+        }
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.17794689569964786,
+      "validation_loss": 2.2368104199266434,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9537636810364083,
+        "wait_precision": 0.9997653683716565,
+        "wait_recall": 0.9539552238805971,
+        "play_precision": 0.043410852713178294,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.8709677419354839,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 2082.712443734369,
+          "mae_y": 2701.9251939404394,
+          "mean_euclidean": 3605.3030370299107
+        },
+        "position_when_card_correct": {
+          "count": 27,
+          "mae_x": 1942.171613232957,
+          "mae_y": 2426.102266414298,
+          "mean_euclidean": 3315.7607994347645
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9823775388291517,
+        "wait_precision": 0.9969669396420989,
+        "wait_recall": 0.9853117505995204,
+        "play_precision": 0.0392156862745098,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8534.665363928923,
+          "mae_y": 8380.191379522284,
+          "mean_euclidean": 12569.720193381829
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5165.6946364715695,
+          "mae_y": 6358.781460702419,
+          "mean_euclidean": 9419.767980542198
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.1590536288865432,
+      "validation_loss": 2.3313827024316787,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9542848633757725,
+        "wait_precision": 0.999765478424015,
+        "wait_recall": 0.9544029850746268,
+        "play_precision": 0.04381846635367762,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.9032258064516129,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1922.5098245254446,
+          "mae_y": 2538.4718162609684,
+          "mean_euclidean": 3391.5804141309914
+        },
+        "position_when_card_correct": {
+          "count": 28,
+          "mae_x": 1917.3126442145024,
+          "mae_y": 2555.9298600756697,
+          "mean_euclidean": 3411.2895789595564
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9823775388291517,
+        "wait_precision": 0.9969669396420989,
+        "wait_recall": 0.9853117505995204,
+        "play_precision": 0.0392156862745098,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 9103.652011447897,
+          "mae_y": 8476.711727552116,
+          "mean_euclidean": 13122.938605462854
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5294.812759913504,
+          "mae_y": 6427.232156634331,
+          "mean_euclidean": 10107.059817856092
+        }
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.15765332367208676,
+      "validation_loss": 2.372153410127163,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9536147717965899,
+        "wait_precision": 0.9997653316645807,
+        "wait_recall": 0.9538059701492537,
+        "play_precision": 0.04327666151468315,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.8709677419354839,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1753.0437161374477,
+          "mae_y": 2387.5156115485775,
+          "mean_euclidean": 3094.3500389368965
+        },
+        "position_when_card_correct": {
+          "count": 27,
+          "mae_x": 1613.0526130872745,
+          "mae_y": 2062.8277420114587,
+          "mean_euclidean": 2758.352390299572
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9823775388291517,
+        "wait_precision": 0.9969669396420989,
+        "wait_recall": 0.9853117505995204,
+        "play_precision": 0.0392156862745098,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8569.69369338577,
+          "mae_y": 8453.42078811427,
+          "mean_euclidean": 12661.871490688596
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5096.430168680847,
+          "mae_y": 6400.664574116468,
+          "mean_euclidean": 9222.864376621712
+        }
+      }
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.15236905485318253,
+      "validation_loss": 2.531116959209442,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9494453130816767,
+        "wait_precision": 0.9998428414269999,
+        "wait_recall": 0.9495522388059702,
+        "play_precision": 0.04113475177304964,
+        "play_recall": 0.9354838709677419,
+        "card_accuracy_on_actual_play": 0.9032258064516129,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1528.1105390998625,
+          "mae_y": 2189.602873844485,
+          "mean_euclidean": 2816.8716451813384
+        },
+        "position_when_card_correct": {
+          "count": 28,
+          "mae_x": 1409.8232698036093,
+          "mae_y": 1970.8178966449839,
+          "mean_euclidean": 2584.010271757587
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.983273596176822,
+        "wait_precision": 0.996969696969697,
+        "wait_recall": 0.9862110311750599,
+        "play_precision": 0.041666666666666664,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8977.927230322113,
+          "mae_y": 8458.385381984213,
+          "mean_euclidean": 12969.633103395665
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5213.59515530616,
+          "mae_y": 6591.711040556431,
+          "mean_euclidean": 9546.880415256399
+        }
+      }
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.15021263565405146,
+      "validation_loss": 2.6207435631227494,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9487752215024943,
+        "wait_precision": 0.9999213527329925,
+        "wait_recall": 0.9488059701492537,
+        "play_precision": 0.04189944134078212,
+        "play_recall": 0.967741935483871,
+        "card_accuracy_on_actual_play": 0.9354838709677419,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1563.5660745722632,
+          "mae_y": 2101.6074489355087,
+          "mean_euclidean": 2750.8084757451857
+        },
+        "position_when_card_correct": {
+          "count": 29,
+          "mae_x": 1407.2549925626352,
+          "mae_y": 1927.0187164452568,
+          "mean_euclidean": 2525.383762443952
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.983273596176822,
+        "wait_precision": 0.996969696969697,
+        "wait_recall": 0.9862110311750599,
+        "play_precision": 0.041666666666666664,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8697.364219641933,
+          "mae_y": 8468.284370981157,
+          "mean_euclidean": 12775.769986440782
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5233.1393265500665,
+          "mae_y": 6490.977570533752,
+          "mean_euclidean": 9224.44577242083
+        }
+      }
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.1475183912470711,
+      "validation_loss": 2.6669632662010194,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9460204005658551,
+        "wait_precision": 0.9999211169835135,
+        "wait_recall": 0.9459701492537314,
+        "play_precision": 0.03978779840848806,
+        "play_recall": 0.967741935483871,
+        "card_accuracy_on_actual_play": 0.967741935483871,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1438.4680130029878,
+          "mae_y": 1914.313419844835,
+          "mean_euclidean": 2525.462812236124
+        },
+        "position_when_card_correct": {
+          "count": 30,
+          "mae_x": 1465.5876843556762,
+          "mae_y": 1947.2450485358636,
+          "mean_euclidean": 2572.3976293904493
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9802867383512545,
+        "wait_precision": 0.9972627737226277,
+        "wait_recall": 0.9829136690647482,
+        "play_precision": 0.05,
+        "play_recall": 0.25,
+        "card_accuracy_on_actual_play": 0.25,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 9293.073035591593,
+          "mae_y": 8643.861928698918,
+          "mean_euclidean": 13434.589847296307
+        },
+        "position_when_card_correct": {
+          "count": 3,
+          "mae_x": 6264.121627276142,
+          "mae_y": 6244.9093123277025,
+          "mean_euclidean": 10118.915467562809
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.14015086222883294,
+      "validation_loss": 2.653573827357292,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9460204005658551,
+        "wait_precision": 0.9999211169835135,
+        "wait_recall": 0.9459701492537314,
+        "play_precision": 0.03978779840848806,
+        "play_recall": 0.967741935483871,
+        "card_accuracy_on_actual_play": 0.967741935483871,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1263.2833806603185,
+          "mae_y": 1759.8187633070254,
+          "mean_euclidean": 2269.6089269469066
+        },
+        "position_when_card_correct": {
+          "count": 30,
+          "mae_x": 1271.5322393303115,
+          "mae_y": 1778.636248104771,
+          "mean_euclidean": 2292.974746336657
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9802867383512545,
+        "wait_precision": 0.9972627737226277,
+        "wait_recall": 0.9829136690647482,
+        "play_precision": 0.05,
+        "play_recall": 0.25,
+        "card_accuracy_on_actual_play": 0.25,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 9062.234925661236,
+          "mae_y": 8578.431663354238,
+          "mean_euclidean": 13197.51873680712
+        },
+        "position_when_card_correct": {
+          "count": 3,
+          "mae_x": 6539.889069969456,
+          "mae_y": 6094.679466853539,
+          "mean_euclidean": 9959.392114573866
+        }
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.14674353468975063,
+      "validation_loss": 2.9406512999629975,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9606879606879607,
+        "wait_precision": 0.9997670445721385,
+        "wait_recall": 0.960820895522388,
+        "play_precision": 0.05063291139240506,
+        "play_recall": 0.9032258064516129,
+        "card_accuracy_on_actual_play": 0.9032258064516129,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1258.7750713935782,
+          "mae_y": 1645.5334510101427,
+          "mean_euclidean": 2178.1757861140063
+        },
+        "position_when_card_correct": {
+          "count": 28,
+          "mae_x": 1246.3709563841778,
+          "mae_y": 1627.1047618804234,
+          "mean_euclidean": 2165.2543373039557
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.983273596176822,
+        "wait_precision": 0.996969696969697,
+        "wait_recall": 0.9862110311750599,
+        "play_precision": 0.041666666666666664,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 9361.877351287752,
+          "mae_y": 8633.859548742572,
+          "mean_euclidean": 13491.238242335354
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5411.597430430353,
+          "mae_y": 6788.104591786861,
+          "mean_euclidean": 10317.441334317351
+        }
+      }
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.14322604414099074,
+      "validation_loss": 2.6660003786993025,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9444568535477627,
+        "wait_precision": 0.9999209860935525,
+        "wait_recall": 0.9444029850746268,
+        "play_precision": 0.03870967741935484,
+        "play_recall": 0.967741935483871,
+        "card_accuracy_on_actual_play": 0.967741935483871,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1227.6019811284157,
+          "mae_y": 1613.7833027618547,
+          "mean_euclidean": 2138.1109295881465
+        },
+        "position_when_card_correct": {
+          "count": 30,
+          "mae_x": 1226.9780910010138,
+          "mae_y": 1645.2131156653165,
+          "mean_euclidean": 2162.200763535227
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9802867383512545,
+        "wait_precision": 0.9972627737226277,
+        "wait_recall": 0.9829136690647482,
+        "play_precision": 0.05,
+        "play_recall": 0.25,
+        "card_accuracy_on_actual_play": 0.25,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8952.785242243359,
+          "mae_y": 8601.414972965917,
+          "mean_euclidean": 13201.144741000053
+        },
+        "position_when_card_correct": {
+          "count": 3,
+          "mae_x": 6822.121886506677,
+          "mae_y": 6200.235199302435,
+          "mean_euclidean": 10229.067945239063
+        }
+      }
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.13724863396624915,
+      "validation_loss": 2.80291645316124,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9494453130816767,
+        "wait_precision": 0.9999214083621503,
+        "wait_recall": 0.9494776119402986,
+        "play_precision": 0.042432814710042434,
+        "play_recall": 0.967741935483871,
+        "card_accuracy_on_actual_play": 0.9354838709677419,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1324.725404156312,
+          "mae_y": 1607.7633140971584,
+          "mean_euclidean": 2208.4730131002643
+        },
+        "position_when_card_correct": {
+          "count": 29,
+          "mae_x": 1170.1244030080993,
+          "mae_y": 1468.0435876414695,
+          "mean_euclidean": 2006.9715221275756
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.983273596176822,
+        "wait_precision": 0.996969696969697,
+        "wait_recall": 0.9862110311750599,
+        "play_precision": 0.041666666666666664,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8750.536416814974,
+          "mae_y": 8558.24618780613,
+          "mean_euclidean": 13036.398063051894
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5164.149233497679,
+          "mae_y": 6957.765579998493,
+          "mean_euclidean": 9618.644690197874
+        }
+      }
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.136960450919301,
+      "validation_loss": 2.884827277266979,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9465415829052193,
+        "wait_precision": 0.999921160517187,
+        "wait_recall": 0.9464925373134329,
+        "play_precision": 0.040160642570281124,
+        "play_recall": 0.967741935483871,
+        "card_accuracy_on_actual_play": 0.967741935483871,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1214.1296303560657,
+          "mae_y": 1512.5073012988414,
+          "mean_euclidean": 2034.2687310285876
+        },
+        "position_when_card_correct": {
+          "count": 30,
+          "mae_x": 1223.4329172680775,
+          "mae_y": 1550.1502702285845,
+          "mean_euclidean": 2068.3938774451262
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.983273596176822,
+        "wait_precision": 0.996969696969697,
+        "wait_recall": 0.9862110311750599,
+        "play_precision": 0.041666666666666664,
+        "play_recall": 0.16666666666666666,
+        "card_accuracy_on_actual_play": 0.16666666666666666,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 8838.546383081624,
+          "mae_y": 8610.527761531373,
+          "mean_euclidean": 13152.559456153233
+        },
+        "position_when_card_correct": {
+          "count": 2,
+          "mae_x": 5016.956439487636,
+          "mae_y": 7171.350480884314,
+          "mean_euclidean": 9808.056776491718
+        }
+      }
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.128299060187698,
+      "validation_loss": 2.9948885008955,
+      "train": {
+        "samples": 13431,
+        "whole_source_episodes": 9,
+        "wait_labels": 13400,
+        "play_labels": 31,
+        "slot_accuracy": 0.9583798674707765,
+        "wait_precision": 0.9998442973919813,
+        "wait_recall": 0.9584328358208956,
+        "play_precision": 0.04948805460750853,
+        "play_recall": 0.9354838709677419,
+        "card_accuracy_on_actual_play": 0.9354838709677419,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 8039,
+          "at_least_one_play_available": 5392
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 31,
+          "mae_x": 1087.8754884518924,
+          "mae_y": 1455.8291315542112,
+          "mean_euclidean": 1931.2096569407418
+        },
+        "position_when_card_correct": {
+          "count": 29,
+          "mae_x": 1076.32256361688,
+          "mae_y": 1400.7295373174652,
+          "mean_euclidean": 1883.1489434084874
+        }
+      },
+      "validation": {
+        "samples": 3348,
+        "whole_source_episodes": 2,
+        "wait_labels": 3336,
+        "play_labels": 12,
+        "slot_accuracy": 0.9778972520908005,
+        "wait_precision": 0.9972560975609757,
+        "wait_recall": 0.980515587529976,
+        "play_precision": 0.04411764705882353,
+        "play_recall": 0.25,
+        "card_accuracy_on_actual_play": 0.25,
+        "mask_label_coverage": 1.0,
+        "action_choice_counts": {
+          "forced_wait_only_mask": 2727,
+          "at_least_one_play_available": 621
+        },
+        "coordinate_units": "native_requested_coordinate; not impact/entity position",
+        "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+        "position_on_all_actual_play": {
+          "count": 12,
+          "mae_x": 9072.871886232248,
+          "mae_y": 8603.554792314768,
+          "mean_euclidean": 13379.330638151985
+        },
+        "position_when_card_correct": {
+          "count": 3,
+          "mae_x": 6902.419186924894,
+          "mae_y": 6433.6311113238335,
+          "mean_euclidean": 10677.760771826275
+        }
+      }
+    }
+  ]
+}

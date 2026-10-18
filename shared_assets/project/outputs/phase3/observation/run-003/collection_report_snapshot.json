@@ -1,0 +1,156 @@
+{
+  "schema": "phase3-native-collection.v1",
+  "configuration_sha256": "476630cbdee95e5442f90a6bde49506c2d3b884b848f6ff355ceefafd4052430",
+  "games": [
+    {
+      "game_index": 0,
+      "seed": 320000,
+      "attempt": "outputs\\phase3\\collection\\main-002\\game-000\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T06:35:57.531779+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 3591,
+      "winner_owner": 0,
+      "crowns": [
+        3,
+        0
+      ],
+      "consumptions": {
+        "consumed": 52
+      },
+      "cards": {
+        "26000018": 6,
+        "27000000": 8,
+        "28000000": 6,
+        "28000001": 8,
+        "26000001": 8,
+        "26000014": 6,
+        "26000000": 7,
+        "26000003": 3
+      },
+      "requests": 52,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "76b585ec01ad39de3193eabd04ede350d051af0ed6163548dd862125a57dd720",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/initialization.json",
+          "sha256": "c5cea790bff97c2582f9b39c55841fc7318fe69a54bc0249c2f82d6120148df9"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/states.jsonl",
+          "sha256": "8f4b95c80dad9daaec00e263c7de9bf93809f814813e780886e534f129c383e5"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/decisions.jsonl",
+          "sha256": "cdb47e3768b4506e311350f8be92f9eeb676bf7fa7f3c70643590b64bbc2f6b5"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/journal.json",
+          "sha256": "7ccf3c82e33f691baaba462b89643a057d988329e593f6b55054dbc6eddd9eb0"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/execution_feedback.json",
+          "sha256": "d5b1a40e4582304dbff01f2c0006e9ea80b5eb883765f347f2784bf1f123fb89"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/native_result.json",
+          "sha256": "a93bb41000b81a7a0df66e01b9f3976cd12ddf70188d581375f8637a9886a596"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-000/attempt-001/wire.jsonl",
+          "sha256": "80b6bfd6722d3fa4acfaa230ffb76d6c9a24689479430b56723fab7b7fc1c33e"
+        }
+      ],
+      "wall_seconds": 31.42200000002049,
+      "finished": "2026-10-18T06:36:28.952958+00:00"
+    },
+    {
+      "game_index": 1,
+      "seed": 320001,
+      "attempt": "outputs\\phase3\\collection\\main-002\\game-001\\attempt-001",
+      "status": "completed",
+      "started": "2026-10-18T06:36:29.046607+00:00",
+      "natural_terminal": true,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": null,
+      "last_tick": 2235,
+      "winner_owner": 1,
+      "crowns": [
+        0,
+        3
+      ],
+      "consumptions": {
+        "consumed": 25
+      },
+      "cards": {
+        "27000000": 3,
+        "28000000": 5,
+        "26000014": 3,
+        "26000018": 3,
+        "26000000": 4,
+        "28000001": 3,
+        "26000001": 3,
+        "26000003": 1
+      },
+      "requests": 25,
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "semantic_trajectory_hash": "680dc87ec642dd1c0d67aabff17a562ca07db5c4f22de73509067ccd1e902175",
+      "artifacts": [
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/initialization.json",
+          "sha256": "5b30e81f0969a78163b7481b8a2aaa6b7c12d048ab086e07f42e7bc57220a571"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/states.jsonl",
+          "sha256": "7014b31349e4184ac94039b26f04b7ddaaf46f485d37dc8420f237116018e666"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/decisions.jsonl",
+          "sha256": "b7e6665821159e8a1ec8f82d78f767d12cc8b84981111b746b3b5a17de9edc8b"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/journal.json",
+          "sha256": "9409e395681bc9797a87efa5e3e30af8efb0069dc2a7f09dcf3fd13a56d6f357"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/execution_feedback.json",
+          "sha256": "87da1fb0eb1eb6d4a9e1e31c74c57ae9e4ccfa2ec0b6c9902f31fd4c1d530457"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/native_result.json",
+          "sha256": "1f1d0f8ae3ac6211c21377c1a993ff94f18059d6bfe7fe4c4b250029ec4f4a85"
+        },
+        {
+          "path": "outputs/phase3/collection/main-002/game-001/attempt-001/wire.jsonl",
+          "sha256": "1c319624f1f9af569122761317bfb8dbd81eea1dd494a05980f956daa00ecfa3"
+        }
+      ],
+      "wall_seconds": 92.96899999998277,
+      "finished": "2026-10-18T06:38:02.031234+00:00"
+    },
+    {
+      "game_index": 2,
+      "seed": 320002,
+      "attempt": "outputs\\phase3\\collection\\main-002\\game-002\\attempt-002",
+      "status": "failed",
+      "started": "2026-10-18T13:44:03.899928+00:00",
+      "natural_terminal": false,
+      "truncated": false,
+      "source_kind": "native_self_collected_public_rule_teacher",
+      "failure": "ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。",
+      "traceback": "Traceback (most recent call last):\n  File \"D:\\研究生\\Clash Royal\\royale_phase3\\collection.py\", line 41, in collect\n    state=backend.reset(initialization)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\backend.py\", line 255, in reset\n    status = self._request('status')\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\backend.py\", line 208, in _request\n    response = self.client.request(command); record['response'] = deepcopy(response)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\probe.py\", line 52, in request\n    self.connect()\n  File \"D:\\研究生\\Clash Royal\\royale_phase2\\probe.py\", line 38, in connect\n    self.connection=socket.create_connection(self.address,timeout=self.timeout)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\63047\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\socket.py\", line 850, in create_connection\n    raise exceptions[0]\n  File \"C:\\Users\\63047\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\socket.py\", line 835, in create_connection\n    sock.connect(sa)\nConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\n",
+      "wall_seconds": 4.203000000000429,
+      "finished": "2026-10-18T13:44:08.101028+00:00"
+    }
+  ],
+  "started": "2026-10-18T13:43:55.831153+00:00",
+  "stop_reason": "native_failure_requires_explicit_recovery",
+  "finished": "2026-10-18T13:44:08.112574+00:00",
+  "requested_games": 50,
+  "attempted": 3,
+  "natural_terminal_games": 2
+}

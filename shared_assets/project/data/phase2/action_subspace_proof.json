@@ -1,0 +1,96 @@
+{
+  "schema": "royale-phase2-action-subspace-proof.v1",
+  "subspace": "wait_or_arena_spell.v1",
+  "version_fingerprint_sha256": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+  "catalog_sha256": "7c18d94eac62883ead96f52b362d93da6e2abdf82f64614a2d26f80d6fcb885a",
+  "catalog_reference": {
+    "path": "third_party/phase2/firstlight/native_runner/data/competitive/card_specs.json.gz",
+    "sha256": "7c18d94eac62883ead96f52b362d93da6e2abdf82f64614a2d26f80d6fcb885a"
+  },
+  "allowed_card_ids": [
+    28000000,
+    28000001
+  ],
+  "bounds": {
+    "x": [
+      0,
+      17999
+    ],
+    "y": [
+      0,
+      31999
+    ]
+  },
+  "actor_dependencies": [
+    "own_current_hand",
+    "own_current_cost",
+    "own_elixir",
+    "command_ready",
+    "public_tick"
+  ],
+  "checks": {
+    "native_positive": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/fixtures/native-v1/native_positive.json",
+          "sha256": "8f0d8273dab365f9402ebbf8512b0a2a532aa0038fe49f2341981bd2ec76d94d"
+        },
+        {
+          "path": "outputs/phase2/fixtures/native-v1/rules.json",
+          "sha256": "fb1d9742207a7190217a4e9ca66a81d58d1b619b433cac810fdb20205329b64a"
+        }
+      ]
+    },
+    "native_negative": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/fixtures/native-v1/native_negative.json",
+          "sha256": "9bc0e86385f0a4220828f9793ff1d7d84c5679a59a95b741d921bae412e7f337"
+        },
+        {
+          "path": "outputs/phase2/fixtures/native-v1/rules.json",
+          "sha256": "fb1d9742207a7190217a4e9ca66a81d58d1b619b433cac810fdb20205329b64a"
+        }
+      ]
+    },
+    "enemy_private_perturbation": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/fixtures/native-v1/enemy_private_perturbation.json",
+          "sha256": "fe7069c82e3b540cb15e69ebf509670b837f35c83fe34f620d089f7c697c2062"
+        },
+        {
+          "path": "outputs/phase2/fixtures/native-v1/rules.json",
+          "sha256": "fb1d9742207a7190217a4e9ca66a81d58d1b619b433cac810fdb20205329b64a"
+        },
+        {
+          "path": "outputs/phase2/learning_contracts/subspace_privacy_both_owners.json",
+          "sha256": "70dd6c36af654a2533fef279a4cba5582285df4ef8218cad21731ef103bfbe0d"
+        }
+      ]
+    },
+    "command_ready": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/fixtures/native-v1/command_ready.json",
+          "sha256": "2a1e4b36e02cf3b5f51f14db9d4f2d31a924bfc9279d00013ed64d3de92b9c96"
+        },
+        {
+          "path": "outputs/phase2/fixtures/native-v1/rules.json",
+          "sha256": "fb1d9742207a7190217a4e9ca66a81d58d1b619b433cac810fdb20205329b64a"
+        }
+      ]
+    }
+  },
+  "coordinate_coverage": "Rule-backed continuous integer request rectangle; ten finite native test points per card/owner, not exhaustive enumeration",
+  "limitations": [
+    "No coordinate exhaustive test",
+    "Only two ordinary named spells and WAIT",
+    "No ability or arbitrary troop/building placement legality claim",
+    "Local native/internal evidence; no official trajectory reference"
+  ]
+}

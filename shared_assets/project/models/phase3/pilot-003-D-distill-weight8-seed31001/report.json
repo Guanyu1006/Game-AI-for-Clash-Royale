@@ -1,0 +1,122 @@
+{
+  "schema": "phase3-small-training-report.v1",
+  "created_utc": "2026-10-18T13:54:12.890918+00:00",
+  "configuration": {
+    "path": "models/phase3/pilot-003-D-distill-weight8-seed31001/configuration.json",
+    "sha256": "7e6f6b13cc4f75b78527832fc28b0df4bbabd4ae4027930a8c7942d8a7da9f52"
+  },
+  "checkpoint": {
+    "path": "models/phase3/pilot-003-D-distill-weight8-seed31001/epoch-0002.json",
+    "sha256": "f4427427bcdae7c2a049d7ad17cd304ce7826553ce9da90be79d976f32a02ca0"
+  },
+  "parameter_count": 105381,
+  "completed_epochs": 2,
+  "planned_epochs": 2,
+  "completed": true,
+  "resumed": false,
+  "elapsed_this_invocation_seconds": 1.0519752000000153,
+  "dataset_counts": {
+    "train": 654,
+    "validation": 260,
+    "test": 704
+  },
+  "training_windows": 24,
+  "training_rows_per_epoch": 654,
+  "test_evaluated": false,
+  "best_validation": {
+    "split": "validation",
+    "rows": 260,
+    "eligible_rows": 260,
+    "episodes": 1,
+    "action_nll": 0.27166922848958236,
+    "action_accuracy": 0.7884615384615384,
+    "position_nll_true_slot": 5.840219048892751,
+    "position_on_all_actual_plays": {
+      "predicted_play_denominator": 15,
+      "actual_play_denominator": 17,
+      "mean_native_distance": 11728.793985753717
+    },
+    "position_when_slot_correct": {
+      "count": 5,
+      "mean_native_distance": 8934.673143976359
+    },
+    "position_by_true_card": {
+      "26000018": {
+        "count": 3,
+        "mean_native_distance": 11149.424892288249
+      },
+      "28000001": {
+        "count": 3,
+        "mean_native_distance": 12469.16426938535
+      },
+      "28000000": {
+        "count": 2,
+        "mean_native_distance": 17001.312264818458
+      },
+      "26000001": {
+        "count": 2,
+        "mean_native_distance": 11868.051263561058
+      },
+      "27000000": {
+        "count": 2,
+        "mean_native_distance": 9055.553985791623
+      },
+      "26000000": {
+        "count": 1,
+        "mean_native_distance": 13086.2523283024
+      },
+      "26000003": {
+        "count": 1,
+        "mean_native_distance": 3640.0549446402592
+      },
+      "26000014": {
+        "count": 1,
+        "mean_native_distance": 12500.0
+      }
+    },
+    "event": {
+      "tolerance_ticks": 10,
+      "predicted": 58,
+      "actual": 17,
+      "matched": 15,
+      "precision": 0.25862068965517243,
+      "recall": 0.8823529411764706,
+      "slot_correct_on_time_match": 0.3333333333333333,
+      "mean_abs_error_ticks": 6.0
+    },
+    "contexts": {
+      "only_wait_legal": {
+        "rows": 192,
+        "predicted_play": 0,
+        "actual_play": 0
+      },
+      "can_play": {
+        "rows": 68,
+        "predicted_play": 58,
+        "actual_play": 17
+      }
+    },
+    "opponent": null,
+    "predicted_slot_affordable_rate": 1.0,
+    "prediction_sha256": "3e81aac3096d03612fdce0e7375907725b0a9c51500e01a62b8740aaaa0b620a",
+    "inference_seconds": {
+      "mean": 0.00022512269232580505,
+      "p95": 0.00033502000046610177
+    },
+    "online_offline_exact_match": true,
+    "native_consumed_rejected_unknown": "not_run_offline",
+    "whole_game_win_cycle_lock_key_defense": "not_run_offline",
+    "position_legality": "not_proven_by_affordability_mask",
+    "scope": "teacher-forced observations; recurrent hidden follows actual history; no counterfactual native rollout"
+  },
+  "real_environment_steps_generated": 0,
+  "imagined_steps": 0,
+  "native_closed_loop_status": "not_run_here",
+  "limitations": [
+    "No evidence of policy strength from BC loss",
+    "Fair observation excludes all non-tower entities until visibility is proven",
+    "World auxiliary head is one-step supervision, not validated open-loop dynamics or a planner",
+    "Grid affordability mask does not prove every position legal",
+    "No test-based selection; recurrent burn-in truncates earlier context during training"
+  ]
+}

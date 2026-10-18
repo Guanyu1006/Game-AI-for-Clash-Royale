@@ -1,0 +1,301 @@
+{
+  "schema": "phase3-observation-belief-evidence.v1",
+  "created_utc": "2026-10-18T13:54:08.633405+00:00",
+  "configuration": {
+    "command": "outputs/phase3/observation/build_evidence.py --run-id run-003",
+    "feature_spec": {
+      "schema": "royale-phase3-player-vector.v1",
+      "cards": [
+        26000000,
+        26000001,
+        26000003,
+        26000014,
+        26000018,
+        27000000,
+        28000000,
+        28000001
+      ],
+      "max_entities": 16,
+      "history_steps": 16,
+      "include_entities": true,
+      "include_history": true,
+      "ticks_per_second": 20,
+      "dimension": 688,
+      "widths": {
+        "scalar": 8,
+        "hand": 13,
+        "tower": 6,
+        "entity": 23,
+        "history": 14
+      },
+      "coordinate_convention": "native units; normalized actor-own half on top via 17999-x,31999-y for owner1",
+      "not_encoded": [
+        "native entity IDs",
+        "anonymous track IDs",
+        "generation",
+        "diagnostics",
+        "quality",
+        "paths",
+        "requested positions",
+        "hidden states"
+      ]
+    },
+    "fairness_scope": "All non-tower objects excluded, including own. No caller flag can override.",
+    "unknowns": "Missing float values use zero value and zero known-mask; known zero has known-mask one.",
+    "history": "Actual happened native events only; requested coordinates withheld; opaque identity masks cost.",
+    "belief_default": {
+      "schema": "royale-phase3-public-belief.v1",
+      "version_manifest_sha256": "48bcf651e56e00701180bc6e516e65a0f3a64416e73b8337591e50874b59bcba",
+      "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+      "game_mode": 72000006,
+      "rate_source": "current_manifest_hash_verified_game_modes_and_battle_timelines_csv",
+      "rate_supported": true,
+      "ordinary_resource_only": false,
+      "cycle_inference": "unknown_without_current_native_cycle_evidence",
+      "interval_calibrated": false,
+      "normal_resource_scope": "unknown_resource_modifiers_wide_interval"
+    },
+    "current_csv_rate_schedule": [
+      [
+        0,
+        2400,
+        178
+      ],
+      [
+        2400,
+        4800,
+        357
+      ],
+      [
+        4800,
+        6000,
+        537
+      ]
+    ],
+    "csv_files": [
+      {
+        "path": "third_party/phase2/runtime-assets/full-update/csv_logic/battle_timelines.csv",
+        "sha256": "fc79fccde0bea55d7ec200151a76155e22050a5a6f17eb885f82e69d55d3a999"
+      },
+      {
+        "path": "third_party/phase2/runtime-assets/full-update/csv_logic/game_modes.csv",
+        "sha256": "da2e430e23d36d24de7d334c74b7c2dd1d0038a431271f2fb90b31cdb5e117da"
+      }
+    ],
+    "no_cycle_certification": true
+  },
+  "sources": [
+    {
+      "path": "royale_phase3/observation.py",
+      "sha256": "f151bcd748925e6827c94364e01705a2878e68377c2f61e436d76b83862b0a54"
+    },
+    {
+      "path": "royale_phase3/belief.py",
+      "sha256": "5e34291fbaa02390644303045af4e0da215fa87cd8556df0376c20d12f489e9d"
+    },
+    {
+      "path": "tests_phase3/test_observation.py",
+      "sha256": "733f200a415ca0468bdfee1cec7ee9c8650528ba3169210c37d2a6987dd9383e"
+    },
+    {
+      "path": "tests_phase3/test_belief.py",
+      "sha256": "06a7373a9389f6543f8ff578dab0ba5782ddce0967f47688dfad52542087f7a3"
+    },
+    {
+      "path": "outputs/phase3/observation/build_evidence.py",
+      "sha256": "6f109be3d3548c0cc507faee0f80dfc8a5824a0de51654c71495e6b0d53ce3be"
+    }
+  ],
+  "tests": {
+    "command": [
+      "D:\\研究生\\Clash Royal\\.venv-phase2-core\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "tests_phase3.test_observation",
+      "tests_phase3.test_belief",
+      "-v"
+    ],
+    "exit_code": 0,
+    "log": {
+      "path": "outputs/phase3/observation/run-003/tests.log",
+      "sha256": "85e1b09567ed94967212a6bc158134d50bdb3db990105965e359bee2ff0319e3"
+    }
+  },
+  "saved_native_collection": {
+    "completed_games_checked": 2,
+    "games": [
+      {
+        "game_index": 0,
+        "native_terminal": true,
+        "perspective_inputs_checked": 1404,
+        "private_future_perturbation_invariance_passed": true,
+        "actor_sequence_sha256": "403e55f6f2b290709054b2cd20b33d507f3e1da765d8198af278ba32662fde22",
+        "fair_entity_count": 0,
+        "max_research_entity_count": 37,
+        "max_public_history_events": 52,
+        "inputs": [
+          {
+            "path": "outputs/phase3/collection/main-002/game-000/attempt-001/states.jsonl",
+            "sha256": "8f4b95c80dad9daaec00e263c7de9bf93809f814813e780886e534f129c383e5"
+          },
+          {
+            "path": "outputs/phase3/collection/main-002/game-000/attempt-001/journal.json",
+            "sha256": "7ccf3c82e33f691baaba462b89643a057d988329e593f6b55054dbc6eddd9eb0"
+          },
+          {
+            "path": "outputs/phase3/collection/main-002/game-000/attempt-001/decisions.jsonl",
+            "sha256": "cdb47e3768b4506e311350f8be92f9eeb676bf7fa7f3c70643590b64bbc2f6b5"
+          },
+          {
+            "path": "outputs/phase3/collection/main-002/game-000/attempt-001/initialization.json",
+            "sha256": "c5cea790bff97c2582f9b39c55841fc7318fe69a54bc0249c2f82d6120148df9"
+          }
+        ]
+      },
+      {
+        "game_index": 1,
+        "native_terminal": true,
+        "perspective_inputs_checked": 862,
+        "private_future_perturbation_invariance_passed": true,
+        "actor_sequence_sha256": "043cd1e3cb5360ce81a66a04db3df8c496d89dde6793eb64fcf845baa8edcedf",
+        "fair_entity_count": 0,
+        "max_research_entity_count": 35,
+        "max_public_history_events": 25,
+        "inputs": [
+          {
+            "path": "outputs/phase3/collection/main-002/game-001/attempt-001/states.jsonl",
+            "sha256": "7014b31349e4184ac94039b26f04b7ddaaf46f485d37dc8420f237116018e666"
+          },
+          {
+            "path": "outputs/phase3/collection/main-002/game-001/attempt-001/journal.json",
+            "sha256": "9409e395681bc9797a87efa5e3e30af8efb0069dc2a7f09dcf3fd13a56d6f357"
+          },
+          {
+            "path": "outputs/phase3/collection/main-002/game-001/attempt-001/decisions.jsonl",
+            "sha256": "b7e6665821159e8a1ec8f82d78f767d12cc8b84981111b746b3b5a17de9edc8b"
+          },
+          {
+            "path": "outputs/phase3/collection/main-002/game-001/attempt-001/initialization.json",
+            "sha256": "5b30e81f0969a78163b7481b8a2aaa6b7c12d048ab086e07f42e7bc57220a571"
+          }
+        ]
+      }
+    ],
+    "native_control_used": false,
+    "examples": [
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game000-tick000090-owner0.json",
+        "sha256": "681840c2b8eb49579613f5aa161082b47b3d97ccc2d1ec80907e640ea37b33e3"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game000-tick000140-owner0.json",
+        "sha256": "36690d6d8ad3140c6beda10643112a1e04caa95461b113b0232632a64c0bdbbb"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game000-tick000150-owner0.json",
+        "sha256": "b5abd261a60905ec57ce5a7e2e97f078d57651544d41ace411239a595cfa8073"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game000-tick000160-owner0.json",
+        "sha256": "1e1d19784d2acdc648ade09cc36521f6a1472f8f1f3c832fbf7837c71506aa5d"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game001-tick000090-owner0.json",
+        "sha256": "f623c36f8f81b13da0a49c1b4dd20a291160a5d46501cfee2277136f9ec46f9e"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game001-tick000140-owner0.json",
+        "sha256": "3fae472a0b07876cd953ddcad939489082cbe055090b5fadccf55fec99fcd82f"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game001-tick000150-owner0.json",
+        "sha256": "b1d544fbef940cafe81fc295ccda5dfbf5249fa22c33e07128e9872279a3a304"
+      },
+      {
+        "path": "outputs/phase3/observation/run-003/samples/collection-game001-tick000160-owner0.json",
+        "sha256": "c634e8c7b8f31ed625354bf7ed34f4098105d09b3e8a62579aafb613f15f1e51"
+      }
+    ],
+    "limitation": "Two saved complete native games do not meet the 50-game data requirement; this audit is not new native training or strength evidence."
+  },
+  "historical_bound_pngs": {
+    "session": "D:\\研究生\\Clash Royal\\outputs\\platform_next\\sessions\\20261018T060715.139286Z-human",
+    "inputs": [
+      {
+        "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/states.jsonl",
+        "sha256": "2e173f1e9d45ed8ef2630f4bd399ee98cf00e1519a332acbca8494c3fbc72904"
+      },
+      {
+        "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/battlefield_observations.jsonl",
+        "sha256": "2d5038ed9cdfa72bbffff3d4b37f963a0a557ac824a98206f349d07b63a11235"
+      },
+      {
+        "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/journal.json",
+        "sha256": "c0ece37854743ada46b353c084bb8c8c8552664fb22072be88d424d3dd55dc00"
+      },
+      {
+        "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/human_actions.jsonl",
+        "sha256": "cf12bac97b1ccd73abde21d101a7f9d25fbe562a98a344c4c540ce1e177f656f"
+      },
+      {
+        "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/frames/index.jsonl",
+        "sha256": "77f7a08968e158e079877723cea45bbccadaa5831f4239b8a22bdd499cc49b26"
+      }
+    ],
+    "samples": [
+      {
+        "tick": 90,
+        "sample": {
+          "path": "outputs/phase3/observation/run-003/samples/historical-render-tick000090.json",
+          "sha256": "7a96511fd95a47f6cee4938dd154f24113b5517d70e6e7ba7b01462714bf5f3e"
+        },
+        "png": {
+          "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/frames/000001-tick000090.png",
+          "sha256": "c9941089f9e64134a31b3ac058a2f7280f0a420c8893d5efb07f64d740566fa0"
+        },
+        "native_semantic_sha256": "e073f2e109ba5bf6681c152752d8dd876fdb8951798c54ffdef1a012d28c39db",
+        "same_tick_state_binding_verified": true,
+        "is_exact_human_action_before_state": true
+      },
+      {
+        "tick": 110,
+        "sample": {
+          "path": "outputs/phase3/observation/run-003/samples/historical-render-tick000110.json",
+          "sha256": "052d55805b88e1c6a46cd588587532115e2d5955eafef37a97714a82b0e43070"
+        },
+        "png": {
+          "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/frames/000002-tick000110.png",
+          "sha256": "96e7c22f368f71eb3ef81bcddff12da68c7e5c1e865df2cdb57dafb2de8c8cb8"
+        },
+        "native_semantic_sha256": "cf034ddfc7b640513bcf22c986b30e1ce2fd3c28e6839cff0f1c14382404729a",
+        "same_tick_state_binding_verified": true,
+        "is_exact_human_action_before_state": false
+      },
+      {
+        "tick": 194,
+        "sample": {
+          "path": "outputs/phase3/observation/run-003/samples/historical-render-tick000194.json",
+          "sha256": "01b6763fb067d3b70ec9345b126ba749f120f36a9fc8977f450eff94eee956c7"
+        },
+        "png": {
+          "path": "outputs/platform_next/sessions/20261018T060715.139286Z-human/frames/000003-tick000194.png",
+          "sha256": "356e6caa3ca4ff4e0671c80694df3f8195ac5c8541b4837303f136d447fee3ee"
+        },
+        "native_semantic_sha256": "fc95e7152f80f8658bebd14ca154281d7914d1b423f74db9eb73afe5542b8d25",
+        "same_tick_state_binding_verified": true,
+        "is_exact_human_action_before_state": false
+      }
+    ],
+    "new_native_controller_started": false,
+    "formal_visibility_certificate": false
+  },
+  "acceptance": {
+    "implementation_contract_tests": "passed",
+    "saved_native_projection_and_invariance": "passed",
+    "ordinary_entity_fair_visibility": "not_supported",
+    "new_observation_train_save_load_native_chain": "not_run_by_this_read_only_audit",
+    "opponent_exact_private_hand_elixir": "not_used",
+    "policy_strength": "not_evaluated"
+  }
+}

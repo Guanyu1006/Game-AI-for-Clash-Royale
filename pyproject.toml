@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "royale-ai-lab"
+version = "0.2.0"
+description = "Audited native Clash Royale research platform with closed-loop agents"
+requires-python = ">=3.11"
+dependencies = ["numpy==2.5.4", "torch==2.14.1", "gymnasium==1.4.0"]
+
+[project.optional-dependencies]
+vision = ["numpy>=2.2,<3", "opencv-python>=4.11,<5"]
+yolo = ["ultralytics>=8.3,<9"]
+
+[project.scripts]
+royale-ai = "royale_ai.cli:main"
+royale-lab = "royale_lab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["royale_ai*", "royale_lab*"]
+
+[tool.setuptools.package-data]
+royale_ai = ["data/*.json", "viewer.html"]
+royale_lab = ["web/*.html"]

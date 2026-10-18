@@ -1,0 +1,2 @@
+# Install with the official CPU wheel index, see bootstrap.sh.
+torch==2.6.0+cpu

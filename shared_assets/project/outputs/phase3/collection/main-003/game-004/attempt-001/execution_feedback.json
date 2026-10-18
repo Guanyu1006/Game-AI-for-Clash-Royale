@@ -1,0 +1,6989 @@
+[
+  {
+    "request_id": "phase3:4:0:90",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000003,
+    "x": 14500,
+    "y": 11000,
+    "tick": 91,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 61,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 90,
+      "executeTick": 91
+    },
+    "before_registration": {
+      "tick": 90,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000001,
+        27000000,
+        26000014
+      ],
+      "elixir": 76020
+    },
+    "after_execution": {
+      "tick": 91,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000014,
+        26000003
+      ],
+      "elixir": 26198
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 61,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000003,
+      "registeredAtTick": 90,
+      "queuedAtTick": 90,
+      "executeTick": 91,
+      "resolvedCommandCardId": 26000003,
+      "resolvedCardParameter": 1354775552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000003
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 91,
+    "card_event": [
+      61,
+      91,
+      0,
+      26000003,
+      5
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:90",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000018,
+    "x": 14500,
+    "y": 21000,
+    "tick": 91,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 62,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 90,
+      "executeTick": 91
+    },
+    "before_registration": {
+      "tick": 90,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          3,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ]
+      ],
+      "cycle": [
+        26000003,
+        27000000,
+        26000001,
+        26000000
+      ],
+      "elixir": 76020
+    },
+    "after_execution": {
+      "tick": 91,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000001,
+        26000000,
+        26000018
+      ],
+      "elixir": 36198
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 62,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000018,
+      "registeredAtTick": 90,
+      "queuedAtTick": 90,
+      "executeTick": 91,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 91,
+    "card_event": [
+      62,
+      91,
+      1,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:120",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 28000001,
+    "x": 3500,
+    "y": 6500,
+    "tick": 121,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 63,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 120,
+      "executeTick": 121
+    },
+    "before_registration": {
+      "tick": 120,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000001,
+        26000000,
+        26000018
+      ],
+      "elixir": 41360
+    },
+    "after_execution": {
+      "tick": 121,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        26000000,
+        26000018,
+        28000001
+      ],
+      "elixir": 11538
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 63,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 28000001,
+      "registeredAtTick": 120,
+      "queuedAtTick": 120,
+      "executeTick": 121,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 121,
+    "card_event": [
+      63,
+      121,
+      1,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:170",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000018,
+    "x": 14500,
+    "y": 11000,
+    "tick": 171,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 64,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 170,
+      "executeTick": 171
+    },
+    "before_registration": {
+      "tick": 170,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000014,
+        26000003
+      ],
+      "elixir": 40260
+    },
+    "after_execution": {
+      "tick": 171,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000014,
+        26000003,
+        26000018
+      ],
+      "elixir": 438
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 64,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000018,
+      "registeredAtTick": 170,
+      "queuedAtTick": 170,
+      "executeTick": 171,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 171,
+    "card_event": [
+      64,
+      171,
+      0,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:250",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 21000,
+    "tick": 251,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 65,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 250,
+      "executeTick": 251
+    },
+    "before_registration": {
+      "tick": 250,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        26000000,
+        26000018,
+        28000001
+      ],
+      "elixir": 34500
+    },
+    "after_execution": {
+      "tick": 251,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        26000018,
+        28000001,
+        27000000
+      ],
+      "elixir": 4678
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 65,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 27000000,
+      "registeredAtTick": 250,
+      "queuedAtTick": 250,
+      "executeTick": 251,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 251,
+    "card_event": [
+      65,
+      251,
+      1,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:400",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 28000000,
+    "x": 14500,
+    "y": 25500,
+    "tick": 401,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 66,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 400,
+      "executeTick": 401
+    },
+    "before_registration": {
+      "tick": 400,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000014,
+        26000003,
+        26000018
+      ],
+      "elixir": 41200
+    },
+    "after_execution": {
+      "tick": 401,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000003,
+        26000018,
+        28000000
+      ],
+      "elixir": 1378
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 66,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 28000000,
+      "registeredAtTick": 400,
+      "queuedAtTick": 400,
+      "executeTick": 401,
+      "resolvedCommandCardId": 28000000,
+      "resolvedCardParameter": 1103117312
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 401,
+    "card_event": [
+      66,
+      401,
+      0,
+      28000000,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:440",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000001,
+    "x": 14500,
+    "y": 21000,
+    "tick": 441,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 67,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 440,
+      "executeTick": 441
+    },
+    "before_registration": {
+      "tick": 440,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        26000018,
+        28000001,
+        27000000
+      ],
+      "elixir": 38320
+    },
+    "after_execution": {
+      "tick": 441,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000001,
+        27000000,
+        26000001
+      ],
+      "elixir": 8498
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 67,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000001,
+      "registeredAtTick": 440,
+      "queuedAtTick": 440,
+      "executeTick": 441,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 441,
+    "card_event": [
+      67,
+      441,
+      1,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:570",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000000,
+    "x": 3500,
+    "y": 11000,
+    "tick": 571,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 68,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 570,
+      "executeTick": 571
+    },
+    "before_registration": {
+      "tick": 570,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000003,
+        26000018,
+        28000000
+      ],
+      "elixir": 31460
+    },
+    "after_execution": {
+      "tick": 571,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000003,
+        26000018,
+        28000000,
+        26000000
+      ],
+      "elixir": 1638
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 68,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000000,
+      "registeredAtTick": 570,
+      "queuedAtTick": 570,
+      "executeTick": 571,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 571,
+    "card_event": [
+      68,
+      571,
+      0,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:630",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000000,
+    "x": 14500,
+    "y": 21000,
+    "tick": 631,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 69,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 630,
+      "executeTick": 631
+    },
+    "before_registration": {
+      "tick": 630,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000001,
+        27000000,
+        26000001
+      ],
+      "elixir": 42140
+    },
+    "after_execution": {
+      "tick": 631,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        27000000,
+        26000001,
+        26000000
+      ],
+      "elixir": 12318
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 69,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000000,
+      "registeredAtTick": 630,
+      "queuedAtTick": 630,
+      "executeTick": 631,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 631,
+    "card_event": [
+      69,
+      631,
+      1,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:740",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 28000001,
+    "x": 3500,
+    "y": 25500,
+    "tick": 741,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 70,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 740,
+      "executeTick": 741
+    },
+    "before_registration": {
+      "tick": 740,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000003,
+        26000018,
+        28000000,
+        26000000
+      ],
+      "elixir": 31720
+    },
+    "after_execution": {
+      "tick": 741,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 1898
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 70,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 28000001,
+      "registeredAtTick": 740,
+      "queuedAtTick": 740,
+      "executeTick": 741,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 741,
+    "card_event": [
+      70,
+      741,
+      0,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:800",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000014,
+    "x": 14500,
+    "y": 21000,
+    "tick": 801,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 71,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 800,
+      "executeTick": 801
+    },
+    "before_registration": {
+      "tick": 800,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        27000000,
+        26000001,
+        26000000
+      ],
+      "elixir": 42400
+    },
+    "after_execution": {
+      "tick": 801,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000001,
+        26000000,
+        26000014
+      ],
+      "elixir": 2578
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 71,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000014,
+      "registeredAtTick": 800,
+      "queuedAtTick": 800,
+      "executeTick": 801,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 801,
+    "card_event": [
+      71,
+      801,
+      1,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:900",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000001,
+    "x": 14500,
+    "y": 11000,
+    "tick": 901,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 72,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 900,
+      "executeTick": 901
+    },
+    "before_registration": {
+      "tick": 900,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 30200
+    },
+    "after_execution": {
+      "tick": 901,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        28000000,
+        26000000,
+        28000001,
+        26000001
+      ],
+      "elixir": 378
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 72,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000001,
+      "registeredAtTick": 900,
+      "queuedAtTick": 900,
+      "executeTick": 901,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 901,
+    "card_event": [
+      72,
+      901,
+      0,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:970",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 28000001,
+    "x": 3500,
+    "y": 6500,
+    "tick": 971,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 73,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 970,
+      "executeTick": 971
+    },
+    "before_registration": {
+      "tick": 970,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000001,
+        26000000,
+        26000014
+      ],
+      "elixir": 32660
+    },
+    "after_execution": {
+      "tick": 971,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        26000000,
+        26000014,
+        28000001
+      ],
+      "elixir": 2838
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 73,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 28000001,
+      "registeredAtTick": 970,
+      "queuedAtTick": 970,
+      "executeTick": 971,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 971,
+    "card_event": [
+      73,
+      971,
+      1,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:1070",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 11000,
+    "tick": 1071,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 74,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1070,
+      "executeTick": 1071
+    },
+    "before_registration": {
+      "tick": 1070,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        28000000,
+        26000000,
+        28000001,
+        26000001
+      ],
+      "elixir": 30460
+    },
+    "after_execution": {
+      "tick": 1071,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000001,
+        27000000
+      ],
+      "elixir": 638
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 74,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 27000000,
+      "registeredAtTick": 1070,
+      "queuedAtTick": 1070,
+      "executeTick": 1071,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1071,
+    "card_event": [
+      74,
+      1071,
+      0,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:1190",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000018,
+    "x": 14500,
+    "y": 21000,
+    "tick": 1191,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 75,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1190,
+      "executeTick": 1191
+    },
+    "before_registration": {
+      "tick": 1190,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        26000000,
+        26000014,
+        28000001
+      ],
+      "elixir": 41820
+    },
+    "after_execution": {
+      "tick": 1191,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        26000014,
+        28000001,
+        26000018
+      ],
+      "elixir": 1998
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 75,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000018,
+      "registeredAtTick": 1190,
+      "queuedAtTick": 1190,
+      "executeTick": 1191,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1191,
+    "card_event": [
+      75,
+      1191,
+      1,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:1300",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000014,
+    "x": 14500,
+    "y": 11000,
+    "tick": 1301,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 76,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1300,
+      "executeTick": 1301
+    },
+    "before_registration": {
+      "tick": 1300,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000001,
+        27000000
+      ],
+      "elixir": 41400
+    },
+    "after_execution": {
+      "tick": 1301,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000001,
+        27000000,
+        26000014
+      ],
+      "elixir": 1578
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 76,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000014,
+      "registeredAtTick": 1300,
+      "queuedAtTick": 1300,
+      "executeTick": 1301,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1301,
+    "card_event": [
+      76,
+      1301,
+      0,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:1350",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000001,
+    "x": 14500,
+    "y": 21000,
+    "tick": 1351,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 77,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1350,
+      "executeTick": 1351
+    },
+    "before_registration": {
+      "tick": 1350,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        26000014,
+        28000001,
+        26000018
+      ],
+      "elixir": 30300
+    },
+    "after_execution": {
+      "tick": 1351,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000014,
+        28000001,
+        26000018,
+        26000001
+      ],
+      "elixir": 478
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 77,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000001,
+      "registeredAtTick": 1350,
+      "queuedAtTick": 1350,
+      "executeTick": 1351,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1351,
+    "card_event": [
+      77,
+      1351,
+      1,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:1540",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 21000,
+    "tick": 1541,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 78,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1540,
+      "executeTick": 1541
+    },
+    "before_registration": {
+      "tick": 1540,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000014,
+        28000001,
+        26000018,
+        26000001
+      ],
+      "elixir": 34120
+    },
+    "after_execution": {
+      "tick": 1541,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000018,
+        26000001,
+        27000000
+      ],
+      "elixir": 4298
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 78,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 27000000,
+      "registeredAtTick": 1540,
+      "queuedAtTick": 1540,
+      "executeTick": 1541,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1541,
+    "card_event": [
+      78,
+      1541,
+      1,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:1580",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000003,
+    "x": 14500,
+    "y": 11000,
+    "tick": 1581,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 79,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1580,
+      "executeTick": 1581
+    },
+    "before_registration": {
+      "tick": 1580,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000001,
+        27000000,
+        26000014
+      ],
+      "elixir": 51240
+    },
+    "after_execution": {
+      "tick": 1581,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000014,
+        26000003
+      ],
+      "elixir": 1418
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 79,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000003,
+      "registeredAtTick": 1580,
+      "queuedAtTick": 1580,
+      "executeTick": 1581,
+      "resolvedCommandCardId": 26000003,
+      "resolvedCardParameter": 1354775552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000003
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1581,
+    "card_event": [
+      79,
+      1581,
+      0,
+      26000003,
+      5
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:1730",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000000,
+    "x": 3500,
+    "y": 21000,
+    "tick": 1731,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 80,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1730,
+      "executeTick": 1731
+    },
+    "before_registration": {
+      "tick": 1730,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000018,
+        26000001,
+        27000000
+      ],
+      "elixir": 37940
+    },
+    "after_execution": {
+      "tick": 1731,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        26000001,
+        27000000,
+        26000000
+      ],
+      "elixir": 8118
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 80,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000000,
+      "registeredAtTick": 1730,
+      "queuedAtTick": 1730,
+      "executeTick": 1731,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1731,
+    "card_event": [
+      80,
+      1731,
+      1,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:1800",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000018,
+    "x": 3500,
+    "y": 11000,
+    "tick": 1801,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 81,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1800,
+      "executeTick": 1801
+    },
+    "before_registration": {
+      "tick": 1800,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000014,
+        26000003
+      ],
+      "elixir": 40400
+    },
+    "after_execution": {
+      "tick": 1801,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000014,
+        26000003,
+        26000018
+      ],
+      "elixir": 578
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 81,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000018,
+      "registeredAtTick": 1800,
+      "queuedAtTick": 1800,
+      "executeTick": 1801,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1801,
+    "card_event": [
+      81,
+      1801,
+      0,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:1920",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 28000001,
+    "x": 14500,
+    "y": 6500,
+    "tick": 1921,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 82,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 1920,
+      "executeTick": 1921
+    },
+    "before_registration": {
+      "tick": 1920,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        26000001,
+        27000000,
+        26000000
+      ],
+      "elixir": 41760
+    },
+    "after_execution": {
+      "tick": 1921,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 11938
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 82,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 28000001,
+      "registeredAtTick": 1920,
+      "queuedAtTick": 1920,
+      "executeTick": 1921,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 1921,
+    "card_event": [
+      82,
+      1921,
+      1,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2030",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 28000000,
+    "x": 14500,
+    "y": 25500,
+    "tick": 2031,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 83,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2030,
+      "executeTick": 2031
+    },
+    "before_registration": {
+      "tick": 2030,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000014,
+        26000003,
+        26000018
+      ],
+      "elixir": 41340
+    },
+    "after_execution": {
+      "tick": 2031,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000003,
+        26000018,
+        28000000
+      ],
+      "elixir": 1518
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 83,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 28000000,
+      "registeredAtTick": 2030,
+      "queuedAtTick": 2030,
+      "executeTick": 2031,
+      "resolvedCommandCardId": 28000000,
+      "resolvedCardParameter": 1103117312
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2031,
+    "card_event": [
+      83,
+      2031,
+      0,
+      28000000,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2080",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000014,
+    "x": 3500,
+    "y": 21000,
+    "tick": 2081,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 84,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2080,
+      "executeTick": 2081
+    },
+    "before_registration": {
+      "tick": 2080,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 40240
+    },
+    "after_execution": {
+      "tick": 2081,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000000,
+        28000001,
+        26000014
+      ],
+      "elixir": 418
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 84,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000014,
+      "registeredAtTick": 2080,
+      "queuedAtTick": 2080,
+      "executeTick": 2081,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2081,
+    "card_event": [
+      84,
+      2081,
+      1,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2200",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000000,
+    "x": 3500,
+    "y": 11000,
+    "tick": 2201,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 85,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2200,
+      "executeTick": 2201
+    },
+    "before_registration": {
+      "tick": 2200,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000003,
+        26000018,
+        28000000
+      ],
+      "elixir": 31600
+    },
+    "after_execution": {
+      "tick": 2201,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000003,
+        26000018,
+        28000000,
+        26000000
+      ],
+      "elixir": 1778
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 85,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000000,
+      "registeredAtTick": 2200,
+      "queuedAtTick": 2200,
+      "executeTick": 2201,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2201,
+    "card_event": [
+      85,
+      2201,
+      0,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2300",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000001,
+    "x": 3500,
+    "y": 21000,
+    "tick": 2301,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 86,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2300,
+      "executeTick": 2301
+    },
+    "before_registration": {
+      "tick": 2300,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000000,
+        28000001,
+        26000014
+      ],
+      "elixir": 39400
+    },
+    "after_execution": {
+      "tick": 2301,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000014,
+        26000001
+      ],
+      "elixir": 9578
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 86,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000001,
+      "registeredAtTick": 2300,
+      "queuedAtTick": 2300,
+      "executeTick": 2301,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2301,
+    "card_event": [
+      86,
+      2301,
+      1,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2360",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 28000001,
+    "x": 3500,
+    "y": 25500,
+    "tick": 2361,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 87,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2360,
+      "executeTick": 2361
+    },
+    "before_registration": {
+      "tick": 2360,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000003,
+        26000018,
+        28000000,
+        26000000
+      ],
+      "elixir": 30080
+    },
+    "after_execution": {
+      "tick": 2361,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 258
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 87,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 28000001,
+      "registeredAtTick": 2360,
+      "queuedAtTick": 2360,
+      "executeTick": 2361,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2361,
+    "card_event": [
+      87,
+      2361,
+      0,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2450",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 21000,
+    "tick": 2451,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 88,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2450,
+      "executeTick": 2451
+    },
+    "before_registration": {
+      "tick": 2450,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000014,
+        26000001
+      ],
+      "elixir": 45050
+    },
+    "after_execution": {
+      "tick": 2451,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000014,
+        26000001,
+        27000000
+      ],
+      "elixir": 15407
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 88,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 27000000,
+      "registeredAtTick": 2450,
+      "queuedAtTick": 2450,
+      "executeTick": 2451,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2451,
+    "card_event": [
+      88,
+      2451,
+      1,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2470",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000001,
+    "x": 3500,
+    "y": 11000,
+    "tick": 2471,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 89,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2470,
+      "executeTick": 2471
+    },
+    "before_registration": {
+      "tick": 2470,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 32190
+    },
+    "after_execution": {
+      "tick": 2471,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        28000000,
+        26000000,
+        28000001,
+        26000001
+      ],
+      "elixir": 2547
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 89,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000001,
+      "registeredAtTick": 2470,
+      "queuedAtTick": 2470,
+      "executeTick": 2471,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2471,
+    "card_event": [
+      89,
+      2471,
+      0,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2540",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000000,
+    "x": 14500,
+    "y": 21000,
+    "tick": 2541,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 90,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2540,
+      "executeTick": 2541
+    },
+    "before_registration": {
+      "tick": 2540,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000014,
+        26000001,
+        27000000
+      ],
+      "elixir": 47180
+    },
+    "after_execution": {
+      "tick": 2541,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000001,
+        27000000,
+        26000000
+      ],
+      "elixir": 17537
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 90,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000000,
+      "registeredAtTick": 2540,
+      "queuedAtTick": 2540,
+      "executeTick": 2541,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2541,
+    "card_event": [
+      90,
+      2541,
+      1,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2550",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 11000,
+    "tick": 2551,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 91,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2550,
+      "executeTick": 2551
+    },
+    "before_registration": {
+      "tick": 2550,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        28000000,
+        26000000,
+        28000001,
+        26000001
+      ],
+      "elixir": 30750
+    },
+    "after_execution": {
+      "tick": 2551,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000001,
+        27000000
+      ],
+      "elixir": 1107
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 91,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 27000000,
+      "registeredAtTick": 2550,
+      "queuedAtTick": 2550,
+      "executeTick": 2551,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2551,
+    "card_event": [
+      91,
+      2551,
+      0,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2610",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000018,
+    "x": 3500,
+    "y": 21000,
+    "tick": 2611,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 92,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2610,
+      "executeTick": 2611
+    },
+    "before_registration": {
+      "tick": 2610,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000001,
+        27000000,
+        26000000
+      ],
+      "elixir": 42170
+    },
+    "after_execution": {
+      "tick": 2611,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000000,
+        26000018
+      ],
+      "elixir": 2527
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 92,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000018,
+      "registeredAtTick": 2610,
+      "queuedAtTick": 2610,
+      "executeTick": 2611,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2611,
+    "card_event": [
+      92,
+      2611,
+      1,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2660",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000014,
+    "x": 3500,
+    "y": 11000,
+    "tick": 2661,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 93,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2660,
+      "executeTick": 2661
+    },
+    "before_registration": {
+      "tick": 2660,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000001,
+        27000000
+      ],
+      "elixir": 40020
+    },
+    "after_execution": {
+      "tick": 2661,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000001,
+        27000000,
+        26000014
+      ],
+      "elixir": 377
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 93,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000014,
+      "registeredAtTick": 2660,
+      "queuedAtTick": 2660,
+      "executeTick": 2661,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2661,
+    "card_event": [
+      93,
+      2661,
+      0,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2730",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000014,
+    "x": 14500,
+    "y": 21000,
+    "tick": 2731,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 94,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2730,
+      "executeTick": 2731
+    },
+    "before_registration": {
+      "tick": 2730,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000000,
+        26000018
+      ],
+      "elixir": 45010
+    },
+    "after_execution": {
+      "tick": 2731,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000000,
+        26000018,
+        26000014
+      ],
+      "elixir": 5367
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 94,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000014,
+      "registeredAtTick": 2730,
+      "queuedAtTick": 2730,
+      "executeTick": 2731,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2731,
+    "card_event": [
+      94,
+      2731,
+      1,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2800",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000003,
+    "x": 3500,
+    "y": 11000,
+    "tick": 2801,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 95,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2800,
+      "executeTick": 2801
+    },
+    "before_registration": {
+      "tick": 2800,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000001,
+        27000000,
+        26000014
+      ],
+      "elixir": 50000
+    },
+    "after_execution": {
+      "tick": 2801,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000014,
+        26000003
+      ],
+      "elixir": 357
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 95,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000003,
+      "registeredAtTick": 2800,
+      "queuedAtTick": 2800,
+      "executeTick": 2801,
+      "resolvedCommandCardId": 26000003,
+      "resolvedCardParameter": 1354775552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000003
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2801,
+    "card_event": [
+      95,
+      2801,
+      0,
+      26000003,
+      5
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2830",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 28000001,
+    "x": 14500,
+    "y": 6500,
+    "tick": 2831,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 96,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2830,
+      "executeTick": 2831
+    },
+    "before_registration": {
+      "tick": 2830,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000000,
+        26000018,
+        26000014
+      ],
+      "elixir": 40710
+    },
+    "after_execution": {
+      "tick": 2831,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        26000018,
+        26000014,
+        28000001
+      ],
+      "elixir": 11067
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 96,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 28000001,
+      "registeredAtTick": 2830,
+      "queuedAtTick": 2830,
+      "executeTick": 2831,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2831,
+    "card_event": [
+      96,
+      2831,
+      1,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:2900",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 21000,
+    "tick": 2901,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 97,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2900,
+      "executeTick": 2901
+    },
+    "before_registration": {
+      "tick": 2900,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        26000018,
+        26000014,
+        28000001
+      ],
+      "elixir": 35700
+    },
+    "after_execution": {
+      "tick": 2901,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        26000014,
+        28000001,
+        27000000
+      ],
+      "elixir": 6057
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 97,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 27000000,
+      "registeredAtTick": 2900,
+      "queuedAtTick": 2900,
+      "executeTick": 2901,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2901,
+    "card_event": [
+      97,
+      2901,
+      1,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:2920",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000018,
+    "x": 14500,
+    "y": 11000,
+    "tick": 2921,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 98,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 2920,
+      "executeTick": 2921
+    },
+    "before_registration": {
+      "tick": 2920,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000001,
+        27000000,
+        26000014,
+        26000003
+      ],
+      "elixir": 42840
+    },
+    "after_execution": {
+      "tick": 2921,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000014,
+        26000003,
+        26000018
+      ],
+      "elixir": 3197
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 98,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000018,
+      "registeredAtTick": 2920,
+      "queuedAtTick": 2920,
+      "executeTick": 2921,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 2921,
+    "card_event": [
+      98,
+      2921,
+      0,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3020",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000001,
+    "x": 3500,
+    "y": 21000,
+    "tick": 3021,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 99,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3020,
+      "executeTick": 3021
+    },
+    "before_registration": {
+      "tick": 3020,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        26000014,
+        28000001,
+        27000000
+      ],
+      "elixir": 48540
+    },
+    "after_execution": {
+      "tick": 3021,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000014,
+        28000001,
+        27000000,
+        26000001
+      ],
+      "elixir": 18897
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 99,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000001,
+      "registeredAtTick": 3020,
+      "queuedAtTick": 3020,
+      "executeTick": 3021,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3021,
+    "card_event": [
+      99,
+      3021,
+      1,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:3030",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 28000000,
+    "x": 3500,
+    "y": 25500,
+    "tick": 3031,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 100,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3030,
+      "executeTick": 3031
+    },
+    "before_registration": {
+      "tick": 3030,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000014,
+        26000003,
+        26000018
+      ],
+      "elixir": 42110
+    },
+    "after_execution": {
+      "tick": 3031,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000003,
+        26000018,
+        28000000
+      ],
+      "elixir": 2467
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 100,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 28000000,
+      "registeredAtTick": 3030,
+      "queuedAtTick": 3030,
+      "executeTick": 3031,
+      "resolvedCommandCardId": 28000000,
+      "resolvedCardParameter": 1103117312
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3031,
+    "card_event": [
+      100,
+      3031,
+      0,
+      28000000,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:3110",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000000,
+    "x": 14500,
+    "y": 11000,
+    "tick": 3111,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 101,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3110,
+      "executeTick": 3111
+    },
+    "before_registration": {
+      "tick": 3110,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        26000014,
+        26000003,
+        26000018,
+        28000000
+      ],
+      "elixir": 30670
+    },
+    "after_execution": {
+      "tick": 3111,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000003,
+        26000018,
+        28000000,
+        26000000
+      ],
+      "elixir": 1027
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 101,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000000,
+      "registeredAtTick": 3110,
+      "queuedAtTick": 3110,
+      "executeTick": 3111,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3111,
+    "card_event": [
+      101,
+      3111,
+      0,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3110",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000018,
+    "x": 3500,
+    "y": 21000,
+    "tick": 3111,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 102,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3110,
+      "executeTick": 3111
+    },
+    "before_registration": {
+      "tick": 3110,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000014,
+        28000001,
+        27000000,
+        26000001
+      ],
+      "elixir": 50670
+    },
+    "after_execution": {
+      "tick": 3111,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        27000000,
+        26000001,
+        26000018
+      ],
+      "elixir": 11027
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 102,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000018,
+      "registeredAtTick": 3110,
+      "queuedAtTick": 3110,
+      "executeTick": 3111,
+      "resolvedCommandCardId": 26000018,
+      "resolvedCardParameter": 1094728704
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000018
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3111,
+    "card_event": [
+      102,
+      3111,
+      1,
+      26000018,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3170",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000000,
+    "x": 3500,
+    "y": 21000,
+    "tick": 3171,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 103,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3170,
+      "executeTick": 3171
+    },
+    "before_registration": {
+      "tick": 3170,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        27000000,
+        26000001,
+        26000018
+      ],
+      "elixir": 32090
+    },
+    "after_execution": {
+      "tick": 3171,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000001,
+        26000018,
+        26000000
+      ],
+      "elixir": 2447
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 103,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000000,
+      "registeredAtTick": 3170,
+      "queuedAtTick": 3170,
+      "executeTick": 3171,
+      "resolvedCommandCardId": 26000000,
+      "resolvedCardParameter": 809516032
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3171,
+    "card_event": [
+      103,
+      3171,
+      1,
+      26000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:3200",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 28000001,
+    "x": 14500,
+    "y": 25500,
+    "tick": 3201,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 104,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3200,
+      "executeTick": 3201
+    },
+    "before_registration": {
+      "tick": 3200,
+      "hand": [
+        [
+          0,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000003,
+        26000018,
+        28000000,
+        26000000
+      ],
+      "elixir": 32800
+    },
+    "after_execution": {
+      "tick": 3201,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 3157
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 104,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 28000001,
+      "registeredAtTick": 3200,
+      "queuedAtTick": 3200,
+      "executeTick": 3201,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3201,
+    "card_event": [
+      104,
+      3201,
+      0,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3260",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 28000001,
+    "x": 3500,
+    "y": 6500,
+    "tick": 3261,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 105,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3260,
+      "executeTick": 3261
+    },
+    "before_registration": {
+      "tick": 3260,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          28000001,
+          3,
+          838876160,
+          28000001
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        27000000,
+        26000001,
+        26000018,
+        26000000
+      ],
+      "elixir": 34220
+    },
+    "after_execution": {
+      "tick": 3261,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        26000018,
+        26000000,
+        28000001
+      ],
+      "elixir": 4577
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 105,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 28000001,
+      "registeredAtTick": 3260,
+      "queuedAtTick": 3260,
+      "executeTick": 3261,
+      "resolvedCommandCardId": 28000001,
+      "resolvedCardParameter": 838876160
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 28000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3261,
+    "card_event": [
+      105,
+      3261,
+      1,
+      28000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:3280",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000001,
+    "x": 3500,
+    "y": 11000,
+    "tick": 3281,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 106,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3280,
+      "executeTick": 3281
+    },
+    "before_registration": {
+      "tick": 3280,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000018,
+        28000000,
+        26000000,
+        28000001
+      ],
+      "elixir": 31360
+    },
+    "after_execution": {
+      "tick": 3281,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        28000000,
+        26000000,
+        28000001,
+        26000001
+      ],
+      "elixir": 1717
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 106,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000001,
+      "registeredAtTick": 3280,
+      "queuedAtTick": 3280,
+      "executeTick": 3281,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3281,
+    "card_event": [
+      106,
+      3281,
+      0,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:3370",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 11000,
+    "tick": 3371,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 107,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3370,
+      "executeTick": 3371
+    },
+    "before_registration": {
+      "tick": 3370,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        28000000,
+        26000000,
+        28000001,
+        26000001
+      ],
+      "elixir": 33490
+    },
+    "after_execution": {
+      "tick": 3371,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000001,
+        27000000
+      ],
+      "elixir": 3847
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 107,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 27000000,
+      "registeredAtTick": 3370,
+      "queuedAtTick": 3370,
+      "executeTick": 3371,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3371,
+    "card_event": [
+      107,
+      3371,
+      0,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3370",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000014,
+    "x": 14500,
+    "y": 21000,
+    "tick": 3371,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 108,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3370,
+      "executeTick": 3371
+    },
+    "before_registration": {
+      "tick": 3370,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000001,
+        26000018,
+        26000000,
+        28000001
+      ],
+      "elixir": 43490
+    },
+    "after_execution": {
+      "tick": 3371,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        26000000,
+        28000001,
+        26000014
+      ],
+      "elixir": 3847
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 108,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000014,
+      "registeredAtTick": 3370,
+      "queuedAtTick": 3370,
+      "executeTick": 3371,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3371,
+    "card_event": [
+      108,
+      3371,
+      1,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:0:3480",
+    "kind": "play_card",
+    "owner": 0,
+    "card_id": 26000014,
+    "x": 14500,
+    "y": 11000,
+    "tick": 3481,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 109,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3480,
+      "executeTick": 3481
+    },
+    "before_registration": {
+      "tick": 3480,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000014,
+          4,
+          1090534400,
+          26000014
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000001,
+        27000000
+      ],
+      "elixir": 42760
+    },
+    "after_execution": {
+      "tick": 3481,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ],
+        [
+          1,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          2,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          3,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000001,
+        27000000,
+        26000014
+      ],
+      "elixir": 3117
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 109,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 0,
+      "cardId": 26000014,
+      "registeredAtTick": 3480,
+      "queuedAtTick": 3480,
+      "executeTick": 3481,
+      "resolvedCommandCardId": 26000014,
+      "resolvedCardParameter": 1090534400
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000014
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3481,
+    "card_event": [
+      109,
+      3481,
+      0,
+      26000014,
+      4
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3480",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 26000001,
+    "x": 3500,
+    "y": 21000,
+    "tick": 3481,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 110,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3480,
+      "executeTick": 3481
+    },
+    "before_registration": {
+      "tick": 3480,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000001,
+          3,
+          813710336,
+          26000001
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000018,
+        26000000,
+        28000001,
+        26000014
+      ],
+      "elixir": 42760
+    },
+    "after_execution": {
+      "tick": 3481,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000014,
+        26000001
+      ],
+      "elixir": 13117
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 110,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 26000001,
+      "registeredAtTick": 3480,
+      "queuedAtTick": 3480,
+      "executeTick": 3481,
+      "resolvedCommandCardId": 26000001,
+      "resolvedCardParameter": 813710336
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 26000001
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3481,
+    "card_event": [
+      110,
+      3481,
+      1,
+      26000001,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  },
+  {
+    "request_id": "phase3:4:1:3560",
+    "kind": "play_card",
+    "owner": 1,
+    "card_id": 27000000,
+    "x": 8500,
+    "y": 21000,
+    "tick": 3561,
+    "generation": 5,
+    "registration_receipt": {
+      "ok": true,
+      "sequence": 111,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "registeredAtTick": 3560,
+      "executeTick": 3561
+    },
+    "before_registration": {
+      "tick": 3560,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          27000000,
+          3,
+          830487552,
+          27000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        26000000,
+        28000001,
+        26000014,
+        26000001
+      ],
+      "elixir": 41320
+    },
+    "after_execution": {
+      "tick": 3561,
+      "hand": [
+        [
+          0,
+          28000000,
+          4,
+          1103117312,
+          28000000
+        ],
+        [
+          1,
+          26000000,
+          3,
+          809516032,
+          26000000
+        ],
+        [
+          2,
+          26000018,
+          4,
+          1094728704,
+          26000018
+        ],
+        [
+          3,
+          26000003,
+          5,
+          1354775552,
+          26000003
+        ]
+      ],
+      "cycle": [
+        28000001,
+        26000014,
+        26000001,
+        27000000
+      ],
+      "elixir": 11677
+    },
+    "scheduler_feedback": {
+      "ok": true,
+      "sequence": 111,
+      "mode": "headless",
+      "generation": 5,
+      "stateEpoch": 5,
+      "kind": "card",
+      "state": "succeeded",
+      "error": "none",
+      "owner": 1,
+      "cardId": 27000000,
+      "registeredAtTick": 3560,
+      "queuedAtTick": 3560,
+      "executeTick": 3561,
+      "resolvedCommandCardId": 27000000,
+      "resolvedCardParameter": 830487552
+    },
+    "native_injected": true,
+    "card_consumed": true,
+    "matched_by": "unique_native_event_exact_card_id",
+    "effective_form_identity": {
+      "kind": "native_event_id",
+      "card_id": 27000000
+    },
+    "own_boundary_consumption_evidence": true,
+    "own_boundary_evidence_kind": "same_slot_replacement",
+    "own_boundary_evidence_version": "strict-partial-draw.v1",
+    "consumption_status": "confirmed_native_card_event",
+    "actual_execution_tick": 3561,
+    "card_event": [
+      111,
+      3561,
+      1,
+      27000000,
+      3
+    ],
+    "full_placement_legality_oracle": false
+  }
+]

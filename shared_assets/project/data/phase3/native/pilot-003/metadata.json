@@ -1,0 +1,151 @@
+{
+  "schema": "phase3-learning-dataset.v1",
+  "task_id": "5aac921c5776263c",
+  "rows": {
+    "path": "data/phase3/native/pilot-003/rows.jsonl",
+    "sha256": "a87ccc48f89cc7c121d81a4b4dec22f5aceb28f6644b379b492b3c6943111012"
+  },
+  "feature_dims": {
+    "hud": 96,
+    "observation": 464,
+    "history": 688,
+    "belief": 15,
+    "feedback": 4
+  },
+  "observation_profile": "fair",
+  "version_fingerprint_sha256": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+  "control_ticks": 10,
+  "ticks_per_second": 20,
+  "split_groups": {
+    "train": [
+      "native-330000",
+      "native-330001",
+      "native-330002"
+    ],
+    "validation": [
+      "native-330003"
+    ],
+    "test": [
+      "native-330004"
+    ]
+  },
+  "card_vocabulary": [
+    26000000,
+    26000001,
+    26000003,
+    26000014,
+    26000018,
+    27000000,
+    28000000,
+    28000001
+  ],
+  "source": {
+    "path": "data/phase3/native/pilot-003/data_audit.json",
+    "sha256": "df1841b77be0f5cee2e2c450c4382be39df8cf71abdc5d7a8c1633de1476b017"
+  },
+  "counts": {
+    "train": {
+      "rows": 654,
+      "play": 43,
+      "26000001": 7,
+      "26000018": 7,
+      "wait": 611,
+      "26000003": 3,
+      "27000000": 7,
+      "26000014": 3,
+      "28000001": 7,
+      "28000000": 4,
+      "26000000": 5
+    },
+    "validation": {
+      "rows": 260,
+      "play": 17,
+      "26000018": 3,
+      "28000000": 2,
+      "wait": 243,
+      "28000001": 3,
+      "27000000": 2,
+      "26000000": 3,
+      "26000001": 2,
+      "26000003": 1,
+      "26000014": 1
+    },
+    "test": {
+      "rows": 704,
+      "play": 51,
+      "26000003": 3,
+      "26000018": 7,
+      "wait": 653,
+      "28000001": 8,
+      "27000000": 8,
+      "28000000": 3,
+      "26000001": 8,
+      "26000000": 7,
+      "26000014": 7
+    }
+  },
+  "feature_spec": {
+    "schema": "royale-phase3-player-vector.v1",
+    "cards": [
+      26000000,
+      26000001,
+      26000003,
+      26000014,
+      26000018,
+      27000000,
+      28000000,
+      28000001
+    ],
+    "max_entities": 16,
+    "history_steps": 16,
+    "include_entities": true,
+    "include_history": true,
+    "ticks_per_second": 20,
+    "dimension": 688,
+    "widths": {
+      "scalar": 8,
+      "hand": 13,
+      "tower": 6,
+      "entity": 23,
+      "history": 14
+    },
+    "coordinate_convention": "native units; normalized actor-own half on top via 17999-x,31999-y for owner1",
+    "not_encoded": [
+      "native entity IDs",
+      "anonymous track IDs",
+      "generation",
+      "diagnostics",
+      "quality",
+      "paths",
+      "requested positions",
+      "hidden states"
+    ]
+  },
+  "world_target_dimension": 9,
+  "feature_sources": [
+    {
+      "path": "royale_phase3/observation.py",
+      "sha256": "f151bcd748925e6827c94364e01705a2878e68377c2f61e436d76b83862b0a54"
+    },
+    {
+      "path": "royale_phase3/belief.py",
+      "sha256": "494059c6e30491d986347e0dfd889bd2589ffccc8feb82b7f4dc61434cbf0142"
+    },
+    {
+      "path": "royale_phase3/actions.py",
+      "sha256": "8fa9d5d6016e373e943b0a136f7305a11fb9ea02d86bd8f0d7896ab364af22dd"
+    },
+    {
+      "path": "royale_phase3/data.py",
+      "sha256": "6df575b51f6f26d73abb52f36f2628cea813bdcab3381cf9f46bd99eeca0e6f2"
+    }
+  ],
+  "targets_schema": {
+    "world": "next own_elixir/6public tower HP/own and opponent crowns, masks explicit; supervision only",
+    "opponent": "next interval opposing confirmed card,0 WAIT,1..8 fixed vocabulary; future label never input"
+  },
+  "position_convention": "native world coordinates; y-major32rows18columns, grid=y//1000*18+x//1000",
+  "fidelity": "Self-collected native teacher; no independent official trajectory truth",
+  "fair_entities": "All excluded until visibility independently attested; B adds no proved entities",
+  "wait_loss": "Natural time distribution kept; any class weighting must be recorded by training config"
+}

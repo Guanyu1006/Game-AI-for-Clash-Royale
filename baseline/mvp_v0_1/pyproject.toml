@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "royale-ai-lab"
+version = "0.1.0"
+description = "Clash Royale research MVP: observation, belief, lookahead and replay"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+vision = ["numpy>=2.2,<3", "opencv-python>=4.11,<5"]
+yolo = ["ultralytics>=8.3,<9"]
+
+[project.scripts]
+royale-ai = "royale_ai.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["royale_ai*"]
+
+[tool.setuptools.package-data]
+royale_ai = ["data/*.json", "viewer.html"]

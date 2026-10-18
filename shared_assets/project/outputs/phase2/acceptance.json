@@ -1,0 +1,1532 @@
+{
+  "schema": "royale-phase2-acceptance.v1",
+  "generated_utc": "2026-10-15T09:07:17.628872+00:00",
+  "command": [
+    "D:\\研究生\\Clash Royal\\.venv-phase2-data\\Scripts\\python.exe",
+    "tools\\phase2_acceptance.py",
+    "--formal-queue",
+    "outputs\\phase2\\batches\\formal100-v1\\queue.json",
+    "--repeatability",
+    "outputs\\phase2\\repeatability\\learning16\\report.json",
+    "--repeatability",
+    "outputs\\phase2\\repeatability\\formal2\\report.json",
+    "--export",
+    "outputs\\phase2\\learning_pipeline\\export",
+    "--checkpoint",
+    "outputs\\phase2\\learning_pipeline\\model_g_variant\\checkpoint.json",
+    "--agent",
+    "outputs\\phase2\\native\\agent_eval\\acceptance-008",
+    "--offline",
+    "outputs\\phase2\\offline\\acceptance-003",
+    "--viewer",
+    "outputs\\phase2\\viewer\\acceptance-001",
+    "--benchmark",
+    "outputs\\phase2\\performance\\whole-pipeline\\report.json",
+    "--output",
+    "outputs\\phase2\\acceptance.json"
+  ],
+  "checks": {
+    "A": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/replays/development/ordinary-feedback-fixed/episode.json",
+          "sha256": "f7debe312b08ab7d0b636928d6aceae96ad891d71f374c5d0f01614a29ae55fe"
+        },
+        {
+          "path": "outputs/phase2/native/runtime86_adb_identity.json",
+          "sha256": "e1de9e263343ccd4aa3af9d1b4e8552872de64c1a53c1e0aca817e15284cd3a9"
+        },
+        {
+          "path": "royale_phase2/backend.py",
+          "sha256": "f2ebab84e5c6d0a87c1755ae26fc27dec84c79b95f60cf3c287af30dae8a16d5"
+        }
+      ],
+      "actual_native_trace": {
+        "raw_rpc_rows": 980,
+        "native_state_responses": 444,
+        "actual_consumed_events": 43,
+        "consumed_events": [
+          [
+            46,
+            198,
+            1,
+            26000036,
+            4
+          ],
+          [
+            47,
+            247,
+            0,
+            26000015,
+            4
+          ],
+          [
+            48,
+            276,
+            0,
+            26000034,
+            5
+          ],
+          [
+            49,
+            429,
+            1,
+            0,
+            5
+          ],
+          [
+            50,
+            716,
+            1,
+            26000052,
+            4
+          ],
+          [
+            51,
+            825,
+            0,
+            26000037,
+            4
+          ],
+          [
+            52,
+            936,
+            1,
+            26000043,
+            6
+          ],
+          [
+            53,
+            1002,
+            0,
+            28000015,
+            2
+          ],
+          [
+            54,
+            1027,
+            0,
+            28000005,
+            4
+          ],
+          [
+            55,
+            1055,
+            0,
+            0,
+            3
+          ],
+          [
+            56,
+            1274,
+            1,
+            26000020,
+            6
+          ],
+          [
+            57,
+            1532,
+            0,
+            26000015,
+            4
+          ],
+          [
+            58,
+            1537,
+            1,
+            26000036,
+            4
+          ],
+          [
+            59,
+            1582,
+            1,
+            0,
+            5
+          ],
+          [
+            60,
+            1604,
+            0,
+            26000034,
+            5
+          ],
+          [
+            61,
+            1637,
+            0,
+            28000015,
+            2
+          ],
+          [
+            62,
+            2032,
+            1,
+            28000015,
+            2
+          ],
+          [
+            63,
+            2222,
+            0,
+            26000037,
+            4
+          ],
+          [
+            64,
+            2226,
+            1,
+            26000052,
+            4
+          ],
+          [
+            65,
+            2382,
+            1,
+            26000020,
+            6
+          ],
+          [
+            66,
+            2422,
+            0,
+            0,
+            3
+          ],
+          [
+            67,
+            2485,
+            1,
+            26000083,
+            4
+          ],
+          [
+            68,
+            2492,
+            0,
+            13000015,
+            4
+          ],
+          [
+            69,
+            2553,
+            0,
+            26000034,
+            5
+          ],
+          [
+            70,
+            2586,
+            1,
+            13000036,
+            4
+          ],
+          [
+            71,
+            2656,
+            0,
+            28000005,
+            4
+          ],
+          [
+            72,
+            2673,
+            0,
+            28000015,
+            2
+          ],
+          [
+            73,
+            2703,
+            1,
+            28000026,
+            3
+          ],
+          [
+            74,
+            2752,
+            0,
+            0,
+            3
+          ],
+          [
+            75,
+            2869,
+            1,
+            26000052,
+            4
+          ],
+          [
+            76,
+            3012,
+            0,
+            26000015,
+            4
+          ],
+          [
+            77,
+            3022,
+            1,
+            26000020,
+            6
+          ],
+          [
+            78,
+            3116,
+            0,
+            26000034,
+            5
+          ],
+          [
+            79,
+            3194,
+            1,
+            0,
+            5
+          ],
+          [
+            80,
+            3245,
+            0,
+            28000012,
+            3
+          ],
+          [
+            81,
+            3296,
+            1,
+            26000036,
+            4
+          ],
+          [
+            82,
+            3338,
+            0,
+            26000006,
+            5
+          ],
+          [
+            83,
+            3357,
+            1,
+            13000043,
+            6
+          ],
+          [
+            84,
+            3403,
+            0,
+            0,
+            3
+          ],
+          [
+            85,
+            3434,
+            0,
+            28000005,
+            4
+          ],
+          [
+            86,
+            3452,
+            1,
+            28000026,
+            3
+          ],
+          [
+            87,
+            3494,
+            0,
+            28000015,
+            2
+          ],
+          [
+            88,
+            3572,
+            1,
+            26000052,
+            4
+          ]
+        ],
+        "initial_tick": 90,
+        "terminal_tick": 3648,
+        "terminal_result": 1,
+        "terminal_crowns": [
+          0,
+          1
+        ],
+        "native_generations": [
+          6,
+          7
+        ]
+      },
+      "claim": "Fixed native components and actual battle; no official trajectory identity claim"
+    },
+    "B": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/offline/acceptance-003/report.json",
+          "sha256": "6494832fc1926d128f4cb71bfacdc1c6f1b547f7bac89c1f755bcb202f12c453"
+        }
+      ],
+      "cold_boot_ids": [
+        "cf6c0830-b065-4606-8de5-68737092c7fc",
+        "4e09507c-7582-4e93-bb5e-34a56b534154"
+      ],
+      "actual_replay": {
+        "source_episode_id": "85c0a48b6a1d47cc8057710e05bf7773",
+        "source_episode_path": "data\\phase2\\converted\\source-v1\\episodes\\85c0a48b6a1d47cc8057710e05bf7773.json",
+        "source_sha256": "6184770fcf7120aeeb9acbdce5b6d0ae2be6b90e1111c6acca5763b19296ec55",
+        "source_journal_actions": 43,
+        "raw_trace": {
+          "raw_rpc_rows": 538,
+          "native_state_responses": 444,
+          "actual_consumed_events": 43,
+          "consumed_events": [
+            [
+              1,
+              198,
+              1,
+              26000036,
+              4
+            ],
+            [
+              2,
+              247,
+              0,
+              26000015,
+              4
+            ],
+            [
+              3,
+              276,
+              0,
+              26000034,
+              5
+            ],
+            [
+              4,
+              429,
+              1,
+              0,
+              5
+            ],
+            [
+              5,
+              716,
+              1,
+              26000052,
+              4
+            ],
+            [
+              6,
+              825,
+              0,
+              26000037,
+              4
+            ],
+            [
+              7,
+              936,
+              1,
+              26000043,
+              6
+            ],
+            [
+              8,
+              1002,
+              0,
+              28000015,
+              2
+            ],
+            [
+              9,
+              1027,
+              0,
+              28000005,
+              4
+            ],
+            [
+              10,
+              1055,
+              0,
+              0,
+              3
+            ],
+            [
+              11,
+              1274,
+              1,
+              26000020,
+              6
+            ],
+            [
+              12,
+              1532,
+              0,
+              26000015,
+              4
+            ],
+            [
+              13,
+              1537,
+              1,
+              26000036,
+              4
+            ],
+            [
+              14,
+              1582,
+              1,
+              0,
+              5
+            ],
+            [
+              15,
+              1604,
+              0,
+              26000034,
+              5
+            ],
+            [
+              16,
+              1637,
+              0,
+              28000015,
+              2
+            ],
+            [
+              17,
+              2032,
+              1,
+              28000015,
+              2
+            ],
+            [
+              18,
+              2222,
+              0,
+              26000037,
+              4
+            ],
+            [
+              19,
+              2226,
+              1,
+              26000052,
+              4
+            ],
+            [
+              20,
+              2382,
+              1,
+              26000020,
+              6
+            ],
+            [
+              21,
+              2422,
+              0,
+              0,
+              3
+            ],
+            [
+              22,
+              2485,
+              1,
+              26000083,
+              4
+            ],
+            [
+              23,
+              2492,
+              0,
+              13000015,
+              4
+            ],
+            [
+              24,
+              2553,
+              0,
+              26000034,
+              5
+            ],
+            [
+              25,
+              2586,
+              1,
+              13000036,
+              4
+            ],
+            [
+              26,
+              2656,
+              0,
+              28000005,
+              4
+            ],
+            [
+              27,
+              2673,
+              0,
+              28000015,
+              2
+            ],
+            [
+              28,
+              2703,
+              1,
+              28000026,
+              3
+            ],
+            [
+              29,
+              2752,
+              0,
+              0,
+              3
+            ],
+            [
+              30,
+              2869,
+              1,
+              26000052,
+              4
+            ],
+            [
+              31,
+              3012,
+              0,
+              26000015,
+              4
+            ],
+            [
+              32,
+              3022,
+              1,
+              26000020,
+              6
+            ],
+            [
+              33,
+              3116,
+              0,
+              26000034,
+              5
+            ],
+            [
+              34,
+              3194,
+              1,
+              0,
+              5
+            ],
+            [
+              35,
+              3245,
+              0,
+              28000012,
+              3
+            ],
+            [
+              36,
+              3296,
+              1,
+              26000036,
+              4
+            ],
+            [
+              37,
+              3338,
+              0,
+              26000006,
+              5
+            ],
+            [
+              38,
+              3357,
+              1,
+              13000043,
+              6
+            ],
+            [
+              39,
+              3403,
+              0,
+              0,
+              3
+            ],
+            [
+              40,
+              3434,
+              0,
+              28000005,
+              4
+            ],
+            [
+              41,
+              3452,
+              1,
+              28000026,
+              3
+            ],
+            [
+              42,
+              3494,
+              0,
+              28000015,
+              2
+            ],
+            [
+              43,
+              3572,
+              1,
+              26000052,
+              4
+            ]
+          ],
+          "initial_tick": 90,
+          "terminal_tick": 3648,
+          "terminal_result": 1,
+          "terminal_crowns": [
+            0,
+            1
+          ],
+          "native_generations": [
+            1,
+            2
+          ]
+        },
+        "raw_terminal_state_sha256": "be37183795444318f09dcdc7d4d479a32d8103a0fbb62d0b133b042ec00e6441",
+        "quality_report_preserved": {
+          "parse_valid": "pass",
+          "runtime_replayable": "pass",
+          "deterministic": "not_run",
+          "outcome_consistent": "pass",
+          "trajectory_validated": "not_available"
+        },
+        "source_schema": "royale-phase2-source-episode.v1"
+      },
+      "actual_model_game": {
+        "checkpoint_sha256": "f3b8584e123d2c2e700840f476e0c3804628509a9e7d15aca10593e4d59c6c67",
+        "actual_model_play_predictions": 1,
+        "actual_model_consumed_events": 1,
+        "raw_trace": {
+          "raw_rpc_rows": 125,
+          "native_state_responses": 95,
+          "actual_consumed_events": 13,
+          "consumed_events": [
+            [
+              44,
+              91,
+              1,
+              28000000,
+              4
+            ],
+            [
+              45,
+              111,
+              1,
+              28000001,
+              3
+            ],
+            [
+              46,
+              231,
+              1,
+              26000005,
+              3
+            ],
+            [
+              47,
+              411,
+              1,
+              26000001,
+              3
+            ],
+            [
+              48,
+              571,
+              1,
+              26000000,
+              3
+            ],
+            [
+              49,
+              791,
+              1,
+              28000000,
+              4
+            ],
+            [
+              50,
+              971,
+              1,
+              28000001,
+              3
+            ],
+            [
+              51,
+              1131,
+              1,
+              26000005,
+              3
+            ],
+            [
+              52,
+              1311,
+              1,
+              26000001,
+              3
+            ],
+            [
+              53,
+              1471,
+              1,
+              26000000,
+              3
+            ],
+            [
+              54,
+              1691,
+              1,
+              26000018,
+              4
+            ],
+            [
+              55,
+              1871,
+              0,
+              28000001,
+              3
+            ],
+            [
+              56,
+              1871,
+              1,
+              28000001,
+              3
+            ]
+          ],
+          "initial_tick": 90,
+          "terminal_tick": 1967,
+          "terminal_result": 1,
+          "terminal_crowns": [
+            0,
+            3
+          ],
+          "native_generations": [
+            3
+          ]
+        },
+        "model_event_evidence": [
+          {
+            "request_id": "76511fee-afc3-4a00-bfef-304500a4b537:model:89",
+            "card_event": [
+              55,
+              1871,
+              0,
+              28000001,
+              3
+            ],
+            "matched_by": "unique_native_event_exact_card_id"
+          }
+        ],
+        "counts_toward_G": false,
+        "scope": "One cold-start offline game; the separate10-game G denominator is not changed"
+      },
+      "network_scope": "QEMU restricted guest + audited Python loopback socket guard; no host-wide firewall changes"
+    },
+    "C": {
+      "status": "pass",
+      "formal_denominator": 100,
+      "quality_dimensions": {
+        "parse_valid": {
+          "pass": 100
+        },
+        "runtime_replayable": {
+          "pass": 10,
+          "fail": 90
+        },
+        "deterministic": {
+          "not_run": 100
+        },
+        "outcome_consistent": {
+          "pass": 63,
+          "fail": 23,
+          "not_run": 13,
+          "unknown": 1
+        },
+        "trajectory_validated": {
+          "not_available": 100
+        }
+      },
+      "action_counts": {
+        "executed": 5902,
+        "decision_points": 88416,
+        "captures": 50198,
+        "native_card_events": 5917,
+        "unknown": 295,
+        "not_submitted_native_ended_early": 95,
+        "rejected": 0
+      },
+      "unknown_action_counts": {
+        "registered": 1,
+        "unknown": 1,
+        "not_submitted_native_ended_early": 1
+      },
+      "strict_trainable_formal_source_ids": [
+        "91e21faee1ae4abbb424e759585bf2f0"
+      ],
+      "failure_reasons": {
+        "Not all source commands have uniquely confirmed native consumption and a natural terminal; see action results (abilities unconfirmed in minimal)": 76,
+        "ValueError: Initial-deal calibration cycled; no source action changed": 9,
+        "ValueError: Lossy source-level normalization rejected: 7e0c94f5ff2b453595bfd76157bb56cc; [{\"card_key\":\"mega-minion\",\"hypothesis_level\":16,\"kind\":\"deck_card\",\"source_level\":15,\"source_side\":\"opponent\"},{\"card_key\":\"tombstone\",\"hypothesis_level\":16,\"kind\":\"deck_card\",\"source_level\":15,\"source_side\":\"opponent\"},{\"card_key\":\"arrows\",\"hypothesis_level\":16,\"kind\":\"deck_card\",\"source_level\":15,\"source_side\":\"opponent\"}]": 1,
+        "ValueError: Lossy source-level normalization rejected: 78d40aae23a2409e9403aa99cd6f488a; [{\"card_key\":\"royal-delivery\",\"hypothesis_level\":16,\"kind\":\"deck_card\",\"source_level\":15,\"source_side\":\"opponent\"}]": 1,
+        "ValueError: Lossy source-level normalization rejected: 3a25da4c0c9643808e90a73b5c28b38f; [{\"card_key\":\"heal-spirit\",\"hypothesis_level\":16,\"kind\":\"deck_card\",\"source_level\":15,\"source_side\":\"opponent\"}]": 1,
+        "Bounded episode wall timeout": 1,
+        "ValueError: Lossy source-level normalization rejected: 1691b04b10a6401f8e36e691908e8ffd; [{\"card_key\":\"graveyard\",\"hypothesis_level\":16,\"kind\":\"deck_card\",\"source_level\":15,\"source_side\":\"opponent\"}]": 1
+      },
+      "evidence": [
+        {
+          "path": "outputs/phase2/batches/formal100-v1/queue.json",
+          "sha256": "b0a9e2a9b34624807db691705fe2ad3c8c5a2ef3fcab49dd062872f8fe6eda0f"
+        },
+        {
+          "path": "data/phase2/frozen_manifest.json",
+          "sha256": "47823338241815c22182347f2c46daf5a353f52c0d2e63d37e55d903e4945627"
+        },
+        {
+          "path": "outputs/phase2/learning_pipeline/export/export_manifest.json",
+          "sha256": "b3ce3882333b5ebae4132357072553ba95cc19d0d38f241b732d5d33ecad7307"
+        }
+      ]
+    },
+    "D": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/repeatability/learning16/report.json",
+          "sha256": "ba00f7f67cdea9d84f7760a1e806afe8a31140a22ca10ad0846493e32c375a34"
+        },
+        {
+          "path": "outputs/phase2/repeatability/formal2/report.json",
+          "sha256": "40b201d8af78dd482ac3df83047bfbbd95317ccd7df1f158f29c9523791bc05e"
+        },
+        {
+          "path": "outputs/phase2/fixtures/mechanism_coverage.json",
+          "sha256": "a4c83138f6d8f0731ed5216ecdab3101186933ac6ad785955a943e56962b7927"
+        }
+      ],
+      "independent_reset_sources_passed": 16,
+      "actual_repeat_runs": 54,
+      "internal_native_mechanisms": 20,
+      "independent_official_trajectory_references": 0,
+      "scope": "Every exposed semantic state/event/queue field retained except documented nonsemantic counter origins"
+    },
+    "E": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/learning_pipeline/export/export_manifest.json",
+          "sha256": "b3ce3882333b5ebae4132357072553ba95cc19d0d38f241b732d5d33ecad7307"
+        },
+        {
+          "path": "outputs/phase2/learning_pipeline/export/trajectories.parquet",
+          "sha256": "0879fec40ac9b19e4c156cfc921e7f707b1eea120ad12d20209d264a43adee6b",
+          "bytes": 3599510,
+          "readback_rows": 26068
+        },
+        {
+          "path": "data/phase2/action_subspace_proof.json",
+          "sha256": "5f48508083ed26bf6b396e1961d43ff8b6ec522b858fbb5fb5725b19f27ad159"
+        }
+      ],
+      "actual_re_read_valid_decisions": 18440,
+      "by_split": {
+        "train": {
+          "rows": 15403,
+          "episodes": 10,
+          "eligible_hard_e": 13431,
+          "eligible_hard_e_play": 31,
+          "eligible_native_label_bc": 13886
+        },
+        "validation": {
+          "rows": 6407,
+          "episodes": 4,
+          "eligible_hard_e": 3348,
+          "eligible_hard_e_play": 12,
+          "eligible_native_label_bc": 3487
+        },
+        "test": {
+          "rows": 4258,
+          "episodes": 2,
+          "eligible_hard_e": 1661,
+          "eligible_hard_e_play": 9,
+          "eligible_native_label_bc": 1718
+        }
+      },
+      "distributions": {
+        "all_parsed_decisions": {
+          "wait": 25078,
+          "play_card": 990
+        },
+        "hard_e_decisions": {
+          "wait": 18388,
+          "play_card": 52
+        },
+        "all_card_labels": {
+          "26000015": 5,
+          "26000061": 7,
+          "27000010": 8,
+          "26000039": 7,
+          "28000015": 36,
+          "26000004": 4,
+          "26000009": 9,
+          "26000060": 7,
+          "27000009": 6,
+          "28000024": 4,
+          "28000002": 10,
+          "26000011": 6,
+          "26000013": 16,
+          "28000012": 8,
+          "28000007": 4,
+          "28000001": 30,
+          "28000011": 55,
+          "28000008": 19,
+          "26000021": 47,
+          "26000043": 12,
+          "26000014": 36,
+          "26000010": 63,
+          "26000030": 46,
+          "26000035": 8,
+          "28000000": 43,
+          "27000000": 32,
+          "26000038": 35,
+          "26000048": 8,
+          "26000087": 12,
+          "26000084": 31,
+          "26000052": 29,
+          "26000047": 23,
+          "26000057": 21,
+          "27000012": 23,
+          "26000059": 18,
+          "26000085": 1,
+          "26000049": 7,
+          "26000033": 7,
+          "26000018": 10,
+          "26000027": 10,
+          "26000042": 5,
+          "26000083": 4,
+          "28000016": 2,
+          "26000003": 1,
+          "26000026": 11,
+          "26000102": 7,
+          "26000012": 4,
+          "26000051": 4,
+          "26000040": 8,
+          "28000004": 9,
+          "26000050": 11,
+          "26000055": 2,
+          "28000025": 2,
+          "27000003": 8,
+          "26000097": 6,
+          "26000056": 6,
+          "26000053": 8,
+          "26000041": 10,
+          "28000003": 1,
+          "26000001": 11,
+          "26000000": 21,
+          "27000008": 4,
+          "27000006": 8,
+          "28000017": 3,
+          "26000046": 3,
+          "26000054": 3,
+          "26000065": 5,
+          "28000014": 6,
+          "26000064": 6,
+          "26000032": 10,
+          "26000022": 4,
+          "26000058": 4,
+          "26000044": 4,
+          "26000024": 4,
+          "26000045": 6,
+          "26000008": 5,
+          "26000006": 4,
+          "26000036": 2,
+          "26000020": 2,
+          "28000026": 2,
+          "26000017": 1
+        },
+        "hard_e_card_labels": {
+          "28000001": 19,
+          "28000000": 33
+        }
+      },
+      "official_gold_rows": 0,
+      "scope": "Strict operational reconstruction; WAIT plus two ordinary all-arena spells. Sampled WAIT is not explicit human waiting."
+    },
+    "F": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/viewer/acceptance-001/report.json",
+          "sha256": "955f76c6a93f93c81b979a58294096ee699a2b5b462325b72d47a74bc77add6a"
+        },
+        {
+          "path": "outputs/phase2/viewer/acceptance-001/rendered/anchors.json",
+          "sha256": "81d070b272137b2da59d1439b8992b0613e9d82c8d24a1b684094ae558ad9d2d"
+        },
+        {
+          "path": "outputs/phase2/viewer/acceptance-001/headless/anchors.json",
+          "sha256": "f262c2f7def1b437ea40514303cc20ed21c9d4de47a7ec47e0359f8e5abf87fe"
+        }
+      ],
+      "raw_binding_validation": {
+        "schema": "phase2-native-viewer-evidence-validation.v1",
+        "status": "pass",
+        "source_episode": "outputs\\phase2\\replays\\development\\ordinary-feedback-fixed\\episode.json",
+        "source_episode_sha256": "f7debe312b08ab7d0b636928d6aceae96ad891d71f374c5d0f01614a29ae55fe",
+        "expected_anchors": [
+          90,
+          1000,
+          2000,
+          3000,
+          3648
+        ],
+        "raw_anchor_bindings": {
+          "headless": {
+            "anchors": {
+              "90": "273004afead45621a397fb9442922d7eb1ace93b9357f8c43b7e3a53f309549a",
+              "1000": "bcf48f9f6feff48cfbd656434d131ebfe43f184ed5e50803a3b9e1189e0ecf2f",
+              "2000": "ddcd0ad55cc5dd3bf0b6cd600bf4cf5e071d0a7f3cf6773889393d9a0caf2281",
+              "3000": "6b1b633207b75b37ef36d43f3e0bd98b370cb7b1611d968d0552bb544d8d68d1",
+              "3648": "fb4e0ae38eedb87cac8eb7f3a4c1fc06ef5603108b3edad32c848b7d08a6b229"
+            },
+            "state_rows": 5,
+            "wire_rows": 52,
+            "schedule_command_records": 43,
+            "origin": 56
+          },
+          "rendered": {
+            "anchors": {
+              "90": "273004afead45621a397fb9442922d7eb1ace93b9357f8c43b7e3a53f309549a",
+              "1000": "bcf48f9f6feff48cfbd656434d131ebfe43f184ed5e50803a3b9e1189e0ecf2f",
+              "2000": "ddcd0ad55cc5dd3bf0b6cd600bf4cf5e071d0a7f3cf6773889393d9a0caf2281",
+              "3000": "6b1b633207b75b37ef36d43f3e0bd98b370cb7b1611d968d0552bb544d8d68d1",
+              "3648": "fb4e0ae38eedb87cac8eb7f3a4c1fc06ef5603108b3edad32c848b7d08a6b229"
+            },
+            "state_rows": 181,
+            "wire_rows": 455,
+            "schedule_command_records": 43,
+            "origin": 99
+          }
+        },
+        "frame_count": 181,
+        "frame_start_tick": 90,
+        "frame_terminal_tick": 3648,
+        "video_paths": [
+          "outputs\\phase2\\viewer\\acceptance-001\\rendered\\part-001.mp4",
+          "outputs\\phase2\\viewer\\acceptance-001\\rendered\\part-002.mp4"
+        ],
+        "video_receipt_sha256": "b021c32c87d2f3e63c321f8a9479102e1938260858b5b2bd2ed3179ecb30ec3a",
+        "claim": "Raw native state/wire/frame/video binding verified; no official-art asset fidelity claim"
+      },
+      "semantic_anchors": [
+        {
+          "tick": 90,
+          "equal": true,
+          "reference_sha256": "273004afead45621a397fb9442922d7eb1ace93b9357f8c43b7e3a53f309549a",
+          "rendered_sha256": "273004afead45621a397fb9442922d7eb1ace93b9357f8c43b7e3a53f309549a",
+          "differences": []
+        },
+        {
+          "tick": 1000,
+          "equal": true,
+          "reference_sha256": "bcf48f9f6feff48cfbd656434d131ebfe43f184ed5e50803a3b9e1189e0ecf2f",
+          "rendered_sha256": "bcf48f9f6feff48cfbd656434d131ebfe43f184ed5e50803a3b9e1189e0ecf2f",
+          "differences": []
+        },
+        {
+          "tick": 2000,
+          "equal": true,
+          "reference_sha256": "ddcd0ad55cc5dd3bf0b6cd600bf4cf5e071d0a7f3cf6773889393d9a0caf2281",
+          "rendered_sha256": "ddcd0ad55cc5dd3bf0b6cd600bf4cf5e071d0a7f3cf6773889393d9a0caf2281",
+          "differences": []
+        },
+        {
+          "tick": 3000,
+          "equal": true,
+          "reference_sha256": "6b1b633207b75b37ef36d43f3e0bd98b370cb7b1611d968d0552bb544d8d68d1",
+          "rendered_sha256": "6b1b633207b75b37ef36d43f3e0bd98b370cb7b1611d968d0552bb544d8d68d1",
+          "differences": []
+        },
+        {
+          "tick": 3648,
+          "equal": true,
+          "reference_sha256": "fb4e0ae38eedb87cac8eb7f3a4c1fc06ef5603108b3edad32c848b7d08a6b229",
+          "rendered_sha256": "fb4e0ae38eedb87cac8eb7f3a4c1fc06ef5603108b3edad32c848b7d08a6b229",
+          "differences": []
+        }
+      ],
+      "actual_native_frames": 181,
+      "complete_source_actions": 43,
+      "controls_recomputed_from_records": true,
+      "independent_official_fidelity_claim": false
+    },
+    "G": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/learning_pipeline/model_g_variant/checkpoint.json",
+          "sha256": "31962197f193c3f29c907ee33813c2b7118c45be8aa94e71e17f8c8e6f85dfb3"
+        },
+        {
+          "path": "outputs/phase2/learning_pipeline/model_g_variant/weights.npz",
+          "sha256": "60a75cabd3b83820057cb7b230456d773478d53cd8629d88c4744deaf46f4fb7"
+        },
+        {
+          "path": "outputs/phase2/native/agent_eval/acceptance-008/report.json",
+          "sha256": "a31e442e335213509c542dc01c9b274255acb4ea901e46711022fea853f4e657"
+        }
+      ],
+      "complete_native_model_games": 10,
+      "actual_model_card_consumptions": 14,
+      "metrics": {
+        "train": {
+          "samples": 13431,
+          "whole_source_episodes": 9,
+          "wait_labels": 13400,
+          "play_labels": 31,
+          "slot_accuracy": 0.9383515747152111,
+          "wait_precision": 0.9991266375545852,
+          "wait_recall": 0.9391044776119403,
+          "play_precision": 0.023923444976076555,
+          "play_recall": 0.6451612903225806,
+          "card_accuracy_on_actual_play": 0.6129032258064516,
+          "mask_label_coverage": 1.0,
+          "action_choice_counts": {
+            "forced_wait_only_mask": 8039,
+            "at_least_one_play_available": 5392
+          },
+          "coordinate_units": "native_requested_coordinate; not impact/entity position",
+          "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+          "position_on_all_actual_play": {
+            "count": 31,
+            "mae_x": 4226.728646445659,
+            "mae_y": 4962.302272431312,
+            "mean_euclidean": 7003.991530533208
+          },
+          "position_when_card_correct": {
+            "count": 19,
+            "mae_x": 4369.602050213437,
+            "mae_y": 5065.915052677456,
+            "mean_euclidean": 7165.55813406687
+          }
+        },
+        "validation": {
+          "samples": 3348,
+          "whole_source_episodes": 2,
+          "wait_labels": 3336,
+          "play_labels": 12,
+          "slot_accuracy": 0.9444444444444444,
+          "wait_precision": 0.9968464206874803,
+          "wait_recall": 0.9475419664268585,
+          "play_precision": 0.011299435028248588,
+          "play_recall": 0.16666666666666666,
+          "card_accuracy_on_actual_play": 0.08333333333333333,
+          "mask_label_coverage": 1.0,
+          "action_choice_counts": {
+            "forced_wait_only_mask": 2727,
+            "at_least_one_play_available": 621
+          },
+          "coordinate_units": "native_requested_coordinate; not impact/entity position",
+          "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+          "position_on_all_actual_play": {
+            "count": 12,
+            "mae_x": 6280.111689057201,
+            "mae_y": 7237.655079307656,
+            "mean_euclidean": 10287.788427160114
+          },
+          "position_when_card_correct": {
+            "count": 1,
+            "mae_x": 4334.143254831433,
+            "mae_y": 12307.818112194538,
+            "mean_euclidean": 13048.646843112305
+          }
+        },
+        "test": {
+          "samples": 1661,
+          "whole_source_episodes": 1,
+          "wait_labels": 1652,
+          "play_labels": 9,
+          "slot_accuracy": 0.9114990969295605,
+          "wait_precision": 0.9953917050691244,
+          "wait_recall": 0.9152542372881356,
+          "play_precision": 0.014084507042253521,
+          "play_recall": 0.2222222222222222,
+          "card_accuracy_on_actual_play": 0.2222222222222222,
+          "mask_label_coverage": 1.0,
+          "action_choice_counts": {
+            "forced_wait_only_mask": 714,
+            "at_least_one_play_available": 947
+          },
+          "coordinate_units": "native_requested_coordinate; not impact/entity position",
+          "timing": "No separate reaction-time head; decision-grid timing must be supplied by the native controller.",
+          "position_on_all_actual_play": {
+            "count": 9,
+            "mae_x": 5157.8060572875875,
+            "mae_y": 5610.1240004864,
+            "mean_euclidean": 8013.186281183949
+          },
+          "position_when_card_correct": {
+            "count": 2,
+            "mae_x": 5563.181427180767,
+            "mae_y": 4314.339755341411,
+            "mean_euclidean": 7517.755489419426
+          }
+        }
+      },
+      "scope": "Saved restricted-action BC; heuristic opponent; no strong-agent claim"
+    },
+    "H": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/batches/recovery-verified/queue.json",
+          "sha256": "83d9d1b339a9320e2abb244dddf775d8724e7112083ef733683e8229f14c5a32"
+        },
+        {
+          "path": "outputs/phase2/performance/whole-pipeline/report.json",
+          "sha256": "9f6837b8952a908abf31c5efd17f97e68738d248454ac3d86a6d2bad883f2039"
+        },
+        {
+          "path": "outputs/phase2/core_environment/report.json",
+          "sha256": "3f4885b3d3f10de4419f0a9e3f3bb4acc5c9388d6d3723ea763a266210699d25"
+        }
+      ],
+      "actual_partial_native_events": 1,
+      "resume_distinct_generations": [
+        90,
+        92
+      ],
+      "actual_workers": 1,
+      "configurations": [
+        {
+          "mode": "two_rpc",
+          "command": [
+            "D:\\研究生\\Clash Royal\\.venv-phase2-core\\Scripts\\python.exe",
+            "D:\\研究生\\Clash Royal\\tools\\phase2_benchmark.py",
+            "--source-id",
+            "85c0a48b6a1d47cc8057710e05bf7773",
+            "--output",
+            "D:\\研究生\\Clash Royal\\outputs\\phase2\\performance\\whole-pipeline\\two_rpc",
+            "--grid-ticks",
+            "10",
+            "--mode",
+            "two_rpc"
+          ],
+          "returncode": 0,
+          "log": {
+            "path": "outputs/phase2/performance/whole-pipeline/two_rpc.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "episode": {
+            "path": "outputs/phase2/performance/whole-pipeline/two_rpc/episode.json",
+            "sha256": "fa6bf244daec2f5a07a79b699a660ddbf5c27b562e2b4815216c42fc437513a1"
+          },
+          "wall_seconds_including_process_start_reset_actor_io_and_feedback": 34.8514129000032,
+          "native_simulated_seconds": 182.4,
+          "simulated_seconds_per_wall_second": 5.233647213194713,
+          "episodes_per_hour": 103.2956686814746,
+          "python_resources": {
+            "before": {
+              "available": true,
+              "pid": 47776,
+              "peak_working_set_bytes": 32153600,
+              "cpu_kernel_seconds": 1.0,
+              "cpu_user_seconds": 1.015625,
+              "io_read_bytes": 1780001887,
+              "io_write_bytes": 0,
+              "scope": "actual Python worker process lifetime; guest native CPU/memory measured separately by batch queue"
+            },
+            "after": {
+              "available": true,
+              "pid": 47776,
+              "peak_working_set_bytes": 42717184,
+              "cpu_kernel_seconds": 1.59375,
+              "cpu_user_seconds": 1.484375,
+              "io_read_bytes": 1781199363,
+              "io_write_bytes": 3129336,
+              "scope": "actual Python worker process lifetime; guest native CPU/memory measured separately by batch queue"
+            }
+          },
+          "qemu_before": {
+            "Id": 40516,
+            "CPU": 2191.125,
+            "WorkingSet64": 390115328,
+            "PeakWorkingSet64": 4341161984
+          },
+          "qemu_after": {
+            "Id": 40516,
+            "CPU": 2211.546875,
+            "WorkingSet64": 397664256,
+            "PeakWorkingSet64": 4341161984
+          },
+          "quality": {
+            "parse_valid": "pass",
+            "runtime_replayable": "pass",
+            "deterministic": "not_run",
+            "outcome_consistent": "pass",
+            "trajectory_validated": "not_available"
+          },
+          "actual_actions": {
+            "executed": 43,
+            "decision_points": 798,
+            "captures": 443,
+            "native_card_events": 43
+          }
+        },
+        {
+          "mode": "atomic",
+          "command": [
+            "D:\\研究生\\Clash Royal\\.venv-phase2-core\\Scripts\\python.exe",
+            "D:\\研究生\\Clash Royal\\tools\\phase2_benchmark.py",
+            "--source-id",
+            "85c0a48b6a1d47cc8057710e05bf7773",
+            "--output",
+            "D:\\研究生\\Clash Royal\\outputs\\phase2\\performance\\whole-pipeline\\atomic",
+            "--grid-ticks",
+            "10",
+            "--mode",
+            "atomic"
+          ],
+          "returncode": 0,
+          "log": {
+            "path": "outputs/phase2/performance/whole-pipeline/atomic.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "episode": {
+            "path": "outputs/phase2/performance/whole-pipeline/atomic/episode.json",
+            "sha256": "7bf0a560f9e6294827de352aae07c0535409b437f287267011f2b8d866d6beb9"
+          },
+          "wall_seconds_including_process_start_reset_actor_io_and_feedback": 20.850217000006523,
+          "native_simulated_seconds": 182.4,
+          "simulated_seconds_per_wall_second": 8.748110391366332,
+          "episodes_per_hour": 172.66007351380918,
+          "python_resources": {
+            "before": {
+              "available": true,
+              "pid": 53564,
+              "peak_working_set_bytes": 32206848,
+              "cpu_kernel_seconds": 1.15625,
+              "cpu_user_seconds": 0.78125,
+              "io_read_bytes": 1780001887,
+              "io_write_bytes": 0,
+              "scope": "actual Python worker process lifetime; guest native CPU/memory measured separately by batch queue"
+            },
+            "after": {
+              "available": true,
+              "pid": 53564,
+              "peak_working_set_bytes": 42332160,
+              "cpu_kernel_seconds": 1.484375,
+              "cpu_user_seconds": 0.953125,
+              "io_read_bytes": 1781199363,
+              "io_write_bytes": 3037805,
+              "scope": "actual Python worker process lifetime; guest native CPU/memory measured separately by batch queue"
+            }
+          },
+          "qemu_before": {
+            "Id": 40516,
+            "CPU": 2211.640625,
+            "WorkingSet64": 397664256,
+            "PeakWorkingSet64": 4341161984
+          },
+          "qemu_after": {
+            "Id": 40516,
+            "CPU": 2224.546875,
+            "WorkingSet64": 399253504,
+            "PeakWorkingSet64": 4341161984
+          },
+          "quality": {
+            "parse_valid": "pass",
+            "runtime_replayable": "pass",
+            "deterministic": "not_run",
+            "outcome_consistent": "pass",
+            "trajectory_validated": "not_available"
+          },
+          "actual_actions": {
+            "executed": 43,
+            "decision_points": 798,
+            "captures": 443,
+            "native_card_events": 43
+          }
+        }
+      ]
+    },
+    "I": {
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "outputs/phase2/baseline_regression/report.json",
+          "sha256": "9b5902231a89ec2066c57fe13fdd48ca0ffe0f77d2bf24d85342ee80066cccfa"
+        },
+        {
+          "path": "outputs/phase2/cli/report.json",
+          "sha256": "681d00c30021a59ae14cb688a4416f820c89fe72336fd4cdcbd15431923557e8"
+        },
+        {
+          "path": "phase2/QUICKSTART.md",
+          "sha256": "3e3622d10c1fec6755974c762b19a6a387d9f2f4b7716f09e7a3ea84e83b6b6b"
+        },
+        {
+          "path": "phase2/TUTORIAL.md",
+          "sha256": "0188b7e09cbc3970aa025c6e4b936d799e270b460f3cb8413d06d773070f8cfc"
+        },
+        {
+          "path": "phase2/NATIVE_AUDIT.md",
+          "sha256": "f740c06f52b4cafaa59593357b84ca6db43dc631476a7f74e2e657bb30e6d98b"
+        },
+        {
+          "path": "phase2/NATIVE_ENGINE_GUIDE.md",
+          "sha256": "6c3e755f04e2edb1fa447aad1372bfa6e830ed1c5aa19ca1440b6bb4d0300ecd"
+        },
+        {
+          "path": "phase2/SECONDARY_AUDIT.md",
+          "sha256": "10a4d91a1287378289ba941aafc9601281ff14496431b598439e5144ae9f124b"
+        },
+        {
+          "path": "phase2/DATA_AUDIT.md",
+          "sha256": "99c98f0d3f6eb9af05d1682d2782786ed199c366e4fb73024c6fe9832efa6ab7"
+        },
+        {
+          "path": "phase2/TRAJECTORIES_AND_BC.md",
+          "sha256": "9c791ac53a4df0cb082d39d8f79b11f404809e7fa5764dc0fc96ab60a5c5be87"
+        },
+        {
+          "path": "phase2/VIEWER.md",
+          "sha256": "9ab02fe6875dfab129e7c483fad3a67395b09a319148530a451f66eef6c10844"
+        },
+        {
+          "path": "phase2/OFFLINE.md",
+          "sha256": "889bf9c8429adfe36ebc01890579a786940627acc7015b31070fce6d11ebbc49"
+        },
+        {
+          "path": "phase2/STATUS.md",
+          "sha256": "24fb9a63aae3c9400d09f286ae4dd0f0f5d856c38ed63da027d879997551e843"
+        },
+        {
+          "path": "phase2/BLOCKERS.md",
+          "sha256": "f7b46ce68bb5747f088a5e3ac57dbc814f23eca2108cdd5ee273af756e6837fa"
+        }
+      ],
+      "baseline_unchanged_artifact_count": 156,
+      "actual_cli_checks": 17
+    }
+  },
+  "all_required_passed": true,
+  "independent_official_trajectory_fidelity_claim": false,
+  "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba"
+}

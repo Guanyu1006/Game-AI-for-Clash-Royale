@@ -1,0 +1,3 @@
+# Existing .venv-phase2-data, Python3.11.0 WindowsAMD64; no global install.
+numpy==2.2.6
+pyarrow==19.0.1

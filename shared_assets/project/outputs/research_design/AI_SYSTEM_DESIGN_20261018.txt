@@ -1,0 +1,236 @@
+皇室战争AI综合设计方案
+日期：2026-10-18（Asia/Shanghai）
+
+本文结合三个新增仓库、前述回放/视觉数据集、Dreamer/PlaNet解读、相关原始论文和本地平台，提出后续设计。结论来自固定提交的关键源码审计和已有本地证据；没有将新仓库的速度、历史胜率、设备采集或训练流程作为本机已复现实测。本文是方案，不修改正在实施的第三阶段任务与运行时。
+
+1. 总体决策
+
+以现有固定版本原生环境作为目标环境和最终评估入口；优先复用FirstLight已经存在的V4模型、编码、公开权重和IL/PPO工程；以小型玩家视角循环策略作为可控训练与消融基线；近似simulator只在校准范围内承担低成本试验和预训练；memory-reader承担版本锁定的观测、误差定位与视觉监督；短期世界模型作为辅助预测和后续受控想象模块。
+
+先解决“已有组件如何正确接通”，再决定哪些组件需要独立实现。完整Dreamer不是取得第一轮可靠策略的前置条件。原生训练、近似训练和学习世界模型三条路线可以互补，但需要保存各自的数据来源与误差边界。
+
+2. 固定审计版本
+
+FirstLight_CR：
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/tree/3ade158c52bf33de3ffcea600ce380946b7de0d8
+
+clash-royale-simulator：
+https://github.com/Jason-XII/clash-royale-simulator/tree/82bcbf3088102318125fc0193f0e5bc38e7886b2
+
+cr-memory-reader：
+https://github.com/Jason-XII/cr-memory-reader/tree/9af94ca2f273ce526dda6256bdbd5d5555fb82d4
+
+三个仓库承担不同职责：FirstLight是原生训练与策略系统，simulator是Python重写的近似战斗环境，reader是数据读取工具。
+
+3. FirstLight：最优先复用的主干
+
+关键路径：
+- 原生probe与传输：native_runner/probe/、cr_native_env.py、resident_batch_channel.py。
+- 环境与语义：battle_env.py、contracts.py。
+- 模型：training/v4/model.py、tensorizer.py、decoding.py。
+- 数据与IL：cache_builder.py、train_imitation_cache.py。
+- PPO与对手池：train_ppo_self_play_cluster.py、matchmaking.py、league.py。
+- 推理与对局：serve_policy.py、evaluate.py。
+
+V4不是单帧像素CNN：它组合卡牌与机制信息、实体关系编码、空间scatter编码和LSTM记忆，用动作门控及条件候选/位置解码产生请求。该结构直接对应皇室战争的可变实体、兵群、卡牌差异、空间部署与隐藏信息历史。
+
+固定配置包含18×32空间、4层8头关系Transformer与512维LSTM；gate/pointer/卡牌条件位置/五档delay/continue最多生成两个自回归微动作，shadow state会更新资源与合法性。它比本地最小BC复杂得多。接入时必须保留动作列表及各微动作请求ID、顺序、时机和反馈，不能只执行第一项后仍称复现原策略。checkpoint还绑定架构和五种catalog身份，形状相同不足以判定相容。
+
+重要的同源关系：本地已保存GitLab FirstLight固定版本71944e3的model.py、tensorizer.py、factory.py、tracking.py、contracts.py、config.py、decoding.py、ppo.py、learning.py、checkpoint.py、cr_replay_probe.cpp等关键文件，与本次GitHub固定提交相应文件的Git blob SHA1一致；battle_env.py有差异。因此，核心V4源码已在本地，当前minimal平台尚未接通它所需的完整观测和训练链路。新增仓库的主要价值还包括公开checkpoint、完整使用入口和训练经验。
+
+部署版本仍需逐组件核验。README指定Null's Royale 15.535.13、content 15.535.86，与当前项目版本号一致；版本号相同不保证probe、资源表、schema、词表、形态、归一化和checkpoint一致。
+
+公开权重的优先用途：
+1) General作为独立候选基线；
+2) IL、Active IL、General及专精模型组成具有不同风格的对手池；
+3) 通过相容性检查后作为teacher或微调起点。
+速猪专精训练使用特定进化/英雄形态，不能把普通2.6卡组当作完全相同配置。作者的账号“名人堂”经验与其离线模型对战报告要分开，后者也不能替代本机复测。
+
+FAIR不是一句标签就能完成的审计。tensorizer拒绝ORACLE，敌方卡token以已公开牌为主，未展示牌补unknown；tracker虽然收到双方deck配置，其初始可用性为未知，不能只因初始化传了deck就断言整副牌泄漏。同时，需要继续检查真实形态、技能/进化配置是否影响未公开特征或mask；其结构化FAIR内的精确攻击阶段、目标与冷却也超过纯像素玩家的直接读值精度。应建立明确的观察协议，分别评估。
+
+策略服务是有状态JSONL接口：start、observe、act、end。每个进程维护一个循环episode；act会推进LSTM和上一动作状态。UI刷新不能重复act，换局必须reset。上游模型节拍为5个原生tick，即0.25秒，不能直接按本地旧1秒节拍调用并宣称复现。
+
+同一网络也不保证训练和人机部署时序完全相同：offline_agent._rendered_action会强制execute_offset_ticks=1、标记model_delay_ignored并移除native_command_age_ticks。必须比较headless、rendered和统一执行器实际请求/消费/落地的时间，按协议分别报告结果；不能默认五档delay在所有模式都实际生效。
+
+完整probe源码实现进程内snapshot-create/restore/release，但当前部署的minimal未暴露它。实现利用原生StateSnapshot/ByteStream，核对payload、tick等立即roundtrip；这还没有逐字段证明RNG、队列、弹道和后续轨迹完全恢复。probe外的回放调度队列、Python事件游标、公共belief和LSTM也不在同一快照中。
+
+因此先做恢复可行性探针：在含在途弹道、延迟动作、衍生对象和技能的中局S，执行A并推进K步；恢复S再执行A，比较逐tick状态、事件、动作消费和终局；另执行B再恢复A，检查分支污染。若通过，可用少量原生候选搜索产生teacher标签。resident slot表示不同驻留对局，不能当作从同一局势复制分支，也不能直接等价为速度倍率。
+
+资源边界：CPU推理服务与评估有上游路径；上游IL/PPO启动器面向Linux CUDA/NCCL和集群。当前本地CPU-only环境可先做权重推理、少量原生对局、小学生训练；不能直接照搬作者数千并发对局和多GPU配置。
+
+一手依据：
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/docs/architecture.md
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/model.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/native_runner/training/v4/tensorizer.py
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/docs/policy_service.md
+https://github.com/Jaasssoooonnnnn/FirstLight_CR/blob/3ade158c52bf33de3ffcea600ce380946b7de0d8/docs/training_history.md
+
+4. simulator：快速试验的候选环境
+
+其战斗、寻路、索敌、碰撞和特殊机制由Python重新实现。README称47卡，但当前RL environment固定同一8卡组：
+Knight、MiniPekka、Arrows、Minions、Musketeer、Fireball、Giant、Archer。
+观测词表也仅覆盖这些牌及塔/两法术弹道，未知单位可能被跳过，未知手牌不能编码。47卡引擎范围不能当作47卡通用RL已经实现。
+
+值得借鉴的实现：
+- 空间CNN、卡牌嵌入与256维LSTM；
+- 先选WAIT/卡牌/资源等待，再按所选卡牌给576格条件位置分布；
+- 采样、log-prob、熵和学习使用一致mask，WAIT不计算无意义位置概率；
+- 20Hz物理推进与0.5秒决策分开；
+- bank宏动作与强制等待返回实际elapsed，按经过时间计算gamma和GAE；
+- 脚本、历史策略、exploiter与PFSP对手采样；
+- 固定配对schedule、换边、candidate/champion分离、回退与完整报告。
+
+需要先改造的地方：
+- actor含对手精确圣水和己方未必已知的完整后续轮转，不能原样作为严格玩家策略。
+- 单格只保留最后一个实体，兵群覆盖会丢信息。共同表示以实体集合为主，栅格聚合数量/HP/特征。
+- bank只有特定新威胁才中断；应把中断规则写入动作契约，不能当通用最优等待。
+- 矿工部署走普通非spell区域规则；跳河代码被注释；部分死亡伤害/半径硬编码；300秒最低塔血完全相同时固定偏向一方；terminated/truncated口径需修正。
+- 并行PPO下一批采样可能滞后一次更新。先保留同步基线，不能认为clip解决任意off-policy偏差。
+
+作者所称M4约658倍速度是特定硬件/场景报告。纯Battle计时不包含观测、双方推理、IPC、重置与优化，必须另测端到端有效对局/小时、有效转移/秒和资源成本。本地先1—2 worker测预算，不直接采用16-worker默认。
+
+FastSim进入训练前应有原生差分场景库：移动、首击、拉扯、索敌切换、兵群、AOE、弹道、死亡衍生、建筑占位、部署、经济和终局。比较位置、首次攻击时间、攻击数、存活对象、塔血及候选动作排序。
+
+先从其已支持八卡与原生的交集开始；这是一套可检验的小域。若预训练增加后原生表现没有提高，停止扩大近似域训练，定位机制、输入或时序差异。
+
+一手依据：
+https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/environment.py
+https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/masked_spatial.py
+https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/battle.py
+https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/league_evaluation.py
+
+5. memory-reader：观测、校准和视觉监督桥
+
+实际代码面向Null's Royale，ARM端使用Frida，Windows路径使用root环境中的/proc/PID/mem读取。普通采集可见双方实体的ID/HP/位置等，以及己方UI手牌、next、圣水和时钟；没有reset/step、执行器、奖励或训练器，不能替代环境。
+
+不能把指南中设想的功能都认作当前实现：
+- README的30Hz与实际默认100ms采样不一致。
+- 最新ARM hook批量输出entities，而runner仍使用未填充的旧entities字典，存在静态接口回归。
+- x86技术指南描述的部分成熟wire/profile/state-server组件不在当前tree中。
+- 普通代码没有稳定输出双方精确手牌/圣水；笔记还记录某些客户端构建中对手当前手牌没有物化。
+
+数据进入本项目之前需要：
+- libg/资源/offset配置锁定与拒绝不匹配版本；
+- source tick、host单调时间、接收时间与逐字段age；
+- 采集前后tick一致性检查，或明确非原子快照的不确定窗口；
+- battle_id、generation、实体生命周期，防止指针复用和跨局缓存污染；
+- 原生已执行动作与实体生成事件分离，衍生单位不计为再次出牌。
+
+queue_overlay读取激活前pending部署卡牌和坐标，应放在AuditEvent/PrivilegedState，不能作为已经公开的对手动作。采集字段可用于校验快速模拟器，也可同步画面监督检测/OCR/追踪；来自同一原生运行时的双路读取不能冒充独立官方轨迹真值。
+
+一手依据：
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/deploy/hook_raw_capture.js
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/tools/capture_native_entity_stream.py
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/queue_overlay/README.md
+
+6. 数据与论文各自承担的作用
+
+IL_Replay：与FirstLight及本地转换器关系最直接，优先作为可追溯原生重建的数据来源。25万回放/约1784万动作是发布量，不是本地成功重建、无泄漏、版本一致的样本数。
+Cochon：补公开出牌历史、对手先验和清洗工程；主事件表没有连续战场真值，ghost是规则外推。
+TV Royale：补画面与候选视觉动作标签；记录去相邻重复且缺可靠时间戳，不能按名义fps生成精确dt。
+wty/KataCR：借鉴视频到state/action/reward、动作前对齐和延迟标签；视觉弱标签、旧版本、RTG和最后动作终止规则单独审计。
+原生自采：补自己策略会访问的状态、请求与消费反馈、真实终止和同步画面，持续纠正离线分布偏差。
+
+保留不可变raw，按整局与近重复分组。没有可靠同局匹配时，不能把A来源画面和B来源动作拼成同一转移。来源、backend和质量标签不进入actor输入。
+
+POMCP提供从可见历史维护不确定性、采样对手假设的思路；PPO提供在可交互环境中优化策略的路径；DAgger/Oracle follower提供teacher监督自己访问状态的路径；PSRO/PFSP启发多对手池与克制矩阵；SEAT与两个新仓库共同支持卡牌条件空间动作。
+
+Oracle Planner论文直接研究皇室战争中的完整状态teacher与部分观察follower。对本项目，teacher可以是相容的FirstLight模型或通过验证的有限预算规划器。teacher拥有隐藏信息时，同一公开历史可能得到不同标签，学生不可能保证完整保留teacher能力；需要独立的公开观察teacher基线和信息损失评估。
+
+PlaNet侧重学习动力学后在线规划；Dreamer侧重在想象轨迹中训练actor。现有原生环境、可选快速环境和成熟循环PPO意味着可以先建立强基线，再比较世界模型是否改善样本效率或决策延迟。
+
+原始来源：
+https://huggingface.co/datasets/VanguardX101/IL_Replay
+https://huggingface.co/datasets/Cochon123/clash-royale-replays
+https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays
+https://github.com/wty-yy/Clash-Royale-Replay-Dataset
+https://arxiv.org/abs/2012.12186
+https://arxiv.org/abs/1811.04551
+https://www.nature.com/articles/s41586-025-08744-2
+
+7. 建议系统结构
+
+三份物理隔离的数据：
+- ActorObservation：该观察协议允许的信息、己方已知状态、已公开事件和belief。
+- PrivilegedState：研究teacher/critic允许的额外真值，单独声明权限。
+- AuditEvent：原始指针、pending队列、版本、调度和诊断证据。
+
+三个观察实验协议：
+- 结构化研究协议：允许声明过的精确原生字段，研究策略上限和teacher。
+- 玩家协议：禁止未公开手牌、精确敌方资源和未生效命令；可见性未知字段隔离，历史推断带置信度。
+- 像素协议：只从画面和已执行己方动作得到状态，计入识别误差、延迟和丢帧。
+上游名为FAIR的输入要映射到这三类中的具体字段清单，不据名称直接认定与像素协议等价。
+
+共同语义接口：
+BackendCapabilities：版本/资源指纹、tick频率、动作类型、观察范围、恢复范围、worker隔离及实际吞吐。
+Observation：episode/generation/tick、available_at、view协议、己方状态、实体集合、公开事件、belief。
+Action/ActionBundle：request_id、based_on_tick、kind、slot/card/form/ability、target、requested_tick、有效期、解码配置；bundle保留子动作顺序、各自反馈与成本，不截掉第二个微动作。
+ExecutionReceipt：请求、入队、注入、消费/应用及生效各阶段证据、实际tick、拒绝/unknown原因。
+Transition：动作前观察、实际动作与反馈、dt、reward及版本、下一观察、terminated/truncated、来源与质量。
+
+统一接口不意味着可以直接互换checkpoint。每个后端需要独立坐标、卡ID、形态、mask和反馈适配；缺少rich字段不能静默补0后宣称与上游相容。
+
+主策略建议：
+实体集合/关系编码 + 空间聚合 + 卡牌/机制编码 + 公开事件/资源belief
+→ GRU或LSTM历史
+→ 是否行动/动作类型
+→ 卡牌/技能条件候选
+→ 对应位置分布
+并行输出value、对手事件预测和短期状态变化辅助目标。
+
+紧凑学生先用小型集合编码和128—256维循环状态，模型规模由CPU端到端延迟决定；FirstLight V4保持为独立候选。栅格聚合不能覆盖掉同格多个实体。未知语义、实体数量截断、跨局重置和出生/死亡都需mask与契约。
+
+时间：
+- 原生20Hz用于推进和对齐，不要求actor每50ms做一次决策。
+- 复现FirstLight权重保持5tick控制与它的warmup/observe/act生命周期。
+- 自训学生可选10tick固定基线，配置显式dt；可变等待另做消融。
+- FastSim的部署延迟需用目标环境标定，不直接复制0.8—1.0秒估计。
+- 真正实时运行时检查观察age和动作过期；训练、部署、log-prob和mask保持同一语义。
+
+8. 训练路线与进入门槛
+
+阶段A：相容性与权重复用
+冻结原生/源码/词表/形态/观察/时间/解码矩阵。用已保存输入和少量受控场景检查V4编码、输出、LSTM生命周期；再独立原生smoke。只有rich字段和语义确实匹配时，才直接评估General。缺字段时选择补齐探针，或把可运行完整链路作为teacher来蒸馏；不伪造相容。
+
+阶段B：循环BC与teacher蒸馏
+采用现有第三阶段的合格整局、有效出牌和切分要求，扩展普通卡组轮转；专家、规则teacher、预训练teacher和自采数据分层。比较单帧、加战场、加历史、条件位置；在学生自己访问的失败局势补teacher标签。保留WAIT自然分布及动作窗口采样概率。
+
+阶段C：原生小规模PPO与对手池
+进入条件是观察、动作消费、时间、循环和评估已经闭合。从BC或相容checkpoint初始化，保留历史策略、规则与不同风格学习模型。均匀池是基线，再比较PFSP；保留最终评估对手，训练和晋升评估不共用最终测试集。
+终局胜负为主，塔血potential shaping保持时间折扣一致；漏费惩罚、主动开局和专用卡奖励分别消融。不能把惩罚加大后更频繁出牌当作棋力提升。
+
+阶段D：快速模拟器辅助
+先确认相同的八卡、等级、规则、公开观察和动作时序，并通过局部差分；只在通过范围内预训练或产生局部战术数据。比较“有/无FastSim预训练”在相同原生微调预算下的结果。迁移收益未成立时不继续扩卡和堆训练量。
+
+阶段E：短期世界模型
+主要学习原生结构化转移，先预测0.5/1/2秒的对象、塔伤、资源与终止，区别teacher-forced和open-loop；对照保持状态、移动外推和FastSim。也可研究FastSim误差/可信范围预测器。
+先做辅助表示学习。只有在留出局面、多步预测、动作排序与原生反事实对照通过预先冻结门槛后，再让它参与动作选择或想象actor训练。模型随机性不是校准置信度，不能凭低训练loss扩大想象长度。
+
+阶段F：视觉学生
+用同局画面和经审计结构化标签训练检测、HP/阵营、追踪和事件融合，再蒸馏玩家协议策略。训练加入有依据的遮挡、丢帧和延迟分布；最终在真实留出画面与本地闭环检验。与TV Royale不同局数据不能当作同一原生转移。
+
+9. 验证与本机资源
+
+工程与数据：版本身份、未来信息不变性、状态/动作时间对齐、同局分组、原生消费与恢复、模型加载、单控制者和观察age。
+策略：出牌事件PR、卡牌正确率、条件位置、拒绝/unknown、循环锁死、首行动时间、空场等待、漏费、关键漏防、终局胜负、推理/端到端延迟。
+泛化：换边、多初始轮转、未见卡组和对手；相同协议和预算，报告置信区间及最差子组。
+物理与模型：首次分歧、首击时间、单位数/寿命、塔血、候选动作排序；近似训练胜率和原生胜率分开。
+
+当前读取的本地计划为CPU Torch、无CUDA、单原生控制者，磁盘预算有限。先跑固定输入推理、离线小模型和少量对局，再测实际瓶颈。上游集群经验可指导后续扩展，不作为本机并发承诺。分析工作不争用正在进行的原生控制窗口。
+
+10. 对原10项落实指令的更新建议
+
+保留10项验收逻辑，调整实现来源和优先级：
+1/3/5/8：先审计并复用FirstLight已有观察、tracker、循环模型、条件解码和对手池；独立学生作为可控消融。
+2/7：优先现有IL_Replay与同步原生自采；其他来源按各自能力补充。
+4：借鉴simulator的实际dt与中断等待；保持预训练FirstLight的5tick契约。
+6：继续以共用推理与配对原生评估为准；读取时本地代码已出现predict_many/deployment_metrics，应检查实际进度，不能再把旧路径问题当未修复事实重复实施。
+9：短期原生预测和近似误差研究优先。
+10：首先验证公开teacher与学生蒸馏；完整snapshot通过后再评估原生少候选teacher；Dreamer受控想象仍有前置门槛。
+
+最先交付的三个可评审成果应是：
+一份V4/当前minimal/玩家观察的字段与checkpoint相容矩阵；
+一个在支持卡组上能连续轮转、使用历史与条件位置的原生学生基线；
+一套原生与FastSim共享的校准场景和冻结对手评估。
+
+源码可见与许可仍应分别核验。FirstLight声明Apache-2.0，游戏库/资源另有来源边界；simulator和reader本次树中未见LICENSE，借鉴设计和复制分发具体代码是不同复用方式。

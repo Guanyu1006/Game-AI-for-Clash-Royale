@@ -1,0 +1,125 @@
+clash-royale-simulator 源码审计
+审计日期：2026-10-18（北京时间）
+审计固定版本：82bcbf3088102318125fc0193f0e5bc38e7886b2
+commit 日期：2026-10-07T04:09:09Z，说明：Update strongest scripted strategy
+仓库：https://github.com/Jason-XII/clash-royale-simulator
+固定版本：https://github.com/Jason-XII/clash-royale-simulator/tree/82bcbf3088102318125fc0193f0e5bc38e7886b2
+方法：GitHub 连接器读取源码和Git tree；保存16个小文本文件快照。未安装依赖、未运行引擎、未训练、未改本地训练代码。以下“实现”是静态源码核实，“速度/胜率”若无说明是作者声称。
+
+1. 定位
+这是 Python 自研近似战斗引擎，读取游戏数据后重新实现单位、塔、弹道、索敌、寻路、碰撞、技能，不是 Supercell 原生战斗引擎的包装，也不是有官方正确性保证的全卡模拟器。它的关键价值是低成本大量交互、强化学习工程和策略池；本地原生后端的关键价值是目标版本的行为与真实校验。
+
+README 声称47张卡，明确暂无觉醒/精英/英雄（按原文中文）计划，列出若干历史版本数值（ThreeMusketeers非最新版，BlowdartGoblin削弱前）。这不等于所有47张已逐项通过一致性测试。树中无正式测试目录，也未见 LICENSE 文件，复用时需再核查授权。
+
+2. 实际训练范围显著小于引擎范围
+environment.py 19-21 固定双方同一组8牌，顺序reset随机：
+Knight, MiniPekka, Arrows, Minions, Musketeer, Fireball, Giant, Archer。
+entity_names只编码这8牌、塔和ArrowsSpell/FireballSpell。observe遇到未知实体直接跳过，hand/queue遇到不在字典的牌则无法编码。
+因此不能称为已能对47牌任意卡组训练；需要扩展词表、机制验证、legal_mask和卡组采样后才成立。
+
+3. 观测与公平性
+环境原始grid=(8,32,18,15)，0.5秒一帧；最新训练包装只存最后2帧，CNN后接256维LSTM。
+每格存1个实体，后处理实体覆盖前处理实体。高密集兵群会丢失数量与状态，法术/弹道与单位同格也可能覆盖。建议共同状态以实体集合为准，栅格用多层计数/HP/特征聚合或可学习scatter，不照搬“最后一个”。
+15通道包含实体类别、卡类型、敌我、费用、速度、空地属性、攻击空地、HP/logHP、相对HP、攻击间隔、射程、视野和伤害。
+手牌5张=4手牌+next；queue额外3张=完整己方8牌轮转；opponent_elixir为对手精确真实圣水；opponent_plays为最近8次已落地出牌的牌、年龄和精确坐标。
+源码明确说明对手圣水在live client中从内存读取。该actor不是严格玩家可见信息边界。己方未来3牌在开局也不应无条件给玩家策略，除非由已知己方出牌历史恢复；未观察时标unknown。
+本地应分 public observation / belief / privileged state。精确对手圣水、隐藏队列等只用于审计或独立critic/教师，部署actor使用估计分布与置信度。只删掉一个字段后复用旧权重无效，应训练匹配观测契约的模型。
+
+4. 动作、mask、分布
+环境MultiDiscrete([12,32,18])，动作顺序(slot,y,x)：
+0=WAIT，半秒；
+1..4=当前手牌卡槽1..4；
+5..11=银行目标4,5,6,7,8,9,10圣水。
+玩家0坐标=格心(x+0.5,y+0.5)，玩家1旋转180度(18-(x+0.5),32-(y+0.5))。
+银行是宏动作：持续等待到目标圣水，新敌军进入己半场时中断；已经存在的敌军不触发新中断。没牌可出时环境自动前进。
+legal_mask=(4,32,18)，结合圣水、手牌、存活、部署区、河流、建筑占位；法术全图。到达的bank目标也屏蔽。
+策略先Categorical选择WAIT/4牌/7bank，出牌才根据所选卡嵌入和空间CNN图给576格Categorical。
+logprob=logP(choice)+1_play*logP(tile|choice)，采样与evaluate_actions一致使用mask；WAIT/bank不计坐标概率或熵。卡牌与坐标条件化，适合替代本地无卡牌条件的二维MSE坐标头。
+探索bonus分hold/play、hold选项、牌、位置条件熵，分别归一/加权；不要误称为普通单一联合熵。
+本地统一接口应存语义动作，不依赖raw index：
+wait(duration), play(card_id,hand_slot,target), 可选bank(target_elixir,interrupt_rule)。
+每个后端单独适配WAIT与卡槽索引，并保存mask版本、请求与接受/落地时间。不要把bank展开的强制等待全当专家“主动等待”标签。
+尚不能直接推广mask到47牌：deploy_card中所有非spell走同一个can_place_troop，Miner因此没有全图特殊部署；新牌各有不同规则。
+
+5. 时间、延迟、奖励、终止
+默认20Hz仿真，0.5秒一次双方动作，双方从同一部署前快照决策，避免对手同一步看到我方动作。
+训练默认随机0.8..1.0秒额外落地延迟；CREnv裸环境默认0延迟。该值是作者手计时估计，应在本地测量端到端请求/接受/落地分布，不能直接当真实常数。
+银行和强制等待导致变长transition；返回elapsed_seconds, discount_steps=elapsed/0.5, transition_discount=gamma^discount_steps；VariableDiscountBuffer也用gamma^Δt和lambda^Δt做GAE。该SMDP处理值得借鉴，若只按每次决策固定gamma会改变等待收益。
+奖励：结局胜+10、负-10；potential=2*塔优势+0.0001*总塔HP优势；shaping=gamma^Δt*Phi(next)-Phi(now)，终局Phi=0。收益实现有时间意识，不能和本地奖励口径混算。
+游戏180秒进入根据塔数判断的加时/突然死亡，300秒按最低存活塔血比较；完全相等时else固定判player1胜，未实现平局/细致判定流程。
+step和_step_once返回done同时作为terminated与truncated，虽然SB3在terminated存在时不按time-limit bootstrap，但Gym语义不清；共同接口需区分自然终局与外部预算截断。
+get_crown_count实际数“自己被摧毁的塔”，调用处据此反转判winner，报告不能只看变量名。
+
+6. 战斗机制与近似
+battle.py实现：单位/建筑/投射物，部署延迟，范围/空地过滤，目标锁定/切换，护盾，buff，死亡分裂/炸弹，碰撞、建筑衰减、国王激活等。
+card_mechanics.py按卡覆盖Witch、Balloon、Golem、LavaHound、Prince/DarkPrince/BattleRam、GiantSkeleton、IceWizard、Miner、Rage、Lumberjack等。
+实际battle导入pathfinding_heap.py，不是普通pathfinding.py。使用36x64半格A*、heapq、静态通行表、建筑距离缓存、goal/path缓存；这解释其加速方法，但不能证明与原游戏算法和tie-break完全相同。
+证实存在近似/风险：
+- jump激活与速度变更代码被注释，不能直接认定跳河机制完备；
+- 死亡伤害注释承认假设可打空地、半径硬编码为1格+碰撞半径；
+- 爆炸数据TimedExplosiveData.range固定3.0；
+- KingTower基础数据硬编码；
+- card_utils默认统一11级，但不代表所有特殊伤害、盾、死亡伤害等都通过版本级校验；
+- 单位移动/目标更新降频，碰撞手写，与原生细粒度次序需对照；
+- Miner进入全图部署问题、法术概括为投射物，不适合直接承诺全机制。
+建议逐场景差分：单兵空场行走、塔接敌、近远程首次攻击、重索敌、拉扯、密集兵群、弹道飞行、AOE、死亡分裂、建筑挡路、部署区变化、1/2/3倍圣水、加时/终局。比较位置误差、首次击中、攻击数、存活单位、塔血和终局，而非只看动画相似。
+
+7. PPO、联赛、统计
+最新策略：CNN空间编码+手牌等嵌入+256维LSTM；recurrent chunk64，隐藏状态存入rollout，各集清零。
+TrainConfig默认workers16, rollout512, batch256, epochs4, lr1e-4, targetKL0.03, entropy0.005,gamma0.997,lambda0.995。
+LeagueOpponent=9类脚本+mirrored counterpush+历史checkpoint+exploiters；按worker自身EMA胜率w=(1-winrate)^2+0.05做PFSP，保留已掌握对手最低概率。
+train_league每cycle先固定评估schedule，然后candidate与champion复用同一schedule；两边预算相等但换边种子独立，模型/对手采样流隔离。默认50局，不是充分证明细小提升。
+晋升门槛：有效部署率>=99%，paired gain>=2个百分点且单侧exact McNemar p<=0.05；总体/各group出现>=10个百分点统计显著回退则rollback，回退检测用Bonferroni修正；其余inconclusive。
+新champion后可训练exploiter针对其，接受exploiter需有效率>=99%、winrate>=55%、单侧exact binomial p<=0.05。
+保存评估schedule与完整结果、保持champion与继续探索learner分离，适合本地借鉴。
+但重复cycle的晋升属于反复自适应评估；还需要最终锁定的外部原生holdout、策略/卡组OOD测试。模拟器域晋升不能替代原生验收。
+代码注释称hist12(13M steps)对强叠兵脚本320局胜率38%，是作者注释陈述，仓库未附对应完整报告；反而提醒只打有限脚本会被新战术击穿。
+
+8. 吞吐与硬件
+README称M4跑180秒约0.26秒、约658倍；一般CPU约300倍。这是作者硬件/场景声称，本审计未测。
+timing.py是随机出牌+纯Battle.step循环，不能当端到端PPO吞吐。真正训练还含观测生成、CNN/LSTM推理、进程传输、对手推理、GAE与优化。
+parallel_rollout实现CPU独立worker、双份np.memmap rollout、边训练边采集下一份。后一份用更新前policy，约1次更新staleness；“PPO clip纠正”是代码注释，不能当任意offpolicy偏差都已消除的理论保证。建议初始保留同步PPO基线，比较固定采样预算、最终性能、KL分布。
+默认grid单decision=2*32*18*15*float32=69120B；16*512约540MiB一份，仅grid双buffer约1.05GiB，另有mask/状态/梯度/模型/进程开销。受本地CPU Torch与资源约束，不应照抄16worker默认，也不应与正在进行原生验收争资源。
+benchmark_training.py可记录机器/依赖/hash/速度，适合作为“先小规模测预算，再扩大”的参考。
+
+9. 推荐移植边界
+可直接借鉴设计：
+- 卡牌条件离散空间动作头和一致mask/logprob；
+- SMDP elapsed discount，固定时钟规范；
+- 脚本/历史/exploiter混合与PFSP；
+- 固定种子schedule、换边、完整报告、champion门槛；
+- 延迟随机化与可复现命令/模型语义版本。
+需先改造：
+- 词表/多卡组/未知卡处理；
+- actor去特权信息，critic与teacher隔离；
+- 实体集合与兵群保真；
+- 卡牌特殊部署/技能、严格终止口径；
+- 同步训练与资源预算基线。
+不可直接相信：
+- 全47牌准确；
+- 658倍在本机或端到端训练成立；
+- 模拟器高胜率意味着原生强；
+- 内存精确圣水的actor可以直接作为公平部署策略。
+
+10. 多保真方案建议
+原生后端保留最终目标与真值测量；本仓库作为可选近似fast backend，经共同observation/action/reward契约接入。
+先固定少量双方都已实现且差分通过的卡组，先BC+recurrent masked PPO+联赛，满足本地10项中1..8。完整Dreamer并非当前必要前提：已有快速可交互模型能便宜地产生真实“模拟器”经验。
+同时利用原生采样检查局部机制误差，并采用延迟/数值/状态噪声域随机化，但须数据标定，不能凭随机范围掩盖系统性错机制。
+短期世界模型优先学习原生结构化转移，或学习“原生减近似模拟器”的残差/信任度；模拟器transition标simulated source，不和native label无标记混在一起。
+上线前冻结策略，在未训练原生对手/卡组/换边种子上验收；真实收益不足则回到差分场景定位，不用继续扩大模拟器训练量来掩盖差距。
+
+一手入口（均固定commit）：
+README：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/README.md
+环境：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/environment.py
+策略：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/masked_spatial.py
+训练：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/train_core.py
+联赛：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/train_league.py
+统计：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/league_evaluation.py
+并行：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/parallel_rollout.py
+战斗：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/battle.py
+寻路：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/pathfinding_heap.py
+卡牌：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/card_mechanics.py
+数据：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/card_utils.py
+纯仿真计时：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/timing.py
+端到端benchmark：https://github.com/Jason-XII/clash-royale-simulator/blob/82bcbf3088102318125fc0193f0e5bc38e7886b2/src/clasher_new/benchmark_training.py
+

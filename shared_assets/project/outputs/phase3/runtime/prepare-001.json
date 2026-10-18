@@ -1,0 +1,93 @@
+{
+  "started": "2026-10-18T06:31:58.516521+00:00",
+  "commands": [
+    {
+      "stdout": "Starting: Intent { cmp=nullsroyale.rel.free/com.supercell.clashroyale.GameApp }\n",
+      "stderr": "",
+      "scope": "Cold application restart; previous rendered match is discarded"
+    }
+  ],
+  "prior_console": {
+    "mode": "human",
+    "folder": "outputs\\platform_next\\sessions\\20261018T061152.168939Z-human",
+    "tick": 90,
+    "playing": false
+  },
+  "status": "ready",
+  "shutdown_receipt": {
+    "ticket": "577620b67845"
+  },
+  "last_error": "Incomplete or over-limit native response; request outcome unknown",
+  "native_status": {
+    "ok": true,
+    "coldReady": true,
+    "contentReady": true,
+    "contentPublished": true,
+    "contentRoot": "0x70a450927ad0",
+    "contentContext": "0x70a55fe34540",
+    "mode": "headless",
+    "nativeRenderReady": false,
+    "nativeRenderSequence": 0,
+    "nativeRenderProcessed": 0,
+    "nativeRenderLoaded": 0,
+    "nativeReplayManager": "0x0",
+    "nativeController": "0x0",
+    "nativeManager": "0x0",
+    "nativeTick": -1,
+    "ready": false,
+    "matchReady": false,
+    "bootstrap": "cold-config",
+    "replayBootstrap": false,
+    "armed": true,
+    "gate": true,
+    "paused": true,
+    "speed": null,
+    "ended": false,
+    "terminalReadable": false,
+    "finalized": false,
+    "worldResult": null,
+    "worldResultRaw": null,
+    "winner": null,
+    "crownsRaw": [
+      null,
+      null
+    ],
+    "stateEpoch": 0,
+    "snapshotHandles": 0,
+    "renderSuppressed": false,
+    "offlineControlSession": false,
+    "offlineConnectionErrorsSuppressed": 0,
+    "configured": false,
+    "configRevision": 0,
+    "generation": 0,
+    "resets": 0,
+    "steps": 0,
+    "nativeStockStepCallbacks": 0,
+    "tick": -1,
+    "manager": "0x0",
+    "fixtureBattle": "0x0",
+    "fixtureCommands": "0x0",
+    "configStage": 0,
+    "configRoot": "0x0",
+    "configCommands": "0x0",
+    "configEvents": "0x0",
+    "configLocationId": 0,
+    "configCommandCount": -1,
+    "configEventCount": -1,
+    "loadedQueueCount": -1,
+    "tilemapEnsureCalls": 0,
+    "locationData": "0x0",
+    "tilemap": "0x0",
+    "configCommandWords": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+  "finished": "2026-10-18T06:32:28.892474+00:00"
+}

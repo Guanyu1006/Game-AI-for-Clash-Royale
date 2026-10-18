@@ -1,0 +1,65 @@
+{
+  "game_index": 6,
+  "seed": 330006,
+  "attempt": "outputs\\phase3\\collection\\main-003\\game-006\\attempt-001",
+  "status": "completed",
+  "started": "2026-10-18T13:50:03.959774+00:00",
+  "natural_terminal": true,
+  "truncated": false,
+  "source_kind": "native_self_collected_public_rule_teacher",
+  "failure": null,
+  "last_tick": 1641,
+  "winner_owner": 0,
+  "crowns": [
+    3,
+    1
+  ],
+  "consumptions": {
+    "consumed": 18
+  },
+  "cards": {
+    "26000014": 4,
+    "26000001": 3,
+    "26000018": 3,
+    "26000000": 1,
+    "28000000": 2,
+    "27000000": 2,
+    "28000001": 2,
+    "26000003": 1
+  },
+  "requests": 18,
+  "version_fingerprint": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+  "semantic_trajectory_hash": "7eef4a022afd19b0db0fc88a1ce23595860a8b9cbfa779d1f5ce9d091a82b901",
+  "artifacts": [
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/initialization.json",
+      "sha256": "cb67392d5b257ab211079ae71af0d9705221f08f3d05c3eb1e58516744cc6d6d"
+    },
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/states.jsonl",
+      "sha256": "abb009e03b6f27b354107ee12167c34a51522b8a5c22b5d9ee07bebb7d6ee1cb"
+    },
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/decisions.jsonl",
+      "sha256": "1a69d55c6b5d3f5bf26ffd73c43c0d29bb6629c87b1dbce93043a5a6af4c30a6"
+    },
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/journal.json",
+      "sha256": "7cdc8345178e54319be58bccbf60e8f4cf112fd3eaeea90a975f1a89615b80a0"
+    },
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/execution_feedback.json",
+      "sha256": "52edf678e1a4274ab3892c5e32064dfe5b9f02419b40876147fa04cdc9c81c24"
+    },
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/native_result.json",
+      "sha256": "2a9b171430323f4c93d12d08fcaf463acbd64e60b0a5594ed4f37c9fde4a372b"
+    },
+    {
+      "path": "outputs/phase3/collection/main-003/game-006/attempt-001/wire.jsonl",
+      "sha256": "2b83448bef336ba2be675ec2f5ac28e442c8d7f849eb29d23af2329ce887d0f3"
+    }
+  ],
+  "wall_seconds": 14.640000000000327,
+  "finished": "2026-10-18T13:50:18.609888+00:00"
+}

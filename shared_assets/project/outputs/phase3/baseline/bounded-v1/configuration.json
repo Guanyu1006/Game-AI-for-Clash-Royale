@@ -1,0 +1,19 @@
+{
+  "schema": "phase3-bounded-baseline-config.v1",
+  "created_utc": "2026-10-18T13:54:47.515619+00:00",
+  "checkpoint": {
+    "path": "outputs/phase2/learning_pipeline/model_g_variant/checkpoint.json",
+    "sha256": "31962197f193c3f29c907ee33813c2b7118c45be8aa94e71e17f8c8e6f85dfb3"
+  },
+  "export": {
+    "path": "outputs/phase2/learning_pipeline/export/export_manifest.json",
+    "sha256": "b3ce3882333b5ebae4132357072553ba95cc19d0d38f241b732d5d33ecad7307"
+  },
+  "selection": "For each eligible episode/owner choose first/middle/last WAIT and first/middle/last PLAY, unique rows",
+  "purpose": "Exact inference path agreement, NOT model selection or unbiased metrics",
+  "test": "May verify path equivalence but never tune parameters or publish sampled test accuracy",
+  "source": {
+    "path": "tools/phase3_baseline_sample.py",
+    "sha256": "b957ab2c0891d4c4ecfe6ea773141662136adbaf71529d1817a25ac38796ab16"
+  }
+}

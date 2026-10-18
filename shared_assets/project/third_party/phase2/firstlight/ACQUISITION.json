@@ -1,0 +1,1459 @@
+{
+  "source": "https://gitlab.com/firstlight3/FirstLight_CR",
+  "commit": "71944e3993b594b3cc89b38768b5e817dfbdbe0e",
+  "archive_sha256": "6e225bb9652b5bd86214561a2d6e438fa31a1ca56fa3377704837fae7e8c4b8e",
+  "scope": "exclude_paths=checkpoints,docs/assets",
+  "zip_crc": "passed",
+  "files": [
+    {
+      "path": ".clang-format",
+      "size": 78,
+      "sha256": "46735788d2383a807d7244408295d2e1e04353f281387557a89e359e385ee161"
+    },
+    {
+      "path": ".env.example",
+      "size": 2630,
+      "sha256": "5d81de003addeef72b217393692a3a384a364189622902a956229bbd927ccf38"
+    },
+    {
+      "path": ".gitattributes",
+      "size": 214,
+      "sha256": "df773fc501494c676bc1f3dea85f10e22faf1919a3117867a65fa18c118f0b54"
+    },
+    {
+      "path": ".github/workflows/source.yml",
+      "size": 1010,
+      "sha256": "72651176e72e67445c9dfce76f866237e58bc6fed389e0c81b1c8017b66de743"
+    },
+    {
+      "path": ".gitignore",
+      "size": 975,
+      "sha256": "fdaf24efda46e9a25a84b85cd0be320904e8cb4da67c5107bce9c82f8ddcd30e"
+    },
+    {
+      "path": "LICENSE",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "NOTICE",
+      "size": 1191,
+      "sha256": "1d304a6d3243fd6629e2127903729eba05f930669a9e318a674ad62b90cf43ba"
+    },
+    {
+      "path": "README.md",
+      "size": 7920,
+      "sha256": "27405808421086a1ea64f5c5eb5c575bd435b9e2842b381ffa54b5d2530d15d7"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "size": 7382,
+      "sha256": "75fe2e5fea87d83f7f3a490991213ae9d9721bbdea60ba656a4b32606ad247f7"
+    },
+    {
+      "path": "build_offline_engine.ps1",
+      "size": 3305,
+      "sha256": "82a7d57bd2a1e6ecacf32fc3607c18369bc232152575c0eab3ed811e8fafac8c"
+    },
+    {
+      "path": "docs/architecture.md",
+      "size": 5861,
+      "sha256": "787b86c003353b050f5af6f11ff57cdc55708890f79bb953205935b817485ee4"
+    },
+    {
+      "path": "docs/getting_started.md",
+      "size": 8757,
+      "sha256": "9fbb8130ab8bcffd3be7cfc00c19702750d9b60966f370aba5fff6b95e81f59e"
+    },
+    {
+      "path": "docs/policy_service.md",
+      "size": 5158,
+      "sha256": "59c798ee03d0171cf1efc66c729674a09d7b651d408de473dc0e3a43dda36488"
+    },
+    {
+      "path": "docs/training.md",
+      "size": 14796,
+      "sha256": "933b6a813b302018e393ce6140a4dd3fb89bfbed459c274702ebedb806aa71ff"
+    },
+    {
+      "path": "docs/training_history.md",
+      "size": 16810,
+      "sha256": "7103adcc4523655ce0407baa3a4c91badb68f4495d8f33a2f9f75995808f7b04"
+    },
+    {
+      "path": "docs/validation.md",
+      "size": 4424,
+      "sha256": "4e6ebf76a5d2c4f91912cd7bac3f9ce64955a0da71b72e8ee980a5a53198b10c"
+    },
+    {
+      "path": "install_offline_engine.ps1",
+      "size": 1888,
+      "sha256": "217f70b5073387f92fe651444127a1875bf521753e6d7cec7ce58d9f646d941e"
+    },
+    {
+      "path": "launch_interface.cmd",
+      "size": 141,
+      "sha256": "8ea7249e0b8e5667e1cf761462a7d95296e1eaeecf3ef7e39e532a854a9e9619"
+    },
+    {
+      "path": "native_runner/__init__.py",
+      "size": 120,
+      "sha256": "23bc596ef650c048096f2bb2b1d6bf8d95d8e9886e0ee9fa0bc3f28a1c586398"
+    },
+    {
+      "path": "native_runner/action_movement_runtime.py",
+      "size": 9732,
+      "sha256": "b0a255daeef40b9b40710744f8ef50dd0a427a44fa79d41ccc4208c215bfff93"
+    },
+    {
+      "path": "native_runner/arena.py",
+      "size": 36904,
+      "sha256": "6dd14338ccd6f021260e91f580b9038d75f9175fcc72b21c1f9b3b2e52e6151e"
+    },
+    {
+      "path": "native_runner/attestation.py",
+      "size": 4313,
+      "sha256": "caa38c00b25969ea9f00b51e8c922b51295c1fc5480017e084137e46f6a17e84"
+    },
+    {
+      "path": "native_runner/battle_env.py",
+      "size": 232470,
+      "sha256": "a6657739e83d78f6050eee6821d05a762857a97ea5176a005ec4faf4f81a8280"
+    },
+    {
+      "path": "native_runner/build_engine_cluster_apk.ps1",
+      "size": 10842,
+      "sha256": "b8712466f623281436960e80406ce39520a838ee0aa25515eabc9412553555a9"
+    },
+    {
+      "path": "native_runner/building_placement_profiles.py",
+      "size": 6297,
+      "sha256": "f3294a27a8e9bdcf98b841f09fdaa6ddf612c460c1348bc7af0e2cda5ce7e3fd"
+    },
+    {
+      "path": "native_runner/building_semantics.py",
+      "size": 582,
+      "sha256": "71cb3fb29dee74aee1e36749f05c04cf29b0fd1597851a4bf38b86ae7356d05b"
+    },
+    {
+      "path": "native_runner/card_logic.py",
+      "size": 10334,
+      "sha256": "dae16994501bd49490f82fbc9cfcae18b49146ddae89e904100597f0ca94b90f"
+    },
+    {
+      "path": "native_runner/card_names.py",
+      "size": 5745,
+      "sha256": "42792266247a46f0687219f0cf162f6dfb8a6d03705790133da89f4f559ffd1f"
+    },
+    {
+      "path": "native_runner/card_specs.py",
+      "size": 6048,
+      "sha256": "2287150caed709d0791cc25d93c3e0c2a22fe5b58b6ad8f51ec5a8a043118e48"
+    },
+    {
+      "path": "native_runner/character_state_runtime.py",
+      "size": 6445,
+      "sha256": "ddd0bc80723ba44ddfa103775a8b18204f60d09dd90db3f0e08088c26f7e253b"
+    },
+    {
+      "path": "native_runner/competitive_data.py",
+      "size": 3734,
+      "sha256": "d12ee4ab54f8083176e4890d88111e80814cc929cfc948ca506cb020724ba395"
+    },
+    {
+      "path": "native_runner/contracts.py",
+      "size": 133549,
+      "sha256": "02f979f850bccdcd957ed9f29ff05e75d5ea020f9a3e599314fb6a3509dc0942"
+    },
+    {
+      "path": "native_runner/cr_native_env.py",
+      "size": 155484,
+      "sha256": "f16fbd48ced810cc8d877d728b1b017631b5b9c310e3a62031845cafd9b077e5"
+    },
+    {
+      "path": "native_runner/data/competitive/.gitattributes",
+      "size": 19,
+      "sha256": "5c0ccd4346d40a9a257042b8a485544d843749688aee93ed1bcf52679a9a2441"
+    },
+    {
+      "path": "native_runner/data/competitive/README.md",
+      "size": 2383,
+      "sha256": "6d314d6d9084e2c11db9cfa180323b2f5249d26988af6a7a40f69294616ce60a"
+    },
+    {
+      "path": "native_runner/data/competitive/card_logic.json.gz",
+      "size": 707958,
+      "sha256": "fe916d22d9ce3813a85d9706d5de558ee5036934a545d262d08366c19ad29152"
+    },
+    {
+      "path": "native_runner/data/competitive/card_specs.json.gz",
+      "size": 133895,
+      "sha256": "7c18d94eac62883ead96f52b362d93da6e2abdf82f64614a2d26f80d6fcb885a"
+    },
+    {
+      "path": "native_runner/data/competitive/card_support.json",
+      "size": 26269,
+      "sha256": "841124995d484a4304a7953437284bee87abfe59b603c97ae4afcd7c81e4f566"
+    },
+    {
+      "path": "native_runner/data/competitive/effects.json.gz",
+      "size": 35032,
+      "sha256": "851383cb01625fb25c26c3ecce036f72fea63404cab55f9fa22d11c49caed192"
+    },
+    {
+      "path": "native_runner/data/competitive/form_evidence.json",
+      "size": 46403,
+      "sha256": "ff00aa9985c29d5c67c94e1c4c142779c51a4871ea80e9cfb02ba33755dd9559"
+    },
+    {
+      "path": "native_runner/data/competitive/manifest.json",
+      "size": 36448,
+      "sha256": "699c0c77cc5d2ec9a475ec0d10875f9e38710af9fc5472cc3431276384c89b78"
+    },
+    {
+      "path": "native_runner/data/competitive/model_catalogs.json.gz",
+      "size": 300111,
+      "sha256": "5b4c7806686093a8c0764bf2e21e1c75cfae7e64def400e92672ab13d3bbb0c6"
+    },
+    {
+      "path": "native_runner/data/competitive/projectiles.json.gz",
+      "size": 16693,
+      "sha256": "36bcd77e112edb46cfaeb2a713d598997866f01c5dea5ef9523dea44fa50de74"
+    },
+    {
+      "path": "native_runner/data/competitive/runtime.json",
+      "size": 64250,
+      "sha256": "2b290cc5c25ce3e2a44cd3e931351b1241078e05084271a27659fab5d5b08fb4"
+    },
+    {
+      "path": "native_runner/data/native_match.json",
+      "size": 1083,
+      "sha256": "75913c9364b8d1f4c69baf90abb6467bd32983e1e3d87245954d2e7dc3ee54b9"
+    },
+    {
+      "path": "native_runner/deploy_probe.ps1",
+      "size": 7097,
+      "sha256": "2a3d66c1e314feb47db6c26f70051537484571c83f2d9e90a48386377b3c0d62"
+    },
+    {
+      "path": "native_runner/disable_rendering.ps1",
+      "size": 2440,
+      "sha256": "80103ab711da0869642f66bdea8d1e11bb8c3c62545c5daa164c52c4223e6113"
+    },
+    {
+      "path": "native_runner/effect_catalog.py",
+      "size": 18453,
+      "sha256": "725af0c09ec87dc44bcf465ef9b94625397142e6725c1ece917f1596532d6238"
+    },
+    {
+      "path": "native_runner/launch_interface.ps1",
+      "size": 904,
+      "sha256": "5a4a4564b5516d85b245ef8663ddbe934c2bcd6a763dbb75eed862139a7d7bac"
+    },
+    {
+      "path": "native_runner/local_config.ps1",
+      "size": 1394,
+      "sha256": "6dfe65f02c6d59aebe74a97c1f94af5fb673289bb550f63b843ff2015ab49adf"
+    },
+    {
+      "path": "native_runner/local_config.py",
+      "size": 1228,
+      "sha256": "251631f7e5707db539d00a9592887e9cc8da395efe53009e9791116219e2e180"
+    },
+    {
+      "path": "native_runner/local_config.sh",
+      "size": 1140,
+      "sha256": "54fa13f291d91c461fee215c48323e1c98c1934d8ef8e579cd662631a6dec140"
+    },
+    {
+      "path": "native_runner/match_factory.py",
+      "size": 11721,
+      "sha256": "8ef8552e3c07488dd30ace457437f1631d90d12ae18848039b7b6d900a302ab7"
+    },
+    {
+      "path": "native_runner/native_overlay.py",
+      "size": 45003,
+      "sha256": "77d37e1ec456dcd143351d38ad237a4557ce8d5a38b763f930a43c821568c503"
+    },
+    {
+      "path": "native_runner/normal_form_evidence.py",
+      "size": 11313,
+      "sha256": "41fb78c9e2220d88abf7614d655facf26f1aa4b9eee88b82ce7afb538ef0fee6"
+    },
+    {
+      "path": "native_runner/offline_build.py",
+      "size": 6731,
+      "sha256": "43adcd161558852ac18b0b2650c759e0fbb2bdaa94e3ed000e08f8f3e44b9160"
+    },
+    {
+      "path": "native_runner/offline_install.py",
+      "size": 9786,
+      "sha256": "8871497716a3bddeffef70203c055409687c89e45fe86d3aa5385daccf26dba4"
+    },
+    {
+      "path": "native_runner/paths.py",
+      "size": 311,
+      "sha256": "a6a0473006cc45ce44b8435a8ec39f31a63cd9b5fa0b7dc73839ac349d706d7c"
+    },
+    {
+      "path": "native_runner/perspective.py",
+      "size": 13075,
+      "sha256": "722d650be9fdad8c26a65db95027757bfc523893f640625d80059c68e7278459"
+    },
+    {
+      "path": "native_runner/phase_runtime.py",
+      "size": 35261,
+      "sha256": "f422d7d8f133b35bd7ee33dd2e17b8db618e108537851a289c41a352aba69720"
+    },
+    {
+      "path": "native_runner/probe/action_movement_runtime_layout.h",
+      "size": 2725,
+      "sha256": "00ec0231fead5efeff9898fd86f894b72b7bc48ba209dc0ac392aa6a21102d76"
+    },
+    {
+      "path": "native_runner/probe/action_movement_runtime_telemetry.inc",
+      "size": 17852,
+      "sha256": "be67d9a1658bc8257d870722b1901b34b670cbc3e372c7c27a319de6efd39538"
+    },
+    {
+      "path": "native_runner/probe/build_probe.ps1",
+      "size": 1523,
+      "sha256": "8bc10761e5a3de0c258adf4f2baf919a5a40b985a7694dd8154b12a8db1a7538"
+    },
+    {
+      "path": "native_runner/probe/character_state_runtime_layout.h",
+      "size": 1861,
+      "sha256": "a81ee5f0c396f532b9e751d95add292d191ebf475a363cf16de749a4fa773720"
+    },
+    {
+      "path": "native_runner/probe/character_state_runtime_telemetry.inc",
+      "size": 10350,
+      "sha256": "993350c1e382c03cff506c16ee3c2d819ed9b639a40770d31712db63ff27eaca"
+    },
+    {
+      "path": "native_runner/probe/combat_damage_capture.h",
+      "size": 2041,
+      "sha256": "5413ed6fedaceccd8cf389cb898a4b5e158318fbbf5274d06890cf8bae7395cb"
+    },
+    {
+      "path": "native_runner/probe/combat_deployment_layout.h",
+      "size": 2500,
+      "sha256": "a75fff5a6a00e47da0c891daee88b2e89478a971597f94315c62e7699044087a"
+    },
+    {
+      "path": "native_runner/probe/combat_event_telemetry.inc",
+      "size": 79553,
+      "sha256": "600d8e0b2ab0bd74513a12063942cde7b8682895b986398cb37b18d7db215f9c"
+    },
+    {
+      "path": "native_runner/probe/combat_impact_capture.h",
+      "size": 1606,
+      "sha256": "182460ee2bc05599decfe161838cf07ddbfa6049e6dae15cee3485e1cd2ab538"
+    },
+    {
+      "path": "native_runner/probe/cr_replay_probe.cpp",
+      "size": 402459,
+      "sha256": "8ec2b7dd568ab6f646a7d608372d5f042362d025def2be28657e4b4e3b6b2354"
+    },
+    {
+      "path": "native_runner/probe/engine_instance.inc",
+      "size": 5713,
+      "sha256": "b4acd7df8b19804b4304a22e8ce165e1edec0b268ed9e17e1f06028837d5d83d"
+    },
+    {
+      "path": "native_runner/probe/epoch_ring.h",
+      "size": 4503,
+      "sha256": "43090a459ddb31586c8fba61fa9948be14805697ae93ec4e4e9e96d09b105922"
+    },
+    {
+      "path": "native_runner/probe/event_ring_json.h",
+      "size": 2609,
+      "sha256": "5cbf4342ec71ddf3747806332b227fb78ee70b66e48bc8151ea40089fccc1ffc"
+    },
+    {
+      "path": "native_runner/probe/native_call_arm64.S",
+      "size": 2239,
+      "sha256": "dadcf4359a4aafbe70b9725da65340ca440eae84306cce3f7c3c3e81c977a86d"
+    },
+    {
+      "path": "native_runner/probe/native_touch_interceptor.cpp",
+      "size": 10708,
+      "sha256": "9d2e6a3a652c119ea75d59e0b204266370532d1c117268391f52696f86f97fef"
+    },
+    {
+      "path": "native_runner/probe/native_touch_interceptor.h",
+      "size": 1477,
+      "sha256": "6df45bcb25e57a948795406c3d888a6058536e459ae97f9006244327fceeced3"
+    },
+    {
+      "path": "native_runner/probe/native_touch_layout.h",
+      "size": 4218,
+      "sha256": "4f0f86535f660df4c4e704ae2c274d4ee9c071e87cba471be2e3fcc1236de7c2"
+    },
+    {
+      "path": "native_runner/probe/native_touch_probe_glue.inc",
+      "size": 4594,
+      "sha256": "96696bc89a48d0194f4e2eb9abc82c5a4853f48648e9ef0f7908535bcf154a8d"
+    },
+    {
+      "path": "native_runner/probe/phase_runtime_layout.h",
+      "size": 7994,
+      "sha256": "d17027dcdfe7f9a8435db4ebf111f6ec194c6085d3ce17d0c4af1f17ecff63a0"
+    },
+    {
+      "path": "native_runner/probe/phase_runtime_telemetry.inc",
+      "size": 53038,
+      "sha256": "217671f89c85937e2143637f27a224407a893ad1aa9b6b9fe8ca06fa1ee674d7"
+    },
+    {
+      "path": "native_runner/probe/probe_hook.h",
+      "size": 2456,
+      "sha256": "bf8e9289498a3e3e1deb7407b3558f64ff6d2915203eda9881199f1fe5ed562f"
+    },
+    {
+      "path": "native_runner/probe/probe_json.h",
+      "size": 5190,
+      "sha256": "75174ba2516571cca4819196ee539dc85811946a3fd7f50ed11b8d3267a1a8dd"
+    },
+    {
+      "path": "native_runner/probe/remaining_runtime_arm64.S",
+      "size": 3476,
+      "sha256": "601897140f81a1f397d93548e7c785c43eaf6f710d9df1b1bfedfe8593c520da"
+    },
+    {
+      "path": "native_runner/probe/remaining_runtime_layout.h",
+      "size": 13346,
+      "sha256": "9b8d9544a59dc13a9c147eb46913a295c8c56eb7eff751199c8524dc5456e207"
+    },
+    {
+      "path": "native_runner/probe/remaining_runtime_telemetry.inc",
+      "size": 112371,
+      "sha256": "f2235e9ab24d3280f6ca1b4f299119957f051c0eff455a9e2cffcd8322e1954b"
+    },
+    {
+      "path": "native_runner/probe/resident_multimatch.inc",
+      "size": 70115,
+      "sha256": "3306eef42508bf6bed70ba669323766a3f4e80d5a4f403aa81c66d8ee5ab253a"
+    },
+    {
+      "path": "native_runner/probe/special_movement_runtime_layout.h",
+      "size": 1424,
+      "sha256": "6c816f3f66704c26490b02b1ced43de77bac99e04e8716a5492fc708a98e87b5"
+    },
+    {
+      "path": "native_runner/probe/special_movement_runtime_telemetry.inc",
+      "size": 9639,
+      "sha256": "f6f1feac0d15094367f852a884aab6123ca0edc5e5797fe60506fbcb7752e0da"
+    },
+    {
+      "path": "native_runner/probe/test_action_movement_runtime_layout.cpp",
+      "size": 1156,
+      "sha256": "53e958ff493dc758b928acf53e10ad4327a4a062823047dc5fd1c584951f3f50"
+    },
+    {
+      "path": "native_runner/probe/test_action_movement_runtime_telemetry_compile.cpp",
+      "size": 4520,
+      "sha256": "c75de416e3687fefae26f1133998309bf50efb2a25e128a176f61f44fa8c5c37"
+    },
+    {
+      "path": "native_runner/probe/test_combat_damage_capture.cpp",
+      "size": 3571,
+      "sha256": "3a11aec51d82cf7918d91acb3a5bee41f207e74011ea741928efbeb68a7ff52e"
+    },
+    {
+      "path": "native_runner/probe/test_combat_deployment_layout.cpp",
+      "size": 2296,
+      "sha256": "24acaf733d0dc90a4eafd2b01c4529ae506ed8379bbb74b571694cb1a8249582"
+    },
+    {
+      "path": "native_runner/probe/test_epoch_ring.cpp",
+      "size": 1487,
+      "sha256": "a0491f323ae17dd4c06ab2c82feda131b9f76cf5c926bab0f931fdebe135210c"
+    },
+    {
+      "path": "native_runner/probe/test_movement_event_json.cpp",
+      "size": 5601,
+      "sha256": "d5cc46f969290b9b50c6fe7ed275bc527bfbde191827ec3d47e590fcd5f4e126"
+    },
+    {
+      "path": "native_runner/probe/test_native_touch_layout.cpp",
+      "size": 2441,
+      "sha256": "353b990877eb0ea0e4d5cc6b701e2bfdeb084eb5306b6b554ea0af121cb2386c"
+    },
+    {
+      "path": "native_runner/probe/test_phase_runtime_layout.cpp",
+      "size": 1424,
+      "sha256": "8f1ba1c552145e50f66cfc9d8d39500ff03fec6c6c3a8b1219661c7697d4099d"
+    },
+    {
+      "path": "native_runner/probe/test_phase_runtime_telemetry_compile.cpp",
+      "size": 6517,
+      "sha256": "5518326dcefa765a321e8afeec7962a093cd095bd0e2ce4b12772f3367a13d4d"
+    },
+    {
+      "path": "native_runner/probe/test_remaining_runtime_layout.cpp",
+      "size": 2510,
+      "sha256": "1bb5200cd35754c098b882cd93362e826fa7854c69bc44132eb61982d4e46d2b"
+    },
+    {
+      "path": "native_runner/probe/test_remaining_runtime_telemetry_compile.cpp",
+      "size": 29014,
+      "sha256": "f0adfa579b69207c85e31048127d46f663c2ad5877235a4aa8cef643930b80ea"
+    },
+    {
+      "path": "native_runner/probe/test_tower_troop_runtime_layout.cpp",
+      "size": 995,
+      "sha256": "fa606df17511fbc71e915e327627bcdcff0b82d57c2d1ca983c8904c9004c8a5"
+    },
+    {
+      "path": "native_runner/probe/test_tower_visibility_json.cpp",
+      "size": 6039,
+      "sha256": "6e128a6948c11d876b1b242af1338a89694ae88e13d8a6f6ef8ad48117dcb669"
+    },
+    {
+      "path": "native_runner/probe/test_visibility_runtime_layout.cpp",
+      "size": 617,
+      "sha256": "eb0e930187ab055e2f0767a72c1b63e22b940104820ec2520c7805efae4adef1"
+    },
+    {
+      "path": "native_runner/probe/test_visibility_runtime_telemetry_compile.cpp",
+      "size": 2599,
+      "sha256": "8c3e98995d65b24e78d77b2032d4001a7d16aa2dd726955b862ab8e2c363e3a0"
+    },
+    {
+      "path": "native_runner/probe/tower_troop_runtime_layout.h",
+      "size": 3341,
+      "sha256": "c97329f6f77d8ad0d05fc6f14b92c0234646851dc5daf975fcfba5fc0b306172"
+    },
+    {
+      "path": "native_runner/probe/tower_troop_runtime_telemetry.inc",
+      "size": 24713,
+      "sha256": "593698b76e4ce752e4b82973cbfb26ffb5990944a61731bc4daf190d1a58234f"
+    },
+    {
+      "path": "native_runner/probe/visibility_runtime_layout.h",
+      "size": 2525,
+      "sha256": "15e1e61574941bd545b9534d431e8bc80f3af0a37f4cb985b822d136698764b9"
+    },
+    {
+      "path": "native_runner/probe/visibility_runtime_telemetry.inc",
+      "size": 25519,
+      "sha256": "44b1f2147203b108069c0ad2a76988fee8f19ffade7e409b09559b7b9ff4364a"
+    },
+    {
+      "path": "native_runner/projectile_catalog.py",
+      "size": 13876,
+      "sha256": "2c1161b3ad0cf5f855685fd2c8bb953b916c6ffc407a07eb17fe535230204c0a"
+    },
+    {
+      "path": "native_runner/resident_batch_channel.py",
+      "size": 18153,
+      "sha256": "8256e3ef23cc5d21f8d90e05fe5d2eeb1dfa8bc85c72828a01b38d16b6379c63"
+    },
+    {
+      "path": "native_runner/resident_batch_vector.py",
+      "size": 17359,
+      "sha256": "674fffed8eecaf56041d781ca199ba33e10e17d004a22dee5ff5f68cd519fbce"
+    },
+    {
+      "path": "native_runner/resource_compiler/__init__.py",
+      "size": 68,
+      "sha256": "025b33aa210c0f656f586ac32c25661ed634d2b302b9e4508ec9d3fba96ad21e"
+    },
+    {
+      "path": "native_runner/resource_compiler/__main__.py",
+      "size": 5140,
+      "sha256": "709d41accb1cfc104f4fc91796a37cb870290b2c2b54af89711da7124f5c0bb2"
+    },
+    {
+      "path": "native_runner/resource_compiler/card_features.py",
+      "size": 43295,
+      "sha256": "39874f0647392cbf98bf5e81c2163b4a4c0264e10f807fc50bf00e345e8d750b"
+    },
+    {
+      "path": "native_runner/resource_compiler/card_logic.py",
+      "size": 90891,
+      "sha256": "7ddb07ec2701bf8d21eff2ddbfcf95501ebf0c9dc8b107e1e1010d63ae5e1db1"
+    },
+    {
+      "path": "native_runner/resource_compiler/card_specs.py",
+      "size": 86987,
+      "sha256": "e65e9aefc12edae2ffa09b32d30a3a95041ffb60b8dca7cbefb13bb63d5af77b"
+    },
+    {
+      "path": "native_runner/resource_compiler/catalog.py",
+      "size": 51797,
+      "sha256": "aad5d812e50a6f5cd123a79bbdd291ca2d34dcfa982033b1b74fbc663eb6a2da"
+    },
+    {
+      "path": "native_runner/resource_compiler/effect_catalog.py",
+      "size": 52476,
+      "sha256": "c8194c9eb4db28ffa2f2e093230cdc92d393cbc716505d2858712d87638b96d8"
+    },
+    {
+      "path": "native_runner/resource_compiler/mechanics.py",
+      "size": 103657,
+      "sha256": "38b09b847429f5bd5a98c6a57be1f044648455abcefc49b7ca51e511de90c2d8"
+    },
+    {
+      "path": "native_runner/resource_compiler/projectile_catalog.py",
+      "size": 22312,
+      "sha256": "a6dc1d0c0f957952e4ceb57169b691ea0506e86917d177020a9f643232589c5b"
+    },
+    {
+      "path": "native_runner/resource_compiler/static_logic_resolution.py",
+      "size": 2684,
+      "sha256": "7f03ada43e8b507899c438e875555179fb53c4d0c1c154b754dac27f5bfa7bab"
+    },
+    {
+      "path": "native_runner/rich_telemetry_adapter.py",
+      "size": 192980,
+      "sha256": "fb6bbb93d0006d370e46947bbe719c9e7108294f0a67b4d83f4ef5116486402d"
+    },
+    {
+      "path": "native_runner/royaleapi_replay.py",
+      "size": 99544,
+      "sha256": "49a3d698a6cb8c82315651c4469a8aaf7db5e6c249257717249c0cd2479e8a0f"
+    },
+    {
+      "path": "native_runner/ruleset.py",
+      "size": 20419,
+      "sha256": "1dad33f98a178ed67aabf5e18d279236556c8d418600505d08cba58da5acc1ea"
+    },
+    {
+      "path": "native_runner/runtime_schema.py",
+      "size": 13687,
+      "sha256": "e7d629bca75a27cbda5cc9613ed97f4f51a7392c36da5dae962965db969ad1c0"
+    },
+    {
+      "path": "native_runner/runtime_scope.py",
+      "size": 6233,
+      "sha256": "a65b01ffcc6d5dc245503c67e903e0639202c676db74491db357bfefee80847d"
+    },
+    {
+      "path": "native_runner/semantic_subset.py",
+      "size": 40854,
+      "sha256": "2e00a60c18b3687085fac59d5f3cbedffb92b7e888fa23ace8c2a1e891d07c4b"
+    },
+    {
+      "path": "native_runner/snapshot.py",
+      "size": 2237,
+      "sha256": "930358cabcd4d6a2754d6c9ad658dbba60f6001785fe9cb61f0fdadbfd9930a0"
+    },
+    {
+      "path": "native_runner/special_movement_runtime.py",
+      "size": 6891,
+      "sha256": "e9b9496c4bc3401e4a155f018d8f4daf482d98c15b3c2b23b4d6c0af6e17fc5f"
+    },
+    {
+      "path": "native_runner/start_engine_cluster.ps1",
+      "size": 18764,
+      "sha256": "349604ebfe3d0964756319420e9f78c35fc917c7d9f2249c6e05cf8d70299c9a"
+    },
+    {
+      "path": "native_runner/start_offline.ps1",
+      "size": 13087,
+      "sha256": "3bb52654495e291c6b6ca871587592359f7a72e74b401222a5994a9a9cffba1d"
+    },
+    {
+      "path": "native_runner/stop_engine_cluster.ps1",
+      "size": 3687,
+      "sha256": "fd82b69373db792982e08b196919e95dd98eef277f6287180d4dc137c1dc00d5"
+    },
+    {
+      "path": "native_runner/supported_engine.json",
+      "size": 537,
+      "sha256": "6157d9d816eaa4ae6fbbf51b21a51fbbe8ef493c0ac68cfe414ce0302fbafdb9"
+    },
+    {
+      "path": "native_runner/tests/__init__.py",
+      "size": 32,
+      "sha256": "73128f092226dc6db46c8a43b3c57e218dd99bfb2b54d1f8c04c5b2f2413dc4b"
+    },
+    {
+      "path": "native_runner/tests/asset_helpers.py",
+      "size": 3012,
+      "sha256": "03ea0e570f5fd88ec19e681f1f5171d10d5409c651888f2f7b60397e94f61507"
+    },
+    {
+      "path": "native_runner/tests/cpp_source.py",
+      "size": 1081,
+      "sha256": "4c9b8270971547c5bfd8f85dcb7004145c6e0efd2fd5d5b43df385ccaeaf3dd7"
+    },
+    {
+      "path": "native_runner/tests/native_telemetry_json_fixture.cpp",
+      "size": 7610,
+      "sha256": "5012aa9ab152a0010b52f302a520a837c3e8d7dd168c453ffc1b939c36598fcb"
+    },
+    {
+      "path": "native_runner/tests/probe_core_json_fixture.cpp",
+      "size": 4268,
+      "sha256": "5b0956c60be04d6681fe6510e4da3f48c1b01d5d0ac4825cd27d603197fbf899"
+    },
+    {
+      "path": "native_runner/tests/test_action_movement_runtime.py",
+      "size": 8434,
+      "sha256": "cf6c25e4e3e4a898d518b6197d1d438c4c3f07fd5f16f7d81fdbba8360e6263d"
+    },
+    {
+      "path": "native_runner/tests/test_action_movement_runtime_layout.py",
+      "size": 1557,
+      "sha256": "b6fad36fe8b71a2316cae671576b400d1ae84152c389c225239e2b701aff7e1e"
+    },
+    {
+      "path": "native_runner/tests/test_attestation.py",
+      "size": 5130,
+      "sha256": "000f7eb8ac5dffc2de1adb2a9a1b6377c22529d338993ae4213ecd4d4d210ff6"
+    },
+    {
+      "path": "native_runner/tests/test_august_2026_balance_contract.py",
+      "size": 29967,
+      "sha256": "29c025e4e9ed22e687f3b7022a63d7ae9b72203d05bfdb98544a5b1dd0ff9a09"
+    },
+    {
+      "path": "native_runner/tests/test_battle_env.py",
+      "size": 32893,
+      "sha256": "2ca253e4ff9ab524c443e83fce282989faf180317e72e07d8d93857a9b15fb9f"
+    },
+    {
+      "path": "native_runner/tests/test_battle_env_rich_telemetry.py",
+      "size": 157251,
+      "sha256": "1c46443bc10f743ecb722610fefcbaaac2b62d4ecb7236f76079280ed05dd8b1"
+    },
+    {
+      "path": "native_runner/tests/test_battle_env_scene_contracts.py",
+      "size": 13476,
+      "sha256": "12a3f2a0aafffc2cc44131e6b4c111be67a15b1489303cf80428a526da48f367"
+    },
+    {
+      "path": "native_runner/tests/test_battle_env_visibility.py",
+      "size": 2614,
+      "sha256": "d83151cb533058639923674053907cdb46da667d46e7b5ad3574fbb9dd4db703"
+    },
+    {
+      "path": "native_runner/tests/test_building_placement_profiles.py",
+      "size": 6001,
+      "sha256": "cbba388683c83a08650d3c0bafd6b880affb1ca88772467f03eacc05bca975f2"
+    },
+    {
+      "path": "native_runner/tests/test_card_logic.py",
+      "size": 22040,
+      "sha256": "10d5a5c98c632b99db483d5e01fd98c96eea5a06ebcec4c496cc48ebd14dd394"
+    },
+    {
+      "path": "native_runner/tests/test_card_specs_ruleset.py",
+      "size": 20548,
+      "sha256": "9f38eff3491ed82d777fb9ec0b7a7fade823dba266bad641ec873c807ed93c6f"
+    },
+    {
+      "path": "native_runner/tests/test_character_state_runtime.py",
+      "size": 5845,
+      "sha256": "b304f56df69cd12d4ff4576f8a07ed10f382cb2ae55a608ed36553f06e1c1bd2"
+    },
+    {
+      "path": "native_runner/tests/test_character_state_runtime_layout.py",
+      "size": 1903,
+      "sha256": "dbcf66e9b1ecd4ff78fd59c43bf4da1c3e975b84671c63fb741fce438f6ae371"
+    },
+    {
+      "path": "native_runner/tests/test_combat_damage_capture.py",
+      "size": 1042,
+      "sha256": "87091872f92752d48a91baf2754e70ece5cdd695ae9f79e8d6733f8af32b9320"
+    },
+    {
+      "path": "native_runner/tests/test_combat_deployment_layout.py",
+      "size": 1059,
+      "sha256": "08a2486b0d1b5d868a3b6d0d138084f91e3f2060c3d6f931adc29dda6c93359b"
+    },
+    {
+      "path": "native_runner/tests/test_competitive_data.py",
+      "size": 5685,
+      "sha256": "cf106b0f50a376759da3f4da83c33afeab814376cee61ccf7baee8c371f0c953"
+    },
+    {
+      "path": "native_runner/tests/test_contracts.py",
+      "size": 6201,
+      "sha256": "71c77b32a8bebe946b3107496837332df8e899646c43048d99fc13ef9b4368b3"
+    },
+    {
+      "path": "native_runner/tests/test_effect_catalog.py",
+      "size": 13549,
+      "sha256": "8d01f7d57e7c36e74ae57d4e4ca4722a1542edf80977ae8c708862f0c2f28660"
+    },
+    {
+      "path": "native_runner/tests/test_epoch_ring.py",
+      "size": 1464,
+      "sha256": "dd6bbf425b0b3e6f659e6fff93006b6efabf813551d308c6bd82370dd804bc7d"
+    },
+    {
+      "path": "native_runner/tests/test_evaluate_and_serve.py",
+      "size": 4287,
+      "sha256": "20f8124f115445a97b34ab9439e41fd1ab830e3801f32b9e3bfcc840d5242ddc"
+    },
+    {
+      "path": "native_runner/tests/test_local_config.py",
+      "size": 4377,
+      "sha256": "df5e90e6964cc423a775cfa8319892d96e1652faac81c15c41270456bb39f4f8"
+    },
+    {
+      "path": "native_runner/tests/test_native_ability_action.py",
+      "size": 12520,
+      "sha256": "da1763c144d178a762c3c6190f867b07a2a10f00596e0f5855ff00d50de2a8b6"
+    },
+    {
+      "path": "native_runner/tests/test_native_ability_exact_source.py",
+      "size": 6814,
+      "sha256": "55be324effa4552e2b65a925564fc82f54eaf2ab38371c5472f292ba5c15d185"
+    },
+    {
+      "path": "native_runner/tests/test_native_card_descriptor.py",
+      "size": 10039,
+      "sha256": "a4efab31e3768439ea681b2fb0143c7ed256366dbc92cfd938ca7c228990630e"
+    },
+    {
+      "path": "native_runner/tests/test_native_hook_table.py",
+      "size": 3975,
+      "sha256": "6e04f6bf3a8b9282ae938b84eea9206e0318224c121e9ade4643f9a65fe4298f"
+    },
+    {
+      "path": "native_runner/tests/test_native_offline_connection_guard.py",
+      "size": 621,
+      "sha256": "8eeedb7be59de878da2e59c288cfbdbbca5ba7c57b3984acaa6b941eb13013dd"
+    },
+    {
+      "path": "native_runner/tests/test_native_overlay.py",
+      "size": 8094,
+      "sha256": "9526ed02dd5216a7c7658a5c40345ab423201ff2d6a6765b9301c85864fd8ead"
+    },
+    {
+      "path": "native_runner/tests/test_native_runtime_telemetry_api.py",
+      "size": 67855,
+      "sha256": "ffec1b028be0c53aa8fa9c8f0c69cd4662fe649a40f7b6c059e06c6fa746915c"
+    },
+    {
+      "path": "native_runner/tests/test_native_speed_api.py",
+      "size": 3621,
+      "sha256": "5100be0f06b374c0135404f01e3f8990ac1e371f34eecccf26c93020049b572a"
+    },
+    {
+      "path": "native_runner/tests/test_native_telemetry_json.py",
+      "size": 4055,
+      "sha256": "d3d0633449ae319ef1c814c327243758c6e760a9077cfd3f496f4311ad0bc4f7"
+    },
+    {
+      "path": "native_runner/tests/test_normal_form_evidence.py",
+      "size": 13867,
+      "sha256": "8100b2a7a9246c4df00a984d5386a8999fd0e73f4a659709ad8d4f526a10e358"
+    },
+    {
+      "path": "native_runner/tests/test_offline_build.py",
+      "size": 3346,
+      "sha256": "9246d727733ab1787903cbefda9e0fca3cf7d8f54c6a6b13b27a366e21a7d073"
+    },
+    {
+      "path": "native_runner/tests/test_offline_install.py",
+      "size": 4885,
+      "sha256": "d22ef22fd14fcfdb21ca9dad9cee1e01dc7a86da1c17d87b0bda53e723dee3b0"
+    },
+    {
+      "path": "native_runner/tests/test_perspective.py",
+      "size": 6423,
+      "sha256": "508a4650b1f169c469ec47292662885ee81da4826f302a28ea7453c2a641dbfc"
+    },
+    {
+      "path": "native_runner/tests/test_phase_runtime.py",
+      "size": 16816,
+      "sha256": "40d55b195c449d8bc37092330e998789fa0f2606dcaa51d8c10d6974a274f2d9"
+    },
+    {
+      "path": "native_runner/tests/test_placement.py",
+      "size": 11283,
+      "sha256": "84177ee9f4b7177ef6d22f93f245518321a97eb0d8b758812c27e5cd95bd557d"
+    },
+    {
+      "path": "native_runner/tests/test_probe_core_json.py",
+      "size": 4132,
+      "sha256": "9519ac7e6738f9108422afe9b611b0e76511f9a41c7d54cd1dc97f319d241a30"
+    },
+    {
+      "path": "native_runner/tests/test_projectile_catalog.py",
+      "size": 4969,
+      "sha256": "df0c887b10b570b426e4740ccc9beaa2741a276065b677b2997b7ce6dcb474fa"
+    },
+    {
+      "path": "native_runner/tests/test_resident_batch_channel.py",
+      "size": 18637,
+      "sha256": "f1ab575f1a3047e2940a4f30d5bb7225a43f610cba0492f36ed4313609fea873"
+    },
+    {
+      "path": "native_runner/tests/test_resident_multimatch.py",
+      "size": 1304,
+      "sha256": "654af5e81ec4184e708c9a4bee9ff062882d0961132fb13b7b33162e60562a77"
+    },
+    {
+      "path": "native_runner/tests/test_royaleapi_replay.py",
+      "size": 56935,
+      "sha256": "949338b6ffe916f1d8ba053a75bef3b2ceeb375169ae0a5512c11240ffa6042c"
+    },
+    {
+      "path": "native_runner/tests/test_runtime_scope.py",
+      "size": 2377,
+      "sha256": "cdc2ce5aacb5309c6bae678a4ddaf8a02034d27cde9869150616dd153af432a2"
+    },
+    {
+      "path": "native_runner/tests/test_runtime_semantic_contracts.py",
+      "size": 8353,
+      "sha256": "c453b77d23a8af329455b510516260e032b14beaa314116f4ef814808535915d"
+    },
+    {
+      "path": "native_runner/tests/test_semantic_subset.py",
+      "size": 10957,
+      "sha256": "f69757c35e7e51b5f7a0b6ffe6fef5fc80b4cda18e33df8583efadf267d39a48"
+    },
+    {
+      "path": "native_runner/tests/test_special_movement_runtime.py",
+      "size": 6324,
+      "sha256": "934eff9fc51b3cc33f3af539bdbaf12bad9c254331681b0e34ec3c2384a05ad0"
+    },
+    {
+      "path": "native_runner/tests/test_start_offline_lifecycle.py",
+      "size": 4889,
+      "sha256": "b17e323aac4e1d480175d7d8595daa6236d3096e13296a9a9a655fd333e5f385"
+    },
+    {
+      "path": "native_runner/tests/test_timeline.py",
+      "size": 6150,
+      "sha256": "9a0cc8e555050c3baf9a2f78497f818b0b5c90978fc053ab0783ff5290dd1e00"
+    },
+    {
+      "path": "native_runner/tests/test_tower_troop_runtime_layout.py",
+      "size": 1582,
+      "sha256": "49c22da6d6626d27228b32dd321811189c66126611793e9ced2a600512c1b1ac"
+    },
+    {
+      "path": "native_runner/tests/test_training_capture.py",
+      "size": 11988,
+      "sha256": "381351a3d767f6cbfba1031f594c4c3b43868b0d82afc1633b52680ae33c4939"
+    },
+    {
+      "path": "native_runner/tests/test_training_card_features.py",
+      "size": 11362,
+      "sha256": "d30c8f97c593a858ae4de698a8bca19d04c4a2ce431ce833cfc2a25d3e10a0f7"
+    },
+    {
+      "path": "native_runner/tests/test_training_card_features_role_projection.py",
+      "size": 4812,
+      "sha256": "31bc753cc77400c09f620c8472b175785e127e15cc481a9663c5ba8338ce2d94"
+    },
+    {
+      "path": "native_runner/tests/test_training_replay.py",
+      "size": 26145,
+      "sha256": "953707c6a3e95283e9065fe3929d564037c785dcca48247c8472a9aa258f4ea2"
+    },
+    {
+      "path": "native_runner/tests/test_training_tracking.py",
+      "size": 8192,
+      "sha256": "71cd6097448adff623a3a83885cf2fa5bbb929e4e765ff838c4c6a05f545a635"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_action_contracts.py",
+      "size": 11843,
+      "sha256": "6ecbf85e06de75d48c9e5a779db851d693afbec142f7a4ae274e7a0eb6a918bf"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_async_cuda_graph.py",
+      "size": 17844,
+      "sha256": "eb9fdcf22759b0c21325fd2038620702de53b71029e9d8a88a7fb6ab65cf91d5"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_cache.py",
+      "size": 17611,
+      "sha256": "d6b6eb6bcf987df8988d8c5d16103f87b7399e347305b40af556a550ac51de13"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_catalog_regressions.py",
+      "size": 12336,
+      "sha256": "0525a68a840db7966c1970a6e1986f8f2dccdf265c7f0ad027af9203144bee0b"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_collector_protocol.py",
+      "size": 5660,
+      "sha256": "44d9a1c147a2e36443e4998097f6d525fdcd44a417b0ef43d6109592b21f062d"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_complex_topologies.py",
+      "size": 3593,
+      "sha256": "e64c6c55b9c8659a235f4ceffd2ea722d126d3cf4b08ad68218e795de2c71851"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_decoding.py",
+      "size": 18939,
+      "sha256": "50070323fdcaa3997d672a70872d0add46da2dd62ab759ca9baa673851b96ae2"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_deployment_timing.py",
+      "size": 1910,
+      "sha256": "f1f6868ab4199cce64a79d0fd069ab5fafa78e8f8bbbaf9e5dcf8bfaeb4a55fc"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_entity_archetype_metadata.py",
+      "size": 4969,
+      "sha256": "6c7c5d29eeb7f5bb8490c310338c58de240242093e9ca96c7cbf23f33e44d6a8"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_forced_opening.py",
+      "size": 2617,
+      "sha256": "22f183cc5a1286c5b6268175f4d94e6b1bdd9cb52d8023aa452b4559de0cd28d"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_gate_temperature.py",
+      "size": 4201,
+      "sha256": "c6a44e2c29e6551bd15ae1cb1eaa339118941132d84463ce2a4d623c95778c57"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_grouping.py",
+      "size": 3978,
+      "sha256": "29654e62d5b9a9464b9ccb63c72bbab1fb93edd48531cdc80002b142629a1ccc"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_hog_opening_reward.py",
+      "size": 7334,
+      "sha256": "a6a40364f1b7b4b4518a73a11eb47817422e156a411ce903df6df1a976c6eb09"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_hog_reward.py",
+      "size": 3931,
+      "sha256": "682c4c14663dfecbe8ebf394456a09661b1afba36dd4d94dd56ac1e447387bd8"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_il_opening.py",
+      "size": 3946,
+      "sha256": "28a0b4f70574d3d30d79165945d0fb4f6ee577e42f6cd1a7bd2c357aa93f38e9"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_king_activation_reward.py",
+      "size": 6016,
+      "sha256": "cc5a99b6d1c025e63cd366629503ac4b7525407cf96ea3488eb5bf38960f091f"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_learning.py",
+      "size": 44455,
+      "sha256": "5009df74de325cde460a314f2465f2a26a717bba3823f73e2fe5b4dbb247449f"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_mechanics.py",
+      "size": 18811,
+      "sha256": "948d56c02fb0b516ea82784b740cc066420762577a4deeb70eae745ef1a2f246"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_model.py",
+      "size": 36721,
+      "sha256": "0cb0e6f490f903229478fc568b79b90e954c15ef781e85dc3367b04f66a17baa"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_offline_agent.py",
+      "size": 5746,
+      "sha256": "5bc90e4b2ed38af8c82b6d387cabd419c9604a671a204b5b07123fadcce7953b"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_opening_telemetry.py",
+      "size": 1686,
+      "sha256": "e7d57c6d6249487a53a2f4744433ad57e5ee4c58037c2a9c200503d2658d2203"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_padding.py",
+      "size": 6162,
+      "sha256": "a0a439148bebb5ec7044d1ac00c24c8df2f2c44a684c4ad658ee2d59e58d9ab0"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_policy_session.py",
+      "size": 5004,
+      "sha256": "9f634c3b657061876d533181a88d2e4761a43fa6a61753383bf78d8cdce89abf"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_ppo_expert_bc.py",
+      "size": 27246,
+      "sha256": "a6179ed7ee20215ebebb5d5d8484427c79e78dc9514658d8664ffd782d35b09d"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_ppo_matchmaking.py",
+      "size": 17435,
+      "sha256": "564085a267292de67e8226eec48734e6d459d3747293e52bbf7896f920e006e8"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_ppo_multinode.py",
+      "size": 5466,
+      "sha256": "4059910c802416a79d0fe802e5879e5ffebcc5e828b238a2e9c92c8b72a718e6"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_ppo_padding.py",
+      "size": 3899,
+      "sha256": "35f3e7f9373b492a3bf809ec31ad784b3c662b248d7c637b2299e9f9fbe20e3f"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_producer.py",
+      "size": 19921,
+      "sha256": "5626f4d94b8647ddde140c88d45a711395d58a3c9d9ce68f90241fa68f6c4fad"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_remote_worker_transport.py",
+      "size": 7999,
+      "sha256": "9220f6736600aa60b76c54d4be1632be14f6c58d54252692f5e38d455a1f6315"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_tensorizer.py",
+      "size": 96925,
+      "sha256": "f27e938e14980d1bdd6e00975f667a65bf04ec84aab9f33b868066d3eb103a49"
+    },
+    {
+      "path": "native_runner/tests/test_training_v4_wandb_batch_metrics.py",
+      "size": 4434,
+      "sha256": "a349f725907597a1e965a22f6c932a5b7effb3d540788a16ace363d775ea0e4e"
+    },
+    {
+      "path": "native_runner/tests/test_user_interface.py",
+      "size": 15854,
+      "sha256": "91eb6b1311291efc36ac16e5d8a353e72a4f04e226fecb4e941c2e81c8ff47bd"
+    },
+    {
+      "path": "native_runner/tests/test_visibility_runtime.py",
+      "size": 10088,
+      "sha256": "d069d33a88c0a5349bb0ec98f6b07f88490f4c3c71fa3b82f5794d4016c7247e"
+    },
+    {
+      "path": "native_runner/timeline.py",
+      "size": 13196,
+      "sha256": "d87082748951ee27a6c423770650ab5ed8cb41c73ad5563a4279a1fe9815bd4d"
+    },
+    {
+      "path": "native_runner/tools/experiments/build_hog_expert_manifest.py",
+      "size": 11399,
+      "sha256": "a7420ef44ee89ce86e3611f9ba68345fa308980b86d661b7b7f546efa0603f99"
+    },
+    {
+      "path": "native_runner/training/__init__.py",
+      "size": 72,
+      "sha256": "31666015231ce27b3ec0f77acd58fae963bc9c5a2381160aa940a7758c4e1d91"
+    },
+    {
+      "path": "native_runner/training/card_features.py",
+      "size": 12233,
+      "sha256": "92aa0064402c636a5ca6add5ed7049d6251d9cf3094ed2a0808853bb09322d0b"
+    },
+    {
+      "path": "native_runner/training/replay_archive.py",
+      "size": 10119,
+      "sha256": "8371de631b97e942463dd795ce09a0dc65a575ea6257e4a66bb75d413552594f"
+    },
+    {
+      "path": "native_runner/training/replay_viewer.py",
+      "size": 55341,
+      "sha256": "025ae017f8ca48a31fa08c97da09e37852ec1c62ff0a39c4ce6282a75d159fb9"
+    },
+    {
+      "path": "native_runner/training/tracking.py",
+      "size": 38607,
+      "sha256": "1111752cc95166eb59f40278a98dfceb2a72503691e5d52eacb49b717d4feffa"
+    },
+    {
+      "path": "native_runner/training/v4/__init__.py",
+      "size": 81,
+      "sha256": "0982640a0be104232c43c425c47fbd0eae6f51c6c3dae4dbfea765ceec8e08fa"
+    },
+    {
+      "path": "native_runner/training/v4/async_cluster_self_play.py",
+      "size": 133087,
+      "sha256": "68b495b286360acb9d6e26df08db868bf79264ec39bfc7d9ccf6a107b408e794"
+    },
+    {
+      "path": "native_runner/training/v4/build_ppo_deck_pool.py",
+      "size": 3891,
+      "sha256": "46ed46ad6f0887691146b44a8088e15dcc062a7a0301b147441079e4656aab0e"
+    },
+    {
+      "path": "native_runner/training/v4/build_ppo_multinode_topology.py",
+      "size": 6848,
+      "sha256": "e8247e1ebd5cd44b1029999eb08fc1155c85d49bc083ad8f60d51f781efda6d6"
+    },
+    {
+      "path": "native_runner/training/v4/cache.py",
+      "size": 39778,
+      "sha256": "4d754b49d0fe1ec2bcdd04ac907f8283255c2d421045206eda627ef0631ac6df"
+    },
+    {
+      "path": "native_runner/training/v4/cache_builder.py",
+      "size": 25735,
+      "sha256": "0986d5f1f6e78cb9d986521146c3d85e9a5a3bcf3565938c6c3ce12557167b4c"
+    },
+    {
+      "path": "native_runner/training/v4/catalog.py",
+      "size": 26356,
+      "sha256": "73781254bae85d3f8c67804836257e7014ac5116ca7d86106f99b922d5439f1a"
+    },
+    {
+      "path": "native_runner/training/v4/checkpoint.py",
+      "size": 4736,
+      "sha256": "61f0f18ae3a604a1285666b59a2c33c9967ace9af13953fafbe5c6eb507c6c3d"
+    },
+    {
+      "path": "native_runner/training/v4/cluster_self_play.py",
+      "size": 18659,
+      "sha256": "d1aa530fe3f92c0d689aff7e631eab7e27315f77936109a05e28925dab283739"
+    },
+    {
+      "path": "native_runner/training/v4/components.py",
+      "size": 49965,
+      "sha256": "1685ac92cb1bdc65017f3ef3ac02af336622dcf7247bf47c733a539c1b0c7178"
+    },
+    {
+      "path": "native_runner/training/v4/config.py",
+      "size": 12165,
+      "sha256": "aea6e2f5472d3e1d8016a313b3ed201bf3ead14040e8a27dfcfe701bffcd7f38"
+    },
+    {
+      "path": "native_runner/training/v4/configure_emulator_engine_guests.py",
+      "size": 12403,
+      "sha256": "389928d8e2ef2ac3a0f936140ae35dd6919562c151f6915219f09da4612e38e5"
+    },
+    {
+      "path": "native_runner/training/v4/dataset.py",
+      "size": 4385,
+      "sha256": "c33123c2d4f40bbca93b2d31093908dcd139e5cc7fb22b394b05138cd141e11a"
+    },
+    {
+      "path": "native_runner/training/v4/deck_pool.py",
+      "size": 14916,
+      "sha256": "2d8f24e39f128be286c8edbb6296d29f10f3ce7cb49e31b08c5809f8c98716f1"
+    },
+    {
+      "path": "native_runner/training/v4/decoding.py",
+      "size": 31535,
+      "sha256": "99e78ec115d0e30752f8a09a1c014e2d48c7e604919534b6a53eb887ef71755b"
+    },
+    {
+      "path": "native_runner/training/v4/deployment_timing.py",
+      "size": 3943,
+      "sha256": "f377c7f0b2e29c58615cb584edd7fbb1b55171afc5f524f868c30631e87c211b"
+    },
+    {
+      "path": "native_runner/training/v4/distributed_ppo.py",
+      "size": 25371,
+      "sha256": "385351c588dd2e2af99eef4b646cf657d9bc174ee1c80d99446d605ede1ac0fe"
+    },
+    {
+      "path": "native_runner/training/v4/evaluate.py",
+      "size": 7873,
+      "sha256": "0bae53b1c0e05cf3a636e6806d6a24c5a8212db0af5e4152674e85d0b6275c33"
+    },
+    {
+      "path": "native_runner/training/v4/expert.py",
+      "size": 15074,
+      "sha256": "43ac8f2175116e1b1f86f73fe37fc1788a62daf8392219e4da28ed5ffb96d7b0"
+    },
+    {
+      "path": "native_runner/training/v4/factory.py",
+      "size": 13030,
+      "sha256": "fdb6f48281b45f42e23237de8791263540eeb48541437f33bb40dadf700b1759"
+    },
+    {
+      "path": "native_runner/training/v4/focus_decks_20.json",
+      "size": 4212,
+      "sha256": "69def9ba0c6ad49958e87416bc645b8e733e9fee7f50843ae8955047a18f8e94"
+    },
+    {
+      "path": "native_runner/training/v4/grouping.py",
+      "size": 4147,
+      "sha256": "501ea410d54d73d780ed0194f9cd836501522f42893a8fefcef6577ea26576fc"
+    },
+    {
+      "path": "native_runner/training/v4/imitation.py",
+      "size": 12805,
+      "sha256": "f7bdc00e6d27caa50fc21576400bf55d60e96ca3ce7fc53df8ff4d4c83cc8814"
+    },
+    {
+      "path": "native_runner/training/v4/install_probe_idle_guests.py",
+      "size": 6984,
+      "sha256": "c426582540f8e72254f888029e09ba7b101f19ec8425a4d5fe5ea54c623d4fd1"
+    },
+    {
+      "path": "native_runner/training/v4/king_activation_reward.py",
+      "size": 5719,
+      "sha256": "105acb476ed4e39c642c25f53c5ab233a8420218b075cd57d73ebcefaa202e5f"
+    },
+    {
+      "path": "native_runner/training/v4/launch_cache_partition.sh",
+      "size": 662,
+      "sha256": "739852a7719455e403317da8cdbafd6348e4ca20dabb0400ab27b4df8e8da481"
+    },
+    {
+      "path": "native_runner/training/v4/launch_ppo_engine_node.sh",
+      "size": 17053,
+      "sha256": "20ef9037b218e99b9bffee1ef58877475750cd3fa24adc7f4b4b4d6d58af854e"
+    },
+    {
+      "path": "native_runner/training/v4/launch_ppo_multinode_training.sh",
+      "size": 2537,
+      "sha256": "86ef7df9d7306ecdbecca15b1dfa43b61ed54ebcdba52fe1fdd0acdab50f73bf"
+    },
+    {
+      "path": "native_runner/training/v4/launch_stateful_il.sh",
+      "size": 844,
+      "sha256": "2794164208dd3361899c5efece51285424ded3568636710c4c0fe41bec03112f"
+    },
+    {
+      "path": "native_runner/training/v4/league.py",
+      "size": 7101,
+      "sha256": "caab12daacb5c031854b86b7f320ce7f7fb22792a7900ebf2914bbfdd869dad3"
+    },
+    {
+      "path": "native_runner/training/v4/learning.py",
+      "size": 10418,
+      "sha256": "00c2bc794d9db0e9e52e9f6dea6d02ac5e1d877786ad1ce4a20453b3edf7d7e0"
+    },
+    {
+      "path": "native_runner/training/v4/matchmaking.py",
+      "size": 27257,
+      "sha256": "8ebd470fe0bd30135e8c169f2a2a893c21ce39060da2a692900c3d346f06be69"
+    },
+    {
+      "path": "native_runner/training/v4/mechanics.py",
+      "size": 20450,
+      "sha256": "705cec5ef7a416376fc9e53a2a5d76a085a411a097a494cc84c47d2fb81b133c"
+    },
+    {
+      "path": "native_runner/training/v4/model.py",
+      "size": 52085,
+      "sha256": "fe07d99749b6b4bc4c3836bd8e8273c08f4178f6b74033f57499b057677a6c42"
+    },
+    {
+      "path": "native_runner/training/v4/native_actions.py",
+      "size": 8680,
+      "sha256": "73cf47fdd25b9875c14b3efa1944ca9d1e88f06238fa1501299bc6af90f283c7"
+    },
+    {
+      "path": "native_runner/training/v4/offline_agent.py",
+      "size": 8406,
+      "sha256": "8adde0898f72fcce3170d53a7f9336088a797128b5e9073d651a606ba0b109d1"
+    },
+    {
+      "path": "native_runner/training/v4/policy_session.py",
+      "size": 14159,
+      "sha256": "b5b29df48bc5cb7303102088f648347ad1af4c02b1da84ab948cfa953a18fd4c"
+    },
+    {
+      "path": "native_runner/training/v4/ppo.py",
+      "size": 7029,
+      "sha256": "fc83a8bcb5d5962b25f5400682be05d18c02c192af638a470327757d8781e4bc"
+    },
+    {
+      "path": "native_runner/training/v4/ppo_expert_bc.py",
+      "size": 31233,
+      "sha256": "efe315fbb76b940660e70f184257aee5aa8a1c9bc1102b6ce6eab3eda5aa1b48"
+    },
+    {
+      "path": "native_runner/training/v4/ppo_runtime.py",
+      "size": 6172,
+      "sha256": "91da501059a2605c75dddc6ab64f80345ef4f9718784b19649f1bc30ec346609"
+    },
+    {
+      "path": "native_runner/training/v4/producer.py",
+      "size": 29180,
+      "sha256": "86d6e3329c0d2739e6bd633a3c1872e7044e02e49c304a5ac0cdb733c19a720e"
+    },
+    {
+      "path": "native_runner/training/v4/refresh_ppo_engine_node.sh",
+      "size": 7506,
+      "sha256": "96ff16e779ba812a8523e842563a3d765109df76f36bfa0205c3966dc0385423"
+    },
+    {
+      "path": "native_runner/training/v4/remote_ppo_worker_server.py",
+      "size": 9716,
+      "sha256": "9a38784cfe6285d4d2dd9d04c25ba09df16242b4ad1bac4f143962efe41708c8"
+    },
+    {
+      "path": "native_runner/training/v4/remote_worker_transport.py",
+      "size": 15286,
+      "sha256": "f1422090d72658cd2cb4ff663ec2b89f872921ed8cac087b59573f8c8a9900d2"
+    },
+    {
+      "path": "native_runner/training/v4/serve_policy.py",
+      "size": 3449,
+      "sha256": "aeae77265452ff1e8db00596d12a255da416309bd14364d9fbc3072f453114c8"
+    },
+    {
+      "path": "native_runner/training/v4/tcp_endpoint_proxy.py",
+      "size": 4407,
+      "sha256": "7fc112b328da336ad180a88dc17bacd75359f8bbf28b8f33df55f58e3af5ab38"
+    },
+    {
+      "path": "native_runner/training/v4/tensorizer.py",
+      "size": 110148,
+      "sha256": "1400d0e6b4b300f36423965538a504b86b929358b830556bfcc4aa33c1204cbd"
+    },
+    {
+      "path": "native_runner/training/v4/tensors.py",
+      "size": 43120,
+      "sha256": "e502511db6752a37da10302cd56c7abf596999db7bdc31c1fdb91f931ad137c6"
+    },
+    {
+      "path": "native_runner/training/v4/train_imitation_cache.py",
+      "size": 29078,
+      "sha256": "7df4dfaaaaeef602bbcbd1a879fdc965accad06be36e8ad8685c1422d612bfe5"
+    },
+    {
+      "path": "native_runner/training/v4/train_ppo_self_play_cluster.py",
+      "size": 101905,
+      "sha256": "ec0b87540ea8639a99bf1b81cfcc6da219285a67ba9a82ad564fa085cdc5af7b"
+    },
+    {
+      "path": "native_runner/training_capture.py",
+      "size": 49852,
+      "sha256": "372ef59e0fe5826750ea67a2ac111c56ed2c7fcc1fb74cc86727e5cf7841452c"
+    },
+    {
+      "path": "native_runner/user_interface.py",
+      "size": 83866,
+      "sha256": "9ca7ef2fc76e2c6f0d18ccf1868a4522e5c770c170446d02b2db57c2958c1096"
+    },
+    {
+      "path": "native_runner/visibility_runtime.py",
+      "size": 12546,
+      "sha256": "edb0e69899a2a9f8a41489d9386d37897e9d24e53098dc75adb840aa6bced3a0"
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 83,
+      "sha256": "ab6d8fa357e487294f9bd6c68c2f40311cec2c2264820709934f2917aa8e996f"
+    },
+    {
+      "path": "requirements.txt",
+      "size": 153,
+      "sha256": "8a5f690d200ed9b04e07502804d20e05c62e175a53ed2af973c817283c89e93c"
+    },
+    {
+      "path": "tools/check_install.py",
+      "size": 1176,
+      "sha256": "7decc0832f3207e8932a3e669b5036ab283db70ad4f65fad094ace8184a69e8a"
+    },
+    {
+      "path": "tools/check_release.py",
+      "size": 3183,
+      "sha256": "aea4abf86de68aa1b50f0445d868fb346485ec28ac8a5423fdb6b3a4c9435049"
+    },
+    {
+      "path": "tools/export_checkpoint.py",
+      "size": 1577,
+      "sha256": "e7e737f7242dbc480953d4465df617c61ba6fda55773724447bf369f0d497109"
+    },
+    {
+      "path": "tools/make_demo_data.py",
+      "size": 5508,
+      "sha256": "b50fe753a20aa8f8e7b46d8351e642cde7cecf12e27e655b830536ca5d1e4845"
+    },
+    {
+      "path": "tools/prepare_training_guest.py",
+      "size": 1010,
+      "sha256": "d66306dc8b3189b5115ab2c74b381d5564e06fc04cd93a636580cdf51ab56daf"
+    }
+  ]
+}

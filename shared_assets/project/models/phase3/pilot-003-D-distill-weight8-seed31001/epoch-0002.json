@@ -1,0 +1,723 @@
+{
+  "schema": "phase3-small-policy.v1",
+  "created_utc": "2026-10-18T13:54:12.841135+00:00",
+  "config": {
+    "schema": "phase3-small-training-config.v1",
+    "dataset": {
+      "path": "data/phase3/native/pilot-003/metadata.json",
+      "sha256": "11f87b08817ac2b75201bab9c645d8f55afeb0fbca658cc518c66a24e32aacd1"
+    },
+    "rows": {
+      "path": "data/phase3/native/pilot-003/rows.jsonl",
+      "sha256": "a87ccc48f89cc7c121d81a4b4dec22f5aceb28f6644b379b492b3c6943111012"
+    },
+    "version_fingerprint_sha256": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba",
+    "observation_profile": "fair",
+    "control_ticks": 10,
+    "seed": 31001,
+    "epochs": 2,
+    "sequence_length": 32,
+    "burnin": 8,
+    "sequence_seconds": 16.0,
+    "burnin_seconds": 4.0,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "world_weight": 0.1,
+    "opponent_weight": 0.1,
+    "hazard_weight": 0.1,
+    "train_play_class_weight": 8.0,
+    "architecture": {
+      "variant": "D",
+      "input_width": 713,
+      "hidden": 32,
+      "recurrent": true,
+      "grid": true,
+      "world": false,
+      "opponent": false,
+      "hazard": false
+    },
+    "sampling": "each natural-time row once per epoch; no oversampling or class weighting",
+    "inference": "masked deterministic argmax; zero play bias; public predicted-slot position proposal mask; 18x32 cell centers or public-region-transformed 2D ties-to-even",
+    "actor_features": "hud / observation / full history vector + belief + own previous action + feedback + actual dt",
+    "model_selection": "lowest validation action NLL, never test",
+    "event_tolerance_ticks": 10,
+    "training_source": {
+      "path": "royale_phase3/learning.py",
+      "sha256": "705ea1984088801e4aeaa3a042768beeb4221f79428bed2a253f7d07935a8b90"
+    },
+    "threads": 2
+  },
+  "epoch": 2,
+  "curve": [
+    {
+      "epoch": 1,
+      "training_batches": 3,
+      "training_loss": {
+        "total": 6.468042850494385,
+        "action": 0.6208778222401937,
+        "position": 5.847164948781331,
+        "world": 0.0,
+        "opponent": 0.0,
+        "hazard": 0.0
+      },
+      "validation": {
+        "split": "validation",
+        "rows": 260,
+        "eligible_rows": 260,
+        "episodes": 1,
+        "action_nll": 0.27166922848958236,
+        "action_accuracy": 0.7884615384615384,
+        "position_nll_true_slot": 5.840219048892751,
+        "position_on_all_actual_plays": {
+          "predicted_play_denominator": 15,
+          "actual_play_denominator": 17,
+          "mean_native_distance": 11728.793985753717
+        },
+        "position_when_slot_correct": {
+          "count": 5,
+          "mean_native_distance": 8934.673143976359
+        },
+        "position_by_true_card": {
+          "26000018": {
+            "count": 3,
+            "mean_native_distance": 11149.424892288249
+          },
+          "28000001": {
+            "count": 3,
+            "mean_native_distance": 12469.16426938535
+          },
+          "28000000": {
+            "count": 2,
+            "mean_native_distance": 17001.312264818458
+          },
+          "26000001": {
+            "count": 2,
+            "mean_native_distance": 11868.051263561058
+          },
+          "27000000": {
+            "count": 2,
+            "mean_native_distance": 9055.553985791623
+          },
+          "26000000": {
+            "count": 1,
+            "mean_native_distance": 13086.2523283024
+          },
+          "26000003": {
+            "count": 1,
+            "mean_native_distance": 3640.0549446402592
+          },
+          "26000014": {
+            "count": 1,
+            "mean_native_distance": 12500.0
+          }
+        },
+        "event": {
+          "tolerance_ticks": 10,
+          "predicted": 58,
+          "actual": 17,
+          "matched": 15,
+          "precision": 0.25862068965517243,
+          "recall": 0.8823529411764706,
+          "slot_correct_on_time_match": 0.3333333333333333,
+          "mean_abs_error_ticks": 6.0
+        },
+        "contexts": {
+          "only_wait_legal": {
+            "rows": 192,
+            "predicted_play": 0,
+            "actual_play": 0
+          },
+          "can_play": {
+            "rows": 68,
+            "predicted_play": 58,
+            "actual_play": 17
+          }
+        },
+        "opponent": null,
+        "predicted_slot_affordable_rate": 1.0,
+        "prediction_sha256": "3e81aac3096d03612fdce0e7375907725b0a9c51500e01a62b8740aaaa0b620a",
+        "inference_seconds": {
+          "mean": 0.00025424730769233204,
+          "p95": 0.00040441999972244956
+        },
+        "online_offline_exact_match": true,
+        "native_consumed_rejected_unknown": "not_run_offline",
+        "whole_game_win_cycle_lock_key_defense": "not_run_offline",
+        "position_legality": "not_proven_by_affordability_mask",
+        "scope": "teacher-forced observations; recurrent hidden follows actual history; no counterfactual native rollout"
+      }
+    },
+    {
+      "epoch": 2,
+      "training_batches": 3,
+      "training_loss": {
+        "total": 6.3571241696675616,
+        "action": 0.6026753187179565,
+        "position": 5.754448890686035,
+        "world": 0.0,
+        "opponent": 0.0,
+        "hazard": 0.0
+      },
+      "validation": {
+        "split": "validation",
+        "rows": 260,
+        "eligible_rows": 260,
+        "episodes": 1,
+        "action_nll": 0.27244744232067697,
+        "action_accuracy": 0.7884615384615384,
+        "position_nll_true_slot": 5.831787866704604,
+        "position_on_all_actual_plays": {
+          "predicted_play_denominator": 15,
+          "actual_play_denominator": 17,
+          "mean_native_distance": 12659.936814186838
+        },
+        "position_when_slot_correct": {
+          "count": 5,
+          "mean_native_distance": 11423.343108988644
+        },
+        "position_by_true_card": {
+          "26000018": {
+            "count": 3,
+            "mean_native_distance": 12522.518628665226
+          },
+          "28000001": {
+            "count": 3,
+            "mean_native_distance": 16171.306890201677
+          },
+          "28000000": {
+            "count": 2,
+            "mean_native_distance": 21124.417890436118
+          },
+          "26000001": {
+            "count": 2,
+            "mean_native_distance": 7596.291201783626
+          },
+          "27000000": {
+            "count": 2,
+            "mean_native_distance": 8868.051263561058
+          },
+          "26000000": {
+            "count": 1,
+            "mean_native_distance": 12500.0
+          },
+          "26000003": {
+            "count": 1,
+            "mean_native_distance": 3640.0549446402592
+          },
+          "26000014": {
+            "count": 1,
+            "mean_native_distance": 12500.0
+          }
+        },
+        "event": {
+          "tolerance_ticks": 10,
+          "predicted": 58,
+          "actual": 17,
+          "matched": 15,
+          "precision": 0.25862068965517243,
+          "recall": 0.8823529411764706,
+          "slot_correct_on_time_match": 0.3333333333333333,
+          "mean_abs_error_ticks": 6.0
+        },
+        "contexts": {
+          "only_wait_legal": {
+            "rows": 192,
+            "predicted_play": 0,
+            "actual_play": 0
+          },
+          "can_play": {
+            "rows": 68,
+            "predicted_play": 58,
+            "actual_play": 17
+          }
+        },
+        "opponent": null,
+        "predicted_slot_affordable_rate": 1.0,
+        "prediction_sha256": "db45274725f457f2674205e6b61f95465a50042697a1867e4d7f2ca76e6fd42f",
+        "inference_seconds": {
+          "mean": 0.00023133846154031255,
+          "p95": 0.0003537049997703433
+        },
+        "online_offline_exact_match": true,
+        "native_consumed_rejected_unknown": "not_run_offline",
+        "whole_game_win_cycle_lock_key_defense": "not_run_offline",
+        "position_legality": "not_proven_by_affordability_mask",
+        "scope": "teacher-forced observations; recurrent hidden follows actual history; no counterfactual native rollout"
+      }
+    }
+  ],
+  "best_validation_action_nll": 0.27166922848958236,
+  "weights": {
+    "path": "models/phase3/pilot-003-D-distill-weight8-seed31001/epoch-0002.npz",
+    "sha256": "0a368c36273bf06a54e94adc5f198f9f7907ef46eb41ce337d14800cbd320fa6"
+  },
+  "snapshot": {
+    "model": {
+      "dict": [
+        [
+          "encoder.weight",
+          {
+            "tensor": "tensor_0"
+          }
+        ],
+        [
+          "encoder.bias",
+          {
+            "tensor": "tensor_1"
+          }
+        ],
+        [
+          "gru.weight_ih_l0",
+          {
+            "tensor": "tensor_2"
+          }
+        ],
+        [
+          "gru.weight_hh_l0",
+          {
+            "tensor": "tensor_3"
+          }
+        ],
+        [
+          "gru.bias_ih_l0",
+          {
+            "tensor": "tensor_4"
+          }
+        ],
+        [
+          "gru.bias_hh_l0",
+          {
+            "tensor": "tensor_5"
+          }
+        ],
+        [
+          "action_head.weight",
+          {
+            "tensor": "tensor_6"
+          }
+        ],
+        [
+          "action_head.bias",
+          {
+            "tensor": "tensor_7"
+          }
+        ],
+        [
+          "position_head.weight",
+          {
+            "tensor": "tensor_8"
+          }
+        ],
+        [
+          "position_head.bias",
+          {
+            "tensor": "tensor_9"
+          }
+        ]
+      ]
+    },
+    "optimizer": {
+      "dict": [
+        [
+          "state",
+          {
+            "dict": [
+              [
+                0,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_10"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_11"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_12"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                1,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_13"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_14"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_15"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                2,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_16"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_17"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_18"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                3,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_19"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_20"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_21"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                4,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_22"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_23"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_24"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                5,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_25"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_26"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_27"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                6,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_28"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_29"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_30"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                7,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_31"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_32"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_33"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                8,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_34"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_35"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_36"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              [
+                9,
+                {
+                  "dict": [
+                    [
+                      "step",
+                      {
+                        "tensor": "tensor_37"
+                      }
+                    ],
+                    [
+                      "exp_avg",
+                      {
+                        "tensor": "tensor_38"
+                      }
+                    ],
+                    [
+                      "exp_avg_sq",
+                      {
+                        "tensor": "tensor_39"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            ]
+          }
+        ],
+        [
+          "param_groups",
+          [
+            {
+              "dict": [
+                [
+                  "lr",
+                  0.001
+                ],
+                [
+                  "betas",
+                  {
+                    "tuple": [
+                      0.9,
+                      0.999
+                    ]
+                  }
+                ],
+                [
+                  "eps",
+                  1e-08
+                ],
+                [
+                  "weight_decay",
+                  0
+                ],
+                [
+                  "amsgrad",
+                  false
+                ],
+                [
+                  "maximize",
+                  false
+                ],
+                [
+                  "foreach",
+                  null
+                ],
+                [
+                  "capturable",
+                  false
+                ],
+                [
+                  "differentiable",
+                  false
+                ],
+                [
+                  "fused",
+                  null
+                ],
+                [
+                  "decoupled_weight_decay",
+                  false
+                ],
+                [
+                  "params",
+                  [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                  ]
+                ]
+              ]
+            }
+          ]
+        ]
+      ]
+    },
+    "rng": {
+      "tensor": "tensor_40"
+    },
+    "best_model": {
+      "dict": [
+        [
+          "encoder.weight",
+          {
+            "tensor": "tensor_41"
+          }
+        ],
+        [
+          "encoder.bias",
+          {
+            "tensor": "tensor_42"
+          }
+        ],
+        [
+          "gru.weight_ih_l0",
+          {
+            "tensor": "tensor_43"
+          }
+        ],
+        [
+          "gru.weight_hh_l0",
+          {
+            "tensor": "tensor_44"
+          }
+        ],
+        [
+          "gru.bias_ih_l0",
+          {
+            "tensor": "tensor_45"
+          }
+        ],
+        [
+          "gru.bias_hh_l0",
+          {
+            "tensor": "tensor_46"
+          }
+        ],
+        [
+          "action_head.weight",
+          {
+            "tensor": "tensor_47"
+          }
+        ],
+        [
+          "action_head.bias",
+          {
+            "tensor": "tensor_48"
+          }
+        ],
+        [
+          "position_head.weight",
+          {
+            "tensor": "tensor_49"
+          }
+        ],
+        [
+          "position_head.bias",
+          {
+            "tensor": "tensor_50"
+          }
+        ]
+      ]
+    }
+  },
+  "format": "NumPy npz allow_pickle=False; JSON tensor tree; no torch.load/pickle",
+  "checkpoint_sha256": "2708cd6e70182555c84efcd10088e1e4647b528224e008e19c73e8c421d56049"
+}

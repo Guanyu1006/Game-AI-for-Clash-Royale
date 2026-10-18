@@ -1,0 +1,18 @@
+{
+  "schema": "royale-phase2-policy-variant.v1",
+  "status": "pass",
+  "source": {
+    "path": "outputs/phase2/learning_pipeline/model_aggressive/checkpoint.json",
+    "sha256": "5e18e7517dcbb6b0565b4f2c159bd851817194c9495fa9713695f359829e706b"
+  },
+  "variant": {
+    "path": "outputs/phase2/learning_pipeline/model_g_variant/checkpoint.json",
+    "sha256": "31962197f193c3f29c907ee33813c2b7118c45be8aa94e71e17f8c8e6f85dfb3",
+    "weights": {
+      "path": "outputs/phase2/learning_pipeline/model_g_variant/weights.npz",
+      "sha256": "60a75cabd3b83820057cb7b230456d773478d53cd8629d88c4744deaf46f4fb7"
+    },
+    "inference_play_bias": 4.0
+  },
+  "scope": "Same hard-E native-reconstructed export and tensors; legal-mask-constrained inference prior"
+}

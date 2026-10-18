@@ -1,0 +1,94 @@
+cr-memory-reader 源码审计与综合设计复核
+审阅日期：2026-10-18
+固定 revision：9af94ca2f273ce526dda6256bdbd5d5555fb82d4
+提交链接：https://github.com/Jason-XII/cr-memory-reader/commit/9af94ca2f273ce526dda6256bdbd5d5555fb82d4
+范围：公开源码与文档静态审查。未运行注入、未访问设备、未实测客户端、未改动项目运行时。
+
+一、结论
+
+本仓库适合作为本地受控实验的观测与校准桥。它不是可直接训练的 Gym 环境，也不构成跨版本完整真实状态读取已获验证的证据。应把 README 宣传、研究笔记、当前公开实现及本地实测分层记录。
+
+二、当前实现的能力
+
+1. 默认采集包为 nullsroyale.rel.free，即 Null's Royale；并非官方客户端通用适配器。
+2. ARM 路径用 Frida 附加进程、获取 holder、调用若干 accessor 并读取实体列表。
+3. Windows 路径要求 MuMu/root adbd；Android 侧 x86_64 helper 只读打开 /proc/PID/mem，读取被翻译的 ARM 游戏状态。
+4. 实体字段包括双方 raw side、kind、card data ID、level index、HP/max HP、两组坐标与进程内地址。
+5. 常规采集输出己方整数圣水、battle clock、4 手牌槽和 next card。ARM 路径另有本地 account ID 与 roster 的映射。
+6. 常规采集没有可靠的已应用动作轨迹；另有独立 pending queue 预览。
+7. 没有环境 reset/step、卡牌执行器、snapshot/fork、奖励函数、策略网络或训练器。
+8. 普通采集未提供完整动力学状态，例如 target ID、攻击冷却、弹道、状态效果、稳定实体代次与精确法术生命周期。
+
+源码：
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/deploy/hook_raw_capture.js
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/tools/native-stream/cr_arm_entity_stream.c
+
+不能宣称当前公开主采集链已输出双方精确圣水、双方当前手牌。该类功能出现在研究笔记/技术指南中，主入口代码仍以 own_elixir、己方 hand/next 为输出。研究笔记同时指出，测试客户端的对手当前四张、next index、初始完整牌组在对局过程中未物化，结束后才出现；应保持 server_hidden/null，不能猜成内存精确值。
+
+三、文档与实现不一致
+
+1. README 声称每秒读取 30 次，但 ARM SNAPSHOT_INTERVAL_MS=100，Windows --interval-ms 默认 100；当前默认目标是 10 Hz。UI 的 clock.tick(60) 是绘制节拍，不能当作采样频率。
+2. 最新 ARM hook 已在 runtime_snapshot.entities 中批量发送实体，但 deploy/run_raw_capture.py 的全局 entities={} 从未填充，仍把它赋给 visualizer.entities。存在静态可见的接口回归，因此当前 demo 不能代替最新 revision 的端到端验证。
+3. x86_64/内存读取技术指南.md 描述 profile 哈希校验、CMR4 wire v7、双方手牌、动作队列、SSE、有界缓存及 battle session，但当前 Git tree 中没有相应 profiles/wire/state server 实现。当前 helper 实际输出简单 JSONL。指南可作设计参考，不能算作已交付功能。
+4. Windows visualizer 从 x86_64/upstream-original/deploy/cards.json 加载名称，该路径不在当前 tree；异常后退回数字 ID。
+
+源码：
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/deploy/run_raw_capture.py
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/deploy/minimal_visualizer.py
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/内存读取技术指南.md
+
+四、数据质量与时序边界
+
+1. 采样非原子。native helper 依次读取 manager、UI、数组及实体，游戏同时推进；没有模拟 tick 前后双读或一致性屏障，单帧是时间窗口内的拼接观测。
+2. Windows 独立 Python worker 经多次 ADB 读取手牌/圣水/clock，再用 snapshot.update(state) 合入 native 实体帧。缺逐字段时间、age 与 source tick，不能把结果当同一瞬间真值。
+3. battle_state 与 deck_ids 缓存未在 battle_active=false 时显式清空，有跨局旧值污染风险。
+4. native helper 直接把 model+0x288 读成 index-aligned deck；Python poll_card_object_deck() 却说明该字段在 Null's 中是逐渐 reveal 的表，非 index-aligned deck，需经 provider-backed wrapper 解析。这一分歧必须在适配层统一。
+5. pointer 只能作进程内定位符。应采用 battle_id+pointer+generation 或独立 tracker ID，处理释放与地址复用。
+6. 实体出生不是一次出牌。衍生单位不能重复扣对手圣水；法术也可能没有普通单位实体。
+7. 研究笔记报告 spectator 比 player 落后约 30 ticks/1.5 秒。对齐应使用 source tick，不能按墙钟把延迟观战数据拼成当前状态；该数值是上游笔记的测试结果，本轮没有复测。
+
+源码与研究记录：
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/tools/capture_native_entity_stream.py
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/deploy/proc_memory.py
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/x86_64/My%20Own%20Findings.md
+
+五、必须隔离的信息泄漏
+
+queue_overlay/hook_queue_deploy.js 每 10 ms 检查 scheduler record，输出激活前 pending deploy 的卡牌与目标坐标。该信息不等价于玩家已经可见的行动，不能进入公平 actor，也不能无条件当已发生 action。
+
+建议物理分开三类 schema：
+- ActorObservation：决策时可获得的己方手牌/圣水、已可见实体、过去可见出牌与对手 belief。
+- PrivilegedState：精确隐藏状态、内部冷却等，只用于 teacher、critic 或校准；若采用 privileged critic，明确属于 asymmetric actor-critic。
+- AuditEvent：原始指针、pending queue、网络到达、模块指纹与探针诊断；训练 loader 不可直接将其作特征。
+
+精确敌方整数 HP 也需要观察协议：血条可见不等于像素 actor 原生拥有整数 HP。结构化研究与视觉部署应分 track 评估。
+
+源码：
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/queue_overlay/README.md
+https://github.com/Jason-XII/cr-memory-reader/blob/9af94ca2f273ce526dda6256bdbd5d5555fb82d4/queue_overlay/hook_queue_deploy.js
+
+六、对项目最合适的使用方式
+
+本地受控日志 → 一致性与可见性过滤 → 统一 trajectory → 校验 simulator/监督 perception/构建 teacher 数据 → student actor → 冻结环境评估。
+
+1. 原图与结构化实体同步记录，监督视觉检测、HP、位置与追踪。
+2. 用小型受控场景比较首击时间、移动轨迹、单位寿命、塔血、圣水恢复与轮转，建立 simulator 误差表。
+3. 序列 BC 需要记录请求、接纳、应用、生效阶段，保留 decision_time/request_time/applied_tick/effect_tick/available_at，不能从出生反推全部动作。
+4. teacher 可在校准环境中搜索，student 仍只使用 ActorObservation；full-state actor 战胜公平 actor 不等于策略结构更优。
+5. 保留 host_monotonic_ns、设备时间、source simulation tick、receive time 与字段 age，把传输延迟和采样间隔分开。
+
+七、版本与许可
+
+当前源码硬编码 libg 地址，入口没有与技术指南同等的构建 fingerprint fail-closed。ARM/x86、Null's/官方版不可共用 offset；笔记的 13.300.6 ARM 与指南中的 150535022 x86 也不能当同一验证构建。
+
+审查时 GitHub API license=null，tree 未见 LICENSE。设计可供借鉴；若复制并分发代码，应先确认作者许可。这里仅报告元数据，未作法律判断。
+
+八、综合 AI 方案复核（7 点）
+
+1. 20 Hz 参考环境与 actor 决策节拍分开。CPU 条件下先用较慢固定节拍、显式 Δt 与合法等待，再比较可变时长；否则计算与等待样本迅速膨胀。
+2. FirstLight 权重复用以输入语义相容为门槛。blob/形状一致不等于卡牌 ID、坐标方向、实体排序、mask、归一化和 rich 字段一致。minimal 缺字段不能无条件补零后宣称复现，先作冻结权重的离线输出与小场景验证。
+3. teacher 复用与可观测性是首要取舍。若 teacher 使用对手精确圣水/隐藏状态，同一公开观察可得到冲突标签。应另建公开观察 teacher 基线并报告 student 信息损失，不保证蒸馏保留全部能力。
+4. 8 卡 simulator 适合局部控制，不足以预训练完整对局。先在版本、等级和卡牌一致的小域校准，训练交互/落点/时机；投入校准场景库比先扩卡更有判断价值。
+5. LSTM 是合理 CPU 起点，先保持紧凑模型并证明历史收益。固定实体容量、置换处理、生命周期和跨局 memory reset；recurrent BC 要有 burn-in、序列 mask 与整局切分，匹配在线记忆。
+6. BC→PPO 应由动作覆盖、观察完整性、拒绝率、轮转与时序门槛触发。冻结对手评估子集、相同 seeds、换边与独立对手；不要同时把小样本收益归于编码、teacher 和 PPO。
+7. 世界模型先作短期辅助预测，再考虑想象优化。多步误差、对手分布变化与动作分布外误差未达标时，RSSM 可帮助表示学习，但不宜驱动 actor 最大化想象收益。

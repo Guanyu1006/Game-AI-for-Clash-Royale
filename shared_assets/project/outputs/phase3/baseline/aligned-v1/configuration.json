@@ -1,0 +1,46 @@
+{
+  "schema": "phase3-baseline-evaluation-config.v1",
+  "created_utc": "2026-10-18T06:34:32.971042+00:00",
+  "checkpoint": {
+    "path": "outputs/phase2/learning_pipeline/model_g_variant/checkpoint.json",
+    "sha256": "31962197f193c3f29c907ee33813c2b7118c45be8aa94e71e17f8c8e6f85dfb3"
+  },
+  "export": {
+    "path": "outputs/phase2/learning_pipeline/export/export_manifest.json",
+    "sha256": "b3ce3882333b5ebae4132357072553ba95cc19d0d38f241b732d5d33ecad7307"
+  },
+  "inference": {
+    "schema": "royale-phase2-deployment-inference.v1",
+    "play_log_score_bias": 4.0,
+    "selection": "deterministic argmax; first index wins ties; no sampling",
+    "scores": "log(clip(masked_softmax_probability,1e-30,1))+legal_play_bias; illegal=-inf",
+    "temperature": 1.0,
+    "mask": "recomputed own/public wait_or_arena_spell.v1 proof",
+    "coordinates": "numpy rint ties-to-even, clip x to [0,17999], y to [0,31999]",
+    "forward_batch_size": 1
+  },
+  "historical_bias_provenance": "Inherited 4.0 from phase2 model_g_variant; no trustworthy train/validation selection record found; not tuned by this phase3 audit",
+  "historical_control_ticks": 20,
+  "historical_export_wait_grid_ticks": 10,
+  "historical_export_extra_rows": "Action-pre-submit boundaries may be off-grid",
+  "phase3_main_control_ticks": 10,
+  "ticks_per_second": 20,
+  "event_matching": {
+    "tolerance_ticks": 10,
+    "tolerance_seconds": 0.5,
+    "prediction_time": "observation tick+1 scheduled request; not confirmed execution",
+    "label_time": "actual_execution_tick",
+    "group": [
+      "source_episode_id",
+      "native_owner"
+    ],
+    "algorithm": "one-to-one maximum cardinality matching within absolute tolerance; no card requirement for event PR"
+  },
+  "random_baseline": {
+    "seed": 31006,
+    "selection": "uniform over legal indices including WAIT; uniform integer arena coordinates"
+  },
+  "scope": "Historical input-distribution correction only; no comparison attribution to new 10-tick A-E cohort",
+  "selection": "No thresholds, weights, bias, temperature or tolerance optimized on test; test reported once after this freeze",
+  "config_sha256": "1b7dac9ae14754ae9b09745ad0a34a00d93b8186101cc2ade9fb4425361dcb83"
+}

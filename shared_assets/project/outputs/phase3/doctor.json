@@ -1,0 +1,36 @@
+{
+  "schema": "phase3-doctor.v1",
+  "time": "2026-10-18T13:52:40.034926+00:00",
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\研究生\\Clash Royal\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "logical_cpus": 32,
+  "disk": {
+    "total": 484949618688,
+    "used": 460479807488,
+    "free": 24469811200
+  },
+  "memory": {
+    "available": true,
+    "total_bytes": 34053414912,
+    "free_bytes": 13298499584
+  },
+  "modules": {
+    "numpy": true,
+    "torch": true,
+    "pyarrow": false,
+    "gymnasium": true
+  },
+  "project_manifest": {
+    "path": "data/phase2/version_manifest.json",
+    "sha256": "48bcf651e56e00701180bc6e516e65a0f3a64416e73b8337591e50874b59bcba"
+  },
+  "network_connections": 0,
+  "native_rpc_calls": 0,
+  "global_configuration_changes": 0,
+  "torch": {
+    "version": "2.14.1+cpu",
+    "cuda_available": false,
+    "device": "cpu"
+  }
+}

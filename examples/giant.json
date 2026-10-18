@@ -1,0 +1,104 @@
+{
+  "time": 30,
+  "elixir": 7,
+  "hand": [
+    "mini_pekka",
+    "musketeer",
+    "arrows",
+    "knight"
+  ],
+  "next_card": "musketeer",
+  "units": [
+    {
+      "id": 1,
+      "card": "giant",
+      "team": 1,
+      "x": 4,
+      "y": 23,
+      "hp": 2900,
+      "cooldown": 0,
+      "ready_at": 0,
+      "expires_at": 0
+    }
+  ],
+  "towers": [
+    {
+      "id": "0_left",
+      "team": 0,
+      "x": 3.5,
+      "y": 26.5,
+      "hp": 2500,
+      "max_hp": 2500,
+      "king": false,
+      "cooldown": 0,
+      "active": true
+    },
+    {
+      "id": "0_right",
+      "team": 0,
+      "x": 14.5,
+      "y": 26.5,
+      "hp": 2500,
+      "max_hp": 2500,
+      "king": false,
+      "cooldown": 0,
+      "active": true
+    },
+    {
+      "id": "0_king",
+      "team": 0,
+      "x": 9,
+      "y": 30,
+      "hp": 4000,
+      "max_hp": 4000,
+      "king": true,
+      "cooldown": 0,
+      "active": false
+    },
+    {
+      "id": "1_left",
+      "team": 1,
+      "x": 3.5,
+      "y": 5.5,
+      "hp": 2500,
+      "max_hp": 2500,
+      "king": false,
+      "cooldown": 0,
+      "active": true
+    },
+    {
+      "id": "1_right",
+      "team": 1,
+      "x": 14.5,
+      "y": 5.5,
+      "hp": 2500,
+      "max_hp": 2500,
+      "king": false,
+      "cooldown": 0,
+      "active": true
+    },
+    {
+      "id": "1_king",
+      "team": 1,
+      "x": 9,
+      "y": 2.0,
+      "hp": 4000,
+      "max_hp": 4000,
+      "king": true,
+      "cooldown": 0,
+      "active": false
+    }
+  ],
+  "events": [
+    {
+      "id": "scenario_seen",
+      "kind": "seen",
+      "team": 1,
+      "time": 30,
+      "card": "giant"
+    }
+  ],
+  "confidence": 1.0,
+  "in_battle": true,
+  "source": "simulator"
+}

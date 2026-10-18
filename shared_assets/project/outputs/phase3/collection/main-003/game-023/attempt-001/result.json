@@ -1,0 +1,11 @@
+{
+  "game_index": 23,
+  "seed": 330023,
+  "attempt": "outputs\\phase3\\collection\\main-003\\game-023\\attempt-001",
+  "status": "running",
+  "started": "2026-10-18T13:55:14.357860+00:00",
+  "natural_terminal": false,
+  "truncated": false,
+  "source_kind": "native_self_collected_public_rule_teacher",
+  "failure": null
+}

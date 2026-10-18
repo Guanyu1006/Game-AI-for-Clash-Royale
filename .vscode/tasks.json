@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Cloud: doctor",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "tools/cloud/workspace.py",
+        "doctor"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: tests",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "tools/cloud/workspace.py",
+        "test"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: train NumPy BC",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "tools/cloud/workspace.py",
+        "train",
+        "--epochs",
+        "2"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: research page",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "tools/cloud/workspace.py",
+        "serve"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

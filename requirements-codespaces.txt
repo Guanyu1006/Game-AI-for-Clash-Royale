@@ -1,0 +1,2 @@
+# Portable core; historical Windows requirements.lock is unchanged.
+numpy==2.2.6

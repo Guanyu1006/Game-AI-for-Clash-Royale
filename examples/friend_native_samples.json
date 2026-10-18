@@ -1,0 +1,300 @@
+{
+  "scope": "Three anonymized derived public-actor examples; no raw replay or full action timeline",
+  "source_parquet_sha256": "0879fec40ac9b19e4c156cfc921e7f707b1eea120ad12d20209d264a43adee6b",
+  "samples": [
+    {
+      "sample_id": "real-derived-1",
+      "actor": {
+        "crowns": {
+          "opponent": 0,
+          "own": 0
+        },
+        "hand": [
+          {
+            "card": 26000060,
+            "cost": 6,
+            "slot": 0
+          },
+          {
+            "card": 26000061,
+            "cost": 3,
+            "slot": 1
+          },
+          {
+            "card": 28000001,
+            "cost": 3,
+            "slot": 2
+          },
+          {
+            "card": 26000004,
+            "cost": 7,
+            "slot": 3
+          }
+        ],
+        "hand_complete": true,
+        "native_owner": 0,
+        "own_elixir_raw": 38111,
+        "schema": "royale-phase2-actor-conservative.v1",
+        "tick": 3551,
+        "towers": [
+          {
+            "hp": 71,
+            "max_hp": 2703,
+            "present": true,
+            "role": "left",
+            "side": "own"
+          },
+          {
+            "hp": 3886,
+            "max_hp": 4824,
+            "present": true,
+            "role": "king",
+            "side": "own"
+          },
+          {
+            "hp": 18,
+            "max_hp": 2703,
+            "present": true,
+            "role": "right",
+            "side": "own"
+          },
+          {
+            "hp": 3052,
+            "max_hp": 3052,
+            "present": true,
+            "role": "left",
+            "side": "opponent"
+          },
+          {
+            "hp": 4824,
+            "max_hp": 4824,
+            "present": true,
+            "role": "king",
+            "side": "opponent"
+          },
+          {
+            "hp": 996,
+            "max_hp": 3052,
+            "present": true,
+            "role": "right",
+            "side": "opponent"
+          }
+        ]
+      },
+      "recorded_mask": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "label": {
+        "card": 28000001,
+        "kind": "play_card",
+        "slot": 2,
+        "x": 11500,
+        "y": 22500
+      },
+      "source_row_sha256": "62b8358931234f7940bd6e7e08fb06819dde707d955a201104cabc6dc7a1b12d",
+      "expected_deployment_decoding": {
+        "kind": "play_card",
+        "slot": 2,
+        "card": 28000001,
+        "x": 8063,
+        "y": 16990
+      }
+    },
+    {
+      "sample_id": "real-derived-2",
+      "actor": {
+        "crowns": {
+          "opponent": 0,
+          "own": 0
+        },
+        "hand": [
+          {
+            "card": 26000061,
+            "cost": 3,
+            "slot": 0
+          },
+          {
+            "card": 26000004,
+            "cost": 7,
+            "slot": 1
+          },
+          {
+            "card": 28000001,
+            "cost": 3,
+            "slot": 2
+          },
+          {
+            "card": 26000060,
+            "cost": 6,
+            "slot": 3
+          }
+        ],
+        "hand_complete": true,
+        "native_owner": 0,
+        "own_elixir_raw": 76020,
+        "schema": "royale-phase2-actor-conservative.v1",
+        "tick": 90,
+        "towers": [
+          {
+            "hp": 2703,
+            "max_hp": 2703,
+            "present": true,
+            "role": "left",
+            "side": "own"
+          },
+          {
+            "hp": 4824,
+            "max_hp": 4824,
+            "present": true,
+            "role": "king",
+            "side": "own"
+          },
+          {
+            "hp": 2703,
+            "max_hp": 2703,
+            "present": true,
+            "role": "right",
+            "side": "own"
+          },
+          {
+            "hp": 3052,
+            "max_hp": 3052,
+            "present": true,
+            "role": "left",
+            "side": "opponent"
+          },
+          {
+            "hp": 4824,
+            "max_hp": 4824,
+            "present": true,
+            "role": "king",
+            "side": "opponent"
+          },
+          {
+            "hp": 3052,
+            "max_hp": 3052,
+            "present": true,
+            "role": "right",
+            "side": "opponent"
+          }
+        ]
+      },
+      "recorded_mask": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "label": {
+        "kind": "wait"
+      },
+      "source_row_sha256": "77e80b440a6141be9aa2b59a82e64a21e469debe4782f460a30b2f2011f6da09",
+      "expected_deployment_decoding": {
+        "kind": "play_card",
+        "slot": 2,
+        "card": 28000001,
+        "x": 7418,
+        "y": 17557
+      }
+    },
+    {
+      "sample_id": "real-derived-3",
+      "actor": {
+        "crowns": {
+          "opponent": 0,
+          "own": 0
+        },
+        "hand": [
+          {
+            "card": 26000015,
+            "cost": 4,
+            "slot": 0
+          },
+          {
+            "card": 27000009,
+            "cost": 3,
+            "slot": 1
+          },
+          {
+            "card": 28000015,
+            "cost": 2,
+            "slot": 2
+          },
+          {
+            "card": 28000012,
+            "cost": 3,
+            "slot": 3
+          }
+        ],
+        "hand_complete": true,
+        "native_owner": 1,
+        "own_elixir_raw": 76020,
+        "schema": "royale-phase2-actor-conservative.v1",
+        "tick": 90,
+        "towers": [
+          {
+            "hp": 2703,
+            "max_hp": 2703,
+            "present": true,
+            "role": "left",
+            "side": "opponent"
+          },
+          {
+            "hp": 4824,
+            "max_hp": 4824,
+            "present": true,
+            "role": "king",
+            "side": "opponent"
+          },
+          {
+            "hp": 2703,
+            "max_hp": 2703,
+            "present": true,
+            "role": "right",
+            "side": "opponent"
+          },
+          {
+            "hp": 3052,
+            "max_hp": 3052,
+            "present": true,
+            "role": "left",
+            "side": "own"
+          },
+          {
+            "hp": 4824,
+            "max_hp": 4824,
+            "present": true,
+            "role": "king",
+            "side": "own"
+          },
+          {
+            "hp": 3052,
+            "max_hp": 3052,
+            "present": true,
+            "role": "right",
+            "side": "own"
+          }
+        ]
+      },
+      "recorded_mask": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "label": {
+        "kind": "wait"
+      },
+      "source_row_sha256": "7afc4689f99f4e10935529c6ccb7a22d4ec6b4f1538226a9ba6aac016181212f",
+      "expected_deployment_decoding": {
+        "kind": "wait"
+      }
+    }
+  ]
+}
