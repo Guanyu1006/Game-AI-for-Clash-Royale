@@ -1,5 +1,6 @@
 """Actual loopback HTTP transport with a fake, inert native session only."""
 import http.client
+import base64
 import json
 from pathlib import Path
 import struct
@@ -188,6 +189,18 @@ class CloudNativeHTTPTests(unittest.TestCase):
         for source_id in ('../README.md', '/README.md', 'missing', None):
             self.assertEqual(self.post('/api/native/source/open', {'source_id': source_id})[0], 400)
         self.assertEqual(self.session.submissions, [])
+
+    def test_public_source_binary_upload_preserves_original_bom_and_newlines(self):
+        raw = b'\xef\xbb\xbf{ "events": [] }\r\n'
+        with patch('royale_phase2.public_replay.import_public_replay',
+                   return_value={'status': 'imported'}) as imported:
+            status, _, payload = self.post('/api/native/source/import',
+                {'raw_base64': base64.b64encode(raw).decode(), 'filename': 'bom.json'})
+        self.assertEqual(status, 201, payload)
+        self.assertEqual(imported.call_args.args[0], {'events': []})
+        self.assertEqual(imported.call_args.kwargs['source_bytes'], raw)
+        self.assertEqual(self.session.submissions, [])
+        self.assertEqual(self.post('/api/native/source/import', {'raw_base64': 'not base64!'})[0], 400)
 
     def test_mutation_requires_token_origin_json_object_and_bounded_length(self):
         cases = [

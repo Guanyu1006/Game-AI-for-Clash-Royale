@@ -34,6 +34,9 @@ def check_public_replay_browser(output, source=None):
         (folder / 'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     save()
     session = FakeNativeSession(folder)
+    base_public = session.public
+    state_overlay = {}
+    session.public = lambda: {**base_public(), **state_overlay}
     sources = folder / 'sources'
     server = make_server(session, port=0, source_root=sources)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
@@ -63,6 +66,13 @@ def check_public_replay_browser(output, source=None):
                 expect(page.locator('#sourceTab')).to_have_class('active')
                 expect(page.locator('#sourceControls')).to_be_visible()
                 expect(page.locator('#liveControls')).to_be_hidden()
+                expect(page.locator('#manualHelp')).to_be_hidden()
+                page.locator('#liveTab').click()
+                expect(page.locator('#manualHelp')).to_be_visible()
+                page.locator('#replayTab').click()
+                expect(page.locator('#manualHelp')).to_be_hidden()
+                page.locator('#sourceTab').click()
+                expect(page.locator('#manualHelp')).to_be_hidden()
                 expect(page.locator('#connectionBadge')).to_have_text('页面服务已连接')
                 for name in ('sourceRun', 'sourcePause', 'sourceStep', 'sourceSeek', 'openSource'):
                     expect(page.locator('#'+name)).to_be_disabled()
@@ -99,6 +109,62 @@ def check_public_replay_browser(output, source=None):
                 for name in ('sourceRun', 'sourceStep', 'sourceSeek'):
                     expect(page.locator('#'+name)).to_be_disabled()
                 report['checks'].append('open_source_submits_exactly_one_saved_plan_with_no_reset_or_play')
+
+                state_overlay.update(mode='source', running=False,
+                    source_replay={'valid': True, 'source_actions': 92, 'end_tick': 7200,
+                                   'initialization_tick': 90})
+                page.evaluate('poll()')
+                for name in ('sourceRun', 'sourceStep', 'sourceSeek'):
+                    expect(page.locator('#'+name)).to_be_enabled()
+                state_overlay.update(error='fixture: native result is unknown',
+                    source_replay={'valid': False, 'source_actions': 92, 'end_tick': 7200,
+                                   'initialization_tick': 90})
+                page.evaluate('poll()')
+                expect(page.locator('#message')).to_contain_text('native result is unknown')
+                for name in ('sourceRun', 'sourceStep', 'sourceSeek'):
+                    expect(page.locator('#'+name)).to_be_disabled()
+                assert len(session.submissions) == 1, '失败态不得自动重试、重置或继续执行'
+                page.screenshot(path=str(folder/'source-failed.png'), full_page=True)
+                report['checks'].append('source_failure_disables_advancement_and_does_not_retry')
+                state_overlay.clear()
+                state_overlay.update(archive_id='archive-fixture', tick=670)
+                page.evaluate('poll()')
+
+                page.locator('#saveButton').click()
+                expect(page.locator('#savedInfo')).to_have_text('保存请求已排队，尚未完成。')
+                expect(page.locator('#saveButton')).to_be_disabled()
+                assert session.submissions[-1] == ('save', {}) and len(session.submissions) == 2
+                save_text = page.locator('#savedInfo').inner_text()
+                assert session.csrf_token not in save_text and 'csrf_token' not in save_text
+                assert '{' not in save_text and len(save_text) < 160
+                assert page.locator('#savedInfo').bounding_box()['height'] < 100
+                page.screenshot(path=str(folder/'save-queued.png'), full_page=True)
+                state_overlay['jobs'] = {
+                    'job-1': {'command': 'save', 'status': 'done', 'tick': 999},
+                    'job-2': {'command': 'save', 'status': 'running'}}
+                page.evaluate('poll()')
+                expect(page.locator('#savedInfo')).to_have_text('正在保存，等待任务完成…')
+                state_overlay['jobs']['job-2'] = {'command': 'save', 'status': 'done', 'tick': 670}
+                page.evaluate('poll()')
+                expect(page.locator('#savedInfo')).to_have_text('已保存至 tick 670 · 归档 archive-fixture')
+                expect(page.locator('#saveButton')).to_be_enabled()
+                page.screenshot(path=str(folder/'save-completed.png'), full_page=True)
+                report['checks'].append('async_save_202_tracks_own_job_without_response_json_or_token_in_ui')
+
+                state_overlay.pop('jobs')
+                page.evaluate('poll()')
+                page.locator('#saveButton').click()
+                expect(page.locator('#savedInfo')).to_have_text('保存请求已排队，尚未完成。')
+                state_overlay['jobs'] = {'job-3': {'command': 'save', 'status': 'failed',
+                    'error': {'csrf_token': session.csrf_token, 'detail': 'fixture failure'}}}
+                page.evaluate('poll()')
+                expect(page.locator('#savedInfo')).to_have_text('保存失败，请查看操作提示与执行记录。')
+                expect(page.locator('#saveButton')).to_be_enabled()
+                assert session.csrf_token not in page.locator('#savedInfo').inner_text()
+                assert len(session.submissions) == 3, '失败保存不得自动重发'
+                report['checks'].append('failed_save_shows_short_failure_and_does_not_retry')
+                state_overlay.clear()
+                page.evaluate('poll()')
 
                 page.get_by_text('在本机打开 Android 镜像', exact=True).click()
                 with page.expect_download() as download_info:

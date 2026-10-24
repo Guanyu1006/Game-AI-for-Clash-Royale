@@ -1,16 +1,20 @@
 # Royale Lab：皇室战争本地 AI 研究平台
 
+> **双方协作与读码入口（2026-10-24）：** 当前共同开发基线为 `dev/main-start-20261020`。先读[开发交接与代码调用图](docs/DEVELOPMENT_HANDOFF_20261024_ZH.md)，其中区分四套代码、最新已验证能力、剩余验收、资源边界和两人分支操作。[Git 内的证据摘要](docs/audits/development_handoff_20261024.json)可随克隆阅读；下面指向 `outputs/` 的完整原始证据仍保留在原 Codespace。
+
 > **公开对局 JSON 的统一入口：** `.venv-cloud/bin/python tools/cloud/workspace.py play-replay` 会复用或恢复已有 Android，准备连接并启动 8772 页面。页面支持导入单局 RoyaleAPI／IL_Replay JSON、打开、播放、暂停、单步与跳转；也可下载在本机运行的 Android 镜像脚本。使用方式见[导入、执行与显示](docs/NATIVE_VISUAL_ZH.md#公开事件-json导入执行与显示)。导入与接口测试、实际原生运行结果分别记录，不把代码检查算作游戏画面成功。
 
-> **最新浏览器故障定位（2026-10-24）：** 4 核／16 GB 已生效；准备通过后，游戏在约 16 秒后因软件图形等待触发 Android ANR 退出，VM 仍运行。浏览器首次建局尚未发出 `configure-native`；真实画面仍未验收。见[诊断证据与同磁盘恢复步骤](docs/NATIVE_VISUAL_ZH.md#当前故障准备成功后游戏因-anr-退出)。已补充连接接收阶段诊断、页面原生错误提示及准备后存活观察；2 vCPU／超时倍率 20 的恢复方案仍待手动实测。
+> **最新实际结果（2026-10-24）：** 92 事件公开样本的部分对局验证已通过，真实浏览器跑通导入、打开、播放、暂停、保存及只读回看流程。原生初手对齐到 tick 90，暂停完成于 tick 670／generation 2；已执行的前 7 条来源动作全部确认原生消费，0 条未确认。[tick 190](outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/frames/000001.png)与[tick 670 原始画面](outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/frames/000006.png)可见真实战场单位及塔血变化。保存的 7 帧可只读回看，原生时钟不变，并已无损导出 [29.05 秒 APNG](outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/animation.png)；页面 JavaScript 错误为 0。完整 92 事件、自然终局和前后向原生重演尚未验证；Windows 镜像也未在本机验收。见[总体验收记录](outputs/cloud/import-play-display-20261024-003/acceptance.json)、[真实浏览器记录](outputs/cloud/import-play-display-20261024-003/live-browser/report.json)与[操作指南](docs/NATIVE_VISUAL_ZH.md#公开事件-json导入执行与显示)。
 
-> **VM 反复退出的新证据（2026-10-24）：** 上传的 Codespaces 日志显示，六次 SIGTERM 均与宿主低可用内存相关，且宿主存在 earlyoom；内存保护是高可信推断，尚无直接发送者回执。见[内存诊断与 16 GB 恢复步骤](docs/CODESPACES_MEMORY_DIAGNOSIS_20261024_ZH.md)。doctor 现包含实际内存余量；硬件升配后仍须继续原生视觉验收。
+> **历史浏览器故障（2026-10-24 06:27–06:31 UTC）：** 4 核／16 GB 升配后，早期游戏进程在准备通过约 16 秒后因软件图形等待触发 Android ANR 退出，VM 仍运行。该次浏览器建局尚未发出 `configure-native`。见[历史诊断证据与恢复记录](docs/NATIVE_VISUAL_ZH.md#当前故障准备成功后游戏因-anr-退出)。这些是早期失败现场，后续实际进展见上方。
 
-> **原生画面与浏览器操作入口（2026-10-24）：** 新增[原生视觉操作指南](docs/NATIVE_VISUAL_ZH.md)：8772 页面、Android PNG 采集、手牌与原生坐标操作、保存画面离线回看、按双方原始动作日志重演与前后定位。代码与接口检查通过；**本轮原生视觉验收未通过**：VM 在内容就绪前被 SIGTERM 终止，已取截图为加载阶段全黑，不能用历史六局数值实验替代。见[实现与验收报告](docs/NATIVE_VISUAL_IMPLEMENTATION_20261024_ZH.md)。
+> **历史 VM 退出诊断（2026-10-24）：** 上传的 Codespaces 日志显示，六次 SIGTERM 均与宿主低可用内存相关，且宿主存在 earlyoom；内存保护是高可信推断，尚无直接发送者回执。见[内存诊断与 16 GB 恢复步骤](docs/CODESPACES_MEMORY_DIAGNOSIS_20261024_ZH.md)。doctor 现包含实际内存余量；后续已取得上方的原生画面与动作消费证据，完整验收仍需继续。
+
+> **原生画面与浏览器操作入口（2026-10-24）：** [原生视觉操作指南](docs/NATIVE_VISUAL_ZH.md)包含 8772 页面、Android PNG 采集、手牌与原生坐标操作、保存画面离线回看、按双方原始动作日志重演与前后定位。首次视觉尝试曾因 VM SIGTERM 中断、只取得加载阶段全黑截图；该历史失败及后续进展均保留在[实现与验收报告](docs/NATIVE_VISUAL_IMPLEMENTATION_20261024_ZH.md)，不以历史六局数值实验替代视觉证据。
 
 > **从零理解并操作整个流程（2026-10-24）：** 先读[实验、训练、原生启动与回放逐步教程](docs/NATIVE_LOOP_ZH.md)。按“查看已有对局／只训练保存数据／生成新原生实验”三条路线操作，并解释 713 维输入、GRU、模仿学习和模型评估。当前接入固定版本 Null’s Royale 原生库及离线探针；保存观测回放尚不等于原版游戏逐帧画面。
 
-> **原生闭环已实机通过（2026-10-20）：** 本次 Codespaces 原生小规模闭环已实机通过：4 场采集、2 轮 GRU 训练、新进程加载后 2 场评估，6/6 自然终局，2424 条转移、24194 个推进 tick、202 次控制方实际消费。见 [操作与验收报告](docs/NATIVE_LOOP_ZH.md)、[系统结构图](docs/SYSTEM_STRUCTURE_AND_LOOP_ZH.md)及[软件 Android 指南](docs/SOFTWARE_ANDROID_TCG_ZH.md)。普通单位的公平可见性、原生画面／实时浏览器控制及棋力提升仍未验收；当前 VM 已停止，保存回放可独立使用。
+> **原生闭环已实机通过（2026-10-20）：** 该次 Codespaces 原生小规模闭环已实机通过：4 场采集、2 轮 GRU 训练、新进程加载后 2 场评估，6/6 自然终局，2424 条转移、24194 个推进 tick、202 次控制方实际消费。见 [操作与验收报告](docs/NATIVE_LOOP_ZH.md)、[系统结构图](docs/SYSTEM_STRUCTURE_AND_LOOP_ZH.md)及[软件 Android 指南](docs/SOFTWARE_ANDROID_TCG_ZH.md)。该次数值实验未覆盖原生画面／实时浏览器控制；普通单位的公平可见性和棋力提升仍未验收。10 月 20 日实验结束时 VM 已停止，保存回放可独立使用；后续运行状态见上方最新进展。
 
 > **两次整个窗口中断：** 见 [窗口中断核查与恢复说明](docs/WINDOW_RESTART_20261020_ZH.md)。已观察到远程容器／进程重建，尚未证实根因；当前采用单台低优先级软件 VM、串行任务和资源采样，不能据此宣称崩溃已修复。
 

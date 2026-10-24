@@ -1,5 +1,7 @@
 """Launcher boundaries with every VM/ADB/process/server operation mocked."""
 from contextlib import ExitStack, contextmanager, redirect_stderr, redirect_stdout
+import base64
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -23,12 +25,13 @@ class ReplayAppContracts(unittest.TestCase):
     def args(self, **changes):
         values = dict(output=str(self.folder/'run'), port=8772, source=None, connection=None,
                       cache=str(self.folder/'cache'), manifest='fixture-manifest.json',
-                      sources=str(self.folder/'sources'), display_compat=True, memory_mib=3072, display_fps=5)
+                      sources=str(self.folder/'sources'), display_compat=True, memory_mib=3072, display_fps=5,
+                      capture_ticks=100, frame_wait=0.2)
         values.update(changes)
         return SimpleNamespace(**values)
 
     def run_launcher(self, args=None, *, states=None, port_error=False, locked=False,
-                     failed_stage=None, interrupted_stage=None, imported=None):
+                     failed_stage=None, interrupted_stage=None, imported=None, real_import=False):
         args = args or self.args()
         stages = []
         lease = SimpleNamespace(active=False)
@@ -48,6 +51,7 @@ class ReplayAppContracts(unittest.TestCase):
                 app.write(folder/'prepare/report.json', {'status': 'prepared'})
                 app.write(folder/'prepare/connection.json', {'fixture': True})
         values = states or [{'status': 'running', 'action': 'reuse'}]
+        from tools.cloud.native_browser import import_source
         with ExitStack() as stack:
             stack.enter_context(redirect_stdout(io.StringIO()))
             stack.enter_context(redirect_stderr(io.StringIO()))
@@ -58,6 +62,7 @@ class ReplayAppContracts(unittest.TestCase):
             connection = stack.enter_context(patch('royale_phase2.connection.load_connection', return_value=SimpleNamespace()))
             stack.enter_context(patch('royale_phase2.public_replay.PublicReplayPlan.load'))
             import_call = stack.enter_context(patch('tools.cloud.native_browser.import_source',
+                side_effect=import_source if real_import else None,
                 return_value=imported or {'source_id': 'fixture-source'}))
             result = app.launch(args)
         report = json.loads((Path(args.output)/'report.json').read_text())
@@ -79,6 +84,8 @@ class ReplayAppContracts(unittest.TestCase):
         self.assertEqual(prepare[prepare.index('--stability-seconds')+1], '15')
         self.assertIn('--display-compat', prepare)
         self.assertIn('--connection', browser); self.assertIn('--sources', browser)
+        self.assertEqual(browser[browser.index('--capture-ticks')+1], '100')
+        self.assertEqual(browser[browser.index('--frame-wait')+1], '0.2')
         self.assertNotIn('--restart-app', prepare)
         self.assertFalse(report['automatic_playback']); self.assertFalse(report['automatic_reset'])
         inspect.assert_called_once()
@@ -87,6 +94,20 @@ class ReplayAppContracts(unittest.TestCase):
         result, stages, _, _, _, _ = self.run_launcher(self.args(display_compat=False))
         self.assertEqual(result, 0)
         self.assertNotIn('--display-compat', stages[0][1])
+
+    def test_capture_density_overrides_are_forwarded_and_invalid_cli_values_stop_before_launch(self):
+        result, stages, _, _, _, _ = self.run_launcher(self.args(capture_ticks=20, frame_wait=1.1))
+        self.assertEqual(result, 0)
+        browser = stages[-1][1]
+        self.assertEqual(browser[browser.index('--capture-ticks')+1], '20')
+        self.assertEqual(browser[browser.index('--frame-wait')+1], '1.1')
+        for flag, value in (('--capture-ticks', '0'), ('--capture-ticks', '201'),
+                            ('--frame-wait', '-1'), ('--frame-wait', '11'),
+                            ('--frame-wait', 'nan'), ('--frame-wait', 'inf')):
+            with self.subTest(flag=flag, value=value), patch.object(app, 'launch') as launch, \
+                    redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                app.main([flag, value])
+            launch.assert_not_called()
 
     def test_only_verified_stopped_installation_is_resumed_once(self):
         states = [{'status': 'stopped', 'resume_attempt': 'outputs/fixture-latest'},
@@ -116,8 +137,24 @@ class ReplayAppContracts(unittest.TestCase):
         self.assertEqual(result, 0); inspect.assert_not_called(); connection.assert_called_once()
         self.assertEqual([s[0] for s in stages], ['browser'])
         self.assertEqual(report['imported_source']['source_id'], 'fixture-source')
-        self.assertEqual(imported.call_args.args[0]['text'], source.read_text())
+        self.assertEqual(base64.b64decode(imported.call_args.args[0]['raw_base64']), source.read_bytes())
         self.assertNotIn('source_open', str(stages)); self.assertNotIn('reset', str(stages))
+
+    def test_source_import_preserves_original_utf8_bom_crlf_and_hash(self):
+        from tests_cloud.test_public_replay import public_fixture
+        source = self.folder/'source-with-bom-crlf.json'
+        raw = b'\xef\xbb\xbf'+json.dumps(public_fixture(), ensure_ascii=False, indent=2).replace('\n', '\r\n').encode('utf-8')
+        source.write_bytes(raw)
+        result, stages, report, inspect, _, imported = self.run_launcher(
+            self.args(connection=str(self.folder/'explicit.json'), source=str(source)), real_import=True)
+        self.assertEqual(result, 0); inspect.assert_not_called()
+        self.assertEqual([stage[0] for stage in stages], ['browser'])
+        saved = report['imported_source']
+        self.assertEqual(app.local(saved['raw_path']).read_bytes(), raw)
+        self.assertEqual(saved['raw_sha256'], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(source.read_bytes(), raw)
+        self.assertEqual(base64.b64decode(imported.call_args.args[0]['raw_base64']), raw)
+        self.assertNotIn('text', imported.call_args.args[0])
 
     def test_ctrl_c_during_prepare_preserves_report_and_stops_progress(self):
         result, stages, report, _, _, _ = self.run_launcher(interrupted_stage='prepare')

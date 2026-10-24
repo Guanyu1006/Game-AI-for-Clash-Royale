@@ -247,7 +247,7 @@ def main():
     a.add_argument('arguments',nargs=argparse.REMAINDER)
     a=sub.add_parser('native-connection',add_help=False,help='Inspect local native assets; --connect explicitly probes loopback status')
     a.add_argument('arguments',nargs=argparse.REMAINDER)
-    for name in ('native-browser','native-prepare'):
+    for name in ('native-browser','native-prepare','play-replay'):
         a=sub.add_parser(name,add_help=False,help='Explicit actual Android rendered control/replay and runtime preparation')
         a.add_argument('arguments',nargs=argparse.REMAINDER)
     a=sub.add_parser('simulate');a.add_argument('--seconds',type=int,default=30);a.add_argument('--seed',type=int,default=0)

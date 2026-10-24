@@ -2,7 +2,7 @@
 
 Android 与固定原生引擎仍运行在 Codespaces；**scrcpy 图形窗口运行在你自己的 Windows 电脑**。在远程终端运行 Windows 脚本不会弹出本机窗口。项目新增入口通过 GitHub CLI 建立私有 SSH 隧道，默认只看屏幕、关闭声音和触摸控制，不创建 VM、不重启 ADB、不建局或下牌。
 
-这是一条已实现并经过静态／计划测试的入口，尚未在用户 Windows 电脑验收。当前软件 Android 的启动配置为 360×640、1 FPS、软件 GPU；镜像帧率上限不等于源画面帧率。Android 黑屏时，scrcpy 也可能显示黑屏；是否有可用视频编码器仍需实际连接核实。
+这是一条已实现并经过静态／计划测试的入口，尚未在用户 Windows 电脑验收。统一入口 `workspace.py play-replay` 在启动已停止的现有 Android VM 时，默认分配 3072 MiB（3 GiB）内存、配置 5 FPS 显示；可通过 `--memory-mib` 和 `--display-fps` 调整。已有运行 VM 的内存和显示帧率保持原设置，不会自动更改或重启。当前画面为 360×640，使用软件 GPU；scrcpy 只限制镜像传输帧率，不会提高 Android 源渲染帧率。Android 黑屏时，scrcpy 也可能显示黑屏；是否有可用视频编码器仍需实际连接核实。
 
 ## 1. 只做一次的本机准备
 
@@ -88,7 +88,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\android_mirror.ps1 -
 | 云端 ADB 协议版本不同 | 使用兼容的官方 portable ADB；不要执行 `adb kill-server` 结束当前原生会话 |
 | scrcpy 编码失败 | 在本机运行同入口 `-Action Encoders`，保存日志；它会连接已有设备并列编码器，不创建对局。尚未证实本 VM 可编码，不猜测编码器名称 |
 | 窗口全黑 | 先区分 Android 系统界面与游戏画面；镜像不能修复 EGL／软件渲染／内容加载问题。保留 PNG 和实际日志 |
-| 显示慢或画面静止 | 当前源显示约 1 FPS，且 TCG 不保证现实实时速度；暂停局静止是预期。`-MaxFps 15` 只改传输上限，不改 VM、GPU 或源 FPS |
+| 显示慢或画面静止 | 新启动 VM 的默认显示配置为 5 FPS，已有 VM 可能保留较低设置；实际出帧还受软件渲染与 TCG 性能限制，暂停局静止是预期。`-MaxFps 15` 只改镜像传输上限，不改 VM、GPU 或源渲染 FPS |
 
 需要分开查看两侧日志时，在两个**本机**终端分别运行 `-Action Tunnel` 与 `-Action View`，参数保持一致。Tunnel 终端结束时按 Ctrl+C。
 

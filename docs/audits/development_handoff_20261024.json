@@ -1,0 +1,144 @@
+{
+  "schema": "royale-development-handoff.v1",
+  "prepared_utc": "2026-10-24T08:05:04.889482+00:00",
+  "branch": "dev/main-start-20261020",
+  "local_base_commit_before_handoff": "a071245",
+  "publication_scope": "Source, tests, Chinese documentation and reviewed derived summaries. No native runtime redistribution.",
+  "latest_partial_native_validation": {
+    "recorded_utc": "2026-10-24T07:45:50.712578+00:00",
+    "status": "usable_with_partial_match_validation",
+    "features_verified": [
+      "public_json_import",
+      "original_bytes_preserved",
+      "native_scene_initialization",
+      "source_card_injection_and_consumption",
+      "android_battle_pixels_visually_reviewed",
+      "browser_play",
+      "browser_pause",
+      "save_archive",
+      "readonly_saved_frame_view",
+      "lossless_apng_export"
+    ],
+    "source_events": 92,
+    "source_end_tick": 4857,
+    "native_execution": {
+      "generation": 2,
+      "initialization_tick": 90,
+      "tick": 670,
+      "registered_actions": 7,
+      "executed_actions": 7,
+      "card_consumed": 7,
+      "not_confirmed": 0,
+      "remaining_actions": 85,
+      "natural_terminal": false
+    },
+    "saved_frames": {
+      "frame_count": 7,
+      "last_tick": 670,
+      "native_clock_unchanged": true
+    },
+    "browser_javascript_errors": 0,
+    "browser_console_errors": 0,
+    "exact_pixel_tick_binding_verified": false,
+    "official_match_fidelity_assessed": false,
+    "apng": {
+      "frame_count": 7,
+      "width": 360,
+      "height": 640,
+      "duration_seconds": 29.05,
+      "interpolation": false,
+      "scope": "Sparse saved frames, not full-motion video"
+    }
+  },
+  "historical_native_numeric_loop": {
+    "date": "2026-10-20",
+    "collect_games": 4,
+    "training_epochs": 2,
+    "evaluation_games": 2,
+    "natural_terminals": 6,
+    "transitions": 2424,
+    "own_confirmed_consumptions": 202,
+    "strength_improvement_claim": false,
+    "tracked_summary": "docs/audits/native_loop_20261020.json"
+  },
+  "not_accepted": [
+    "Full 92-event native source execution and natural terminal",
+    "Full forward/backward rendered native replay",
+    "Complete smooth video and precise pixel/tick alignment",
+    "Manual browser card-placement acceptance",
+    "Windows scrcpy on the user computer",
+    "Ordinary-unit fair visibility certification",
+    "Strength improvement or native PPO/self-play acceptance",
+    "Official original-match equivalence"
+  ],
+  "raw_evidence": [
+    {
+      "path": "outputs/cloud/import-play-display-20261024-003/acceptance.json",
+      "sha256": "f1fb1589d03802caa9c81942841b125c98317ec34634fbc0c080d6ef8b6f5619",
+      "bytes": 5304,
+      "distribution": "Local evidence retained; not included in Git"
+    },
+    {
+      "path": "outputs/cloud/import-play-display-20261024-003/live-browser/report.json",
+      "sha256": "af0ce2060bbdd9826e2efc16925271791fb1eb78dd1084e2160e0d5fc1f0ad95",
+      "bytes": 143536,
+      "distribution": "Local evidence retained; not included in Git"
+    },
+    {
+      "path": "outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/export-report.json",
+      "sha256": "d3c94c6373ff52139bfa5969942b29c3358b99fe4c060a1447da5bf039a0c748",
+      "bytes": 10740,
+      "distribution": "Local evidence retained; not included in Git"
+    },
+    {
+      "path": "outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/source-execution.json",
+      "sha256": "1dfc25e95242e1ea51169b15a73824647f6c4230e0d41b77bf6ca4dbaa5aec5f",
+      "bytes": 231528,
+      "distribution": "Local evidence retained; not included in Git"
+    }
+  ],
+  "resources_kept_local": [
+    ".venv-cloud/",
+    ".cache/",
+    "VM disks",
+    "APK, native game libraries and update assets",
+    "Full outputs/ and media",
+    "New experiment checkpoints"
+  ],
+  "validation_for_this_handoff": {
+    "status": "passed",
+    "local_log_root": "outputs/cloud/github-handoff-20261024-001",
+    "initial_portable_run": {
+      "tests": 391,
+      "errors": 1,
+      "skipped": 1,
+      "cause": "Existing lock-isolation test attempted the production lock already held by the user browser",
+      "correction": "Use a unique temporary lock file while exercising the same real OS lock; native lock implementation and running service unchanged"
+    },
+    "portable": {
+      "passed": true,
+      "tests": 391,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "native_calls": 0,
+      "elapsed_seconds": 45.26687748299992,
+      "log_sha256": "6268def9fcc087d68ef4918c11738ce4f9665dd6e7ba2c460ef053ba77b85c55"
+    },
+    "browser_fixture": {
+      "status": "passed",
+      "checks": [
+        "default_source_tab_and_no_premature_native_controls",
+        "real_92_event_json_import_catalog_and_raw_byte_preservation",
+        "open_source_submits_exactly_one_saved_plan_with_no_reset_or_play",
+        "source_failure_disables_advancement_and_does_not_retry",
+        "async_save_202_tracks_own_job_without_response_json_or_token_in_ui",
+        "failed_save_shows_short_failure_and_does_not_retry",
+        "downloaded_mirror_script_has_current_codespace_and_one_utf8_bom"
+      ],
+      "page_errors": [],
+      "scope": "Isolated HTTP fake native session with Chromium; no Android/probe operations",
+      "report_sha256": "28eebe709a4f558a3618f9820d5d334ce28117a8e76883e94458248603057e07"
+    }
+  }
+}

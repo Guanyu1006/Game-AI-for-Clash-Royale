@@ -2,6 +2,8 @@
 
 ## 公开事件 JSON：导入、执行与显示
 
+**已取得的实际结果（2026-10-24）：** 92 事件公开样本的部分对局验证已通过，真实浏览器跑通导入、打开、播放、暂停、保存及只读回看流程。原生初手对齐经过两次尝试后在 tick 90 完成，暂停任务成功结束于 tick 670／generation 2。已执行的前 7 条来源动作全部确认原生消费，0 条未确认，包括 tick 143 的 Hog 与 tick 199 的 Rocket，见[本局执行反馈](../outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/source-execution.json)。[tick 190 原始 PNG](../outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/frames/000001.png)与[tick 670 原始 PNG](../outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/frames/000006.png)已人工看见真实战场、单位和塔血变化。保存的 7 帧只读回看成功，原生时钟保持不变，页面 JavaScript 错误为 0；[真实浏览器验收记录](../outputs/cloud/import-play-display-20261024-003/live-browser/report.json)为 `passed`，同目录保留 `android-paused.png`、`paused.png` 与 `saved-frames.png`。7 帧已按原 tick 间隔无损导出为 [29.05 秒 APNG](../outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/animation.png)，[CLI 校验与导出报告](../outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/export-report.json)通过；[总体验收记录](../outputs/cloud/import-play-display-20261024-003/acceptance.json)明确标注为部分对局验证。完整 92 事件、自然终局和前后向原生重演尚未验证；Windows scrcpy 镜像尚未在用户本机验收。
+
 在 Codespaces 仓库终端执行一条命令：
 
 ```bash
@@ -30,25 +32,31 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\android_mirror.ps1
 
 统一入口新启动 VM 时默认使用 2 vCPU、3072 MiB guest RAM、5 FPS 和超时倍率 20；复用已运行 VM 时不更改参数。`--memory-mib`、`--display-fps` 只影响下一次启动。默认 `--display-compat` 在选定 Redroid guest 内关闭 cached-app freezer、保持唤醒，并保存原设置与恢复脚本；这是针对本机 Binder 冻结失败的兼容配置，不修改宿主、APK 或原生库。可显式使用 `--no-display-compat` 关闭这一步。
 
+希望浏览器更频繁更新截图，可加 `--capture-ticks 20`（每 1 秒游戏时间采集一次，采集会占用运行时间）；当前展示服务采用此参数。默认 100 tick 更适合减少采集开销。软件 VM 的实际推进速度慢于现实时间，本机镜像的传输帧率也不能加快引擎。
+
 只做离线转换可用 `.venv-cloud/bin/python tools/cloud/public_replay.py 单局.json --output 全新目录`。转换不会连接 Android；画面、模型训练和棋力不由转换成功推导。下面保留早期故障诊断与逐步操作记录。
 
 本页说明新增的 Codespaces 原生页面，入口为 `tools/cloud/native_browser.py`，默认端口 **8772**。它与 8771 的保存 fair 观测／近似沙盒是两套入口。当前接入固定版本 Null’s Royale 离线客户端的原生库和探针，不连接官方服务器，也不代表 Supercell 官方 SDK 或官方交互等价。
 
-**当前手动进度（2026-10-24）：** 已升配为 4 核／16 GB，游戏资源与当前进程身份于 06:27:20 UTC（北京时间 14:27:20）通过准备检查。但该游戏进程约 16 秒后因 Android 界面无响应（ANR）被结束；浏览器首次建局只尝试了 `status` 检查，尚未发送 `configure-native`，所以本次仍没有原生对局画面。先按下面的[ANR 恢复步骤](#当前故障准备成功后游戏因-anr-退出)操作，不能只等待网页或反复点建局。
+## 早期故障记录（保留现场）
+
+**历史手动进度（2026-10-24 06:27–06:31 UTC）：** 升配为 4 核／16 GB 后，游戏资源与进程身份于 06:27:20 UTC（北京时间 14:27:20）通过准备检查。但该游戏进程约 16 秒后因 Android 界面无响应（ANR）被结束；该次浏览器建局只尝试了 `status` 检查，尚未发送 `configure-native`，当时没有原生对局画面。[ANR 恢复步骤](#当前故障准备成功后游戏因-anr-退出)保留该次排查过程，后续已取得本页顶部的实际画面与消费证据。
 
 **此前宿主内存问题：** 六次 QEMU SIGTERM 均发生在旧宿主可用内存约 800–960 MiB 附近，且宿主存在 earlyoom；内存保护是高可信推断，发送者缺少直接服务日志证明。见[内存诊断与升配步骤](CODESPACES_MEMORY_DIAGNOSIS_20261024_ZH.md)。本次 ANR 核查时 QEMU 3394 仍在运行、宿主可用约 10.69 GiB，与此前 VM 被终止是不同事件。
 
-**本轮实际视觉验收未通过（2026-10-24）。** 已从真实 Android 取得 360×640 PNG，但像素全黑，不能称为游戏画面成功。此前自动诊断的最后一台 VM 在游戏内容就绪前再次收到 SIGTERM；信号来源未知，已停止自动重启。没有本轮真实游戏画面、浏览器下牌或原生视觉重演成功证据。页面与接口实现、浏览器夹具检查通过，不能替代原生视觉验收；原有六局数值闭环也不能替代。
+**首次视觉尝试未通过（2026-10-24，历史结果）。** 当时从真实 Android 取得的 360×640 PNG 像素全黑，不能称为游戏画面成功。早期自动诊断的最后一台 VM 在游戏内容就绪前再次收到 SIGTERM；信号来源未知，随后停止自动重启。该次没有真实游戏画面、浏览器下牌或原生视觉重演成功证据。页面与接口实现、浏览器夹具检查及原有六局数值闭环均不能替代实际视觉证据。
 
-实际证据：
+该次实际证据：
 
 - [截图诊断](../outputs/native_visual_20261024/attempt-001/lowcache-system-capture.json)：ADB 成功返回 PNG，`non_black=false`、`pixel_variance=0`、`game_content_verified=false`，且没有原生 tick 绑定证明。
 - [VM 信号记录](../outputs/native_visual_20261024/attempt-001/vm-low-cache-signals.log)：`SIGTERM`、`si_pid=0`、`si_uid=61876`，不足以识别发送源或根因。
 - [准备中断报告](../outputs/native_visual_20261024/attempt-001/prepare-006/report.json)：`status="interrupted"`，游戏启动命令完成，但整体准备未到 `prepared`，未形成本轮可用连接和视觉验收。
 
-以下保留复现与继续开发的手动步骤，**不表示当前环境已能成功走完全程**。应先查明 VM 稳定性和渲染条件，再做真实验收；改用用户交互终端只能作为诊断尝试，不能保证解决 SIGTERM 或全黑问题。
+以下 ANR 恢复步骤是早期人工排查记录。日常操作优先使用本页顶部的统一入口，复用已运行的 VM；不要为了重现历史步骤而停止正在执行的对局。已取得的局部成功不代表整局稳定性、完整画面覆盖与重演均已通过。
 
-## 当前故障：准备成功后游戏因 ANR 退出
+<a id="当前故障准备成功后游戏因-anr-退出"></a>
+
+## 历史故障：准备成功后游戏因 ANR 退出
 
 本次的[只读诊断报告](../outputs/cloud/native-render-diagnostic-20261024-001/report.json)保留 Android 日志、进程退出记录、ANR 线程栈、VM 状态和文件 SHA256。以下时间均为北京时间，原始日志使用 UTC：
 
@@ -60,7 +68,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\android_mirror.ps1
 
 [`anr-trace.txt`](../outputs/cloud/native-render-diagnostic-20261024-001/anr-trace.txt)显示：主线程等待 HWUI 渲染结果，HWUI 线程等待 ANGLE／Vulkan 队列，Vulkan 渲染线程仍在执行 LLVM 着色器编译。[主日志](../outputs/cloud/native-render-diagnostic-20261024-001/main-log.stdout.txt)记录焦点事件最终耗时 84,375 毫秒，但已经超过约 50 秒输入超时，系统已决定结束应用。这支持“单 vCPU 软件图形编译与调度太慢”的解释，不能据此断定永久死锁。`user request after error` 是 Android 的退出描述，不能单凭该字符串认定用户点击了强退。
 
-恢复采用 **2 vCPU、超时倍率 20**，保持原有 1536 MiB guest RAM、64 MiB TCG 缓存、软件渲染配置和安装磁盘。Android 12 的输入超时会乘以 `ro.hw_timeout_multiplier`，见 [AOSP InputConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/android-12.0.0_r1/core/java/android/os/InputConstants.java)。本次预期预算从约 50 秒延至约 100 秒；多核 TCG 与较长预算仍须实测，不能承诺修复。不会关闭 ANR 检测，也不改锁定 APK／探针／素材。
+当时的恢复方案先采用 **2 vCPU、超时倍率 20**，保持原有 1536 MiB guest RAM、64 MiB TCG 缓存、软件渲染配置和安装磁盘。Android 12 的输入超时会乘以 `ro.hw_timeout_multiplier`，见 [AOSP InputConstants](https://raw.githubusercontent.com/aosp-mirror/platform_frameworks_base/android-12.0.0_r1/core/java/android/os/InputConstants.java)。当时预期预算从约 50 秒延至约 100 秒，尚未实测；下面保留原命令和核对值。现行统一入口的内存与显示默认值已更新为 3072 MiB／5 FPS，见本页顶部。不关闭 ANR 检测，也不改锁定 APK／探针／素材。
 
 **第一步：** 在正在运行 `native_browser.py serve` 的终端按一次 `Ctrl+C`，等待命令提示符回来。保留旧失败归档，不再点击该页建局。
 
@@ -131,7 +139,7 @@ cd /workspaces/Game-AI-for-Clash-Royale
 
 如果 `status` 返回 `Recorded VM is not running; refusing any other process`，表示保存的 VM 进程身份已不匹配当前运行进程；常见情况是旧 VM 已停止。它不是 Python 环境检查失败，也不是要求删除记录。先核对 `.cache/native-tools/android-recovery-001/active-vm.json` 中的最新 `attempt`，确认旧进程与磁盘未被占用，再使用下面的恢复入口。`doctor` 的宿主 Binder 为 false 也不阻止这条软件 VM 路线；Android 的 Binder 在 guest 内提供。
 
-当前机器使用软件 TCG，只运行一台 VM，训练和视觉实验串行进行。旧 8 GB 恢复基线使用一个 vCPU；当前 16 GB 机器已确认软件图形 ANR，采用上方 2 vCPU／倍率 20 的恢复试验。`--tb-size-mib` 默认 **64 MiB**，guest RAM 为 1536 MiB；两者都不是 QEMU 总内存上限。下面示例中的 `--resume-attempt` 必须指向本机已经存在且已停止的安装记录：
+当前机器使用软件 TCG，只运行一台 VM，训练和视觉实验串行进行。旧 8 GB 恢复基线使用一个 vCPU；现行统一入口恢复已停止的 VM 时使用 2 vCPU、超时倍率 20、3072 MiB guest RAM 和 5 FPS 显示。`--tb-size-mib` 默认 **64 MiB**；guest RAM 和 TCG 缓存都不是 QEMU 总内存上限。下面的手工示例显式使用相同参数，`--resume-attempt` 必须指向本机已经存在且已停止的安装记录：
 
 ```bash
 LAB_VM_ATTEMPT="$(.venv-cloud/bin/python -c 'import json; print(json.load(open(".cache/native-tools/android-recovery-001/active-vm.json"))["attempt"])')"
@@ -139,6 +147,7 @@ LAB_VM_ATTEMPT="$(.venv-cloud/bin/python -c 'import json; print(json.load(open("
 nice -n 10 .venv-cloud/bin/python tools/cloud/software_android_vm.py start \
   --cache .cache/native-tools/android-recovery-001 \
   --output outputs/cloud/avm --vcpus 2 --timeout-multiplier 20 --tb-size-mib 64 \
+  --memory-mib 3072 --display-fps 5 \
   --resume-attempt "$LAB_VM_ATTEMPT"
 ```
 
@@ -155,12 +164,12 @@ LAB_VISUAL="outputs/cloud/native-visual-$(date -u +%Y%m%dT%H%M%SZ)"
 
 nice -n 10 .venv-cloud/bin/python tools/cloud/native_prepare.py \
   --manifest outputs/native_loop_20261020/local-runtime-version-001.json \
-  --output "$LAB_VISUAL/prepare" \
+  --output "$LAB_VISUAL/prepare" --display-compat \
   --adb .cache/native-tools/bin/adb --adb-port 5038 \
   --serial 127.0.0.1:15555 --root-shell su0
 ```
 
-`native_prepare.py` 串行完成：启动仓库 ADB 服务、连接设备、等待 Android boot、启动游戏与端口转发、等待 `coldReady/contentReady`、核对当前进程身份、观察默认 60 秒的原进程存活与内容状态、写入连接文件。保存每一步日志和等待心跳，失败或中断时保留现场；它不自动建局、不启动训练，也不证明渲染成功。
+`native_prepare.py` 串行完成：启动仓库 ADB 服务、连接设备、等待 Android boot、启动游戏与端口转发、等待 `coldReady/contentReady`、核对当前进程身份、观察默认 60 秒的原进程存活与内容状态、写入连接文件。上例显式加入与统一入口相同的 `--display-compat`，关闭选定 guest 的 cached-app freezer 并保持唤醒，原设置和恢复脚本保存在本次输出目录。保存每一步日志和等待心跳，失败或中断时保留现场；它不自动建局、不启动训练，也不证明渲染成功。
 
 成功条件是最后的 `status="prepared"`，并生成：
 
@@ -241,13 +250,14 @@ export ROYALE_NATIVE_CONNECTION="$LAB_MODE/prepare/connection.json"
 
 | 参数 | 游戏时间中的采集密度 | 含义与成本 |
 |---|---|---|
-| `--capture-ticks 20` | 约 1 FPS | 默认研究检查；每一秒游戏时间约保留一张，并非流畅录像 |
+| `--capture-ticks 100` | 每 5 游戏秒约一张 | `play-replay` 统一入口默认，减少截图开销；实时观看使用本机镜像 |
+| `--capture-ticks 20` | 约 1 FPS | 直接运行 `native_browser.py serve` 的默认值；每一秒游戏时间约保留一张，并非流畅录像 |
 | `--capture-ticks 10` | 约 2 FPS | 增加动作过程画面，也增加截图与存储开销 |
 | `--capture-ticks 1` | 20 Hz 保存请求 | 逐 tick 请求保存；TCG 需要大量截图、等待和磁盘空间，先用短局验证，不代表实际画面以 20 Hz 刷新 |
 
 创建、动作和暂停等节点可能额外强制截图，同 tick 也可能有多张。默认截图从完成初始化的 **tick 90** 开始，不包含 Android 开机、客户端加载过程或最初 90 tick 的录像。播放器保留原始 tick 间隔，不插值或补出未采集画面。
 
-逻辑采样密度、Android 显示刷新率和现实播放速度是三个不同指标。当前软件 VM 启动参数包含 `androidboot.redroid_fps=1`；把 `capture-ticks` 改为 1，不会自动把 Android 画面升级成 20 FPS，可能仍保存重复或延迟画面。要声称逐 tick 新鲜画面，还须验证 Android 渲染设置、像素变化和 tick 对齐。
+逻辑采样密度、Android 显示刷新率和现实播放速度是三个不同指标。统一入口新启动 VM 时默认配置 `androidboot.redroid_fps=5`，可用 `--display-fps` 调整；已运行 VM 保留原设置。把 `capture-ticks` 改为 1 或提高 scrcpy 的 `-MaxFps`，都不会自动提高 Android 源渲染帧率，仍可能保存重复或延迟画面。要声称逐 tick 新鲜画面，还须验证 Android 渲染设置、像素变化和 tick 对齐。
 
 `--frame-wait` 是冻结逻辑 tick 后等待 Android 画面呈现的现实秒数；截图前后 tick 相同，不等于证明像素零延迟。
 
@@ -363,4 +373,4 @@ LAB_REVIEW="outputs/cloud/native-review-$(date -u +%Y%m%dT%H%M%SZ)"
 
 如果已确认 VM 收到 SIGTERM，而仓库日志没有发送者，请先导出 Codespaces 运行日志：在 VS Code 按 `Ctrl+Shift+P`，执行 **Codespaces: Export Logs**，把日志 ZIP 放在仓库的 `outputs/cloud/`，再核对终止时刻附近记录。该入口见 [GitHub 官方日志说明](https://docs.github.com/en/codespaces/troubleshooting/github-codespaces-logs)。它可能提供容器／会话层线索，不保证包含宿主发信号的完整证据；不能在来源未明时直接归因于 GitHub 或某个扩展。
 
-本轮结论是**真实视觉链路未通过**，仍需实际验证游戏非黑画面、浏览器动作消费、前后向原生重演、停止 VM 后读取真实保存帧、真实帧 APNG 导出及覆盖完整性。当前全黑 PNG 仅证明截图通路能返回图像文件。页面契约证据见 `outputs/cloud/native-ui-contract-20261024-001/report.json`，其夹具范围与上述实际失败证据明确分开。
+早期全黑截图与失败结论按历史证据保留；后续已取得本页顶部记录的真实战场画面、前 7 条原生动作消费，以及 tick 670 的暂停、保存与 7 帧只读回看结果。本次 7 帧的无损 APNG 导出和 CLI 校验也已通过。完整 92 事件、自然终局、前后向原生重演及整局画面覆盖仍待验证，Windows 镜像也尚未在用户本机验收。页面契约证据见 `outputs/cloud/native-ui-contract-20261024-001/report.json`，其夹具范围与最新实际执行证据分别记录。

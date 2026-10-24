@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 from datetime import datetime, timezone
 import json
 import os
@@ -124,14 +125,14 @@ def launch(args):
             raise ValueError(f'端口 {args.port} 已被使用；已有服务保持运行。请在 Ports 打开它，或用 --port 指定其他空闲端口。') from exc
         with native_lock():
             pass  # Preparation and browser each acquire their own native lease.
-        source_text = None
+        source_raw = None
         if args.source:
             from royale_phase2.public_replay import MAX_SOURCE_BYTES, PublicReplayPlan
             source_path = local(args.source)
             if source_path.stat().st_size > MAX_SOURCE_BYTES:
                 raise ValueError('请选择不超过 2 MiB 的单局事件 JSON。')
             PublicReplayPlan.load(source_path)  # Reject unsupported input before booting anything.
-            source_text = source_path.read_text(encoding='utf-8')
+            source_raw = source_path.read_bytes()
         if args.connection:
             from royale_phase2.connection import load_connection
             settings = load_connection(args.connection)
@@ -170,9 +171,10 @@ def launch(args):
                 raise RuntimeError('准备命令没有生成 prepared 连接；请检查 prepare/report.json，不启动页面。')
             connection = str(connection_path.relative_to(ROOT))
             report.update(preparation='prepared', connection=connection)
-        if source_text is not None:
+        if source_raw is not None:
             from tools.cloud.native_browser import import_source
-            imported = import_source({'text': source_text, 'filename': source_path.name}, args.sources)
+            imported = import_source({'raw_base64': base64.b64encode(source_raw).decode('ascii'),
+                                      'filename': source_path.name}, args.sources)
             report['imported_source'] = imported
             print('公开对局已导入：'+imported['source_id']+'；进入页面选择它，点击“打开”和播放。', flush=True)
         url = f'http://127.0.0.1:{args.port}/native'
@@ -181,7 +183,8 @@ def launch(args):
         print(f'页面入口：{url}\n在 VS Code 的 Ports 面板打开 {args.port}。保持此终端运行；Ctrl+C 关闭本次页面。', flush=True)
         _run_stage(folder, report, 'browser', python+['tools/cloud/native_browser.py', 'serve',
             '--connection', connection, '--output', str((folder/'browser').relative_to(ROOT)),
-            '--sources', args.sources, '--host', '127.0.0.1', '--port', str(args.port)])
+            '--sources', args.sources, '--host', '127.0.0.1', '--port', str(args.port),
+            '--capture-ticks', str(args.capture_ticks), '--frame-wait', str(args.frame_wait)])
         report['status'] = 'stopped'
         return 0
     except KeyboardInterrupt:
@@ -211,11 +214,19 @@ def main(argv=None):
                         help='仅新启动 VM 的 guest RAM，默认 3072 MiB；已有 VM 保持原设置')
     parser.add_argument('--display-fps', type=int, choices=(1, 5, 10, 15, 30), default=5,
                         help='仅下一次冷启动的 Android 显示帧率，默认 5；已有 VM 不重启')
+    parser.add_argument('--capture-ticks', type=int, default=100,
+                        help='浏览器 PNG 归档间隔，1..200 tick；默认 100（每 5 游戏秒），20 为密集采集')
+    parser.add_argument('--frame-wait', type=float, default=0.2,
+                        help='截图前等待显示的现实秒数，0..10；默认 0.2，实时观看使用 scrcpy')
     parser.add_argument('--display-compat', action=argparse.BooleanOptionalAction, default=True,
                         help='默认对选定 Android guest 应用画面兼容设置；--no-display-compat 可关闭')
     args = parser.parse_args(argv)
     if not 1 <= args.port <= 65535:
         parser.error('--port 须为 1..65535')
+    if not 1 <= args.capture_ticks <= 200:
+        parser.error('--capture-ticks 须为 1..200')
+    if not 0 <= args.frame_wait <= 10:
+        parser.error('--frame-wait 须为 0..10 的有限秒数')
     if args.output is None:
         args.output = 'outputs/cloud/replay-app/'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
     configure()

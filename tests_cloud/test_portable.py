@@ -2,6 +2,7 @@
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 from tools.cloud import workspace as w
 from tools.cloud.import_repository import safe
 
@@ -29,9 +30,14 @@ class Portable(unittest.TestCase):
         result=inspect();self.assertFalse(result['native_runtime_verified']);self.assertEqual(result['rpc_calls'],0)
     def test_cross_platform_lock_excludes_second_owner(self):
         from royale_phase3.common import native_lock
-        with native_lock():
-            with self.assertRaises(RuntimeError):
+        root=w.local('.tmp');root.mkdir(exist_ok=True)
+        # Exercise the real OS lock on an isolated file, so this offline test
+        # can run while a browser legitimately owns the actual native session.
+        with tempfile.TemporaryDirectory(prefix='portable-lock-',dir=root) as temporary:
+            with patch('royale_phase3.common.local',return_value=Path(temporary)/'native.lock'):
+                with native_lock():
+                    with self.assertRaises(RuntimeError):
+                        with native_lock():pass
                 with native_lock():pass
-        with native_lock():pass
 
 if __name__=='__main__':unittest.main()

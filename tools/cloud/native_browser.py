@@ -1,5 +1,6 @@
 """Codespaces 原生画面、人机操作、保存画面和引擎日志重演。"""
 import argparse
+import base64
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
@@ -46,7 +47,14 @@ def public_sources(root):
 def import_source(data, root):
     from royale_phase2.public_replay import import_public_replay
     raw = None
-    if 'text' in data:
+    if 'raw_base64' in data:
+        if not isinstance(data['raw_base64'], str):
+            raise ValueError('JSON 文件编码必须为文本')
+        raw = base64.b64decode(data['raw_base64'], validate=True)
+        if len(raw) > 2 * 1024 * 1024:
+            raise ValueError('单局 JSON 最大为 2 MiB，请选择一局对局文件')
+        payload = json.loads(raw.decode('utf-8-sig'))
+    elif 'text' in data:
         if not isinstance(data['text'], str):
             raise ValueError('JSON 文件内容必须为文本')
         raw = data['text'].encode('utf-8')
@@ -224,7 +232,8 @@ def main(argv=None):
         source = local(args.source)
         if source.stat().st_size > 2 * 1024 * 1024:
             raise ValueError('单局 JSON 最大为 2 MiB')
-        result = import_source({'text': source.read_text(encoding='utf-8-sig'), 'filename': source.name}, args.sources)
+        result = import_source({'raw_base64': base64.b64encode(source.read_bytes()).decode('ascii'),
+                                'filename': source.name}, args.sources)
         print(json.dumps(result, ensure_ascii=False, indent=2)); return 0
     if args.command == 'import':
         print(json.dumps(import_archive(args.source, args.archives), ensure_ascii=False, indent=2)); return 0

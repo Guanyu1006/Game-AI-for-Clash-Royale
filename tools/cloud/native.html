@@ -84,7 +84,7 @@
     <div class="toolbar"><button id="saveButton" type="button">保存当前局与回放证据</button><button id="refreshState" type="button">重新读取状态</button></div><p id="savedInfo" class="small muted path"></p>
    </section>
    <section class="panel"><h2>动作与实际消费</h2><p class="small muted">请求、探针登记和卡牌消费是不同阶段。这里只显示服务提供的证据，未知保持未知。</p><ol id="feedbackList" class="receipts"><li class="muted">尚无动作反馈。</li></ol><details><summary>原始状态、执行记录与来源</summary><pre id="rawState">{}</pre></details></section>
-   <section class="panel"><h2>建议操作顺序</h2><ol><li>按运行教程启动 VM、游戏探针和本页服务。</li><li>新建原生局，先暂停并单步观察。</li><li>选择己方手牌，点击标定战场或输入坐标。</li><li>核对实际消费，继续推进到终局。</li><li>保存归档，再切换到原生引擎回放。</li></ol><p class="small muted">此服务进程共享一条原生对局。多人打开页面时，请约定一个操作人。网络异常后先读取状态核对，本页不会自动重发下牌、重置或重演请求。</p></section>
+   <section id="manualHelp" class="panel hidden"><h2>建议操作顺序</h2><ol><li>按运行教程启动 VM、游戏探针和本页服务。</li><li>新建原生局，先暂停并单步观察。</li><li>选择己方手牌，点击标定战场或输入坐标。</li><li>核对实际消费，继续推进到终局。</li><li>保存归档，再切换到原生引擎回放。</li></ol><p class="small muted">此服务进程共享一条原生对局。多人打开页面时，请约定一个操作人。网络异常后先读取状态核对，本页不会自动重发下牌、重置或重演请求。</p></section>
   </div>
  </div>
 </main>
@@ -94,11 +94,25 @@
 const $=id=>document.getElementById(id);
 const cardNames={26000000:'骑士',26000001:'弓箭手',26000002:'哥布林',26000003:'巨人',26000004:'皮卡超人',26000006:'亡灵',26000010:'骷髅兵',26000012:'骷髅军团',26000013:'炸弹兵',26000014:'火枪手',26000018:'迷你皮卡',26000021:'野猪骑士',27000000:'加农炮',28000000:'火球',28000001:'万箭齐发',28000008:'电击法术'};
 let current=null,selected=null,requestPending=false,pollPending=false,connected=false,tab='live',archives=[],lastFrameKey='',framePending=false,frameObjectURL=null,frameImageFailed=false,seekEditing=false,token=null;
+let saveJob=null;
 let mediaMode='engine',mediaGeneration=0,savedFrames=[],savedManifest=null,savedArchiveId=null,savedFrameIndex=0,savedPlaying=false,savedTimer=null,savedFrameLoading=false;
 const finite=value=>typeof value==='number'&&Number.isFinite(value);
 const show=(id,yes)=>$(id).classList.toggle('hidden',!yes);
 function message(text,kind=''){const box=$('message');box.textContent=text;box.className='message'+(kind?' '+kind:'');}
 function responseState(data){if(data?.state&&typeof data.state==='object')return data.state;return data&&('mode'in data||'ready'in data||'tick'in data)?data:null;}
+function renderSaveStatus(){
+ if(!saveJob)return;
+ const job=current?.jobs?.[saveJob.id];
+ if(job?.status==='done'&&job.command==='save'){
+  const archive=typeof saveJob.archiveId==='string'&&/^[a-z0-9][a-z0-9._-]{0,95}$/.test(saveJob.archiveId)?' · 归档 '+saveJob.archiveId:'';
+  $('savedInfo').textContent='已保存'+(finite(job.tick)?'至 tick '+job.tick:'')+archive;
+  saveJob=null;loadArchives();
+ }else if(job?.status==='failed'){
+  $('savedInfo').textContent='保存失败，请查看操作提示与执行记录。';saveJob=null;
+ }else if(job?.status==='running')$('savedInfo').textContent='正在保存，等待任务完成…';
+ else if(job?.status==='queued')$('savedInfo').textContent='保存请求已排队，尚未完成。';
+ else $('savedInfo').textContent='保存请求已受理，等待执行结果。';
+}
 async function api(path,body){const options={cache:'no-store',headers:{Accept:'application/json'}};if(body!==undefined){options.method='POST';options.headers['Content-Type']='application/json';if(token)options.headers['X-Native-Token']=token;options.body=JSON.stringify(body);}const response=await fetch(path,options);const type=response.headers.get('content-type')||'';if(!type.includes('application/json'))throw Error(response.status===404?'当前工作台没有启用原生服务。请使用文档中的原生服务入口。':`服务未返回 JSON（HTTP ${response.status}）`);const data=await response.json();if(!response.ok)throw Error(data.error?.message||data.error||`HTTP ${response.status}`);return data;}
 function setConnected(ok,error){connected=ok;$('connectionBadge').textContent=ok?'页面服务已连接':'页面服务未连接';$('connectionBadge').className='tag '+(ok?'ok':'warn');show('connectionNotice',!ok);if(!ok)$('connectionNotice').textContent=(error||'页面服务未连接')+'。保存的近似沙盒不能替代原生连接；请检查原生服务终端与连接配置。';renderControls();}
 function renderFrameError(){
@@ -121,7 +135,7 @@ function renderHand(){const cards=hand();$('hand').replaceChildren();for(let slo
  const chosen=cards.find(sameCard);$('selectedInfo').textContent=chosen?`已选槽 ${chosen.slot}：${chosen.name||cardNames[selected.card_id]||selected.card_id}。`:'尚未选择手牌。';$('ownerInfo').textContent=Number.isInteger(current?.owner)?`· owner ${current.owner}`:'';
  const mapped=!!frameMapping();$('placementHint').textContent=mapped?'先选手牌，再点击截图中服务标定的战场区域。下牌后核对消费反馈；落点标记仅表示请求位置。':'截图尚未提供可核验的战场标定，图片点击落点已禁用。选手牌后可使用右侧“落点输入器”点格子下牌，也可手工填写坐标。';$('frameWrap').classList.toggle('selecting',canAct()&&!!selected&&mapped);renderCoordinatePad();
 }
-function renderControls(){const busy=stateBusy(),ready=connected&&current?.ready===true&&!current?.error,replay=ready&&current?.mode==='replay';$('resetButton').disabled=!connected||busy||current?.offline===true||mediaMode!=='engine';$('stepButton').disabled=!canAct()||current?.running===true;$('runButton').disabled=!canAct()||current?.running===true;$('pauseButton').disabled=!ready||requestPending||current?.running!==true;$('playButton').disabled=!canAct()||!selected;$('saveButton').disabled=!ready||busy;$('refreshState').disabled=pollPending;$('refreshFrame').disabled=!connected||current?.offline===true||framePending||mediaMode!=='engine';for(const id of ['openReplay','reloadArchives'])$(id).disabled=!connected||busy;$('openReplay').disabled=$('openReplay').disabled||current?.offline===true||!$('archiveSelect').value;$('openSavedFrames').disabled=!$('archiveSelect').value||savedFrameLoading;for(const id of ['seekButton','replayBeginning','replayStep','replayRun'])$(id).disabled=!replay||busy||current?.running===true||mediaMode!=='engine';for(const id of ['replayStep','replayRun'])$(id).disabled=$(id).disabled||isTerminal();$('replayPause').disabled=!replay||current?.offline===true||requestPending||(current?.running!==true&&current?.busy!==true);$('replaySeek').disabled=!replay||busy||current?.running===true||mediaMode!=='engine';$('liveTab').disabled=requestPending;$('replayTab').disabled=requestPending;renderSavedControls();}
+function renderControls(){const busy=stateBusy(),ready=connected&&current?.ready===true&&!current?.error,replay=ready&&current?.mode==='replay';$('resetButton').disabled=!connected||busy||current?.offline===true||mediaMode!=='engine';$('stepButton').disabled=!canAct()||current?.running===true;$('runButton').disabled=!canAct()||current?.running===true;$('pauseButton').disabled=!ready||requestPending||current?.running!==true;$('playButton').disabled=!canAct()||!selected;$('saveButton').disabled=!ready||busy||saveJob!==null;$('refreshState').disabled=pollPending;$('refreshFrame').disabled=!connected||current?.offline===true||framePending||mediaMode!=='engine';for(const id of ['openReplay','reloadArchives'])$(id).disabled=!connected||busy;$('openReplay').disabled=$('openReplay').disabled||current?.offline===true||!$('archiveSelect').value;$('openSavedFrames').disabled=!$('archiveSelect').value||savedFrameLoading;for(const id of ['seekButton','replayBeginning','replayStep','replayRun'])$(id).disabled=!replay||busy||current?.running===true||mediaMode!=='engine';for(const id of ['replayStep','replayRun'])$(id).disabled=$(id).disabled||isTerminal();$('replayPause').disabled=!replay||current?.offline===true||requestPending||(current?.running!==true&&current?.busy!==true);$('replaySeek').disabled=!replay||busy||current?.running===true||mediaMode!=='engine';$('liveTab').disabled=requestPending;$('replayTab').disabled=requestPending;renderSavedControls();}
 function showTab(next){tab=next;$('liveTab').classList.toggle('active',tab==='live');$('replayTab').classList.toggle('active',tab==='replay');show('liveControls',tab==='live');show('replayControls',tab==='replay');}
 function receiptText(row){const consumed=row.card_consumed??row.consumed??row.feedback?.card_consumed;const owner=Number.isInteger(row.owner)?`owner ${row.owner} · `:'';const tick=row.actual_execution_tick??row.card_event?.[1]??row.tick;const time=finite(tick)?`tick ${tick} · `:'';const card=row.card_id??row.card??row.action?.card_id??row.action?.card;const identity=card!==undefined?`${cardNames[card]||card} · `:'';const result=consumed===true?'已确认卡牌消费':consumed===false?'未确认消费 / 未消费':'消费状态未知';const detail=row.reason??row.status??row.error;return{consumed,text:owner+time+identity+result+(detail?' · '+(typeof detail==='string'?detail:JSON.stringify(detail)):'')};}
 function renderFeedback(){const value=current?.feedback;const rows=Array.isArray(value)?value:Array.isArray(value?.actions)?value.actions:value&&typeof value==='object'?[value]:[];$('feedbackList').replaceChildren();for(const row of rows.slice(-8).reverse()){const receipt=receiptText(row),li=document.createElement('li');li.textContent=receipt.text;li.className=receipt.consumed===true?'confirmed':'unconfirmed';$('feedbackList').append(li);}if(!rows.length){const li=document.createElement('li');li.className='muted';li.textContent='尚无动作反馈。';$('feedbackList').append(li);}}
@@ -140,7 +154,7 @@ function applyState(data){
  else if(data.busy||data.status==='seeking')message(data.status_message||(data.mode==='replay'?'正在重置 / 推进原生引擎到目标，截图可能暂时停留在上一状态…':'原生引擎正在处理操作…'),'warning');
  else if(isTerminal())message(data.truncated?'本局已到推进预算，属于截断而非自然终局。请保存证据；继续新局需要重置。':'原生对局已结束。请保存证据；继续新局需要重置。','success');
  else if(data.status_message&&!requestPending)message(data.status_message);
- renderHand();renderReplay();renderFeedback();renderControls();if($('rawState').parentElement.open)$('rawState').textContent=JSON.stringify(data,null,2);
+ renderSaveStatus();renderHand();renderReplay();renderFeedback();renderControls();if($('rawState').parentElement.open)$('rawState').textContent=JSON.stringify(data,null,2);
  if(mediaMode!=='engine')return;
  const frame=data.frame||data.last_frame,key=frame?.sequence??frame?.sha256??frame?.tick;
  if(!framePending&&frame?.available!==false&&key!==undefined&&String(key)!==lastFrameKey){lastFrameKey=String(key);refreshFrame(false);}
@@ -149,7 +163,26 @@ function applyState(data){
  renderFrameError();
 }
 async function poll(){if(pollPending)return;pollPending=true;try{const data=await api('/api/native/state');const state=responseState(data);if(!state)throw Error('状态接口缺少原生状态字段');setConnected(true);applyState(state);}catch(error){setConnected(false,String(error.message||error));}finally{pollPending=false;renderControls();}}
-async function command(path,body,text){if(requestPending)return false;requestPending=true;message(text||'正在提交操作…');renderControls();renderHand();try{const result=await api('/api/native/'+path,body);const state=responseState(result);if(state)applyState(state);if(path==='save'){const saved=result.archive||result.saved||result;$('savedInfo').textContent='已保存：'+(saved.archive_id??saved.path??saved.folder??JSON.stringify(saved));await loadArchives();}if(!current?.busy&&!current?.error)message(result.message||'请求已返回，请核对当前状态与执行反馈。','success');await poll();return true;}catch(error){message(String(error.message||error)+'。请先重新读取状态核对执行结果；页面不会自动重试本次操作。','error');return false;}finally{requestPending=false;renderControls();renderHand();}}
+async function command(path,body,text){
+ if(requestPending)return false;
+ requestPending=true;message(text||'正在提交操作…');
+ if(path==='save')$('savedInfo').textContent='正在提交保存请求…';
+ renderControls();renderHand();
+ try{
+  const result=await api('/api/native/'+path,body),state=responseState(result);
+  if(path==='save'){
+   saveJob=typeof result.job_id==='string'&&result.job_id?{id:result.job_id,archiveId:state?.archive_id??current?.archive_id}:null;
+   $('savedInfo').textContent=saveJob?'保存请求已受理，等待执行结果。':'保存请求已返回，执行结果待核对。';
+   message('保存请求已返回，请等待任务结果。');
+  }
+  if(state)applyState(state);
+  if(path!=='save'&&!current?.busy&&!current?.error)message(result.message||'请求已返回，请核对当前状态与执行反馈。','success');
+  await poll();return true;
+ }catch(error){
+  if(path==='save'){saveJob=null;$('savedInfo').textContent='保存结果未确认，请重新读取状态核对。';}
+  message(String(error.message||error)+'。请先重新读取状态核对执行结果；页面不会自动重试本次操作。','error');return false;
+ }finally{requestPending=false;renderControls();renderHand();}
+}
 async function refreshFrame(force=true){if(framePending||!connected||mediaMode!=='engine')return;framePending=true;const generation=mediaGeneration;renderControls();try{const response=await fetch('/api/native/frame.png?v='+encodeURIComponent(force?Date.now():lastFrameKey),{cache:'no-store'});if(!response.ok)throw Error(`HTTP ${response.status}`);const blob=await response.blob();if(!blob.type.startsWith('image/'))throw Error('帧接口未返回图像');if(generation!==mediaGeneration||mediaMode!=='engine')return;replaceImage(blob);frameImageFailed=false;}catch(error){if(generation!==mediaGeneration)return;$('imageStatus').textContent='截图暂不可用：'+error.message;if(!$('nativeFrame').naturalWidth){$('framePlaceholder').textContent='当前还没有可显示的原生截图。请检查原生内容加载与渲染状态。';}else{$('imageStatus').textContent+=' · 保留上一张画面';}}finally{framePending=false;renderControls();renderFrameError();}}
 function replaceImage(blob){const next=URL.createObjectURL(blob),previous=frameObjectURL;frameObjectURL=next;$('nativeFrame').src=next;if(previous)URL.revokeObjectURL(previous);}
 function frameMapping(){const frame=current?.frame||current?.last_frame;const mapping=frame?.mapping??current?.placement?.mapping;if(!mapping||mapping.verified===false)return null;const values=['left','top','width','height'];if(!values.every(k=>finite(mapping[k]))||mapping.width<=0||mapping.height<=0)return null;return mapping;}
@@ -226,14 +259,14 @@ $('savedFrameSpeed').onchange=()=>{if(savedPlaying){pauseSaved();playSaved();}};
 // Public source playback uses the same native worker as manual play and archives.
 let sourceCatalog=[];
 const baseShowTab=showTab,baseRenderControls=renderControls,baseApplyState=applyState;
-showTab=function(next){baseShowTab(next);$('sourceTab').classList.toggle('active',next==='source');show('sourceControls',next==='source');};
+showTab=function(next){baseShowTab(next);$('sourceTab').classList.toggle('active',next==='source');show('sourceControls',next==='source');show('manualHelp',next==='live');};
 function sourceSelected(){return sourceCatalog.find(row=>row.source_id===$('sourceSelect').value);}
 function describeSource(){const row=sourceSelected(),summary=row?.source_summary||{};$('sourceSummary').textContent=row?`${summary.title||summary.replay_tag||summary.source_episode_id||row.filename||row.source_id} · ${summary.action_count??summary.event_count??summary.events??summary.source_actions??'?'} 次动作`:'请选择 JSON 文件导入，或选择已有对局。';$('sourceAssumptions').textContent=row?JSON.stringify(row.assumptions||[],null,2):'选择对局后显示。';renderControls();}
 async function loadSources(selectedId){try{const value=await api('/api/native/sources');sourceCatalog=value.sources||[];const selected=selectedId||$('sourceSelect').value;$('sourceSelect').replaceChildren();for(const row of sourceCatalog){const option=document.createElement('option'),s=row.source_summary||{};option.value=row.source_id;option.textContent=s.title||s.replay_tag||s.source_episode_id||row.filename||row.source_id;$('sourceSelect').append(option);}if(!sourceCatalog.length){const option=document.createElement('option');option.value='';option.textContent='尚未导入公开对局';$('sourceSelect').append(option);}if(sourceCatalog.some(r=>r.source_id===selected))$('sourceSelect').value=selected;describeSource();}catch(error){message('公开对局列表读取失败：'+error.message,'error');}}
 renderControls=function(){baseRenderControls();const busy=stateBusy(),source=current?.mode==='source',ready=connected&&current?.ready===true&&current?.offline!==true;$('importSource').disabled=!connected||requestPending||!$('sourceFile').files.length;$('reloadSources').disabled=requestPending;$('openSource').disabled=!ready||busy||!sourceSelected();for(const id of ['sourceRun','sourceStep','sourceSeek'])$(id).disabled=!ready||!source||current?.source_replay?.valid===false||!!current?.error||busy||current?.running===true||(id!=='sourceSeek'&&isTerminal());$('sourcePause').disabled=!ready||!source||requestPending||(!current?.running&&!current?.busy);$('sourceTab').disabled=requestPending;};
 applyState=function(data){baseApplyState(data);if(data.mode==='source'){$('modeBadge').textContent='公开事件原生重建';show('liveHandSection',false);const s=data.source_replay||{};$('sourceProgress').textContent=`tick ${data.tick??'—'} · 已登记 ${s.registered_actions??0}/${s.source_actions??'?'} · 已确认消费 ${s.card_consumed??0} · 未确认 ${s.not_confirmed??0}${s.source_actions_finished?' · 来源动作已全部执行':''}`;if(s.end_tick)$('sourceSeekTick').max=s.end_tick;if(s.initialization_tick)$('sourceSeekTick').min=s.initialization_tick;}};
 $('sourceTab').onclick=()=>{showTab('source');loadSources();};$('sourceFile').onchange=renderControls;$('sourceSelect').onchange=describeSource;$('reloadSources').onclick=()=>loadSources();
-$('importSource').onclick=async()=>{const file=$('sourceFile').files[0];if(!file)return;if(file.size>2*1024*1024){message('请选择不超过 2 MiB 的单局 JSON 文件。','error');return;}requestPending=true;renderControls();message('正在解析并保存公开对局…');try{const text=await file.text();JSON.parse(text.replace(/^\uFEFF/,''));const value=await api('/api/native/source/import',{text,filename:file.name});await loadSources(value.source_id);message('导入完成。点击“打开对局”，等待初始化后播放。','success');}catch(error){message('导入失败：'+error.message,'error');}finally{requestPending=false;renderControls();}};
+$('importSource').onclick=async()=>{const file=$('sourceFile').files[0];if(!file)return;if(file.size>2*1024*1024){message('请选择不超过 2 MiB 的单局 JSON 文件。','error');return;}requestPending=true;renderControls();message('正在解析并保存公开对局…');try{const bytes=new Uint8Array(await file.arrayBuffer()),text=new TextDecoder('utf-8',{fatal:true}).decode(bytes);JSON.parse(text.replace(/^\uFEFF/,''));let binary='';for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));const value=await api('/api/native/source/import',{raw_base64:btoa(binary),filename:file.name});await loadSources(value.source_id);message('导入完成。点击“打开对局”，等待初始化后播放。','success');}catch(error){message('导入失败：'+error.message,'error');}finally{requestPending=false;renderControls();}};
 $('openSource').onclick=async()=>{selected=null;returnEngine();await command('source/open',{source_id:$('sourceSelect').value,owner:1},'正在初始化来源对局，请等待…');};$('sourceRun').onclick=()=>command('run',{ticks_per_step:20},'正在按文件中的双方动作播放…');$('sourcePause').onclick=()=>command('pause',{},'正在暂停…');$('sourceStep').onclick=()=>command('step',{ticks:20},'正在推进 20 tick…');$('sourceSeek').onclick=()=>{const tick=Number($('sourceSeekTick').value);if(!Number.isInteger(tick)){message('请输入整数 tick。','error');return;}command('source/seek',{tick},'正在重新计算到指定时刻…');};
 $('mirrorCommand').textContent='powershell -ExecutionPolicy Bypass -File .\\android_mirror.ps1';
 showTab('source');loadSources();
