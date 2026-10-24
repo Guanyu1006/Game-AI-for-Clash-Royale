@@ -66,8 +66,10 @@ def restore():
 
 def doctor():
     from tools.cloud.native_capabilities import inspect
+    from tools.cloud.memory_resources import inspect_memory
     result={'schema':'royale-cloud-doctor.v1','system':platform.system(),'machine':platform.machine(),
       'python':sys.version,'executable':sys.executable,'root':str(ROOT),'logical_cpus':os.cpu_count(),
+      'memory':inspect_memory(),
       'disk_free_bytes':shutil.disk_usage(ROOT).free,'modules':{k:bool(importlib.util.find_spec(k)) for k in ('numpy','torch','pyarrow','gymnasium')},
       'codespaces_environment':os.environ.get('CODESPACES')=='true','offline_workbench':True,
       'native':inspect(),'assets':verify_assets(),'local_windows_launchers_preserved':True}
@@ -223,6 +225,11 @@ def serve(host='127.0.0.1',port=8770,replay_metadata=None):
     finally:server.server_close()
 
 def main():
+    native_tools={'native-loop':'tools/native_loop.py','native-connection':'tools/cloud/native_connection.py',
+                  'native-browser':'tools/cloud/native_browser.py','native-prepare':'tools/cloud/native_prepare.py',
+                  'play-replay':'tools/cloud/replay_app.py'}
+    if len(sys.argv)>1 and sys.argv[1] in native_tools:
+        return subprocess.call([sys.executable,'-B',str(local(native_tools[sys.argv[1]])),*sys.argv[2:]],cwd=ROOT)
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     for c in ('restore','doctor','verify','native-check','runs'):sub.add_parser(c)
     a=sub.add_parser('test');a.add_argument('--group',choices=['portable','extended'],default='portable')
@@ -240,6 +247,9 @@ def main():
     a.add_argument('arguments',nargs=argparse.REMAINDER)
     a=sub.add_parser('native-connection',add_help=False,help='Inspect local native assets; --connect explicitly probes loopback status')
     a.add_argument('arguments',nargs=argparse.REMAINDER)
+    for name in ('native-browser','native-prepare'):
+        a=sub.add_parser(name,add_help=False,help='Explicit actual Android rendered control/replay and runtime preparation')
+        a.add_argument('arguments',nargs=argparse.REMAINDER)
     a=sub.add_parser('simulate');a.add_argument('--seconds',type=int,default=30);a.add_argument('--seed',type=int,default=0)
     a=sub.add_parser('smoke');a.add_argument('--epochs',type=int,default=2);a.add_argument('--output')
     a=p.parse_args()
@@ -267,8 +277,9 @@ def main():
     elif a.command=='replay':
         from tools.cloud.replay import ReplaySession
         session=ReplaySession(metadata_path=a.metadata);session.reset(a.episode_id,a.owner);result=session.seek(a.index)
-    elif a.command in ('native-loop','native-connection'):
-        script='tools/native_loop.py' if a.command=='native-loop' else 'tools/cloud/native_connection.py'
+    elif a.command in ('native-loop','native-connection','native-browser','native-prepare'):
+        script={'native-loop':'tools/native_loop.py','native-connection':'tools/cloud/native_connection.py',
+                'native-browser':'tools/cloud/native_browser.py','native-prepare':'tools/cloud/native_prepare.py'}[a.command]
         return subprocess.call([sys.executable,'-B',str(local(script)),*a.arguments],cwd=ROOT)
     elif a.command=='simulate':
         from tools.cloud.simulator import SimulatorSession

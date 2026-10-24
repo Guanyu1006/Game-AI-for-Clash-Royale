@@ -4,7 +4,7 @@ import hashlib
 import io
 import json
 import os
-from contextlib import ExitStack
+from contextlib import ExitStack, redirect_stdout, redirect_stderr
 from pathlib import Path
 from types import SimpleNamespace
 import tarfile
@@ -159,9 +159,10 @@ class SoftwareAndroidArtifacts(unittest.TestCase):
             state['next'] += 1
             return SimpleNamespace(pid=state['live'])
 
-        def fake_initramfs(cache, lock, attempt, vcpus, timeout):
+        def fake_initramfs(cache, lock, attempt, vcpus, timeout, display_fps=1):
             path = attempt / 'new-initramfs.gz'
             path.write_bytes(b'new boot namespace')
+            (attempt/'generated-launch-android.sh').write_text(vm.launch_android_script(timeout, display_fps))
             return path, ['fixture-module']
 
         def fake_attempt(output, operation):
@@ -186,7 +187,8 @@ class SoftwareAndroidArtifacts(unittest.TestCase):
                              timeout_multiplier=10, resume_attempt=original)
             state['live'] = None  # Simulated external stop/restart, with receipts preserved.
             second = vm.start(cache, {'kernel_version': 'fixture'}, self.root / 'runs',
-                              timeout_multiplier=10, resume_attempt=first['attempt'])
+                              vcpus=2, timeout_multiplier=10, resume_attempt=first['attempt'], tb_size_mib=128,
+                              memory_mib=3072, display_fps=5)
         copy.assert_not_called()
         full_space.assert_not_called()
         self.assertEqual(ports.call_count, 2)
@@ -200,10 +202,93 @@ class SoftwareAndroidArtifacts(unittest.TestCase):
         self.assertFalse(second['native_game_execution_verified'])
         self.assertEqual(second['native_rpc_calls'], 0)
         self.assertEqual(second['required_free_bytes'], 1024 ** 3)
+        self.assertEqual(first['tb_size_mib'], 64)
+        self.assertEqual(second['tb_size_mib'], 128)
+        self.assertEqual(first['command'][first['command'].index('-accel') + 1], 'tcg,thread=single,tb-size=64')
+        self.assertEqual(second['command'][second['command'].index('-accel') + 1], 'tcg,thread=multi,tb-size=128')
+        for result in (first, second):
+            expected_memory, expected_fps = (1536, 1) if result is first else (3072, 5)
+            self.assertEqual(result['memory_mib'], expected_memory)
+            self.assertEqual(result['display_fps'], expected_fps)
+            self.assertEqual(result['command'][result['command'].index('-m') + 1], str(expected_memory))
+            saved = json.loads((prepare.ROOT / result['attempt'] / 'process.json').read_text())
+            for field in ('tb_size_mib', 'memory_mib', 'display_fps'):
+                self.assertEqual(saved[field], result[field])
+            script = (prepare.ROOT/result['attempt']/'generated-launch-android.sh').read_text()
+            self.assertIn('androidboot.redroid_fps='+str(expected_fps)+' ', script)
         self.assertEqual((original / 'process.json').read_bytes(), old_process)
         self.assertEqual((original / 'serial.log').read_bytes(), old_serial)
         self.assertEqual((cache / 'android.ext4').read_bytes(), base)
         self.assertFalse((prepare.ROOT / second['attempt'] / 'android.ext4').exists())
+
+    def test_invalid_tcg_cache_is_rejected_before_platform_lock_or_disk_access(self):
+        cache, attempt, disk, _, _ = self.recovery_fixture()
+        snapshots = {path: path.read_bytes() for path in
+                     (cache / 'active-vm.json', cache / 'android.ext4', attempt / 'process.json', disk)}
+        for value in (0, 63, 65, 1024, -64, True, 64.0, '64', None):
+            with self.subTest(tb_size_mib=value), patch.object(prepare, 'check_platform') as platform, \
+                    patch.object(vm, 'start_lock') as lease, patch.object(vm.subprocess, 'Popen') as launch:
+                with self.assertRaisesRegex(ValueError, 'translation cache'):
+                    vm.start(cache, {}, self.root / 'runs', resume_attempt=attempt, tb_size_mib=value)
+                platform.assert_not_called()
+                lease.assert_not_called()
+                launch.assert_not_called()
+        self.assertFalse((self.root / 'runs').exists())
+        for path, content in snapshots.items():
+            self.assertEqual(path.read_bytes(), content)
+
+    def test_cli_tcg_cache_default_explicit_choices_and_invalid_value(self):
+        for arguments, expected in (([], 64), (['--tb-size-mib', '128'], 128),
+                                    (['--tb-size-mib', '256'], 256), (['--tb-size-mib', '512'], 512)):
+            with self.subTest(arguments=arguments), patch('sys.argv', ['software_android_vm.py', 'start', *arguments]), \
+                    patch.object(prepare, 'load_lock', return_value={}), \
+                    patch.object(vm, 'start', return_value={'fixture_only': True}) as launch, \
+                    redirect_stdout(io.StringIO()):
+                vm.main()
+                self.assertEqual(launch.call_args.args[-3], expected)
+        with patch('sys.argv', ['software_android_vm.py', 'start', '--tb-size-mib', '1024']), \
+                patch.object(vm, 'start') as launch, redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            vm.main()
+        launch.assert_not_called()
+
+    def test_guest_memory_and_fps_reject_invalid_values_before_platform_or_disk_access(self):
+        for name, bad_values in (('memory_mib', (0, 1024, 4097, True, 3072.0, '3072', None)),
+                                 ('display_fps', (0, 2, 60, True, 5.0, '5', None))):
+            for value in bad_values:
+                with self.subTest(name=name, value=value), patch.object(prepare, 'check_platform') as platform, \
+                        patch.object(vm, 'start_lock') as lock, patch.object(vm.subprocess, 'Popen') as launch:
+                    with self.assertRaises(ValueError):
+                        vm.start(self.root/'never-created', {}, self.root/'runs', **{name: value})
+                    platform.assert_not_called(); lock.assert_not_called(); launch.assert_not_called()
+        self.assertFalse((self.root/'never-created').exists())
+
+    def test_display_fps_changes_only_the_generated_guest_launch_script(self):
+        default = vm.launch_android_script()
+        self.assertIn('androidboot.redroid_fps=1 ', default)
+        for fps in (1, 5, 10, 15, 30):
+            script = vm.launch_android_script(20, fps)
+            self.assertIn('androidboot.redroid_fps='+str(fps)+' ', script)
+            self.assertIn('ro.hw_timeout_multiplier=20 ', script)
+            self.assertNotIn('__DISPLAY_FPS__', script)
+            self.assertNotIn('__HW_TIMEOUT_MULTIPLIER__', script)
+        self.assertIn('__DISPLAY_FPS__', vm.LAUNCH_ANDROID)
+
+    def test_cli_guest_memory_and_display_fps_defaults_explicit_and_invalid_values(self):
+        for arguments, expected in (([], (1536, 1)),
+                                    (['--memory-mib', '2048', '--display-fps', '10'], (2048, 10)),
+                                    (['--memory-mib', '3072', '--display-fps', '5'], (3072, 5)),
+                                    (['--memory-mib', '4096', '--display-fps', '30'], (4096, 30))):
+            with self.subTest(arguments=arguments), patch('sys.argv', ['software_android_vm.py', 'start', *arguments]), \
+                    patch.object(prepare, 'load_lock', return_value={}), \
+                    patch.object(vm, 'start', return_value={'fixture_only': True}) as launch, \
+                    redirect_stdout(io.StringIO()):
+                vm.main()
+                self.assertEqual(launch.call_args.args[-2:], expected)
+        for flag, value in (('--memory-mib', '8192'), ('--display-fps', '60')):
+            with self.subTest(flag=flag), patch('sys.argv', ['software_android_vm.py', 'start', flag, value]), \
+                    patch.object(vm, 'start') as launch, redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                vm.main()
+            launch.assert_not_called()
 
     def test_resume_refuses_symlinks_and_repository_escape(self):
         cache, attempt, disk, image, _ = self.recovery_fixture()

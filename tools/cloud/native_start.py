@@ -36,9 +36,14 @@ printf 'PID=%s\\n' "$pid"
 
 
 def parse_check(text):
+    if not text.strip():
+        raise ValueError('Empty Android shell evidence; device/root status is unknown. '
+                         'Check the VM and ADB transport before retrying')
     uid = re.findall(r'^UID=(\d+)$', text, re.MULTILINE)
     boot = re.findall(r'^BOOT=(.*)$', text, re.MULTILINE)
     pid = re.findall(r'^PID=(\d*)$', text, re.MULTILINE)
+    if len(uid) != 1:
+        raise ValueError('Incomplete Android shell evidence: missing or repeated UID; root status is unknown')
     if uid != ['0']:
         raise ValueError('An already-rooted Android shell is required')
     if boot != ['1']:

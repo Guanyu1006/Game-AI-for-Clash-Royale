@@ -8,9 +8,15 @@
   },
   "postCreateCommand": "bash tools/cloud/bootstrap.sh --ml --research",
   "forwardPorts": [
-    8770
+    8770,
+    8772
   ],
   "portsAttributes": {
+    "8772": {
+      "label": "Royale Lab Android / public replay",
+      "onAutoForward": "notify",
+      "protocol": "http"
+    },
     "8770": {
       "label": "Royale Lab research workbench",
       "onAutoForward": "notify",

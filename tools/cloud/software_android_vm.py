@@ -320,13 +320,16 @@ def cpio(guest, target):
     target.write_bytes(gzip.compress(archive, mtime=0))
 
 
-def launch_android_script(timeout_multiplier=1):
+def launch_android_script(timeout_multiplier=1, display_fps=1):
     if type(timeout_multiplier) is not int or not 1 <= timeout_multiplier <= 20:
         raise ValueError('Timeout multiplier must be an integer from 1 to 20')
-    return LAUNCH_ANDROID.replace('__HW_TIMEOUT_MULTIPLIER__', str(timeout_multiplier))
+    _validate_display_fps(display_fps)
+    return (LAUNCH_ANDROID.replace('__HW_TIMEOUT_MULTIPLIER__', str(timeout_multiplier))
+            .replace('__DISPLAY_FPS__', str(display_fps)))
 
 
-def make_initramfs(cache, lock, attempt, vcpus=1, timeout_multiplier=1):
+def make_initramfs(cache, lock, attempt, vcpus=1, timeout_multiplier=1, display_fps=1):
+    _validate_display_fps(display_fps)
     guest, packages = attempt / 'initramfs-root', cache / 'packages'
     for name in ('bin', 'proc', 'sys', 'dev', 'tmp', 'run', 'android', 'lib/modules'):
         (guest / name).mkdir(parents=True, exist_ok=True)
@@ -350,7 +353,7 @@ def make_initramfs(cache, lock, attempt, vcpus=1, timeout_multiplier=1):
         loads.append('insmod /lib/modules/' + path.name + argument + fallback)
     # Namespace/root transition follows the separately logged experiment. Its
     # presence does not certify Android boot; inspect actual properties/logs.
-    (guest / 'launch-android.sh').write_text(launch_android_script(timeout_multiplier))
+    (guest / 'launch-android.sh').write_text(launch_android_script(timeout_multiplier, display_fps))
     suffix = INIT_SUFFIX.replace('__VM_CPUSET__', '0' if vcpus == 1 else '0-1')
     (guest / 'init').write_text(INIT_PREFIX + '\n'.join(loads) + suffix)
     (guest / 'init').chmod(0o755)
@@ -365,7 +368,7 @@ LAUNCH_ANDROID = '''#!/bin/sh
 set -e
 export PATH=/bin
 mount --make-rprivate /
-exec /bin/busybox switch_root /android /init qemu=1 androidboot.hardware=redroid androidboot.use_memfd=1 androidboot.redroid_gpu_mode=guest androidboot.redroid_width=360 androidboot.redroid_height=640 androidboot.redroid_fps=1 androidboot.selinux=permissive ro.hw_timeout_multiplier=__HW_TIMEOUT_MULTIPLIER__ ro.dalvik.vm.native.bridge=libndk_translation.so ro.enable.native.bridge.exec=1 ro.product.cpu.abilist=x86_64,arm64-v8a ro.product.cpu.abilist64=x86_64,arm64-v8a
+exec /bin/busybox switch_root /android /init qemu=1 androidboot.hardware=redroid androidboot.use_memfd=1 androidboot.redroid_gpu_mode=guest androidboot.redroid_width=360 androidboot.redroid_height=640 androidboot.redroid_fps=__DISPLAY_FPS__ androidboot.selinux=permissive ro.hw_timeout_multiplier=__HW_TIMEOUT_MULTIPLIER__ ro.dalvik.vm.native.bridge=libndk_translation.so ro.enable.native.bridge.exec=1 ro.product.cpu.abilist=x86_64,arm64-v8a ro.product.cpu.abilist64=x86_64,arm64-v8a
 '''
 
 INIT_PREFIX = '''#!/bin/sh
@@ -462,17 +465,40 @@ exec sh
 '''
 
 
-def start(cache, lock, output, vcpus=1, timeout_multiplier=1, resume_attempt=None):
+def _validate_tb_size(tb_size_mib):
+    if type(tb_size_mib) is not int or tb_size_mib not in (64, 128, 256, 512):
+        raise ValueError('TCG translation cache must be one of 64, 128, 256 or 512 MiB')
+
+
+def _validate_memory(memory_mib):
+    if type(memory_mib) is not int or memory_mib not in (1536, 2048, 3072, 4096):
+        raise ValueError('Guest memory must be one of 1536, 2048, 3072 or 4096 MiB')
+
+
+def _validate_display_fps(display_fps):
+    if type(display_fps) is not int or display_fps not in (1, 5, 10, 15, 30):
+        raise ValueError('Guest display FPS must be one of 1, 5, 10, 15 or 30')
+
+
+def start(cache, lock, output, vcpus=1, timeout_multiplier=1, resume_attempt=None, tb_size_mib=64,
+          memory_mib=1536, display_fps=1):
     if vcpus not in (1, 2):
         raise ValueError('Only 1 or 2 experimental guest vCPUs are supported')
-    launch_android_script(timeout_multiplier)
+    _validate_tb_size(tb_size_mib)
+    _validate_memory(memory_mib)
+    launch_android_script(timeout_multiplier, display_fps)
     prepare.check_platform()
     cache = unlinked_local(cache)
     with start_lock(cache):
-        return _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt)
+        return _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt,
+                             tb_size_mib, memory_mib, display_fps)
 
 
-def _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt):
+def _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt, tb_size_mib=64,
+                  memory_mib=1536, display_fps=1):
+    _validate_tb_size(tb_size_mib)
+    _validate_memory(memory_mib)
+    _validate_display_fps(display_fps)
     active = cache / 'active-vm.json'
     unlinked_local(active)
     if active.exists():
@@ -501,7 +527,7 @@ def _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt
     attempt = prepare.new_attempt(output, 'vm')
     if len(str(attempt / 'qmp.sock').encode()) >= 104:
         raise ValueError('QMP socket path is too long; use a shorter repository-local --output')
-    initrd, modules = make_initramfs(cache, lock, attempt, vcpus, timeout_multiplier)
+    initrd, modules = make_initramfs(cache, lock, attempt, vcpus, timeout_multiplier, display_fps)
     if disk is None:
         disk = attempt / 'android.ext4'
         with (attempt / 'copy-image.log').open('w') as log:
@@ -514,8 +540,8 @@ def _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt
                '-L', str(packages / 'usr/share/qemu'), '-bios',
                str(packages / 'usr/share/seabios/bios-256k.bin'),
                '-machine', 'pc', '-cpu', 'max', '-accel',
-               'tcg,thread=' + ('single' if vcpus == 1 else 'multi'),
-               '-smp', str(vcpus), '-m', '1536', '-display', 'none', '-chardev',
+               'tcg,thread=' + ('single' if vcpus == 1 else 'multi') + ',tb-size=' + str(tb_size_mib),
+               '-smp', str(vcpus), '-m', str(memory_mib), '-display', 'none', '-chardev',
                'socket,id=serial0,host=127.0.0.1,port=15556,server=on,wait=off,logfile=' + str(attempt / 'serial.log'),
                '-serial', 'chardev:serial0', '-monitor', 'none', '-qmp',
                'unix:' + str(qmp_path) + ',server=on,wait=off', '-no-reboot',
@@ -537,7 +563,8 @@ def _start_locked(cache, lock, output, vcpus, timeout_multiplier, resume_attempt
     record = {'schema': 'experimental-software-android-vm.v1', 'experimental': True,
               'pid': process.pid, 'process_starttime': identity, 'command': command,
               'attempt': str(attempt.relative_to(ROOT)), 'qmp_socket': str(qmp_path),
-              'memory_mib': 1536, 'vcpus': vcpus, 'accelerator': 'tcg',
+              'memory_mib': memory_mib, 'display_fps': display_fps,
+              'vcpus': vcpus, 'accelerator': 'tcg', 'tb_size_mib': tb_size_mib,
               'timeout_multiplier': timeout_multiplier,
               'mutable_disk': str(disk.relative_to(ROOT)),
               'disk_owner_attempt': str(disk.parent.relative_to(ROOT)),
@@ -587,6 +614,12 @@ def main():
                         help='Guest CPUs for start; default 1, choose 2 only after load/Watchdog review')
     parser.add_argument('--timeout-multiplier', type=int, choices=range(1, 21), default=1,
                         help='Next cold boot ro.hw_timeout_multiplier; default 1, slow TCG may use 10')
+    parser.add_argument('--tb-size-mib', type=int, choices=(64, 128, 256, 512), default=64,
+                        help='TCG translation code cache for the next start, MiB; default 64')
+    parser.add_argument('--memory-mib', type=int, choices=(1536, 2048, 3072, 4096), default=1536,
+                        help='Guest RAM for the next start only, MiB; default 1536')
+    parser.add_argument('--display-fps', type=int, choices=(1, 5, 10, 15, 30), default=1,
+                        help='Android display FPS for the next cold boot only; default 1')
     parser.add_argument('--resume-attempt',
                         help='Start only: reuse a stopped recorded private disk, mutating it in place; '
                              'new boot logs and evidence are written to a new attempt')
@@ -598,7 +631,8 @@ def main():
     try:
         if args.command == 'start':
             result = start(cache, prepare.load_lock(), args.output, args.vcpus,
-                           args.timeout_multiplier, args.resume_attempt)
+                           args.timeout_multiplier, args.resume_attempt, args.tb_size_mib,
+                           args.memory_mib, args.display_fps)
         elif args.command == 'stop':
             result = stop(cache)
         elif args.command == 'status':

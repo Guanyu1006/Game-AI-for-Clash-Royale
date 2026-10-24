@@ -1,4 +1,12 @@
 {
+  "remote.autoForwardPorts": true,
+  "remote.portsAttributes": {
+    "8772": {
+      "label": "Royale Lab Android / public replay",
+      "onAutoForward": "openBrowserOnce",
+      "protocol": "http"
+    }
+  },
   "files.watcherExclude": {
     "**/.venv*/**": true,
     "**/.cache/**": true,

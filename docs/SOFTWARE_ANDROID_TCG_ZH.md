@@ -1,5 +1,7 @@
 # Codespaces 软件 Android 实验路线
 
+**2026-10-24 视觉实验更新：** 新增的[浏览器原生视觉入口](NATIVE_VISUAL_ZH.md)尚未通过真实画面验收。后续手动 VM 记录为 `outputs/cloud/avm/20261024T052053.185400Z-vm`，也已退出；上传日志显示六次 SIGTERM 高度关联宿主低可用内存，详见[内存诊断与 16 GB 恢复步骤](CODESPACES_MEMORY_DIAGNOSIS_20261024_ZH.md)。后续恢复以同一 cache 的 `active-vm.json` 最新 attempt 为准，不应再以本文的十月二十日记录作为“最新实例”。本轮首次实现证据见[实现报告](NATIVE_VISUAL_IMPLEMENTATION_20261024_ZH.md)。
+
 这是一条 **experimental** 的运行时准备路线：把 Debian Linux 内核与 Android 12 根文件系统放进 QEMU TCG 软件虚拟机。它不依赖 Codespaces 宿主机提供 Binder/KVM，也不在宿主机安装软件或加载内核模块。运行时会较慢；Android 能启动仍不代表 ARM64 游戏、原生探针和训练闭环已经通过。
 
 **2026 年 10 月 20 日已实机跑通有限闭环：4 场原生采集、2 轮 GRU 训练和 2 场新进程模型评估，6/6 自然终局。** [原始闭环报告](../outputs/native_loop_20261020/native-run-002/report.json)、[独立验收](../outputs/native_loop_20261020/native-run-002-acceptance/report.json)分别保存执行和结果复核；2424 条转移、24194 个推进 tick、202 次控制方实际消费，连续 generation 1–6。原生像素、普通单位公平可见性、PPO 与棋力提升仍不在本次验收范围。
@@ -67,6 +69,8 @@ nice -n 10 .venv-cloud/bin/python tools/cloud/software_android_vm.py start \
 `--resume-attempt` 校验旧记录、磁盘路径、PID、QMP、端口和占盘进程，拒绝路径逃逸、链接及异常历史链。它复用旧 attempt 的 **可变磁盘**，在新 attempt 保存日志与 initramfs；原始底盘与旧日志不改。恢复余量最低 1 GiB，新建盘仍要求 10 GiB。连续恢复时指定最新 process.json 对应 attempt，工具跟踪 `resumed_from` 至最早私有盘。中断的游戏不续接，验证标志与 RPC 计数重新开始。
 
 默认只用 **1536 MiB 内存、1 vCPU、TCG 单线程**。每次启动在 `outputs/cloud/android-vm/<时间戳>-vm/` 保存独立磁盘副本、initramfs、命令、进程身份、QMP socket 和日志，不修改准备阶段的 ext4 底盘。`status` 中 QEMU 显示 `running` 只证明虚拟机进程在运行。
+
+TCG 翻译代码缓存现默认 **64 MiB**，可通过 `--tb-size-mib 64|128|256|512` 显式选择。缓存额度与 guest 的 1536 MiB 内存分别计量，QEMU 总内存还包括其他开销。最后一次 64 MiB 实验仍被 SIGTERM 终止，因此这项调整不能作为中断已修复的证据。
 
 若实际 CPU 负载和 Android Watchdog 日志表明 1 vCPU 不足，可在下一次启动时选择 `start --vcpus 2`。该选项同时使用 TCG 多线程与 guest cpuset `0-1`，内存仍保持 1536 MiB；默认不自动提高资源。
 

@@ -12,7 +12,8 @@ from tools.cloud import native_start as start
 
 class FakeADB:
     def __init__(self, pids, *, launch_stdout=None, launch_stderr='', forwards='',
-                 android_api=31, immersive_value='null', immersive_write_persists=True):
+                 android_api=31, immersive_value='null', immersive_write_persists=True,
+                 check_outputs=None):
         self.pids = iter(pids)
         self.calls = []
         self.launch_stdout = launch_stdout
@@ -21,6 +22,7 @@ class FakeADB:
         self.android_api = android_api
         self.immersive_value = immersive_value
         self.immersive_write_persists = immersive_write_persists
+        self.check_outputs = check_outputs or {}
 
     def __call__(self, label, argv, script, timeout):
         self.calls.append((label, argv, script))
@@ -31,10 +33,13 @@ class FakeADB:
         elif label == 'get-state':
             text = 'device\n'
         elif label == 'check-app' or label.startswith('poll-app-'):
-            pid = next(self.pids)
-            text = ('UID=0\nBOOT=1\nAPK_BEGIN\n'
-                    'package:/data/app/nullsroyale.rel.free-fixture/base.apk\nAPK_END\n'
-                    f'PID={pid if pid is not None else ""}\n')
+            if label in self.check_outputs:
+                text = self.check_outputs[label]
+            else:
+                pid = next(self.pids)
+                text = ('UID=0\nBOOT=1\nAPK_BEGIN\n'
+                        'package:/data/app/nullsroyale.rel.free-fixture/base.apk\nAPK_END\n'
+                        f'PID={pid if pid is not None else ""}\n')
         elif label == 'start-app':
             text = (self.launch_stdout if self.launch_stdout is not None
                     else f'Starting: Intent {{ cmp={start.ACTIVITY} }}\n')
@@ -102,6 +107,25 @@ class NativeStartTests(unittest.TestCase):
         self.assertNotIn('immersive_confirmation', report)
         self.assertFalse(any(label == 'start-app' or label.startswith('poll-app-') for label, _, _ in runner.calls))
         self.assertFalse(any(script and ('am start' in script or 'svc power' in script) for _, _, script in runner.calls))
+
+    def test_empty_pid_poll_preserves_accepted_launch_and_reports_unknown_transport(self):
+        report, runner = self.run_fixture([None], start=True, expected_status='unavailable',
+            fake_options={'check_outputs': {'poll-app-01': ''}})
+        self.assertIn('Empty Android shell evidence', report['error'])
+        self.assertIn('unknown', report['error'])
+        self.assertNotIn('already-rooted', report['error'])
+        self.assertTrue(report['start_command_accepted'])
+        self.assertEqual(report['start_commands'], 1)
+        self.assertEqual(sum(label == 'start-app' for label, _, _ in runner.calls), 1)
+        self.assertFalse(any(label == 'forward-probe' for label, _, _ in runner.calls))
+
+    def test_missing_or_duplicate_uid_is_not_treated_as_confirmed_nonroot(self):
+        for text in ('BOOT=1\nPID=123\n', 'UID=0\nUID=0\n'):
+            with self.subTest(text=text):
+                with self.assertRaisesRegex(ValueError, 'root status is unknown'):
+                    start.parse_check(text)
+        with self.assertRaisesRegex(ValueError, 'already-rooted'):
+            start.parse_check('UID=2000\nBOOT=1\nPID=123\n')
 
     def test_default_check_never_forwards_probes_or_mutates(self):
         with patch.object(start, 'probe_status', side_effect=AssertionError('Probe not requested')):

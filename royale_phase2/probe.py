@@ -8,7 +8,9 @@ import json
 import socket
 
 class ProbeUnavailable(RuntimeError):
-    pass
+    def __init__(self, message, *, diagnostics=None):
+        super().__init__(message)
+        self.diagnostics = dict(diagnostics or {})
 
 class ProbeClient:
     def __init__(self,host='127.0.0.1',port=26789,timeout=15,max_reply=8*1024*1024):
@@ -26,11 +28,31 @@ class ProbeClient:
         if self.connection:self.connection.close()
         self.stream=self.connection=None;self.valid=False
 
-    def _receive(self):
+    def _receive(self, phase='command_response'):
         line=self.stream.readline(self.max_reply+1)
-        if not line or len(line)>self.max_reply or not line.endswith(b'\n'):
-            raise ProbeUnavailable('Incomplete or over-limit native response; request outcome unknown')
-        return json.loads(line,parse_constant=lambda x:(_ for _ in ()).throw(ValueError(f'Non-finite JSON: {x}')))
+        diagnostics = {'receive_phase': phase, 'received_bytes': len(line),
+                       'max_reply_bytes': self.max_reply}
+        kind = ('empty_eof' if not line else 'over_limit' if len(line)>self.max_reply
+                else 'partial' if not line.endswith(b'\n') else None)
+        if kind is not None:
+            diagnostics['failure_kind'] = kind
+            raise ProbeUnavailable(
+                'Incomplete or over-limit native response '
+                f'(phase={phase}; kind={kind}; received_bytes={len(line)}; '
+                f'max_reply_bytes={self.max_reply}); request outcome unknown',
+                diagnostics=diagnostics)
+        try:
+            return json.loads(line,parse_constant=lambda x:(_ for _ in ()).throw(ValueError(f'Non-finite JSON: {x}')))
+        except (ValueError, UnicodeError):
+            pass
+        diagnostics['failure_kind'] = 'invalid_json'
+        # Raise outside the decoder's exception handler: JSONDecodeError keeps
+        # the document, so it must not become this exception's context either.
+        raise ProbeUnavailable(
+            'Invalid native JSON response '
+            f'(phase={phase}; kind=invalid_json; received_bytes={len(line)}; '
+            f'max_reply_bytes={self.max_reply}); request outcome unknown',
+            diagnostics=diagnostics) from None
 
     def connect(self):
         if self.connection:return
@@ -38,7 +60,7 @@ class ProbeClient:
             self.connection=socket.create_connection(self.address,timeout=self.timeout)
             self.stream=self.connection.makefile('rb')
             self.connection.sendall(b'session-v1\n')
-            greeting=self._receive()
+            greeting=self._receive('session_handshake')
             if not isinstance(greeting,dict) or greeting.get('ok') is not True:
                 raise ProbeUnavailable(f'Native probe session not accepted: {greeting}')
             self.valid=True
@@ -51,7 +73,7 @@ class ProbeClient:
         try:
             self.connect()
             self.connection.sendall(command.encode('utf-8')+b'\n')
-            response=self._receive()
+            response=self._receive('command_response')
             if isinstance(response,dict) and response.get('ok') is False:
                 raise ProbeUnavailable(f'Native command rejected: {response.get("error")}')
             return response
