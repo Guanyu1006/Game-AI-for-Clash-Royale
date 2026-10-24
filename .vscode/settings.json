@@ -1,0 +1,22 @@
+{
+  "files.watcherExclude": {
+    "**/.venv*/**": true,
+    "**/.cache/**": true,
+    "**/.tmp/**": true,
+    "**/outputs/**": true,
+    "**/data/**": true,
+    "**/models/**": true,
+    "**/third_party/phase2/runtime-assets/**": true,
+    "**/third_party/phase2/firstlight/user-provided/**": true
+  },
+  "search.exclude": {
+    "**/.venv*/**": true,
+    "**/.cache/**": true,
+    "**/.tmp/**": true,
+    "**/outputs/**": true,
+    "**/data/**": true,
+    "**/models/**": true,
+    "**/third_party/phase2/runtime-assets/**": true,
+    "**/third_party/phase2/firstlight/user-provided/**": true
+  }
+}

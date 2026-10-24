@@ -1,6 +1,14 @@
 # 阻碍与继续路径
 
-## 当前待排查
+2026 年 10 月 20 日最终实机记录：本次 Codespaces 原生小规模闭环已实机通过：4 场采集、2 轮 GRU 训练、新进程加载后 2 场评估，6/6 自然终局，2424 条转移、24194 个推进 tick、202 次控制方实际消费。原生资源 828 项与更新文件 652 项校验通过，实际 Android／ARM64 libg／probe 已启动并取得当前进程身份，连续六局 generation 1–6。新数据 train 1113 行／3 局，validation 352 行／1 局，无 test；模型 29415 参数，新进程评估消费 90 次，重新导出 959 行。见[原始闭环报告](../outputs/native_loop_20261020/native-run-002/report.json)、[独立验收](../outputs/native_loop_20261020/native-run-002-acceptance/report.json)和[中文操作指南](../docs/NATIVE_LOOP_ZH.md)。
+
+便携检查 225 项通过；实际回放浏览器检查另记。软件 VM 已在验收后停止以降低负载，模型、磁盘与日志保留。窗口中断根因未证实，见[中断核查](../docs/WINDOW_RESTART_20261020_ZH.md)。
+
+剩余平台工作：按已完成阶段恢复中断批次、原生 renderer／浏览器实时控制、普通单位公平可见性与特殊动作范围、运行吞吐基准。当前不开展全部阶段三任务，不宣称原生 PPO、官方交互等价或棋力提升。
+
+下列“待排查”记录来自此前本地 Windows 环境，保留其证据，不据此推断当前 Codespaces 存在 VM 或隧道。
+
+## 本地 Windows 历史待排查（2026-10-18）
 
 - 沙箱内CIM拒绝和本地连接不可见；受审查的只读runtime status确认VM/隧道存在，但RPC timed out。保留：outputs/platform_next/runtime/20261018T062827.786073Z-status-17212 与 20261018T062844.926003Z-status-32912。
 - 非塔对象visibility=unknown；无法直接达成可信战场实体输入的公平性验收。先实现严格投影/不变性，研究组另列。

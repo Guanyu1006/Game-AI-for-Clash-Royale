@@ -6,6 +6,21 @@ from .actions import DECK,STEP_TICKS,mask,native_to_grid
 
 def split_for(index): return {3:'validation',4:'test'}.get(index%5,'train')
 
+def transition_end_tick(states,decision,max_tick):
+    """Resolve the recorded interval, allowing a shorter natural terminal only."""
+    tick=decision['tick']
+    if type(max_tick) is not int or type(tick) is not int or not 0<=tick<max_tick:
+        raise ValueError('Invalid decision tick or watchdog tick')
+    requested=decision.get('dt_ticks',min(STEP_TICKS,max_tick-tick))
+    if (type(requested) is not int or
+            not 1<=requested<=STEP_TICKS or tick+requested>max_tick):
+        raise ValueError('Invalid recorded control interval or watchdog tick')
+    boundary=tick+requested
+    candidates=[t for t,state in states.items() if tick<t<=boundary and
+        (state['finalized'] or t==boundary)]
+    if not candidates:raise ValueError(f'Missing transition end state for tick {tick}, expected {boundary}')
+    return min(candidates)
+
 def world_target(observation):
     towers={(t['side'],t['role']):t for t in observation['towers']}
     values=[observation['own_elixir_raw']/100000]; masks=[True]
@@ -50,6 +65,7 @@ def export(source,output,profile='fair',limit=None):
     from royale_phase2.visibility import project_actor,TowerAttestation
     from royale_phase3.observation import ObservationProjector,encode_observation,feature_spec
     from royale_phase3.belief import PublicBelief,encode_belief
+    configuration=read(local(source)/'configuration.json');max_tick=configuration['max_tick']
     folder=local(output)
     if folder.exists():raise FileExistsError('Immutable export destination already exists')
     folder.mkdir(parents=True)
@@ -83,7 +99,7 @@ def export(source,output,profile='fair',limit=None):
                     prior[owner]=bf;observation=projectors[owner].project(bf);observations.append(observation)
                 prepared.append((decision,observations))
             for index,(decision,observations) in enumerate(prepared):
-                tick=decision['tick'];next_tick=min(t for t in states if t>tick and (t>=tick+STEP_TICKS or states[t]['finalized']))
+                tick=decision['tick'];next_tick=transition_end_tick(states,decision,max_tick)
                 next_raw=states[next_tick]
                 for owner in (0,1):
                     observation=observations[owner];record=decision['owners'][owner];action=record['action']
@@ -108,7 +124,7 @@ def export(source,output,profile='fair',limit=None):
                         'action_semantics':'native requested coordinate; final deployment point unknown',
                         'dt_ticks':round(observation['dt_seconds']*20) if observation['dt_seconds'] is not None else 0,
                         'elapsed_dt_known':observation['dt_seconds'] is not None,
-                        'transition_dt_ticks':next_tick-tick,'planned_control_ticks':STEP_TICKS,
+                        'transition_dt_ticks':next_tick-tick,'planned_control_ticks':decision.get('dt_ticks',min(STEP_TICKS,max_tick-tick)),
                         'sampling_probability':1.,'natural_weight':1.,
                         'wait_semantics':'No confirmed native play requested in fixed sampling interval; not a human explicit WAIT',
                         'hud':encode_observation(observation,cards=DECK,include_entities=False,include_history=False),
@@ -120,7 +136,7 @@ def export(source,output,profile='fair',limit=None):
                         'xy':[action['x']/17999,action['y']/31999] if action_index else [0.,0.],
                         'position_mask':bool(action_index),'card_id':action['card'] if action_index else None,
                         'loss_mask': action['kind']=='wait' or confirmed,
-                        'terminated':next_raw['finalized'],'truncated':not next_raw['finalized'] and next_tick>=7200,
+                        'terminated':next_raw['finalized'],'truncated':not next_raw['finalized'] and next_tick>=max_tick,
                         'targets':{'world':world,'world_mask':world_mask,'opponent':next_opponent,'opponent_mask':opponent_valid},
                         'evidence':{'game':episode,'request_id':record.get('request_id'),'source_kind':result['source_kind']}}
                     assert row['mask'][row['action_index']]
@@ -135,7 +151,7 @@ def export(source,output,profile='fair',limit=None):
     metadata={'schema':'phase3-learning-dataset.v1','task_id':digest({'source':audit['configuration'],'games':[r['semantic_trajectory_hash'] for r in qualified],'profile':profile})[:16],
         'rows':reference(target),'feature_dims':dim,'observation_profile':profile,
         'version_fingerprint_sha256':qualified[0]['version_fingerprint'] if qualified else None,
-        'control_ticks':STEP_TICKS,'ticks_per_second':20,'split_groups':split_groups,'card_vocabulary':list(DECK),
+        'control_ticks':STEP_TICKS,'max_tick':max_tick,'ticks_per_second':20,'split_groups':split_groups,'card_vocabulary':list(DECK),
         'source':reference(folder/'data_audit.json'),'counts':{split:{key:value for (s,key),value in count.items() if s==split} for split in split_groups},
         'feature_spec':feature_spec(cards=DECK),'world_target_dimension':9,
         'feature_sources':[reference('royale_phase3/observation.py'),reference('royale_phase3/belief.py'),reference('royale_phase3/actions.py'),reference('royale_phase3/data.py')],

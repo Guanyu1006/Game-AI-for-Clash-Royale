@@ -1,0 +1,738 @@
+{
+  "schema": "royale-research-platform-audit.v1",
+  "observed_at": "2026-10-20T17:36:24.307712+08:00",
+  "scope": "Current Codespaces source and bounded offline execution; historical summaries are not current native acceptance",
+  "workspace": "/workspaces/Game-AI-for-Clash-Royale",
+  "branch": "dev/main-start-20261020",
+  "commit": "2d4b0a6002be4bcb02c092290a03a08b4791517a",
+  "origin_main_after_fetch": "2d4b0a6002be4bcb02c092290a03a08b4791517a",
+  "head_origin_main_left_right": "0\t0",
+  "remote_fetch_exit_code": 0,
+  "native_rpc_calls": 0,
+  "independent_training_jobs": 0,
+  "test_model_evaluations": 0,
+  "environment": {
+    "python": "3.12.11 (main, Jul  1 2025, 05:29:09) [GCC 12.2.0]",
+    "executable": "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+    "logical_cpus": 2,
+    "modules": {
+      "numpy": true,
+      "torch": true,
+      "pyarrow": false
+    },
+    "assets": {
+      "status": "pass",
+      "files": 572,
+      "scope": "Reviewed portable payload integrity only; no native or strength claim"
+    },
+    "native": {
+      "system": "Linux",
+      "machine": "x86_64",
+      "binder_devices": {
+        "/dev/binder": false,
+        "/dev/binderfs/binder-control": false,
+        "/dev/ashmem": false
+      },
+      "docker": null,
+      "docker_info": null,
+      "native_runtime_verified": false,
+      "rpc_calls": 0,
+      "privileged_containers_tested": false,
+      "reason": "This read-only check does not prove Android/probe/assets compatibility. Native deployment requires a separate actual reset/play/terminal acceptance."
+    }
+  },
+  "test_results": {
+    "portable": {
+      "tests_run": 56,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "phase2_extended": {
+      "tests_run": 128,
+      "failures": 1,
+      "errors": 87,
+      "skipped": 1,
+      "passed": false,
+      "note": "Errors include setUpClass; do not derive success count by subtraction"
+    },
+    "phase3_extra": {
+      "tests_run": 36,
+      "failures": 1,
+      "errors": 14,
+      "skipped": 1,
+      "passed": false
+    },
+    "legacy_phase3_observation": {
+      "tests_run": 26,
+      "errors": 25,
+      "passed": false,
+      "note": "Missing original session fixtures and CSV assets"
+    }
+  },
+  "inference": {
+    "numeric_saved_decoding_matches": 3,
+    "numeric_samples": 3,
+    "fresh_legality_revalidated": false,
+    "gru_train_samples": 8
+  },
+  "http": {
+    "routes": {
+      "/": 200,
+      "/api/status": 200,
+      "/api/infer": 200,
+      "/api/gru": 200,
+      "/api/state": 404
+    },
+    "native_connected": false,
+    "process_stopped": true
+  },
+  "mvp_smoke": {
+    "exit_code": 0,
+    "duration_seconds": 1.0,
+    "decisions": 1,
+    "plays": 0,
+    "scope": "Pure Python approximate sandbox only; no native RPC"
+  },
+  "saved_phase3_rows": {
+    "scope": "Read-only saved derived rows; no raw/native reconstruction, training or native RPC",
+    "sha256": "a87ccc48f89cc7c121d81a4b4dec22f5aceb28f6644b379b492b3c6943111012",
+    "rows": 1618,
+    "counts": {
+      "train": {
+        "rows": 654,
+        "play": 43,
+        "wait": 611
+      },
+      "validation": {
+        "rows": 260,
+        "play": 17,
+        "wait": 243
+      },
+      "test": {
+        "rows": 704,
+        "play": 51,
+        "wait": 653
+      }
+    },
+    "split_groups": {
+      "train": [
+        "native-330000",
+        "native-330001",
+        "native-330002"
+      ],
+      "validation": [
+        "native-330003"
+      ],
+      "test": [
+        "native-330004"
+      ]
+    },
+    "dims": {
+      "hud": [
+        96
+      ],
+      "observation": [
+        464
+      ],
+      "history": [
+        688
+      ],
+      "belief": [
+        15
+      ],
+      "feedback": [
+        4
+      ]
+    },
+    "termination_flags": {
+      "(False, False)": 1608,
+      "(True, False)": 10
+    },
+    "checks": {
+      "mask_accepts_label": 1618,
+      "observation_entity_block_all_zero": 1618,
+      "history_entity_block_all_zero": 1618,
+      "hud_equals_observation_prefix": 1618,
+      "confirmed_play_execution_is_plan": 111,
+      "history_block_nonzero": 1608
+    },
+    "native_manifest_identity": {
+      "status": "unavailable",
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/Game-AI-for-Clash-Royale/outputs/phase2/native/offline-native-smoke.apk'",
+      "native_rpc_calls": 0
+    },
+    "confirmation_scope": "Counts of saved derived episode groups and confirmation labels; raw/native independence and consumption not revalidated"
+  },
+  "contract_probes": {
+    "native_rpc_calls": 0,
+    "independent_training_jobs": 0,
+    "test_model_evaluations": 0,
+    "aligned_bc_signature": "(self, actor, *, legal_mask=None)",
+    "aligned_bc_positional_mask_error": "too many positional arguments",
+    "reset_probe": {
+      "scope": "Actual reset method with mocked backend, belief, policy and file writes; no native execution",
+      "episode_id_changed": true,
+      "old_feedback_retained": true,
+      "old_decisions_retained": true,
+      "same_initialization_path_rewritten": true,
+      "same_states_path_appended": true,
+      "real_file_writes": 0,
+      "native_rpc_calls": 0
+    },
+    "dataset": {
+      "rows": 1618,
+      "episodes": 5,
+      "confirmed_plays": 111,
+      "terminated_rows": 10,
+      "truncated_rows": 0,
+      "train_learned_rows_per_epoch": 654,
+      "train_window_episode_owner_isolation": true,
+      "feature_sources": [
+        {
+          "path": "royale_phase3/observation.py",
+          "matches_current_source": true
+        },
+        {
+          "path": "royale_phase3/belief.py",
+          "matches_current_source": false
+        },
+        {
+          "path": "royale_phase3/actions.py",
+          "matches_current_source": true
+        },
+        {
+          "path": "royale_phase3/data.py",
+          "matches_current_source": true
+        }
+      ],
+      "confirmation_scope": "Saved derived labels only; no fresh native consumption proof"
+    }
+  },
+  "historical_source_artifacts": {
+    "qualified_games_summary": 17,
+    "confirmed_plays_summary": 410,
+    "references": 119,
+    "missing": 51,
+    "present_byte_hash_mismatches": 34,
+    "mismatch_scope": "Initialization/journal files match portable MANIFEST but differ from historical source audit references; cause not established",
+    "historical_mismatches_matching_portable_manifest": 34
+  },
+  "confirmed_gaps": [
+    "Missing phase3_acceptance.py",
+    "Windows-only baseline/play/live transport paths",
+    "aligned_bc positional legal_mask argument",
+    "NativePhase3Env repeated reset retains old feedback/decisions and reuses output paths",
+    "Fair observations contain no non-tower entities",
+    "Current workspace lacks complete raw/native/image fixtures",
+    "Source batch counts differ from limited training export",
+    "Belief feature-source hash differs from current source",
+    "Transition terminal semantics and general RL fields are incomplete",
+    "Human UI readiness does not exclude truncated",
+    "Phase3 time-matched event correctness uses slot identity"
+  ],
+  "commands": [
+    {
+      "label": "remote_fetch",
+      "args": [
+        "git",
+        "fetch",
+        "origin"
+      ],
+      "started_utc": "2026-10-20T09:28:28.799758+00:00",
+      "seconds": 0.368,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/remote_fetch.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "branch",
+      "args": [
+        "git",
+        "rev-parse",
+        "HEAD",
+        "origin/main",
+        "main"
+      ],
+      "started_utc": "2026-10-20T09:28:29.168619+00:00",
+      "seconds": 0.003,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/branch.log",
+      "sha256": "f8eeeaea854dbb7fb78db8c43c4ff014440fc71ba63634ffbe8c660041fb2b21"
+    },
+    {
+      "label": "remote_difference",
+      "args": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "HEAD...origin/main"
+      ],
+      "started_utc": "2026-10-20T09:28:29.173314+00:00",
+      "seconds": 0.004,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/remote_difference.log",
+      "sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c"
+    },
+    {
+      "label": "doctor",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/cloud/workspace.py",
+        "doctor"
+      ],
+      "started_utc": "2026-10-20T09:28:29.177657+00:00",
+      "seconds": 0.319,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/doctor.log",
+      "sha256": "c0434c4ffbaad212dd6d9ad6b6ddc9714bf7b550c9442a396fcb7c0acb404ef6"
+    },
+    {
+      "label": "portable_tests",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/cloud/workspace.py",
+        "test"
+      ],
+      "started_utc": "2026-10-20T09:28:29.497514+00:00",
+      "seconds": 4.294,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/portable_tests.log",
+      "sha256": "1d559fbaa0fef69639bd9e786479a12390888342913f86d6cbb623d9f1f90d4c"
+    },
+    {
+      "label": "phase3_extra_tests",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "tests_phase3.test_evaluation",
+        "tests_phase3.test_belief",
+        "tests_phase3.test_sources"
+      ],
+      "started_utc": "2026-10-20T09:28:33.793385+00:00",
+      "seconds": 0.976,
+      "exit_code": 1,
+      "log": "outputs/platform_audit_20261020/phase3_extra_tests.log",
+      "sha256": "0cccf7cac921d3ec282aadcd86b7dd99f131fe6ad7b3257ad6429d06696ec5cc"
+    },
+    {
+      "label": "phase2_tests",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests_phase2",
+        "-v"
+      ],
+      "started_utc": "2026-10-20T09:28:34.770727+00:00",
+      "seconds": 1.226,
+      "exit_code": 1,
+      "log": "outputs/platform_audit_20261020/phase2_tests.log",
+      "sha256": "b07ff350ad4703a7da28d7e527dea112e5aaf62511b39044525913771e58bbf3"
+    },
+    {
+      "label": "numeric_infer",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/cloud/workspace.py",
+        "infer"
+      ],
+      "started_utc": "2026-10-20T09:28:35.998173+00:00",
+      "seconds": 0.468,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/numeric_infer.log",
+      "sha256": "c1a770d6eea6a918522d0fb5877fa1b3f1156a6e216e59daa364e47a7cf916ac"
+    },
+    {
+      "label": "gru_infer",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/cloud/workspace.py",
+        "infer-gru"
+      ],
+      "started_utc": "2026-10-20T09:28:36.467027+00:00",
+      "seconds": 4.068,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/gru_infer.log",
+      "sha256": "d92524c38215930f38d86918599273f8178b0a7cdbebb7ddd30384984d0ebca9"
+    },
+    {
+      "label": "phase3_doctor",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/phase3.py",
+        "doctor",
+        "--output",
+        "outputs/platform_audit_20261020/phase3_doctor.json"
+      ],
+      "started_utc": "2026-10-20T09:28:40.535966+00:00",
+      "seconds": 1.929,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/phase3_doctor.log",
+      "sha256": "59956b056f5295e4cf36a19c1444277cdf7cd5723e579c3b70f322155c7f5ed6"
+    },
+    {
+      "label": "acceptance_entry",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/phase3.py",
+        "acceptance",
+        "--help"
+      ],
+      "started_utc": "2026-10-20T09:28:42.465455+00:00",
+      "seconds": 0.065,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/acceptance_entry.log",
+      "sha256": "918749f66f327bf5b8c46bf2aa97464cfb27c4ba5b821d96d0ebf1f3a8c0aac5"
+    },
+    {
+      "label": "baseline_entry",
+      "args": [
+        "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+        "tools/phase3.py",
+        "baseline-audit",
+        "--help"
+      ],
+      "started_utc": "2026-10-20T09:28:42.531153+00:00",
+      "seconds": 0.064,
+      "exit_code": 0,
+      "log": "outputs/platform_audit_20261020/baseline_entry.log",
+      "sha256": "918749f66f327bf5b8c46bf2aa97464cfb27c4ba5b821d96d0ebf1f3a8c0aac5"
+    },
+    {
+      "label": "acceptance_execution",
+      "args": [
+        ".venv-cloud/bin/python",
+        "tools/phase3.py",
+        "acceptance"
+      ],
+      "seconds": 0.053,
+      "exit_code": 1,
+      "log": "outputs/platform_audit_20261020/acceptance_execution.log",
+      "sha256": "2791f48c0fb4933b144344ebbd26fd450fc446f19a0450037e01dc0dcd4e2fad"
+    },
+    {
+      "label": "baseline_execution",
+      "args": [
+        ".venv-cloud/bin/python",
+        "tools/phase3.py",
+        "baseline-audit"
+      ],
+      "seconds": 0.059,
+      "exit_code": 1,
+      "log": "outputs/platform_audit_20261020/baseline_execution.log",
+      "sha256": "0b2690ba12053bb8dc0d27a09672f48f77369c7f338b02cb48c716bfa01d5519"
+    }
+  ],
+  "code_references": [
+    {
+      "path": "tools/cloud/workspace.py",
+      "sha256": "4c85da2e1ee084e017a864c70c4b605784ce3e55daf4e876556d9c0ec86bbe95",
+      "bytes": 9827
+    },
+    {
+      "path": "tools/cloud/train_cache.py",
+      "sha256": "54523952b17f0c11afec63d1571a204589a31ff50b19c8f40da47210b7e3b5f9",
+      "bytes": 3663
+    },
+    {
+      "path": "tools/phase3.py",
+      "sha256": "730428da0ceb75df371f4cb20d74976ef8c4368c2c9b6e6fb8bf9ad904bf16dc",
+      "bytes": 1889
+    },
+    {
+      "path": "tools/phase3_native_evaluate.py",
+      "sha256": "bfc16c4820fbf8ca066c4c3c4b6197a2b45ac3f64f8914a21e5df4f3fa816510",
+      "bytes": 6846
+    },
+    {
+      "path": "royale_phase2/backend.py",
+      "sha256": "58542032c2cd23b450369d9aca7e3ee282701b140a3a2e3f21cd961e10dff9e9",
+      "bytes": 27947
+    },
+    {
+      "path": "royale_phase2/visibility.py",
+      "sha256": "636020bc2ab7d856ab9541c1e20a8f7bc748e768ea37ab9e2174dcaa588f165e",
+      "bytes": 7280
+    },
+    {
+      "path": "royale_phase2/battlefield.py",
+      "sha256": "467e2b5f540152f39716f48e2f576ab45130f45c392c92a204c6b09cf6889769",
+      "bytes": 13578
+    },
+    {
+      "path": "royale_phase2/observability.py",
+      "sha256": "de4e753740d351d9c7093a2f23181faf5a818a87f4d37b110ffe5d1735336c4e",
+      "bytes": 16411
+    },
+    {
+      "path": "royale_phase2/agent_env.py",
+      "sha256": "27aba57712739172b86e2b0551b374a8f040e837e8c81c3033176faaf496bab2",
+      "bytes": 11549
+    },
+    {
+      "path": "royale_phase2/trajectories.py",
+      "sha256": "4b7bde6ee459a6408c67c4fc510b8e8bcfe12ffcc656fef4a4ea162f1a54dc72",
+      "bytes": 65447
+    },
+    {
+      "path": "royale_phase2/learning.py",
+      "sha256": "088612e48825f8b7e622d90ce35448b48772c8a9c3cd5acbc03800b8aa150a35",
+      "bytes": 29031
+    },
+    {
+      "path": "royale_phase2/platform.py",
+      "sha256": "87b2ff3ea235b87f80bf57b08ab60654698349168051daceef85f27dbd067b0c",
+      "bytes": 33733
+    },
+    {
+      "path": "royale_phase2/human.py",
+      "sha256": "d7d0c1d049d64daae99142a2945a74fb223aedd137203ee2653ea9a9b0f700b1",
+      "bytes": 12352
+    },
+    {
+      "path": "royale_phase2/human_ui.html",
+      "sha256": "c977bcb298bacf6d2c6c267e90e784f844bc8d1e0d65f844e3556db31bff300c",
+      "bytes": 26941
+    },
+    {
+      "path": "royale_phase2/viewer.py",
+      "sha256": "b4162b3d310a01aa11edc76815497428e3b29840099a7cab7aa5fed99b22dfd1",
+      "bytes": 39091
+    },
+    {
+      "path": "royale_phase3/observation.py",
+      "sha256": "f151bcd748925e6827c94364e01705a2878e68377c2f61e436d76b83862b0a54",
+      "bytes": 16558
+    },
+    {
+      "path": "royale_phase3/belief.py",
+      "sha256": "5e34291fbaa02390644303045af4e0da215fa87cd8556df0376c20d12f489e9d",
+      "bytes": 8346
+    },
+    {
+      "path": "royale_phase3/actions.py",
+      "sha256": "8fa9d5d6016e373e943b0a136f7305a11fb9ea02d86bd8f0d7896ab364af22dd",
+      "bytes": 3689
+    },
+    {
+      "path": "royale_phase3/data.py",
+      "sha256": "6df575b51f6f26d73abb52f36f2628cea813bdcab3381cf9f46bd99eeca0e6f2",
+      "bytes": 12340
+    },
+    {
+      "path": "royale_phase3/collection.py",
+      "sha256": "150fc7805933185dc0035a2ba7e019198084be696eaf023f6d7d4315c091303d",
+      "bytes": 6976
+    },
+    {
+      "path": "royale_phase3/learning.py",
+      "sha256": "705ea1984088801e4aeaa3a042768beeb4221f79428bed2a253f7d07935a8b90",
+      "bytes": 31717
+    },
+    {
+      "path": "royale_phase3/native_env.py",
+      "sha256": "5d3fd02dd0558ac4cdc77dfac16693bd056f1822e9f90ac47110e38d60cf62eb",
+      "bytes": 6484
+    },
+    {
+      "path": "royale_phase3/world.py",
+      "sha256": "39b78a73406bdc76dbf95488ca9497e710f7f50c731263024b17b80e129e1f80",
+      "bytes": 10101
+    },
+    {
+      "path": "royale_phase3/evaluation.py",
+      "sha256": "251e706d78345b9df2903360064c6b384971f31b40a7b30ed733da8275147aa5",
+      "bytes": 12609
+    }
+  ],
+  "input_references": [
+    {
+      "path": "shared_assets/MANIFEST.json",
+      "sha256": "a6795722015d849dab40ce159b7944322fe21c0e4b16b82c6938dc7b353e08a2",
+      "bytes": 212771
+    },
+    {
+      "path": "data/phase3/native/pilot-003/metadata.json",
+      "sha256": "11f87b08817ac2b75201bab9c645d8f55afeb0fbca658cc518c66a24e32aacd1",
+      "bytes": 3863
+    },
+    {
+      "path": "data/phase3/native/pilot-003/rows.jsonl",
+      "sha256": "a87ccc48f89cc7c121d81a4b4dec22f5aceb28f6644b379b492b3c6943111012",
+      "bytes": 10447795
+    },
+    {
+      "path": "data/phase3/native/pilot-003/data_audit.json",
+      "sha256": "df1841b77be0f5cee2e2c450c4382be39df8cf71abdc5d7a8c1633de1476b017",
+      "bytes": 44943
+    }
+  ],
+  "local_evidence": [
+    {
+      "path": "outputs/platform_audit_20261020/acceptance_entry.log",
+      "bytes": 402,
+      "sha256": "918749f66f327bf5b8c46bf2aa97464cfb27c4ba5b821d96d0ebf1f3a8c0aac5"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/acceptance_execution.log",
+      "bytes": 596,
+      "sha256": "2791f48c0fb4933b144344ebbd26fd450fc446f19a0450037e01dc0dcd4e2fad"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/baseline_entry.log",
+      "bytes": 402,
+      "sha256": "918749f66f327bf5b8c46bf2aa97464cfb27c4ba5b821d96d0ebf1f3a8c0aac5"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/baseline_execution.log",
+      "bytes": 1054,
+      "sha256": "0b2690ba12053bb8dc0d27a09672f48f77369c7f338b02cb48c716bfa01d5519"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/branch.log",
+      "bytes": 123,
+      "sha256": "f8eeeaea854dbb7fb78db8c43c4ff014440fc71ba63634ffbe8c660041fb2b21"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/checks.json",
+      "bytes": 5832,
+      "sha256": "67b54c7d260af39305731837423605f95f9e3adcb7abe00df645312a807d1d31"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/contract-probes.json",
+      "bytes": 8293,
+      "sha256": "efaf628c87fb5d650a1716416b68b09c2e8ccad998ce92a5d070f948d4441610"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/contract-probes.log",
+      "bytes": 4011,
+      "sha256": "51dfc0bb03e4bd882654bba3d847a89b36a4cbfb7ce4a05cebde0d162e47c317"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/doctor.log",
+      "bytes": 1175,
+      "sha256": "c0434c4ffbaad212dd6d9ad6b6ddc9714bf7b550c9442a396fcb7c0acb404ef6"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/gru_infer.log",
+      "bytes": 1680,
+      "sha256": "d92524c38215930f38d86918599273f8178b0a7cdbebb7ddd30384984d0ebca9"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/mvp-smoke.json",
+      "bytes": 1371,
+      "sha256": "2c09acc89754685ae2cf61a3f26c93b07965534d7a119272d1d697a13b140948"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/mvp-smoke.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/mvp-smoke.stdout.log",
+      "bytes": 704,
+      "sha256": "766bc140588e11078313f1d386650d54b5a41e56ffbe4dd8cd081ea8c4f5dc89"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/numeric_infer.log",
+      "bytes": 919,
+      "sha256": "c1a770d6eea6a918522d0fb5877fa1b3f1156a6e216e59daa364e47a7cf916ac"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/phase2_tests.log",
+      "bytes": 134903,
+      "sha256": "b07ff350ad4703a7da28d7e527dea112e5aaf62511b39044525913771e58bbf3"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/phase3_doctor.json",
+      "bytes": 931,
+      "sha256": "813ae5df000bf712a0bf8160a1e89c1da00063661052824d40a4431f3e8d2ded"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/phase3_doctor.log",
+      "bytes": 822,
+      "sha256": "59956b056f5295e4cf36a19c1444277cdf7cd5723e579c3b70f322155c7f5ed6"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/phase3_extra_tests.log",
+      "bytes": 29237,
+      "sha256": "0cccf7cac921d3ec282aadcd86b7dd99f131fe6ad7b3257ad6429d06696ec5cc"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/portable_tests.log",
+      "bytes": 9703,
+      "sha256": "1d559fbaa0fef69639bd9e786479a12390888342913f86d6cbb623d9f1f90d4c"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/probe_contracts.py",
+      "bytes": 4743,
+      "sha256": "db2a6caa5770bdae0ff1ca1cb8c279b3f0d965b0163754b6fc35b61a659017c0"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/remote_difference.log",
+      "bytes": 4,
+      "sha256": "4b14c7b5549e560a68e9c4daaae3fdb8a28fe32d0247050325e7c5a3b2b3271c"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/remote_fetch.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/run_checks.py",
+      "bytes": 2760,
+      "sha256": "e424cb7633c9059a66cc0e30231352461a75c34ae000f1cef62264ab6c733f8a"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/state_actions_contract_tests.log",
+      "bytes": 40874,
+      "sha256": "fd343a31c43aefbe93ab3c09808901aa14a271802a8d5fdc1089347facc102d4"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/state_actions_notes.md",
+      "bytes": 14184,
+      "sha256": "ec16037825b087f679990e3cf8a2715fba5df68bcd75310aaf2ee97e70c3f745"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/state_actions_saved_rows.json",
+      "bytes": 2692,
+      "sha256": "279b4a6ffa07aedd4be31ac1c9c7e39166d079f033f857ac6b348a3b8e8f52ff"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/training_evaluation_notes.md",
+      "bytes": 17717,
+      "sha256": "de3d00eef6930c8976a5444590a0cb71153bb294007f175d73a828361da82da9"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/visualization-capabilities.json",
+      "bytes": 1393,
+      "sha256": "2f1b6289793f4c3ffdf7219dc39aca488c6397b226f47ceb06fed8c5220ca622"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/visualization_runtime_notes.md",
+      "bytes": 16115,
+      "sha256": "a6b8592a6e98f9e7bdb0e21bd01659d6424ae96b2364c775b9958d99094d04fd"
+    },
+    {
+      "path": "outputs/platform_audit_20261020/workbench-http.json",
+      "bytes": 5953,
+      "sha256": "7c6c364db4aa36a2b0a0bc7516fec6dcf3f300e22ce71b915e5e20d5f9629290"
+    }
+  ],
+  "limits": [
+    "No current native reset/play/terminal/rendering acceptance",
+    "No strategy strength conclusion",
+    "Portable tests include synthetic micro-training and resume checks",
+    "Data label inventory is not test model scoring",
+    "outputs logs are intentionally ignored by Git; this summary is suitable for version control"
+  ]
+}

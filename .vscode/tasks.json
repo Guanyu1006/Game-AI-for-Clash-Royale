@@ -4,7 +4,7 @@
     {
       "label": "Cloud: doctor",
       "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
       "args": [
         "tools/cloud/workspace.py",
         "doctor"
@@ -14,7 +14,7 @@
     {
       "label": "Cloud: tests",
       "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
       "args": [
         "tools/cloud/workspace.py",
         "test"
@@ -24,7 +24,7 @@
     {
       "label": "Cloud: train NumPy BC",
       "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
       "args": [
         "tools/cloud/workspace.py",
         "train",
@@ -36,10 +36,77 @@
     {
       "label": "Cloud: research page",
       "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
       "args": [
         "tools/cloud/workspace.py",
         "serve"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: setup research environment",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        "tools/cloud/bootstrap.sh",
+        "--ml",
+        "--research"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: offline acceptance",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
+      "args": [
+        "tools/phase3.py",
+        "acceptance"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: data check",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
+      "args": [
+        "tools/cloud/workspace.py",
+        "data-check"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: replay inspect",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
+      "args": [
+        "tools/cloud/workspace.py",
+        "replay"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: simulate 30 seconds",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
+      "args": [
+        "tools/cloud/workspace.py",
+        "simulate",
+        "--seconds",
+        "30",
+        "--seed",
+        "0"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Cloud: complete development smoke",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv-cloud/bin/python",
+      "args": [
+        "tools/cloud/workspace.py",
+        "smoke",
+        "--epochs",
+        "2"
       ],
       "problemMatcher": []
     }

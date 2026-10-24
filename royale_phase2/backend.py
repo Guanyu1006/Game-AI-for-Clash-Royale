@@ -19,6 +19,7 @@ import uuid
 from .probe import ProbeClient, ProbeUnavailable
 from .runtime import local, target
 from .versioning import verify_manifest, VersionMismatch
+from .connection import load_connection, verify_runtime_identity
 from .visibility import project_actor, TowerAttestation
 
 
@@ -126,10 +127,18 @@ class NativeBattleBackend:
     state_schema = 'cr-minimal.v4'
 
     def __init__(self, version_manifest='data/phase2/version_manifest.json', port=26789,
-                 rendered=False, timeout=60, identity_path=None, trace_path=None, advance_mode='atomic'):
+                 rendered=False, timeout=60, identity_path=None, trace_path=None, advance_mode='atomic',
+                 connection_config=None):
         if advance_mode not in ('atomic', 'two_rpc'):
             raise ValueError('advance_mode must be atomic or two_rpc')
         self.advance_mode = advance_mode
+        connection = load_connection(connection_config)
+        if connection is not None:
+            version_manifest = connection.version_manifest
+            identity_path = connection.identity_path or identity_path
+            port = connection.port
+            timeout = connection.timeout
+        self.connection_configuration = connection.as_dict() if connection else None
         self.version = verify_manifest(version_manifest)
         manifest = self.version['manifest']
         if manifest['ticks_per_second'] != self.ticks_per_second:
@@ -137,29 +146,12 @@ class NativeBattleBackend:
         receipt_path = identity_path or manifest.get('runtime_identity_receipt')
         if not receipt_path:
             raise VersionMismatch('Minimal profile requires an explicit actual Android identity receipt')
-        raw_identity = local(receipt_path).read_bytes(); identity = json.loads(raw_identity)
-        if (identity.get('schema') != 'phase2-native-adb-identity.v1'
-                or not all(identity.get(key) is True for key in ('actual_adb_verified', 'loaded_libg_verified', 'content_verified'))):
-            raise VersionMismatch('Runtime component identity has not been actually verified')
-        libraries = {a['sha256'] for a in manifest['assets'] if a.get('role') == 'native_library'}
-        if identity['libg_sha256'] not in libraries:
-            raise VersionMismatch('Loaded libg differs from the version manifest')
-        probes = {a['sha256'] for a in manifest['assets'] if a.get('role') == 'native_probe'}
-        fingerprints = {a['sha256'] for a in manifest['assets'] if a.get('role') == 'content_fingerprint'}
-        if identity.get('probe_sha256') not in probes or identity.get('content_fingerprint_sha256') not in fingerprints:
-            raise VersionMismatch('Loaded probe or installed fingerprint differs from the manifest')
-        if manifest.get('content_manifest_sha1') != identity.get('content_manifest_sha1'):
-            raise VersionMismatch('Runtime content SHA1 identity differs from the manifest')
-        if manifest.get('offline_apk_sha256') != identity.get('apk_sha256'):
-            raise VersionMismatch('Installed offline client differs from the manifest')
-        expected_content = manifest.get('content_version', manifest.get('runtime_content_version'))
-        if not expected_content or identity.get('content_version') != expected_content:
-            raise VersionMismatch('Runtime content version differs from the locked manifest')
+        identity, identity_sha256 = verify_runtime_identity(manifest, receipt_path)
         self.identity = identity; self.identity_receipt = str(local(receipt_path))
-        self.identity_receipt_sha256 = hashlib.sha256(raw_identity).hexdigest()
+        self.identity_receipt_sha256 = identity_sha256
         self._form_aliases = self._read_evolution_aliases(manifest)
         self._elixir_rates = _read_locked_elixir_rates(manifest)
-        self.client = ProbeClient(port=port, timeout=timeout)
+        self.client = ProbeClient(host=connection.host if connection else '127.0.0.1', port=port, timeout=timeout)
         self.rendered = bool(rendered); self.timeout = timeout
         self._state = None; self._valid = False; self._match = None; self._towers = None
         self._journal = []; self._plays = {}; self._request_ids = set(); self._wire = []
@@ -251,6 +243,7 @@ class NativeBattleBackend:
         encoded = json.dumps(match, separators=(',', ':'), allow_nan=False)
         self._valid = False; self._state = None; self._towers = None
         self._journal = []; self._plays = {}; self._request_ids = set()
+        self._last_advance = None; self._initialization_tick = None; self._match = None
         self.client.close()
         status = self._request('status')
         if not status.get('contentReady'):

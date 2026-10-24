@@ -1,8 +1,16 @@
 # Royale Lab：皇室战争本地 AI 研究平台
 
+> **从零理解并操作整个流程（2026-10-24）：** 先读[实验、训练、原生启动与回放逐步教程](docs/NATIVE_LOOP_ZH.md)。按“查看已有对局／只训练保存数据／生成新原生实验”三条路线操作，并解释 713 维输入、GRU、模仿学习和模型评估。当前接入固定版本 Null’s Royale 原生库及离线探针；保存观测回放尚不等于原版游戏逐帧画面。
+
+> **原生闭环已实机通过（2026-10-20）：** 本次 Codespaces 原生小规模闭环已实机通过：4 场采集、2 轮 GRU 训练、新进程加载后 2 场评估，6/6 自然终局，2424 条转移、24194 个推进 tick、202 次控制方实际消费。见 [操作与验收报告](docs/NATIVE_LOOP_ZH.md)、[系统结构图](docs/SYSTEM_STRUCTURE_AND_LOOP_ZH.md)及[软件 Android 指南](docs/SOFTWARE_ANDROID_TCG_ZH.md)。普通单位的公平可见性、原生画面／实时浏览器控制及棋力提升仍未验收；当前 VM 已停止，保存回放可独立使用。
+
+> **两次整个窗口中断：** 见 [窗口中断核查与恢复说明](docs/WINDOW_RESTART_20261020_ZH.md)。已观察到远程容器／进程重建，尚未证实根因；当前采用单台低优先级软件 VM、串行任务和资源采样，不能据此宣称崩溃已修复。
+
+> **当前 Codespaces 开发入口：** 读 [远程开发训练与回放操作指南](docs/REMOTE_DEVELOPMENT_ZH.md)。支持环境配置、两种模型训练与重新加载、validation 验证、保存观测回放和近似模拟器；一键检查为 `.venv-cloud/bin/python tools/cloud/workspace.py smoke --epochs 2`。
+
 > **已导入 Codespace，继续配置 Codex 并提交上传：** 读 [最后配置与上传步骤](docs/CODEX_CODESPACES_ZH.md)。
 
-> **GitHub / Codespaces 双人开发：** 先读 [上传、重建环境与共同操作教程](docs/GITHUB_CODESPACES_ZH.md)。使用经过整理的 GitHub 上传包；云端入口为 `python tools/cloud/workspace.py serve`，支持已保存样例推理和 CPU 训练。当前没有把原生 Android 对局迁移到 Codespaces；下面的 Windows 本地入口继续保留。
+> **GitHub / Codespaces 双人开发：** 先读 [上传、重建环境与共同操作教程](docs/GITHUB_CODESPACES_ZH.md)。使用经过整理的 GitHub 上传包；云端入口为 `.venv-cloud/bin/python tools/cloud/workspace.py serve`，支持已保存样例推理和 CPU 训练。原生 Android 运行与对局验收进度见上方指南；下面的 Windows 本地入口继续保留。
 
 
 > **先体验“我下牌、AI 回应”：双击项目内 `play.cmd`，或在 PowerShell 运行 `.\run_play.ps1`。** 手动打开终端打印的地址，默认 `http://127.0.0.1:8770`；你是下方蓝方，AI 是上方红方。用画面下方的中文手牌拖到战场，默认每次推进1秒后暂停。只需先读 [人机演示入门](phase2/PLAY_GUIDE_ZH.md)。AI 决策函数在 [examples/human_ai_policy.py](examples/human_ai_policy.py)，当前为可解释规则，未经过 RL 训练。
@@ -33,6 +41,8 @@ Set-Location -LiteralPath 'D:\研究生\Clash Royal'
 
 | 目的 | 入口 |
 |---|---|
+| 从零启动实验、训练、原生引擎与回放，理解学习原理 | [操作与原理逐步教程](docs/NATIVE_LOOP_ZH.md) |
+| 当前研究平台能力、调用链与优先开发任务 | [平台审计与开发建议](docs/PLATFORM_AUDIT_20261020_ZH.md) |
 | 安装、操作、故障 | docs/START_HERE.md |
 | 观测、隐藏变量、时序、最优边界 | docs/MODELING.md |
 | 观察到实际执行的调用链/API | docs/ARCHITECTURE.md |

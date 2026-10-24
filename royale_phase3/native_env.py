@@ -17,11 +17,16 @@ class NativePhase3Env:
     def __init__(self,output,owner=0,opponent='cycle',max_tick=7200,profile='fair',rendered=False):
         from royale_phase2.backend import NativeBattleBackend
         if owner not in (0,1) or profile not in ('fair','research_battlefield'):raise ValueError('Bad actor scope')
-        self.folder=local(output);self.folder.mkdir(parents=True,exist_ok=False)
+        if type(max_tick) is not int or not 91<=max_tick<=1000000:raise ValueError('Invalid native watchdog tick')
+        self.root=local(output);self.folder=self.root;self.folder.mkdir(parents=True,exist_ok=False)
+        self._episode_count=0
         self.owner=owner;self.opponent_kind=opponent;self.max_tick=max_tick;self.profile=profile
         self.backend=NativeBattleBackend(rendered=rendered,timeout=60,trace_path=self.folder/'wire.jsonl')
         self.previous_action=0;self.previous_feedback=[0.,0.,0.,0.];self.state=None
-        self.projector=ObservationProjector(profile);self.belief=PublicBelief();self.battlefield=None
+        self.projector=ObservationProjector(profile)
+        connection=getattr(self.backend,'connection_configuration',None) or {}
+        self.belief=PublicBelief(version_manifest=connection.get('version_manifest','data/phase2/version_manifest.json'))
+        self.battlefield=None
         self.feedback=[];self.decisions=[];self.done=True
     def _observe(self):
         from royale_phase2.battlefield import build_battlefield_observation
@@ -39,22 +44,52 @@ class NativePhase3Env:
         # Deliberately no training labels, next-state, rewards or opponent targets.
         return result
     def reset(self,seed=1):
+        if type(seed) is not int or seed<0:raise ValueError('Invalid episode seed')
+        # Keep the first episode at the historical artifact paths. A later reset
+        # seals that episode and uses new files, even if the earlier run failed.
+        if self.state is not None:
+            from royale_phase2.backend import NativeStateInvalid
+            try:self.save()
+            except NativeStateInvalid as exc:
+                # A failed mutation invalidates backend.result(). Keep the
+                # partial journal and explicit failure before caller's reset.
+                write(self.folder/'reset_recovery.json',{'status':'native_state_invalid',
+                    'error':str(exc),'next_action':'caller_requested_explicit_reset'})
+        self._episode_count+=1
+        if self._episode_count>1:
+            self.folder=self.root/f'episode-{self._episode_count:04d}'
+            self.folder.mkdir(exist_ok=False)
+        self.backend.trace_path=self.folder/'wire.jsonl'
+        self.feedback=[];self.decisions=[];self.state=None;self.row=None;self.actor=None
+        self.public_observation=None;self.done=True
         self.episode_id=str(uuid.uuid4());self.projector.reset();self.belief.reset();self.battlefield=None
         self.previous_action=0;self.previous_feedback=[0.,0.,0.,0.]
         self.opponent=PublicTeacher(self.opponent_kind,seed*2+1-self.owner)
+        write(self.folder/'configuration.json',{'schema':'phase3-native-episode-config.v1',
+            'episode_id':self.episode_id,'seed':seed,'owner':self.owner,'opponent':self.opponent_kind,
+            'max_tick':self.max_tick,'control_ticks':STEP_TICKS,'profile':self.profile})
         initialization=match(seed);write(self.folder/'initialization.json',initialization)
-        self.state=self.backend.reset(initialization);self.done=False
+        self.state=self.backend.reset(initialization)
+        if self.state['finalized'] or self.state['tick']>=self.max_tick:
+            raise RuntimeError('Native reset did not produce an active state before the watchdog tick')
+        self.done=False
         append(self.folder/'states.jsonl',self.state);self.row=self._observe();return deepcopy(self.row)
     def step(self,proposed):
         if self.done:raise RuntimeError('Reset required after terminal/truncation')
         before=self.state['tick'];started=time.monotonic();rejection=None
-        if 'action_index' in proposed:
-            if proposed['action_index']==0:action={'kind':'wait'}
-            else:
-                point=proposed.get('xy_native')
-                action={'kind':'play_card','slot':proposed['action_index']-1,'x':point[0],'y':point[1]}
-        else:action=proposed
-        try:action=validate(self.actor,action)
+        try:
+            if not isinstance(proposed,dict):raise ValueError('Expected an action object')
+            if 'action_index' in proposed:
+                index=proposed['action_index']
+                if type(index) is not int or not 0<=index<=4:raise ValueError('Invalid action index')
+                if index==0:action={'kind':'wait'}
+                else:
+                    point=proposed.get('xy_native')
+                    if not isinstance(point,(list,tuple)) or len(point)!=2:raise ValueError('Expected two native coordinates')
+                    action={'kind':'play_card','slot':index-1,'x':point[0],'y':point[1]}
+            else:action=proposed
+            if action.get('kind') not in ('wait','play_card'):raise ValueError('Unsupported action kind')
+            action=validate(self.actor,action)
         except (ValueError,TypeError,KeyError) as exc:rejection=str(exc);action={'kind':'wait'}
         opponent=self.opponent.decide(self.backend.observe_visible(1-self.owner));registrations=[]
         for controller,owner,choice in (('model',self.owner,action),('opponent',1-self.owner,opponent)):
@@ -91,3 +126,4 @@ class NativePhase3Env:
             try:self.save()
             except Exception:pass
         self.backend.close()
+        self.done=True

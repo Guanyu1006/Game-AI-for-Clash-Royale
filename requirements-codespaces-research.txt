@@ -1,0 +1,4 @@
+# Optional Linux/Python 3.11-3.12 research tools; install alongside --ml for GRU.
+# Historical Windows requirements.lock is intentionally independent.
+pyarrow==19.0.1
+gymnasium==1.1.1

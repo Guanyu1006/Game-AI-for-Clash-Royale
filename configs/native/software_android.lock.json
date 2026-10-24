@@ -1,0 +1,450 @@
+{
+  "schema": "experimental-software-android-lock.v1",
+  "status": "experimental; Android boot and native game execution are not certified",
+  "platform": "Linux x86_64; Debian bookworm-compatible host userspace",
+  "download_limit_bytes": 2147483648,
+  "minimum_free_bytes": 10737418240,
+  "defaults": {
+    "memory_mib": 1536,
+    "vcpus": 1,
+    "disk_bytes": 6442450944,
+    "cache": ".cache/native-tools/software-android",
+    "staging": ".cache/native-tools/android-share",
+    "adb_endpoint": "127.0.0.1:15555",
+    "serial_endpoint": "127.0.0.1:15556",
+    "network_restrict": true,
+    "guest_staging_readonly": true
+  },
+  "kernel_version": "6.1.0-50-amd64",
+  "debian": {
+    "source": "Debian bookworm; package sizes/SHA256 originally checked against signed Packages index",
+    "packages_index_sha256": "515e692f2c4121c6fcec444ef100cc18f79a991910615f3a88c8b7becfc94d2f",
+    "packages": [
+      {
+        "name": "qemu-system-x86",
+        "version": "1:7.2+dfsg-7+deb12u18+b3",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/q/qemu/qemu-system-x86_7.2+dfsg-7+deb12u18+b3_amd64.deb",
+        "filename": "qemu-system-x86_7.2+dfsg-7+deb12u18+b3_amd64.deb",
+        "bytes": 9281168,
+        "sha256": "faf17e2cc7323acbb36bbd6329b61080e7ead0ebb92d33155f41b17d8db6fe15"
+      },
+      {
+        "name": "libaio1",
+        "version": "0.3.113-4",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/liba/libaio/libaio1_0.3.113-4_amd64.deb",
+        "filename": "libaio1_0.3.113-4_amd64.deb",
+        "bytes": 13360,
+        "sha256": "d1476e4beab3d85f8a7d31de94c27472711ed3ef399ce70708e24b259426125b"
+      },
+      {
+        "name": "libcapstone4",
+        "version": "4.0.2-5",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/c/capstone/libcapstone4_4.0.2-5_amd64.deb",
+        "filename": "libcapstone4_4.0.2-5_amd64.deb",
+        "bytes": 569084,
+        "sha256": "41277f0388184f6e3b9fc02eda3184afbc999314b25b77ed75e8049428bdfe5e"
+      },
+      {
+        "name": "libfdt1",
+        "version": "1.6.1-4+b1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/d/device-tree-compiler/libfdt1_1.6.1-4+b1_amd64.deb",
+        "filename": "libfdt1_1.6.1-4+b1_amd64.deb",
+        "bytes": 19036,
+        "sha256": "e7312b61267979a58ae1fa9e34746d077707560c955f6455d02a9ff0f8fa7995"
+      },
+      {
+        "name": "libfuse3-3",
+        "version": "3.14.0-4",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/f/fuse3/libfuse3-3_3.14.0-4_amd64.deb",
+        "filename": "libfuse3-3_3.14.0-4_amd64.deb",
+        "bytes": 88108,
+        "sha256": "bf535cec5e965823fd03199b4029f9e9f3952111eb12824b5d2b96c8cca1a918"
+      },
+      {
+        "name": "libibverbs1",
+        "version": "44.0-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/r/rdma-core/libibverbs1_44.0-2_amd64.deb",
+        "filename": "libibverbs1_44.0-2_amd64.deb",
+        "bytes": 60720,
+        "sha256": "35054815259fee46173240254246d03b673a5cd5c528aaac96fd15ac428a8d59"
+      },
+      {
+        "name": "libnl-route-3-200",
+        "version": "3.7.0-0.2+b1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libn/libnl3/libnl-route-3-200_3.7.0-0.2+b1_amd64.deb",
+        "filename": "libnl-route-3-200_3.7.0-0.2+b1_amd64.deb",
+        "bytes": 184596,
+        "sha256": "0fdcc425ae2982788c085c76a7cb0eda3e3db99d41bd1ce56082ee18e9f1e21f"
+      },
+      {
+        "name": "libpixman-1-0",
+        "version": "0.42.2-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/p/pixman/libpixman-1-0_0.42.2-1_amd64.deb",
+        "filename": "libpixman-1-0_0.42.2-1_amd64.deb",
+        "bytes": 545588,
+        "sha256": "9ed75ef81b6b1eba9e1357f8b0ce01d31112b0e07b2b685bee2cf627a8932892"
+      },
+      {
+        "name": "libpmem1",
+        "version": "1.12.1-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/p/pmdk/libpmem1_1.12.1-2_amd64.deb",
+        "filename": "libpmem1_1.12.1-2_amd64.deb",
+        "bytes": 90012,
+        "sha256": "63ed00821aecdb5537b51b6f378cf571144d02ac3af2f95141bfa0e397359a76"
+      },
+      {
+        "name": "libdaxctl1",
+        "version": "76.1-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/n/ndctl/libdaxctl1_76.1-1_amd64.deb",
+        "filename": "libdaxctl1_76.1-1_amd64.deb",
+        "bytes": 21124,
+        "sha256": "af5f9ffe642ae25301eb88fdb2fa9e3c06dcfc5e131fbcee7575adf0adcc9abb"
+      },
+      {
+        "name": "libkmod2",
+        "version": "30+20221128-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/k/kmod/libkmod2_30+20221128-1_amd64.deb",
+        "filename": "libkmod2_30+20221128-1_amd64.deb",
+        "bytes": 57892,
+        "sha256": "af63bbbfc15fbd1f254b15c393b3b95b18b18cc81348fc1b4f1c9c34b4d672d7"
+      },
+      {
+        "name": "libndctl6",
+        "version": "76.1-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/n/ndctl/libndctl6_76.1-1_amd64.deb",
+        "filename": "libndctl6_76.1-1_amd64.deb",
+        "bytes": 61728,
+        "sha256": "3654dd3a0a05fdc28af8bcd307109ec41a9ea92218bf29816ff467a8c5e7d57f"
+      },
+      {
+        "name": "librdmacm1",
+        "version": "44.0-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/r/rdma-core/librdmacm1_44.0-2_amd64.deb",
+        "filename": "librdmacm1_44.0-2_amd64.deb",
+        "bytes": 68632,
+        "sha256": "16b18625834371d023b81477823074ea0d34c478d58dbef3f01107984f47d034"
+      },
+      {
+        "name": "libslirp0",
+        "version": "4.7.0-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libs/libslirp/libslirp0_4.7.0-1_amd64.deb",
+        "filename": "libslirp0_4.7.0-1_amd64.deb",
+        "bytes": 62980,
+        "sha256": "e21e19f0e99e57f254162f61416ea82f00cbc6ab9eb6bead4f5a5a8944ede27e"
+      },
+      {
+        "name": "liburing2",
+        "version": "2.3-3",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libu/liburing/liburing2_2.3-3_amd64.deb",
+        "filename": "liburing2_2.3-3_amd64.deb",
+        "bytes": 12572,
+        "sha256": "c23077e3640e6cb4b819c134b3f41d5cf21b3edac099654b1b4142c3069a39a3"
+      },
+      {
+        "name": "libvdeplug2",
+        "version": "4.0.1-4",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/v/vdeplug4/libvdeplug2_4.0.1-4_amd64.deb",
+        "filename": "libvdeplug2_4.0.1-4_amd64.deb",
+        "bytes": 27868,
+        "sha256": "1ace8e6571009bb4b8e3c5e093609f30f3ffca96578d35d61100f1e73fd2110d"
+      },
+      {
+        "name": "libexecs0",
+        "version": "1.3-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libe/libexecs/libexecs0_1.3-2_amd64.deb",
+        "filename": "libexecs0_1.3-2_amd64.deb",
+        "bytes": 8840,
+        "sha256": "35065556f06c5de1fc49c409943a8951638e4e9f8e21bd06f66b508fae935d1b"
+      },
+      {
+        "name": "qemu-system-common",
+        "version": "1:7.2+dfsg-7+deb12u18+b3",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/q/qemu/qemu-system-common_7.2+dfsg-7+deb12u18+b3_amd64.deb",
+        "filename": "qemu-system-common_7.2+dfsg-7+deb12u18+b3_amd64.deb",
+        "bytes": 2189244,
+        "sha256": "cc6bbe2d5e0b9ed6306f054008967b0564dc06b2558ea5142590f522ccca9b2b"
+      },
+      {
+        "name": "libasound2",
+        "version": "1.2.8-1+b1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/a/alsa-lib/libasound2_1.2.8-1+b1_amd64.deb",
+        "filename": "libasound2_1.2.8-1+b1_amd64.deb",
+        "bytes": 361788,
+        "sha256": "44c77b076a7b11ae99712439022d822245b1994c435da564ebd320bb676faf4c"
+      },
+      {
+        "name": "libasound2-data",
+        "version": "1.2.8-1",
+        "architecture": "all",
+        "url": "https://deb.debian.org/debian/pool/main/a/alsa-lib/libasound2-data_1.2.8-1_all.deb",
+        "filename": "libasound2-data_1.2.8-1_all.deb",
+        "bytes": 20488,
+        "sha256": "fe0780d2d3674b2977e0acb0d48b448ad72ba1642564b7dc537f55e839984c2d"
+      },
+      {
+        "name": "libbrlapi0.8",
+        "version": "6.5-7+deb12u1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/b/brltty/libbrlapi0.8_6.5-7+deb12u1_amd64.deb",
+        "filename": "libbrlapi0.8_6.5-7+deb12u1_amd64.deb",
+        "bytes": 90456,
+        "sha256": "7c8bfc4f1fb0a39f3bbc88a77f0b46f8feb923c4182207a95ea19ef01a9a43c7"
+      },
+      {
+        "name": "libcacard0",
+        "version": "1:2.8.0-3",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libc/libcacard/libcacard0_2.8.0-3_amd64.deb",
+        "filename": "libcacard0_2.8.0-3_amd64.deb",
+        "bytes": 91068,
+        "sha256": "6ab099fc8ee08ebc52b85a4dc7534d7add9cefd6e0f450037b78a42e65804454"
+      },
+      {
+        "name": "libpcsclite1",
+        "version": "1.9.9-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/p/pcsc-lite/libpcsclite1_1.9.9-2_amd64.deb",
+        "filename": "libpcsclite1_1.9.9-2_amd64.deb",
+        "bytes": 49704,
+        "sha256": "d1bb373fad074443b83e96ed31800d5a12964daf820c1daeb701867da089a728"
+      },
+      {
+        "name": "libepoxy0",
+        "version": "1.5.10-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libe/libepoxy/libepoxy0_1.5.10-1_amd64.deb",
+        "filename": "libepoxy0_1.5.10-1_amd64.deb",
+        "bytes": 189092,
+        "sha256": "050cbedc9c2a5cce976151c720a3817f2103a01e6ac255bdd6f2c6a7509b04c3"
+      },
+      {
+        "name": "libgbm1",
+        "version": "22.3.6-1+deb12u2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/m/mesa/libgbm1_22.3.6-1+deb12u2_amd64.deb",
+        "filename": "libgbm1_22.3.6-1+deb12u2_amd64.deb",
+        "bytes": 38132,
+        "sha256": "4323840f2b7b3e108990848529125d99c0956ae5a854c1e0568ed08c8faeaa2e"
+      },
+      {
+        "name": "libdrm2",
+        "version": "2.4.114-1+b1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libd/libdrm/libdrm2_2.4.114-1+b1_amd64.deb",
+        "filename": "libdrm2_2.4.114-1+b1_amd64.deb",
+        "bytes": 37472,
+        "sha256": "be18fb670797ba32da9628cf3e8acd83160d8db8c8dd842501dd8e401c3b5371"
+      },
+      {
+        "name": "libdrm-common",
+        "version": "2.4.114-1",
+        "architecture": "all",
+        "url": "https://deb.debian.org/debian/pool/main/libd/libdrm/libdrm-common_2.4.114-1_all.deb",
+        "filename": "libdrm-common_2.4.114-1_all.deb",
+        "bytes": 7112,
+        "sha256": "32f9664138b38b224383c6986457d5ad2ec8efd559b1a0ce7749405f7a451aad"
+      },
+      {
+        "name": "libwayland-server0",
+        "version": "1.21.0-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/w/wayland/libwayland-server0_1.21.0-1_amd64.deb",
+        "filename": "libwayland-server0_1.21.0-1_amd64.deb",
+        "bytes": 35876,
+        "sha256": "df0396221d7b794496a687ec61fae82b6465648bc0ab6501ba0a5ed7f56eb8d6"
+      },
+      {
+        "name": "libsndio7.0",
+        "version": "1.9.0-0.3+b2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/s/sndio/libsndio7.0_1.9.0-0.3+b2_amd64.deb",
+        "filename": "libsndio7.0_1.9.0-0.3+b2_amd64.deb",
+        "bytes": 27312,
+        "sha256": "c4cc979126cc558549db25d42e2849a9d5dcdf7928e0ece69c38c374021a078b"
+      },
+      {
+        "name": "libspice-server1",
+        "version": "0.15.1-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/s/spice/libspice-server1_0.15.1-1_amd64.deb",
+        "filename": "libspice-server1_0.15.1-1_amd64.deb",
+        "bytes": 345984,
+        "sha256": "84ced2626aa55d876c08406492004c6e4e533358e9faf8745993c72340eada60"
+      },
+      {
+        "name": "libgstreamer-plugins-base1.0-0",
+        "version": "1.22.0-3+deb12u6",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/g/gst-plugins-base1.0/libgstreamer-plugins-base1.0-0_1.22.0-3+deb12u6_amd64.deb",
+        "filename": "libgstreamer-plugins-base1.0-0_1.22.0-3+deb12u6_amd64.deb",
+        "bytes": 933796,
+        "sha256": "28a543ac3b395b38dac16e98597a3a2d1b09b0183ac6ec70675c5d468dfb4874"
+      },
+      {
+        "name": "libgstreamer1.0-0",
+        "version": "1.22.0-2+deb12u1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/g/gstreamer1.0/libgstreamer1.0-0_1.22.0-2+deb12u1_amd64.deb",
+        "filename": "libgstreamer1.0-0_1.22.0-2+deb12u1_amd64.deb",
+        "bytes": 1169664,
+        "sha256": "97fa34146e892871db0b60b70494b238519c5ae906ddbdd31c39a5a77b5e5499"
+      },
+      {
+        "name": "libdw1",
+        "version": "0.188-2.1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/e/elfutils/libdw1_0.188-2.1_amd64.deb",
+        "filename": "libdw1_0.188-2.1_amd64.deb",
+        "bytes": 234760,
+        "sha256": "ffd7b1bad982ad1afd9c2b75ab2edd18e229508df731a8f4d8443f093a91442f"
+      },
+      {
+        "name": "liborc-0.4-0",
+        "version": "1:0.4.33-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/o/orc/liborc-0.4-0_0.4.33-2_amd64.deb",
+        "filename": "liborc-0.4-0_0.4.33-2_amd64.deb",
+        "bytes": 164044,
+        "sha256": "f2b775c4281fc4d02432833cef274cfaa927a446bdf619f02292bd83b201fe3a"
+      },
+      {
+        "name": "iso-codes",
+        "version": "4.15.0-1",
+        "architecture": "all",
+        "url": "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.15.0-1_all.deb",
+        "filename": "iso-codes_4.15.0-1_all.deb",
+        "bytes": 2906084,
+        "sha256": "b1beb869303229c38288d4ddacfd582c91f594759b5767c9cecebd87f16ff70e"
+      },
+      {
+        "name": "libopus0",
+        "version": "1.3.1-3",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/o/opus/libopus0_1.3.1-3_amd64.deb",
+        "filename": "libopus0_1.3.1-3_amd64.deb",
+        "bytes": 195192,
+        "sha256": "c172e212f9039e741916aa8e12f3670d1e049dc0c16685325641288c2d83faa7"
+      },
+      {
+        "name": "libusb-1.0-0",
+        "version": "2:1.0.26-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/libu/libusb-1.0/libusb-1.0-0_1.0.26-1_amd64.deb",
+        "filename": "libusb-1.0-0_1.0.26-1_amd64.deb",
+        "bytes": 62592,
+        "sha256": "0a8a6c4a7d944538f2820cbde2a313f2fe6f94c21ffece9e6f372fc2ab8072e1"
+      },
+      {
+        "name": "libusbredirparser1",
+        "version": "0.13.0-2",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/u/usbredir/libusbredirparser1_0.13.0-2_amd64.deb",
+        "filename": "libusbredirparser1_0.13.0-2_amd64.deb",
+        "bytes": 18740,
+        "sha256": "88573485ff4096850ebcbcb368f23e6c22e94e51622e4d592ecb9d15ca510b82"
+      },
+      {
+        "name": "qemu-system-data",
+        "version": "1:7.2+dfsg-7+deb12u18",
+        "architecture": "all",
+        "url": "https://deb.debian.org/debian/pool/main/q/qemu/qemu-system-data_7.2+dfsg-7+deb12u18_all.deb",
+        "filename": "qemu-system-data_7.2+dfsg-7+deb12u18_all.deb",
+        "bytes": 1297476,
+        "sha256": "8d7647370573fe9871949acf60d0c000546c2c089008a70accb3d015781e6bf1"
+      },
+      {
+        "name": "seabios",
+        "version": "1.16.2-1",
+        "architecture": "all",
+        "url": "https://deb.debian.org/debian/pool/main/s/seabios/seabios_1.16.2-1_all.deb",
+        "filename": "seabios_1.16.2-1_all.deb",
+        "bytes": 162656,
+        "sha256": "08e5b3f761379f17a6051731cafa03e97686049e2cc1b8bdccc5a910646e2d8e"
+      },
+      {
+        "name": "ipxe-qemu",
+        "version": "1.0.0+git-20190125.36a4c85-5.1",
+        "architecture": "all",
+        "url": "https://deb.debian.org/debian/pool/main/i/ipxe/ipxe-qemu_1.0.0+git-20190125.36a4c85-5.1_all.deb",
+        "filename": "ipxe-qemu_1.0.0+git-20190125.36a4c85-5.1_all.deb",
+        "bytes": 766376,
+        "sha256": "5c2419ce07f4d80ac5e88e32ac09cdc523c048af86c4730d682ba969d3189db2"
+      },
+      {
+        "name": "busybox-static",
+        "version": "1:1.35.0-4+deb12u1+b1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/b/busybox/busybox-static_1.35.0-4+deb12u1+b1_amd64.deb",
+        "filename": "busybox-static_1.35.0-4+deb12u1+b1_amd64.deb",
+        "bytes": 928188,
+        "sha256": "3d3fdbe91d4660c873e14b092c213fe81c1da6362daa236eb25d0171eb108744"
+      },
+      {
+        "name": "linux-image-6.1.0-50-amd64",
+        "version": "6.1.176-1",
+        "architecture": "amd64",
+        "url": "https://deb.debian.org/debian/pool/main/l/linux-signed-amd64/linux-image-6.1.0-50-amd64_6.1.176-1_amd64.deb",
+        "filename": "linux-image-6.1.0-50-amd64_6.1.176-1_amd64.deb",
+        "bytes": 70305560,
+        "sha256": "7b5597492a0a65aee61985a492e6bcc3f2cde830072a0e3b3d8c7e1b90279bd3"
+      }
+    ]
+  },
+  "android": {
+    "repository": "redroid/redroid",
+    "tag_reference_only": "12.0.0_64only-latest",
+    "index_digest": "sha256:a6c464bbedcf1dcb67dbf91f329fbb19bee5b50631f0ca6bda6ed7c41b0e64e2",
+    "platform_manifest_digest": "sha256:e6f799d56b9a9a2bbc6224b5b7a6dc744c9b4d878ac856f27f0c4ec793ef55d3",
+    "layer": {
+      "url": "https://registry-1.docker.io/v2/redroid/redroid/blobs/sha256:5c010910096953e774cdbb3687e00a315c8d59101fa240b3789d4274db03fe9b",
+      "filename": "redroid-amd64-12-layer.tar.gz",
+      "bytes": 646059401,
+      "sha256": "5c010910096953e774cdbb3687e00a315c8d59101fa240b3789d4274db03fe9b"
+    },
+    "expanded_regular_file_bytes": 1520294310,
+    "license_scope": "Local-use audit; Android native-bridge prebuilts and image components retain separate terms. No binary redistribution in the source repository."
+  },
+  "evidence_sources": [
+    {
+      "path": "outputs/native_loop_20261020/software_runtime/package-plan.json",
+      "sha256": "3e7d2321b54a7067fb100c54f9d034f562946e9319391b8a515d04440fc706a1"
+    },
+    {
+      "path": "outputs/native_loop_20261020/software_runtime/package-acquisition.json",
+      "sha256": "c15acbcd4fbdf0c892afa659995f8e4e36b2d61bd0d5ef5970c54b9fa740bf78"
+    },
+    {
+      "path": "outputs/native_loop_20261020/software_runtime/redroid_registry_audit.json",
+      "sha256": "0d0bde61f3d8b3e7b980dbf2274a59d8f5fa78b31e5bc7e95fd17760cce3a9a1"
+    },
+    {
+      "path": "outputs/native_loop_20261020/software_runtime/redroid_layer_audit.json",
+      "sha256": "c58549cf4b30010163a6102d84fdf965257c11fa152abb6e92c6999934815f52"
+    },
+    {
+      "path": "outputs/native_loop_20261020/software_runtime/ownership.tsv",
+      "sha256": "d466577cf53ef7ea2e2c7e894f6483317a4116c4d49626c2eb39d507e5deec70"
+    }
+  ],
+  "native_game_execution_verified": false,
+  "locked_download_bytes": 739861565
+}

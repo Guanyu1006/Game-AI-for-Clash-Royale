@@ -60,7 +60,7 @@ const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;
 let current=null,selected=null,pending=null,interactionMode='teach',polling=false,mediaMode='',streamFailed=false,forcePNG=false,lastPNG='',requestPoint=null,dragging=false,lastHandHTML='';
 const names=new Map();
 function message(text,type=''){ $('message').textContent=text; $('message').className='message'+(type?' '+type:''); }
-function isHumanReady(){return !!(current?.mode==='human'&&current.ready&&!current.terminal&&!current.error&&current.human);}
+function isHumanReady(){return !!(current?.mode==='human'&&current.ready&&!current.terminal&&!current.truncated&&!current.error&&current.human);}
 function handCard(slot){return current?.human?.hand?.find(c=>c.slot===slot);}
 function cardName(id){return names.get(id)||('卡牌 '+id);}
 function canSelect(card){return isHumanReady()&&!pending&&card&&card.affordable===true;}
@@ -116,6 +116,7 @@ async function submitCard(point){
 }
 async function sendCommand(command,data={}){
  if(pending||!current||current.mode!=='human')return false;
+ if(['human_turn','human_play','human_wait','play'].includes(command)&&!isHumanReady())return false;
  pending={command,ticket:null,uncertain:false};renderControls();renderHand();
  message(command==='human_turn'?'正在提交你的牌，并等待 AI 回应…':'正在提交操作…');
  try{
@@ -204,15 +205,16 @@ function renderControls(){
 }
 function applyState(state){
  current=state;
- if(selected&&(!handCard(selected.slot)||handCard(selected.slot).card!==selected.card||state.human?.generation!==selected.generation)){
+ if(selected&&(!isHumanReady()||!handCard(selected.slot)||handCard(selected.slot).card!==selected.card||state.human?.generation!==selected.generation)){
   selected=null;if(!pending)message('手牌或对局已经变化，请重新选牌。');
  }
  readJob(state);
  $('clock').textContent=`游戏时间 ${Number.isFinite(state.tick)?(state.tick/20).toFixed(2):'—'} 秒`;
- $('runStatus').textContent=state.terminal?'对局结束':pending?'操作处理中':state.playing?'对局运行中':state.ready?'已暂停，可下牌':'正在准备';
+ $('runStatus').textContent=state.terminal?'对局结束':state.truncated?'已达到观察时长上限':pending?'操作处理中':state.playing?'对局运行中':state.ready?'已暂停，可下牌':'正在准备';
  $('elixir').textContent=Number.isFinite(state.human?.elixir_raw)?'圣水 '+(state.human.elixir_raw/10000).toFixed(2):'圣水 —';
- $('endNotice').hidden=!state.terminal;
+ $('endNotice').hidden=!(state.terminal||state.truncated);
  if(state.terminal)$('endNotice').textContent=state.result===1?'本局结束：你获胜。':state.result===0?'本局结束：AI 获胜。':'本局已自然结束，请保存报告查看结果。';
+ else if(state.truncated)$('endNotice').textContent='已达到观察时长上限，对局尚未自然结束。请保存报告；该状态不能计作胜负。';
  if(state.mode!=='human')message('当前端口不是人机演示。请关闭旧控制台，使用人机演示入口后刷新页面。','error');
  else if(state.error)message('本次对局出错：'+state.error+'。请保存日志，不要重复下牌。','error');
  renderHand();renderControls();renderAI(state);updateMedia();

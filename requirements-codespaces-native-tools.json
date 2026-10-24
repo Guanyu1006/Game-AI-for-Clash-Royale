@@ -1,0 +1,105 @@
+{
+  "schema": "codespaces-optional-native-tools.v1",
+  "scope": "Project-local resource acquisition, static Android APK construction and optional experimental software Android VM; game acceptance remains separate",
+  "system_packages_installed": false,
+  "python_requirements": [
+    "requirements-codespaces.txt",
+    "requirements-codespaces-ml.txt"
+  ],
+  "optional_tools": {
+    "experimental_software_android": {
+      "platform": "Linux x86_64 with Debian bookworm compatible user space",
+      "preparation": "tools/cloud/software_android.py",
+      "lifecycle": "tools/cloud/software_android_vm.py",
+      "lock": "configs/native/software_android.lock.json",
+      "compressed_download_bytes": 739861565,
+      "download_budget_bytes": 2147483648,
+      "minimum_free_disk_bytes": 10737418240,
+      "default_memory_mib": 1536,
+      "default_vcpus": 1,
+      "accelerator": "QEMU TCG",
+      "python_packages_added": [],
+      "system_packages_installed": false,
+      "host_kernel_modules_loaded": false,
+      "android_and_game_acceptance": "Separate actual boot, identity and battle execution evidence is required",
+      "resume_minimum_free_disk_bytes": 1073741824
+    },
+    "apk_build": {
+      "platform": "Linux x86_64",
+      "installer": "tools/cloud/build_native_apk.py",
+      "tool_budget_mib": 300,
+      "locks": [
+        {
+          "name": "jdk17",
+          "url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+          "path": ".cache/native-tools/downloads/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+          "bytes": 193252603,
+          "sha256": "3808d1d15e3ec6bd5b84057fb5d84c33d8a1536a258146bcea2e603fc726e08e"
+        },
+        {
+          "name": "apktool",
+          "url": "https://github.com/iBotPeaches/Apktool/releases/download/v2.12.1/apktool_2.12.1.jar",
+          "path": ".cache/native-tools/downloads/apktool_2.12.1.jar",
+          "bytes": 25926183,
+          "sha256": "66cf4524a4a45a7f56567d08b2c9b6ec237bcdd78cee69fd4a59c8a0243aeafa"
+        },
+        {
+          "name": "apksig",
+          "url": "https://dl.google.com/dl/android/maven2/com/android/tools/build/apksig/8.8.2/apksig-8.8.2.jar",
+          "path": ".cache/native-tools/downloads/apksig-8.8.2.jar",
+          "bytes": 506969,
+          "sha256": "c070ed1394629d74641aa0906f60b2ffa1ee77e6366a1f93437f59717b1aeb89"
+        }
+      ]
+    },
+    "adb": {
+      "platform": "Linux x86_64",
+      "installer": "tools/cloud/native_resources.py install-adb",
+      "source": "Debian bookworm signed package index",
+      "packages": [
+        {
+          "path": "a/android-platform-tools/adb_29.0.6-28_amd64.deb",
+          "bytes": 193808,
+          "sha256": "a12693b0fab2edd8389017ce4589f59d11770dcdb585f090f3eff26f4a7d2dbc"
+        },
+        {
+          "path": "a/android-platform-external-boringssl/android-libboringssl_13.0.0+r24-2_amd64.deb",
+          "bytes": 675736,
+          "sha256": "638b90834022a5dfe46c13778481d1d22b9b54eabee26a7bddf83253c14c009b"
+        },
+        {
+          "path": "a/android-platform-tools/android-libbase_29.0.6-28_amd64.deb",
+          "bytes": 46332,
+          "sha256": "c651582c9beb229b6a4581eef5d03796293aa2da3b602eafc5427b198060819f"
+        },
+        {
+          "path": "a/android-platform-tools/android-libcutils_29.0.6-28_amd64.deb",
+          "bytes": 34800,
+          "sha256": "12ac0a99beb683269d77af09bf80ddd7b8c428fda442c05070ea3ff50429718c"
+        },
+        {
+          "path": "a/android-platform-tools/android-liblog_29.0.6-28_amd64.deb",
+          "bytes": 40340,
+          "sha256": "d495761ec2dc87070f6ac75c771d221d05e2be387cbaeab7e7c7fcd740ce4ce2"
+        },
+        {
+          "path": "libb/libbsd/libbsd0_0.11.7-2_amd64.deb",
+          "bytes": 117416,
+          "sha256": "bb31cc8b40f962a85b2cec970f7f79cc704a1ae4bad24257a822055404b2c60b"
+        },
+        {
+          "path": "libm/libmd/libmd0_1.0.4-2_amd64.deb",
+          "bytes": 29456,
+          "sha256": "03539fd30c509e27101d13a56e52eda9062bdf1aefe337c07ab56def25a13eab"
+        },
+        {
+          "path": "libu/libusb-1.0/libusb-1.0-0_1.0.26-1_amd64.deb",
+          "bytes": 62592,
+          "sha256": "0a8a6c4a7d944538f2820cbde2a313f2fe6f94c21ffece9e6f372fc2ab8072e1"
+        }
+      ]
+    }
+  },
+  "native_execution_prerequisites": "Separate compatible Android host/system image, current installed APK and content identity, and actual reset/play/terminal acceptance",
+  "windows_requirements_lock": "preserved"
+}

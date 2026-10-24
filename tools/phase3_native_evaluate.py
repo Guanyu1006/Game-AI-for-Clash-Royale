@@ -11,7 +11,6 @@ configure()
 
 def evaluate(args):
     from royale_phase3.native_env import NativePhase3Env
-    from royale_phase3.learning import StatefulPolicy
     from royale_phase3.actions import PublicTeacher
     folder=local(args.output);folder.mkdir(parents=True,exist_ok=True)
     configs=[{'seed':args.seed+i,'owner':i%2,'opponent':'cycle' if (i//2)%2==0 else 'random'} for i in range(args.games)]
@@ -31,7 +30,9 @@ def evaluate(args):
             try:
                 env=NativePhase3Env(base/f'attempt-{len(list(base.glob("attempt-*")))+1:03d}',owner=cfg['owner'],opponent=cfg['opponent'],max_tick=args.max_tick)
                 row=env.reset(cfg['seed'])
-                if args.policy=='checkpoint':policy=StatefulPolicy.load(args.checkpoint,env.backend.version['fingerprint'],'fair')
+                if args.policy=='checkpoint':
+                    from royale_phase3.learning import StatefulPolicy
+                    policy=StatefulPolicy.load(args.checkpoint,env.backend.version['fingerprint'],'fair')
                 elif args.policy in ('cycle','random','wait'):policy=PublicTeacher(args.policy,cfg['seed']*3+cfg['owner'])
                 elif args.policy=='aligned_bc':
                     from royale_phase2.learning import NumpyBCPolicy
@@ -43,7 +44,7 @@ def evaluate(args):
                 while not env.done:
                     t=time.perf_counter()
                     if args.policy=='checkpoint':proposed=policy.predict(row)
-                    elif args.policy=='aligned_bc':proposed=policy.predict(env.actor,subspace_mask(env.actor,True,proof))
+                    elif args.policy=='aligned_bc':proposed=policy.predict(env.actor,legal_mask=subspace_mask(env.actor,True,proof))
                     else:proposed=policy.decide(env.actor)
                     inference.append(time.perf_counter()-t)
                     row,reward,terminated,truncated,step=env.step(proposed);decisions+=1

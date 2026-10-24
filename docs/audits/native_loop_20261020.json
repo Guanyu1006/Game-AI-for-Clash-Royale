@@ -1,0 +1,407 @@
+{
+  "schema": "native-codespaces-audit.v1",
+  "status": "completed_bounded_native_loop",
+  "branch": "dev/main-start-20261020",
+  "baseline_commit": "2d4b0a6002be4bcb02c092290a03a08b4791517a",
+  "scope": "Codespaces native runtime and bounded research loop; not strategy strength or all phase3 tasks",
+  "capabilities": {
+    "project_local_environment": true,
+    "fixed_runtime_assets_verified": 828,
+    "fixed_content_files_verified": 652,
+    "offline_apk_built_signed": true,
+    "android_boot_actually_verified": true,
+    "arm64_libg_probe_actually_loaded": true,
+    "native_rpc_content_ready_actually_verified": true,
+    "installed_process_identity_actually_collected": true,
+    "native_reset_and_steps_actually_executed": true,
+    "completed_natural_native_games": 6,
+    "partial_native_episodes": 1,
+    "partial_trajectory_rows": 254,
+    "partial_owner_card_consumptions": 15,
+    "fresh_native_training_verified": true,
+    "historical_native_pilot_training_runs": 2,
+    "historical_pilot_epochs_per_run": 2,
+    "native_loop_verified": true,
+    "official_equivalence_verified": false,
+    "fair_non_tower_visibility_verified": false,
+    "native_pixels_verified": false,
+    "native_parallelism_verified": false,
+    "trajectory_rows": 2424,
+    "native_ticks_advanced": 24194,
+    "owner_card_consumptions": 202,
+    "raw_entities_max": 72,
+    "native_live_browser_control_verified": false,
+    "native_ppo_verified": false
+  },
+  "portable_tests": {
+    "tests": 225,
+    "failures": 0,
+    "errors": 0,
+    "evidence": "outputs/native_loop_20261020/portable-tests-recovery-001/report.json",
+    "scope": "Interface and saved-data checks; not Android gameplay"
+  },
+  "evidence_paths": [
+    "outputs/native_loop_20261020/identity-check-003/report.json",
+    "outputs/native_loop_20261020/android-window-after-confirm-001/report.json",
+    "outputs/native_loop_20261020/android-install-001/report.json",
+    "outputs/native_loop_20261020/partial-trajectory-audit-001/report.json",
+    "outputs/native_loop_20261020/window-restart-audit-002/report.json",
+    "outputs/native_loop_20261020/payload-cli-001/report.json",
+    "outputs/cloud/avm/20261020T134453.037427Z-vm/process.json",
+    "outputs/native_loop_20261020/identity-check-005/report.json",
+    "outputs/native_loop_20261020/native-run-002/report.json",
+    "outputs/native_loop_20261020/native-run-002-acceptance/report.json",
+    "outputs/native_loop_20261020/native-run-002-independent-review/report.json",
+    "outputs/native_loop_20261020/browser-fresh-native-002/report.json",
+    "outputs/native_loop_20261020/browser-model-native-001/report.json",
+    "outputs/native_loop_20261020/research-server-001/report.json",
+    "outputs/native_loop_20261020/resource-watch-recovery-003/summary.json",
+    "outputs/cloud/avm/20261020T134453.037427Z-vm/stop.json",
+    "outputs/native_loop_20261020/delivery-check-001/report.json"
+  ],
+  "current_limitations": [
+    "Fair actor excludes unverified non-tower entities; raw state capture is not visibility proof.",
+    "Native pixels and live browser native control are not verified; saved replay is a public numeric schematic.",
+    "No official trajectory parity, parallel native runtime, PPO or policy strength improvement claim.",
+    "Interrupted smoke preserved separately; stage-resume collection beyond progress/disk recovery remains future work.",
+    "Complete fresh-cache download/unpack/image via promoted generic helper has not been rerun end to end; adopted-cache startup/resume and actual native execution have been verified.",
+    "Process identity receipts refer to captured processes; refresh after another VM/app start."
+  ],
+  "restart_cause_confirmed": false,
+  "strength_improvement_claim": false,
+  "test_used_for_tuning": false,
+  "updated_utc": "2026-10-20T14:27:30.356855+00:00",
+  "evidence": [
+    {
+      "path": "outputs/native_loop_20261020/identity-check-003/report.json",
+      "sha256": "c240b9f47c64dabc114939e54a721d0c12c60e7ebbf61c7edad0b37acfea7688"
+    },
+    {
+      "path": "outputs/native_loop_20261020/android-window-after-confirm-001/report.json",
+      "sha256": "fd4e9c4ce1cbd8adba893bb46d1170cae9ae603c663fbf9fd5716705003e3f98"
+    },
+    {
+      "path": "outputs/native_loop_20261020/android-install-001/report.json",
+      "sha256": "32d8c87b6a29657e1bf6ba67fdc64fa88de0587384b03b9bd825d5b1a7735773"
+    },
+    {
+      "path": "outputs/native_loop_20261020/partial-trajectory-audit-001/report.json",
+      "sha256": "ba662b5184305316c784b4ed299eb301ab20be7e37e67b1f0c03732d969d884c"
+    },
+    {
+      "path": "outputs/native_loop_20261020/window-restart-audit-002/report.json",
+      "sha256": "1263ed93fba8f8d1e33d6a37ae8a700902640e35d9a5d7f835d1147763103489"
+    },
+    {
+      "path": "outputs/native_loop_20261020/payload-cli-001/report.json",
+      "sha256": "b76dc46f5ebb7f5aea59440913a7139fde99648159a6427eb0883acc0a795dea"
+    },
+    {
+      "path": "outputs/cloud/avm/20261020T134453.037427Z-vm/process.json",
+      "sha256": "f7e83c55435ad2c04fce54050a7a82c36bc868224fa8c7f22db11354c20efbcd"
+    },
+    {
+      "path": "outputs/native_loop_20261020/identity-check-005/report.json",
+      "sha256": "662d3ea9812c8bf9e05b6442ed116756cbd73ab90aeabc75f83b8398f06cf20d"
+    },
+    {
+      "path": "outputs/native_loop_20261020/native-run-002/report.json",
+      "sha256": "bfe285371f1e543cf5fc5fe6df8d915a923cc9094c2e1b1f8e5af44230de1141"
+    },
+    {
+      "path": "outputs/native_loop_20261020/native-run-002-acceptance/report.json",
+      "sha256": "2057a31c7765f9eb6e92902c1c100f57a9a260c31ac3f528b5fc211ed22a4e3f"
+    },
+    {
+      "path": "outputs/native_loop_20261020/native-run-002-independent-review/report.json",
+      "sha256": "3478aed7643823a5f00f3978334db5a4db18e9acf86ad2ddfda5c9560de4fbe9"
+    },
+    {
+      "path": "outputs/native_loop_20261020/browser-fresh-native-002/report.json",
+      "sha256": "9015dafa053de221620a8f2f538721d079524664cdf49a721fe209090e100895"
+    },
+    {
+      "path": "outputs/native_loop_20261020/browser-model-native-001/report.json",
+      "sha256": "ef6a5ba44996ffd07a0602374b3817204e6be9f0cc7317758231d66dba7a2378"
+    },
+    {
+      "path": "outputs/native_loop_20261020/research-server-001/report.json",
+      "sha256": "974e9abade63c00ce392ba6bf7be07f53a8605203e135eb09a2f93e1336a8a77"
+    },
+    {
+      "path": "outputs/native_loop_20261020/resource-watch-recovery-003/summary.json",
+      "sha256": "4e0c99214434f06f06799fb72a7e85e50fdecedd485c5f26a27af5c789b9f534"
+    },
+    {
+      "path": "outputs/cloud/avm/20261020T134453.037427Z-vm/stop.json",
+      "sha256": "2fee3d44643b31441464ca67ea6b2e12504a7820e866c66ce6f7f1dc15947dd6"
+    },
+    {
+      "path": "outputs/native_loop_20261020/delivery-check-001/report.json",
+      "sha256": "8f490bcbd28f9bf945173f284255707a7ef94bbf5f3c222bf297675f3e09e136"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "royale_phase2/connection.py",
+      "sha256": "2b43762dba0a6e132930af4b4473639e3ebcb5fbdf39b27dc073524043655935"
+    },
+    {
+      "path": "royale_phase2/backend.py",
+      "sha256": "b8196e15f881e186e3e5890ec98b32abb3bc993d3f30db338917d93871a71bdc"
+    },
+    {
+      "path": "royale_phase3/native_env.py",
+      "sha256": "db5a390f673940518e10c5ed85977a437924ca318aba451ff30c7026597fb8a2"
+    },
+    {
+      "path": "royale_phase3/native_loop.py",
+      "sha256": "b0bfcddc2f4b6b1e931a969ead563a3c662e3fc0262c1c019af72ac2e672e1a5"
+    },
+    {
+      "path": "royale_phase3/observation.py",
+      "sha256": "f151bcd748925e6827c94364e01705a2878e68377c2f61e436d76b83862b0a54"
+    },
+    {
+      "path": "royale_phase3/actions.py",
+      "sha256": "1ba66387bddab987f4958ef2d4ba071c949091490e1fed178f243d1fa2950623"
+    },
+    {
+      "path": "royale_phase3/learning.py",
+      "sha256": "12352eeb1cec3669e4a6221e666ad0d91d5248f5dde8dc0bddfb2da781830810"
+    },
+    {
+      "path": "tools/cloud/native_start.py",
+      "sha256": "59ba572b7d91e585bf24444ee203dca9fc636417faa5a672d39e016379afc58c"
+    },
+    {
+      "path": "tools/cloud/native_identity.py",
+      "sha256": "7fddc95588e07052c0d423ca6fc66b66fcb990459fd8decc25bf686d1533cd5d"
+    },
+    {
+      "path": "tools/cloud/install_native_runtime.py",
+      "sha256": "6aee3b0eb88d22405abaaf40eaad465dbdcda2295c714cb72a90cb77067a1f49"
+    },
+    {
+      "path": "tools/cloud/native_payload.py",
+      "sha256": "29c50dc86baebf6fe562b6a0220b6356fac15243ca5e3dac08bda1cbe2051651"
+    },
+    {
+      "path": "tools/cloud/software_android_vm.py",
+      "sha256": "b2188f9bd2ef7e6a2b386e03e9317396726972c69563040a40181ea5fb5a33a0"
+    },
+    {
+      "path": "tools/cloud/browser_check.py",
+      "sha256": "ac87cc8fd98d07ce07b24faa8ed242f2f99d5940b470c585636623538aeba026"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "sha256": "46be6c3b30d37c11865e4c2641e80779954d261d5845097cacf963becd9372bb"
+    },
+    {
+      "path": "requirements-codespaces-native-tools.json",
+      "sha256": "5241fb212839df79352774fc11b1bd2b64324d82957a5192c9f5593d7c1fc373"
+    }
+  ],
+  "current_recovery": {
+    "vm_attempt": "outputs/cloud/avm/20261020T134453.037427Z-vm",
+    "disk_copied": false,
+    "boot_evidence": "outputs/native_loop_20261020/android-recovery-boot-poll-002/report.json",
+    "start_evidence": "outputs/native_loop_20261020/android-recovery-start-002/report.json",
+    "readiness_wait_evidence": "outputs/native_loop_20261020/readiness-wait-recovery-002/report.json",
+    "connection": "outputs/native_loop_20261020/local-connection-003.json",
+    "identity": "outputs/native_loop_20261020/local-runtime-version-001-android-identity-002.json",
+    "identity_evidence": "outputs/native_loop_20261020/identity-check-005/report.json",
+    "readiness": "contentReady=true at 2026-10-20T13:59:32 UTC",
+    "runtime_state": "stopped_after_successful_acceptance"
+  },
+  "current_experiment": "outputs/native_loop_20261020/native-run-002",
+  "current_experiment_budget": {
+    "collection_games": 4,
+    "evaluation_games": 2,
+    "epochs": 2,
+    "hidden": 32,
+    "play_weight": 8,
+    "max_tick": 7200,
+    "wall_seconds_per_game": 900
+  },
+  "training": {
+    "algorithm": "supervised sequence behavior cloning, GRU C",
+    "epochs": 2,
+    "parameter_count": 29415,
+    "train_rows": 1113,
+    "train_games": 3,
+    "validation_rows": 352,
+    "validation_games": 1,
+    "test_rows": 0,
+    "checkpoint": {
+      "path": "outputs/native_loop_20261020/native-run-002/model/epoch-0002.json",
+      "sha256": "4fc21b84a6a5bc5023cbf02d826d209604c37a252df779f5f819e5d4582f9680"
+    },
+    "native_evaluation_games": 2,
+    "native_model_consumptions": 90,
+    "recollected_rows": 959,
+    "strength_improvement_claim": false
+  },
+  "browser_checks": {
+    "flows": 5,
+    "datasets": [
+      "new native teacher collection",
+      "new native model evaluation"
+    ],
+    "reports": [
+      "outputs/native_loop_20261020/browser-fresh-native-002/report.json",
+      "outputs/native_loop_20261020/browser-model-native-001/report.json"
+    ],
+    "javascript_errors": 0,
+    "scope": "Real Chromium; source selection, owner0-to-owner1, previous/next history, approximate play/terminal/save/restart; no native pixels"
+  },
+  "acceptance": {
+    "schema": "actual-native-loop-acceptance.v1",
+    "passed": true,
+    "created_utc": "2026-10-20T14:20:12.665797+00:00",
+    "source": {
+      "path": "outputs/native_loop_20261020/native-run-002-acceptance/check.py",
+      "sha256": "e550f0bc797df600818f1de7c210beb7fb3e25b78e3d914a5a10d32339d0ce07"
+    },
+    "run": {
+      "path": "outputs/native_loop_20261020/native-run-002/report.json",
+      "sha256": "bfe285371f1e543cf5fc5fe6df8d915a923cc9094c2e1b1f8e5af44230de1141"
+    },
+    "games": [
+      {
+        "stage": "collection",
+        "index": 0,
+        "owner": 0,
+        "generation": 1,
+        "initial_tick": 90,
+        "last_tick": 4171,
+        "transitions": 409,
+        "owner_card_consumptions": 32,
+        "wall_seconds": 150.5500502949999,
+        "natural_terminal": true,
+        "result": {
+          "path": "outputs/native_loop_20261020/native-run-002/collection/game-000/result.json",
+          "sha256": "919595d09ac732adefb533c53fe8d6ded8ab3f963babe46464d6040a6fb523b2"
+        }
+      },
+      {
+        "stage": "collection",
+        "index": 1,
+        "owner": 1,
+        "generation": 2,
+        "initial_tick": 90,
+        "last_tick": 3601,
+        "transitions": 352,
+        "owner_card_consumptions": 26,
+        "wall_seconds": 158.42585609200023,
+        "natural_terminal": true,
+        "result": {
+          "path": "outputs/native_loop_20261020/native-run-002/collection/game-001/result.json",
+          "sha256": "2ee5ad9241bce7a07859e06db8c06717a7424d9c911db5b1dcba4241fd8ebe22"
+        }
+      },
+      {
+        "stage": "collection",
+        "index": 2,
+        "owner": 0,
+        "generation": 3,
+        "initial_tick": 90,
+        "last_tick": 3601,
+        "transitions": 352,
+        "owner_card_consumptions": 27,
+        "wall_seconds": 117.61221893000038,
+        "natural_terminal": true,
+        "result": {
+          "path": "outputs/native_loop_20261020/native-run-002/collection/game-002/result.json",
+          "sha256": "47ed866e76ae821a7efbb47b862c299982e4cd9d78f789f106c2dd09972c15dc"
+        }
+      },
+      {
+        "stage": "collection",
+        "index": 3,
+        "owner": 1,
+        "generation": 4,
+        "initial_tick": 90,
+        "last_tick": 3601,
+        "transitions": 352,
+        "owner_card_consumptions": 27,
+        "wall_seconds": 109.48501209799997,
+        "natural_terminal": true,
+        "result": {
+          "path": "outputs/native_loop_20261020/native-run-002/collection/game-003/result.json",
+          "sha256": "8723b9d17804d0d284864a8c54168838ff8904d8beaaf00e28accc09577301e3"
+        }
+      },
+      {
+        "stage": "evaluation",
+        "index": 0,
+        "owner": 0,
+        "generation": 5,
+        "initial_tick": 90,
+        "last_tick": 6148,
+        "transitions": 606,
+        "owner_card_consumptions": 62,
+        "wall_seconds": 207.59838942900024,
+        "natural_terminal": true,
+        "result": {
+          "path": "outputs/native_loop_20261020/native-run-002/evaluation/game-000/result.json",
+          "sha256": "cef5c6098f8c17de89267edc4862f5854c15d5686da9a38bf99b3116f94be257"
+        }
+      },
+      {
+        "stage": "evaluation",
+        "index": 1,
+        "owner": 1,
+        "generation": 6,
+        "initial_tick": 90,
+        "last_tick": 3612,
+        "transitions": 353,
+        "owner_card_consumptions": 28,
+        "wall_seconds": 115.38028046199997,
+        "natural_terminal": true,
+        "result": {
+          "path": "outputs/native_loop_20261020/native-run-002/evaluation/game-001/result.json",
+          "sha256": "1a12275befafd3dcf9298b13c55bd680ab8d79a18e5c24c796c650c8c78daa08"
+        }
+      }
+    ],
+    "natural_terminal_games": 6,
+    "independent_episodes": 6,
+    "generations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "transitions": 2424,
+    "native_ticks_advanced": 24194,
+    "owner_card_consumptions": 202,
+    "raw_entities_max": 72,
+    "version_fingerprint": "7d62f3e6385490b06ff1d376f5660efda4e7603319f963540449522b96c359b6",
+    "training_rows_by_split": {
+      "train": 1113,
+      "validation": 352,
+      "test": 0
+    },
+    "fresh_process_reload_verified": true,
+    "checkpoint": {
+      "path": "outputs/native_loop_20261020/native-run-002/model/epoch-0002.json",
+      "sha256": "4fc21b84a6a5bc5023cbf02d826d209604c37a252df779f5f819e5d4582f9680"
+    },
+    "fair_non_tower_visibility_verified": false,
+    "native_pixels_verified": false,
+    "official_equivalence_verified": false,
+    "policy_strength_improvement_claim": false,
+    "new_rpc_calls_by_this_audit": 0
+  },
+  "research_server": {
+    "host": "127.0.0.1",
+    "port": 8771,
+    "replay_metadata": "outputs/native_loop_20261020/native-run-002/recollected_dataset/metadata.json",
+    "native_rpc_calls": 0,
+    "forwarded_url": "https://congenial-xylophone-4jvx5qq5w64jhjvvj-8771.app.github.dev/research"
+  }
+}

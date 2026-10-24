@@ -1,10 +1,12 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Royale Lab · 云端研究工作台</title>
 <style>body{background:#0c1527;color:#e7eefb;font:16px/1.7 system-ui;margin:0}main{max-width:1080px;margin:auto;padding:32px}h1{font-size:30px}.tag{background:#1a365b;border-radius:8px;padding:12px}section{background:#152137;margin:20px 0;padding:22px;border-radius:12px}button{background:#b8d8ff;color:#0b1528;border:0;border-radius:7px;padding:12px 18px;margin:6px;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#09111e;padding:16px;border-radius:8px;font-size:13px}.small{color:#b5c6df}code{color:#badcff}</style>
-<main><h1>Royale Lab · 云端研究工作台</h1><div class="tag">当前模式：保存样例、实际模型推理、CPU 训练。原生游戏对局尚未连接。</div>
+<main><h1>Royale Lab · 云端研究工作台</h1><div class="tag">当前模式：保存观测回放、模型推理、CPU 训练和近似模拟器。原生游戏对局尚未连接。</div>
+<section><h2>回放和模拟器</h2><p><a style="color:#b8d8ff" href="/research">打开保存观测回放与可交互模拟器 →</a></p><p>回放可以选择对局和玩家，查看手牌、塔血、下牌历史与动作标签。模拟器可以下牌、推进、保存快照，并在重启服务后按 run_id 回看。</p></section>
 <section><h2>先确认环境与数据</h2><button onclick="load('/api/status')">查看环境和样本数量</button><button onclick="load('/api/infer')">运行已保存 NumPy 模型</button><button onclick="load('/api/gru')">运行已保存 GRU 模型</button><p class="small">按钮会运行真实模型推理；输入来自已保存的公开观测。这不是正在进行的游戏。</p><pre id="result">正在读取状态…</pre></section>
-<section><h2>在终端中真正训练一次</h2><pre>source .venv-cloud/bin/activate
-python tools/cloud/workspace.py test
-python tools/cloud/workspace.py train --epochs 2
-python tools/cloud/workspace.py train-gru --epochs 2</pre><p>输出保存在 <code>outputs/cloud/runs/</code>，每次生成独立目录。测试集不用于这里的训练选择。</p></section>
+<section><h2>加载自己训练的新模型</h2><p>从训练报告复制 checkpoint 路径，选择对应的模型类型。</p><input id="checkpoint" style="width:95%;padding:10px" placeholder="outputs/cloud/runs/你的目录/checkpoint.json"><button onclick="loadCheckpoint('/api/infer')">加载 NumPy checkpoint</button><button onclick="loadCheckpoint('/api/gru')">加载 GRU checkpoint</button><p class="small">GRU 的文件名是 epoch-0002.json 等。此处在保存的训练样例上执行推理，不产生新的原生对局。</p></section>
+<section><h2>在终端中训练和验证</h2><pre>.venv-cloud/bin/python tools/cloud/workspace.py test
+.venv-cloud/bin/python tools/cloud/workspace.py train --epochs 2
+.venv-cloud/bin/python tools/cloud/workspace.py train-gru --epochs 2
+.venv-cloud/bin/python tools/cloud/workspace.py runs</pre><p>输出保存在 <code>outputs/cloud/runs/</code>，每次生成独立目录。使用报告中的 checkpoint 路径运行 <code>infer --checkpoint</code> 和 <code>evaluate --checkpoint</code>；GRU 对应 <code>infer-gru</code> 和 <code>evaluate-gru</code>。默认只验证 validation，不用 test 调参。</p><button onclick="load('/api/runs')">查看最近训练和模拟器结果</button></section>
 <section><h2>两个人一起操作</h2><p>由创建 Codespace 的人打开 Live Share 并点 Share，同学用自己的账号加入。共享终端时先约定谁运行训练。网页通过 VS Code 的 Ports 面板打开，保持端口为 Private。</p><p class="small">现有 Windows 入口 run_play.ps1 / run_platform.ps1 继续保留。原生批量对战需要另备固定资源、Android/Binder 和经过验证的运行权限。</p></section></main>
-<script>async function load(path){const el=document.getElementById('result');el.textContent='运行中…';try{let r=await fetch(path);let data=await r.json();el.textContent=JSON.stringify(data,null,2)}catch(e){el.textContent=String(e)}}load('/api/status');</script></html>
+<script>async function load(path){const el=document.getElementById('result');el.textContent='运行中…';try{let r=await fetch(path);let data=await r.json();el.textContent=JSON.stringify(data,null,2)}catch(e){el.textContent=String(e)}}function loadCheckpoint(route){const value=document.getElementById('checkpoint').value.trim();if(!value){document.getElementById('result').textContent='请先填写本次训练的 checkpoint 路径。';return}load(route+'?checkpoint='+encodeURIComponent(value))}load('/api/status');</script></html>

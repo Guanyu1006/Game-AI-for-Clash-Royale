@@ -1,0 +1,407 @@
+{
+  "schema": "royale-cloud-development-verification.v1",
+  "observed_at": "2026-10-20T18:12:05.538672+08:00",
+  "branch": "dev/main-start-20261020",
+  "base_commit": "2d4b0a6002be4bcb02c092290a03a08b4791517a",
+  "origin_main": "2d4b0a6002be4bcb02c092290a03a08b4791517a",
+  "changes_committed": false,
+  "scope": "Codespaces offline development; no native Android or official fidelity/strategy strength acceptance",
+  "environment": {
+    "python": "3.12.11",
+    "numpy": "2.2.6",
+    "torch": "2.6.0+cpu",
+    "pyarrow": "19.0.1",
+    "gymnasium": "1.1.1",
+    "pip_check_exit_code": 0,
+    "browser_optional": "playwright1.51.0 / Chromium134.0.6998.35; libraries and Chinese font extracted only inside repository"
+  },
+  "portable_tests": {
+    "tests": 96,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "group": "portable"
+  },
+  "development_smoke": {
+    "status": "passed",
+    "checks": [
+      {
+        "id": "doctor",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 0.3182127150002998
+      },
+      {
+        "id": "tests",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 8.545992372
+      },
+      {
+        "id": "data-check",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 0.9154438800005664
+      },
+      {
+        "id": "numeric-train",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 1.5952816720000556
+      },
+      {
+        "id": "numeric-reload",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 0.43549080100001447
+      },
+      {
+        "id": "numeric-validation",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 0.3307058959999267
+      },
+      {
+        "id": "gru-train",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 6.6929603349999525
+      },
+      {
+        "id": "gru-reload",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 2.855093547999786
+      },
+      {
+        "id": "gru-validation",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 3.381401169000128
+      },
+      {
+        "id": "saved-replay",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 0.7908817850002379
+      },
+      {
+        "id": "sandbox",
+        "status": "passed",
+        "exit_code": 0,
+        "elapsed_seconds": 0.21393789100056892
+      }
+    ],
+    "report": {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/report.json",
+      "sha256": "9acd345b9c4dd7b640c46afe97097e5aa784b5d8254034530902193cb881aec3",
+      "bytes": 11387
+    },
+    "numpy_checkpoint": {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/numpy/checkpoint.json",
+      "sha256": "920a65e3d5ef5d5c0849b2fe505066ec50d5f027d3500ee1f70cea02ff081892",
+      "bytes": 3142
+    },
+    "gru_checkpoint": {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/gru/epoch-0002.json",
+      "sha256": "a674a0fb33e5648f8bded7599b5d34877ad41172b9c6df2b078760ac0dc013c0",
+      "bytes": 18965
+    }
+  },
+  "training": {
+    "numeric_epochs": 2,
+    "numeric_roundtrip_exact": true,
+    "numeric_training_rows": 13431,
+    "numeric_validation_rows": 3348,
+    "gru_epochs": 2,
+    "gru_training_rows": 654,
+    "test_evaluated": false,
+    "actual_resume_verification": {
+      "path": "outputs/cloud/runs/20261020T100634.916944Z-resume-verification/report.json",
+      "sha256": "6c56cdfe684aa583deb910e6b4dd07e2eb3fbe86870f9fb5cd5ad79fd47230a0",
+      "bytes": 5210
+    }
+  },
+  "browser": {
+    "status": "passed",
+    "browser_version": "134.0.6998.35",
+    "checks": [
+      "workbench_saved_model_inference",
+      "replay_owner_switch_and_backward_history_isolation",
+      "canvas_card_play_with_actual_units_and_feedback",
+      "terminal_reset_and_saved_replay_keep_active_game",
+      "saved_snapshot_survives_server_restart"
+    ],
+    "page_errors": [],
+    "scope": "Real local Chromium-to-loopback HTTP, not GitHub private authentication; proxy Origin contract covered by portable HTTP test"
+  },
+  "native_rpc_calls": 0,
+  "native_runtime_verified": false,
+  "game_resources_modified": false,
+  "windows_launchers_modified": false,
+  "windows_requirements_lock": {
+    "path": "requirements.lock",
+    "sha256": "7400b8679b968006393d565699eee8cf3b0c3f7dbbd586962430b7d64940c74a",
+    "bytes": 268
+  },
+  "capabilities": [
+    "Explicit repository interpreter and reproducible CPU dependencies",
+    "Actual new numeric/GRU training, checkpoint reload and validation",
+    "Real interrupted GRU resume equals uninterrupted training",
+    "Immutable logs and experiment directories",
+    "Saved fair replay with episode/owner isolation",
+    "Approximate Python simulator with actual card cost/movement/terminal/reset",
+    "SHA256-bound saved snapshots replay after server restart",
+    "HTTP and real browser UI including readable Chinese fonts",
+    "Cross-platform phase3 CLI and offline acceptance"
+  ],
+  "limits": [
+    "Historical raw artifact gaps/hash mismatches are reported without rewriting history",
+    "Fair inputs still exclude unverified non-tower entities",
+    "Extended legacy tests require missing native/source/image materials",
+    "Native Android/Binder/live game, C++ extension and official interactions are not claimed",
+    "Training/validation results do not establish policy improvement"
+  ],
+  "sources": [
+    {
+      "path": "royale_phase2/backend.py",
+      "sha256": "08faef19311b80953b90eaadf4d3e3d855200fc4bf8fa1a420e452f30e77768e",
+      "bytes": 28036
+    },
+    {
+      "path": "royale_phase2/human_ui.html",
+      "sha256": "49c6ad525d47366355b336727bac6c74e3db30a5ce57dd94de20046b9ba4ce33",
+      "bytes": 27305
+    },
+    {
+      "path": "royale_phase3/common.py",
+      "sha256": "4d3a0b10dd6b34c6763798126c3477cd808fe15c8f99afba40922326f6918bc6",
+      "bytes": 3378
+    },
+    {
+      "path": "royale_phase3/data.py",
+      "sha256": "922eca4e7c87a5f81b2747e44dbcc1071a16779970f014e48b7a8df4f9ae83f2",
+      "bytes": 13312
+    },
+    {
+      "path": "royale_phase3/data_contract.py",
+      "sha256": "0a9a8e9314f009ea43a2c8c368aa4d5a1330b2d57a50de37a712440b2b83e08c",
+      "bytes": 2997
+    },
+    {
+      "path": "royale_phase3/learning.py",
+      "sha256": "12352eeb1cec3669e4a6221e666ad0d91d5248f5dde8dc0bddfb2da781830810",
+      "bytes": 28916
+    },
+    {
+      "path": "royale_phase3/native_env.py",
+      "sha256": "a882298cccf642332e9f4c310a7fb036d3a7742854d8d56d4af7e8ab19350243",
+      "bytes": 8743
+    },
+    {
+      "path": "tests_cloud/test_cli_environment.py",
+      "sha256": "b300d430f7d7dc5c46826f3a9515c2156f37fd2be1e11bf98df03648714cad05",
+      "bytes": 5311
+    },
+    {
+      "path": "tests_cloud/test_lifecycle.py",
+      "sha256": "dd4d226768f8f00dab6cab62ab6d9cf0041eb6e936a4c860642bb82887cb95ed",
+      "bytes": 11294
+    },
+    {
+      "path": "tests_cloud/test_replay_simulator.py",
+      "sha256": "c6c5f4253bab46b699300faf95191ccef777d4f1b4b458ae585901c50a260acb",
+      "bytes": 8050
+    },
+    {
+      "path": "tests_cloud/test_training_pipeline.py",
+      "sha256": "0be0d289a04107046569e1909d11b5f2d9ce1e6a26da91595493cfe955a864ab",
+      "bytes": 2176
+    },
+    {
+      "path": "tests_cloud/test_workbench_http.py",
+      "sha256": "717adbc01d0042dce8f011af72744f37e2ac14ddd218b6c72912c58cc2dc3afb",
+      "bytes": 4448
+    },
+    {
+      "path": "tools/cloud/bootstrap.sh",
+      "sha256": "b75130ca3b5dd75c0371d7f40f8f0c5258388455c492572f9ceaee328bff049b",
+      "bytes": 1890
+    },
+    {
+      "path": "tools/cloud/browser_check.py",
+      "sha256": "defe90da24b4e2d8f319e21a2f22ef7df6897bb9fdf0e3ead956c00abf11b962",
+      "bytes": 6828
+    },
+    {
+      "path": "tools/cloud/evidence.py",
+      "sha256": "f71b9427e44bc62ad4374f9ae977c6e0b1c2f8860c0765ab6b5d79fa91d5605f",
+      "bytes": 2344
+    },
+    {
+      "path": "tools/cloud/replay.py",
+      "sha256": "c7876e7a64ff5d43a4ad564ff0da3e3fa6d023f07a40284935e3083052923d15",
+      "bytes": 10214
+    },
+    {
+      "path": "tools/cloud/research.html",
+      "sha256": "c0cfb4b261e3d95212fd0a8f570edf3a8b4047811d901ead0f3505f47ae31c8b",
+      "bytes": 12690
+    },
+    {
+      "path": "tools/cloud/simulator.py",
+      "sha256": "5e9a898340027f8a23b876a25a5de017be7846711bca58bcbd624bc470f32db9",
+      "bytes": 8941
+    },
+    {
+      "path": "tools/cloud/train_cache.py",
+      "sha256": "6461aa2cec788ce6288da6973e9fe77d75833212d65152632ea56afb26d2813b",
+      "bytes": 8986
+    },
+    {
+      "path": "tools/cloud/workbench.html",
+      "sha256": "439c43ad6e30390f42b808b6917dbbec6e81b781572d5538653d1d0704e85d53",
+      "bytes": 3929
+    },
+    {
+      "path": "tools/cloud/workflow.py",
+      "sha256": "18e9824185ba004d2a57a2b701e66cf50ea2cce42eacef21963239f1de7985e9",
+      "bytes": 3872
+    },
+    {
+      "path": "tools/cloud/workspace.py",
+      "sha256": "2e0c41218f81744778be27879d70f146140072142f2c29beecff4c4139e1a7c7",
+      "bytes": 18445
+    },
+    {
+      "path": "tools/phase2_human_ui_check.cjs",
+      "sha256": "923ebfee12b152a1d32531a8681a8923004932fb041652f532616716a0eb0b24",
+      "bytes": 14311
+    },
+    {
+      "path": "tools/phase3.py",
+      "sha256": "ebc2993a054487fd9d0918b270eb6d1cab96b1b45bc3e72070136be98c470824",
+      "bytes": 3370
+    },
+    {
+      "path": "tools/phase3_acceptance.py",
+      "sha256": "012766804089b59c965891bdebdf09468c352657909bb7b6add5af3eac517969",
+      "bytes": 9502
+    },
+    {
+      "path": "tools/phase3_native_evaluate.py",
+      "sha256": "72d640072c5353c96992c277f29417c26a312e279b0025a970389cd8eb86987b",
+      "bytes": 6894
+    }
+  ],
+  "inputs": [
+    {
+      "path": "requirements-codespaces.txt",
+      "sha256": "0929d3fde9ddfabf4d4f8324c9f4fea6b9e1721a51f28a2e0d380f20fa209bbe",
+      "bytes": 81
+    },
+    {
+      "path": "requirements-codespaces-ml.txt",
+      "sha256": "893ba2d39d7eeb2cd9c573965bef4acb066f6223465d620394922f2635ce61c6",
+      "bytes": 80
+    },
+    {
+      "path": "requirements-codespaces-research.txt",
+      "sha256": "fc7efa8f160fb009dbe64dd4cce93d688369a5670be09612011eb913e9acbb42",
+      "bytes": 184
+    },
+    {
+      "path": "requirements-codespaces-browser.txt",
+      "sha256": "b6bf790eff444af908442e3a77b2bc9378bf08862826f0d95ff0ffcba155a89b",
+      "bytes": 176
+    },
+    {
+      "path": "shared_assets/MANIFEST.json",
+      "sha256": "a6795722015d849dab40ce159b7944322fe21c0e4b16b82c6938dc7b353e08a2",
+      "bytes": 212771
+    },
+    {
+      "path": "data/phase3/native/pilot-003/metadata.json",
+      "sha256": "11f87b08817ac2b75201bab9c645d8f55afeb0fbca658cc518c66a24e32aacd1",
+      "bytes": 3863
+    },
+    {
+      "path": "data/phase3/native/pilot-003/rows.jsonl",
+      "sha256": "a87ccc48f89cc7c121d81a4b4dec22f5aceb28f6644b379b492b3c6943111012",
+      "bytes": 10447795
+    }
+  ],
+  "evidence": [
+    {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/report.json",
+      "sha256": "9acd345b9c4dd7b640c46afe97097e5aa784b5d8254034530902193cb881aec3",
+      "bytes": 11387
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T101021.969322Z-browser-check/report.json",
+      "sha256": "25a7e1ab66d0e8c7fee416844e438bd840d17e908865c0bfbb5c0232b9190c02",
+      "bytes": 687
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T100634.916944Z-resume-verification/report.json",
+      "sha256": "6c56cdfe684aa583deb910e6b4dd07e2eb3fbe86870f9fb5cd5ad79fd47230a0",
+      "bytes": 5210
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T100134.648264Z-phase3-acceptance/acceptance.json",
+      "sha256": "d6300afc030b18ae5674d1ee73b1241352128380eabab07213f7d9161f290094",
+      "bytes": 14778
+    },
+    {
+      "path": "outputs/cloud/runs/20261020-environment-cli/bootstrap-ml-research.json",
+      "sha256": "982d9532685bf07431d6ed2cb7331871c29b061bd7703e08051eeeff473b2298",
+      "bytes": 191
+    },
+    {
+      "path": "outputs/cloud/runs/20261020-environment-cli/cli-validation.json",
+      "sha256": "0a398fdca14f6ac3c4d404d66289aa18c87c5c9d4177ad0fbb88ac73cc84a5b2",
+      "bytes": 5102
+    },
+    {
+      "path": "outputs/cloud/runs/20261020-browser-libs/repo-libs-browser-launch-v2.json",
+      "sha256": "83e3d6860ee9e7e1dc7922817fb39e2b3c903940cf43246ed50470d73e0968c9",
+      "bytes": 1994
+    },
+    {
+      "path": "outputs/cloud/runs/20261020-browser-fonts/fonts.json",
+      "sha256": "375d71a9498512221e7f93395a33c0526ffd8fa2d08bf831887d45eab71477a6",
+      "bytes": 5023
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/numeric-validation.json",
+      "sha256": "b55285c1b304b70aeaea69454abb107ea3a2050f99c39a60286682208c9daad7",
+      "bytes": 1122
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/gru-validation.json",
+      "sha256": "0ae840c3739e20c3842aa7d93e5bffb80ae7db82a4fb0004bf6b2c0fd14f6707",
+      "bytes": 2435
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T100921.745225Z-development-smoke/data-check.json",
+      "sha256": "ba3b5e2be08e327f56ca758ce975d0d7a9d558130f5df342e98c1d07cdf78a2b",
+      "bytes": 30479
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T101021.969322Z-browser-check/workbench.png",
+      "sha256": "caf72622124ad084cc1401911b05ec64f3fc412971884cc3be964789ec59abc8",
+      "bytes": 284261
+    },
+    {
+      "path": "outputs/cloud/runs/20261020T101021.969322Z-browser-check/replay-simulator.png",
+      "sha256": "c287a6ff9e64a8ab48f35ebb740ab57c95ae176bdaf8ef56ad411afe9dad31a5",
+      "bytes": 318214
+    },
+    {
+      "path": "outputs/cloud/remote-final-pip-check.log",
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    }
+  ]
+}

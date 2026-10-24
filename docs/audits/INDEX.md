@@ -1,5 +1,19 @@
 # 候选引擎审计导航与数据分母
 
+本轮原生系统与闭环的机器可读状态见 [native_loop_20261020.json](native_loop_20261020.json)；状态按实际闭环、轨迹和浏览器回执记录；历史失败保留。
+
+当前原生资源实际配置、小规模保存数据训练及原生闭环运行门槛，见 [原生闭环操作指南](../NATIVE_LOOP_ZH.md)。原生局数与离线／接口结果分别报告。
+
+2026 年 10 月 20 日后续实机进展：[安装回执](../../outputs/native_loop_20261020/android-install-001/report.json)确认候选包与内容安装检查；[恢复后的游戏日志](../../outputs/native_loop_20261020/android-display-002/report.json)记录 ARM64 游戏库与探针加载；[12:53 UTC 状态](../../outputs/native_loop_20261020/android-window-after-confirm-001/report.json)确认内容就绪。随后[实际身份核对](../../outputs/native_loop_20261020/identity-check-003/report.json)通过；[首次原生局中断现场](../../outputs/native_loop_20261020/native-smoke-001/interruption.json)保留 254 条转移、15 次消费。该中断局不计作自然终局。随后[新批次](../../outputs/native_loop_20261020/native-run-002/report.json)完成 4 场采集、2 轮训练及 2 场新模型评估，6/6 自然终局；[独立验收](../../outputs/native_loop_20261020/native-run-002-acceptance/report.json)通过。
+
+两次整个窗口中断的事实、原因边界与资源控制见[窗口中断核查与恢复说明](../WINDOW_RESTART_20261020_ZH.md)及[核查回执](../../outputs/native_loop_20261020/window-restart-audit-001/report.json)。已有证据确认远程环境重启，尚不能认定根因或宣称崩溃已修复。
+
+2026 年 10 月 20 日远程修复后的使用方法与实际验证见 [远程开发操作指南](../REMOTE_DEVELOPMENT_ZH.md) 和 [结果摘要](remote_development_20261020.json)。
+
+当前工作台、不同引擎与学习路线的连接图，以及与 FirstLight_CR 的源码对照和最小研究闭环验收门槛，见 [系统结构与闭环差距](../SYSTEM_STRUCTURE_AND_LOOP_ZH.md)。
+
+当前 Codespaces 与固定版本研究平台的源码调用链、实际运行结果和任务优先级见 [2026 年 10 月 20 日平台审计](../PLATFORM_AUDIT_20261020_ZH.md)。该审计独立区分当前可运行能力与下列历史结果。
+
 本次主后端的审计由 `ClashRoyaleAi.md` 记录；独立候选审计如下。结论基于固定源代码和安装/运行结果，不沿用 README 的完整性宣传。
 
 | 候选 | 类型 | 本机结果 | 用途 |

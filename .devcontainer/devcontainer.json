@@ -6,7 +6,7 @@
     "cpus": 2,
     "memory": "8gb"
   },
-  "postCreateCommand": "bash tools/cloud/bootstrap.sh --ml",
+  "postCreateCommand": "bash tools/cloud/bootstrap.sh --ml --research",
   "forwardPorts": [
     8770
   ],
@@ -34,6 +34,7 @@
   "remoteEnv": {
     "PYTHONUTF8": "1",
     "PYTHONDONTWRITEBYTECODE": "1",
+    "TMPDIR": "${containerWorkspaceFolder}/.tmp/cloud",
     "PIP_CACHE_DIR": "${containerWorkspaceFolder}/.cache/cloud/pip",
     "TORCH_HOME": "${containerWorkspaceFolder}/.cache/cloud/torch"
   }

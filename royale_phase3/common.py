@@ -4,19 +4,21 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def local(path):
+    if os.name != 'nt' and PureWindowsPath(str(path)).drive:
+        raise ValueError('Windows drive or UNC paths are not project-local in this environment')
     value = (ROOT / path).resolve()
     value.relative_to(ROOT)
     return value
 
 def configure():
     sys.dont_write_bytecode = True
-    for name, value in {'TEMP': '.tmp/phase3', 'TMP': '.tmp/phase3',
+    for name, value in {'TEMP': '.tmp/phase3', 'TMP': '.tmp/phase3', 'TMPDIR': '.tmp/phase3',
         'PIP_CACHE_DIR': '.cache/phase3/pip', 'HF_HOME': '.cache/phase3/hf',
         'HF_HUB_CACHE': '.cache/phase3/hf/hub', 'TORCH_HOME': '.cache/phase3/torch',
         'XDG_CACHE_HOME': '.cache/phase3/xdg', 'MPLCONFIGDIR': '.cache/phase3/matplotlib',

@@ -1,8 +1,12 @@
 # 上传 GitHub、进入 Codespaces、和朋友一起开发
 
+> **要学习当前完整操作与训练原理：** 使用[原生实验逐步教程](NATIVE_LOOP_ZH.md)。2026-10-20 已保存当前软件 Android 路线的六局有限原生验收；2026-10-24 复查时 VM 与页面服务已停止，按教程选择查看保存对局、离线训练或启动新实验。全新克隆不包含 VM／APK／大型实验工件。
+
+> **已在当前远程仓库开发：** 使用 [远程开发训练与回放操作指南](REMOTE_DEVELOPMENT_ZH.md)，按步骤运行完整小规模检查、新模型加载、validation、保存回放和近似模拟器。下面保留最初上传与迁移教程，旧结果不能替代当前运行检查。
+
 > **已经导入且测试通过的 Codespace：** 继续阅读 [Codex 配置与最后上传步骤](CODEX_CODESPACES_ZH.md)，无需重复导入旧 ZIP。下文保留首次迁移教程。
 
-这份教程对应项目里的实际配置和命令。本地 Windows 原生启动方式保留；Codespaces 新入口提供测试、真实 CPU 数值训练、已保存模型推理和研究页面。原生 Android 对局没有经过 Codespaces 托管环境验收，不能把工作台页面当成新的原生对战。
+下面保留首次上传与迁移时的配置和命令。本地 Windows 原生启动方式保留；轻量 Codespaces 工作台提供测试、CPU 数值训练、保存模型推理和研究页面。后来新增的软件 Android 原生六局验收见上方教程；工作台右侧近似沙盒仍是独立引擎，不能当成原生对战。
 
 ## 1. 搬哪些东西
 
@@ -74,8 +78,8 @@ ZIP、`.tmp/`、环境、缓存和新生成结果都被忽略。不要使用 `gi
 
 ```bash
 source .venv-cloud/bin/activate
-python tools/cloud/workspace.py doctor
-python tools/cloud/workspace.py test
+.venv-cloud/bin/python tools/cloud/workspace.py doctor
+.venv-cloud/bin/python tools/cloud/workspace.py test
 ```
 
 若自动安装中断，可恢复运行：
@@ -91,8 +95,8 @@ bash tools/cloud/bootstrap.sh --ml
 最小 NumPy BC：
 
 ```bash
-python tools/cloud/workspace.py infer
-python tools/cloud/workspace.py train --epochs 2
+.venv-cloud/bin/python tools/cloud/workspace.py infer
+.venv-cloud/bin/python tools/cloud/workspace.py train --epochs 2
 ```
 
 这里实际执行优化并保存新权重和曲线；输入是旧平台合格导出中的公开数值缓存，train/validation 保留原整局分组。只有52个出牌标签，样本总行数不代表强策略；不会在这里反复评分test或重建全部原生证明。
@@ -100,8 +104,8 @@ python tools/cloud/workspace.py train --epochs 2
 第三阶段 GRU：
 
 ```bash
-python tools/cloud/workspace.py infer-gru
-python tools/cloud/workspace.py train-gru --epochs 2
+.venv-cloud/bin/python tools/cloud/workspace.py infer-gru
+.venv-cloud/bin/python tools/cloud/workspace.py train-gru --epochs 2
 ```
 
 输入是已保存的5局原生规则teacher自采 pilot，双方视角按整局分组；它不是专家数据，也没有独立官方时序真值。默认公平输入仍排除可见性未知的非塔实体。模型跑通、预测指标和棋力是三种不同结论。
@@ -111,7 +115,7 @@ python tools/cloud/workspace.py train-gru --epochs 2
 也可以运行保留的第一阶段教学模拟器：
 
 ```bash
-python -m royale_ai simulate --policy greedy --opponent greedy --seconds 30 --log outputs/cloud/mvp-demo.jsonl --html outputs/cloud/mvp-demo.html
+.venv-cloud/bin/python -m royale_ai simulate --policy greedy --opponent greedy --seconds 30 --log outputs/cloud/mvp-demo.jsonl --html outputs/cloud/mvp-demo.html
 ```
 
 这是近似沙盒，不是固定原生后端；其结果不能算作原生对局验收。
@@ -119,7 +123,7 @@ python -m royale_ai simulate --policy greedy --opponent greedy --seconds 30 --lo
 ## 5. 打开研究页面
 
 ```bash
-python tools/cloud/workspace.py serve
+.venv-cloud/bin/python tools/cloud/workspace.py serve
 ```
 
 在 VS Code 底部 **Ports/端口** 中找到 `8770`，点浏览器图标。保持端口可见性为 **Private**。页面可以查看数据数量、实际运行保存的 NumPy/GRU 推理，并显示训练命令。页面明确标注原生对局未连接。

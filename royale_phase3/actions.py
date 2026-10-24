@@ -4,11 +4,15 @@ Masks below are conservative proposals, NOT a full native legality oracle.
 Only actual backend consumption certifies that an individual request was used.
 """
 import random
-from .common import read
+import hashlib
+from .common import local,read
 
 DECK = (26000000,26000001,26000003,26000014,26000018,27000000,28000000,28000001)
 GRID_X, GRID_Y = 18, 32
 STEP_TICKS=10
+MATCH_TEMPLATE='configs/native/ordinary_eight_template.json'
+MATCH_TEMPLATE_SHA256='75913c9364b8d1f4c69baf90abb6467bd32983e1e3d87245954d2e7dc3ee54b9'
+LEGACY_INITIALIZATION='outputs/phase2/native/match_probe/runtime86_first/initialization.json'
 
 def grid_to_native(index):
     if type(index) is not int or not 0<=index<576: raise ValueError('Invalid position grid cell')
@@ -39,13 +43,24 @@ def validate(actor,action):
     return {'kind':'play_card','slot':slot,'card':card,'x':x,'y':y}
 
 def match(seed=310000):
-    value=read('outputs/phase2/native/match_probe/runtime86_first/initialization.json')
+    if type(seed) is not int or not 0<=seed<2**32:raise ValueError('Invalid native match seed')
+    # Preserve the existing local runtime configuration when it is present.
+    # A reviewed static schema permits fresh initialization without a historical
+    # experiment directory; it does not replace libg or any Android resources.
+    legacy=local(LEGACY_INITIALIZATION).is_file()
+    template=LEGACY_INITIALIZATION if legacy else MATCH_TEMPLATE
+    if not legacy and hashlib.sha256(local(template).read_bytes()).hexdigest()!=MATCH_TEMPLATE_SHA256:
+        raise ValueError('Native schema template SHA256 mismatch')
+    value=read(template)
     value['cmd']=[];value['evt']=[];value['rndSeed']=seed
     # Equal explicit native level. Evolutions/forms/abilities are not activated.
     value['battle']['lvlcap']=16;value['battle']['cardlvlmin']=16
     for owner in (0,1):
         value['battle'][f'deck{owner}']['sp']=[{'d':c} for c in DECK]
         value['battle'][f'avatar{owner}']['expLevel']=16
+        if not legacy:
+            value['battle']['hbd'][owner]['kt']=16
+            value['battle'][f'avatar{owner}']['name']=f'Local-{owner}'
     return value
 
 class PublicTeacher:

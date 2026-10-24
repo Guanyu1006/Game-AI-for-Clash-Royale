@@ -1,0 +1,3 @@
+# Optional browser verification tool; not part of the default cloud runtime.
+# Keep downloaded browsers in .cache/cloud/playwright and TMPDIR in .tmp/cloud.
+playwright==1.51.0

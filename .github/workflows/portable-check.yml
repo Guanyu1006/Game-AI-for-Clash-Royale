@@ -35,4 +35,13 @@ jobs:
       - name: Contract and migration checks
         run: python tools/cloud/workspace.py test
       - name: Actual numeric training smoke
-        run: python tools/cloud/workspace.py train --epochs 2
+        run: python tools/cloud/workspace.py train --epochs 2 --output outputs/cloud/runs/ci-numeric
+      - name: Reload and validate the new numeric checkpoint
+        run: |
+          python tools/cloud/workspace.py infer --checkpoint outputs/cloud/runs/ci-numeric/checkpoint.json
+          python tools/cloud/workspace.py evaluate --checkpoint outputs/cloud/runs/ci-numeric/checkpoint.json
+      - name: Saved data, replay and approximate simulator
+        run: |
+          python tools/cloud/workspace.py data-check
+          python tools/cloud/workspace.py replay --index 0
+          python tools/cloud/workspace.py simulate --seconds 5 --seed 19
