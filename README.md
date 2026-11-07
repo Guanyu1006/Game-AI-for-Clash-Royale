@@ -2,9 +2,11 @@
 
 > **直接读代码：** [当前仓库框架图与核心函数地图](research/CODE_MAP_ZH.md)，包含训练、真实对局、视频流程、活跃依赖与可暂时不读的历史代码；[可缩放总图](research/CODE_MAP.svg)。
 
+> **主分支同步（2026-11-07）：** 当前共同开发基线统一为 `main`，纳入 `dev/main-start-20261020` 的科研工作台、原生连接与回放等已有更改。变更范围、验证结果、运行命令和未验收项见[本次同步说明](docs/MAIN_SYNC_20261107_ZH.md)。下面带日期的旧交接记录继续作为历史参考。
+
 > **当前科研入口（2026-11-07）：** `.venv-cloud/bin/python tools/cloud/workspace.py research`，打开私有 **8770**。配置集中在 `research/system.json`，数据、参考模型与新结果使用 `research/` 固定运行目录。先读[当前系统总指南：运行、代码层级、依赖与验收](research/README.md)；[模型接入](research/MODEL_INTEGRATION_ZH.md)和[性能与真实视频实测](research/PERFORMANCE_AND_MEDIA_ZH.md)解释具体改动位置与限制。离线训练已通过；本轮无画面原生模型两局均自然终局、确认出牌90次，一胜一负；完整原版录像和连续拖牌人机尚未通过。以下历史入口、证据与 Windows 启动器继续保留，各自验收不互相替代。
 
-> **双方协作与读码入口（2026-10-24）：** 当前共同开发基线为 `dev/main-start-20261020`。先读[开发交接与代码调用图](docs/DEVELOPMENT_HANDOFF_20261024_ZH.md)，其中区分四套代码、最新已验证能力、剩余验收、资源边界和两人分支操作。[Git 内的证据摘要](docs/audits/development_handoff_20261024.json)可随克隆阅读；下面指向 `outputs/` 的完整原始证据仍保留在原 Codespace。
+> **历史协作与读码入口（2026-10-24）：** 当时共同开发基线为 `dev/main-start-20261020`。先读[开发交接与代码调用图](docs/DEVELOPMENT_HANDOFF_20261024_ZH.md)，其中区分四套代码、当时已验证能力、剩余验收、资源边界和两人分支操作。[Git 内的证据摘要](docs/audits/development_handoff_20261024.json)可随克隆阅读；下面指向 `outputs/` 的完整原始证据仍保留在原 Codespace。
 
 > **公开对局 JSON 的统一入口：** `.venv-cloud/bin/python tools/cloud/workspace.py play-replay` 会复用或恢复已有 Android，准备连接并启动 8772 页面。页面支持导入单局 RoyaleAPI／IL_Replay JSON、打开、播放、暂停、单步与跳转；也可下载在本机运行的 Android 镜像脚本。使用方式见[导入、执行与显示](docs/NATIVE_VISUAL_ZH.md#公开事件-json导入执行与显示)。导入与接口测试、实际原生运行结果分别记录，不把代码检查算作游戏画面成功。
 

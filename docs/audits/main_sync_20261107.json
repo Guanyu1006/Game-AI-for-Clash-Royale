@@ -1,0 +1,423 @@
+{
+  "schema": "royale-main-sync-verification.v1",
+  "recorded_at_utc": "2026-11-07T10:12:24.413336+00:00",
+  "display_date_asia_shanghai": "2026-11-07",
+  "source_control": {
+    "source_branch": "dev/main-start-20261020",
+    "source_head": "7afcd660b4cdb7e67c2486e8507adce12a42dae1",
+    "target_branch": "main",
+    "remote_main_before_sync": "2d4b0a6002be4bcb02c092290a03a08b4791517a",
+    "source_commits_ahead": 4,
+    "source_diff_files": 150,
+    "history_policy": "Fast-forward main, preserve all existing commits, no force push",
+    "publication_state": "Recorded before the final documentation commit and remote synchronization; final status is available from Git branch history",
+    "additional_changes": [
+      "README.md",
+      "docs/GITHUB_CODESPACES_ZH.md",
+      "docs/audits/INDEX.md",
+      "docs/MAIN_SYNC_20261107_ZH.md",
+      "docs/audits/main_sync_20261107.json"
+    ]
+  },
+  "scope": "本次复跑离线环境、实现契约、训练与保存推理；原生证据仅核对既有文件，不作为新原生或棋力验收",
+  "verification": {
+    "smoke": {
+      "status": "passed",
+      "epochs": 2,
+      "native_rpc_calls": 0,
+      "test_evaluated": false,
+      "not_run_steps": [],
+      "report": {
+        "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/report.json",
+        "sha256": "018c383d8259210b129a44e33d34a807dabbfa29e860a033f2d9d30b7864d352"
+      },
+      "checks": [
+        {
+          "id": "doctor",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "doctor"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 1.752445292000175,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/doctor.stdout.log",
+            "sha256": "de68af04fd24f91a9ab86c811138f51dc0d2f89c34eb683a5f30b3c1774e0650"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/doctor.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "tests",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "test"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 74.00539453600004,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/tests.stdout.log",
+            "sha256": "bb3bc28e883f5b477c8924bbda7dab2d41a34000f86ea6874507dbbbbbbb438a"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/tests.stderr.log",
+            "sha256": "88cf5ae824ee7816a333d5e12193d848fd5c93ccdb736a2ebb9969935ca58dab"
+          }
+        },
+        {
+          "id": "data-check",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "data-check",
+            "--output",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/data-check.json"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 0.8746046819996991,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/data-check.stdout.log",
+            "sha256": "98a531f1467152130b5ddf218f7661c2ddca555dfe76c04bedaa5cf24f3cb026"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/data-check.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "numeric-train",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "train",
+            "--epochs",
+            "2",
+            "--output",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numpy"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 0.5748074759999326,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-train.stdout.log",
+            "sha256": "d768645dbcfba23c05612557975fa8981a5f4011bd86af65a2595cf60fb4cf11"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-train.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "numeric-reload",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "infer",
+            "--checkpoint",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numpy/checkpoint.json"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 0.2335490190002929,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-reload.stdout.log",
+            "sha256": "872b3fe5498d16450b0c5e275049e338245d37aa3a2ddc09119498fa50642216"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-reload.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "numeric-validation",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "evaluate",
+            "--checkpoint",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numpy/checkpoint.json",
+            "--output",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-validation.json"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 0.2509778219996406,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-validation.stdout.log",
+            "sha256": "b350927c12de958719ec7f033b1f405becaafa0d29bced348bf0572b3a21224e"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/numeric-validation.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "gru-train",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "train-gru",
+            "--epochs",
+            "2",
+            "--output",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 5.27509851800005,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-train.stdout.log",
+            "sha256": "a03077adee7e7721f749a45c87b53382b878326b03e80d34ea25df7f2d906fa5"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-train.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "gru-reload",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "infer-gru",
+            "--checkpoint",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru/epoch-0002.json"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 2.4019725690000087,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-reload.stdout.log",
+            "sha256": "ed4572d5ff53302b0bbae0b4d205e431c2a254304bcbfaf763c3f1458368f622"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-reload.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "gru-validation",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "evaluate-gru",
+            "--checkpoint",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru/epoch-0002.json",
+            "--output",
+            "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-validation.json"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 2.6011910699999135,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-validation.stdout.log",
+            "sha256": "c51cdf8b13c45fbfcc9eb5ddea813bf780b9cf006b7c8c8428dbcaaf9eeee993"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/gru-validation.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "saved-replay",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "replay",
+            "--index",
+            "0"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 0.6774432309998701,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/saved-replay.stdout.log",
+            "sha256": "bd5093c3796042bff5cb337d825264baf0281f37a8f2b66d5f70d7406c89a163"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/saved-replay.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "id": "sandbox",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "simulate",
+            "--seconds",
+            "30",
+            "--seed",
+            "20261020"
+          ],
+          "cwd": "/workspaces/Game-AI-for-Clash-Royale",
+          "exit_code": 0,
+          "status": "passed",
+          "reason": null,
+          "elapsed_seconds": 0.17400560999976733,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/sandbox.stdout.log",
+            "sha256": "d739c5deddc8d8221d4ddf7781030a1da8a09084b92db28554ac213bd49c2025"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/smoke/sandbox.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        }
+      ]
+    },
+    "tests": {
+      "passed": true,
+      "tests": 473,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "group": "portable",
+      "native_calls": 0,
+      "scope": "Implementation contracts and saved derived data; no official-game accuracy claim"
+    },
+    "skipped_tests": [
+      "test_actual_json_import_and_mirror_download (tests_cloud.test_public_replay_browser.PublicReplayBrowserTests.test_actual_json_import_and_mirror_download) ... skipped '显式指定仓库内输出目录才启动 Chromium；默认测试不增加浏览器负载'",
+      "test_workbench_with_isolated_service (tests_cloud.test_research_browser.ResearchWorkbenchBrowserTests.test_workbench_with_isolated_service) ... skipped '显式指定仓库内新目录才运行 Chromium；默认不增加浏览器负载'"
+    ],
+    "saved_inference": {
+      "numeric_samples": 3,
+      "all_numeric_saved_decodings_match": true,
+      "gru_samples": 8,
+      "native_rpc_calls": 0,
+      "checks": [
+        {
+          "name": "saved-infer",
+          "command": [
+            ".venv-cloud/bin/python",
+            "tools/cloud/workspace.py",
+            "infer"
+          ],
+          "returncode": 0,
+          "wall_seconds": 0.227,
+          "stdout": "outputs/cloud/main-sync-20261107T100809667889Z/saved-infer.stdout.log",
+          "stderr": "outputs/cloud/main-sync-20261107T100809667889Z/saved-infer.stderr.log"
+        },
+        {
+          "name": "saved-infer-gru",
+          "command": [
+            ".venv-cloud/bin/python",
+            "tools/cloud/workspace.py",
+            "infer-gru"
+          ],
+          "returncode": 0,
+          "wall_seconds": 2.599,
+          "stdout": "outputs/cloud/main-sync-20261107T100809667889Z/saved-infer-gru.stdout.log",
+          "stderr": "outputs/cloud/main-sync-20261107T100809667889Z/saved-infer-gru.stderr.log"
+        }
+      ]
+    },
+    "raw_verification": {
+      "path": "outputs/cloud/main-sync-20261107T100809667889Z/verification.json",
+      "sha256": "e67447ce2f6e4cff4a4eb87316f066eb721897095ff2bba98b6de4bc7ae3ade8"
+    },
+    "full_source_diff_whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main..7afcd66"
+      ],
+      "returncode": 2,
+      "passed": false,
+      "output": "royale_phase3/data_contract.py:51: new blank line at EOF.\nroyale_phase3/research.py:582: new blank line at EOF.\ntests_cloud/test_native_media.py:252: new blank line at EOF.\ntools/cloud/native_media.py:538: new blank line at EOF.\n",
+      "disposition": "既有开发分支四处文件末尾空行保留，以保留原源码指纹；未当作通过"
+    },
+    "new_document_whitespace": {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "returncode": 0,
+      "checked_paths": [
+        "README.md",
+        "docs/GITHUB_CODESPACES_ZH.md",
+        "docs/audits/INDEX.md",
+        "docs/MAIN_SYNC_20261107_ZH.md"
+      ]
+    }
+  },
+  "existing_evidence_review": {
+    "status_snapshot": {
+      "path": "research/STATUS.json",
+      "sha256": "06e409a08ca57345693d706b36630c1ade2fdfd66902d26acb92536e125b2f22"
+    },
+    "native_proof": {
+      "path": "research/runs/headless-result-20261107t075733z/gameplay-proof.json",
+      "sha256": "56ef024bcd3a7248105caf595c7e713dcad74843c5a39f26013c901d15308b08"
+    },
+    "natural_terminal_games": 2,
+    "model_decisions": 959,
+    "model_cards_consumed": 90,
+    "wins": 1,
+    "losses": 1,
+    "independence_limit": "These new executions repeat the historical model/configuration and match historical sampled battle state; they do not add independent training-game diversity or establish strength improvement.",
+    "new_native_games_run_for_sync": 0,
+    "strength_improvement_claim": false,
+    "unverified": [
+      "网页到真实原生新局联合复验",
+      "完整原版对局录像",
+      "Windows 连续鼠标拖牌人机",
+      "状态重绘实现与验收"
+    ]
+  },
+  "git_scope": {
+    "kept_local": [
+      "environment",
+      "cache",
+      "data",
+      "models",
+      "VM",
+      "APK and game resources",
+      "media",
+      "raw outputs"
+    ],
+    "baseline_shared_assets_windows_lock_and_entrypoints_changed": false
+  },
+  "guide": "docs/MAIN_SYNC_20261107_ZH.md"
+}
