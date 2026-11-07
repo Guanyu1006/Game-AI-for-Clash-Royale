@@ -1,5 +1,6 @@
 """Safe artifact relocation with real dataset/checkpoint loaders, no native RPC."""
 from copy import deepcopy
+import importlib.util
 import io
 import json
 from pathlib import Path
@@ -11,6 +12,7 @@ from royale_phase3.common import ROOT, digest
 from tools.cloud import reorganize_research as migration
 
 
+@unittest.skipUnless(importlib.util.find_spec('torch'), 'Optional CPU Torch not installed')
 class ResearchRelocationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

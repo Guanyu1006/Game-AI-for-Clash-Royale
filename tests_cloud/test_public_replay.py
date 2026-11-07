@@ -9,6 +9,7 @@ import unittest
 from royale_phase2.public_replay import PublicReplayError, PublicReplayPlan, import_public_replay
 from royale_phase2.replays import parse_payload
 from royale_phase2.runtime import ROOT
+from tests_cloud.public_replay_fixtures import public_replay_card_catalog
 
 
 def public_fixture():
@@ -30,6 +31,9 @@ def public_fixture():
 
 
 class PublicReplayContracts(unittest.TestCase):
+    def setUp(self):
+        self.enterContext(public_replay_card_catalog())
+
     def test_both_owners_same_tick_preserved_and_source_is_untouched(self):
         payload = public_fixture(); before = deepcopy(payload)
         plan = PublicReplayPlan.from_mapping(payload)
@@ -59,6 +63,12 @@ class PublicReplayContracts(unittest.TestCase):
         value['commands'][0]['tick'] += 1
         with self.assertRaisesRegex(PublicReplayError, 'commands'):
             PublicReplayPlan.from_dict(value)
+
+    def test_unknown_card_still_fails_real_catalog_resolution(self):
+        payload = public_fixture()
+        payload['battle']['team']['players'][0]['deck'][0]['card_key'] = 'unknown-fixture-card'
+        with self.assertRaisesRegex(PublicReplayError, 'unknown-fixture-card'):
+            PublicReplayPlan.from_mapping(payload)
 
     def test_missing_data_i_and_skill_actions_are_actionable(self):
         payload = public_fixture()

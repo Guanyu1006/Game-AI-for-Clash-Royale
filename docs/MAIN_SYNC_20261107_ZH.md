@@ -32,6 +32,20 @@
 
 全量差异的 `git diff --check` 返回码为 2，未通过空白格式检查：`royale_phase3/data_contract.py`、`royale_phase3/research.py`、`tests_cloud/test_native_media.py`、`tools/cloud/native_media.py` 各有一处文件末尾空行。这些空行由既有开发分支提交带入。本次保留这些源文件和已有源码指纹，在验证记录中如实记录；新增说明单独检查无空白格式错误。
 
+## 干净环境 CI 的后续修复
+
+首次推送后的 [GitHub Actions 检查](https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/42363058995)在干净 Ubuntu 环境失败：公共回放测试意外读取未进入 Git 的原生卡牌目录；迁移测试未声明 Torch 为可选依赖；部分 Unix socket 测试假定仓库绝对路径足够短。本机完整环境的通过结果不能替代这次失败。
+
+后续修复限于测试夹具和测试边界：
+
+- 公共回放使用九张卡牌的自包含身份目录，只替换目录加载，继续执行真实解析、轮转、归档和会话断言，并增加未知卡拒绝用例；没有复制游戏资产或跳过这些契约测试。
+- 需要真实模型的迁移测试在 core-only 环境缺少 Torch 时明确跳过；安装 ML profile 的环境继续执行。基础 CI 仍只安装 `requirements-codespaces.txt`。
+- 缩短真实 Unix socket 测试夹具路径；运行时测试区分相对输出目录与绝对检出根的长度预算。保留生产路径保护，增加超长路径拒绝前不构建、不启动且磁盘与回执不变的检查。
+
+定向公共回放测试 25/25 通过，在明确禁止读取本机 competitive manifest 时仍通过；软件 Android 与运行时测试 41/41 通过。另在仓库内建立绝对根长 67 字节、没有原生卡牌目录的干净克隆，使用仅 NumPy 2.2.6、无 Torch 的独立环境复现 GitHub 流程；完整环境单独复跑测试。命令、数量及原始失败记录见 [CI 修复验证](audits/main_sync_ci_20261107.json)。本次同步前的原始验证记录保持不变，代码依赖清单随测试源码刷新。
+
+修复后的本机复验：完整 ML 环境运行 475 项测试，失败 0、错误 0、跳过 2；干净 core-only 克隆运行 458 项测试，失败 0、错误 0、跳过 13（浏览器显式验收及未安装的可选依赖），并通过两轮数值训练、新模型加载、validation、数据检查、保存回放和近似模拟器。远端后续结果以 [main 的 Actions 记录](https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions?query=branch%3Amain)为准。
+
 ## 已保存的原生证据与未完成项
 
 以下为同步前已保存的实测证据，本次仅核对引用和哈希，不作为新原生实验：

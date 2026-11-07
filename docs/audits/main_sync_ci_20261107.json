@@ -1,0 +1,449 @@
+{
+  "schema": "royale-main-sync-ci-followup.v1",
+  "recorded_at_utc": "2026-11-07T10:20:37.173551+00:00",
+  "prior_main_head": "7392e3ca0c18a96dfd7f5993cb52bb83e60dce1e",
+  "first_hosted_ci": {
+    "schema": "royale-main-sync-ci-observation.v1",
+    "run_id": 42363058995,
+    "name": "Portable CPU checks",
+    "head_branch": "main",
+    "head_sha": "7392e3ca0c18a96dfd7f5993cb52bb83e60dce1e",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/42363058995",
+    "run_updated_at": "2026-11-07T10:14:18Z",
+    "job_id": 128375263080,
+    "failed_step": "Contract and migration checks",
+    "tests_run": 448,
+    "failures": 2,
+    "errors": 13,
+    "skipped": 5,
+    "failed_tests": [
+      "ERROR: test_backward_seek_creates_fresh_archive_and_generated_journal_is_replayable (tests_cloud.test_cloud_source.PublicSourceSessionContracts.test_backward_seek_creates_fresh_archive_and_generated_journal_is_replayable)",
+      "ERROR: test_initialization_reports_running_message_without_inventing_a_tick (tests_cloud.test_cloud_source.PublicSourceSessionContracts.test_initialization_reports_running_message_without_inventing_a_tick)",
+      "ERROR: test_pause_during_seek_keeps_prefix_and_resume_executes_once (tests_cloud.test_cloud_source.PublicSourceSessionContracts.test_pause_during_seek_keeps_prefix_and_resume_executes_once)",
+      "ERROR: test_real_import_executes_both_sides_and_archives_local_receipts (tests_cloud.test_cloud_source.PublicSourceSessionContracts.test_real_import_executes_both_sides_and_archives_local_receipts)",
+      "ERROR: test_unconfirmed_card_is_reported_without_replacing_or_retrying_source (tests_cloud.test_cloud_source.PublicSourceSessionContracts.test_unconfirmed_card_is_reported_without_replacing_or_retrying_source)",
+      "ERROR: test_unknown_mutation_is_not_retried_and_source_blocks_manual_play (tests_cloud.test_cloud_source.PublicSourceSessionContracts.test_unknown_mutation_is_not_retried_and_source_blocks_manual_play)",
+      "ERROR: test_archive_keeps_raw_bytes_and_refuses_existing_directory (tests_cloud.test_public_replay.PublicReplayContracts.test_archive_keeps_raw_bytes_and_refuses_existing_directory)",
+      "ERROR: test_both_owners_same_tick_preserved_and_source_is_untouched (tests_cloud.test_public_replay.PublicReplayContracts.test_both_owners_same_tick_preserved_and_source_is_untouched)",
+      "ERROR: test_plan_roundtrip_refuses_changed_commands (tests_cloud.test_public_replay.PublicReplayContracts.test_plan_roundtrip_refuses_changed_commands)",
+      "ERROR: test_row_and_source_episode_have_the_same_commands (tests_cloud.test_public_replay.PublicReplayContracts.test_row_and_source_episode_have_the_same_commands)",
+      "ERROR: setUpClass (tests_cloud.test_reorganize_research.ResearchRelocationTests)",
+      "ERROR: test_resume_records_a_new_run_and_reuses_disk_across_two_restarts (tests_cloud.test_software_android.SoftwareAndroidArtifacts.test_resume_records_a_new_run_and_reuses_disk_across_two_restarts)",
+      "ERROR: test_resume_refuses_live_qmp_socket_even_when_pid_is_gone (tests_cloud.test_software_android.SoftwareAndroidArtifacts.test_resume_refuses_live_qmp_socket_even_when_pid_is_gone)",
+      "FAIL: test_source_import_preserves_original_utf8_bom_crlf_and_hash (tests_cloud.test_replay_app.ReplayAppContracts.test_source_import_preserves_original_utf8_bom_crlf_and_hash)",
+      "FAIL: test_stopped_vm_uses_short_current_log_root_without_executing_launcher (tests_cloud.test_research_runtime.ResearchRuntimeReuseTests.test_stopped_vm_uses_short_current_log_root_without_executing_launcher)"
+    ],
+    "causes": [
+      {
+        "confirmed": true,
+        "kind": "missing_pinned_competitive_catalog",
+        "path": "third_party/phase2/firstlight/native_runner/data/competitive/manifest.json",
+        "error_count": 10
+      },
+      {
+        "confirmed": true,
+        "kind": "torch_not_installed",
+        "test": "tests_cloud.test_reorganize_research.ResearchRelocationTests.setUpClass",
+        "error": "ModuleNotFoundError: No module named 'torch'"
+      },
+      {
+        "confirmed": true,
+        "kind": "unix_socket_path_too_long",
+        "tests": [
+          "tests_cloud.test_software_android.SoftwareAndroidArtifacts.test_resume_records_a_new_run_and_reuses_disk_across_two_restarts",
+          "tests_cloud.test_software_android.SoftwareAndroidArtifacts.test_resume_refuses_live_qmp_socket_even_when_pid_is_gone",
+          "tests_cloud.test_research_runtime.ResearchRuntimeReuseTests.test_stopped_vm_uses_short_current_log_root_without_executing_launcher"
+        ],
+        "errors": [
+          "QMP socket path is too long; use a shorter repository-local --output",
+          "AF_UNIX path too long",
+          "AssertionError: 115 not less than 104"
+        ]
+      },
+      {
+        "confirmed": false,
+        "kind": "replay_import_failure_likely_same_missing_catalog",
+        "test": "tests_cloud.test_replay_app.ReplayAppContracts.test_source_import_preserves_original_utf8_bom_crlf_and_hash",
+        "error": "AssertionError: 2 != 0"
+      }
+    ],
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Core dependencies only",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Restore reviewed assets",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Contract and migration checks",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 6
+      },
+      {
+        "name": "Actual numeric training smoke",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 7
+      },
+      {
+        "name": "Reload and validate the new numeric checkpoint",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 8
+      },
+      {
+        "name": "Saved data, replay and approximate simulator",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 9
+      },
+      {
+        "name": "Post Run actions/setup-python@v5",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 17
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 18
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      }
+    ],
+    "code_modified": false,
+    "workflow_rerun": false,
+    "scope": "Read-only GitHub CI monitoring; local ignored evidence only"
+  },
+  "original_failure_traces": {
+    "path": "outputs/cloud/main-sync-20261107T100809667889Z/ci-failure-traces.log",
+    "sha256": "4c84726090a5cb38f55e334733a876ffc6697db1089e4f19ec9da007864800f1"
+  },
+  "change_scope": "测试自包含目录、可选Torch依赖、Unix socket夹具和断言；无生产逻辑更改，未安装原生资源",
+  "source_files": [
+    {
+      "path": "tests_cloud/test_cloud_source.py",
+      "sha256": "c5eabcb312d48b7553fe2f0298a11da7d3b7d9aadb7da8908b5b0bf232cbf0c7"
+    },
+    {
+      "path": "tests_cloud/test_public_replay.py",
+      "sha256": "25451179c5803e17a19c114d10c3e2d966b0e9f49ef59e8a6ec9b42f2e60b5fb"
+    },
+    {
+      "path": "tests_cloud/test_reorganize_research.py",
+      "sha256": "31376b0535d885e9b3f2d6faab2421468e07b5d2a6d55926b162d87d772762c2"
+    },
+    {
+      "path": "tests_cloud/test_replay_app.py",
+      "sha256": "00a13cfff5779fe389e4c468a1b9f31579f8445e9817ddabe31a95417d551a5b"
+    },
+    {
+      "path": "tests_cloud/test_research_runtime.py",
+      "sha256": "9066b46c044a530fbd097fd5de5b495cef43f82ae80dd3e64bc101256f63b1d3"
+    },
+    {
+      "path": "tests_cloud/test_software_android.py",
+      "sha256": "e603a3bc8b6007f771234aeab758ed921bf3fbe9ab753b60fcebb45a728dfd26"
+    },
+    {
+      "path": "tests_cloud/public_replay_fixtures.py",
+      "sha256": "24c46009ff2bfea490cb772ec490e34976a46761db860cefa2c2cdbcaf8d9059"
+    }
+  ],
+  "core_environment": {
+    "checkout": ".tmp/ci-rrrrrrrrrrrrrrrrrrrrrr",
+    "checkout_length": 67,
+    "core_python": "outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+    "numpy": "2.2.6",
+    "torch_present": "False",
+    "numpy_installation": "独立仓库内venv，仅链接现有NumPy包；无system-site-packages，无Torch；无需联网安装",
+    "ignored_native_competitive_manifest_present": false
+  },
+  "verification": [
+    {
+      "profile": "core",
+      "checkout": ".tmp/ci-rrrrrrrrrrrrrrrrrrrrrr",
+      "checkout_length": 67,
+      "python": "outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+      "started_at_utc": "2026-11-07T10:19:07.697034+00:00",
+      "checks": [
+        {
+          "name": "restore",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "restore"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.697,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/restore.stdout.log",
+            "sha256": "47a970b84ed75b75f8c5f48a0075bec562c94136adbda2e65590caeb276a9179"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/restore.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "name": "tests",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "test"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 44.006,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/tests.stdout.log",
+            "sha256": "c96cab6771b5773b02907e35aefee1b277839d9316ee8007d4deed293722f89b"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/tests.stderr.log",
+            "sha256": "e8c4a3eee733e0d065c22047890f54b55c6962e23b344452de4a28b8e6b09e65"
+          }
+        },
+        {
+          "name": "numeric-train",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "train",
+            "--epochs",
+            "2",
+            "--output",
+            "outputs/cloud/runs/ci-numeric"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.625,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/numeric-train.stdout.log",
+            "sha256": "bf2c446ec58d1e976c56bd3e8e4bba180248db2b8f85a95b5df44a7dd25d0db7"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/numeric-train.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "name": "numeric-infer",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "infer",
+            "--checkpoint",
+            "outputs/cloud/runs/ci-numeric/checkpoint.json"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.232,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/numeric-infer.stdout.log",
+            "sha256": "670acffcfc90fc860ced5eb8058243584142a31c569d917310c3436426c40db2"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/numeric-infer.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "name": "numeric-validation",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "evaluate",
+            "--checkpoint",
+            "outputs/cloud/runs/ci-numeric/checkpoint.json"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.296,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/numeric-validation.stdout.log",
+            "sha256": "b681ef853af5bef5248af766095330b45c2c787bf60af842c437afcf8d2469a1"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/numeric-validation.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "name": "data-check",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "data-check"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.85,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/data-check.stdout.log",
+            "sha256": "d92179bd56748f588d7aeeffbffbb42030e3bedd798a8764c686753d61c19a3c"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/data-check.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "name": "replay",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "replay",
+            "--index",
+            "0"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.693,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/replay.stdout.log",
+            "sha256": "bd5093c3796042bff5cb337d825264baf0281f37a8f2b66d5f70d7406c89a163"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/replay.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        {
+          "name": "simulator",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/outputs/cloud/main-sync-20261107T100809667889Z/core-env/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "simulate",
+            "--seconds",
+            "5",
+            "--seed",
+            "19"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 0.214,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/simulator.stdout.log",
+            "sha256": "36198262bb782a293cb8ef3ac6f0f680a5e146bf2fae12771457227afb2e4474"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-core/simulator.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        }
+      ],
+      "status": "passed",
+      "tests": {
+        "tests": 458,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 13,
+        "native_calls": 0
+      },
+      "finished_at_utc": "2026-11-07T10:19:55.315233+00:00",
+      "skipped_tests": [
+        "test_real_vp9_lifecycle_with_synthetic_variable_cadence_frames (tests_cloud.test_native_frame_media.NativeFrameTests.test_real_vp9_lifecycle_with_synthetic_variable_cadence_frames) ... skipped '缺少 ffmpeg；请在项目 .cache/native-tools/bin 或 .venv-cloud/bin 准备工具，或显式指定路径'",
+        "test_real_tiny_optimization_uses_no_heldout_rows_or_native_rpc (tests_cloud.test_native_loop.NativeLoopInterface.test_real_tiny_optimization_uses_no_heldout_rows_or_native_rpc) ... skipped 'Optional CPU Torch not installed'",
+        "setUpClass (tests_cloud.test_native_media.RealLocalMediaTests) ... skipped '缺少 ffmpeg；请在项目 .cache/native-tools/bin 或 .venv-cloud/bin 准备工具，或显式指定路径'",
+        "test_actual_json_import_and_mirror_download (tests_cloud.test_public_replay_browser.PublicReplayBrowserTests.test_actual_json_import_and_mirror_download) ... skipped '显式指定仓库内输出目录才启动 Chromium；默认测试不增加浏览器负载'",
+        "test_apply_rebases_live_references_and_preserves_model_and_native_identity (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_apply_rebases_live_references_and_preserves_model_and_native_identity) ... skipped 'Optional CPU Torch not installed'",
+        "test_cli_default_is_plan_and_writes_only_explicit_new_receipt (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_cli_default_is_plan_and_writes_only_explicit_new_receipt) ... skipped 'Optional CPU Torch not installed'",
+        "test_corrupt_weight_or_source_digest_is_rejected_before_any_copy (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_corrupt_weight_or_source_digest_is_rejected_before_any_copy) ... skipped 'Optional CPU Torch not installed'",
+        "test_one_conflict_blocks_every_target_and_preserves_existing_bytes (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_one_conflict_blocks_every_target_and_preserves_existing_bytes) ... skipped 'Optional CPU Torch not installed'",
+        "test_optional_missing_media_does_not_invent_video (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_optional_missing_media_does_not_invent_video) ... skipped 'Optional CPU Torch not installed'",
+        "test_plan_validates_real_loaders_without_creating_target_directory (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_plan_validates_real_loaders_without_creating_target_directory) ... skipped 'Optional CPU Torch not installed'",
+        "test_repeated_apply_reuses_identical_targets_without_rewriting (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_repeated_apply_reuses_identical_targets_without_rewriting) ... skipped 'Optional CPU Torch not installed'",
+        "test_symlink_sources_target_parents_and_nonlocal_paths_are_rejected (tests_cloud.test_reorganize_research.ResearchRelocationTests.test_symlink_sources_target_parents_and_nonlocal_paths_are_rejected) ... skipped 'Optional CPU Torch not installed'",
+        "test_workbench_with_isolated_service (tests_cloud.test_research_browser.ResearchWorkbenchBrowserTests.test_workbench_with_isolated_service) ... skipped '显式指定仓库内新目录才运行 Chromium；默认不增加浏览器负载'"
+      ]
+    },
+    {
+      "profile": "ml",
+      "checkout": ".",
+      "checkout_length": 36,
+      "python": ".venv-cloud/bin/python",
+      "started_at_utc": "2026-11-07T10:19:07.697569+00:00",
+      "checks": [
+        {
+          "name": "tests",
+          "command": [
+            "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+            "-B",
+            "tools/cloud/workspace.py",
+            "test"
+          ],
+          "returncode": 0,
+          "elapsed_seconds": 48.2,
+          "stdout": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-ml/tests.stdout.log",
+            "sha256": "e725e6d4a5ccce5e3dd434f099a3c73a20998262b3ef2eaac4ba7e3ff4a729da"
+          },
+          "stderr": {
+            "path": "outputs/cloud/main-sync-20261107T100809667889Z/followup-ml/tests.stderr.log",
+            "sha256": "dacd31ec97168ddc24e7383d6a72076f672f51f696d83d3dbf0a0ba65215f29b"
+          }
+        }
+      ],
+      "status": "passed",
+      "tests": {
+        "tests": 475,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2,
+        "native_calls": 0
+      },
+      "finished_at_utc": "2026-11-07T10:19:55.898339+00:00",
+      "skipped_tests": [
+        "test_actual_json_import_and_mirror_download (tests_cloud.test_public_replay_browser.PublicReplayBrowserTests.test_actual_json_import_and_mirror_download) ... skipped '显式指定仓库内输出目录才启动 Chromium；默认测试不增加浏览器负载'",
+        "test_workbench_with_isolated_service (tests_cloud.test_research_browser.ResearchWorkbenchBrowserTests.test_workbench_with_isolated_service) ... skipped '显式指定仓库内新目录才运行 Chromium；默认不增加浏览器负载'"
+      ]
+    }
+  ],
+  "dependency_inventory_refresh_command": [
+    ".venv-cloud/bin/python",
+    "tools/cloud/research_inventory.py",
+    "--output",
+    "research/dependency-map.json",
+    "--refresh"
+  ],
+  "hosted_followup": "Results will be available from the main branch Actions runs for this followup commit; this record is written before push",
+  "native_rpc_calls": 0,
+  "new_native_game_acceptance": false,
+  "strength_improvement_claim": false,
+  "guide": "docs/MAIN_SYNC_20261107_ZH.md"
+}

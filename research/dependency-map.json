@@ -1,6 +1,6 @@
 {
   "schema": "royale-research-dependency-inventory.v1",
-  "generated_utc": "2026-11-07T08:12:37.617477+00:00",
+  "generated_utc": "2026-11-07T10:19:32.382366+00:00",
   "method": {
     "file_discovery": "git ls-files --cached --others --exclude-standard -z",
     "code_analysis": "AST only; project modules are never imported or executed",
@@ -21,7 +21,7 @@
       ".venv*/",
       "venv*/",
       ".tox*/",
-      "research/{data,models,runtime,vm,runs,media}/",
+      "research/{data,models,runtime,vm,runs,media,replays}/",
       "credential/secret/auth files"
     ],
     "limitations": [
@@ -33,9 +33,9 @@
     ]
   },
   "summary": {
-    "source_files": 390,
-    "python_files": 354,
-    "local_import_edges": 715,
+    "source_files": 391,
+    "python_files": 355,
+    "local_import_edges": 719,
     "parse_errors": 0,
     "file_counts_by_layer": {
       "historical_snapshot": 26,
@@ -45,7 +45,7 @@
       "native_platform": 29,
       "research": 15,
       "workbench": 8,
-      "tests": 60,
+      "tests": 61,
       "tooling": 168,
       "cloud_runtime": 36
     }
@@ -156,7 +156,7 @@
       "path": "run_play.ps1",
       "exists": true,
       "kind": "file",
-      "bytes": 588,
+      "bytes": 601,
       "content_hash_verified": false,
       "command": null
     },
@@ -165,7 +165,7 @@
       "path": "run_platform.ps1",
       "exists": true,
       "kind": "file",
-      "bytes": 2931,
+      "bytes": 2977,
       "content_hash_verified": false,
       "command": null
     },
@@ -174,7 +174,7 @@
       "path": "run.ps1",
       "exists": true,
       "kind": "file",
-      "bytes": 1222,
+      "bytes": 1240,
       "content_hash_verified": false,
       "command": null
     }
@@ -364,8 +364,8 @@
     },
     {
       "path": "bootstrap.ps1",
-      "bytes": 1645,
-      "sha256": "995d98e1526693f01197c16ca26d94f0aa8a71d0b443f46be09dbb5582222713",
+      "bytes": 1671,
+      "sha256": "6123c7a639ac46676d91f0ca3faced83400b1d4ca9db39e881e6a2efcb43af41",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
@@ -399,22 +399,22 @@
     },
     {
       "path": "phase2.ps1",
-      "bytes": 918,
-      "sha256": "fe08459518b6f0043df1208a5462d5a7f28d82d2c5cde2c30364bdeaa0c07746",
+      "bytes": 933,
+      "sha256": "2a17bd92e4720f4f4798c50fdbb57788638b9e0bac5cee97fdd00c1e38767291",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
     {
       "path": "phase3.ps1",
-      "bytes": 497,
-      "sha256": "508c6eb9143777dd7b3d39d0781887f20c49add8bd55afd85708154f8ffcea39",
+      "bytes": 506,
+      "sha256": "2ebbb033148e94f1125df2bbe8f9c54d1979b2e09ee68ad9b4310f7ca99386ea",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
     {
       "path": "play.cmd",
-      "bytes": 82,
-      "sha256": "6600dd67d90fc70092e8cbdbab385d2ae2e542556689eb83d46bab8d42a3d37e",
+      "bytes": 86,
+      "sha256": "0b87e0eb994408b28fab279376574f4015707be9921fbd2ac873d36dd73c272c",
       "layer": "windows_entrypoints",
       "language_suffix": ".cmd"
     },
@@ -630,8 +630,8 @@
     },
     {
       "path": "royale_lab/web/index.html",
-      "bytes": 12013,
-      "sha256": "df442587fdc0fffe8965bbc040f491b1209b371d083aedbff02dd1e52f84ec0e",
+      "bytes": 11994,
+      "sha256": "343f5fb052e946c52a4a0c5860f291d17be0c356cf1e85ce30933d6e601af4bd",
       "layer": "approximate_baseline",
       "language_suffix": ".html"
     },
@@ -959,36 +959,36 @@
     },
     {
       "path": "run.ps1",
-      "bytes": 1222,
-      "sha256": "094aff5f20017f1cf0e5af2619f33f49b01b276e2128494f43d8121908a097b5",
+      "bytes": 1240,
+      "sha256": "b8c0b8fa3f8175ca72888aa419eeaac3e06eadfad139f03f58291c674c30bd3f",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
     {
       "path": "run_demo.ps1",
-      "bytes": 524,
-      "sha256": "3a9b0d29113824c38c5c830552f0f95fc7a6ee0987a6e2d616e3a8377579d47d",
+      "bytes": 535,
+      "sha256": "f3d0f89be5c93343a4ec0b53a6d7dbf2d317a1d78752289235a87ea529e49ad6",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
     {
       "path": "run_platform.ps1",
-      "bytes": 2931,
-      "sha256": "fc1674b7ae7b030d55a448b591329bed14f6e7616c4fa8c9422462be0420d806",
+      "bytes": 2977,
+      "sha256": "3ac4ea12807d2a600912e8b3691d020ba706216c95b49bfdfcd76cc78dd32964",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
     {
       "path": "run_play.ps1",
-      "bytes": 588,
-      "sha256": "83878fab20a7bcfd44f6055e4261bd698d820c5b6fa39cacac849e660db1808c",
+      "bytes": 601,
+      "sha256": "c431d77d9785ccc2e7701663664ceb873d332265d0797a031d6888cc214eb126",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
     {
       "path": "start_demo.ps1",
-      "bytes": 51,
-      "sha256": "12bc64ca9b483c4efd18388a6398cf6d43bf725227afc77141c147b17994a0a3",
+      "bytes": 52,
+      "sha256": "6d4316de2f8952c338ea0d27c09c507d4242f3ceae69da8034936bff94c37f66",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
@@ -1017,6 +1017,13 @@
       "path": "tests/test_vision.py",
       "bytes": 1855,
       "sha256": "d72b74b5254a6ad9c643acbeb6bddac6f71e40f351cdc922a951fbae1118c460",
+      "layer": "tests",
+      "language_suffix": ".py"
+    },
+    {
+      "path": "tests_cloud/public_replay_fixtures.py",
+      "bytes": 2009,
+      "sha256": "24c46009ff2bfea490cb772ec490e34976a46761db860cefa2c2cdbcaf8d9059",
       "layer": "tests",
       "language_suffix": ".py"
     },
@@ -1078,8 +1085,8 @@
     },
     {
       "path": "tests_cloud/test_cloud_source.py",
-      "bytes": 12539,
-      "sha256": "b8d20dc46dfc84e4dd1867b06744bd60e5c88e4e4e2f535da129d0c89e6f2d9a",
+      "bytes": 12669,
+      "sha256": "c5eabcb312d48b7553fe2f0298a11da7d3b7d9aadb7da8908b5b0bf232cbf0c7",
       "layer": "tests",
       "language_suffix": ".py"
     },
@@ -1204,8 +1211,8 @@
     },
     {
       "path": "tests_cloud/test_public_replay.py",
-      "bytes": 5490,
-      "sha256": "e2f03dd4f6132ff917adc33898fb1ed45f29b01e5d09df56bb76efd0a852c9f3",
+      "bytes": 5974,
+      "sha256": "25451179c5803e17a19c114d10c3e2d966b0e9f49ef59e8a6ec9b42f2e60b5fb",
       "layer": "tests",
       "language_suffix": ".py"
     },
@@ -1218,15 +1225,15 @@
     },
     {
       "path": "tests_cloud/test_reorganize_research.py",
-      "bytes": 11179,
-      "sha256": "b114ce85efef09b105e496ce7d53888868f5e8f7533f7db7d7858c591cae3f17",
+      "bytes": 11293,
+      "sha256": "31376b0535d885e9b3f2d6faab2421468e07b5d2a6d55926b162d87d772762c2",
       "layer": "tests",
       "language_suffix": ".py"
     },
     {
       "path": "tests_cloud/test_replay_app.py",
-      "bytes": 12019,
-      "sha256": "28e799ba83d669ef17f234c662511005dc0b725c5b8853544636884608e6d357",
+      "bytes": 12187,
+      "sha256": "00a13cfff5779fe389e4c468a1b9f31579f8445e9817ddabe31a95417d551a5b",
       "layer": "tests",
       "language_suffix": ".py"
     },
@@ -1253,8 +1260,8 @@
     },
     {
       "path": "tests_cloud/test_research_runtime.py",
-      "bytes": 18410,
-      "sha256": "b79846c69e26ad6a29f6d6d1c27fd734fb150b0e0401beea8e19bb238e3fb84d",
+      "bytes": 19062,
+      "sha256": "9066b46c044a530fbd097fd5de5b495cef43f82ae80dd3e64bc101256f63b1d3",
       "layer": "tests",
       "language_suffix": ".py"
     },
@@ -1267,8 +1274,8 @@
     },
     {
       "path": "tests_cloud/test_software_android.py",
-      "bytes": 24727,
-      "sha256": "3fa37996128182dc37e57a254460387206e848ac39ccbf6029981083dcbe48f6",
+      "bytes": 26037,
+      "sha256": "e603a3bc8b6007f771234aeab758ed921bf3fbe9ab753b60fcebb45a728dfd26",
       "layer": "tests",
       "language_suffix": ".py"
     },
@@ -1421,8 +1428,8 @@
     },
     {
       "path": "tools/android_mirror.ps1",
-      "bytes": 10180,
-      "sha256": "1982bacf4363f709a065529898389b50369bf260628326c504bd0da7427f6b57",
+      "bytes": 10358,
+      "sha256": "6e3279760583fd2394b0ec7335bc7daed254f6cb2f951b66aea64d3d233fe265",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
@@ -1561,8 +1568,8 @@
     },
     {
       "path": "tools/build_native.ps1",
-      "bytes": 4314,
-      "sha256": "5f6ca98e177ea745007da8de200b5b3c4a595f45c9fdfbf76550c4c3bb17608d",
+      "bytes": 4377,
+      "sha256": "7ba5f1379bfad1e5faaf6f4dce45093d68af3ad2f4888c6b2f574ef50ae418ef",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
@@ -1792,8 +1799,8 @@
     },
     {
       "path": "tools/cloud/research_inventory.py",
-      "bytes": 26258,
-      "sha256": "de666bd5033b01be6a32d051466405333e6af341443fada9213a3a78096632a3",
+      "bytes": 26277,
+      "sha256": "27bac7e64005516f5e98291c7e9730e3e108a3bf02a45ab4ce064afcb8097fa5",
       "layer": "workbench",
       "language_suffix": ".py"
     },
@@ -1904,8 +1911,8 @@
     },
     {
       "path": "tools/friend_bundle_support/bootstrap_friend.ps1",
-      "bytes": 1215,
-      "sha256": "c95957bfdca8ebe1a96a3f6403ba77b56eba0b639de23601317e5008d439336e",
+      "bytes": 1241,
+      "sha256": "133d2a59f27c186599f0e3dce9e8fc129e4223fc46480684c05623b8b8c1aec0",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
@@ -2345,8 +2352,8 @@
     },
     {
       "path": "tools/phase2_native_build_aapt_wrapper.ps1",
-      "bytes": 809,
-      "sha256": "d487e2567d27cb71db0d36696eef32457a5c567bf8b25457ed29fd915c6c0ea7",
+      "bytes": 822,
+      "sha256": "afb6fba620bb29e433e14c322366e65926343730da769c1098ca5a9ad5d68f23",
       "layer": "windows_entrypoints",
       "language_suffix": ".ps1"
     },
@@ -11475,6 +11482,77 @@
         "parse_status": "parsed"
       },
       {
+        "path": "tests_cloud/public_replay_fixtures.py",
+        "module": "tests_cloud.public_replay_fixtures",
+        "imports": [
+          {
+            "line": 6,
+            "module": "contextlib",
+            "names": [
+              "contextmanager"
+            ],
+            "classification": "stdlib",
+            "local_targets": []
+          },
+          {
+            "line": 7,
+            "module": "os",
+            "names": [],
+            "classification": "stdlib",
+            "local_targets": []
+          },
+          {
+            "line": 8,
+            "module": "sys",
+            "names": [],
+            "classification": "stdlib",
+            "local_targets": []
+          },
+          {
+            "line": 9,
+            "module": "unittest.mock",
+            "names": [
+              "patch"
+            ],
+            "classification": "stdlib",
+            "local_targets": []
+          },
+          {
+            "line": 14,
+            "module": "royale_phase2.public_replay",
+            "names": [
+              "_converter"
+            ],
+            "classification": "local",
+            "local_targets": [
+              "royale_phase2/public_replay.py"
+            ]
+          },
+          {
+            "line": 23,
+            "module": "native_runner",
+            "names": [
+              "card_specs",
+              "royaleapi_replay"
+            ],
+            "classification": "external",
+            "local_targets": []
+          },
+          {
+            "line": 24,
+            "module": "native_runner.contracts",
+            "names": [
+              "CardSpecV1"
+            ],
+            "classification": "external",
+            "local_targets": []
+          }
+        ],
+        "dynamic_imports": [],
+        "process_calls": [],
+        "parse_status": "parsed"
+      },
+      {
         "path": "tests_cloud/test_android_display.py",
         "module": "tests_cloud.test_android_display",
         "imports": [
@@ -12528,7 +12606,18 @@
             ]
           },
           {
-            "line": 137,
+            "line": 18,
+            "module": "tests_cloud.public_replay_fixtures",
+            "names": [
+              "public_replay_card_catalog"
+            ],
+            "classification": "local",
+            "local_targets": [
+              "tests_cloud/public_replay_fixtures.py"
+            ]
+          },
+          {
+            "line": 139,
             "module": "royale_phase2.cloud_replay",
             "names": [
               "NativeReplaySource"
@@ -14372,6 +14461,17 @@
             "local_targets": [
               "royale_phase2/runtime.py"
             ]
+          },
+          {
+            "line": 12,
+            "module": "tests_cloud.public_replay_fixtures",
+            "names": [
+              "public_replay_card_catalog"
+            ],
+            "classification": "local",
+            "local_targets": [
+              "tests_cloud/public_replay_fixtures.py"
+            ]
           }
         ],
         "dynamic_imports": [],
@@ -14495,20 +14595,27 @@
           },
           {
             "line": 3,
-            "module": "io",
+            "module": "importlib.util",
             "names": [],
             "classification": "stdlib",
             "local_targets": []
           },
           {
             "line": 4,
-            "module": "json",
+            "module": "io",
             "names": [],
             "classification": "stdlib",
             "local_targets": []
           },
           {
             "line": 5,
+            "module": "json",
+            "names": [],
+            "classification": "stdlib",
+            "local_targets": []
+          },
+          {
+            "line": 6,
             "module": "pathlib",
             "names": [
               "Path"
@@ -14517,21 +14624,21 @@
             "local_targets": []
           },
           {
-            "line": 6,
+            "line": 7,
             "module": "tempfile",
             "names": [],
             "classification": "stdlib",
             "local_targets": []
           },
           {
-            "line": 7,
+            "line": 8,
             "module": "unittest",
             "names": [],
             "classification": "stdlib",
             "local_targets": []
           },
           {
-            "line": 8,
+            "line": 9,
             "module": "unittest.mock",
             "names": [
               "patch"
@@ -14540,7 +14647,7 @@
             "local_targets": []
           },
           {
-            "line": 10,
+            "line": 11,
             "module": "royale_phase3.common",
             "names": [
               "ROOT",
@@ -14552,7 +14659,7 @@
             ]
           },
           {
-            "line": 11,
+            "line": 12,
             "module": "tools.cloud",
             "names": [
               "reorganize_research"
@@ -14563,14 +14670,14 @@
             ]
           },
           {
-            "line": 17,
+            "line": 19,
             "module": "torch",
             "names": [],
             "classification": "external",
             "local_targets": []
           },
           {
-            "line": 21,
+            "line": 23,
             "module": "royale_phase3.learning",
             "names": [
               "SmallPolicy",
@@ -14583,7 +14690,7 @@
             ]
           },
           {
-            "line": 22,
+            "line": 24,
             "module": "torch",
             "names": [],
             "classification": "external",
@@ -14709,7 +14816,18 @@
             ]
           },
           {
-            "line": 54,
+            "line": 16,
+            "module": "tests_cloud.public_replay_fixtures",
+            "names": [
+              "public_replay_card_catalog"
+            ],
+            "classification": "local",
+            "local_targets": [
+              "tests_cloud/public_replay_fixtures.py"
+            ]
+          },
+          {
+            "line": 55,
             "module": "tools.cloud.native_browser",
             "names": [
               "import_source"
@@ -14720,7 +14838,7 @@
             ]
           },
           {
-            "line": 144,
+            "line": 147,
             "module": "tests_cloud.test_public_replay",
             "names": [
               "public_fixture"
@@ -15339,7 +15457,7 @@
             ]
           },
           {
-            "line": 327,
+            "line": 348,
             "module": "socket",
             "names": [],
             "classification": "stdlib",
@@ -35155,6 +35273,10 @@
         "to": "royale_ai/synthetic.py"
       },
       {
+        "from": "tests_cloud/public_replay_fixtures.py",
+        "to": "royale_phase2/public_replay.py"
+      },
+      {
         "from": "tests_cloud/test_android_display.py",
         "to": "royale_phase2/runtime.py"
       },
@@ -35249,6 +35371,10 @@
       {
         "from": "tests_cloud/test_cloud_source.py",
         "to": "royale_phase3/common.py"
+      },
+      {
+        "from": "tests_cloud/test_cloud_source.py",
+        "to": "tests_cloud/public_replay_fixtures.py"
       },
       {
         "from": "tests_cloud/test_cloud_source.py",
@@ -35443,6 +35569,10 @@
         "to": "royale_phase2/runtime.py"
       },
       {
+        "from": "tests_cloud/test_public_replay.py",
+        "to": "tests_cloud/public_replay_fixtures.py"
+      },
+      {
         "from": "tests_cloud/test_public_replay_browser.py",
         "to": "tests_cloud/test_cloud_native_http.py"
       },
@@ -35461,6 +35591,10 @@
       {
         "from": "tests_cloud/test_reorganize_research.py",
         "to": "tools/cloud/reorganize_research.py"
+      },
+      {
+        "from": "tests_cloud/test_replay_app.py",
+        "to": "tests_cloud/public_replay_fixtures.py"
       },
       {
         "from": "tests_cloud/test_replay_app.py",
@@ -37020,6 +37154,7 @@
         "imported_by": [
           "royale_phase2/public_replay.py",
           "royale_phase2/reconstruction.py",
+          "tests_cloud/public_replay_fixtures.py",
           "tools/phase2_data_firstlight_preflight.py"
         ]
       },
@@ -37174,7 +37309,7 @@
       },
       {
         "name": "contextlib",
-        "importer_count": 16
+        "importer_count": 17
       },
       {
         "name": "copy",
@@ -37242,7 +37377,7 @@
       },
       {
         "name": "importlib",
-        "importer_count": 15
+        "importer_count": 16
       },
       {
         "name": "io",
@@ -37274,7 +37409,7 @@
       },
       {
         "name": "os",
-        "importer_count": 81
+        "importer_count": 82
       },
       {
         "name": "pathlib",
@@ -37354,7 +37489,7 @@
       },
       {
         "name": "sys",
-        "importer_count": 150
+        "importer_count": 151
       },
       {
         "name": "sysconfig",
@@ -37394,7 +37529,7 @@
       },
       {
         "name": "unittest",
-        "importer_count": 66
+        "importer_count": 67
       },
       {
         "name": "urllib",
@@ -37804,8 +37939,8 @@
     },
     {
       "path": "tools/phase2_bootstrap_dex_requirements.lock.txt",
-      "bytes": 848,
-      "sha256": "9c5e72a87e8001941059015eb2e9c84506689dd9744b3fddcca66fd6594bb13e",
+      "bytes": 801,
+      "sha256": "7ce4f460af621ee8ec9ec8e3c9712a2524e548aa1516250386719a8f1ddb2e80",
       "kind": "requirements",
       "pins": [
         {
@@ -38239,8 +38374,8 @@
     },
     {
       "path": "tools/research_vision_requirements.lock.txt",
-      "bytes": 242,
-      "sha256": "89304ebef09afabbed828b8b07f0df102acc6286b1d7b9fb7cc91c10c2a8d024",
+      "bytes": 229,
+      "sha256": "f61e3c40ee7abd3ec3ff05465483738e1cca6e065ce6cf259e933854bf22e209",
       "kind": "requirements",
       "pins": [
         {
@@ -38502,28 +38637,28 @@
           "path": "run_play.ps1",
           "exists": true,
           "kind": "file",
-          "bytes": 588,
+          "bytes": 601,
           "content_hash_verified": false
         },
         {
           "path": "run_platform.ps1",
           "exists": true,
           "kind": "file",
-          "bytes": 2931,
+          "bytes": 2977,
           "content_hash_verified": false
         },
         {
           "path": "run.ps1",
           "exists": true,
           "kind": "file",
-          "bytes": 1222,
+          "bytes": 1240,
           "content_hash_verified": false
         },
         {
           "path": "phase2.ps1",
           "exists": true,
           "kind": "file",
-          "bytes": 918,
+          "bytes": 933,
           "content_hash_verified": false
         },
         {

@@ -13,6 +13,7 @@ from unittest.mock import patch
 
 from tools.cloud import replay_app as app
 from tools.cloud import software_android_vm as vm
+from tests_cloud.public_replay_fixtures import public_replay_card_catalog
 
 
 class ReplayAppContracts(unittest.TestCase):
@@ -53,6 +54,8 @@ class ReplayAppContracts(unittest.TestCase):
         values = states or [{'status': 'running', 'action': 'reuse'}]
         from tools.cloud.native_browser import import_source
         with ExitStack() as stack:
+            if real_import:
+                stack.enter_context(public_replay_card_catalog())
             stack.enter_context(redirect_stdout(io.StringIO()))
             stack.enter_context(redirect_stderr(io.StringIO()))
             port = stack.enter_context(patch.object(app, 'port_available', side_effect=OSError() if port_error else None))

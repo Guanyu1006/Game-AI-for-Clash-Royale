@@ -19,7 +19,9 @@ from tools.cloud import software_android_vm as vm
 class SoftwareAndroidArtifacts(unittest.TestCase):
     def setUp(self):
         (prepare.ROOT / '.tmp').mkdir(exist_ok=True)
-        self.temp = tempfile.TemporaryDirectory(prefix='software-android-test-', dir=prepare.ROOT / '.tmp')
+        # GitHub Actions repeats the repository name in its checkout root.
+        # Keep real AF_UNIX fixtures below the same 104-byte budget as QEMU.
+        self.temp = tempfile.TemporaryDirectory(prefix='sa-', dir=prepare.ROOT / '.tmp')
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
 
@@ -123,7 +125,7 @@ class SoftwareAndroidArtifacts(unittest.TestCase):
         transport.assert_not_called()
 
     def recovery_fixture(self):
-        cache, attempt = self.root / 'cache', self.root / 'original-vm'
+        cache, attempt = self.root / 'cache', self.root / 'v'
         cache.mkdir()
         attempt.mkdir()
         (cache / 'android.ext4').write_bytes(b'preserved-base')
@@ -220,6 +222,25 @@ class SoftwareAndroidArtifacts(unittest.TestCase):
         self.assertEqual((original / 'serial.log').read_bytes(), old_serial)
         self.assertEqual((cache / 'android.ext4').read_bytes(), base)
         self.assertFalse((prepare.ROOT / second['attempt'] / 'android.ext4').exists())
+
+    def test_resume_refuses_overlong_qmp_path_before_build_or_launch(self):
+        cache, original, disk, _, _ = self.recovery_fixture()
+        active = (cache / 'active-vm.json').read_bytes()
+        installed = disk.read_bytes()
+        with patch.object(prepare, 'check_platform'), \
+                patch.object(vm, 'STAGING', self.root / 'staging'), \
+                patch.object(vm, 'process_identity', return_value=None), \
+                patch.object(vm, 'wait_ports_free'), patch.object(vm, 'disk_unused'), \
+                patch.object(vm.shutil, 'disk_usage', return_value=SimpleNamespace(free=2 * 1024 ** 3)), \
+                patch.object(vm, 'make_initramfs') as build, \
+                patch.object(vm.subprocess, 'Popen') as launch, \
+                self.assertRaisesRegex(ValueError, 'QMP socket path is too long'):
+            vm.start(cache, {'kernel_version': 'fixture'}, self.root / ('long-output-' + 'x' * 104),
+                     resume_attempt=original)
+        build.assert_not_called()
+        launch.assert_not_called()
+        self.assertEqual((cache / 'active-vm.json').read_bytes(), active)
+        self.assertEqual(disk.read_bytes(), installed)
 
     def test_invalid_tcg_cache_is_rejected_before_platform_lock_or_disk_access(self):
         cache, attempt, disk, _, _ = self.recovery_fixture()

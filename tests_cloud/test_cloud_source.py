@@ -15,6 +15,7 @@ from royale_phase2.cloud_native import CloudNativeSession
 from royale_phase2.public_replay import PublicReplayPlan
 from royale_phase3.common import ROOT, read, rows, write
 from tests_cloud.test_cloud_native_session import SyntheticBridge, SyntheticSessionEngine
+from tests_cloud.public_replay_fixtures import public_replay_card_catalog
 
 
 def public_fixture():
@@ -46,6 +47,7 @@ class PublicSourceTransport(SyntheticSessionEngine):
 
 class PublicSourceSessionContracts(unittest.TestCase):
     def setUp(self):
+        self.enterContext(public_replay_card_catalog())
         (ROOT/'.tmp').mkdir(exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(prefix='public-source-', dir=ROOT/'.tmp')
         self.addCleanup(self.temporary.cleanup)

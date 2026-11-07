@@ -146,10 +146,20 @@ class ResearchRuntimeReuseTests(unittest.TestCase):
         argv = stage.call_args.args[3]
         output = argv[argv.index('--output') + 1]
         self.assertEqual(output, 'research/vm')
-        # software_android_vm uses a timestamped child and a filesystem QMP
-        # socket. Per-experiment output paths exceed its 104-byte limit here.
-        socket_path = ROOT / output / '20261107T073000.123456Z-vm/qmp.sock'
-        self.assertLess(len(str(socket_path).encode()), 104)
+        # This fixed root is shorter than per-experiment logs; whether its QMP
+        # socket fits still depends on the absolute checkout root. The VM
+        # launcher retains its own 104-byte guard for long roots such as CI.
+        attempt_suffix = Path('20261107T073000.123456Z-vm/qmp.sock')
+        socket_suffix = Path(output) / attempt_suffix
+        experiment_suffix = self.folder.relative_to(ROOT) / 'cold/vm' / attempt_suffix
+        self.assertLess(len(str(socket_suffix).encode()), len(str(experiment_suffix).encode()))
+        checkout_roots = (
+            (Path('/workspaces/Game-AI-for-Clash-Royale'), True),
+            (Path('/home/runner/work/Game-AI-for-Clash-Royale/Game-AI-for-Clash-Royale'), False),
+        )
+        for checkout_root, fits in checkout_roots:
+            with self.subTest(checkout_root=checkout_root):
+                self.assertEqual(len(str(checkout_root / socket_suffix).encode()) < 104, fits)
         client.status.assert_not_called()
         probe.assert_not_called()
 
