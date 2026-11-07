@@ -98,6 +98,27 @@
           "sha256": "0a8a6c4a7d944538f2820cbde2a313f2fe6f94c21ffece9e6f372fc2ab8072e1"
         }
       ]
+    },
+    "native_video": {
+      "platform": "Project-local Android screenrecord plus host FFmpeg/ffprobe",
+      "required_for": "Recorded rendered evaluation; offline training and saved-video playback do not need Android",
+      "binaries": {
+        "ffmpeg": ".cache/native-tools/bin/ffmpeg",
+        "ffprobe": ".cache/native-tools/bin/ffprobe"
+      },
+      "recording_module": "tools/cloud/native_frame_media.py",
+      "installed_tool_versions_and_hashes": "Written per recording receipt; existing binaries are not silently replaced",
+      "screenrecord": "Default uses continuous FrameOutput without a guest codec; explicit legacy screenrecord backend probes its guest codec and tracks segment limits/gaps",
+      "python_packages_added": [],
+      "system_packages_installed": false,
+      "browser_checks": "Optional requirements-codespaces-browser.txt and project-local Chromium cache",
+      "official_references": [
+        "https://ffmpeg.org/documentation.html",
+        "https://developer.android.com/tools/adb#screenrecord"
+      ],
+      "capture_backend": "Continuous Android screenrecord FrameOutput RGB stream",
+      "encoding": "Host FFmpeg VP9/WebM with variable PTS from host wall-clock feed; original source capture PTS remain unknown",
+      "legacy_backend": "tools/cloud/native_media.py Android MP4 recorder, requires a working guest AVC encoder"
     }
   },
   "native_execution_prerequisites": "Separate compatible Android host/system image, current installed APK and content identity, and actual reset/play/terminal acceptance",

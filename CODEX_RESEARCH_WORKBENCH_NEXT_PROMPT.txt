@@ -1,0 +1,197 @@
+Royale Lab 科研工作台接续实施指令
+日期：2026-11-07，Asia/Shanghai
+依据：CODEX_RESEARCH_WORKBENCH_PROMPT.txt、当前代码及本机保存记录。
+审查时 HEAD：9f1768a。工作区有未提交实现，不能只按 HEAD 判断现状。
+
+这是下一次交给 Codex 的实施指令。本次仅完成设计审查与交接，没有修改运行代码、启动服务、VM、ADB、训练或对局。
+原任务书保留为总体设计；本文件补充最新用户偏好、未完成代码的接续点和首版验收。存在表述差异时，以本文件的最新范围和用户后续指令为准。
+
+一、已经确定的使用方式
+
+用户明确选择：训练留在 Codespaces，实时对战可以用 Windows 本机镜像。
+
+日常科研目标是：
+打开统一工作台 -> 选择数据和模型配置 -> 训练 -> 自动验证/新局评估 -> 看指标和原生录像。
+研究者主要修改模型、输入、loss 和实验配置，不需要每次处理 VM、ADB、PID、connection 或分别转发端口。
+
+观看和对战采用两种用途明确的客户端：
+1. Codespaces 网页：启动实验、查看任务、比较结果、播放已经保存的 Android 原生录像。
+2. 后续 Windows 镜像窗口：显示真实 Android 画面，以正常选牌/拖放操作与所选 checkpoint 连续打一局。连接和必要隧道由项目启动器管理，不让用户逐个转发。
+
+镜像是显示和输入通道，不会提升云端游戏本身的运行速度。Windows 客户端不等于游戏已经迁到 Windows。先测当前运行端；只有当前后端不适合互动时，再评估本地或硬件加速运行端的同版本兼容性。
+首版无需开发浏览器直播桥接、WebRTC 或一套新游戏画面。网页中的回放直接播放原生录像。
+
+二、下一轮的明确范围
+
+实施原任务书阶段 0、1、2 的最小纵向版本，接续已有代码，不另起一套系统：
+一个研究入口 -> 真实离线训练 -> 独立进程加载验证 -> 自动原生新局评估 -> 保存原局录像 -> Android 关闭后仍可播放和拖动。
+
+先盘点资源和媒体可行性；离线页面及训练接线可以独立推进。外部媒体条件受阻时完成离线部分，并把阶段 2 保持为未完成。
+连续人机对战属于后续阶段 3；本轮只保存兼容它的会话边界和实测结论。算法、数据量扩充及公平战场观测改进沿原阶段三研究任务书另行推进。
+不要在本次入口重构中同时升级模型、放宽 actor 信息或宣称策略提升。
+
+三、先恢复工作上下文，保护现场
+
+开始时依次读取：
+- AGENTS.md、README.md、docs/GITHUB_CODESPACES_ZH.md。
+- CODEX_PHASE3_PROMPT.txt、CODEX_RESEARCH_WORKBENCH_PROMPT.txt、本文件。
+- docs/DEVELOPMENT_HANDOFF_20261024_ZH.md、docs/NATIVE_LOOP_ZH.md、docs/ANDROID_MIRROR_ZH.md。
+- docs/audits/research_workbench_review_20261107.json。
+
+先执行 git status --short，核对当前文件。审查时以下文件是用户已有工作，不是本次审查新建：
+- 已修改：tools/cloud/workspace.py、.devcontainer/devcontainer.json。
+- 未跟踪：royale_phase3/research.py、tools/cloud/research_app.py、research_worker.py、research_runtime.py、native_media.py，以及原总体任务书。
+不要删除、覆盖回 HEAD、重置或自动提交这些文件；先理解再接续。若有更新，以新代码为准重新核查下列断点。
+
+四、当前可以复用什么，具体还缺什么
+
+已有实现，均不能仅凭文件存在视作验收通过：
+- royale_phase3/research.py：ResearchService 串行任务队列、配置与指纹、独立 run_id、子进程日志、取消、中断状态；数据预设与 GRU C 接入。
+- tools/cloud/research_worker.py：独立进程加载与 validation，物理隔离 test，检查与部署动作解码一致。
+- tools/cloud/research_runtime.py：复用已有 VM 安装与 native_prepare，保存准备/停止回执。
+- tools/cloud/research_app.py：HTTP/CLI、应用身份识别、接口访问检查、已登记视频的 Range 读取。
+- tools/cloud/native_media.py：Android screenrecord 分段录制草稿，含 ffprobe 检查和主机时钟/tick 锚点。
+- royale_phase3/native_loop.py、native_env.py、learning.py：原生采集、导出、训练、配对评估、StatefulPolicy；不要重写战斗引擎和训练框架。
+
+当前明确断点，行号仅作审查时导航：
+1. research_app.py:143 必读 tools/cloud/research_workbench.html，该文件缺失；当前只有旧 research.html。不能靠改名接上不同 API，也不能继续用旧简化棋盘当原生画面。
+2. research.py:455–456 发出 --record-video --rendered，但 tools/native_loop.py 的 evaluate 只有 --rendered，没有 --record-video 及相关录制参数。help 成功不代表完整入口能启动或评估能运行。
+3. royale_phase3/native_loop.py:189 附近没有 NativeMediaRecorder 生命周期，结果也没有逐局 media 登记。先把录制接入实际 rendered 新局，再谈播放器。
+4. research.py:471 附近的完成条件只有数值原生结果。record_video=true 时，还必须验证所请求录像的覆盖、可解码、归属与播放器能力；媒体失败不能标记完整实验已通过。
+5. research.py:262 的 video_seconds 恒为 None，动作事件跳转尚未实现。
+6. .vscode/tasks.json 中 Cloud: research page 仍调用旧 serve。新入口验收通过后更新主要入口说明和任务，旧入口保留兼容。
+7. 工作区 devcontainer 已改为只自动转发 8770，原任务书中“8770/8772 并存”描述的是此前状态。新工作台验收前要说明旧 8772 入口如何继续手动使用，避免删掉转发便宣称已统一。
+
+本机 outputs/cloud/research-acceptance-20261107-001/runtime/report.json 仅保存 preparing，子 prepare/report.json 为 running。这是历史准备现场，不是当前运行状态，也不是验收通过；重试用新目录。
+
+五、固定首版研究契约
+
+默认复用本机：
+outputs/native_loop_20261020/native-run-002/dataset/train_validation/metadata.json
+
+保存记录的规模：3 个 train 整局/1113 行/85 次出牌；1 个 validation 整局/352 行/27 次出牌；没有 test。它适合验证工程流程，不能支撑策略强度结论。
+默认模型固定 GRU C、fair、713 维现有输入、hidden=32、2 epochs、现有八卡与时间协议；复用 native_loop.train_offline。不要无声调用 workspace train-gru 的 D 变体。
+新局先固定 cycle 对手、同 seed 换边的两局评估，两局均 rendered=true；配置和全部请求局的分母都保存。
+启用前通过现有数据契约校验 rows 哈希、整局切分、版本和模型兼容性，不只相信本审查的 metadata 摘要。
+
+portable-pilot 是另一版本的 5 局数据（3/1/1，654/260/704 行），只能作为显式独立的离线预设，不能替代当前原生模型数据。上游 data_audit 中 17 合格局不是这个便携子集的训练分母。
+缺少 native-run-002 或版本不兼容时明确报缺口，不自动换数据、降级模型或切成规则策略。
+
+现有 StatefulPolicy 已做版本/profile 校验、按 episode/owner 清空 hidden、同 tick 缓存和统一解码，继续复用。
+公平输入目前排除全部非塔实体，包括己方单位。画面完整不代表模型观察完整。保持 unknown/mask，不把 oracle 接进主策略。后续“AI 看不懂来兵”的问题需要另做可信战场观测，不能只靠入口或录像解决。
+当前 native_loop 完整流程的采集策略是 random，不是专家；保留真实来源标识。
+
+六、运行层的接续原则
+
+逻辑结构保持三层：
+研究模型/训练函数 <-> 实验服务/任务记录 <-> 原生运行与媒体适配。
+CLI 与网页共用 ResearchService，不能各自实现配置解析和判定。首版保留本地 JSON/JSONL、一条后台队列、一个原生任务槽，不引入数据库、Celery 或分布式系统。
+研究者通常只改 learning.py 的模型/loss、必要时的 observation.py/belief.py、以及显式实验配置。
+
+统一入口沿用：
+.venv-cloud/bin/python tools/cloud/workspace.py research
+它当前已有路由但未完整验收，交付前必须实际可用。正常只暴露私有 8770 网页/API/视频入口；内部 ADB/RPC 仍留在回环地址。
+离线训练、查看档案、播放已存录像不启动 Android，也不先占原生锁。不要因打开首页就构造 CloudNativeSession；其 worker 会长期持锁并挡住评估。
+prepare 与批次控制的锁边界要明确：不要在已持 native_lock 时又调用会让子进程 native_prepare 取同一锁的 ensure_runtime，避免自锁。
+一个世界只有一个时钟与控制者。录像编码可附着会话；不要让另一个 runner 或页面控制器同时 reset/advance。
+重复启动通过应用握手和进程身份复用健康的本项目入口；不凭端口开放判断，也不杀未知占用者。
+刷新只恢复任务查看；进程中断保留 interrupted 和准确的重试方法。不要盲目重发执行结果未知的 reset/出牌操作。
+保留 Windows 入口、旧 CLI、历史模型、数据、磁盘和证据。只停止明确归属本任务的进程。
+
+七、阶段 0 先做最小媒体实测
+
+先检查现有资源、进程归属、可用内存/磁盘、编码工具版本和本项目控制锁，再决定是否启动运行端。不要读取凭据、自动付费扩容或重建用户已有磁盘。
+由一个探测 runner 串行完成：
+1. 复用现有准备函数，显式 rendered 场景，在 configure/reset 之前启动原生录制。
+2. 保存 configure 前、reset 返回、动作请求/实际消费、停止录制时的 tick 与主机单调时间。
+3. 用当前支持卡组至少验证一个实际消费动作和真实单位/塔变化。不能以成功注入代替消费确认。
+4. 拉回真实媒体，做完整解码、PTS、尺寸、关键帧、时长、分段间隙与有效更新率检查；在目标浏览器试播放/暂停/前后 seek。
+5. 分别报告“能录制与播放”和“适合实时互动”；不要求离线录屏必须达到实时 1x。
+
+已有 native_media.py 选择 screenrecord，但不能因此假定编码器可用。它分段后拼接，需验证跨段间隙及真实媒体时间映射；仅 ffprobe 容器合法或文件非空不够。
+如已有 screenrecord 路径不能满足需求，再依据实测评估 scrcpy 连续录制；工具支持录制不能证明当前 guest 支持。选定一种主路径，不同时重写两套媒体系统。
+对于长于单段或可能缓慢运行的对局，必须实际覆盖段切换。既不把缺帧补成假画面，也不把拼接去掉的间隙藏在“完整视频”结论中。
+
+八、阶段 1 和 2 具体交付顺序
+
+第一步：补齐研究页面与离线流程。
+- 页面提供训练、评估、实验/录像列表；后续人机入口在未完成时明确标状态。
+- 从 catalog 选择数据、模型与预算，显示训练进度、曲线、验证结果、checkpoint 和失败日志。
+- 用新 run_id 实际训练两轮，新进程加载保存 checkpoint 并验证；不碰 test。
+- 核对重构前后一批冻结输入的编码、mask、解码和 hidden 更新，避免把重构造成的策略变化混入结果。
+- 验证重复启动、刷新、取消和重开时的 interrupted 状态；离线操作的原生调用数为零。
+
+第二步：接录制到原生评估。
+- 补 CLI -> run_batch -> recorder 参数与生命周期、逐局媒体清单和所有异常/取消的收尾。
+- 原生 reset 返回前会预热到 tick 90，不能等 reset 结束才录。录制在首次 configure/reset 之前就绪，结束在记录自然终局之后。
+- 先运行少量预算内的新局；保留模型 owner、模型/数据/版本指纹、双方日志、消费反馈、终局和媒体。
+- 默认两局配对评估，启动前固定录制索引 [0]，只录第一局以控制首版预算；新增内部 record_game_indices 或等价字段，在不可变配置中保存。研究者不必手工填写。
+- record_video=true 表示开启录像，录哪些局由上述明确字段决定，不能同时又暗指全部局。选择全录时，全部所请求媒体通过才能标整体完成。不事后只挑赢局。
+- 最小媒体里程碑是预先选定局从开始到自然终局的完整原局录像；另一配对局的数值结果与未录制状态如实保留。
+- 保存媒体状态 requested/recording/complete/partial/failed/not_recorded 和失败原因，不把数值通过提升成媒体通过。
+
+第三步：完成离线播放器和同步。
+- 复用登记媒体与 Range 服务，用真实浏览器验证原生视频播放、暂停、倍速、开头/中间/结尾前后 seek。
+- 停止 Android 后重复这些操作，确认不发 reset/advance、也不重新启动 VM。
+- tick/20 只表示游戏秒，不能直接作为视频 currentTime；主机收到的 segment 事件也不是第一帧 PTS。
+- 记录每段 PTS、主机/设备时间和 tick 锚点、段间空隙及误差。事件跳转只能定位到有证据的媒体时间区间；精确映射未知时标注范围，禁止伪造 video_seconds。
+- 历史 headless 对局显示“当时未录制”。重演新录另存来源、运行编号与误差，不覆盖或冒称历史原局录像。
+
+九、首版验收需要真实证据
+
+每项记录 status=passed/failed/unverified/blocked、命令、输入指纹、日志与结果路径，不硬编码通过。至少分开以下结论：
+
+A. 接口与兼容：页面真实启动；默认一条入口；重复启动复用；旧入口可按说明使用；不增加研究者手动内部端口操作。
+B. 离线实验：真正训练/保存/新进程加载/validation；模型与数据身份一致；test 未参与；离线任务零原生调用。
+C. 原生新局：两局均自然终局、owner 换边正确且所选 checkpoint 真正控制时才 passed。自然终止/截断/失败、提出/实际消费/rejected/unknown 分开；失败或截断保留分母并判 C 未通过。
+D. 原生媒体：预先选定的所有录制局均 complete 且通过媒体验收，至少一局覆盖开始到自然终局；真实游戏原局画面可解码、来源正确、缺失情况可核对；Android 停止后目标浏览器仍可播放和前后 seek；事件定位有误差口径。
+E. 后续实时人机：本轮未实施；不能由 A–D 推出通过。
+F. 策略提升：本轮不作提升结论；两局和小数据只验流程。
+
+阶段 2 整体通过要求 C、D 同时 passed，不能以一局媒体成功抵消另一局原生失败。
+
+有针对性地补充任务状态、离线零原生调用、CLI 接线、媒体失败状态、owner/hidden、单控制者、媒体 Range/seek 的必要检查。fixture 只验证接口，不能替代实际 Android 画面和真实浏览器。
+运行仓库相关检查并保存日志。不要为了文档变化反复跑所有昂贵训练或原生实验。
+
+建议新证据结构（可按现有接口调整，不能覆盖历史）：
+outputs/cloud/research-acceptance-<唯一编号>/
+  baseline/                 代码/配置/冻结预测与资源盘点
+  media-probe/              阶段 0 实测及原始媒体
+  offline/                  新训练和独立加载记录
+  native/                   新局、实际反馈与逐局媒体
+  browser/                  真实页面播放/seek/关闭 Android 后回看证据
+  acceptance.json           A–F 分项状态及指纹
+
+十、后续阶段 3 的设计边界
+
+以 Windows 桌面镜像为实时客户端优先，训练继续在 Codespaces。由项目脚本自动准备连接、镜像与退出清理；一次安装和 GitHub 登录权限与日常操作分开。
+当前 android_mirror 脚本默认 --no-control、5fps，未在用户 Windows 完成实测。取消 --no-control 不等于人机对战接通。
+CloudNativeSession 当前是规则对手，StatefulPolicy 原生模型 runner 是另一条链。后续必须整合成一个会话调度器，不能启动两条链争同一世界。
+自动持续推进游戏；双方动作归属/排队/实际消费和 AI hidden 状态由同一会话维护。默认每次出牌后不停住，暂停/单步只作为用户主动调试功能。
+先证明原生触摸能在这个离线场景生效并归属正确；如不能，再选一种原生画面上的拖放控制层转换成规范动作。两种方式只完成一种，不双写，也不退回一步一点击的坐标表单。
+只由拥有世界控制权的调度器提交或接纳人类与 AI 输入；镜像直接触摸若绕开这条链，必须先证明可归属、可审计且不会双重执行，不能默认开放。
+
+互动目标先沿原任务书：约 1x 游戏速度、有效新鲜画面至少 15fps、期望 30fps、额外输入延迟 p95 不高于 300ms。先记录实际值，正式实现前冻结测量窗口和容差；这些不是当前已达成能力。
+分开报告网络/排队/模型推理、决策节拍和游戏固有部署延迟。调高显示参数不能替代源游戏速度与新鲜帧验证。
+如果当前 TCG 后端不达互动要求，保留已完成的训练和录像工作台；另列本地/硬件加速运行端的固定版本、ABI、探针、重置、观测/动作/时序兼容验证任务。可将保存 checkpoint 放到兼容运行端就近推理，不要求训练也搬出 Codespaces。
+不要未经实测承诺换模拟器必然可用，也不自动付费升级或迁移到官方在线对战。
+
+十一、下一轮结束时用中文交付
+
+提供一个真实可运行的启动命令，说明怎样选数据/模型、训练、自动评估和关闭 Android 后看录像。
+逐项报告 A–F 实际状态、媒体来源、失败与准确可继续命令；明确哪些只是接口检查，哪些有真实训练、新局与原生画面证据。
+若阶段 2 尚未通过，就交付可用的阶段 1 并保留现场，不把整个科研工作台写成全部完成。
+不要创建持续 Goal，除非用户或运行系统另行明确授权；本任务书只规定实施范围。
+
+十二、已经核对的技术参考
+
+1. scrcpy 官方录制说明：支持镜像时录制或单独保存媒体；当前 guest 编码能力仍需实测。
+   https://github.com/Genymobile/scrcpy/blob/master/doc/recording.md
+2. Android 官方 adb/screenrecord：文档列出单次录制默认/最大 180 秒；实现需核对当前 Android 工具版本，并验证长局分段边界。
+   https://developer.android.com/tools/adb#screenrecord
+3. scrcpy 官方远程连接：远端设备可经隧道连接；项目应封装必要连接，不能把原始手动步骤再交给研究者。
+   https://github.com/Genymobile/scrcpy/blob/master/doc/tunnels.md
+4. Codespaces 官方端口说明：可配置 forwardPorts，已有 Codespace 的配置更新生效需要重建。首版记录一次性设置和日常启动的区别。
+   https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace
+5. Android 模拟器加速说明：图形和 VM 加速影响运行性能；不是本仓库固定版本/探针兼容性的证明。
+   https://developer.android.com/studio/run/emulator-acceleration

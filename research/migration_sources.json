@@ -1,0 +1,39 @@
+{
+  "schema": "royale-research-migration-sources.v1",
+  "scope": "只供一次性、显式迁移使用；日常运行读取 research/system.json，禁止自动搜索这些历史路径。所有原始文件保持原位置、原字节。",
+  "datasets": [
+    {
+      "id": "native-run-002",
+      "source": "outputs/native_loop_20261020/native-run-002/dataset/train_validation/metadata.json",
+      "source_sha256": "98d3903b0c66cfc191b357bf2c83803a41898fa395bc1a4e8d317830eb530699",
+      "target_metadata": "research/data/native/metadata.json",
+      "target_rows": "research/data/native/rows.jsonl"
+    },
+    {
+      "id": "portable-pilot",
+      "source": "data/phase3/native/pilot-003/metadata.json",
+      "source_sha256": "11f87b08817ac2b75201bab9c645d8f55afeb0fbca658cc518c66a24e32aacd1",
+      "target_metadata": "research/data/portable-pilot/metadata.json",
+      "target_rows": "research/data/portable-pilot/rows.jsonl"
+    }
+  ],
+  "checkpoint": {
+    "source": "outputs/cloud/research/run-20261107t055223761604z-0ccb3619/model/epoch-0002.json",
+    "source_sha256": "467cb4a9ca644ee419e1a9ff61b70afd12a52357e182a8f49361af0d3a063232",
+    "target_metadata": "research/models/gru-c/reference.json",
+    "target_weights": "research/models/gru-c/reference.npz",
+    "dataset_id": "native-run-002"
+  },
+  "native_manifest": {
+    "source": "outputs/native_loop_20261020/local-runtime-version-001.json",
+    "source_sha256": "f1681bd880bf0d6ebbe7c6bab80ad972d6f79d2185fc05e6e98abe0f711ab9dd",
+    "target": "research/runtime/version.json"
+  },
+  "media": {
+    "source_receipt": "outputs/cloud/research/run-20261107t065103723813z-692b2ba4/evaluation/game-000/media/recording.json",
+    "source_receipt_sha256": "410b8be048a8cbd1dc4f5409c08fc62478a92e45137baa13f5989b6deafec389",
+    "target_video": "research/media/native-initialization.webm",
+    "target_receipt": "research/media/native-initialization.json",
+    "optional": true
+  }
+}

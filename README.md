@@ -1,5 +1,9 @@
 # Royale Lab：皇室战争本地 AI 研究平台
 
+> **直接读代码：** [当前仓库框架图与核心函数地图](research/CODE_MAP_ZH.md)，包含训练、真实对局、视频流程、活跃依赖与可暂时不读的历史代码；[可缩放总图](research/CODE_MAP.svg)。
+
+> **当前科研入口（2026-11-07）：** `.venv-cloud/bin/python tools/cloud/workspace.py research`，打开私有 **8770**。配置集中在 `research/system.json`，数据、参考模型与新结果使用 `research/` 固定运行目录。先读[当前系统总指南：运行、代码层级、依赖与验收](research/README.md)；[模型接入](research/MODEL_INTEGRATION_ZH.md)和[性能与真实视频实测](research/PERFORMANCE_AND_MEDIA_ZH.md)解释具体改动位置与限制。离线训练已通过；本轮无画面原生模型两局均自然终局、确认出牌90次，一胜一负；完整原版录像和连续拖牌人机尚未通过。以下历史入口、证据与 Windows 启动器继续保留，各自验收不互相替代。
+
 > **双方协作与读码入口（2026-10-24）：** 当前共同开发基线为 `dev/main-start-20261020`。先读[开发交接与代码调用图](docs/DEVELOPMENT_HANDOFF_20261024_ZH.md)，其中区分四套代码、最新已验证能力、剩余验收、资源边界和两人分支操作。[Git 内的证据摘要](docs/audits/development_handoff_20261024.json)可随克隆阅读；下面指向 `outputs/` 的完整原始证据仍保留在原 Codespace。
 
 > **公开对局 JSON 的统一入口：** `.venv-cloud/bin/python tools/cloud/workspace.py play-replay` 会复用或恢复已有 Android，准备连接并启动 8772 页面。页面支持导入单局 RoyaleAPI／IL_Replay JSON、打开、播放、暂停、单步与跳转；也可下载在本机运行的 Android 镜像脚本。使用方式见[导入、执行与显示](docs/NATIVE_VISUAL_ZH.md#公开事件-json导入执行与显示)。导入与接口测试、实际原生运行结果分别记录，不把代码检查算作游戏画面成功。
@@ -22,7 +26,7 @@
 
 > **已导入 Codespace，继续配置 Codex 并提交上传：** 读 [最后配置与上传步骤](docs/CODEX_CODESPACES_ZH.md)。
 
-> **GitHub / Codespaces 双人开发：** 先读 [上传、重建环境与共同操作教程](docs/GITHUB_CODESPACES_ZH.md)。使用经过整理的 GitHub 上传包；云端入口为 `.venv-cloud/bin/python tools/cloud/workspace.py serve`，支持已保存样例推理和 CPU 训练。原生 Android 运行与对局验收进度见上方指南；下面的 Windows 本地入口继续保留。
+> **GitHub / Codespaces 双人开发：** 先读 [上传、重建环境与共同操作教程](docs/GITHUB_CODESPACES_ZH.md)。日常科研使用上方 `research` 工作台；旧 `serve` 样例页面仍可单独启动，支持已保存样例推理。原生 Android 运行与对局验收进度见上方指南；下面的 Windows 本地入口继续保留。
 
 
 > **先体验“我下牌、AI 回应”：双击项目内 `play.cmd`，或在 PowerShell 运行 `.\run_play.ps1`。** 手动打开终端打印的地址，默认 `http://127.0.0.1:8770`；你是下方蓝方，AI 是上方红方。用画面下方的中文手牌拖到战场，默认每次推进1秒后暂停。只需先读 [人机演示入门](phase2/PLAY_GUIDE_ZH.md)。AI 决策函数在 [examples/human_ai_policy.py](examples/human_ai_policy.py)，当前为可解释规则，未经过 RL 训练。

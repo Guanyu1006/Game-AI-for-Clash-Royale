@@ -33,6 +33,16 @@ def main(argv=None):
         else:
             p.add_argument('--opponent', choices=['cycle', 'random', 'wait', 'alternate'], default='alternate')
             p.add_argument('--rendered', action='store_true', help='请求原生renderer；不生成合成游戏截图')
+            p.add_argument('--record-video', action='store_true', help='在建局前录制真实Android画面；必须同时 --rendered')
+            p.add_argument('--record-backend', choices=['frameoutput', 'screenrecord'], default='frameoutput',
+                           help='原生FrameOutput在主机编码（默认），或显式Android screenrecord')
+            p.add_argument('--record-game-indices', help='要录制的从0开始的局号，如0,1；录制时默认仅0')
+            p.add_argument('--record-adb', default='.cache/native-tools/bin/adb')
+            p.add_argument('--record-adb-port', type=int, default=5038)
+            p.add_argument('--record-serial', default='127.0.0.1:15555')
+            p.add_argument('--record-root-shell', choices=['su0', 'adbd'], default='su0')
+            p.add_argument('--record-ffmpeg')
+            p.add_argument('--record-ffprobe')
             if command == 'collect':
                 p.add_argument('--policy', choices=['cycle', 'random', 'wait', 'manual', 'checkpoint'], default='random')
                 p.add_argument('--checkpoint')

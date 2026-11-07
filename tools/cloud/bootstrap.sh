@@ -33,4 +33,4 @@ fi
 "$py" tools/cloud/workspace.py restore
 "$py" tools/cloud/workspace.py doctor
 "$py" tools/cloud/workspace.py test
-printf '\nReady. Run: .venv-cloud/bin/python tools/cloud/workspace.py doctor\nThen: .venv-cloud/bin/python tools/cloud/workspace.py serve\n'
+printf '\nReady. Run: .venv-cloud/bin/python tools/cloud/workspace.py doctor\nThen: .venv-cloud/bin/python tools/cloud/workspace.py research\n'

@@ -227,7 +227,8 @@ def serve(host='127.0.0.1',port=8770,replay_metadata=None):
 def main():
     native_tools={'native-loop':'tools/native_loop.py','native-connection':'tools/cloud/native_connection.py',
                   'native-browser':'tools/cloud/native_browser.py','native-prepare':'tools/cloud/native_prepare.py',
-                  'play-replay':'tools/cloud/replay_app.py'}
+                  'play-replay':'tools/cloud/replay_app.py',
+                  'research':'tools/cloud/research_app.py'}
     if len(sys.argv)>1 and sys.argv[1] in native_tools:
         return subprocess.call([sys.executable,'-B',str(local(native_tools[sys.argv[1]])),*sys.argv[2:]],cwd=ROOT)
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
@@ -240,6 +241,8 @@ def main():
         a=sub.add_parser(name);a.add_argument('--checkpoint',required=True);a.add_argument('--split',choices=['train','validation'],default='validation');a.add_argument('--output')
         if name=='evaluate-gru':a.add_argument('--metadata')
     a=sub.add_parser('serve');a.add_argument('--host',default='127.0.0.1');a.add_argument('--port',type=int,default=8770);a.add_argument('--replay-metadata')
+    a=sub.add_parser('research',add_help=False,help='Unified experiments, model evaluation and recorded native video')
+    a.add_argument('arguments',nargs=argparse.REMAINDER)
     a=sub.add_parser('train');a.add_argument('--epochs',type=int,default=2);a.add_argument('--output')
     a=sub.add_parser('train-gru');a.add_argument('--epochs',type=int,default=2);a.add_argument('--output');a.add_argument('--resume',action='store_true');a.add_argument('--stop-after-epochs',type=int)
     a=sub.add_parser('replay');a.add_argument('--episode-id');a.add_argument('--owner',type=int);a.add_argument('--index',type=int,default=0);a.add_argument('--metadata')

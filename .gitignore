@@ -44,6 +44,13 @@ node_modules/
 *.mkv
 *.pdf
 /outputs/
+/research/data/
+/research/models/
+/research/runtime/
+/research/vm/
+/research/runs/
+/research/media/
+/research/replays/
 /models/
 /data/
 /third_party/

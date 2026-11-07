@@ -1,0 +1,38 @@
+{
+  "schema": "royale-research-system.v1",
+  "paths": {
+    "runs": "research/runs",
+    "native_manifest": "research/runtime/version.json",
+    "native_cache": ".cache/native-tools/android-recovery-001",
+    "native_logs": "research/vm"
+  },
+  "datasets": {
+    "native-run-002": {
+      "label": "native-run-002 保存的原生采集数据",
+      "path": "research/data/native/metadata.json",
+      "offline_only": false
+    },
+    "portable-pilot": {
+      "label": "可移植 pilot（仅离线，与当前原生版本不同）",
+      "path": "research/data/portable-pilot/metadata.json",
+      "offline_only": true
+    }
+  },
+  "reference_checkpoints": [
+    "research/models/gru-c/reference.json"
+  ],
+  "experiment_defaults": {
+    "mode": "offline",
+    "dataset": "native-run-002",
+    "model": "gru-c",
+    "epochs": 2,
+    "hidden": 32,
+    "seed": 51001,
+    "play_weight": 8.0,
+    "games": 2,
+    "max_tick": 7200,
+    "wall_seconds": 1800,
+    "record_video": true,
+    "record_game_indices": [0]
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schema": "royale-research-workbench-review.v1",
+  "reviewed_at_utc": "2026-11-07T05:37:04.826840+00:00",
+  "user_date_timezone": "Asia/Shanghai",
+  "git_head": "9f1768a13ad791d4d3dde437ecd52c468b34ec45",
+  "initial_worktree_status": [
+    " M .devcontainer/devcontainer.json",
+    " M tools/cloud/workspace.py",
+    "?? CODEX_RESEARCH_WORKBENCH_PROMPT.txt",
+    "?? royale_phase3/research.py",
+    "?? tools/cloud/native_media.py",
+    "?? tools/cloud/research_app.py",
+    "?? tools/cloud/research_runtime.py",
+    "?? tools/cloud/research_worker.py"
+  ],
+  "scope": "Design and read-only handoff audit. No implementation, services, VM, Android, training or games started by this review.",
+  "user_preference": {
+    "training": "Codespaces",
+    "realtime_client": "Windows desktop mirror is acceptable",
+    "realtime_runtime_location": "Not yet selected; measure current backend first"
+  },
+  "doctor_observation": {
+    "command": ".venv-cloud/bin/python tools/cloud/workspace.py doctor",
+    "exit_code": 0,
+    "record_type": "selected fields transcribed from tool result; not raw stdout",
+    "reviewed_portable_assets": 572,
+    "asset_status": "pass",
+    "python": "3.12.11",
+    "logical_cpus": 4,
+    "native_runtime_verified": false,
+    "rpc_calls": 0,
+    "scope": "read-only environment and reviewed assets check"
+  },
+  "checks": [
+    {
+      "check": "ast.parse",
+      "path": "tools/cloud/workspace.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "royale_phase3/research.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "tools/cloud/native_media.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "tools/cloud/research_app.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "tools/cloud/research_runtime.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "tools/cloud/research_worker.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "tools/native_loop.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "royale_phase3/native_loop.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "royale_phase3/native_env.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "royale_phase3/learning.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "ast.parse",
+      "path": "royale_phase3/observation.py",
+      "status": "passed",
+      "scope": "syntax only"
+    },
+    {
+      "check": "research-help",
+      "argv": [
+        ".venv-cloud/bin/python",
+        "-B",
+        "tools/cloud/workspace.py",
+        "research",
+        "--help"
+      ],
+      "exit_code": 0,
+      "scope": "help only; no tasks or native calls",
+      "stdout": "outputs/research_workbench_review_20261107/20261107T053704Z/research-help.stdout.txt"
+    },
+    {
+      "check": "native-evaluate-help",
+      "argv": [
+        ".venv-cloud/bin/python",
+        "-B",
+        "tools/native_loop.py",
+        "evaluate",
+        "--help"
+      ],
+      "exit_code": 0,
+      "scope": "help only; no tasks or native calls",
+      "stdout": "outputs/research_workbench_review_20261107/20261107T053704Z/native-evaluate-help.stdout.txt"
+    }
+  ],
+  "inspected_files": [
+    {
+      "path": "CODEX_RESEARCH_WORKBENCH_PROMPT.txt",
+      "sha256": "293e906bfd5ebafd46501f397ee79fb54fd3762471e2a2f79c8485db5d513f44",
+      "bytes": 24216
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "sha256": "278a594c8ba4b289c53efb3ffc31c5cf84dfcc1c29c7d51eb3b354e786c3ce1f",
+      "bytes": 1129
+    },
+    {
+      "path": "tools/cloud/workspace.py",
+      "sha256": "7954ef1ee6311d1f70b1d69c476e86c1a35332483a44badd504204649acdb631",
+      "bytes": 20702
+    },
+    {
+      "path": "royale_phase3/research.py",
+      "sha256": "6d294ecdb31885b62c11d025c4f14ca58de71409fb0bae13f5fa80cc850910d5",
+      "bytes": 28642
+    },
+    {
+      "path": "tools/cloud/native_media.py",
+      "sha256": "cc9df7788eec5b0e5b5c06b9d58c9aa322fa5348cbb407a9477979f40451ee03",
+      "bytes": 18826
+    },
+    {
+      "path": "tools/cloud/research_app.py",
+      "sha256": "c3f06b5fa52e002375a41e7e030c66b1f3fb90c4a03abb5b371f9ca87d259c27",
+      "bytes": 17873
+    },
+    {
+      "path": "tools/cloud/research_runtime.py",
+      "sha256": "898ae5db78567bee4a6a49a8239356e686ce5caa2f046b1f777651ac42ee543c",
+      "bytes": 13128
+    },
+    {
+      "path": "tools/cloud/research_worker.py",
+      "sha256": "174f47cf4b4de51eab5a1a8cc95881cab846635c0439126bc1cde519223e34c4",
+      "bytes": 2691
+    },
+    {
+      "path": "tools/native_loop.py",
+      "sha256": "b73e1095ea9d7a2d2c731d743a61a0a8a7b325f4948195b1311cbef93176f16d",
+      "bytes": 4144
+    },
+    {
+      "path": "royale_phase3/native_loop.py",
+      "sha256": "b0bfcddc2f4b6b1e931a969ead563a3c662e3fc0262c1c019af72ac2e672e1a5",
+      "bytes": 38621
+    },
+    {
+      "path": "royale_phase3/native_env.py",
+      "sha256": "db5a390f673940518e10c5ed85977a437924ca318aba451ff30c7026597fb8a2",
+      "bytes": 8925
+    },
+    {
+      "path": "royale_phase3/learning.py",
+      "sha256": "12352eeb1cec3669e4a6221e666ad0d91d5248f5dde8dc0bddfb2da781830810",
+      "bytes": 28916
+    },
+    {
+      "path": "royale_phase3/observation.py",
+      "sha256": "f151bcd748925e6827c94364e01705a2878e68377c2f61e436d76b83862b0a54",
+      "bytes": 16558
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "3b87962b3e3422ce50e51fc8656751f87a8610948cc7c1a82c947bc4a2431979",
+      "bytes": 2614
+    }
+  ],
+  "findings": [
+    {
+      "id": "missing-page",
+      "path": "tools/cloud/research_workbench.html",
+      "exists": false,
+      "caller": "tools/cloud/research_app.py:143",
+      "status": "blocking startup; inferred from missing required file; actual serve not run"
+    },
+    {
+      "id": "record-cli-disconnected",
+      "caller": "royale_phase3/research.py:456",
+      "target": "tools/native_loop.py",
+      "record_video_in_evaluate_help": false,
+      "rendered_in_evaluate_help": true
+    },
+    {
+      "id": "recorder-not-integrated",
+      "path": "royale_phase3/native_loop.py",
+      "native_media_reference": false,
+      "scope": "static read; does not test actual encoder"
+    },
+    {
+      "id": "ui-task-still-old",
+      "path": ".vscode/tasks.json",
+      "value": "Cloud: research page invokes serve"
+    },
+    {
+      "id": "video-event-sync-unimplemented",
+      "path": "royale_phase3/research.py:262",
+      "value": "video_seconds is None"
+    },
+    {
+      "id": "media-not-completion-gate",
+      "path": "royale_phase3/research.py:471",
+      "value": "completion checks native numerical outcomes, not complete decodable seekable media"
+    }
+  ],
+  "external_context": {
+    "shared_chat_urls": [
+      "https://chatgpt.com/s/cx_6aeeb7ba74648191bbd4293a3c585db4",
+      "https://chatgpt.com/s/cx_6aeeb7ee98ac8191ad85f105c8338a57"
+    ],
+    "result": "web tool returned no readable lines; transcript content not recovered"
+  },
+  "unverified_this_review": [
+    "new workbench server startup",
+    "offline training through new workbench",
+    "native runtime readiness",
+    "native video encoding",
+    "full recorded native game",
+    "browser video seek with VM stopped",
+    "Windows mirror and input",
+    "realtime performance",
+    "policy strength improvement"
+  ],
+  "default_metadata": {
+    "path": "outputs/native_loop_20261020/native-run-002/dataset/train_validation/metadata.json",
+    "exists": true,
+    "sha256": "98d3903b0c66cfc191b357bf2c83803a41898fa395bc1a4e8d317830eb530699",
+    "selected_saved_fields": {
+      "schema": "phase3-learning-dataset.v1",
+      "rows": {
+        "path": "outputs/native_loop_20261020/native-run-002/dataset/train_validation/rows.jsonl",
+        "sha256": "cc6997f8d8a52f21d2301811be849c958ae682898f02f1ce546f2abe53c626a9"
+      },
+      "version_fingerprint_sha256": "7d62f3e6385490b06ff1d376f5660efda4e7603319f963540449522b96c359b6"
+    },
+    "scope": "Saved record inspected; original experiment not rerun; dataset row payload not rehashed here"
+  },
+  "pilot_metadata": {
+    "path": "data/phase3/native/pilot-003/metadata.json",
+    "exists": true,
+    "sha256": "11f87b08817ac2b75201bab9c645d8f55afeb0fbca658cc518c66a24e32aacd1",
+    "selected_saved_fields": {
+      "schema": "phase3-learning-dataset.v1",
+      "rows": {
+        "path": "data/phase3/native/pilot-003/rows.jsonl",
+        "sha256": "a87ccc48f89cc7c121d81a4b4dec22f5aceb28f6644b379b492b3c6943111012"
+      },
+      "version_fingerprint_sha256": "9b65f8d83414adb5acd92d7ea41dac4df83948f1ae22aeb2e12a9ec3e7157cba"
+    },
+    "scope": "Saved record inspected; original experiment not rerun; dataset row payload not rehashed here"
+  },
+  "historical_native_evaluation": {
+    "path": "outputs/native_loop_20261020/native-run-002/evaluation/report.json",
+    "exists": true,
+    "sha256": "676bb9718d19c54bdfc3485915e80363226e458a781b2772bd2a4a12c1726ed1",
+    "selected_saved_fields": {
+      "schema": "phase3-native-loop-batch.v1",
+      "status": "completed",
+      "natural_terminal_games": 2,
+      "native_execution_verified": true
+    },
+    "scope": "Saved record inspected; original experiment not rerun; dataset row payload not rehashed here"
+  },
+  "historical_evaluation_configuration": {
+    "path": "outputs/native_loop_20261020/native-run-002/evaluation/configuration.json",
+    "exists": true,
+    "sha256": "bab78f56f9311a32be05e40a192a67dba067aeb6d35b6a1007c6606bcedc0512",
+    "selected_saved_fields": {
+      "schema": "phase3-native-loop-batch-config.v1",
+      "rendered": false
+    },
+    "scope": "Saved record inspected; original experiment not rerun; dataset row payload not rehashed here"
+  },
+  "previous_runtime_attempt": {
+    "path": "outputs/cloud/research-acceptance-20261107-001/runtime/report.json",
+    "exists": true,
+    "sha256": "255b22d1dd7757b536741a2239a65b0e2703f243daf3978d01a41cd445525528",
+    "selected_saved_fields": {
+      "schema": "royale-research-runtime.v1",
+      "status": "preparing",
+      "native_execution_verified": false
+    },
+    "scope": "Saved record inspected; original experiment not rerun; dataset row payload not rehashed here"
+  },
+  "reviewed_source_files_unchanged_after_handoff_write": true,
+  "design_handoff": "CODEX_RESEARCH_WORKBENCH_NEXT_PROMPT.txt",
+  "original_design_preserved": "CODEX_RESEARCH_WORKBENCH_PROMPT.txt",
+  "local_full_review_report": "outputs/research_workbench_review_20261107/20261107T053704Z/report.json",
+  "decision": {
+    "research_ui": "One private Codespaces portal for experiment tasks and saved Android video",
+    "later_realtime_client": "Windows desktop mirror, with project-managed connection setup",
+    "next_implementation": "Continue existing drafts for phases 0, 1 and 2; do not implement realtime play or change algorithms in the same iteration",
+    "first_vertical_acceptance": "Offline train, fresh-process validation, paired native new-game evaluation, at least one complete original rendered video, browser seek after Android is stopped",
+    "no_strength_claim": true,
+    "default_native_evaluation": {
+      "games": 2,
+      "paired_swapped_owners": true,
+      "both_rendered": true,
+      "preselected_record_game_indices": [
+        0
+      ],
+      "implemented": false
+    }
+  },
+  "saved_dataset_summary": {
+    "scope": "Saved metadata and reports inspected; training row payloads were not rehashed or recounted in this review",
+    "native_run_002": {
+      "train_games": 3,
+      "validation_games": 1,
+      "test_games": 0,
+      "train_rows": 1113,
+      "validation_rows": 352,
+      "train_play_labels": 85,
+      "validation_play_labels": 27,
+      "model_variant": "C",
+      "feature_dims": 713,
+      "historical_evaluation_games": 2,
+      "historical_evaluation_rendered": false
+    },
+    "portable_pilot": {
+      "games": 5,
+      "split_games_train_validation_test": [
+        3,
+        1,
+        1
+      ],
+      "split_rows_train_validation_test": [
+        654,
+        260,
+        704
+      ],
+      "different_native_version_from_default": true
+    },
+    "actor_visibility": "fair profile currently excludes all non-tower entities, including own units"
+  },
+  "external_technical_sources": [
+    {
+      "url": "https://github.com/Genymobile/scrcpy/blob/master/doc/recording.md",
+      "supports": "Mirroring and saving device-encoded media; does not establish current guest encoder availability"
+    },
+    {
+      "url": "https://developer.android.com/tools/adb#screenrecord",
+      "supports": "screenrecord video recording, documented 180-second per-invocation maximum and limitations; verify installed version"
+    },
+    {
+      "url": "https://github.com/Genymobile/scrcpy/blob/master/doc/tunnels.md",
+      "supports": "Remote desktop mirroring via managed tunnels; not an implemented human-versus-model controller"
+    },
+    {
+      "url": "https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace",
+      "supports": "forwardPorts and rebuild requirements for existing codespaces"
+    },
+    {
+      "url": "https://developer.android.com/studio/run/emulator-acceleration",
+      "supports": "VM and graphics acceleration performance; not project ABI or probe compatibility"
+    }
+  ],
+  "handoff_verification": {
+    "utf8_and_newline": "passed",
+    "required_context_paths_exist": "passed",
+    "reviewed_source_hashes_unchanged": "passed",
+    "original_prompt_preserved": "passed",
+    "workbench_known_missing_page_still_missing": true,
+    "scope": "Handoff and static integrity only, not implementation acceptance"
+  },
+  "handoff_sha256": "7ac682bd8101713d9cdb2e50ee409fea0046c32a43ac754cb39924988bfd37b3"
+}

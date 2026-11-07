@@ -20,6 +20,7 @@ from .common import (ROOT, append, digest, local, native_lock, now, read,
 from .data import split_for, world_target
 
 TRAJECTORY_SCHEMA = 'phase3-native-loop-transition.v1'
+RECORDING_ANCHOR_INTERVAL_TICKS = 100
 
 
 def runtime_preflight(connect=False):
@@ -126,11 +127,64 @@ def _manual_actions(path):
     return selected
 
 
+def _recording_config(games, rendered, record_video, record_game_indices):
+    """Validate the recording selection before acquiring or resetting a world."""
+    if type(record_video) is not bool:
+        raise ValueError('record_video must be boolean')
+    if record_video and rendered is not True:
+        raise ValueError('Native video recording requires rendered=True / --rendered')
+    if record_game_indices is None:
+        return [0] if record_video else []
+    if not record_video:
+        raise ValueError('record_game_indices requires record_video=True')
+    if isinstance(record_game_indices, str):
+        values = record_game_indices.split(',')
+        if any(not value.strip().isdigit() for value in values):
+            raise ValueError('record_game_indices must be comma-separated nonnegative integers')
+        indices = [int(value.strip()) for value in values]
+    elif isinstance(record_game_indices, (tuple, list)):
+        indices = list(record_game_indices)
+    else:
+        raise ValueError('record_game_indices must be a list or comma-separated indices')
+    if (not indices or any(type(index) is not int or not 0 <= index < games for index in indices)
+            or len(set(indices)) != len(indices)):
+        raise ValueError('Recording indices must be unique requested game indices')
+    return sorted(indices)
+
+
+def _media_result(recorder, index):
+    """Keep the recorder receipt and expose its registered playable file."""
+    media = deepcopy(recorder.report)
+    media.update(id=f'video-{index:03d}', origin='original_run_recording')
+    video = media.get('video')
+    if isinstance(video, dict) and video.get('path'):
+        media.update(path=video['path'], sha256=video.get('sha256'))
+    receipt = recorder.folder / 'recording.json'
+    if receipt.is_file():
+        media['recording_report'] = reference(receipt)
+    return media
+
+
+def _media_anchor(recorder, phase, **kwargs):
+    """A media diagnostic failure must not discard observed native transitions."""
+    if recorder is not None:
+        try:
+            recorder.anchor(phase, **kwargs)
+        except Exception as exc:
+            recorder.report.setdefault('loop_errors', []).append(f'{phase}: {type(exc).__name__}: {exc}')
+
+
 def _run_batch(output, *, games=4, seed=510000, max_tick=7200, policy='random',
               checkpoint=None, opponent='alternate', wall_seconds=300,
-              rendered=False, actions=None, paired=False):
+              rendered=False, actions=None, paired=False, record_video=False,
+              record_game_indices=None, record_backend='frameoutput', record_adb='.cache/native-tools/bin/adb',
+              record_adb_port=5038, record_serial='127.0.0.1:15555',
+              record_root_shell='su0', record_ffmpeg=None, record_ffprobe=None):
     """One serial native writer; partial/failed games remain in the denominator."""
     _budget(games, seed, max_tick, wall_seconds)
+    if record_backend not in ('frameoutput', 'screenrecord'):
+        raise ValueError('Recording backend must be frameoutput or screenrecord')
+    recording_indices = _recording_config(games, rendered, record_video, record_game_indices)
     if policy not in ('cycle', 'random', 'wait', 'manual', 'checkpoint'):
         raise ValueError('Unknown native controller')
     if opponent not in ('cycle', 'random', 'wait', 'alternate'):
@@ -153,12 +207,27 @@ def _run_batch(output, *, games=4, seed=510000, max_tick=7200, policy='random',
               'wall_seconds_per_game': wall_seconds, 'observation_profile': 'fair',
               'rendered': rendered, 'paired_seeds_and_swapped_seats': paired,
               'manual_missing_ticks': 'explicit WAIT', 'source': reference(__file__)}
+    if record_video:
+        config['recording'] = {'requested': True, 'game_indices': recording_indices,
+                               'backend': record_backend,
+                               'capture_source': ('android_native_frameoutput_rgb' if record_backend == 'frameoutput'
+                                                  else 'android_display_screenrecord'),
+                               'encoding': ('host_ffmpeg' if record_backend == 'frameoutput'
+                                            else 'android_media_codec_and_host_packet_remux'),
+                               'anchor_interval_ticks': RECORDING_ANCHOR_INTERVAL_TICKS,
+                               'origin': 'original_run_recording', 'adb': str(record_adb),
+                               'adb_port': record_adb_port, 'serial': record_serial,
+                               'root_shell': record_root_shell, 'ffmpeg': str(record_ffmpeg) if record_ffmpeg else None,
+                               'ffprobe': str(record_ffprobe) if record_ffprobe else None}
     write(folder / 'configuration.json', config)
     report = {'schema': 'phase3-native-loop-batch.v1', 'started': now(), 'pid': os.getpid(),
               'status': 'running',
               'configuration': reference(folder / 'configuration.json'), 'games': [],
               'requested_games': games, 'native_execution_verified': False,
               'fallback_used': False, 'strength_improvement_claim': False}
+    if record_video:
+        report.update(media_requested=True, media_complete=False,
+                      record_game_indices=recording_indices)
     write(folder / 'report.json', report)
     with native_lock():
         readiness = runtime_preflight(connect=True)
@@ -177,19 +246,44 @@ def _run_batch(output, *, games=4, seed=510000, max_tick=7200, policy='random',
                       'truncated': False, 'failure': None, 'decisions': 0,
                       'consumed': 0, 'boundary_rejections': 0, 'last_tick': None,
                       'wall_seconds': 0., 'updated': now()}
+            if record_video:
+                result['media'] = {'id': f'video-{plan["index"]:03d}',
+                                   'status': 'pending' if plan['index'] in recording_indices else 'not_requested',
+                                   'requested': plan['index'] in recording_indices,
+                                   'recording_complete': False, 'origin': 'original_run_recording'}
             write(base / 'result.json', result)
             # This file changes while a game runs; a hash reference would become
             # stale. Completed games alone enter games[] and final aggregates.
             report['active_game_ref'] = (base / 'result.json').relative_to(ROOT).as_posix()
             write(folder / 'report.json', report)
             env = None
+            recorder = None
+            last_media_anchor_tick = None
+            interrupted = False
             started = time.monotonic()
             last_progress = started
             try:
+                if plan['index'] in recording_indices:
+                    result['failure_stage'] = 'media_start'
+                    if record_backend == 'frameoutput':
+                        from tools.cloud.native_frame_media import NativeFrameRecorder as Recorder
+                    else:
+                        from tools.cloud.native_media import NativeMediaRecorder as Recorder
+                    recorder = Recorder(base / 'media', adb=record_adb,
+                        adb_port=record_adb_port, serial=record_serial, root_shell=record_root_shell,
+                        ffmpeg=record_ffmpeg, ffprobe=record_ffprobe,
+                        context={**plan, 'policy': policy_ref,
+                                 'run_directory': folder.relative_to(ROOT).as_posix()})
+                    if recorder.start() is not True:
+                        raise RuntimeError('Requested native video did not start; no game was reset')
+                    result['media'] = _media_result(recorder, plan['index'])
+                    write(base / 'result.json', result)
+                result['failure_stage'] = 'native'
                 env = NativePhase3Env(base / 'native', owner=plan['owner'],
                                       opponent=plan['opponent'], max_tick=max_tick,
                                       profile='fair', rendered=rendered)
                 current = env.reset(plan['seed'])
+                _media_anchor(recorder, 'reset_returned', state=env.state)
                 version = env.backend.version['fingerprint']
                 result.update(episode_id=current['episode_id'], last_tick=current['tick'],
                               version_fingerprint=version,
@@ -223,6 +317,18 @@ def _run_batch(output, *, games=4, seed=510000, max_tick=7200, policy='random',
                     result['consumed'] += int(transition['card_consumed'])
                     result['boundary_rejections'] += int(step['boundary_rejection'] is not None)
                     current = next_row
+                    if recorder is not None:
+                        consumed_action = any(item.get('card_consumed') is True for item in step['feedback'])
+                        crossed_interval = (last_media_anchor_tick is None or
+                            current['tick'] // RECORDING_ANCHOR_INTERVAL_TICKS >
+                            last_media_anchor_tick // RECORDING_ANCHOR_INTERVAL_TICKS)
+                        if consumed_action or terminated or crossed_interval:
+                            _media_anchor(recorder, 'transition', state=env.state,
+                                          sequence=result['decisions'], transition=transition)
+                            last_media_anchor_tick = current['tick']
+                        if terminated:
+                            _media_anchor(recorder, 'natural_terminal', state=env.state,
+                                          sequence=result['decisions'])
                     elapsed = time.monotonic()
                     result.update(last_tick=current['tick'], wall_seconds=elapsed - started)
                     if result['decisions'] % 25 == 0 or elapsed - last_progress >= 5:
@@ -255,12 +361,77 @@ def _run_batch(output, *, games=4, seed=510000, max_tick=7200, policy='random',
                                           'configuration.json', 'initialization.json')])
                 if (env.folder / 'wire.jsonl').exists():
                     result['artifacts'].append(reference(env.folder / 'wire.jsonl'))
+                result.pop('failure_stage', None)
             except Exception as exc:
                 result.update(status='failed', failure=f'{type(exc).__name__}: {exc}',
                               traceback=traceback.format_exc())
+                if result.get('failure_stage') == 'media_start' and recorder is None:
+                    result['media'].update(status='failed', errors=[result['failure']])
+            except (KeyboardInterrupt, SystemExit) as exc:
+                interrupted = True
+                if record_video:
+                    result.update(status='interrupted', failure=f'{type(exc).__name__}: {exc}')
+                raise
             finally:
+                cleanup_interruption = None
+                if recorder is not None:
+                    try:
+                        recorder.stop(natural_terminal=result['natural_terminal'],
+                                      native_result=({key: env.state.get(key) for key in
+                                          ('finalized', 'result', 'tick', 'crowns', 'generation')}
+                                          if env is not None and env.state else None),
+                                      context={'episode_id': result.get('episode_id'),
+                                               'owner': plan['owner'], 'checkpoint': policy_ref['checkpoint'],
+                                               'version_fingerprint': result.get('version_fingerprint'),
+                                               'interrupted': interrupted})
+                    except BaseException as exc:
+                        # Media cleanup must not replace a completed numerical game.
+                        recorder.report.update(status='failed', recording_complete=False,
+                                               stop_error=f'{type(exc).__name__}: {exc}')
+                        if not isinstance(exc, Exception):
+                            interrupted = True
+                            cleanup_interruption = (exc, exc.__traceback__)
+                            result['media_interruption'] = f'{type(exc).__name__}: {exc}'
+                    if recorder.report.get('loop_errors'):
+                        recorder.report.update(status='partial' if recorder.report.get('video') else 'failed',
+                                               recording_complete=False)
+                    if recorder.folder.is_dir():
+                        write(recorder.folder / 'recording.json', recorder.report)
+                    result['media'] = _media_result(recorder, plan['index'])
                 if env is not None:
-                    env.close()
+                    try:
+                        env.close()
+                    except BaseException as exc:
+                        result['close_error'] = f'{type(exc).__name__}: {exc}'
+                        interrupted = True
+                        if cleanup_interruption is None:
+                            cleanup_interruption = (exc, exc.__traceback__)
+                if interrupted and record_video:
+                    result.update(wall_seconds=time.monotonic() - started, updated=now(), finished=now())
+                    write(base / 'result.json', result)
+                    # A cancellation during encoding must retain a game that
+                    # already reached its genuine terminal state and its receipts.
+                    if result['natural_terminal']:
+                        report['games'].append(deepcopy(result))
+                    attempted = list(report['games'])
+                    if not result['natural_terminal']:
+                        attempted.append(result)
+                    natural = [game for game in attempted if game['natural_terminal']]
+                    report.update(status='interrupted', finished=now(),
+                                  stop_reason='external_interruption_requires_explicit_recovery',
+                                  attempted_games=len(attempted), natural_terminal_games=len(natural),
+                                  native_execution_verified=bool(natural) and actual_native_origin,
+                                  consumed=sum(game['consumed'] for game in attempted),
+                                  statuses=dict(Counter(game['status'] for game in attempted)),
+                                  media_complete=False, win_denominator=games,
+                                  wins=sum(game['winner_owner'] == game['owner'] for game in natural),
+                                  losses=sum(game['winner_owner'] in (0, 1) and game['winner_owner'] != game['owner']
+                                             for game in natural),
+                                  draws=sum(game['winner_owner'] not in (0, 1) for game in natural))
+                    write(folder / 'report.json', report)
+                if cleanup_interruption is not None:
+                    error, error_traceback = cleanup_interruption
+                    raise error.with_traceback(error_traceback)
             result.update(wall_seconds=time.monotonic() - started, finished=now(), updated=now())
             write(base / 'result.json', result)
             report['games'].append(result)
@@ -269,11 +440,21 @@ def _run_batch(output, *, games=4, seed=510000, max_tick=7200, policy='random',
             print({'native_game': plan['index'], 'policy': policy, 'status': result['status'],
                    'consumed': result['consumed'], 'seconds': round(result['wall_seconds'], 2)}, flush=True)
             if result['status'] == 'failed':
-                report['stop_reason'] = 'native_failure_requires_explicit_recovery'
+                report['stop_reason'] = ('media_failure_before_reset' if result.get('failure_stage') == 'media_start'
+                                         else 'native_failure_requires_explicit_recovery')
                 break
     statuses = Counter(g['status'] for g in report['games'])
     natural = [g for g in report['games'] if g['natural_terminal']]
     all_completed = len(natural) == games
+    if record_video:
+        selected_media = [game['media'] for game in report['games'] if game['index'] in recording_indices]
+        media_complete = (len(selected_media) == len(recording_indices)
+                          and all(media.get('status') == 'complete' and media.get('recording_complete') is True
+                                  for media in selected_media))
+        report.update(media_complete=media_complete,
+                      media_statuses=dict(Counter(media.get('status', 'unknown') for media in selected_media)),
+                      media_requested_games=len(recording_indices), media_attempted_games=len(selected_media))
+        all_completed = all_completed and media_complete
     report.update(status='completed' if all_completed else 'incomplete', finished=now(),
                   statuses=dict(statuses), attempted_games=len(report['games']),
                   natural_terminal_games=len(natural),

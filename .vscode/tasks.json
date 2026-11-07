@@ -39,7 +39,7 @@
       "command": "${workspaceFolder}/.venv-cloud/bin/python",
       "args": [
         "tools/cloud/workspace.py",
-        "serve"
+        "research"
       ],
       "problemMatcher": []
     },

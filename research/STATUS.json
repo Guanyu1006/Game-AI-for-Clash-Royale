@@ -1,0 +1,204 @@
+{
+  "schema": "royale-current-research-status.v1",
+  "as_of_utc": "2026-11-07T08:23:15.308470+00:00",
+  "entrypoint": ".venv-cloud/bin/python tools/cloud/workspace.py research",
+  "private_port": 8770,
+  "configuration": {
+    "path": "research/system.json",
+    "sha256": "cf093c8b10e52e606323bab04d3935ba04ee61caee12b26e68ec3ae5f2b02aef"
+  },
+  "default_run_root": "research/runs",
+  "delivery_scope": "当前科研目录、依赖汇总与无画面原生模型评估恢复；保留原仓库与未提交工作，完整原版录像/实时人机未通过",
+  "source_control": {
+    "head": "9f1768a13ad791d4d3dde437ecd52c468b34ec45",
+    "dirty_worktree_preserved": true,
+    "committed_or_pushed": false,
+    "windows_requirements_lock_unchanged_from_HEAD": true
+  },
+  "verification": {
+    "tests": {
+      "command": [
+        ".venv-cloud/bin/python",
+        "tools/cloud/workspace.py",
+        "test"
+      ],
+      "returncode": 0,
+      "wall_seconds": 43.56438045700088,
+      "finished_utc": "2026-11-07T08:19:49.364808+00:00",
+      "tests": 473,
+      "skipped": 2,
+      "stdout_path": "outputs/cloud/headless-evaluation-fix-20261107/workspace-test.stdout.log",
+      "stderr_path": "outputs/cloud/headless-evaluation-fix-20261107/workspace-test.stderr.log"
+    },
+    "real_browser_config_regression": {
+      "path": "outputs/cloud/system-consolidation-20261107/browser-config-regression-001/report.json",
+      "sha256": "73df0faf038b0c4990eae5118148bd5e64f875e979afcfdeeb4070949a494167"
+    },
+    "current_saved_native_media_browser": {
+      "path": "outputs/cloud/system-consolidation-20261107/current-media-browser-002/report.json",
+      "sha256": "a090013f0243101f46b53eb93f8bdbd75b7dc9ea44bb20517c0913ffb43d3391"
+    },
+    "migration": {
+      "path": "outputs/cloud/system-consolidation-20261107/migration-applied.json",
+      "sha256": "ea2e0ebb559cfe7d041f21d5b38e429b988c49a7aa034b442b4342f957803013"
+    },
+    "relocated_policy_equivalence": {
+      "path": "outputs/cloud/system-consolidation-20261107/relocation-equivalence.json",
+      "sha256": "234291786127e3be4268a5fda2bd82963d94d1ab2f5dcfc3ed7d198148376c75"
+    },
+    "native_asset_hashes": {
+      "path": "outputs/cloud/system-consolidation-20261107/native-assets-verified.json",
+      "sha256": "ccfb961a372df8823d3fd1cbe87b3e00dbe5bb5ba9bafcb1c1fb29a7ca204d4b"
+    },
+    "git_diff_check_passed": true,
+    "previous_consolidation_tests": {
+      "command": [
+        ".venv-cloud/bin/python",
+        "tools/cloud/workspace.py",
+        "test"
+      ],
+      "returncode": 0,
+      "tests": 468,
+      "skipped": 2,
+      "wall_seconds": 44.123611418999644,
+      "stdout_path": "outputs/cloud/system-consolidation-20261107/tests-final.stdout.log",
+      "stderr_path": "outputs/cloud/system-consolidation-20261107/tests-final.stderr.log"
+    },
+    "headless_fix_unit_and_real_browser": {
+      "path": "outputs/cloud/headless-evaluation-fix-20261107/verification.json",
+      "sha256": "ea9264b83cce5723dfbab002516e27008e2f654eaaa091f5b10cf35158e2f3d9"
+    },
+    "doctor": {
+      "path": "outputs/cloud/headless-evaluation-fix-20261107/doctor.json",
+      "sha256": "4c3e077979640323bcb1f16bdcc524a26e54f34497f3e6ddfda3f319644df48d"
+    },
+    "live_headless_gameplay": {
+      "path": "research/runs/headless-result-20261107t075733z/gameplay-proof.json",
+      "sha256": "56ef024bcd3a7248105caf595c7e713dcad74843c5a39f26013c901d15308b08"
+    },
+    "state_rendering_data_audit": {
+      "path": "outputs/cloud/model-diagnosis-20261107/native-state-rendering-audit.json",
+      "sha256": "05afc4951e4337e66efe0941fcefb4c85044c62e8122aab2ebb5f2dc2db9c244"
+    }
+  },
+  "current_offline_experiment": {
+    "run_id": "run-20261107t072813535902z-ec230e1e",
+    "status": "completed",
+    "epochs": 2,
+    "run_dir": "research/runs/run-20261107t072813535902z-ec230e1e",
+    "metadata": "research/data/native/metadata.json",
+    "validation_rows": 352,
+    "validation_action_nll": 0.2313638519157063,
+    "test_evaluated": false,
+    "native_rpc_calls": 0
+  },
+  "capabilities": {
+    "A_current_workbench": "passed",
+    "B_saved_data_train_and_fresh_process_validation": "passed",
+    "C_latest_paired_native_evaluation": "passed_headless_cli",
+    "D_complete_native_match_video": "unverified",
+    "saved_partial_native_video_player": "passed",
+    "E_continuous_human_drag_play": "unimplemented",
+    "F_strength_improvement": "not_claimed",
+    "C_workbench_to_native_after_mode_fix": "unverified_end_to_end",
+    "native_state_replay_renderer": "data_audit_and_design_only"
+  },
+  "native_failure": {
+    "source_run_id": "run-20261107t065103723813z-692b2ba4",
+    "requested_games": 2,
+    "attempted_games": 1,
+    "natural_terminal_games": 0,
+    "model_decisions": 0,
+    "model_cards_consumed": 0,
+    "failure_stage": "warmup advance-native 89",
+    "rpc_timeout_wall_seconds": 180.074,
+    "not_an_ai_loss": true
+  },
+  "native_media": {
+    "archive_run_id": "run-20261107t065103723813z-82e04899",
+    "archive_no_new_execution": true,
+    "canonical_video": {
+      "path": "research/media/native-initialization.webm",
+      "sha256": "82e048999115db516dc0aeea8f23d5c2aac1b1285d273f4f3f00f3659da87c50"
+    },
+    "coverage": "initialization_only",
+    "duration_seconds": 272.999,
+    "frames": 72,
+    "full_game": false,
+    "vm_stayed_stopped_during_current_browser_check": true
+  },
+  "runtime": {
+    "workbench_status": "ready",
+    "workbench_pid": 48216,
+    "android_vm_status": "stopped",
+    "android_started_this_followup": true,
+    "native_model_games_run_this_followup": 2,
+    "native_world_controller_active": false,
+    "cleanup": {
+      "path": "research/runs/headless-result-20261107t075733z/cleanup.json",
+      "sha256": "1b93a9f4e46292ace6b4157561c012fe284869e8eb0d3de43daba4fdaaeecbd3"
+    },
+    "original_vm_cache_preserved": ".cache/native-tools/android-recovery-001",
+    "mutable_vm_disk_preserved": "outputs/cloud/avm/20261020T123234.859513Z-vm/android.ext4"
+  },
+  "dependency_inventory": {
+    "file": {
+      "path": "research/dependency-map.json",
+      "sha256": "c862b83bc9a8605964de115767efb1a3e307efc23c2099ac5eb46554fd1f6589"
+    },
+    "source_files": 390,
+    "python_files": 354,
+    "local_import_edges": 715,
+    "parse_errors": 0,
+    "file_counts_by_layer": {
+      "historical_snapshot": 26,
+      "windows_entrypoints": 13,
+      "other_source": 4,
+      "approximate_baseline": 31,
+      "native_platform": 29,
+      "research": 15,
+      "workbench": 8,
+      "tests": 60,
+      "tooling": 168,
+      "cloud_runtime": 36
+    },
+    "external_pinned_asset_count": 828,
+    "external_pinned_asset_bytes": 1777125343,
+    "external_asset_paths_relocated": false,
+    "standalone_runtime_bundle": false
+  },
+  "limitations": [
+    "离线已移除旧日期数据和参考模型硬路径；原生828资产与VM磁盘链仍有受版本保护的原路径。",
+    "无画面两局已通过CLI执行；网页配置与提交通过隔离浏览器，页面到真实原生新局的联合流程尚未重验。",
+    "原生渲染模式推进慢、完整原版录像与Windows连续拖牌人机仍未通过；新状态重绘播放器尚未制作。",
+    "本轮冷启动超过最初180秒预算，保留进程等待后自行就绪；有宿主连续采样和guest快照，不支持本次内存耗尽归因。",
+    "当前模型只注册GRU C，训练仍只有3局随机采集/85次出牌，新增架构需扩展构造、checkpoint、部署和独立验证契约。",
+    "本轮重复历史模型与对局配置的数值执行，不增加独立训练数据多样性，不证明棋力提升。",
+    "新数据/模型/媒体/运行时与结果被Git忽略，新克隆需审查并提供对应资产。"
+  ],
+  "current_native_headless_evaluation": {
+    "requested_games_in_successful_recovery": 2,
+    "natural_terminal_games": 2,
+    "model_decisions": 959,
+    "model_cards_consumed": 90,
+    "wins": 1,
+    "losses": 1,
+    "rendered": false,
+    "record_video": false,
+    "strength_improvement_claim": false,
+    "evidence": {
+      "path": "research/runs/headless-result-20261107t075733z/gameplay-proof.json",
+      "sha256": "56ef024bcd3a7248105caf595c7e713dcad74843c5a39f26013c901d15308b08"
+    },
+    "wall_seconds": [
+      179.608922937,
+      84.50774877000094
+    ],
+    "initial_content_budget_failed_then_same_process_recovered": true,
+    "initial_failure_preserved": {
+      "path": "research/runs/headless-result-20261107t075733z/result.json",
+      "sha256": "14d52bced341c30997921947a3ba8ba9209cabf98aecd241f3e207f5eb3dc797"
+    },
+    "mode": "headless CLI; no original video and no new state renderer"
+  }
+}

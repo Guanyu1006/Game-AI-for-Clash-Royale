@@ -7,9 +7,13 @@ name = "royale-ai-lab"
 version = "0.2.0"
 description = "Audited native Clash Royale research platform with closed-loop agents"
 requires-python = ">=3.11"
-dependencies = ["numpy==2.5.4", "torch==2.14.1", "gymnasium==1.4.0"]
+# Core commands do not need Torch, Android or browser tooling. Reproducible
+# Codespaces installs use the pinned requirements-codespaces*.txt profiles.
+dependencies = ["numpy>=2.2,<3"]
 
 [project.optional-dependencies]
+research = ["torch==2.6.0", "pyarrow==19.0.1", "gymnasium==1.1.1"]
+browser = ["playwright==1.51.0"]
 vision = ["numpy>=2.2,<3", "opencv-python>=4.11,<5"]
 yolo = ["ultralytics>=8.3,<9"]
 
@@ -18,8 +22,9 @@ royale-ai = "royale_ai.cli:main"
 royale-lab = "royale_lab.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["royale_ai*", "royale_lab*"]
+include = ["royale_ai*", "royale_lab*", "royale_phase2*", "royale_phase3*", "tools*"]
 
 [tool.setuptools.package-data]
 royale_ai = ["data/*.json", "viewer.html"]
 royale_lab = ["web/*.html"]
+"tools.cloud" = ["*.html"]

@@ -1,0 +1,157 @@
+{
+  "schema": "royale-research-workbench-acceptance.v1",
+  "generated_at": "2026-11-07T07:02:03.869983+00:00",
+  "overall_status": "partial_delivery",
+  "scope": "Stages 0,1,2; stage 1 usable, stage 2 not accepted; no stage 3 human play",
+  "stages": {
+    "0": {
+      "status": "unverified",
+      "measurements": "Cold start, warm reuse, 0.0437x unrecorded native speed, actual source frames/encoding/playback measured; joint action-plus-full-video milestone not reached"
+    },
+    "1": {
+      "status": "passed"
+    },
+    "2": {
+      "status": "failed",
+      "requires_C_and_D_passed": true
+    }
+  },
+  "guide": "docs/RESEARCH_WORKBENCH_ZH.md",
+  "evidence_root": "outputs/cloud/research-acceptance-20261107T054146Z",
+  "next_work": [
+    "Keep Codespaces offline training as the daily path",
+    "Validate a faster compatible runtime and explicit per-RPC versus per-game timeout budget before another native attempt; no unknown-advance replay",
+    "Repeat actual checkpoint-controlled paired natural games and full preselected original video; validate terminal pixels/action-time intervals and browser playback with VM stopped",
+    "Then implement Windows continuous mouse/card dragging against that checkpoint under one world scheduler"
+  ],
+  "criteria": {
+    "A": {
+      "status": "passed",
+      "scope": "Actual portal/refresh/launcher reuse/active and queued cancellation; recovery and legacy routing checked by fixtures/source preservation, not Windows live acceptance"
+    },
+    "B": {
+      "status": "passed",
+      "scope": "Actual two-epoch fair GRU C training, saved weights, fresh-process validation, test physically excluded, zero native RPC",
+      "run_id": "run-20261107t055223761604z-0ccb3619",
+      "validation_rows": 352,
+      "validation_games": 1,
+      "native_rpc_calls": 0,
+      "test_rows_supplied_to_policy": 0
+    },
+    "C": {
+      "status": "failed",
+      "scope": "First game timed out during warmup advance before policy loading; no match or strength conclusion",
+      "run_id": "run-20261107t065103723813z-692b2ba4",
+      "requested_games": 2,
+      "attempted_games": 1,
+      "natural_terminal_games": 0,
+      "policy_decisions": 0,
+      "policy_consumed": 0,
+      "owner_swap_live_verified": false,
+      "native_execution_verified": false,
+      "stop_reason": "native_failure_requires_explicit_recovery",
+      "evaluation": {
+        "path": "outputs/cloud/research/run-20261107t065103723813z-692b2ba4/evaluation/report.json",
+        "sha256": "6d3fe0a3a1f237cccad4cb06d97e1121986109b0cd60d17d9895013ccf6801f2"
+      }
+    },
+    "D": {
+      "status": "unverified",
+      "scope": "Full original game/terminal/action alignment not achieved; partial native initialization video playback is verified",
+      "requested_game_indices": [
+        0
+      ],
+      "complete_recordings": 0,
+      "partial_recordings": 1,
+      "browser_play_pause_rate_forward_backward_seek": true,
+      "browser_verified_after_android_stopped": true,
+      "native_startups_during_saved_playback": 0,
+      "source_capture_pts_known": false,
+      "terminal_pixels_verified": false,
+      "action_video_mapping_verified": false,
+      "recording": {
+        "path": "outputs/cloud/research/run-20261107t065103723813z-692b2ba4/evaluation/game-000/media/recording.json",
+        "sha256": "410b8be048a8cbd1dc4f5409c08fc62478a92e45137baa13f5989b6deafec389"
+      }
+    },
+    "E": {
+      "status": "unverified",
+      "implemented": false,
+      "scope": "Future Windows continuous human-versus-checkpoint with mouse dragging and one scheduler; not this scope"
+    },
+    "F": {
+      "status": "unverified",
+      "strength_improvement_claim": false,
+      "scope": "Small engineering pilot and failed native warmup do not demonstrate stronger play"
+    }
+  },
+  "repository_checks": {
+    "tests": 447,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2
+  },
+  "real_browser_playback_report": "outputs/cloud/research-acceptance-20261107T054146Z/browser/native-playback-report.json",
+  "offline_run_id": "run-20261107t055223761604z-0ccb3619",
+  "native_run_id": "run-20261107t065103723813z-692b2ba4",
+  "acceptance_report": {
+    "path": "outputs/cloud/research-acceptance-20261107T054146Z/acceptance.json",
+    "sha256": "25adcd9eeeebc8277b21b78b649391bd33938d68c6aa96baefc1d141336c1def"
+  },
+  "baseline_sources_backup": "outputs/cloud/research-acceptance-20261107T054146Z/baseline/sources",
+  "runtime_vm": "stopped_record",
+  "code": [
+    {
+      "path": "royale_phase3/research.py",
+      "sha256": "a2091790eb6cb075ce634b22e4c423b8c94d3d58db06d0e92f884307f6903195"
+    },
+    {
+      "path": "tools/cloud/research_worker.py",
+      "sha256": "34f1bc3890e1f2a988f31a4b13cb9234705aa2568a795f0720aaf8846c6a4dbd"
+    },
+    {
+      "path": "tools/native_loop.py",
+      "sha256": "c4243199fd8ac36c5f6be74e02edce9b8c2bf96a0d0db2ffc54fd47b31b48116"
+    },
+    {
+      "path": "royale_phase3/native_loop.py",
+      "sha256": "7e04dc4629b8f8b5e84ed74fc44b85459acf0e692713f1d2e3f5e94b370b9d2a"
+    },
+    {
+      "path": "royale_phase3/learning.py",
+      "sha256": "12352eeb1cec3669e4a6221e666ad0d91d5248f5dde8dc0bddfb2da781830810"
+    },
+    {
+      "path": "royale_phase3/actions.py",
+      "sha256": "1ba66387bddab987f4958ef2d4ba071c949091490e1fed178f243d1fa2950623"
+    },
+    {
+      "path": "royale_phase3/observation.py",
+      "sha256": "f151bcd748925e6827c94364e01705a2878e68377c2f61e436d76b83862b0a54"
+    },
+    {
+      "path": "royale_phase3/data_contract.py",
+      "sha256": "0a9a8e9314f009ea43a2c8c368aa4d5a1330b2d57a50de37a712440b2b83e08c"
+    },
+    {
+      "path": "tools/cloud/research_app.py",
+      "sha256": "bed9c9b057257f30e2d2292ca2863fc368b9a5af22d1da8693709425c6ac1ab3"
+    },
+    {
+      "path": "tools/cloud/research_runtime.py",
+      "sha256": "5f8e271ab3e11ca30aeae68aec54e2c93101f39c375d71983df4fc289eed5ceb"
+    },
+    {
+      "path": "tools/cloud/native_media.py",
+      "sha256": "e3cc2ce0169d647791233f9a420559bd463f14a633640774fa1a902d828c37d7"
+    },
+    {
+      "path": "tools/cloud/native_frame_media.py",
+      "sha256": "aa4baa1c1f663b55da1d2eeca0ce8d3bf19e731396ded12da4b8329d89d95d42"
+    },
+    {
+      "path": "tools/cloud/research_workbench.html",
+      "sha256": "1a2c8ec35c13db393ddae54b6f8276cd66a60c8fad3a2df510c02887df13b170"
+    }
+  ]
+}

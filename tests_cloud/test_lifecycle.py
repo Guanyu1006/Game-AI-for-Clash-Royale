@@ -143,9 +143,13 @@ class Lifecycle(unittest.TestCase):
 
     def test_new_match_uses_reviewed_static_schema_without_historical_outputs(self):
         from royale_phase3 import actions
-        # Choose the portable template even on a full local checkout.
-        missing=self.root/'missing-initialization.json'
-        with patch.object(actions,'LEGACY_INITIALIZATION',str(missing)):
+        # A match must never probe a historical output to select its schema.
+        original_local=actions.local
+        def current_only(path):
+            if str(path).startswith('outputs/'):
+                raise AssertionError('match depended on historical outputs')
+            return original_local(path)
+        with patch.object(actions,'local',side_effect=current_only):
             first=actions.match(123)
             second=actions.match(124)
         self.assertEqual(first['rndSeed'],123);self.assertEqual(second['rndSeed'],124)

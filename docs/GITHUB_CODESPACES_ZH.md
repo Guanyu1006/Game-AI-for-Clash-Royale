@@ -1,5 +1,7 @@
 # 上传 GitHub、进入 Codespaces、和朋友一起开发
 
+> **2026-11-07 当前入口：** 日常运行 `.venv-cloud/bin/python tools/cloud/workspace.py research`，打开私有 8770。当前运行目录、配置、完整依赖和模型接入统一从 [`research/README.md`](../research/README.md) 开始；下面保留协作与环境历史，不需要照历史日期路径逐个启动页面。
+
 > **2026-10-24 协作更新：** 本次直接发布 `dev/main-start-20261020`，不再导入旧 ZIP。双方分支操作、当前能力与读码顺序见[开发交接](DEVELOPMENT_HANDOFF_20261024_ZH.md)；本文后面的上传流程与“VM 已停止”等描述属于历史记录。新克隆能同步代码和已审查小样例，现有 VM、APK 与完整原始结果仍在原机器。
 
 > **要学习当前完整操作与训练原理：** 使用[原生实验逐步教程](NATIVE_LOOP_ZH.md)。2026-10-20 已保存当前软件 Android 路线的六局有限原生验收；2026-10-24 复查时 VM 与页面服务已停止，按教程选择查看保存对局、离线训练或启动新实验。全新克隆不包含 VM／APK／大型实验工件。
@@ -125,12 +127,14 @@ bash tools/cloud/bootstrap.sh --ml
 ## 5. 打开研究页面
 
 ```bash
-.venv-cloud/bin/python tools/cloud/workspace.py serve
+.venv-cloud/bin/python tools/cloud/workspace.py research
 ```
 
-在 VS Code 底部 **Ports/端口** 中找到 `8770`，点浏览器图标。保持端口可见性为 **Private**。页面可以查看数据数量、实际运行保存的 NumPy/GRU 推理，并显示训练命令。页面明确标注原生对局未连接。
+在 VS Code 底部 **Ports/端口** 中找到 `8770`，点浏览器图标。保持端口可见性为 **Private**。新工作台可直接提交 GRU C 离线训练、查看进度与新进程 validation，刷新后继续查看同一实验。仅打开页面不会启动 Android。原生新局、真实原局视频和后续 Windows 人机对战分开验收；操作与当前实测状态见[科研工作台指南](RESEARCH_WORKBENCH_ZH.md)。
 
-若端口占用，先停止此前的页面进程，或用 `--port 8771` 并在 Ports 中添加该端口。结束服务按 `Ctrl+C`。
+重复运行命令会核验并复用当前工作区同版本服务。若源码已改或端口属于其他程序，命令会保留已有进程并说明原因；回到原终端结束服务再启动，或用 `--port 8771` 并在 Ports 中添加该端口。结束服务按 `Ctrl+C`。
+
+旧 `workspace.py serve` 样例页面仍保留，与新工作台默认共用 8770，需分别启动；旧 `play-replay` 使用 8772，需要时手动添加私有转发。新 devcontainer 仅自动转发 8770，已有 Codespace 应用配置可能需一次重建，日常实验不必重建。
 
 快捷入口：`Ctrl+Shift+P` → `Tasks: Run Task` → `Cloud: doctor / tests / train NumPy BC / research page`。如果解释器没有自动选中，执行 `Python: Select Interpreter`，选 `.venv-cloud/bin/python`。
 
