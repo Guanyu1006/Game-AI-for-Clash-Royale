@@ -1,0 +1,319 @@
+{
+  "schema": "arena-device-committed-audit.v1",
+  "recorded_utc": "2026-11-13T15:59:52.952385+00:00",
+  "scope": "Before permitted VM retry; no new battle frame or closed-loop acceptance",
+  "copies": [
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/report.json",
+      "bytes": 3964,
+      "sha256": "20a7051ece46f275fb492378dc07eb1a7fbcc52d2c0ef52017913e8cdbb71f2b",
+      "committed_copy": "docs/audits/arena_next_20261113/device/pre_retry_failure_summary.json"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-historical/development-audit.json",
+      "bytes": 4553,
+      "sha256": "48de8b5214481d915ac861fd82f6056ff012d377bef84525bd6b4c8fb346e237",
+      "committed_copy": "docs/audits/arena_next_20261113/device/historical_development_audit.json"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/raw-capture.json",
+      "bytes": 499,
+      "sha256": "d719779005ecaa951a15c2eea1106b5e4a2b5d81b61f862caea8c1d21aea0e41",
+      "committed_copy": "docs/audits/arena_next_20261113/device/loading_raw_capture.json"
+    }
+  ],
+  "original_sources": [
+    {
+      "path": "research/runtime/version.json",
+      "bytes": 232798,
+      "sha256": "f1681bd880bf0d6ebbe7c6bab80ad972d6f79d2185fc05e6e98abe0f711ab9dd"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/report.json",
+      "bytes": 2401,
+      "sha256": "6484b611a39777176281f6e8fc00d2139147e3f95cc14389a8e1505a1ae76054"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/content-progress.json",
+      "bytes": 486,
+      "sha256": "79daadd4439e0ab98ab6462161f7cb5fcbde85dbbf06715902d558545eca7612"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/content-status.jsonl",
+      "bytes": 214898,
+      "sha256": "a29ea3c7598bbe7f5410a7a2f9ed60b89196590d77c0da6da4d7d829d760b4d1"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/native-backtrace.txt",
+      "bytes": 99042,
+      "sha256": "c11c6cc6e714ed215edbc971cd0a1c34968e9be7b2f0afe15c79cfbd8d849084"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/game-logcat.txt",
+      "bytes": 15113,
+      "sha256": "b11481c75e3d0a32ea6eae3861e0c759c822e28204705e28450b1a3d1c1cb3cf"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/loading.png",
+      "bytes": 1003,
+      "sha256": "49e84349b56a7f94967fff3636415d3d60a631075c228f9e50a7ffc0d8dce33e"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/raw-loading.png",
+      "bytes": 5490,
+      "sha256": "ec769f6947efdbeb5112ce11e79ed9a49d00bcf9850fccd3feb548696be3f83f"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-recovery/report.json",
+      "bytes": 1684,
+      "sha256": "8c8063355eb57dcffe67ce70249ec9755bb6770f53584109733fe7f037758792"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-recovery2/report.json",
+      "bytes": 2687,
+      "sha256": "4871d497aeb6eac6d8c84fdecb98ac14e2263a1a25638c533c5485214788b316"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-final.log",
+      "bytes": 1874,
+      "sha256": "2b823c78fc4bf6173c9f1bed09a534c5f4e6a4d3cae4cac8efc072e62e52754b"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/recovery-tests.log",
+      "bytes": 12183,
+      "sha256": "d0e83d348413dbd11ec939ceafc4feda03debf45f559fda1921bfcb5a4ec5e38"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/prepare-budget-tests.log",
+      "bytes": 8015,
+      "sha256": "4fab90e41cf95098a3358fa8110549730b5e0b52c7b5c9c581312587a6a81e38"
+    },
+    {
+      "path": "arena_lab/vision_assets.json",
+      "bytes": 4296,
+      "sha256": "1d48fdf39cc7a31cafe6a0fc3e6d838a6f85cc3973fc71f0fb7460a5dac864d7"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-horizon.log",
+      "bytes": 2065,
+      "sha256": "ca7987c7e76bfad749e6ac16cca1bd7bdc5083c72677278e92b598cba649dbc0"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-tracking-clock.log",
+      "bytes": 2292,
+      "sha256": "c8062b5a0de666042cfc9e3146be09796503b1d2c43a3789078802c7df597d6f"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-persistent-capture.log",
+      "bytes": 2521,
+      "sha256": "43a284fd9c6c13c1c0d51f8f8cf5a44a9d551e4dcf300ccf154daa5db27585c3"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/identity-read-budget-tests.log",
+      "bytes": 10133,
+      "sha256": "3512317ee45f7227a86803479c7577c60d61ffa1ab28db7b91f349eff1b7ffeb"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-adb-protocol.log",
+      "bytes": 2521,
+      "sha256": "7e06459f926e3e280d76d0f633289c9eee1a3fc4ab7e3af79bb7d7ab66a13a36"
+    }
+  ],
+  "runtime_identity": {
+    "client_package": "nullsroyale.rel.free",
+    "client_build": "15.535.13",
+    "client_version_code": 150535013,
+    "content_version": "15.535.86",
+    "content_manifest_sha1": "41d8df308b22bf144c2a4f2b75f6e6fbf69a0c82",
+    "abi": "arm64-v8a",
+    "ticks_per_second": 20,
+    "fingerprint": "7d62f3e6385490b06ff1d376f5660efda4e7603319f963540449522b96c359b6",
+    "offline_apk_sha256": "993a0d798688885143468faf5f1aed6d35a59c6d17b835b22597ee6acc0d6ae5",
+    "source_official_build_match": "unknown",
+    "balance_date": "unknown",
+    "source_commits": {
+      "Jason-XII/clash-royale-battle-engine": "70a08af6807fa4d59a11c7d52bf6272a96afe30c",
+      "firstlight3/FirstLight_CR": "71944e3993b594b3cc89b38768b5e817dfbdbe0e"
+    }
+  },
+  "vision_asset_lock": {
+    "schema": "arena-vision-assets.v1",
+    "source_commit": "2f172925a15b17f973291f41a789b19a29f0fc43",
+    "source_code_license": "MIT",
+    "unit_model_embedded_license": "AGPL-3.0 License (https://ultralytics.com/license)",
+    "asset_redistribution": false,
+    "image_rights": "Game imagery retains its original rights; downloaded separately for local research",
+    "files": [
+      {
+        "name": "units_M_480x352.onnx",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/models/units_M_480x352.onnx",
+        "sha256": "4cf422370650b1d18647cffc05e02bf75fdc2fbdb1f8ef983f4b8d6f8ea908b3",
+        "bytes": 30896276,
+        "relative_path": "units_M_480x352.onnx"
+      },
+      {
+        "name": "side.onnx",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/models/side.onnx",
+        "sha256": "686bc75eae2ddc872b556534aeac8b4f5c6e891df76eef12e9fc91d406ab2583",
+        "bytes": 68762,
+        "relative_path": "side.onnx"
+      },
+      {
+        "name": "LICENSE",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/LICENSE",
+        "sha256": "91c0e7887de0bb7b0e0abf54cb607e75ec7b60e1628ef27abce9453bb456538f",
+        "bytes": 1097,
+        "relative_path": "LICENSE"
+      },
+      {
+        "name": "knight",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/knight.jpg",
+        "sha256": "1e795cb5310b75bc426ebd7ec26482f370100f46bc17d58ac83250fefcfdd5c4",
+        "bytes": 15976,
+        "relative_path": "cards/knight.jpg"
+      },
+      {
+        "name": "archers",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/archers.jpg",
+        "sha256": "4ea011f60f2d6ae82975b4bdb04c5e1ee7ab2a774f69beda8cfa61ba1a5bbab7",
+        "bytes": 16287,
+        "relative_path": "cards/archers.jpg"
+      },
+      {
+        "name": "giant",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/giant.jpg",
+        "sha256": "d9d5d4a80e9c843fdc1bdae9a1777c0c82669ecce943321540a277e1e9e1158b",
+        "bytes": 13521,
+        "relative_path": "cards/giant.jpg"
+      },
+      {
+        "name": "musketeer",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/musketeer.jpg",
+        "sha256": "74758c4188464a5c77dc7650acee0e05db97dc4eabc3b5d128014d8995baa745",
+        "bytes": 14400,
+        "relative_path": "cards/musketeer.jpg"
+      },
+      {
+        "name": "minipekka",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/minipekka.jpg",
+        "sha256": "cf0ce9d81a526cfa0848aa1143bbbc931a5af0a5da4665fddbf3507b229bbbe9",
+        "bytes": 14495,
+        "relative_path": "cards/minipekka.jpg"
+      },
+      {
+        "name": "cannon",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/cannon.jpg",
+        "sha256": "9000ec7ff47e75714528f85c3d6871a0bdcd58cc3382861d9783e5e7042ebf32",
+        "bytes": 13134,
+        "relative_path": "cards/cannon.jpg"
+      },
+      {
+        "name": "fireball",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/fireball.jpg",
+        "sha256": "ae430ef4a278884ce2cf519a50a2b2feabfcaa18b395028e33b3bb9454e80b7e",
+        "bytes": 11563,
+        "relative_path": "cards/fireball.jpg"
+      },
+      {
+        "name": "arrows",
+        "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/arrows.jpg",
+        "sha256": "7f99cbfc53ce2141b45f76aa82b6ccdf04a0011162c5bcb74831f6d9e9590671",
+        "bytes": 13669,
+        "relative_path": "cards/arrows.jpg"
+      }
+    ]
+  },
+  "runtime_acceptance": {
+    "native_preparation": false,
+    "new_native_battles": 0,
+    "new_battle_screenshots": 0,
+    "new_card_requests": 0,
+    "learned_pixel_closed_loop": false,
+    "physical_android": false,
+    "official_live_client": false,
+    "actual_level_11_readback": false,
+    "render_freshness": false,
+    "real_time": false
+  },
+  "verification": {
+    "device_contract_tests": 14,
+    "recovery_contract_tests": 73,
+    "interface_only": true,
+    "device_tests_log": "outputs/arena-next-20261113/device-evidence/tests-adb-protocol.log",
+    "recovery_logs": [
+      "outputs/arena-next-20261113/device-evidence/recovery-tests.log",
+      "outputs/arena-next-20261113/device-evidence/prepare-budget-tests.log",
+      "outputs/arena-next-20261113/device-evidence/identity-read-budget-tests.log"
+    ]
+  },
+  "recovery_change": {
+    "option": "--adb-read-timeout",
+    "default_seconds": 30,
+    "next_vm_candidate_seconds": 90,
+    "bounded_seconds": [
+      1,
+      180
+    ],
+    "mutations_retried": false,
+    "content_ready_bypassed": false,
+    "root_cause_resolved": false
+  },
+  "followup": "Await completion of serial training before starting low-resource VM, per root resource coordination",
+  "checkpoint_horizon_guard": {
+    "tick_hz": 20,
+    "require_exact_trained_decision_ticks": true,
+    "default_rule_step_ticks": 100,
+    "checkpoint_example_step_ticks": 10,
+    "variable_horizon_verified": false
+  },
+  "tracking_clock": {
+    "preferred": "confirmed_local_step",
+    "own_advance_ticks_only": true,
+    "wall_time_separately_recorded": true,
+    "unknown_or_source_switch_resets_tracks": true,
+    "duplicate_timestamp_rejected": true,
+    "render_freshness_verified": false
+  },
+  "persistent_raw_capture": {
+    "implemented": true,
+    "interface_stream_tests_passed": true,
+    "actual_android_verified": false,
+    "measured_speedup": null,
+    "resolution": [
+      360,
+      640
+    ],
+    "automatic_retry": false,
+    "protocol": "bidirectional adb shell -T su 0 sh -s; exec-out is stdout-only and unsuitable",
+    "protocol_source": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/client/commandline.cpp"
+  },
+  "vm_configuration_comparison": {
+    "records": [
+      {
+        "path": "research/vm/20261107T075824.538226Z-vm/process.json",
+        "sha256": "b036d60935d61b71ea8e645dcc7a5ee875443fbfe54879bdb91e5a41164de78d",
+        "bytes": 3663,
+        "configuration": {
+          "vcpus": 2,
+          "memory_mib": 3072,
+          "tb_size_mib": 64,
+          "display_fps": 5
+        }
+      },
+      {
+        "path": "outputs/device-vm/20261113T145819.175135Z-vm/process.json",
+        "sha256": "d7335e85d235c477b8fb85d8af53c2eee74f9aec3491438bb01a46d5b958966c",
+        "bytes": 3686,
+        "configuration": {
+          "vcpus": 2,
+          "memory_mib": 3072,
+          "tb_size_mib": 64,
+          "display_fps": 5
+        }
+      }
+    ],
+    "configuration_equal": true,
+    "cause_of_content_failure": "unknown",
+    "training_load_hypothesis_verified": false
+  }
+}

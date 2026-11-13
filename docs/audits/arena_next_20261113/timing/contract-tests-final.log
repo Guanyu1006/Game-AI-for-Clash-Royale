@@ -1,0 +1,24 @@
+test_all_wait_masks_have_finite_gradients (tests_cloud.test_arena_timing.TimingContracts.test_all_wait_masks_have_finite_gradients) ... ok
+test_checkpoint_preserves_timing_configuration_and_legacy_loader (tests_cloud.test_arena_timing.TimingContracts.test_checkpoint_preserves_timing_configuration_and_legacy_loader) ... ok
+test_event_decoder_does_not_split_probability_mass_across_cards (tests_cloud.test_arena_timing.TimingContracts.test_event_decoder_does_not_split_probability_mass_across_cards) ... ok
+test_future_label_rejected_and_development_groups_isolated (tests_cloud.test_arena_timing.TimingContracts.test_future_label_rejected_and_development_groups_isolated) ... ok
+test_future_request_and_confirmation_fields_do_not_enter_actor (tests_cloud.test_arena_timing.TimingContracts.test_future_request_and_confirmation_fields_do_not_enter_actor) ... ok
+test_hazard_survival_composes_when_decision_horizon_changes (tests_cloud.test_arena_timing.TimingContracts.test_hazard_survival_composes_when_decision_horizon_changes) ... ok
+test_joint_baseline_and_actual_epoch_resume_preserve_weights (tests_cloud.test_arena_timing.TimingContracts.test_joint_baseline_and_actual_epoch_resume_preserve_weights) ... {"epoch": 1, "optimizer_steps_total": 4, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [1.5795667171478271, 0.0, 2.734806716442108], "training_seconds": 0.040140221000001475, "valid_labels_per_training_second": 797.2053766220874, "selection_score": 4.284346342086792}
+{"epoch": 2, "optimizer_steps_total": 8, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [1.5599528551101685, 0.0, 2.709170937538147], "training_seconds": 0.035525339000287204, "valid_labels_per_training_second": 900.7655071142684, "selection_score": 4.241451621055603}
+{"epoch": 1, "optimizer_steps_total": 4, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [1.5795667171478271, 0.0, 2.734806716442108], "training_seconds": 0.033540078999976686, "valid_labels_per_training_second": 954.0824277731201, "selection_score": 4.284346342086792}
+{"epoch": 2, "optimizer_steps_total": 8, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [1.5599528551101685, 0.0, 2.709170937538147], "training_seconds": 0.05224779499985743, "valid_labels_per_training_second": 612.4660380421283, "selection_score": 4.241451621055603}
+ok
+test_joint_entropy_matches_enumerated_distribution_and_decode_logprob (tests_cloud.test_arena_timing.TimingContracts.test_joint_entropy_matches_enumerated_distribution_and_decode_logprob) ... ok
+test_metrics_do_not_duplicate_events_and_ties_are_grouped (tests_cloud.test_arena_timing.TimingContracts.test_metrics_do_not_duplicate_events_and_ties_are_grouped) ... ok
+test_online_first_elapsed_and_sequence_decoder_match (tests_cloud.test_arena_timing.TimingContracts.test_online_first_elapsed_and_sequence_decoder_match) ... ok
+test_paired_comparison_checks_frozen_split_and_same_observations (tests_cloud.test_arena_timing.TimingContracts.test_paired_comparison_checks_frozen_split_and_same_observations) ... {"epoch": 1, "optimizer_steps_total": 4, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [0.690181627869606, 1.3900898396968842, 2.7175211310386658], "training_seconds": 0.03412529099978201, "valid_labels_per_training_second": 937.7209413453621, "selection_score": 4.777706588852363}
+{"epoch": 1, "optimizer_steps_total": 4, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [1.5795667171478271, 0.0, 2.734806716442108], "training_seconds": 0.03069919400013532, "valid_labels_per_training_second": 1042.3726433944469, "selection_score": 4.284346342086792}
+ok
+test_real_optimizer_calibration_frozen_test_smoke (tests_cloud.test_arena_timing.TimingContracts.test_real_optimizer_calibration_frozen_test_smoke) ... {"epoch": 1, "optimizer_steps_total": 4, "batches": 4, "valid_labels": 32, "mean_batch_event_card_position_loss": [0.690181627869606, 1.3900898396968842, 2.7175211310386658], "training_seconds": 0.034719350000159466, "valid_labels_per_training_second": 921.6762410544271, "selection_score": 4.777706588852363}
+ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.433s
+
+OK

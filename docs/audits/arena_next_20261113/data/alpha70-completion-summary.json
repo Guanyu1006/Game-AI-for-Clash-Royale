@@ -1,0 +1,457 @@
+{
+  "schema": "arena-data-delivery-summary-v1",
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/completion-audit.json",
+      "sha256": "47420d89f83e734047f9ece1ea600caefcf25bdc568882e46e32b0158204a3d7",
+      "bytes": 14267
+    },
+    {
+      "path": "arena_lab/manifests/alphaclash-completion70-v1.json",
+      "sha256": "2f5ce84e3749541cc7feceed656c2b4e254163b095ba11bce225e5dc839caf60",
+      "bytes": 60221
+    }
+  ],
+  "coverage": {
+    "schema": "arena-alpha-completion-audit-v1",
+    "annotations_sha256": "2f5ce84e3749541cc7feceed656c2b4e254163b095ba11bce225e5dc839caf60",
+    "games": [
+      {
+        "stem": "20260729-235656_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260729-235913_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-000116_0101010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-000342_0101010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-000549_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-001134_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-001404_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-001554_0100010101010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-001820_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-002038_0101010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-002749_0100010101010101",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-003023_0100010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-003249_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-003511_0101010101010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-003735_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-003940_0101000101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-004142_0100010101010101",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-004617_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260730-004933_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-020140_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-020529_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-020721_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-020912_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-021101_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-021316_0100010001010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-021643_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-022256_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-041814_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-042512_0101010101010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-042724_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-042953_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-111349_0101010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-111630_0101000101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-112053_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-112310_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-201825_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-202120_0100010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-203119_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-203503_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-204213_0101010101110101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260731-205136_0101010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-025915_0100010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-030053_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-030305_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-030503_0101010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-030643_0100010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-031031_0101010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-134119_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-134429_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-134636_0101010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-134841_0100010101010101",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-135310_0100010001010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-135530_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-135939_0101010101010101",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260801-140157_0100011001010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-150903_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-151105_0100010101010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-151258_0100011001010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-151456_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-152547_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "decisive_crown_award_during_overtime"
+      },
+      {
+        "stem": "20260802-152809_0100010101010110",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "decisive_crown_award_during_overtime"
+      },
+      {
+        "stem": "20260802-200610_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-200823_0100010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-201050_0101010101010111",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-201719_0100010101010101",
+        "split": "train",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-202101_0100010101010101",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-202316_0101010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-202530_0100010101010111",
+        "split": "validation",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-202748_0100010101010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      },
+      {
+        "stem": "20260802-202947_0100010101010111",
+        "split": "test",
+        "opening_and_terminal_visual_coverage": true,
+        "terminal_evidence": "red_blue_result_banners"
+      }
+    ],
+    "reviewed_games": 70,
+    "opening_and_terminal_visual_coverage_games": 70,
+    "terminal_evidence_counts": {
+      "red_blue_result_banners": 68,
+      "decisive_crown_award_during_overtime": 2
+    },
+    "coverage_games_per_split": {
+      "train": 50,
+      "test": 10,
+      "validation": 10
+    },
+    "review_method": "Explicit visual inspection of decoded endpoints; hash-validated annotations, not an OCR accuracy test",
+    "every_interior_frame_reviewed": false,
+    "exact_game_tick_alignment_verified": false,
+    "winner_and_final_crown_labels_verified": false,
+    "same_version_full_configuration_verified": false
+  }
+}

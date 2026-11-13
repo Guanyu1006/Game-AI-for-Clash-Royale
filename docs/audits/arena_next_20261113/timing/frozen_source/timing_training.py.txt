@@ -1,0 +1,481 @@
+"""Whole-battle causal timing BC with development-only selection and calibration.
+
+Example: python -m arena_lab.timing_training --index DATA/index.json --output outputs/RUN
+Final test is evaluated once, after the checkpoint, calibration and threshold freeze.
+"""
+from __future__ import annotations
+
+import argparse
+from dataclasses import asdict, dataclass, replace
+import hashlib
+import json
+import math
+import os
+from pathlib import Path
+import random
+import time
+from typing import Any
+
+import numpy as np
+import torch
+from torch.nn import functional as F
+
+from .model import EntityGRUPolicy, OBSERVATION_KEYS, decode_actions, load_policy, save_policy, tensor_observation
+from .timing import TimingConfig, TimingGRUPolicy, hazard_log_probabilities, timing_losses
+from .training import BattleDataset, ROOT, losses, sha256, stream_batches, write_json
+
+TIME_KEYS = ("observation_tick", "request_tick", "confirmed_tick", "elapsed_ticks", "decision_ticks")
+
+
+class TimingBattleDataset(BattleDataset):
+    """Reject delayed labels attached to earlier observations or unconfirmed plays."""
+
+    def load(self, row: dict) -> dict[str, np.ndarray]:
+        data = super().load(row)
+        if not all(key in data for key in TIME_KEYS):
+            with np.load(str(row["resolved_path"]), allow_pickle=False) as archive:
+                missing = set(TIME_KEYS) - set(archive.files)
+                if missing:
+                    raise ValueError(f"Missing causal timing fields: {sorted(missing)}")
+                data.update({name: archive[name] for name in TIME_KEYS})
+        return data
+
+    def _validate(self, data: dict, row: dict) -> None:
+        super()._validate(data, row)
+        count = len(data["ticks"])
+        for name in TIME_KEYS:
+            if data[name].shape != (count,) or data[name].dtype.kind not in "iu":
+                raise ValueError(f"Timing field {name} must be an aligned integer vector")
+        if not np.array_equal(data["ticks"], data["observation_tick"]):
+            raise ValueError("Observation tick differs from trajectory tick")
+        if data["elapsed_ticks"][0] != 0 or not np.array_equal(data["elapsed_ticks"][1:], np.diff(data["ticks"])):
+            raise ValueError("Elapsed ticks must describe actual observation intervals, starting at zero")
+        if (data["decision_ticks"] <= 0).any():
+            raise ValueError("Decision horizon must be positive")
+        declared = self.index.get("decision_ticks")
+        if declared is not None and not (data["decision_ticks"] == declared).all():
+            raise ValueError("Decision horizon differs from frozen collection cadence")
+        events = data["label_valid"].astype(bool) & (data["target_card"] > 0)
+        if not np.array_equal(data["request_tick"][events], data["observation_tick"][events]):
+            raise ValueError("Future request cannot label an earlier observation")
+        if (data["confirmed_tick"][events] < data["request_tick"][events]).any():
+            raise ValueError("Supervised event requires a confirmed execution at or after its request")
+        if (data["confirmed_tick"][events] > data["request_tick"][events] + data["decision_ticks"][events]).any():
+            raise ValueError("Execution beyond one decision horizon requires explicit pending-action modeling")
+        waits = data["label_valid"].astype(bool) & (data["target_card"] == 0)
+        if (data["request_tick"][waits] != -1).any() or (data["confirmed_tick"][waits] != -1).any():
+            raise ValueError("WAIT cannot carry an action request or execution confirmation")
+
+
+def partition_development(data: TimingBattleDataset, salt: str) -> dict:
+    """Hold out training monitor and validation calibration/check by whole battle."""
+    def ordered(split):
+        return sorted({row["game_id"] for row in data.splits[split]},
+                      key=lambda game: hashlib.sha256(f"{salt}:{game}".encode()).hexdigest())
+    training_ids, validation_ids = ordered("train"), ordered("validation")
+    if len(training_ids) < 4 or len(validation_ids) < 2:
+        raise ValueError("Need at least four training and two validation battles for isolated model selection/calibration")
+    monitor = set(training_ids[:max(1, len(training_ids)//10)])
+    fitting = set(validation_ids[:max(1, len(validation_ids)//2)])
+    data.splits["monitor"] = [row for row in data.splits["train"] if row["game_id"] in monitor]
+    data.splits["train"] = [row for row in data.splits["train"] if row["game_id"] not in monitor]
+    data.splits["calibration"] = [row for row in data.splits["validation"] if row["game_id"] in fitting]
+    data.splits["validation_check"] = [row for row in data.splits["validation"] if row["game_id"] not in fitting]
+    return {split: sorted({row["game_id"] for row in data.splits[split]})
+            for split in ("train", "monitor", "calibration", "validation_check", "test")}
+
+
+def average_precision(probabilities: np.ndarray, target: np.ndarray) -> float | None:
+    """Tie-grouped average precision; labels within equal-score groups are unordered."""
+    positives = int(target.sum())
+    if not positives:
+        return None
+    order = np.argsort(-probabilities, kind="stable")
+    p, y = probabilities[order], target[order]
+    cumulative = np.cumsum(y)
+    ends = np.r_[np.flatnonzero(p[:-1] != p[1:]), len(p)-1]
+    tp = cumulative[ends]
+    return float(np.sum(np.diff(np.r_[0, tp])/positives * tp/(ends+1)))
+
+
+def choose_threshold(probabilities: np.ndarray, target: np.ndarray) -> tuple[float, float]:
+    """Minimize 0.5 FPR + 0.5 FNR; tie selects the higher threshold."""
+    positives, negatives = int(target.sum()), int((~target.astype(bool)).sum())
+    if not positives or not negatives:
+        raise ValueError("Calibration requires positive and negative actionable events")
+    order = np.argsort(-probabilities, kind="stable")
+    p, y = probabilities[order], target[order]
+    ends = np.r_[np.flatnonzero(p[:-1] != p[1:]), len(p)-1]
+    tp = np.cumsum(y)[ends]
+    fp = ends+1-tp
+    risks = .5 * (fp/negatives + 1-tp/positives)
+    thresholds = p[ends]
+    if p[0] < 1.0:
+        thresholds = np.r_[1.0, thresholds]
+        risks = np.r_[.5, risks]
+    best = int(np.flatnonzero(np.isclose(risks, risks.min(), rtol=0, atol=1e-12))[0])
+    return float(max(thresholds[best], np.finfo(np.float32).eps)), float(risks[best])
+
+
+def match_event_times(predicted: np.ndarray, target: np.ndarray, tolerance_ticks: int) -> list[int]:
+    """Maximum cardinality one-to-one chronological matching within frozen tolerance."""
+    i = j = 0
+    errors = []
+    while i < len(predicted) and j < len(target):
+        if predicted[i] < target[j] - tolerance_ticks:
+            i += 1
+        elif target[j] < predicted[i] - tolerance_ticks:
+            j += 1
+        else:
+            errors.append(int(predicted[i] - target[j]))
+            i += 1
+            j += 1
+    return errors
+
+
+@torch.inference_mode()
+def collect_predictions(model: EntityGRUPolicy, data: TimingBattleDataset, split: str,
+                        *, sequence: int = 64, ablate_entities: bool = False) -> dict[str, np.ndarray]:
+    pieces = {key: [] for key in ("probability", "raw_rate", "dt", "event", "eligible", "card", "prediction",
+                                  "true_card_choice", "position", "pred_position", "true_card_position",
+                                  "position_valid", "card_nll", "conditional_nll", "position_nll",
+                                  "ticks", "trajectory")}
+    model.eval()
+    for trajectory, row in enumerate(data.splits[split]):
+        arrays = data.load(row)
+        hidden = None
+        for start in range(0, len(arrays["ticks"]), sequence):
+            batch = {key: value[None, start:start+sequence] for key, value in arrays.items()}
+            output = model(tensor_observation(batch), hidden, ablate_entities=ablate_entities)
+            hidden = output["hidden"]
+            decoded = decode_actions(output)
+            if "event_probability" not in output:
+                # Measure legacy joint-classification models on the exact same
+                # rows; their deployment decoder is deliberately unchanged.
+                joint = output["card_logits"].log_softmax(-1)
+                available = output["effective_legal_cards"][..., 1:].any(-1)
+                conditional = output["card_logits"][..., 1:].clone()
+                conditional[..., 0] = torch.where(available, conditional[..., 0], torch.zeros_like(joint[..., 0]))
+                dt = torch.as_tensor(batch["decision_ticks"], dtype=joint.dtype) / float(data.index["tick_hz"])
+                output.update(event_probability=1-joint[..., 0].exp(), raw_hazard_rate=(-joint[..., 0]/dt).clamp_min(1e-8),
+                              decision_dt=dt, conditional_card_logits=conditional)
+            valid = torch.as_tensor(batch["label_valid"], dtype=torch.bool)
+            card = torch.as_tensor(batch["target_card"], dtype=torch.long).clamp(0, model.spec.n_card_actions-1)
+            position = torch.as_tensor(batch["target_position"], dtype=torch.long).clamp(0, model.spec.positions-1)
+            event = card > 0
+            pv = torch.as_tensor(batch["position_valid"], dtype=torch.bool) & event & (card <= 4)
+            card_nll = -output["card_logits"].log_softmax(-1).gather(-1, card[..., None]).squeeze(-1)
+            conditional_nll = -output["conditional_card_logits"].log_softmax(-1).gather(-1, (card-1).clamp_min(0)[..., None]).squeeze(-1)
+            selected = output["position_logits"].gather(-2, (card-1).clamp(0, 3)[..., None, None].expand(*card.shape, 1, model.spec.positions)).squeeze(-2)
+            position_nll = -selected.log_softmax(-1).gather(-1, position[..., None]).squeeze(-1)
+            fields = {
+                "probability": output["event_probability"], "raw_rate": output["raw_hazard_rate"],
+                "dt": output["decision_dt"], "event": event,
+                "eligible": output["effective_legal_cards"][..., 1:].any(-1), "card": card,
+                "prediction": decoded["card"], "true_card_choice": output["conditional_card_logits"].argmax(-1)+1,
+                "position": position, "pred_position": decoded["position"], "true_card_position": selected.argmax(-1),
+                "position_valid": pv, "card_nll": card_nll, "conditional_nll": conditional_nll,
+                "position_nll": position_nll, "ticks": torch.as_tensor(batch["ticks"]),
+                "trajectory": torch.full(card.shape, trajectory, dtype=torch.long),
+            }
+            for key, value in fields.items():
+                pieces[key].append(value[valid].numpy())
+    if not pieces["event"]:
+        raise ValueError(f"No trajectories in {split}")
+    return {key: np.concatenate(values) for key, values in pieces.items()}
+
+
+def summarize_predictions(records: dict[str, np.ndarray], *, grid_w: int, tick_hz: float,
+                          tolerance_ticks: int, train_prior: float, split: str) -> dict:
+    y, p, eligible = records["event"].astype(bool), records["probability"], records["eligible"].astype(bool)
+    predicted = records["prediction"] > 0
+    pv = records["position_valid"].astype(bool)
+    positive, predicted_count = int(y.sum()), int(predicted.sum())
+    tp, fp, fn = int((predicted & y).sum()), int((predicted & ~y).sum()), int((~predicted & y).sum())
+    ratio = lambda a, b: float(a/b) if b else None
+    def calibration_stats(select):
+        target, probability = y[select].astype(np.float64), p[select].astype(np.float64)
+        probability = np.clip(probability, 1e-8, 1-1e-8)
+        prior = np.clip(train_prior, 1e-8, 1-1e-8)
+        return {"labels": len(target), "positive_prior": float(target.mean()) if len(target) else None,
+                "event_nll": float(-(target*np.log(probability)+(1-target)*np.log1p(-probability)).mean()) if len(target) else None,
+                "event_brier": float(((target-probability)**2).mean()) if len(target) else None,
+                "event_average_precision": average_precision(probability, target),
+                "constant_train_prior_nll": float(-(target*np.log(prior)+(1-target)*np.log1p(-prior)).mean()) if len(target) else None,
+                "constant_train_prior_brier": float(((target-prior)**2).mean()) if len(target) else None}
+    delta_x = records["true_card_position"][pv] % grid_w - records["position"][pv] % grid_w
+    delta_y = records["true_card_position"][pv] // grid_w - records["position"][pv] // grid_w
+    errors, rates = [], []
+    for trajectory in np.unique(records["trajectory"]):
+        selected = records["trajectory"] == trajectory
+        ticks = records["ticks"][selected]
+        errors.extend(match_event_times(ticks[predicted[selected]], ticks[y[selected]], tolerance_ticks))
+        rates.append({"trajectory": int(trajectory), "true_events": int(y[selected].sum()),
+                      "predicted_events": int(predicted[selected].sum()), "frames": int(selected.sum())})
+    return {"split": split, "labels": len(y), "play_labels": positive, "predicted_plays": predicted_count,
+            "play_precision": ratio(tp, predicted_count), "play_recall": ratio(tp, positive),
+            "eligible_balanced_error": .5*(ratio(fp, int((eligible & ~y).sum())) or 0)+.5*(ratio(fn, positive) or 0),
+            "card_accuracy": float((records["prediction"] == records["card"]).mean()),
+            "all_wait_accuracy": float((~y).mean()),
+            "play_slot_accuracy": ratio(int(((records["prediction"] == records["card"]) & y).sum()), positive),
+            "conditional_card_accuracy_given_true_event": ratio(int((records["true_card_choice"][y] == records["card"][y]).sum()), positive),
+            "card_nll": float(records["card_nll"].mean()),
+            "conditional_card_nll": float(records["conditional_nll"][y].mean()) if positive else None,
+            "position_labels": int(pv.sum()), "position_nll": float(records["position_nll"][pv].mean()) if pv.any() else None,
+            "position_accuracy_given_true_card": float((records["true_card_position"][pv] == records["position"][pv]).mean()) if pv.any() else None,
+            "position_mean_tile_distance_given_true_card": float(np.hypot(delta_x, delta_y).mean()) if pv.any() else None,
+            "joint_play_exact_accuracy": float(((records["prediction"][pv] == records["card"][pv]) & (records["pred_position"][pv] == records["position"][pv])).mean()) if pv.any() else None,
+            "natural_time": calibration_stats(np.ones(len(y), dtype=bool)), "actionable_time": calibration_stats(eligible),
+            "event_matching": {"tolerance_ticks": tolerance_ticks, "tolerance_seconds": tolerance_ticks/tick_hz,
+                               "one_to_one_matches": len(errors), "precision": ratio(len(errors), predicted_count),
+                               "recall": ratio(len(errors), positive),
+                               "mean_absolute_error_seconds": float(np.abs(errors).mean()/tick_hz) if errors else None},
+            "trajectory_event_counts": rates}
+
+
+def fit_calibration(records: dict[str, np.ndarray]) -> dict:
+    selected = records["eligible"].astype(bool)
+    rate = torch.tensor(records["raw_rate"][selected], dtype=torch.float64)
+    dt = torch.tensor(records["dt"][selected], dtype=torch.float64)
+    target = torch.tensor(records["event"][selected], dtype=torch.float64)
+    if not len(target) or not target.any() or target.all():
+        raise ValueError("Calibration fit requires both event classes")
+    # Bounded monotonic slope, no high-capacity fit or test-dependent adjustment.
+    slope_parameter = torch.tensor(math.log(.95/9.0), dtype=torch.float64, requires_grad=True)
+    bias = torch.tensor(0.0, dtype=torch.float64, requires_grad=True)
+    optimizer = torch.optim.LBFGS([slope_parameter, bias], max_iter=60, line_search_fn="strong_wolfe")
+    def closure():
+        optimizer.zero_grad()
+        slope = .05 + 9.95*slope_parameter.sigmoid()
+        calibrated = (rate.log()*slope + 10*torch.tanh(bias/10)).exp()
+        no_event, event = hazard_log_probabilities(calibrated, dt)
+        loss = -(target*event + (1-target)*no_event).mean()
+        loss.backward()
+        return loss
+    optimizer.step(closure)
+    slope = float((.05+9.95*slope_parameter.sigmoid()).detach())
+    log_scale = float((10*torch.tanh(bias/10)).detach())
+    calibrated_rate = np.exp(np.log(records["raw_rate"][selected])*slope+log_scale)
+    probability = -np.expm1(-calibrated_rate*records["dt"][selected])
+    threshold, risk = choose_threshold(probability, records["event"][selected].astype(bool))
+    return {"hazard_temperature": 1/slope, "hazard_log_scale": log_scale,
+            "event_threshold": threshold, "fit_balanced_error": risk,
+            "fit_labels": int(selected.sum()), "fit_events": int(target.sum()),
+            "method": "monotonic hazard log-rate temperature/scale fitted by natural event NLL; threshold minimizes balanced error, higher on ties"}
+
+
+@dataclass(frozen=True)
+class TimingTrainConfig:
+    epochs: int = 12
+    batch_size: int = 4
+    sequence: int = 32
+    learning_rate: float = .0005
+    weight_decay: float = .0001
+    event_loss_weight: float = 2.0
+    card_loss_weight: float = 1.0
+    position_loss_weight: float = 1.0
+    seed: int = 270113
+    threads: int = 2
+    tolerance_ticks: int = 10
+    split_salt: str = "arena-causal-timing-v1-predeclared-20261113"
+    model_kind: str = "timing"
+    joint_play_weight_cap: float = 8.0
+
+
+def train_timing(index: str | Path, output: str | Path, config: TimingTrainConfig,
+                 *, resume: bool = False, stop_after_epoch: int | None = None) -> dict:
+    if min(config.epochs, config.batch_size, config.sequence, config.threads) < 1:
+        raise ValueError("Positive epoch/batch/sequence/thread counts required")
+    if config.model_kind not in {"timing", "joint"}:
+        raise ValueError("model_kind must be timing or joint")
+    output = Path(output).resolve()
+    if not output.is_relative_to(ROOT):
+        raise ValueError("Outputs must remain in the repository")
+    if output.exists() and any(output.iterdir()) and not resume:
+        raise FileExistsError("Use a fresh output directory")
+    if resume and (output / "report.json").exists():
+        raise FileExistsError("Completed runs cannot be resumed or re-test their holdout")
+    if resume and not (output / "resume.pt").exists():
+        raise FileNotFoundError("No epoch-boundary resume checkpoint")
+    output.mkdir(parents=True, exist_ok=True)
+    torch.set_num_threads(config.threads)
+    torch.use_deterministic_algorithms(True)
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
+    data = TimingBattleDataset(index, cache_games=config.batch_size)
+    split_manifest = partition_development(data, config.split_salt)
+    tick_hz = float(data.index.get("tick_hz", 20))
+    decision_ticks = int(data.index["decision_ticks"])
+    timing = TimingConfig(tick_hz=tick_hz, decision_ticks=decision_ticks)
+    positives = actionable = 0
+    for row in data.splits["train"]:
+        arrays = data.load(row)
+        valid = arrays["label_valid"].astype(bool)
+        legal = arrays["legal_cards"].copy()
+        legal[:, 1:5] &= arrays["legal_positions"].any(-1)
+        eligible = valid & legal[:, 1:].any(-1)
+        positives += int(((arrays["target_card"] > 0) & valid).sum())
+        actionable += int(eligible.sum())
+    if positives == 0 or actionable <= positives:
+        raise ValueError("Training must contain genuine event and WAIT observations")
+    prior = positives/actionable
+    model = TimingGRUPolicy(data.spec, timing) if config.model_kind == "timing" else EntityGRUPolicy(data.spec)
+    if config.model_kind == "timing":
+        with torch.no_grad():
+            initial_rate = -math.log1p(-prior)/(decision_ticks/tick_hz)
+            model.event_head.bias.fill_(math.log(math.expm1(initial_rate)))
+    training_labels = sum(int(data.load(row)["label_valid"].sum()) for row in data.splits["train"])
+    joint_play_weight = min(config.joint_play_weight_cap, max(1., (training_labels-positives)/positives))
+    optimizer = torch.optim.AdamW((p for p in model.parameters() if p.requires_grad),
+                                  lr=config.learning_rate, weight_decay=config.weight_decay)
+    metadata = {"train_config": asdict(config), "dataset_index": str(data.path.relative_to(ROOT)),
+                "dataset_index_sha256": data.index_sha256, "data_manifest_sha256": data.index_sha256,
+                "environment_identity": data.index.get("environment_identity", {}),
+                "environment": data.index.get("environment", {}),
+                "dataset_provenance": data.index.get("provenance", {}),
+                "training_data_quality": data.index.get("data_origin", data.index.get("quality", "unspecified")),
+                "strong_imitation_delivery_gate_passed": False,
+                "human_expert_imitation": False,
+                "model_selection": "training-monitor natural event NLL + conditional card NLL + conditional location NLL",
+                "calibration": "validation-fit only; validation-check and test after checkpoint freeze",
+                "time_contract": "observe at tick, choose/request at same tick, confirm within decision horizon; elapsed is explicit; no future commands enter actor",
+                "decoder": "event_probability >= frozen threshold then conditional card/location argmax; stochastic rollout uses exact same joint distribution",
+                "train_actionable_event_prior": prior, "development_splits": split_manifest,
+                "joint_play_weight": joint_play_weight if config.model_kind == "joint" else None,
+                "software": {"torch": torch.__version__, "numpy": np.__version__}}
+    if config.model_kind == "joint":
+        metadata.update(model_selection="training-monitor joint card NLL + conditional location NLL",
+                        calibration="none; historical joint argmax decoder kept",
+                        decoder="joint card argmax then conditional location argmax")
+    if not resume:
+        write_json(output / "config.json", dict(metadata, timing_config=asdict(timing), policy_spec=asdict(data.spec)))
+        write_json(output / "data-audit.json", data.audit)
+    history, best_score, steps = [], float("inf"), 0
+    first_epoch, elapsed_before = 0, 0.0
+    if resume:
+        state = torch.load(output / "resume.pt", map_location="cpu", weights_only=True)
+        if state["config"] != asdict(config) or state["index_sha256"] != data.index_sha256:
+            raise ValueError("Resume configuration or dataset checksum drift")
+        model.load_state_dict(state["model"], strict=True)
+        optimizer.load_state_dict(state["optimizer"])
+        torch.set_rng_state(state["torch_rng"])
+        first_epoch, steps = int(state["epoch"]), int(state["training_steps"])
+        elapsed_before = float(state.get("elapsed_wall_seconds", 0))
+        history = [json.loads(line) for line in (output / "history.jsonl").read_text().splitlines()]
+        if len(history) != first_epoch:
+            raise ValueError("Resume history and checkpoint epoch disagree; preserve and inspect interrupted files")
+        best_score = min(entry["selection_score"] for entry in history)
+        selected = json.loads((output / "selected-checkpoint.json").read_text())
+    started = time.perf_counter()
+    for epoch in range(first_epoch, config.epochs):
+        rows = list(data.splits["train"])
+        random.Random(config.seed+epoch).shuffle(rows)
+        hidden = None
+        model.train()
+        epoch_started, totals, batches, labels = time.perf_counter(), np.zeros(3), 0, 0
+        for batch, starts in stream_batches(data, rows, batch_size=config.batch_size, sequence=config.sequence):
+            if hidden is not None:
+                hidden = hidden.detach()*torch.as_tensor(~starts)[None, :, None]
+            out = model(tensor_observation(batch), hidden)
+            hidden = out["hidden"]
+            if config.model_kind == "timing":
+                components = timing_losses(out, batch)
+                loss = sum(weight*value for weight, value in zip((config.event_loss_weight, config.card_loss_weight, config.position_loss_weight), components))
+            else:
+                joint_loss, position_loss = losses(out, batch, joint_play_weight)
+                components = (joint_loss, out["hidden"].sum()*0, position_loss)
+                loss = joint_loss + config.position_loss_weight*position_loss
+            if not torch.isfinite(loss):
+                raise FloatingPointError("Nonfinite timing training loss")
+            if batch["label_valid"].any():
+                optimizer.zero_grad(set_to_none=True)
+                loss.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0, error_if_nonfinite=True)
+                optimizer.step()
+                steps += 1
+            totals += [float(value.detach()) for value in components]
+            batches += 1
+            labels += int(batch["label_valid"].sum())
+        seconds = time.perf_counter()-epoch_started
+        predictions = collect_predictions(model, data, "monitor", sequence=config.sequence)
+        metrics = summarize_predictions(predictions, grid_w=model.spec.grid_w, tick_hz=tick_hz,
+                                        tolerance_ticks=config.tolerance_ticks, train_prior=prior, split="monitor")
+        score = (metrics["actionable_time"]["event_nll"]+metrics["conditional_card_nll"]+metrics["position_nll"]
+                 if config.model_kind == "timing" else metrics["card_nll"]+metrics["position_nll"])
+        entry = {"epoch": epoch+1, "optimizer_steps_total": steps, "batches": batches, "valid_labels": labels,
+                 "mean_batch_event_card_position_loss": (totals/max(1, batches)).tolist(),
+                 "training_seconds": seconds, "valid_labels_per_training_second": labels/seconds,
+                 "monitor": metrics, "selection_score": score}
+        history.append(entry)
+        with (output / "history.jsonl").open("a") as stream:
+            stream.write(json.dumps(entry, allow_nan=False)+"\n")
+        if score < best_score:
+            best_score = score
+            selected = save_policy(model, output / "selected.pt", metadata=dict(metadata, trained=True,
+                training_steps=steps, epoch=epoch+1), overwrite=True)
+            write_json(output / "selected-checkpoint.json", selected)
+        # Epoch-boundary resume contains optimizer and RNG state, never test feedback.
+        torch.save({"model": model.state_dict(), "optimizer": optimizer.state_dict(), "epoch": epoch+1,
+                    "torch_rng": torch.get_rng_state(), "config": asdict(config),
+                    "index_sha256": data.index_sha256, "training_steps": steps,
+                    "elapsed_wall_seconds": elapsed_before+time.perf_counter()-started}, output / "resume.pt.tmp")
+        os.replace(output / "resume.pt.tmp", output / "resume.pt")
+        print(json.dumps({key: value for key, value in entry.items() if key != "monitor"}, allow_nan=False), flush=True)
+        if stop_after_epoch is not None and epoch+1 >= stop_after_epoch and epoch+1 < config.epochs:
+            status = {"status": "stopped_at_epoch_boundary", "epoch": epoch+1,
+                      "resume_checkpoint": str(output / "resume.pt"), "test_evaluated": False}
+            write_json(output / "interruption.json", status)
+            return status
+    model, selected_metadata = load_policy(output / "selected.pt", expected_sha256=selected["sha256"])
+    fitting = collect_predictions(model, data, "calibration", sequence=config.sequence)
+    before = summarize_predictions(fitting, grid_w=model.spec.grid_w, tick_hz=tick_hz,
+                                   tolerance_ticks=config.tolerance_ticks, train_prior=prior, split="calibration_before")
+    calibration = fit_calibration(fitting) if config.model_kind == "timing" else {"method": "none; frozen legacy joint decoder"}
+    if config.model_kind == "timing":
+        model.timing_config = replace(model.timing_config, **{key: calibration[key]
+                                      for key in ("hazard_temperature", "hazard_log_scale", "event_threshold")})
+    checkpoint = save_policy(model, output / "best.pt", metadata=dict(selected_metadata, event_calibration=calibration))
+    write_json(output / "checkpoint.json", checkpoint)
+    write_json(output / "frozen-before-test.json", {"checkpoint_sha256": checkpoint["sha256"],
+        "dataset_index_sha256": data.index_sha256, "timing_config": asdict(model.timing_config) if hasattr(model, "timing_config") else None,
+        "selection_score": best_score, "calibration": calibration, "test_game_ids": split_manifest["test"],
+        "tolerance_ticks": config.tolerance_ticks})
+    model, _ = load_policy(output / "best.pt", expected_sha256=checkpoint["sha256"])
+    reports = {}
+    for split, ablated in (("calibration", False), ("validation_check", False), ("test", False), ("test", True)):
+        records = collect_predictions(model, data, split, sequence=config.sequence, ablate_entities=ablated)
+        key = f"{split}_without_entities" if ablated else split
+        reports[key] = summarize_predictions(records, grid_w=model.spec.grid_w, tick_hz=tick_hz,
+            tolerance_ticks=config.tolerance_ticks, train_prior=prior, split=key)
+        np.savez_compressed(output / f"{key}-predictions.npz", **records)
+    report = {"schema_version": 1, "checkpoint": checkpoint, "best_epoch": selected_metadata["epoch"],
+              "data_audit": data.audit, "development_splits": split_manifest, "calibration": calibration,
+              "uncalibrated_fit": before, **reports, "history": history,
+              "total_wall_seconds": elapsed_before+time.perf_counter()-started,
+              "interpretation": "Causal same-version rule-teacher imitation; separate human expert pairing and real-device closed-loop gates remain independent."}
+    write_json(output / "report.json", report)
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--index", required=True)
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--stop-after-epoch", type=int)
+    for name, field in TimingTrainConfig.__dataclass_fields__.items():
+        parser.add_argument("--"+name.replace("_", "-"), type=type(field.default), default=field.default)
+    args = vars(parser.parse_args())
+    index, output = args.pop("index"), args.pop("output")
+    resume, stop_after_epoch = args.pop("resume"), args.pop("stop_after_epoch")
+    report = train_timing(index, output, TimingTrainConfig(**args), resume=resume, stop_after_epoch=stop_after_epoch)
+    if report.get("status") == "stopped_at_epoch_boundary":
+        print(json.dumps(report))
+        return
+    print(json.dumps({"checkpoint": report["checkpoint"]["path"], "best_epoch": report["best_epoch"],
+                      "test": report["test"], "wall_seconds": report["total_wall_seconds"]}, allow_nan=False))
+
+
+if __name__ == "__main__":
+    main()

@@ -2,7 +2,7 @@ name: Arena Lab reproducibility
 on:
   workflow_dispatch:
   push:
-    branches: [main, 'dev/arena-lab-*']
+    branches: [main, 'dev/arena-lab-*', 'dev/arena-next-*']
     paths: ['arena_lab/**', 'configs/arena-lab/**', 'tests_cloud/test_arena*', 'requirements-arena-lab*', 'requirements-codespaces*.txt', 'pyproject.toml', '.github/workflows/arena-lab-check.yml']
   pull_request:
     paths: ['arena_lab/**', 'configs/arena-lab/**', 'tests_cloud/test_arena*', 'requirements-arena-lab*', 'requirements-codespaces*.txt', 'pyproject.toml', '.github/workflows/arena-lab-check.yml']
@@ -20,6 +20,7 @@ jobs:
       - name: Fixed host CPU dependencies
         run: |
           python -m pip install -r requirements-codespaces.txt
+          python -m pip install Pillow==11.3.0
           python -m pip install --index-url https://download.pytorch.org/whl/cpu -r requirements-codespaces-ml.txt
       - name: Isolated hash-locked simulator
         run: python -m arena_lab bootstrap install
@@ -27,6 +28,16 @@ jobs:
         run: python -m unittest discover -s tests_cloud -p 'test_arena*.py' -v
       - name: Real engine whole-battle benchmark
         run: python -m arena_lab benchmark --backend royalesim --seed 1729 --games 2 --decision-ticks 10 --output outputs/arena-ci/benchmark.json
+      - name: Same-version causal pairs and independent complete-state replay
+        run: |
+          python -m arena_lab collect-paired --output outputs/arena-ci/paired --train 1 --validation 1 --test 1 --seed-start 702001
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('outputs/arena-ci/paired/collection-report.json').read_text())
+          assert report['state_alignment_passed'] and report['completed_games'] == 3, report
+          assert report['counts']['accepted'] > 0 and report['counts']['refused'] == 0, report
+          PY
       - name: Delivered checkpoint reload and paired whole games
         run: |
           python - <<'PY'

@@ -1,0 +1,18 @@
+{
+  "schema": "arena-timing-report-field-fix-v1",
+  "file": "arena_lab/timing_training.py",
+  "frozen_training_sha256": "8454f4e46d14d09f42e23542dafe091120b2206a9d6cc543a7f9cc2e125e99ea",
+  "current_sha256": "feefdc98294ec20197d03ac0cef3ee0fcbcf13d65bd21d1233bbd9a34dd9a518",
+  "change": "Only final report key calibration_parameters replaces duplicate calibration parameter key; calibration split metrics retain their name.",
+  "applied_after_both_arms_completed": true,
+  "training_or_test_rerun": false,
+  "original_report_sha256": {
+    "candidate": "58193a76e651f932182dbf32a42e723ff2041c694ed8f0065af730fee16cecd7",
+    "reference": "b3ee78cf0b699906aa4bb546ac96232cd788ff464da18a965cf9226becd13e98"
+  },
+  "contract_tests": {
+    "passed": 12,
+    "seconds": 2.433
+  },
+  "explanation_zh": "两臂原报告、预测和权重保持字节不变；冻结源码可复核原数值实验，参数另见两个audit-summary.json。"
+}

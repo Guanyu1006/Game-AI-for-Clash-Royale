@@ -1,0 +1,87 @@
+{
+  "schema": "arena-vision-assets.v1",
+  "source_commit": "2f172925a15b17f973291f41a789b19a29f0fc43",
+  "source_code_license": "MIT",
+  "unit_model_embedded_license": "AGPL-3.0 License (https://ultralytics.com/license)",
+  "asset_redistribution": false,
+  "image_rights": "Game imagery retains its original rights; downloaded separately for local research",
+  "files": [
+    {
+      "name": "units_M_480x352.onnx",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/models/units_M_480x352.onnx",
+      "sha256": "4cf422370650b1d18647cffc05e02bf75fdc2fbdb1f8ef983f4b8d6f8ea908b3",
+      "bytes": 30896276,
+      "relative_path": "units_M_480x352.onnx"
+    },
+    {
+      "name": "side.onnx",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/models/side.onnx",
+      "sha256": "686bc75eae2ddc872b556534aeac8b4f5c6e891df76eef12e9fc91d406ab2583",
+      "bytes": 68762,
+      "relative_path": "side.onnx"
+    },
+    {
+      "name": "LICENSE",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/LICENSE",
+      "sha256": "91c0e7887de0bb7b0e0abf54cb607e75ec7b60e1628ef27abce9453bb456538f",
+      "bytes": 1097,
+      "relative_path": "LICENSE"
+    },
+    {
+      "name": "knight",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/knight.jpg",
+      "sha256": "1e795cb5310b75bc426ebd7ec26482f370100f46bc17d58ac83250fefcfdd5c4",
+      "bytes": 15976,
+      "relative_path": "cards/knight.jpg"
+    },
+    {
+      "name": "archers",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/archers.jpg",
+      "sha256": "4ea011f60f2d6ae82975b4bdb04c5e1ee7ab2a774f69beda8cfa61ba1a5bbab7",
+      "bytes": 16287,
+      "relative_path": "cards/archers.jpg"
+    },
+    {
+      "name": "giant",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/giant.jpg",
+      "sha256": "d9d5d4a80e9c843fdc1bdae9a1777c0c82669ecce943321540a277e1e9e1158b",
+      "bytes": 13521,
+      "relative_path": "cards/giant.jpg"
+    },
+    {
+      "name": "musketeer",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/musketeer.jpg",
+      "sha256": "74758c4188464a5c77dc7650acee0e05db97dc4eabc3b5d128014d8995baa745",
+      "bytes": 14400,
+      "relative_path": "cards/musketeer.jpg"
+    },
+    {
+      "name": "minipekka",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/minipekka.jpg",
+      "sha256": "cf0ce9d81a526cfa0848aa1143bbbc931a5af0a5da4665fddbf3507b229bbbe9",
+      "bytes": 14495,
+      "relative_path": "cards/minipekka.jpg"
+    },
+    {
+      "name": "cannon",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/cannon.jpg",
+      "sha256": "9000ec7ff47e75714528f85c3d6871a0bdcd58cc3382861d9783e5e7042ebf32",
+      "bytes": 13134,
+      "relative_path": "cards/cannon.jpg"
+    },
+    {
+      "name": "fireball",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/fireball.jpg",
+      "sha256": "ae430ef4a278884ce2cf519a50a2b2feabfcaa18b395028e33b3bb9454e80b7e",
+      "bytes": 11563,
+      "relative_path": "cards/fireball.jpg"
+    },
+    {
+      "name": "arrows",
+      "source": "https://raw.githubusercontent.com/itzik123/ClashRoyaleAi/2f172925a15b17f973291f41a789b19a29f0fc43/perception/clashroyalebuildabot/images/cards/arrows.jpg",
+      "sha256": "7f99cbfc53ce2141b45f76aa82b6ccdf04a0011162c5bcb74831f6d9e9590671",
+      "bytes": 13669,
+      "relative_path": "cards/arrows.jpg"
+    }
+  ]
+}

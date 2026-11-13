@@ -58,7 +58,7 @@ def _restore_setting(namespace, key, value):
     return f'settings put {namespace} {key} {shlex.quote(value)}'
 
 
-def prepare_display(adb, adb_port, serial, root_shell, output, *, runner=None):
+def prepare_display(adb, adb_port, serial, root_shell, output, *, runner=None, adb_read_timeout=30):
     """Configure an existing guest; never start ADB, a VM, an app or native RPC.
 
     ``runner`` follows native_identity.Journal's (label, argv, script, timeout)
@@ -68,10 +68,12 @@ def prepare_display(adb, adb_port, serial, root_shell, output, *, runner=None):
         raise ValueError('Explicit safe Android serial is required')
     if type(adb_port) is not int or not 1 <= adb_port <= 65535 or root_shell not in ('su0', 'adbd'):
         raise ValueError('Invalid explicit ADB endpoint or root shell')
+    if type(adb_read_timeout) not in (int, float) or not 1 <= adb_read_timeout <= 180:
+        raise ValueError('ADB read timeout must be 1..180 seconds')
     folder = local(output); folder.mkdir(parents=True, exist_ok=False)
     report = dict(schema='cloud-android-display.v1', status='running',
         created_utc=datetime.now(timezone.utc).isoformat(), device_serial=serial,
-        adb_port=adb_port, root_shell=root_shell,
+        adb_port=adb_port, root_shell=root_shell, adb_read_timeout=adb_read_timeout,
         evidence_scope='interface_only' if runner is not None else 'actual_selected_guest_settings',
         commands=[], mutation_attempts=[], restored=False, native_probe_rpc_calls=0,
         adb_server_started=False, vm_started=False, app_started=False, system_restarted=False,
@@ -94,7 +96,7 @@ def prepare_display(adb, adb_port, serial, root_shell, output, *, runner=None):
         if journal.device('get-state', ['get-state']).strip() != 'device':
             raise RuntimeError('Specified serial is not a ready Android device')
         shell = ['shell', '-T', *(['su', '0'] if root_shell == 'su0' else []), 'sh', '-s']
-        before = parse_discovery(journal.device('read-display-before', shell, discovery_script()))
+        before = parse_discovery(journal.device('read-display-before', shell, discovery_script(), timeout=adb_read_timeout))
         report['before'] = before
         report['old_settings'] = [
             dict(namespace='global', key='cached_apps_freezer', value=before['cached_apps_freezer'], modified=True),
@@ -127,7 +129,7 @@ def prepare_display(adb, adb_port, serial, root_shell, output, *, runner=None):
                 raise
             finally:
                 write(folder/'report.json', report)
-        after = parse_discovery(journal.device('read-display-after', shell, discovery_script()))
+        after = parse_discovery(journal.device('read-display-after', shell, discovery_script(), timeout=adb_read_timeout))
         report['after'] = after
         if after['cached_apps_freezer'] != 'disabled':
             raise RuntimeError('cached_apps_freezer readback is not disabled; configuration unverified')
@@ -161,11 +163,13 @@ def main(argv=None):
     parser.add_argument('--serial', required=True)
     parser.add_argument('--root-shell', choices=['su0', 'adbd'], default='su0')
     parser.add_argument('--output', required=True)
+    parser.add_argument('--adb-read-timeout', type=float, default=30)
     args = parser.parse_args(argv)
     def interrupted(signum, frame):
         raise KeyboardInterrupt(f'received signal {signum}')
     signal.signal(signal.SIGTERM, interrupted)
-    report = prepare_display(args.adb, args.adb_port, args.serial, args.root_shell, args.output)
+    report = prepare_display(args.adb, args.adb_port, args.serial, args.root_shell, args.output,
+                             adb_read_timeout=args.adb_read_timeout)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report['status'] == 'prepared' else 2
 

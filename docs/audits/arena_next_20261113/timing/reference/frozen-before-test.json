@@ -1,0 +1,22 @@
+{
+  "checkpoint_sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+  "dataset_index_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
+  "timing_config": null,
+  "selection_score": 1.6892210990190506,
+  "calibration": {
+    "method": "none; frozen legacy joint decoder"
+  },
+  "test_game_ids": [
+    "paired-2026111370",
+    "paired-2026111371",
+    "paired-2026111372",
+    "paired-2026111373",
+    "paired-2026111374",
+    "paired-2026111375",
+    "paired-2026111376",
+    "paired-2026111377",
+    "paired-2026111378",
+    "paired-2026111379"
+  ],
+  "tolerance_ticks": 10
+}

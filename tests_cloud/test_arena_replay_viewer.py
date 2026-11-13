@@ -73,6 +73,12 @@ class ArenaReplayViewerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unknown HP"):
             render_replay(self.root, self.root / "foreign.html")
         self.assertFalse((self.root / "foreign.html").exists())
+        plan["environment_identity"].pop("entity_extra_fields")
+        plan["environment_identity"]["visual_projection"] = {"known_masks": "explicit"}
+        path.write_text(json.dumps(plan))
+        with self.assertRaisesRegex(ValueError, "unknown HP"):
+            render_replay(self.root, self.root / "masked.html")
+        self.assertFalse((self.root / "masked.html").exists())
 
 
 if __name__ == "__main__":

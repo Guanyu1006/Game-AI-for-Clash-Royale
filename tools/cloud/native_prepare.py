@@ -16,6 +16,9 @@ from royale_phase3.common import configure, local, native_lock, write, append
 
 
 def prepare(args):
+    adb_read_timeout = getattr(args, 'adb_read_timeout', 30)
+    if type(adb_read_timeout) not in (int, float) or not 1 <= adb_read_timeout <= 180:
+        raise ValueError('ADB read timeout must be 1..180 seconds')
     stability_seconds = getattr(args, 'stability_seconds', 60)
     if type(stability_seconds) not in (int, float) or not 0 <= stability_seconds <= 180:
         raise ValueError('stability seconds must be 0..180')
@@ -24,7 +27,8 @@ def prepare(args):
                   started=datetime.now(timezone.utc).isoformat(), stages=[],
                   native_battle_execution_verified=False, app_restart=False,
                   restart_app_requested=bool(args.restart_app),
-                  display_compat_requested=bool(getattr(args, 'display_compat', False)))
+                  display_compat_requested=bool(getattr(args, 'display_compat', False)),
+                  adb_read_timeout=adb_read_timeout)
     def save(): write(folder/'report.json', report)
     def call(label, argv, timeout=180):
         print(json.dumps({'stage': label, 'status': 'running'}, ensure_ascii=False), flush=True)
@@ -92,7 +96,7 @@ def prepare(args):
         started = time.monotonic()
         summary = dict(status='running', requested_seconds=stability_seconds,
                        started_utc=datetime.now(timezone.utc).isoformat(), checks_attempted=0,
-                       checks_passed=0, poll_interval_seconds=5, adb_timeout_seconds=30,
+                       checks_passed=0, poll_interval_seconds=5, adb_timeout_seconds=adb_read_timeout,
                        probe_timeout_seconds=5, stability_verified=False,
                        scope='Finite process/content availability checks; no battle/renderer acceptance or future uptime guarantee')
         stage = dict(stage='runtime-stability', status='running')
@@ -131,7 +135,7 @@ printf '\\nSTAT_END\\n'
                          *(['su', '0'] if args.root_shell == 'su0' else []), 'sh', '-s']
             def current_identity(detail):
                 result = subprocess.run(shell, input=script.encode('utf-8'), cwd=ROOT,
-                                        capture_output=True, timeout=30, check=False)
+                                        capture_output=True, timeout=adb_read_timeout, check=False)
                 detail['adb_returncode'] = result.returncode
                 raw = result.stdout
                 detail['adb_response_bytes'] = len(raw)
@@ -273,7 +277,8 @@ printf '\\nSTAT_END\\n'
                 save()
                 call('display-compat', python+['tools/cloud/android_display.py', 'prepare',
                      '--adb', args.adb, '--adb-port', str(args.adb_port), '--serial', args.serial,
-                     '--root-shell', args.root_shell, '--output', str(folder/'display-compat')], 360)
+                     '--root-shell', args.root_shell, '--adb-read-timeout', str(adb_read_timeout),
+                     '--output', str(folder/'display-compat')], max(360, 2*adb_read_timeout+180))
             if args.restart_app:
                 # Explicitly ends the current app session. Never restart as a
                 # transport-error recovery: an uncertain mutation stays uncertain.
@@ -283,7 +288,8 @@ printf '\\nSTAT_END\\n'
                      'am', 'force-stop', '--user', '0', PACKAGE], 90)
                 report['app_restart'] = True; save()
             call('game-start', python+['tools/cloud/native_start.py', 'start', *common,
-                 '--confirm-immersive', '--forward', '--output', str(folder/'start')], 600)
+                 '--confirm-immersive', '--forward', '--adb-read-timeout', str(adb_read_timeout),
+                 '--output', str(folder/'start')], max(600, 9*adb_read_timeout+120))
             from royale_phase2.probe import ProbeClient
             deadline = time.monotonic()+args.content_timeout
             while True:
@@ -299,7 +305,8 @@ printf '\\nSTAT_END\\n'
                 print(json.dumps({'stage': 'native-content', 'status': 'waiting'}), flush=True)
                 time.sleep(5)
             call('identity', python+['tools/cloud/native_identity.py', *common,
-                 '--identity-output', str(folder/'identity.json'), '--output', str(folder/'identity-check')], 600)
+                 '--identity-output', str(folder/'identity.json'), '--adb-read-timeout', str(adb_read_timeout),
+                 '--output', str(folder/'identity-check')], 600)
             runtime_stability()
             call('connection', python+['tools/cloud/native_connection.py', 'init', '--manifest', args.manifest,
                  '--identity', str(folder/'identity.json'), '--timeout', '180',
@@ -335,6 +342,8 @@ def main():
                         help='启动完成后、游戏启动前设置可恢复的 Redroid guest freezer/stayon 兼容选项；保存旧值和恢复命令')
     parser.add_argument('--boot-timeout', type=float, default=600)
     parser.add_argument('--content-timeout', type=float, default=900)
+    parser.add_argument('--adb-read-timeout', type=float, default=30,
+                        help='慢速TCG只读应用/设置/身份检查预算（1..180秒），不自动重放执行')
     parser.add_argument('--stability-seconds', type=float, default=60,
                         help='身份校验后只读观察存活的秒数（0..180）；0仅即时最终检查，不验证持续稳定性')
     args = parser.parse_args()
@@ -342,6 +351,8 @@ def main():
         parser.error('boot/content timeout must be 1..1800 seconds')
     if not 0 <= args.stability_seconds <= 180:
         parser.error('stability seconds must be 0..180')
+    if not 1 <= args.adb_read_timeout <= 180:
+        parser.error('ADB read timeout must be 1..180 seconds')
     report = prepare(args)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report['status'] == 'prepared' else 2

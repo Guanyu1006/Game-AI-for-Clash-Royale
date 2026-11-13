@@ -87,7 +87,7 @@ def parse_immersive_state(text):
     return value[0]
 
 
-def confirm_immersive_setting(journal, shell, report):
+def confirm_immersive_setting(journal, shell, report, adb_read_timeout=30):
     # Android 12's WindowManager observes this setting and asynchronously hides
     # its system tutorial. Readback proves persistence, not focus or readiness.
     evidence = {'status': 'checking', 'required_android_api': 31, 'user': 0,
@@ -95,7 +95,7 @@ def confirm_immersive_setting(journal, shell, report):
                 'prompt_dismissal_verified': False, 'window_focus_verified': False,
                 'limitation': 'Setting readback does not verify asynchronous prompt removal, application focus or native readiness.'}
     report['immersive_confirmation'] = evidence
-    before = parse_immersive_state(journal.device('check-immersive', shell, immersive_state_script()))
+    before = parse_immersive_state(journal.device('check-immersive', shell, immersive_state_script(), timeout=adb_read_timeout))
     evidence['before'] = before
     if before == 'confirmed':
         evidence.update(status='already_confirmed', after=before, setting_changed=False)
@@ -105,7 +105,7 @@ def confirm_immersive_setting(journal, shell, report):
 [ "$(getprop ro.build.version.sdk)" = 31 ] || exit 33
 settings --user 0 put secure immersive_mode_confirmations confirmed
 ''')
-    after = parse_immersive_state(journal.device('verify-immersive', shell, immersive_state_script()))
+    after = parse_immersive_state(journal.device('verify-immersive', shell, immersive_state_script(), timeout=adb_read_timeout))
     evidence['after'] = after
     if after != 'confirmed':
         evidence['status'] = 'readback_failed'
@@ -150,13 +150,15 @@ def probe_status(folder, report, factory=None):
 
 def check_or_start(manifest, output, *, serial, adb, adb_port=5037, root_shell='adbd',
                    start=False, forward=False, probe=False, confirm_immersive=False, polls=6, poll_interval=2,
-                   runner=None, sleeper=time.sleep, probe_factory=None):
+                   runner=None, sleeper=time.sleep, probe_factory=None, adb_read_timeout=30):
     if not isinstance(serial, str) or not SERIAL.fullmatch(serial):
         raise ValueError('Explicit safe Android serial is required')
     if type(adb_port) is not int or not 1 <= adb_port <= 65535 or root_shell not in ('adbd', 'su0'):
         raise ValueError('Invalid explicit ADB endpoint or root shell')
     if type(polls) is not int or not 1 <= polls <= 30 or not 0 <= poll_interval <= 5:
         raise ValueError('PID polling is bounded to 1..30 attempts and 0..5 seconds')
+    if type(adb_read_timeout) not in (int, float) or not 1 <= adb_read_timeout <= 180:
+        raise ValueError('ADB read timeout must be 1..180 seconds')
     if runner is not None and probe and probe_factory is None:
         raise ValueError('Interface fixtures cannot access the real probe')
     folder = local(output)
@@ -165,7 +167,7 @@ def check_or_start(manifest, output, *, serial, adb, adb_port=5037, root_shell='
               'created_utc': datetime.now(timezone.utc).isoformat(), 'device_serial': serial,
               'evidence_scope': 'interface_only' if runner is not None else 'actual_adb_shell',
               'requested': {'start': start, 'forward': forward, 'probe_status': probe,
-                            'confirm_immersive': confirm_immersive},
+                            'confirm_immersive': confirm_immersive, 'adb_read_timeout': adb_read_timeout},
               'native_battle_execution_verified': False, 'native_identity_verified': False,
               'native_probe_rpc_calls': 0, 'start_commands': 0, 'commands': [],
               'limitations': ['A PID or status response does not verify a battle or loaded resource identity.',
@@ -193,11 +195,11 @@ def check_or_start(manifest, output, *, serial, adb, adb_port=5037, root_shell='
         if journal.device('get-state', ['get-state']).strip() != 'device':
             raise RuntimeError('Specified serial is not a ready Android device')
         shell = ['shell', '-T', *(['su', '0'] if root_shell == 'su0' else []), 'sh', '-s']
-        found = parse_check(journal.device('check-app', shell, check_script()))
+        found = parse_check(journal.device('check-app', shell, check_script(), timeout=adb_read_timeout))
         report.update(process=found, checks_passed=True, already_running=found['pid'] is not None,
                       start_command_accepted=False)
         if confirm_immersive:
-            confirm_immersive_setting(journal, shell, report)
+            confirm_immersive_setting(journal, shell, report, adb_read_timeout)
         if start and found['pid'] is None:
             # Exactly one launch attempt. PID absence is handled by bounded polling.
             report['start_commands'] = 1
@@ -213,7 +215,7 @@ def check_or_start(manifest, output, *, serial, adb, adb_port=5037, root_shell='
             for index in range(polls):
                 if index:
                     sleeper(poll_interval)
-                found = parse_check(journal.device(f'poll-app-{index + 1:02d}', shell, check_script()))
+                found = parse_check(journal.device(f'poll-app-{index + 1:02d}', shell, check_script(), timeout=adb_read_timeout))
                 report.update(process=found, pid_poll_attempts=index + 1)
                 if found['pid'] is not None:
                     break
@@ -255,11 +257,13 @@ def main(argv=None):
                         help='显式确认Android12/API31用户0的系统沉浸模式提示；仅保存设置，不保证焦点或原生就绪')
     parser.add_argument('--pid-polls', type=int, default=6)
     parser.add_argument('--poll-interval', type=float, default=2)
+    parser.add_argument('--adb-read-timeout', type=float, default=30,
+                        help='只读应用/设置检查的秒数（1..180）；不增加启动次数或自动重试')
     args = parser.parse_args(argv)
     report = check_or_start(args.manifest, args.output, serial=args.serial, adb=args.adb,
         adb_port=args.adb_port, root_shell=args.root_shell, start=args.command == 'start',
         forward=args.forward, probe=args.probe_status, confirm_immersive=args.confirm_immersive,
-        polls=args.pid_polls, poll_interval=args.poll_interval)
+        polls=args.pid_polls, poll_interval=args.poll_interval, adb_read_timeout=args.adb_read_timeout)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report['status'] == 'running' else 2
 

@@ -225,6 +225,17 @@ class NativePrepareContracts(unittest.TestCase):
         self.assertEqual([label for label, _ in result.stages], ['adb-server', 'display-compat'])
         self.assertIn('display-compat exit 7', result.report['error'])
 
+    def test_slow_read_budget_reaches_child_checks_and_final_identity_without_relaunch(self):
+        result = self.run_fixture(self.args(display_compat=True, adb_read_timeout=90))
+        self.assertEqual(result.report['status'], 'prepared')
+        for name in ('display-compat', 'game-start', 'identity'):
+            command = next(argv for label, argv in result.stages if label == name)
+            self.assertEqual(command[command.index('--adb-read-timeout')+1], '90')
+        self.assertTrue(result.stability_timeouts)
+        self.assertEqual(set(result.stability_timeouts), {90})
+        self.assertEqual(sum(label == 'game-start' for label, _ in result.stages), 1)
+        self.assertFalse(result.report['app_restart'])
+
     def test_display_compat_does_not_run_before_android_boot_completes(self):
         timeout = subprocess.TimeoutExpired('fixture connect', 15)
         result = self.run_fixture(self.args(display_compat=True, boot_timeout=1),

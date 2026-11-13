@@ -105,6 +105,15 @@ class AndroidDisplayContracts(unittest.TestCase):
         self.assertIn('settings put global stay_on_while_plugged_in 3\n', restore)
         self.assertNotIn('screen_off_timeout', restore)
 
+    def test_slow_guest_read_budget_does_not_change_mutation_or_retry_budget(self):
+        report, fixture = self.prepare(adb_read_timeout=90)
+        self.assertEqual(report['status'], 'prepared')
+        budgets = {label: timeout for label, _, _, timeout in fixture.calls}
+        self.assertEqual(budgets['read-display-before'], 90)
+        self.assertEqual(budgets['read-display-after'], 90)
+        self.assertEqual(budgets['keep-display-on'], 30)
+        self.assertEqual(sum(label == 'keep-display-on' for label, *_ in fixture.calls), 1)
+
     def test_guest_must_be_booted_root_redroid_api31_before_any_mutation(self):
         for index, fields in enumerate(({'UID': '2000'}, {'BOOT': '0'}, {'SDK': '30'},
                                        {'HARDWARE': 'ranchu'}, {'SDK': ''})):

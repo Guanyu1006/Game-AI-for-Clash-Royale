@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 import hashlib
+import io
 import json
 import math
 from pathlib import Path
@@ -87,6 +88,12 @@ def tensor_observation(
                  else torch.float32)
         value = torch.as_tensor(observation[key], dtype=dtype, device=device)
         result[key] = value[None, None] if single else value
+    # Explicit time is optional for historical checkpoints. New timing policies
+    # consume it; request/confirmation timestamps are labels, never actor input.
+    for key in ("elapsed_ticks", "decision_ticks"):
+        if key in observation:
+            value = torch.as_tensor(observation[key], dtype=torch.float32, device=device)
+            result[key] = value[None, None] if single else value
     return result
 
 
@@ -104,7 +111,15 @@ def decode_actions(
     """The single decoder used by both evaluation and live action selection."""
     card_logits = output["card_logits"]
     position_logits = output["position_logits"]
-    cards = _sample(card_logits, deterministic, generator)
+    if deterministic and "event_probability" in output:
+        # Joint MAP can pick WAIT even when most probability is non-WAIT,
+        # because that mass is distributed over several different hand slots.
+        event = output["event_probability"] >= output["event_threshold"]
+        event &= output["effective_legal_cards"][..., 1:].any(-1)
+        cards = torch.where(event, output["conditional_card_logits"].argmax(-1) + 1,
+                            torch.zeros_like(event, dtype=torch.long))
+    else:
+        cards = _sample(card_logits, deterministic, generator)
     slots = (cards - 1).clamp(min=0, max=3)
     is_deploy = (cards >= 1) & (cards <= 4)
     selected = position_logits.gather(
@@ -233,6 +248,7 @@ class EntityGRUPolicy(nn.Module):
         if ablate_entities or not self.spec.use_entities:
             spatial = torch.zeros_like(spatial)
         encoded = self.fusion(torch.cat((glob, pooled, spatial, hand_flat, count), -1))
+        encoded = self._augment_fused(observation, encoded)
         if hidden is None:
             hidden = self.initial_state(b)
         if tuple(hidden.shape) != (1, b, self.spec.hidden_dim):
@@ -267,10 +283,15 @@ class EntityGRUPolicy(nn.Module):
             "card_logits": card_logits.masked_fill(~cards_legal, -torch.inf),
             "position_logits": position_logits.masked_fill(~safe_positions, -torch.inf),
             "hidden": next_hidden,
+            "recurrent_features": recurrent,
             "entity_attention": attention,
             "spatial_features": spatial,
             "effective_legal_cards": cards_legal,
         }
+
+    def _augment_fused(self, observation: Mapping[str, Tensor], encoded: Tensor) -> Tensor:
+        """Subclass hook without altering the historical policy parameter schema."""
+        return encoded
 
     @torch.inference_mode()
     def act(
@@ -320,15 +341,22 @@ def save_policy(
     # Round-trip limits metadata to JSON values rather than executable objects.
     clean_metadata = json.loads(json.dumps(dict(metadata or {}), allow_nan=False))
     payload = {
-        "format": CHECKPOINT_FORMAT, "spec": asdict(model.spec),
+        "format": getattr(model, "checkpoint_format", CHECKPOINT_FORMAT), "spec": asdict(model.spec),
         "state_dict": {key: value.detach().cpu() for key, value in model.state_dict().items()},
         "metadata": clean_metadata,
     }
+    if hasattr(model, "timing_config"):
+        payload["timing_config"] = asdict(model.timing_config)
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix=path.name + ".", suffix=".tmp", dir=path.parent)
     os.close(fd)
     try:
-        torch.save(payload, temporary)
+        # torch.save(path) embeds that path's basename in its ZIP members.
+        # Serialize to a stream so equal weights/metadata have equal bytes even
+        # when the atomic temporary filename or destination directory differs.
+        buffer = io.BytesIO()
+        torch.save(payload, buffer)
+        Path(temporary).write_bytes(buffer.getvalue())
         os.replace(temporary, path)
     finally:
         if os.path.exists(temporary):
@@ -347,9 +375,13 @@ def load_policy(
     if expected_sha256 is not None and hashlib.sha256(path.read_bytes()).hexdigest() != expected_sha256:
         raise ValueError("Checkpoint SHA256 mismatch")
     payload = torch.load(path, map_location="cpu", weights_only=True)
-    if not isinstance(payload, dict) or set(payload) != {"format", "spec", "state_dict", "metadata"}:
+    if not isinstance(payload, dict):
         raise ValueError("Checkpoint fields do not match the policy contract")
-    if payload["format"] != CHECKPOINT_FORMAT:
+    timing = payload.get("format") == "arena-lab-public-timing-gru-v1"
+    expected_fields = {"format", "spec", "state_dict", "metadata"} | ({"timing_config"} if timing else set())
+    if set(payload) != expected_fields:
+        raise ValueError("Checkpoint fields do not match the policy contract")
+    if payload["format"] != CHECKPOINT_FORMAT and not timing:
         raise ValueError("Unsupported checkpoint format")
     if not isinstance(payload["spec"], dict) or set(payload["spec"]) != set(PolicySpec.__dataclass_fields__):
         raise ValueError("Checkpoint spec fields do not match the policy contract")
@@ -359,7 +391,11 @@ def load_policy(
     metadata = json.loads(json.dumps(payload["metadata"], allow_nan=False))
     if not isinstance(metadata, dict):
         raise ValueError("Checkpoint metadata must be an object")
-    model = EntityGRUPolicy(spec)
+    if timing:
+        from .timing import TimingConfig, TimingGRUPolicy
+        model = TimingGRUPolicy(spec, TimingConfig(**payload["timing_config"]))
+    else:
+        model = EntityGRUPolicy(spec)
     model.load_state_dict(payload["state_dict"], strict=True)
     for value in model.state_dict().values():
         if not bool(torch.isfinite(value).all()):

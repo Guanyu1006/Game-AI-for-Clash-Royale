@@ -1,0 +1,27 @@
+{
+  "schema": "arena-data-delivery-summary-v1",
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/data-pixel-native8-v1/throughput-correction.json",
+      "sha256": "d3db5869d5de8fa853788405fc99b490dae1dc933ccb10d22f3920ca270f7327",
+      "bytes": 858
+    }
+  ],
+  "correction": {
+    "schema": "arena-collection-throughput-correction-v1",
+    "original_report_sha256": "54abf065da94ee600f9100fe4db9132c2c19b7662fa78f326e9f5a2a371e7d1e",
+    "original_report_preserved": true,
+    "completed_games_total": 50,
+    "reused_and_reaudited_games": 37,
+    "newly_collected_games_this_session": 13,
+    "new_joint_decisions_this_session": 6176,
+    "reused_joint_decisions_reaudited_this_session": 18300,
+    "resume_session_wall_seconds": 103.534023273,
+    "original_report_rate_is_fresh_collection_throughput": false,
+    "rate_actual_scope": "all 50 completed trajectories divided by one resume session; combines reuse audit with fresh collection",
+    "fresh_collection_wall_seconds_separately_recorded": false,
+    "fresh_collection_throughput": null,
+    "full_acquisition_wall_seconds_known": false,
+    "same_version_80game_original_throughput_affected": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "arena-data-validation-v1",
+  "command": ".venv-cloud/bin/python -m unittest tests_cloud.test_arena_data_sources tests_cloud.test_arena_alignment -v",
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/data-source-tests-v4.log",
+      "sha256": "2c23149bf340181234318ad9d957a7f8057a8d9fef1962b56d43c9d8dff57d75",
+      "bytes": 3747
+    }
+  ],
+  "tests": 16,
+  "failures": 0,
+  "status": "passed"
+}

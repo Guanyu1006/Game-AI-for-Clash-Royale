@@ -1,0 +1,357 @@
+{
+  "schema": "arena-causal-timing-reference-audit-v1",
+  "model_sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+  "dataset_index_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
+  "frozen_sources_unchanged": {
+    "arena_lab/model.py": true,
+    "arena_lab/timing.py": true,
+    "arena_lab/timing_training.py": true
+  },
+  "trained_epochs": 12,
+  "selected_epoch": 12,
+  "total_optimizer_updates": 5979,
+  "selected_optimizer_updates": 5979,
+  "calibration_parameters": {
+    "method": "none; frozen legacy joint decoder"
+  },
+  "test": {
+    "split": "test",
+    "labels": 10840,
+    "play_labels": 1425,
+    "predicted_plays": 1595,
+    "play_precision": 0.7686520376175549,
+    "play_recall": 0.8603508771929824,
+    "eligible_balanced_error": 0.10741624844507357,
+    "card_accuracy": 0.9359778597785978,
+    "all_wait_accuracy": 0.8685424354243543,
+    "play_slot_accuracy": 0.7719298245614035,
+    "conditional_card_accuracy_given_true_event": 0.8842105263157894,
+    "card_nll": 0.16420210897922516,
+    "conditional_card_nll": 0.26486027240753174,
+    "position_labels": 1425,
+    "position_nll": 1.3294706344604492,
+    "position_accuracy_given_true_card": 0.5915789473684211,
+    "position_mean_tile_distance_given_true_card": 0.9624080616029104,
+    "joint_play_exact_accuracy": 0.4392982456140351,
+    "natural_time": {
+      "labels": 10840,
+      "positive_prior": 0.13145756457564575,
+      "event_nll": 0.129384227497283,
+      "event_brier": 0.038702820790672804,
+      "event_average_precision": 0.9017702511310494,
+      "constant_train_prior_nll": 0.4169445518508688,
+      "constant_train_prior_brier": 0.1227422856665411
+    },
+    "actionable_time": {
+      "labels": 6333,
+      "positive_prior": 0.22501184272856467,
+      "event_nll": 0.22146296873528312,
+      "event_brier": 0.06624641992276847,
+      "event_average_precision": 0.9017702511310494,
+      "constant_train_prior_nll": 0.533181375306983,
+      "constant_train_prior_brier": 0.1743825185753869
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 1236,
+      "precision": 0.7749216300940439,
+      "recall": 0.8673684210526316,
+      "mean_absolute_error_seconds": 0.14805825242718446
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 88,
+        "predicted_events": 84,
+        "frames": 612
+      },
+      {
+        "trajectory": 1,
+        "true_events": 87,
+        "predicted_events": 113,
+        "frames": 612
+      },
+      {
+        "trajectory": 2,
+        "true_events": 35,
+        "predicted_events": 33,
+        "frames": 360
+      },
+      {
+        "trajectory": 3,
+        "true_events": 42,
+        "predicted_events": 48,
+        "frames": 360
+      },
+      {
+        "trajectory": 4,
+        "true_events": 34,
+        "predicted_events": 31,
+        "frames": 360
+      },
+      {
+        "trajectory": 5,
+        "true_events": 40,
+        "predicted_events": 48,
+        "frames": 360
+      },
+      {
+        "trajectory": 6,
+        "true_events": 40,
+        "predicted_events": 33,
+        "frames": 411
+      },
+      {
+        "trajectory": 7,
+        "true_events": 46,
+        "predicted_events": 51,
+        "frames": 411
+      },
+      {
+        "trajectory": 8,
+        "true_events": 85,
+        "predicted_events": 110,
+        "frames": 614
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 113,
+        "frames": 614
+      },
+      {
+        "trajectory": 10,
+        "true_events": 87,
+        "predicted_events": 115,
+        "frames": 611
+      },
+      {
+        "trajectory": 11,
+        "true_events": 76,
+        "predicted_events": 81,
+        "frames": 611
+      },
+      {
+        "trajectory": 12,
+        "true_events": 85,
+        "predicted_events": 96,
+        "frames": 613
+      },
+      {
+        "trajectory": 13,
+        "true_events": 86,
+        "predicted_events": 87,
+        "frames": 613
+      },
+      {
+        "trajectory": 14,
+        "true_events": 90,
+        "predicted_events": 86,
+        "frames": 614
+      },
+      {
+        "trajectory": 15,
+        "true_events": 89,
+        "predicted_events": 99,
+        "frames": 614
+      },
+      {
+        "trajectory": 16,
+        "true_events": 73,
+        "predicted_events": 92,
+        "frames": 612
+      },
+      {
+        "trajectory": 17,
+        "true_events": 74,
+        "predicted_events": 88,
+        "frames": 612
+      },
+      {
+        "trajectory": 18,
+        "true_events": 91,
+        "predicted_events": 99,
+        "frames": 613
+      },
+      {
+        "trajectory": 19,
+        "true_events": 87,
+        "predicted_events": 88,
+        "frames": 613
+      }
+    ]
+  },
+  "test_without_entities": {
+    "split": "test_without_entities",
+    "labels": 10840,
+    "play_labels": 1425,
+    "predicted_plays": 1908,
+    "play_precision": 0.24842767295597484,
+    "play_recall": 0.33263157894736844,
+    "eligible_balanced_error": 0.479772230086218,
+    "card_accuracy": 0.7690959409594096,
+    "all_wait_accuracy": 0.8685424354243543,
+    "play_slot_accuracy": 0.24982456140350878,
+    "conditional_card_accuracy_given_true_event": 0.751578947368421,
+    "card_nll": 0.652694582939148,
+    "conditional_card_nll": 0.715274453163147,
+    "position_labels": 1425,
+    "position_nll": 3.745269298553467,
+    "position_accuracy_given_true_card": 0.22666666666666666,
+    "position_mean_tile_distance_given_true_card": 6.1660323071047936,
+    "joint_play_exact_accuracy": 0.07017543859649122,
+    "natural_time": {
+      "labels": 10840,
+      "positive_prior": 0.13145756457564575,
+      "event_nll": 0.5586663100914215,
+      "event_brier": 0.16836660132420744,
+      "event_average_precision": 0.2618332795773911,
+      "constant_train_prior_nll": 0.4169445518508688,
+      "constant_train_prior_brier": 0.1227422856665411
+    },
+    "actionable_time": {
+      "labels": 6333,
+      "positive_prior": 0.22501184272856467,
+      "event_nll": 0.9562518168831532,
+      "event_brier": 0.28818789805059347,
+      "event_average_precision": 0.2618332795773911,
+      "constant_train_prior_nll": 0.533181375306983,
+      "constant_train_prior_brier": 0.1743825185753869
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 520,
+      "precision": 0.27253668763102723,
+      "recall": 0.3649122807017544,
+      "mean_absolute_error_seconds": 0.32403846153846155
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 88,
+        "predicted_events": 53,
+        "frames": 612
+      },
+      {
+        "trajectory": 1,
+        "true_events": 87,
+        "predicted_events": 237,
+        "frames": 612
+      },
+      {
+        "trajectory": 2,
+        "true_events": 35,
+        "predicted_events": 3,
+        "frames": 360
+      },
+      {
+        "trajectory": 3,
+        "true_events": 42,
+        "predicted_events": 50,
+        "frames": 360
+      },
+      {
+        "trajectory": 4,
+        "true_events": 34,
+        "predicted_events": 2,
+        "frames": 360
+      },
+      {
+        "trajectory": 5,
+        "true_events": 40,
+        "predicted_events": 44,
+        "frames": 360
+      },
+      {
+        "trajectory": 6,
+        "true_events": 40,
+        "predicted_events": 38,
+        "frames": 411
+      },
+      {
+        "trajectory": 7,
+        "true_events": 46,
+        "predicted_events": 35,
+        "frames": 411
+      },
+      {
+        "trajectory": 8,
+        "true_events": 85,
+        "predicted_events": 281,
+        "frames": 614
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 29,
+        "frames": 614
+      },
+      {
+        "trajectory": 10,
+        "true_events": 87,
+        "predicted_events": 207,
+        "frames": 611
+      },
+      {
+        "trajectory": 11,
+        "true_events": 76,
+        "predicted_events": 3,
+        "frames": 611
+      },
+      {
+        "trajectory": 12,
+        "true_events": 85,
+        "predicted_events": 77,
+        "frames": 613
+      },
+      {
+        "trajectory": 13,
+        "true_events": 86,
+        "predicted_events": 99,
+        "frames": 613
+      },
+      {
+        "trajectory": 14,
+        "true_events": 90,
+        "predicted_events": 173,
+        "frames": 614
+      },
+      {
+        "trajectory": 15,
+        "true_events": 89,
+        "predicted_events": 216,
+        "frames": 614
+      },
+      {
+        "trajectory": 16,
+        "true_events": 73,
+        "predicted_events": 22,
+        "frames": 612
+      },
+      {
+        "trajectory": 17,
+        "true_events": 74,
+        "predicted_events": 11,
+        "frames": 612
+      },
+      {
+        "trajectory": 18,
+        "true_events": 91,
+        "predicted_events": 240,
+        "frames": 613
+      },
+      {
+        "trajectory": 19,
+        "true_events": 87,
+        "predicted_events": 88,
+        "frames": 613
+      }
+    ]
+  },
+  "training_seconds_only": 667.7670238379997,
+  "training_valid_labels_per_second": 1081.9222486423225,
+  "total_recorded_wall_seconds": 744.4502091299996,
+  "scope": "Frozen joint-classification baseline; same-version rule-teacher data and same optimizer budget as candidate."
+}

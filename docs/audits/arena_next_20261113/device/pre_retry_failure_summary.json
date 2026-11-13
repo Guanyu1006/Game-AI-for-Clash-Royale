@@ -1,0 +1,93 @@
+{
+  "schema": "arena-device-evidence.v1",
+  "recorded_utc": "2026-11-13T15:42:59.255154+00:00",
+  "runtime_fingerprint": "7d62f3e6385490b06ff1d376f5660efda4e7603319f963540449522b96c359b6",
+  "attempts": [
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/report.json",
+      "sha256": "6484b611a39777176281f6e8fc00d2139147e3f95cc14389a8e1505a1ae76054",
+      "status": "failed",
+      "started": "2026-11-13T14:58:57.617854+00:00",
+      "finished": "2026-11-13T15:20:11.154118+00:00",
+      "error": "TimeoutError: Native content readiness budget exceeded",
+      "app_restart": false
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-recovery/report.json",
+      "sha256": "8c8063355eb57dcffe67ce70249ec9755bb6770f53584109733fe7f037758792",
+      "status": "failed",
+      "started": "2026-11-13T15:20:47.251563+00:00",
+      "finished": "2026-11-13T15:21:21.922603+00:00",
+      "error": "RuntimeError: display-compat exit 2; see saved stdout/stderr",
+      "app_restart": false
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-recovery2/report.json",
+      "sha256": "4871d497aeb6eac6d8c84fdecb98ac14e2263a1a25638c533c5485214788b316",
+      "status": "failed",
+      "started": "2026-11-13T15:21:40.158572+00:00",
+      "finished": "2026-11-13T15:23:11.836595+00:00",
+      "error": "RuntimeError: game-start exit 2; see saved stdout/stderr; child error: RuntimeError: check-app unavailable: TimeoutExpired: Command '['/workspaces/Game-AI-for-Clash-Royale/.cache/native-tools/bin/adb', '-H', '127.0.0.1', '-P', '5038', '-s', '127.0.0.1:15555', 'shell', '-T', 'su', '0', 'sh', '-s']' timed out after 30 seconds",
+      "app_restart": true
+    }
+  ],
+  "references": [
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/native-backtrace.txt",
+      "bytes": 99042,
+      "sha256": "c11c6cc6e714ed215edbc971cd0a1c34968e9be7b2f0afe15c79cfbd8d849084"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/raw-capture.json",
+      "bytes": 499,
+      "sha256": "d719779005ecaa951a15c2eea1106b5e4a2b5d81b61f862caea8c1d21aea0e41"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare/content-progress.json",
+      "bytes": 486,
+      "sha256": "79daadd4439e0ab98ab6462161f7cb5fcbde85dbbf06715902d558545eca7612"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-historical/observations-v2.json",
+      "bytes": 35484,
+      "sha256": "9e9a3b2e541ee12f3398e5621d23882f03b117e0158903882e2348957c7df07e"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-assets/tests-v2.log",
+      "bytes": 1561,
+      "sha256": "7a6b8e5fcead74b4097aceace204fe0163726697f271d10451a12caa7aa0b7f1"
+    }
+  ],
+  "facts": {
+    "android_boot_verified": true,
+    "first_game_pid": 1716,
+    "first_vm_pid": 4124,
+    "content_published": true,
+    "content_ready": false,
+    "native_battle_configurations": 0,
+    "native_card_requests": 0,
+    "new_battle_frames": 0,
+    "physical_android_device_connected": false,
+    "vm_process_absent_after_container_reconstruction": true,
+    "vm_qemu_log_bytes": 0
+  },
+  "capture_measurements": {
+    "android_png_seconds": 11.580891133000023,
+    "android_raw_rgba_host_png_seconds": 7.402528070000244,
+    "scope": "one loading black frame per transport, not battle throughput or paired latency benchmark"
+  },
+  "reconstruction": {
+    "observed_pid1_elapsed": "08:00",
+    "cause": "unknown",
+    "oom_claimed": false,
+    "shutdown_sender_known": false,
+    "last_completed_device_command": "recovery2 check-app read timed out 2026-11-13T15:23:11.836595+00:00; game force-stop had already completed"
+  },
+  "acceptance": {
+    "native_pixel_closed_loop": false,
+    "learned_pixel_closed_loop": false,
+    "real_time_closed_loop": false,
+    "state_render_alignment": false
+  },
+  "next": "Train/evaluate serially first; root will authorize next low-resource VM restoration; no VM started during evidence audit"
+}

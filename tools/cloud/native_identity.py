@@ -229,18 +229,20 @@ def parse_hashes(text, paths):
 
 
 def collect_identity(manifest, output, *, serial, adb, adb_port=5037, root_shell='adbd',
-                     identity_output=None, runner=None):
+                     identity_output=None, runner=None, adb_read_timeout=30):
     if not isinstance(serial, str) or not SERIAL.fullmatch(serial):
         raise ValueError('Explicit serial must contain only a device identifier, never shell syntax')
     if type(adb_port) is not int or not 1 <= adb_port <= 65535 or root_shell not in ('adbd', 'su0'):
         raise ValueError('Invalid explicit ADB endpoint or root-shell choice')
+    if type(adb_read_timeout) not in (int, float) or not 1 <= adb_read_timeout <= 180:
+        raise ValueError('ADB read timeout must be 1..180 seconds')
     folder = local(output)
     folder.mkdir(parents=True, exist_ok=False)
     report = {'schema': 'cloud-native-identity-check.v1', 'status': 'unavailable',
               'created_utc': datetime.now(timezone.utc).isoformat(), 'device_serial': serial,
               'evidence_scope': 'interface_only' if runner is not None else 'actual_adb_readonly',
               'native_execution_verified': False, 'native_probe_rpc_calls': 0,
-              'identity_written': False, 'commands': []}
+              'identity_written': False, 'commands': [], 'adb_read_timeout': adb_read_timeout}
     write(folder / 'report.json', report)
     journal = None
     try:
@@ -281,7 +283,7 @@ def collect_identity(manifest, output, *, serial, adb, adb_port=5037, root_shell
         if journal.device('get-state', ['get-state']).strip() != 'device':
             raise RuntimeError('Specified Android serial is not in the ready device state')
         shell = ['shell', '-T', *(['su', '0'] if root_shell == 'su0' else []), 'sh', '-s']
-        first = journal.device('discover-runtime', shell, discovery_script(package))
+        first = journal.device('discover-runtime', shell, discovery_script(package), timeout=adb_read_timeout)
         found = inventory(first, package)
         remote = {found['apk']: selected['offline_apk'], found['libg']: selected['native_library'],
                   found['probe']: selected['native_probe']}
@@ -344,9 +346,11 @@ def main(argv=None):
     parser.add_argument('--root-shell', choices=('adbd', 'su0'), default='adbd')
     parser.add_argument('--output', required=True, help='新的仓库内证据目录')
     parser.add_argument('--identity-output', help='默认使用显式manifest的runtime_identity_receipt；已有文件不覆盖')
+    parser.add_argument('--adb-read-timeout', type=float, default=30)
     args = parser.parse_args(argv)
     report = collect_identity(args.manifest, args.output, serial=args.serial, adb=args.adb,
-        adb_port=args.adb_port, root_shell=args.root_shell, identity_output=args.identity_output)
+        adb_port=args.adb_port, root_shell=args.root_shell, identity_output=args.identity_output,
+        adb_read_timeout=args.adb_read_timeout)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0 if report['identity_written'] else 2
 

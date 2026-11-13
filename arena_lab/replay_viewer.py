@@ -63,7 +63,7 @@ def render_replay(
         raise ValueError("Public trace must stay inside the evaluation artifact")
     frames = load_public_trace(trace_path)
     identity = plan["environment_identity"]
-    if identity.get("entity_extra_fields"):
+    if identity.get("entity_extra_fields") or identity.get("visual_projection"):
         raise ValueError("This viewer requires the Royale public entity layout; native extra fields and unknown HP require a separately validated renderer")
     final_tick = episode.get("final_tick", 0)
     seconds_per_tick = episode.get("simulated_seconds", 0) / final_tick if final_tick else None

@@ -1,0 +1,38 @@
+[
+  {
+    "path": "report.json",
+    "bytes": 95077,
+    "sha256": "58193a76e651f932182dbf32a42e723ff2041c694ed8f0065af730fee16cecd7",
+    "source": "outputs/arena-next-20261113/timing-v1/report.json"
+  },
+  {
+    "path": "frozen-before-test.json",
+    "bytes": 1126,
+    "sha256": "fcdee6ec8fcf3a88b789adfa1fee9db6069347e5c8f7b8812e3c5fa04021e600",
+    "source": "outputs/arena-next-20261113/timing-v1/frozen-before-test.json"
+  },
+  {
+    "path": "audit-summary.json",
+    "bytes": 13153,
+    "sha256": "1164c4ecb51e2f9d9c0dcf604e31efaba38b05531c4e4d17ccb1460e98b388a4",
+    "source": "outputs/arena-next-20261113/timing-v1/audit-summary.json"
+  },
+  {
+    "path": "deployment-parity.json",
+    "bytes": 532,
+    "sha256": "7af4fc57f81f8271185a0a6b243d21be612b51ae6fba6a6529921841cf9da483",
+    "source": "outputs/arena-next-20261113/timing-v1/deployment-parity.json"
+  },
+  {
+    "path": "test-predictions.npz",
+    "bytes": 142750,
+    "sha256": "43a227878c2b49a0870956e9fd7f2ada7d1281ed2d722bc8053d3ea74f83a386",
+    "source": "outputs/arena-next-20261113/timing-v1/test-predictions.npz"
+  },
+  {
+    "path": "test_without_entities-predictions.npz",
+    "bytes": 139365,
+    "sha256": "f959da6cd248202d2f76f82bcbdc24f397565bd1e4d86b6e96d46c0a3fa8e433",
+    "source": "outputs/arena-next-20261113/timing-v1/test_without_entities-predictions.npz"
+  }
+]

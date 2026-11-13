@@ -1,0 +1,769 @@
+{
+  "schema": "arena-alphaclash-paired-video-plan-v1",
+  "dataset": "josefbednar/alphaclash-replays",
+  "revision": "cfcf165fa6fb0499aa75b49fc5936efec556ca61",
+  "manifest_sha256": "3b535f6f5971b7ebf7ffeada68be94b86985cacce3ef7a45710aca7ae7fda59c",
+  "selection": "first11 rank-readable among next20 candidates; metadata and actual deck pixel quality screening before any model fitting; preserve original split assignments",
+  "grouping": "full256bit upstream visual fingerprint; exact MP4 duplicate identities also audited",
+  "files": [
+    {
+      "type": "file",
+      "oid": "938f27bb4fdf80aea444f75bf1b0b98644aba01e",
+      "size": 2474,
+      "path": "replays/shard-0003/20260802-152547_0100010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "0c0c423c0784ab4fc5399a1f8c9926815349c1d9",
+      "size": 606123,
+      "lfs": {
+        "oid": "b9ee2560c2497332f299ab7de0cbeb549da7e5d2e6698e9794da03e80ff7be00",
+        "size": 606123,
+        "pointerSize": 131
+      },
+      "xetHash": "876fee8c8f70bb63caaa275460b0a8029d3709baae9ac5796c7e61c283adaf6d",
+      "path": "replays/shard-0003/20260802-152547_0100010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "fa95ceca7aaeedcf1215ba231654565476bac121",
+      "size": 38614093,
+      "lfs": {
+        "oid": "2b37e87d32c636e0b4d634569ba36aedf9d4f3f9270ee9061352fa74b0bd7e2e",
+        "size": 38614093,
+        "pointerSize": 133
+      },
+      "xetHash": "4d4064e2553478b657a0376a0bf189931f91b139126dab1cb39ad62356ff999d",
+      "path": "replays/shard-0003/20260802-152547_0100010101010111.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "8e133529c013c9b27501e8c89a8fdb29c2f91d0f",
+      "size": 2486,
+      "path": "replays/shard-0003/20260802-152809_0100010101010110.json"
+    },
+    {
+      "type": "file",
+      "oid": "296e958de204d11d6b182c0ef893cc9f9f07810e",
+      "size": 606505,
+      "lfs": {
+        "oid": "cbbdbfe7c61d0605c98f63baa7abf49c5b82a78c6616c1bf9d45e3b18a18f6a8",
+        "size": 606505,
+        "pointerSize": 131
+      },
+      "xetHash": "40ed067cb0a41eb2151c2dcbc1a422ca1fc1a7f370e9448f4bdf32a6add9dc35",
+      "path": "replays/shard-0003/20260802-152809_0100010101010110_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "9b61c95053736bbd353a53b3d49be283ffa73c28",
+      "size": 50506989,
+      "lfs": {
+        "oid": "cc9fc9c601519219080da21d9da7300678e2816153a0d3d64300b75e6207e3ed",
+        "size": 50506989,
+        "pointerSize": 133
+      },
+      "xetHash": "6901692bb5da7d96abff721bbf99ce00265df0b79032171ededa862f0c245dc6",
+      "path": "replays/shard-0003/20260802-152809_0100010101010110.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "9eab859fa8bc05a7e56e217cdd5e34bab9d316fc",
+      "size": 2488,
+      "path": "replays/shard-0003/20260802-200610_0100010101010101.json"
+    },
+    {
+      "type": "file",
+      "oid": "f7aa7a2d49cb0631f70ded1270615b6e1bb74ef4",
+      "size": 605049,
+      "lfs": {
+        "oid": "01179aab9da250e9a9f649768cdbbb6d48ffe5e6f24f4fa37954bf02eac7eb2d",
+        "size": 605049,
+        "pointerSize": 131
+      },
+      "xetHash": "e188f93765454477e5673624a560d06d36c2530cc684131bc40d52e232ec42b0",
+      "path": "replays/shard-0003/20260802-200610_0100010101010101_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "3b56225d4748c44f600a0007ff8a7f6a5be93053",
+      "size": 48846537,
+      "lfs": {
+        "oid": "a675110301ba6037c21d5cf50a612b3f6328e38ad1e7ef66989eb5765e6ee3a7",
+        "size": 48846537,
+        "pointerSize": 133
+      },
+      "xetHash": "333f4b314b28618c77acdd4c3682d38134b072d3e3f27d1c3f5d3fd255ca21db",
+      "path": "replays/shard-0003/20260802-200610_0100010101010101.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "90a76b1dfd8182dc5e84012170254b1a14b7829e",
+      "size": 2492,
+      "path": "replays/shard-0003/20260802-200823_0100010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "2eb50e93237201c3156cdba17bb407ab0d4020f7",
+      "size": 597359,
+      "lfs": {
+        "oid": "4bebbced8422c593ef3ba6575b2ff6aa6b25fc6f29268cc61745782a2609d4e9",
+        "size": 597359,
+        "pointerSize": 131
+      },
+      "xetHash": "346447d74f6c7eaec52aac4aaac3c81fb1cc93a2ecbefbdc101d08483333fd6b",
+      "path": "replays/shard-0003/20260802-200823_0100010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "86b948625a65d6dfa1d7e1156b21bc74b1e119fd",
+      "size": 51218217,
+      "lfs": {
+        "oid": "e6bb6e6842c5dfb2b662240c5c0e23a39b977d2d7aadcc329bfda723b59c7479",
+        "size": 51218217,
+        "pointerSize": 133
+      },
+      "xetHash": "588b01db2dbf661ed36b3c8f7998950d1e9d82dfd89d4a595129e0dfe60bbc64",
+      "path": "replays/shard-0003/20260802-200823_0100010101010111.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "2e149d0ea5b34e698b83e12b5f9c7dd241acb913",
+      "size": 2507,
+      "path": "replays/shard-0003/20260802-201050_0101010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "1c5661d757c62f52422b4938be7f56ef90cf591b",
+      "size": 606921,
+      "lfs": {
+        "oid": "05d3c6c2a18d1788f5f5676012e38149e8d25e44afef95d3df061c16742deb5b",
+        "size": 606921,
+        "pointerSize": 131
+      },
+      "xetHash": "6560d939bf3204a41a5dd41a82d7f86a4b02c607ce4df8941c2e387389b3d997",
+      "path": "replays/shard-0003/20260802-201050_0101010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "56162695fa3f6724fd2bea02d5b4cbcad604d5f2",
+      "size": 52192910,
+      "lfs": {
+        "oid": "7efd90eca2f33adebb55af808599526686ce5fa798c80bcfa65c0f28fa21064e",
+        "size": 52192910,
+        "pointerSize": 133
+      },
+      "xetHash": "4437602fe6ad11cc231f7f079b695e68872284588b5929f7ac53ed20535d8a36",
+      "path": "replays/shard-0003/20260802-201050_0101010101010111.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "82de8a88448e9114188a67ef4c618e81617116b9",
+      "size": 2477,
+      "path": "replays/shard-0003/20260802-201719_0100010101010101.json"
+    },
+    {
+      "type": "file",
+      "oid": "0da9e3b66bdb89d4b0519fc76e94fa7f6e31f1c2",
+      "size": 589835,
+      "lfs": {
+        "oid": "db0ec33bc26d5091e5995ccace86ce2e5ae14ad1dfd2a5246d46ca9d39c00712",
+        "size": 589835,
+        "pointerSize": 131
+      },
+      "xetHash": "553a02a911edd1b028caf4e6c4f6bf0e31afa9741f8df964899dc81de6b77b96",
+      "path": "replays/shard-0003/20260802-201719_0100010101010101_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "29adf60174fee8206aeb8d43be37fd84683e46f0",
+      "size": 32574528,
+      "lfs": {
+        "oid": "b6c7cbb197d472e0960008bfaabf1d2aaeb69b5c697809b193c7dee707af5e4a",
+        "size": 32574528,
+        "pointerSize": 133
+      },
+      "xetHash": "86b92e65d8aee3338f952a53c2f003143ec8620bf02dcd2b46986f41d006498a",
+      "path": "replays/shard-0003/20260802-201719_0100010101010101.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "ed7e4d752e1dc57e7b4c15308fa732318d21bfb3",
+      "size": 2468,
+      "path": "replays/shard-0003/20260802-202101_0100010101010101.json"
+    },
+    {
+      "type": "file",
+      "oid": "5742e39aff3073f5ceee381c688b388682968e02",
+      "size": 602499,
+      "lfs": {
+        "oid": "d0ccf5bc97d2c315904b8479a016702cfbe73643c549ca48e046d7250914ad55",
+        "size": 602499,
+        "pointerSize": 131
+      },
+      "xetHash": "16ba03be1756c34ada0d31c15dbaba7d01f3c1f91a98d2a9846c0c0ca82897ea",
+      "path": "replays/shard-0003/20260802-202101_0100010101010101_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "af7be587e0bf77a52c11d440594d4b40d4d65d1c",
+      "size": 50843074,
+      "lfs": {
+        "oid": "7abb978a197db859487b9af101175117acb66ef823c3450392b5673269d42b59",
+        "size": 50843074,
+        "pointerSize": 133
+      },
+      "xetHash": "46429c35a2d19619149bab40e0a379c6a707d4fd3d01bfb17bf699ba60a637d3",
+      "path": "replays/shard-0003/20260802-202101_0100010101010101.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "2af055748c4fc2473b0b2f8d54a762197091f2c6",
+      "size": 2469,
+      "path": "replays/shard-0003/20260802-202316_0101010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "644ffa5b947513f7c22cad17298bc03b787a4988",
+      "size": 582689,
+      "lfs": {
+        "oid": "b4cd5e232848dc4924dc826ce500b470fca77a8391bf9f389480bbca856e3e6c",
+        "size": 582689,
+        "pointerSize": 131
+      },
+      "xetHash": "8d15f297f6e7cbafd5b18316f9a9098b23b8ffbf62215af18ddbaeaa8d519bcb",
+      "path": "replays/shard-0003/20260802-202316_0101010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "2c64e5c4f3d3fc92488f38a507eb184b47a7a289",
+      "size": 51358109,
+      "lfs": {
+        "oid": "4d56a3de70a8bf19ad45cd6d90a0e20e62356917327c91efb8b83afe25f1b6f6",
+        "size": 51358109,
+        "pointerSize": 133
+      },
+      "xetHash": "40963033e0e1d6e261fea2f0fdad0decb962c9cc69d39517a32fcd44dcea76cb",
+      "path": "replays/shard-0003/20260802-202316_0101010101010111.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "427a41d783397bdd96ef036d9243692dba182b8b",
+      "size": 2487,
+      "path": "replays/shard-0003/20260802-202530_0100010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "4c61ca5f9261451663e7f71b36088ee1ce7457c2",
+      "size": 604071,
+      "lfs": {
+        "oid": "d6da8f675ebec68ee6ad813e18c8ddb7172f90d631a9a912b5f442c8df9867a4",
+        "size": 604071,
+        "pointerSize": 131
+      },
+      "xetHash": "06d64e064dc18430108393699536fdff4b8b58c03ce68b7f988cbd0fae47afb3",
+      "path": "replays/shard-0003/20260802-202530_0100010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "a145ec8bf490a87d6f9da9e7789fa6cf376005ae",
+      "size": 51431274,
+      "lfs": {
+        "oid": "664c6885575db0fb92b4377e21ba0772aa1aab219df4b9ab717656a1ac482938",
+        "size": 51431274,
+        "pointerSize": 133
+      },
+      "xetHash": "5baf6dac8ab9c35ddb94d534161902bb4ee0345600187652c65d259470808121",
+      "path": "replays/shard-0003/20260802-202530_0100010101010111.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "20db31306609701bec083dad7ccacfdd80518255",
+      "size": 2493,
+      "path": "replays/shard-0003/20260802-202748_0100010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "511940157c4f624c2ebd963151908a1a81173101",
+      "size": 607956,
+      "lfs": {
+        "oid": "de4d5ae3da40afe7f76688b4087ad529ce0cf78beb61ab69b3e94c0ad70acf29",
+        "size": 607956,
+        "pointerSize": 131
+      },
+      "xetHash": "10c4b56fcede5fbd5afd0256842dba098ff79ebe17b4a1d2fa02a66510f6303b",
+      "path": "replays/shard-0003/20260802-202748_0100010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "6b8091e4659a2eefec62365118bb4e6491b35dfa",
+      "size": 32251395,
+      "lfs": {
+        "oid": "41bf2f40543bcd08558556145e4d12a736ae0aeec2322bac29a4b08938136aca",
+        "size": 32251395,
+        "pointerSize": 133
+      },
+      "xetHash": "6b5828f0980cc8092708fe049310ec53a75bc72c834d57a83fb79edbdabba89d",
+      "path": "replays/shard-0003/20260802-202748_0100010101010111.mp4"
+    },
+    {
+      "type": "file",
+      "oid": "bb7aa5efa4d32a797f23407d496fc80fa6c9770a",
+      "size": 2490,
+      "path": "replays/shard-0003/20260802-202947_0100010101010111.json"
+    },
+    {
+      "type": "file",
+      "oid": "7bfdc6167c2f59a91eb3d61bd47dc98ab5053cd4",
+      "size": 576707,
+      "lfs": {
+        "oid": "fb94804db5867ef4415bd1b9404420c48c254fed9ad064ef14d7deb73fb04a9b",
+        "size": 576707,
+        "pointerSize": 131
+      },
+      "xetHash": "6590b7d33928424066c9e842815a98dab6569d62fa95f6825280715a52c66e06",
+      "path": "replays/shard-0003/20260802-202947_0100010101010111_deck.png"
+    },
+    {
+      "type": "file",
+      "oid": "dda189e676114bf2280f57454d4db61fe9abff5b",
+      "size": 34204481,
+      "lfs": {
+        "oid": "fc2f2f1456d5cbe936d640c8209a86aeefc27b2ff1646d057ab989129b0afd7e",
+        "size": 34204481,
+        "pointerSize": 133
+      },
+      "xetHash": "e2fc770056147e43b1a5ff7c2dc5d29a32c34f00a851d8993103368b1faa94f7",
+      "path": "replays/shard-0003/20260802-202947_0100010101010111.mp4"
+    }
+  ],
+  "games": [
+    {
+      "stem": "20260802-152547_0100010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        0,
+        1
+      ],
+      "crowns_source": null,
+      "winner": 1,
+      "duration_s": 75.44636750221252,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "baby_dragon",
+          "barbarian_barrel",
+          "knight",
+          "tombstone",
+          "poison",
+          "graveyard",
+          "ice_wizard",
+          "tornado"
+        ],
+        "player1": [
+          "barbarians",
+          "tombstone",
+          "zap",
+          "goblin_curse",
+          "lava_hound",
+          "phoenix",
+          "flying_machine",
+          "miner"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "train",
+      "group_id": "2906db0ea9ee01070fdfe95bbfb467346b83eb8b4bf94838ce0fe9160b308561"
+    },
+    {
+      "stem": "20260802-152809_0100010101010110",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        2
+      ],
+      "crowns_source": null,
+      "winner": 1,
+      "duration_s": 94.14906597137451,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "wall_breakers",
+          "archer_queen",
+          "mega_knight",
+          "zap",
+          "bandit",
+          "bats",
+          "arrows",
+          "prince"
+        ],
+        "player1": [
+          "royal_recruits",
+          "barbarian_barrel",
+          "goblin_cage",
+          "flying_machine",
+          "royal_hogs",
+          "arrows",
+          "electro_spirit",
+          "zappies"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "train",
+      "group_id": "fa792b1e0fe676622a0e73d2289a0a53d839b347507409ee8b9e93e9c93942f0"
+    },
+    {
+      "stem": "20260802-200610_0100010101010101",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        0
+      ],
+      "crowns_source": null,
+      "winner": 0,
+      "duration_s": 87.51658797264099,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "goblin_barrel",
+          "mighty_miner",
+          "dart_goblin",
+          "fire_spirit",
+          "wall_breakers",
+          "skeletons",
+          "electro_spirit",
+          "cannon"
+        ],
+        "player1": [
+          "knight",
+          "mega_minion",
+          "little_prince",
+          "barbarian_barrel",
+          "arrows",
+          "ram_rider",
+          "zap",
+          "pekka"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "train",
+      "group_id": "103db783fc34902acf4fca0df3adf10f84971e20ce65b458164a197226c66b3e"
+    },
+    {
+      "stem": "20260802-200823_0100010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        2
+      ],
+      "crowns_source": null,
+      "winner": 1,
+      "duration_s": 95.10545349121094,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "minion_horde",
+          "golden_knight",
+          "zap",
+          "ice_golem",
+          "three_musketeers",
+          "miner",
+          "guards",
+          "elixir_collector"
+        ],
+        "player1": [
+          "archers",
+          "goblinstein",
+          "skeletons",
+          "graveyard",
+          "poison",
+          "ice_spirit",
+          "bomb_tower",
+          "barbarian_barrel"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "train",
+      "group_id": "11ae52bb0429997c352461ebcbeb50fad1b62aa8756dea89b2620bc99bdd2a0b"
+    },
+    {
+      "stem": "20260802-201050_0101010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        0
+      ],
+      "crowns_source": null,
+      "winner": 0,
+      "duration_s": 93.43952584266663,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "battle_ram",
+          "wizard",
+          "royal_ghost",
+          "giant_skeleton",
+          "mother_witch",
+          "vines",
+          "zappies",
+          "barbarian_barrel"
+        ],
+        "player1": [
+          "mega_knight",
+          "golden_knight",
+          "giant_snowball",
+          "ram_rider",
+          "inferno_dragon",
+          "electro_wizard",
+          "poison",
+          "barbarian_barrel"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "train",
+      "group_id": "710b777023f5a68440ad2fa8b1b7e5a68b5f206c04a95485add6952fdca19ecd"
+    },
+    {
+      "stem": "20260802-201719_0100010101010101",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        0
+      ],
+      "crowns_source": null,
+      "winner": 0,
+      "duration_s": 61.59849500656128,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "zap",
+          "goblins",
+          "inferno_dragon",
+          "lava_hound",
+          "skeleton_dragons",
+          "miner",
+          "rune_giant",
+          "fireball"
+        ],
+        "player1": [
+          "baby_dragon",
+          "balloon",
+          "pekka",
+          "barbarian_barrel",
+          "ice_wizard",
+          "lumberjack",
+          "tornado",
+          "freeze"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "train",
+      "group_id": "53bb77012b37480ce790811731269a6cefb8f4e1b2fdc22dd711ba06896d63c1"
+    },
+    {
+      "stem": "20260802-202101_0100010101010101",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        2
+      ],
+      "crowns_source": null,
+      "winner": 1,
+      "duration_s": 93.13441133499146,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "royal_giant",
+          "barbarian_barrel",
+          "royal_ghost",
+          "electro_spirit",
+          "fisherman",
+          "fireball",
+          "skeletons",
+          "hunter"
+        ],
+        "player1": [
+          "zap",
+          "mini_pekka",
+          "wizard",
+          "giant",
+          "sparky",
+          "tornado",
+          "vines",
+          "heal_spirit"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "validation",
+      "group_id": "a9e324d35796f0851030997027b21f62cd6055295d189d5fd5139b21d66b183b"
+    },
+    {
+      "stem": "20260802-202316_0101010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        0
+      ],
+      "crowns_source": null,
+      "winner": 0,
+      "duration_s": 93.30044436454773,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "tesla",
+          "knight",
+          "archers",
+          "skeletons",
+          "electro_spirit",
+          "x_bow",
+          "rocket",
+          "the_log"
+        ],
+        "player1": [
+          "royal_hogs",
+          "archer_queen",
+          "cannon",
+          "earthquake",
+          "skeletons",
+          "ice_spirit",
+          "royal_delivery",
+          "the_log"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "validation",
+      "group_id": "9fa026f3937600ed0a5cd22f74a267209fc32fd33f8a3db6444b26240878ff69"
+    },
+    {
+      "stem": "20260802-202530_0100010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        0,
+        1
+      ],
+      "crowns_source": null,
+      "winner": 1,
+      "duration_s": 94.10825181007385,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "royal_giant",
+          "barbarian_barrel",
+          "royal_ghost",
+          "hunter",
+          "fisherman",
+          "electro_spirit",
+          "skeletons",
+          "fireball"
+        ],
+        "player1": [
+          "bomber",
+          "bowler",
+          "royal_recruits",
+          "arrows",
+          "cannon",
+          "spirit_empress",
+          "electro_giant",
+          "tornado"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "validation",
+      "group_id": "eb04bee1414c17b0c8405c6073c74a4dcd74a7190c4bffb1a710791e30fd4b3e"
+    },
+    {
+      "stem": "20260802-202748_0100010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        0
+      ],
+      "crowns_source": null,
+      "winner": 0,
+      "duration_s": 61.12790012359619,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "royal_giant",
+          "barbarian_barrel",
+          "royal_ghost",
+          "skeletons",
+          "hunter",
+          "electro_spirit",
+          "fisherman",
+          "fireball"
+        ],
+        "player1": [
+          "bats",
+          "giant",
+          "minion_horde",
+          "three_musketeers",
+          "battle_ram",
+          "elixir_collector",
+          "goblin_gang",
+          "zap"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "test",
+      "group_id": "74d7881f987b7e78bc8908588e16d792ad5aca6c135e782aded947b045610676"
+    },
+    {
+      "stem": "20260802-202947_0100010101010111",
+      "shard": "shard-0003",
+      "arena": "ranked_ultimate_champion",
+      "crowns": [
+        1,
+        2
+      ],
+      "crowns_source": null,
+      "winner": 1,
+      "duration_s": 64.70766687393188,
+      "speed_multiplier": 4,
+      "decks": {
+        "player0": [
+          "baby_dragon",
+          "mega_minion",
+          "valkyrie",
+          "vines",
+          "tornado",
+          "golem",
+          "night_witch",
+          "mini_pekka"
+        ],
+        "player1": [
+          "goblin_barrel",
+          "magic_archer",
+          "wall_breakers",
+          "berserker",
+          "fire_spirit",
+          "ice_spirit",
+          "royal_delivery",
+          "bomb_tower"
+        ]
+      },
+      "has_deck_png": true,
+      "split": "test",
+      "group_id": "3b235fdbe91418958e6443de6d8c14fbeec7e8ddf3ef245b62f49b46751834b3"
+    }
+  ],
+  "metadata_license": "game-footage research; game content Supercell",
+  "true_engine_version": null,
+  "complete_native_configuration": false,
+  "human_expert_verified_scope": "pool declaration; per-image ranks require separate visual audit",
+  "split_counts": {
+    "train": 6,
+    "validation": 3,
+    "test": 2
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "report.json",
+    "bytes": 94506,
+    "sha256": "b3ee78cf0b699906aa4bb546ac96232cd788ff464da18a965cf9226becd13e98",
+    "source": "outputs/arena-next-20261113/timing-joint-baseline-v1/report.json"
+  },
+  {
+    "path": "frozen-before-test.json",
+    "bytes": 628,
+    "sha256": "ef8a23432ef2ea82b15c2609c833470f362cf414eb21745e12f2bb76b7274cd9",
+    "source": "outputs/arena-next-20261113/timing-joint-baseline-v1/frozen-before-test.json"
+  },
+  {
+    "path": "audit-summary.json",
+    "bytes": 9374,
+    "sha256": "ccff52262c59aa4f703b4cbcfe37190dccdbfba8585247ebff0614b9e9b09f70",
+    "source": "outputs/arena-next-20261113/timing-joint-baseline-v1/audit-summary.json"
+  },
+  {
+    "path": "test-predictions.npz",
+    "bytes": 126268,
+    "sha256": "17887be5279522c6ece679fe3e8a28a572c369af3604e3b8db5c7c06703d166b",
+    "source": "outputs/arena-next-20261113/timing-joint-baseline-v1/test-predictions.npz"
+  },
+  {
+    "path": "test_without_entities-predictions.npz",
+    "bytes": 123713,
+    "sha256": "ef6c3290238cdcd90cdebcf9f06500fcca7b4658f1c5b1f8af8dbf61aea6cc83",
+    "source": "outputs/arena-next-20261113/timing-joint-baseline-v1/test_without_entities-predictions.npz"
+  }
+]

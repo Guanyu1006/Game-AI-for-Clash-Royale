@@ -1,0 +1,41 @@
+{
+  "schema": "arena-data-audit-artifacts-v1",
+  "files": [
+    {
+      "path": "docs/audits/arena_next_20261113/data/alpha70-completion-summary.json",
+      "sha256": "e2ecfd678baf25a811551961e54c35af98d3bfe20863fa1baa4bf5fe3078f6b5",
+      "bytes": 15634
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/alpha70-summary.json",
+      "sha256": "8b47bfdab2eb4d46e22c83b2e4d8dc0cc08a654a0ced29137b22e24cb5e71528",
+      "bytes": 4340
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/external-pixels-summary.json",
+      "sha256": "57cefe2b8b11b05a6ce53f2c232d48d1012bcb72a3d0ceaf9018400e654610ca",
+      "bytes": 6774
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/paired80-summary.json",
+      "sha256": "8fdc1ebd92653f405c95a4fc62210675716689a935ce366ca460640817bbdc95",
+      "bytes": 3880
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/pixel50-throughput-correction.json",
+      "sha256": "803e92d0f709d8e83883af988c83ee613e15dee2395b28a33f7394ed8d9b6713",
+      "bytes": 1185
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/static-geometry-summary.json",
+      "sha256": "4f357b11de49b7c7f199dec2a044e2980fc40f8b781a66e223633d3372c8cc95",
+      "bytes": 10009
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/tests-summary.json",
+      "sha256": "df93b3f4109664f0c23fc82022e3f57b6ba6afbaa62595580f03b75f7c97def4",
+      "bytes": 426
+    }
+  ],
+  "raw_media_redistributed": false
+}

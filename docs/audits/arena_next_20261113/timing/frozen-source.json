@@ -1,0 +1,26 @@
+{
+  "schema": "arena-causal-timing-frozen-source-snapshot-v1",
+  "plan_sha256": "92a757b72687547a0a65694742d78f567bf3e8fd74bf7e1723206d58a3cc7e1e",
+  "frozen_utc": "2026-11-13T15:15:33.982723+00:00",
+  "files": [
+    {
+      "original_path": "arena_lab/model.py",
+      "snapshot_path": "frozen_source/model.py.txt",
+      "sha256": "50f2e3d689cebade92647025bfe352681d3f1234542de01506416457b72a5ac0",
+      "bytes": 20343
+    },
+    {
+      "original_path": "arena_lab/timing.py",
+      "snapshot_path": "frozen_source/timing.py.txt",
+      "sha256": "d1d461621cccf89cd71a695fe292728f143985cf4ddd27ed693c2f7342d4e2ba",
+      "bytes": 8829
+    },
+    {
+      "original_path": "arena_lab/timing_training.py",
+      "snapshot_path": "frozen_source/timing_training.py.txt",
+      "sha256": "8454f4e46d14d09f42e23542dafe091120b2206a9d6cc543a7f9cc2e125e99ea",
+      "bytes": 31140
+    }
+  ],
+  "scope": "Exact common training implementation frozen before either arm final holdout; future report-only schema fixes are not used to retrain these arms."
+}

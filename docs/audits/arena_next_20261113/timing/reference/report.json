@@ -1,0 +1,3288 @@
+{
+  "schema_version": 1,
+  "checkpoint": {
+    "path": "/workspaces/Game-AI-for-Clash-Royale/outputs/arena-next-20261113/timing-joint-baseline-v1/best.pt",
+    "sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+    "parameters": 243045,
+    "spec": {
+      "global_dim": 1057,
+      "entity_dim": 405,
+      "card_vocab_size": 146,
+      "grid_h": 32,
+      "grid_w": 18,
+      "n_card_actions": 8,
+      "hidden_dim": 96,
+      "entity_hidden": 48,
+      "card_embedding_dim": 16,
+      "entity_x_index": 0,
+      "entity_y_index": 1,
+      "spatial_h": 8,
+      "spatial_w": 6,
+      "spatial_channels": 16,
+      "use_entities": true,
+      "use_spatial": true,
+      "use_recurrent": true,
+      "observation_version": "arena-public-v2"
+    },
+    "metadata": {
+      "train_config": {
+        "epochs": 12,
+        "batch_size": 4,
+        "sequence": 32,
+        "learning_rate": 0.0005,
+        "weight_decay": 0.0001,
+        "event_loss_weight": 2.0,
+        "card_loss_weight": 1.0,
+        "position_loss_weight": 1.0,
+        "seed": 270113,
+        "threads": 2,
+        "tolerance_ticks": 10,
+        "split_salt": "arena-causal-timing-v1-predeclared-20261113",
+        "model_kind": "joint",
+        "joint_play_weight_cap": 8.0
+      },
+      "dataset_index": "outputs/arena-next-20261113/data-paired-v1/index.json",
+      "dataset_index_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
+      "data_manifest_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
+      "environment_identity": {
+        "backend": "royalesim",
+        "engine_version": "0.1.51",
+        "gym_version": "0.1.29",
+        "engine": {
+          "cards": [
+            "Knight",
+            "Archer",
+            "Goblins",
+            "Giant",
+            "Pekka",
+            "Minions",
+            "Balloon",
+            "Witch",
+            "Barbarians",
+            "Golem",
+            "Skeletons",
+            "Valkyrie",
+            "SkeletonArmy",
+            "Bomber",
+            "Musketeer",
+            "BabyDragon",
+            "Prince",
+            "Wizard",
+            "MiniPekka",
+            "SpearGoblins",
+            "GiantSkeleton",
+            "HogRider",
+            "MinionHorde",
+            "IceWizard",
+            "RoyalGiant",
+            "SkeletonWarriors",
+            "Princess",
+            "DarkPrince",
+            "ThreeMusketeers",
+            "LavaHound",
+            "IceSpirits",
+            "FireSpirits",
+            "Miner",
+            "ZapMachine",
+            "Bowler",
+            "RageBarbarian",
+            "BattleRam",
+            "InfernoDragon",
+            "IceGolemite",
+            "MegaMinion",
+            "BlowdartGoblin",
+            "GoblinGang",
+            "ElectroWizard",
+            "AngryBarbarians",
+            "Hunter",
+            "AxeMan",
+            "Assassin",
+            "RoyalRecruits",
+            "DarkWitch",
+            "Bats",
+            "Ghost",
+            "RamRider",
+            "MiniSparkys",
+            "Rascals",
+            "MovingCannon",
+            "MegaKnight",
+            "SkeletonBalloon",
+            "DartBarrell",
+            "Wallbreakers",
+            "RoyalHogs",
+            "GoblinGiant",
+            "Fisherman",
+            "EliteArcher",
+            "ElectroDragon",
+            "Firecracker",
+            "MightyMiner",
+            "ElixirGolem",
+            "BattleHealer",
+            "SkeletonKing",
+            "ArcherQueen",
+            "GoldenKnight",
+            "SuperIceGolemite",
+            "Monk",
+            "SuperArcher",
+            "RoyalRecruits_Chess",
+            "SkeletonDragons",
+            "SuperHogRiderTerry",
+            "WitchMother",
+            "ElectroSpirit",
+            "ElectroGiant",
+            "PrinceBuff",
+            "Phoenix",
+            "TriWizards",
+            "GoblinDemolisher",
+            "GoblinMachine",
+            "SuspiciousBush",
+            "SuperKnight",
+            "SkeletonWarriors_SpookyChess",
+            "GiantBuffer",
+            "Berserker",
+            "MergeMaiden_Normal",
+            "MergeMaiden_Mounted",
+            "Ronin",
+            "Cannon",
+            "GoblinHut",
+            "Mortar",
+            "InfernoTower",
+            "BombTower",
+            "BarbarianHut",
+            "Tesla",
+            "Elixir Collector",
+            "Xbow",
+            "Tombstone",
+            "FirespiritHut",
+            "BarbarianLauncher",
+            "GoblinCage",
+            "GoblinDrill",
+            "GoblinPartyHut",
+            "Fireball",
+            "Arrows",
+            "Rage",
+            "Rocket",
+            "GoblinBarrel",
+            "Freeze",
+            "Mirror",
+            "Lightning",
+            "Zap",
+            "Poison",
+            "Graveyard",
+            "Log",
+            "Tornado",
+            "Clone",
+            "Earthquake",
+            "BarbLog",
+            "Heal",
+            "Snowball",
+            "RoyalDelivery",
+            "WarmSpell",
+            "DarkMagic",
+            "GoblinCurse",
+            "MergeMaiden",
+            "Vines",
+            "MinionGiant",
+            "LittlePrince",
+            "Goblinstein",
+            "BossBandit",
+            "SuperWitch",
+            "SuperLavaHound",
+            "SuperEliteArcher",
+            "SuperMiniPekka",
+            "GoblinRocketSilo",
+            "GlobalClone",
+            "GoblinPartyRocket",
+            "SuperHogRider",
+            "GlobalLightning"
+          ],
+          "card_level": 11,
+          "path_search": null,
+          "ground_y_clamp": null,
+          "ground_deploy_point": null,
+          "gym_arms": {
+            "placement.ILLEGAL_TROOP_TAP": "client15535_clamp_to_legal_edge",
+            "spells.ILLEGAL_SPELL_TAP": "client16402_clamp_to_legal_edge"
+          },
+          "calibration_digest": "5dee379403061021",
+          "build_digest": "81a7f1fb86fc2923",
+          "engine_binary_sha256": "bc0c395d783603b8",
+          "cards_json_fnv1a64": "803ec02c7eac9fd3",
+          "cards_vintage": "15.535.29 client (2026, LIVE build family)",
+          "cards_json_hash_source": "engine"
+        },
+        "provenance": [
+          "d62501352d7995b352a167730c4a31e49f4ed570",
+          "clean"
+        ],
+        "binary_sha256": "bc0c395d783603b8cdfc71b2c4de4c257a892c037825d22e6355246dcb5a0364",
+        "observation_version": "arena-public-v2",
+        "obs_spec": {
+          "global_dim": 1057,
+          "entity_dim": 405,
+          "num_card_types": 146,
+          "max_entities": 128,
+          "grid_h": 32,
+          "grid_w": 18,
+          "n_card_actions": 8,
+          "entity_x_index": 0,
+          "entity_y_index": 1
+        },
+        "global_base_fields": [
+          "regulation_clock",
+          "overtime_clock",
+          "elixir_rate",
+          "overtime",
+          "own_elixir",
+          "own_pending_cost",
+          "own_crowns",
+          "enemy_crowns",
+          "own_king_hp",
+          "own_left_hp",
+          "own_right_hp",
+          "enemy_king_hp",
+          "enemy_left_hp",
+          "enemy_right_hp",
+          "own_king_active",
+          "enemy_king_active",
+          "hand0_cost",
+          "hand1_cost",
+          "hand2_cost",
+          "hand3_cost",
+          "ability0_known",
+          "ability0_available",
+          "ability0_spent",
+          "ability0_cost",
+          "ability0_cooldown",
+          "ability1_known",
+          "ability1_available",
+          "ability1_spent",
+          "ability1_cost",
+          "ability1_cooldown",
+          "ability2_known",
+          "ability2_available",
+          "ability2_spent",
+          "ability2_cost",
+          "ability2_cooldown"
+        ],
+        "entity_base_fields": [
+          "x",
+          "y",
+          "hp_ratio",
+          "own_team",
+          "troop",
+          "building",
+          "king",
+          "princess",
+          "spell",
+          "projectile",
+          "radius",
+          "flying",
+          "deploying",
+          "shield_ratio",
+          "level",
+          "evolved",
+          "clone",
+          "hero",
+          "grounded",
+          "stunned",
+          "out_of_arena"
+        ],
+        "unit_types": [
+          "AngryBarbarian",
+          "AngryBarbarian_EV1",
+          "AngryBarbarian_EV1_2",
+          "Archer",
+          "ArcherQueen",
+          "Archer_EV1",
+          "Assassin",
+          "AxeMan",
+          "AxeMan_EV1",
+          "BabyDragon",
+          "BabyDragon_EV1",
+          "Balloon",
+          "BalloonBomb",
+          "BalloonHero",
+          "BalloonHero_Bomb",
+          "BarbLogBarbarianHero",
+          "Barbarian",
+          "BarbarianHut",
+          "BarbarianLauncher",
+          "Barbarian_EV1",
+          "Bat",
+          "Bat_EV1",
+          "BattleHealer",
+          "BattleRam",
+          "BattleRam_EV1",
+          "Berserker",
+          "BerserkerHero",
+          "BlowdartGoblin",
+          "BlowdartGoblin_EV1",
+          "BombTower",
+          "BombTowerBomb",
+          "Bomber",
+          "Bomber_EV1",
+          "BossBandit",
+          "Bowler",
+          "BowlerHero",
+          "BowlerHero_Siege",
+          "BrokenCannon",
+          "BushGoblin",
+          "Cannon",
+          "Cannon_EV1",
+          "Cannoneer",
+          "ChampionGuard",
+          "ChefTower",
+          "DaggerDuchess",
+          "DarkPrince",
+          "DarkPrinceHero",
+          "DarkPrinceHero_Mount",
+          "DarkPrinceHero_Walking",
+          "DarkWitch",
+          "DartBarrell",
+          "DeliveryRecruit",
+          "ElectroDragon",
+          "ElectroGiant",
+          "ElectroSpirit",
+          "ElectroWizard",
+          "EliteArcher",
+          "EliteArcherHero",
+          "EliteArcherHero_Dummy",
+          "ElixirCollector",
+          "ElixirGolem1",
+          "ElixirGolem2",
+          "ElixirGolem4",
+          "FireSpirits",
+          "Firecracker",
+          "Firecracker_EV1",
+          "Fisherman",
+          "Furnace_EV1",
+          "Furnace_rework",
+          "Ghost",
+          "Ghost_EV1",
+          "Ghost_EV1_Summon_Left",
+          "Ghost_EV1_Summon_Right",
+          "Giant",
+          "GiantBuffer",
+          "GiantHero",
+          "GiantSkeleton",
+          "GiantSkeletonBomb",
+          "Goblin",
+          "GoblinBrawler",
+          "GoblinCage",
+          "GoblinCage_EV1_GoblinBrawler",
+          "GoblinCage_EV1_TEMPNAME",
+          "GoblinCurseGoblin",
+          "GoblinDemolisher",
+          "GoblinDemolisher_kamikaze_form",
+          "GoblinDrill",
+          "GoblinDrillDig",
+          "GoblinDrill_EV1",
+          "GoblinDrill_EV1_Dig",
+          "GoblinDummy",
+          "GoblinGiant",
+          "GoblinGiant_EV1",
+          "GoblinHero",
+          "GoblinHero_Flag_Building",
+          "GoblinHut_Rework",
+          "GoblinMachine",
+          "GoblinParty",
+          "GoblinPartyHut",
+          "GoblinRocketSilo",
+          "GoblinRocketSilo1",
+          "GoblinRocketSilo2",
+          "Goblin_Stab",
+          "Goblin_dummy",
+          "GoldenKnight",
+          "Golem",
+          "Golemite",
+          "Graveyard_rework_Skeleton",
+          "HealSpirit",
+          "HogRider",
+          "Hunter",
+          "Hunter_EV1",
+          "IceGolemite",
+          "IceGolemiteHero",
+          "IceSpirits",
+          "IceSpirits_EV1",
+          "IceWizard",
+          "InfernoDragon",
+          "InfernoDragon_EV1",
+          "InfernoTower",
+          "KingTower",
+          "Knight",
+          "KnightHero",
+          "Knight_EV1",
+          "LavaHound",
+          "LavaPups",
+          "LittlePrince",
+          "MegaKnight",
+          "MegaKnight_EV1",
+          "MegaMinion",
+          "MegaMinionHero",
+          "MergeMaiden_Mounted",
+          "MergeMaiden_Normal",
+          "MightyMiner",
+          "MightyMinerBomb",
+          "Miner",
+          "MiniPekka",
+          "MiniPekkaHero",
+          "MiniZapMachine",
+          "Minion",
+          "MinionGiant",
+          "MinionHorde_EV1",
+          "Monk",
+          "Mortar",
+          "Mortar_EV1",
+          "MovingCannon",
+          "Musketeer",
+          "MusketeerHero",
+          "MusketeerTurret",
+          "Musketeer_EV1",
+          "Pekka",
+          "Pekka_EV1",
+          "Phoenix",
+          "PhoenixEgg",
+          "PhoenixNoRespawn",
+          "Prince",
+          "PrinceBuff",
+          "Princess",
+          "PrincessTower",
+          "Princess_EV1",
+          "RageBarbarian",
+          "RageBarbarianEvoGhost",
+          "RageBarbarian_EV1",
+          "Ram",
+          "RamRider",
+          "RascalBoy",
+          "RascalGirl",
+          "Recruit",
+          "Recruit_Chess",
+          "Recruit_EV1",
+          "Ronin",
+          "RoyalGiant",
+          "RoyalGiant_EV1",
+          "RoyalHog",
+          "RoyalHog_EV1",
+          "RoyalHog_EV1_Grounded",
+          "SantaPresent",
+          "Skeleton",
+          "SkeletonArmy_EV1_General",
+          "SkeletonArmy_EV1_Soldier",
+          "SkeletonArmy_EV1_Spectral",
+          "SkeletonBalloon",
+          "SkeletonBalloonEvoDummyAeO_DEATH",
+          "SkeletonBalloonEvoDummyAeO_EXTRA",
+          "SkeletonBalloon_EV1",
+          "SkeletonContainerNew",
+          "SkeletonDragon",
+          "SkeletonKing",
+          "SkeletonKingSkeleton",
+          "SkeletonTrooper",
+          "SkeletonWarrior",
+          "SkeletonWarrior_SpookyChess",
+          "Skeleton_EV1",
+          "SpearGoblin",
+          "SpearGoblinGiant",
+          "SpearGoblin_Dummy",
+          "SuperArcher",
+          "SuperEliteArcher",
+          "SuperHogRider",
+          "SuperHogRider_Terry",
+          "SuperIceGolemite",
+          "SuperKnight",
+          "SuperLavaHound",
+          "SuperLavaHound2",
+          "SuperMiniPekka",
+          "SuperMiniPekkaPancakes",
+          "SuperWitch",
+          "SuspiciousBush",
+          "Tesla",
+          "Tesla_EV1",
+          "ThreeMusketeer_Rework_Character_1",
+          "ThreeMusketeer_Rework_Character_2",
+          "ThreeMusketeer_Rework_Character_3",
+          "Tombstone",
+          "TombstoneHero",
+          "TombstoneHero_Monster_Active",
+          "TombstoneHero_Monster_Passive",
+          "TriWizard",
+          "Valkyrie",
+          "ValkyrieHero",
+          "Valkyrie_EV1",
+          "VoodooHog",
+          "Wallbreaker",
+          "Wallbreaker_EV1",
+          "Wallbreaker_mini",
+          "Witch",
+          "WitchMother",
+          "Witch_EV1",
+          "Wizard",
+          "WizardHero",
+          "WizardHero_air",
+          "Wizard_EV1",
+          "Xbow",
+          "ZapMachine",
+          "electro_dragon_ev1",
+          "goblinstein",
+          "goblinstein_doctor"
+        ],
+        "cards": [
+          "Knight",
+          "Archer",
+          "Goblins",
+          "Giant",
+          "Pekka",
+          "Minions",
+          "Balloon",
+          "Witch",
+          "Barbarians",
+          "Golem",
+          "Skeletons",
+          "Valkyrie",
+          "SkeletonArmy",
+          "Bomber",
+          "Musketeer",
+          "BabyDragon",
+          "Prince",
+          "Wizard",
+          "MiniPekka",
+          "SpearGoblins",
+          "GiantSkeleton",
+          "HogRider",
+          "MinionHorde",
+          "IceWizard",
+          "RoyalGiant",
+          "SkeletonWarriors",
+          "Princess",
+          "DarkPrince",
+          "ThreeMusketeers",
+          "LavaHound",
+          "IceSpirits",
+          "FireSpirits",
+          "Miner",
+          "ZapMachine",
+          "Bowler",
+          "RageBarbarian",
+          "BattleRam",
+          "InfernoDragon",
+          "IceGolemite",
+          "MegaMinion",
+          "BlowdartGoblin",
+          "GoblinGang",
+          "ElectroWizard",
+          "AngryBarbarians",
+          "Hunter",
+          "AxeMan",
+          "Assassin",
+          "RoyalRecruits",
+          "DarkWitch",
+          "Bats",
+          "Ghost",
+          "RamRider",
+          "MiniSparkys",
+          "Rascals",
+          "MovingCannon",
+          "MegaKnight",
+          "SkeletonBalloon",
+          "DartBarrell",
+          "Wallbreakers",
+          "RoyalHogs",
+          "GoblinGiant",
+          "Fisherman",
+          "EliteArcher",
+          "ElectroDragon",
+          "Firecracker",
+          "MightyMiner",
+          "ElixirGolem",
+          "BattleHealer",
+          "SkeletonKing",
+          "ArcherQueen",
+          "GoldenKnight",
+          "SuperIceGolemite",
+          "Monk",
+          "SuperArcher",
+          "RoyalRecruits_Chess",
+          "SkeletonDragons",
+          "SuperHogRiderTerry",
+          "WitchMother",
+          "ElectroSpirit",
+          "ElectroGiant",
+          "PrinceBuff",
+          "Phoenix",
+          "TriWizards",
+          "GoblinDemolisher",
+          "GoblinMachine",
+          "SuspiciousBush",
+          "SuperKnight",
+          "SkeletonWarriors_SpookyChess",
+          "GiantBuffer",
+          "Berserker",
+          "MergeMaiden_Normal",
+          "MergeMaiden_Mounted",
+          "Ronin",
+          "Cannon",
+          "GoblinHut",
+          "Mortar",
+          "InfernoTower",
+          "BombTower",
+          "BarbarianHut",
+          "Tesla",
+          "Elixir Collector",
+          "Xbow",
+          "Tombstone",
+          "FirespiritHut",
+          "BarbarianLauncher",
+          "GoblinCage",
+          "GoblinDrill",
+          "GoblinPartyHut",
+          "Fireball",
+          "Arrows",
+          "Rage",
+          "Rocket",
+          "GoblinBarrel",
+          "Freeze",
+          "Mirror",
+          "Lightning",
+          "Zap",
+          "Poison",
+          "Graveyard",
+          "Log",
+          "Tornado",
+          "Clone",
+          "Earthquake",
+          "BarbLog",
+          "Heal",
+          "Snowball",
+          "RoyalDelivery",
+          "WarmSpell",
+          "DarkMagic",
+          "GoblinCurse",
+          "MergeMaiden",
+          "Vines",
+          "MinionGiant",
+          "LittlePrince",
+          "Goblinstein",
+          "BossBandit",
+          "SuperWitch",
+          "SuperLavaHound",
+          "SuperEliteArcher",
+          "SuperMiniPekka",
+          "GoblinRocketSilo",
+          "GlobalClone",
+          "GoblinPartyRocket",
+          "SuperHogRider",
+          "GlobalLightning"
+        ],
+        "mask_semantics": "public-placement-proposal; native-feedback-is-authoritative",
+        "visibility": "simulator-public-conservative; not official-client equivalence",
+        "visibility_validation": {
+          "adapter_private_state_invariance_tested": true,
+          "official_client_equivalence_verified": false
+        },
+        "effective_command_delay_ticks": 0,
+        "coordinates": "own-frame [0,1], out-of-arena positions clipped and explicitly flagged",
+        "config": {
+          "backend": "royalesim",
+          "decks": [
+            [
+              "Xbow",
+              "Archer",
+              "Knight",
+              "Tesla",
+              "Fireball",
+              "Log",
+              "Skeletons",
+              "ElectroSpirit"
+            ],
+            [
+              "HogRider",
+              "Musketeer",
+              "Knight",
+              "Cannon",
+              "Fireball",
+              "Log",
+              "Skeletons",
+              "IceSpirits"
+            ]
+          ],
+          "forms": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "levels": [
+            [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ],
+            [
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11,
+              11
+            ]
+          ],
+          "tower_levels": [
+            11,
+            11
+          ],
+          "seed": 2026111379,
+          "decision_ticks": 10,
+          "max_ticks": null,
+          "shuffle": 1,
+          "elixir_milli": [
+            6000,
+            6000
+          ],
+          "engine_version": "0.1.51",
+          "expected_card_hash": "803ec02c7eac9fd3",
+          "command_delay_ticks": 0,
+          "max_entities": 128,
+          "card_level": 11,
+          "tower_level": 11,
+          "crforge_data_version": "16.635.8",
+          "crforge_expected_content_sha": "062a11e0500c03cc041f123413b1ef1846b539a4",
+          "tower_types": null
+        }
+      },
+      "environment": {},
+      "dataset_provenance": {},
+      "training_data_quality": "rule_teacher_simulator",
+      "strong_imitation_delivery_gate_passed": false,
+      "human_expert_imitation": false,
+      "model_selection": "training-monitor joint card NLL + conditional location NLL",
+      "calibration": "none; historical joint argmax decoder kept",
+      "time_contract": "observe at tick, choose/request at same tick, confirm within decision horizon; elapsed is explicit; no future commands enter actor",
+      "decoder": "joint card argmax then conditional location argmax",
+      "train_actionable_event_prior": 0.22400923865588823,
+      "development_splits": {
+        "train": [
+          "paired-2026111300",
+          "paired-2026111301",
+          "paired-2026111302",
+          "paired-2026111303",
+          "paired-2026111304",
+          "paired-2026111305",
+          "paired-2026111307",
+          "paired-2026111308",
+          "paired-2026111309",
+          "paired-2026111310",
+          "paired-2026111311",
+          "paired-2026111312",
+          "paired-2026111313",
+          "paired-2026111314",
+          "paired-2026111315",
+          "paired-2026111316",
+          "paired-2026111317",
+          "paired-2026111318",
+          "paired-2026111319",
+          "paired-2026111320",
+          "paired-2026111321",
+          "paired-2026111322",
+          "paired-2026111323",
+          "paired-2026111324",
+          "paired-2026111325",
+          "paired-2026111326",
+          "paired-2026111327",
+          "paired-2026111328",
+          "paired-2026111330",
+          "paired-2026111331",
+          "paired-2026111332",
+          "paired-2026111334",
+          "paired-2026111336",
+          "paired-2026111337",
+          "paired-2026111338",
+          "paired-2026111339",
+          "paired-2026111340",
+          "paired-2026111341",
+          "paired-2026111342",
+          "paired-2026111343",
+          "paired-2026111345",
+          "paired-2026111346",
+          "paired-2026111347",
+          "paired-2026111348",
+          "paired-2026111349",
+          "paired-2026111350",
+          "paired-2026111351",
+          "paired-2026111352",
+          "paired-2026111354",
+          "paired-2026111355",
+          "paired-2026111356",
+          "paired-2026111357",
+          "paired-2026111358",
+          "paired-2026111359"
+        ],
+        "monitor": [
+          "paired-2026111306",
+          "paired-2026111329",
+          "paired-2026111333",
+          "paired-2026111335",
+          "paired-2026111344",
+          "paired-2026111353"
+        ],
+        "calibration": [
+          "paired-2026111361",
+          "paired-2026111364",
+          "paired-2026111365",
+          "paired-2026111368",
+          "paired-2026111369"
+        ],
+        "validation_check": [
+          "paired-2026111360",
+          "paired-2026111362",
+          "paired-2026111363",
+          "paired-2026111366",
+          "paired-2026111367"
+        ],
+        "test": [
+          "paired-2026111370",
+          "paired-2026111371",
+          "paired-2026111372",
+          "paired-2026111373",
+          "paired-2026111374",
+          "paired-2026111375",
+          "paired-2026111376",
+          "paired-2026111377",
+          "paired-2026111378",
+          "paired-2026111379"
+        ]
+      },
+      "joint_play_weight": 6.5702250722997615,
+      "software": {
+        "torch": "2.6.0+cpu",
+        "numpy": "2.2.6"
+      },
+      "trained": true,
+      "training_steps": 5979,
+      "epoch": 12,
+      "event_calibration": {
+        "method": "none; frozen legacy joint decoder"
+      }
+    }
+  },
+  "best_epoch": 12,
+  "data_audit": {
+    "train": {
+      "files": 120,
+      "battles": 60,
+      "steps": 66540,
+      "valid_labels": 66540,
+      "play_labels": 8730,
+      "ability_labels": 0,
+      "position_labels": 8730,
+      "visible_entity_rows": 66540
+    },
+    "validation": {
+      "files": 20,
+      "battles": 10,
+      "steps": 11448,
+      "valid_labels": 11448,
+      "play_labels": 1544,
+      "ability_labels": 0,
+      "position_labels": 1544,
+      "visible_entity_rows": 11448
+    },
+    "test": {
+      "files": 20,
+      "battles": 10,
+      "steps": 10840,
+      "valid_labels": 10840,
+      "play_labels": 1425,
+      "ability_labels": 0,
+      "position_labels": 1425,
+      "visible_entity_rows": 10840
+    }
+  },
+  "development_splits": {
+    "train": [
+      "paired-2026111300",
+      "paired-2026111301",
+      "paired-2026111302",
+      "paired-2026111303",
+      "paired-2026111304",
+      "paired-2026111305",
+      "paired-2026111307",
+      "paired-2026111308",
+      "paired-2026111309",
+      "paired-2026111310",
+      "paired-2026111311",
+      "paired-2026111312",
+      "paired-2026111313",
+      "paired-2026111314",
+      "paired-2026111315",
+      "paired-2026111316",
+      "paired-2026111317",
+      "paired-2026111318",
+      "paired-2026111319",
+      "paired-2026111320",
+      "paired-2026111321",
+      "paired-2026111322",
+      "paired-2026111323",
+      "paired-2026111324",
+      "paired-2026111325",
+      "paired-2026111326",
+      "paired-2026111327",
+      "paired-2026111328",
+      "paired-2026111330",
+      "paired-2026111331",
+      "paired-2026111332",
+      "paired-2026111334",
+      "paired-2026111336",
+      "paired-2026111337",
+      "paired-2026111338",
+      "paired-2026111339",
+      "paired-2026111340",
+      "paired-2026111341",
+      "paired-2026111342",
+      "paired-2026111343",
+      "paired-2026111345",
+      "paired-2026111346",
+      "paired-2026111347",
+      "paired-2026111348",
+      "paired-2026111349",
+      "paired-2026111350",
+      "paired-2026111351",
+      "paired-2026111352",
+      "paired-2026111354",
+      "paired-2026111355",
+      "paired-2026111356",
+      "paired-2026111357",
+      "paired-2026111358",
+      "paired-2026111359"
+    ],
+    "monitor": [
+      "paired-2026111306",
+      "paired-2026111329",
+      "paired-2026111333",
+      "paired-2026111335",
+      "paired-2026111344",
+      "paired-2026111353"
+    ],
+    "calibration": [
+      "paired-2026111361",
+      "paired-2026111364",
+      "paired-2026111365",
+      "paired-2026111368",
+      "paired-2026111369"
+    ],
+    "validation_check": [
+      "paired-2026111360",
+      "paired-2026111362",
+      "paired-2026111363",
+      "paired-2026111366",
+      "paired-2026111367"
+    ],
+    "test": [
+      "paired-2026111370",
+      "paired-2026111371",
+      "paired-2026111372",
+      "paired-2026111373",
+      "paired-2026111374",
+      "paired-2026111375",
+      "paired-2026111376",
+      "paired-2026111377",
+      "paired-2026111378",
+      "paired-2026111379"
+    ]
+  },
+  "calibration": {
+    "split": "calibration",
+    "labels": 6068,
+    "play_labels": 834,
+    "predicted_plays": 951,
+    "play_precision": 0.7570977917981072,
+    "play_recall": 0.8633093525179856,
+    "eligible_balanced_error": 0.11458231333268054,
+    "card_accuracy": 0.9344100197758735,
+    "all_wait_accuracy": 0.8625576796308504,
+    "play_slot_accuracy": 0.7997601918465228,
+    "conditional_card_accuracy_given_true_event": 0.9148681055155875,
+    "card_nll": 0.16256949305534363,
+    "conditional_card_nll": 0.2110234498977661,
+    "position_labels": 834,
+    "position_nll": 1.3493800163269043,
+    "position_accuracy_given_true_card": 0.5683453237410072,
+    "position_mean_tile_distance_given_true_card": 0.9646364657127316,
+    "joint_play_exact_accuracy": 0.43884892086330934,
+    "natural_time": {
+      "labels": 6068,
+      "positive_prior": 0.13744232036914963,
+      "event_nll": 0.13356593688849042,
+      "event_brier": 0.04161325668409616,
+      "event_average_precision": 0.9043856274762517,
+      "constant_train_prior_nll": 0.4243803315536462,
+      "constant_train_prior_brier": 0.12604576028235656
+    },
+    "actionable_time": {
+      "labels": 3332,
+      "positive_prior": 0.2503001200480192,
+      "event_nll": 0.2432407195916446,
+      "event_brier": 0.0757830857020094,
+      "event_average_precision": 0.9043856274762517,
+      "constant_train_prior_nll": 0.5646008794101096,
+      "constant_train_prior_brier": 0.1883411803963415
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 726,
+      "precision": 0.7634069400630915,
+      "recall": 0.8705035971223022,
+      "mean_absolute_error_seconds": 0.1487603305785124
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 78,
+        "predicted_events": 87,
+        "frames": 615
+      },
+      {
+        "trajectory": 1,
+        "true_events": 91,
+        "predicted_events": 86,
+        "frames": 615
+      },
+      {
+        "trajectory": 2,
+        "true_events": 90,
+        "predicted_events": 129,
+        "frames": 613
+      },
+      {
+        "trajectory": 3,
+        "true_events": 94,
+        "predicted_events": 97,
+        "frames": 613
+      },
+      {
+        "trajectory": 4,
+        "true_events": 89,
+        "predicted_events": 100,
+        "frames": 616
+      },
+      {
+        "trajectory": 5,
+        "true_events": 74,
+        "predicted_events": 93,
+        "frames": 616
+      },
+      {
+        "trajectory": 6,
+        "true_events": 68,
+        "predicted_events": 79,
+        "frames": 576
+      },
+      {
+        "trajectory": 7,
+        "true_events": 70,
+        "predicted_events": 63,
+        "frames": 576
+      },
+      {
+        "trajectory": 8,
+        "true_events": 90,
+        "predicted_events": 109,
+        "frames": 614
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 108,
+        "frames": 614
+      }
+    ]
+  },
+  "uncalibrated_fit": {
+    "split": "calibration_before",
+    "labels": 6068,
+    "play_labels": 834,
+    "predicted_plays": 951,
+    "play_precision": 0.7570977917981072,
+    "play_recall": 0.8633093525179856,
+    "eligible_balanced_error": 0.11458231333268054,
+    "card_accuracy": 0.9344100197758735,
+    "all_wait_accuracy": 0.8625576796308504,
+    "play_slot_accuracy": 0.7997601918465228,
+    "conditional_card_accuracy_given_true_event": 0.9148681055155875,
+    "card_nll": 0.16256949305534363,
+    "conditional_card_nll": 0.2110234498977661,
+    "position_labels": 834,
+    "position_nll": 1.3493800163269043,
+    "position_accuracy_given_true_card": 0.5683453237410072,
+    "position_mean_tile_distance_given_true_card": 0.9646364657127316,
+    "joint_play_exact_accuracy": 0.43884892086330934,
+    "natural_time": {
+      "labels": 6068,
+      "positive_prior": 0.13744232036914963,
+      "event_nll": 0.13356593688849042,
+      "event_brier": 0.04161325668409616,
+      "event_average_precision": 0.9043856274762517,
+      "constant_train_prior_nll": 0.4243803315536462,
+      "constant_train_prior_brier": 0.12604576028235656
+    },
+    "actionable_time": {
+      "labels": 3332,
+      "positive_prior": 0.2503001200480192,
+      "event_nll": 0.2432407195916446,
+      "event_brier": 0.0757830857020094,
+      "event_average_precision": 0.9043856274762517,
+      "constant_train_prior_nll": 0.5646008794101096,
+      "constant_train_prior_brier": 0.1883411803963415
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 726,
+      "precision": 0.7634069400630915,
+      "recall": 0.8705035971223022,
+      "mean_absolute_error_seconds": 0.1487603305785124
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 78,
+        "predicted_events": 87,
+        "frames": 615
+      },
+      {
+        "trajectory": 1,
+        "true_events": 91,
+        "predicted_events": 86,
+        "frames": 615
+      },
+      {
+        "trajectory": 2,
+        "true_events": 90,
+        "predicted_events": 129,
+        "frames": 613
+      },
+      {
+        "trajectory": 3,
+        "true_events": 94,
+        "predicted_events": 97,
+        "frames": 613
+      },
+      {
+        "trajectory": 4,
+        "true_events": 89,
+        "predicted_events": 100,
+        "frames": 616
+      },
+      {
+        "trajectory": 5,
+        "true_events": 74,
+        "predicted_events": 93,
+        "frames": 616
+      },
+      {
+        "trajectory": 6,
+        "true_events": 68,
+        "predicted_events": 79,
+        "frames": 576
+      },
+      {
+        "trajectory": 7,
+        "true_events": 70,
+        "predicted_events": 63,
+        "frames": 576
+      },
+      {
+        "trajectory": 8,
+        "true_events": 90,
+        "predicted_events": 109,
+        "frames": 614
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 108,
+        "frames": 614
+      }
+    ]
+  },
+  "validation_check": {
+    "split": "validation_check",
+    "labels": 5380,
+    "play_labels": 710,
+    "predicted_plays": 757,
+    "play_precision": 0.7846763540290621,
+    "play_recall": 0.8366197183098592,
+    "eligible_balanced_error": 0.11461943377436334,
+    "card_accuracy": 0.937360594795539,
+    "all_wait_accuracy": 0.8680297397769516,
+    "play_slot_accuracy": 0.7549295774647887,
+    "conditional_card_accuracy_given_true_event": 0.8985915492957747,
+    "card_nll": 0.1637771725654602,
+    "conditional_card_nll": 0.2665577530860901,
+    "position_labels": 710,
+    "position_nll": 1.1235696077346802,
+    "position_accuracy_given_true_card": 0.6380281690140845,
+    "position_mean_tile_distance_given_true_card": 0.8731722245230732,
+    "joint_play_exact_accuracy": 0.4732394366197183,
+    "natural_time": {
+      "labels": 5380,
+      "positive_prior": 0.13197026022304834,
+      "event_nll": 0.12859947051286869,
+      "event_brier": 0.03810253270919407,
+      "event_average_precision": 0.9003579892941872,
+      "constant_train_prior_nll": 0.4175815522599408,
+      "constant_train_prior_brier": 0.12302528419066999
+    },
+    "actionable_time": {
+      "labels": 3185,
+      "positive_prior": 0.22291993720565148,
+      "event_nll": 0.21722610028547365,
+      "event_brier": 0.06436157801427438,
+      "event_average_precision": 0.9003579892941872,
+      "constant_train_prior_nll": 0.5305822803457,
+      "constant_train_prior_brier": 0.17322782537952935
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 603,
+      "precision": 0.7965653896961691,
+      "recall": 0.8492957746478873,
+      "mean_absolute_error_seconds": 0.14013266998341625
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 91,
+        "predicted_events": 88,
+        "frames": 612
+      },
+      {
+        "trajectory": 1,
+        "true_events": 91,
+        "predicted_events": 88,
+        "frames": 612
+      },
+      {
+        "trajectory": 2,
+        "true_events": 31,
+        "predicted_events": 22,
+        "frames": 360
+      },
+      {
+        "trajectory": 3,
+        "true_events": 38,
+        "predicted_events": 52,
+        "frames": 360
+      },
+      {
+        "trajectory": 4,
+        "true_events": 74,
+        "predicted_events": 76,
+        "frames": 613
+      },
+      {
+        "trajectory": 5,
+        "true_events": 88,
+        "predicted_events": 95,
+        "frames": 613
+      },
+      {
+        "trajectory": 6,
+        "true_events": 61,
+        "predicted_events": 69,
+        "frames": 489
+      },
+      {
+        "trajectory": 7,
+        "true_events": 57,
+        "predicted_events": 57,
+        "frames": 489
+      },
+      {
+        "trajectory": 8,
+        "true_events": 89,
+        "predicted_events": 94,
+        "frames": 616
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 116,
+        "frames": 616
+      }
+    ]
+  },
+  "test": {
+    "split": "test",
+    "labels": 10840,
+    "play_labels": 1425,
+    "predicted_plays": 1595,
+    "play_precision": 0.7686520376175549,
+    "play_recall": 0.8603508771929824,
+    "eligible_balanced_error": 0.10741624844507357,
+    "card_accuracy": 0.9359778597785978,
+    "all_wait_accuracy": 0.8685424354243543,
+    "play_slot_accuracy": 0.7719298245614035,
+    "conditional_card_accuracy_given_true_event": 0.8842105263157894,
+    "card_nll": 0.16420210897922516,
+    "conditional_card_nll": 0.26486027240753174,
+    "position_labels": 1425,
+    "position_nll": 1.3294706344604492,
+    "position_accuracy_given_true_card": 0.5915789473684211,
+    "position_mean_tile_distance_given_true_card": 0.9624080616029104,
+    "joint_play_exact_accuracy": 0.4392982456140351,
+    "natural_time": {
+      "labels": 10840,
+      "positive_prior": 0.13145756457564575,
+      "event_nll": 0.129384227497283,
+      "event_brier": 0.038702820790672804,
+      "event_average_precision": 0.9017702511310494,
+      "constant_train_prior_nll": 0.4169445518508688,
+      "constant_train_prior_brier": 0.1227422856665411
+    },
+    "actionable_time": {
+      "labels": 6333,
+      "positive_prior": 0.22501184272856467,
+      "event_nll": 0.22146296873528312,
+      "event_brier": 0.06624641992276847,
+      "event_average_precision": 0.9017702511310494,
+      "constant_train_prior_nll": 0.533181375306983,
+      "constant_train_prior_brier": 0.1743825185753869
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 1236,
+      "precision": 0.7749216300940439,
+      "recall": 0.8673684210526316,
+      "mean_absolute_error_seconds": 0.14805825242718446
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 88,
+        "predicted_events": 84,
+        "frames": 612
+      },
+      {
+        "trajectory": 1,
+        "true_events": 87,
+        "predicted_events": 113,
+        "frames": 612
+      },
+      {
+        "trajectory": 2,
+        "true_events": 35,
+        "predicted_events": 33,
+        "frames": 360
+      },
+      {
+        "trajectory": 3,
+        "true_events": 42,
+        "predicted_events": 48,
+        "frames": 360
+      },
+      {
+        "trajectory": 4,
+        "true_events": 34,
+        "predicted_events": 31,
+        "frames": 360
+      },
+      {
+        "trajectory": 5,
+        "true_events": 40,
+        "predicted_events": 48,
+        "frames": 360
+      },
+      {
+        "trajectory": 6,
+        "true_events": 40,
+        "predicted_events": 33,
+        "frames": 411
+      },
+      {
+        "trajectory": 7,
+        "true_events": 46,
+        "predicted_events": 51,
+        "frames": 411
+      },
+      {
+        "trajectory": 8,
+        "true_events": 85,
+        "predicted_events": 110,
+        "frames": 614
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 113,
+        "frames": 614
+      },
+      {
+        "trajectory": 10,
+        "true_events": 87,
+        "predicted_events": 115,
+        "frames": 611
+      },
+      {
+        "trajectory": 11,
+        "true_events": 76,
+        "predicted_events": 81,
+        "frames": 611
+      },
+      {
+        "trajectory": 12,
+        "true_events": 85,
+        "predicted_events": 96,
+        "frames": 613
+      },
+      {
+        "trajectory": 13,
+        "true_events": 86,
+        "predicted_events": 87,
+        "frames": 613
+      },
+      {
+        "trajectory": 14,
+        "true_events": 90,
+        "predicted_events": 86,
+        "frames": 614
+      },
+      {
+        "trajectory": 15,
+        "true_events": 89,
+        "predicted_events": 99,
+        "frames": 614
+      },
+      {
+        "trajectory": 16,
+        "true_events": 73,
+        "predicted_events": 92,
+        "frames": 612
+      },
+      {
+        "trajectory": 17,
+        "true_events": 74,
+        "predicted_events": 88,
+        "frames": 612
+      },
+      {
+        "trajectory": 18,
+        "true_events": 91,
+        "predicted_events": 99,
+        "frames": 613
+      },
+      {
+        "trajectory": 19,
+        "true_events": 87,
+        "predicted_events": 88,
+        "frames": 613
+      }
+    ]
+  },
+  "test_without_entities": {
+    "split": "test_without_entities",
+    "labels": 10840,
+    "play_labels": 1425,
+    "predicted_plays": 1908,
+    "play_precision": 0.24842767295597484,
+    "play_recall": 0.33263157894736844,
+    "eligible_balanced_error": 0.479772230086218,
+    "card_accuracy": 0.7690959409594096,
+    "all_wait_accuracy": 0.8685424354243543,
+    "play_slot_accuracy": 0.24982456140350878,
+    "conditional_card_accuracy_given_true_event": 0.751578947368421,
+    "card_nll": 0.652694582939148,
+    "conditional_card_nll": 0.715274453163147,
+    "position_labels": 1425,
+    "position_nll": 3.745269298553467,
+    "position_accuracy_given_true_card": 0.22666666666666666,
+    "position_mean_tile_distance_given_true_card": 6.1660323071047936,
+    "joint_play_exact_accuracy": 0.07017543859649122,
+    "natural_time": {
+      "labels": 10840,
+      "positive_prior": 0.13145756457564575,
+      "event_nll": 0.5586663100914215,
+      "event_brier": 0.16836660132420744,
+      "event_average_precision": 0.2618332795773911,
+      "constant_train_prior_nll": 0.4169445518508688,
+      "constant_train_prior_brier": 0.1227422856665411
+    },
+    "actionable_time": {
+      "labels": 6333,
+      "positive_prior": 0.22501184272856467,
+      "event_nll": 0.9562518168831532,
+      "event_brier": 0.28818789805059347,
+      "event_average_precision": 0.2618332795773911,
+      "constant_train_prior_nll": 0.533181375306983,
+      "constant_train_prior_brier": 0.1743825185753869
+    },
+    "event_matching": {
+      "tolerance_ticks": 10,
+      "tolerance_seconds": 0.5,
+      "one_to_one_matches": 520,
+      "precision": 0.27253668763102723,
+      "recall": 0.3649122807017544,
+      "mean_absolute_error_seconds": 0.32403846153846155
+    },
+    "trajectory_event_counts": [
+      {
+        "trajectory": 0,
+        "true_events": 88,
+        "predicted_events": 53,
+        "frames": 612
+      },
+      {
+        "trajectory": 1,
+        "true_events": 87,
+        "predicted_events": 237,
+        "frames": 612
+      },
+      {
+        "trajectory": 2,
+        "true_events": 35,
+        "predicted_events": 3,
+        "frames": 360
+      },
+      {
+        "trajectory": 3,
+        "true_events": 42,
+        "predicted_events": 50,
+        "frames": 360
+      },
+      {
+        "trajectory": 4,
+        "true_events": 34,
+        "predicted_events": 2,
+        "frames": 360
+      },
+      {
+        "trajectory": 5,
+        "true_events": 40,
+        "predicted_events": 44,
+        "frames": 360
+      },
+      {
+        "trajectory": 6,
+        "true_events": 40,
+        "predicted_events": 38,
+        "frames": 411
+      },
+      {
+        "trajectory": 7,
+        "true_events": 46,
+        "predicted_events": 35,
+        "frames": 411
+      },
+      {
+        "trajectory": 8,
+        "true_events": 85,
+        "predicted_events": 281,
+        "frames": 614
+      },
+      {
+        "trajectory": 9,
+        "true_events": 90,
+        "predicted_events": 29,
+        "frames": 614
+      },
+      {
+        "trajectory": 10,
+        "true_events": 87,
+        "predicted_events": 207,
+        "frames": 611
+      },
+      {
+        "trajectory": 11,
+        "true_events": 76,
+        "predicted_events": 3,
+        "frames": 611
+      },
+      {
+        "trajectory": 12,
+        "true_events": 85,
+        "predicted_events": 77,
+        "frames": 613
+      },
+      {
+        "trajectory": 13,
+        "true_events": 86,
+        "predicted_events": 99,
+        "frames": 613
+      },
+      {
+        "trajectory": 14,
+        "true_events": 90,
+        "predicted_events": 173,
+        "frames": 614
+      },
+      {
+        "trajectory": 15,
+        "true_events": 89,
+        "predicted_events": 216,
+        "frames": 614
+      },
+      {
+        "trajectory": 16,
+        "true_events": 73,
+        "predicted_events": 22,
+        "frames": 612
+      },
+      {
+        "trajectory": 17,
+        "true_events": 74,
+        "predicted_events": 11,
+        "frames": 612
+      },
+      {
+        "trajectory": 18,
+        "true_events": 91,
+        "predicted_events": 240,
+        "frames": 613
+      },
+      {
+        "trajectory": 19,
+        "true_events": 87,
+        "predicted_events": 88,
+        "frames": 613
+      }
+    ]
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "optimizer_steps_total": 501,
+      "batches": 501,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.7736376560109104,
+        0.0,
+        3.330923468290927
+      ],
+      "training_seconds": 58.02343622400031,
+      "valid_labels_per_training_second": 1037.6152106465029,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1182,
+        "play_precision": 0.5338409475465313,
+        "play_recall": 0.8120978120978121,
+        "eligible_balanced_error": 0.1940237419714354,
+        "card_accuracy": 0.8650142090306283,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.6087516087516087,
+        "conditional_card_accuracy_given_true_event": 0.7052767052767053,
+        "card_nll": 0.3913876414299011,
+        "conditional_card_nll": 0.6248607039451599,
+        "position_labels": 777,
+        "position_nll": 2.9153494834899902,
+        "position_accuracy_given_true_card": 0.3307593307593308,
+        "position_mean_tile_distance_given_true_card": 2.933280625041319,
+        "joint_play_exact_accuracy": 0.18532818532818532,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.31473515460255974,
+          "event_brier": 0.10292137458330945,
+          "event_average_precision": 0.6836895143593386,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.5647400683321852,
+          "event_brier": 0.18467535031464077,
+          "event_average_precision": 0.6836895143593386,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 645,
+          "precision": 0.5456852791878173,
+          "recall": 0.8301158301158301,
+          "mean_absolute_error_seconds": 0.22248062015503875
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 163,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 136,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 60,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 26,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 134,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 169,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 64,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 60,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 83,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 97,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 105,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 85,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 3.3067371249198914
+    },
+    {
+      "epoch": 2,
+      "optimizer_steps_total": 997,
+      "batches": 496,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.5972044078573104,
+        0.0,
+        2.2303201706419067
+      ],
+      "training_seconds": 54.7700857509999,
+      "valid_labels_per_training_second": 1099.2496939609202,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 877,
+        "play_precision": 0.6704675028506272,
+        "play_recall": 0.7567567567567568,
+        "eligible_balanced_error": 0.17410981631831615,
+        "card_accuracy": 0.905904641616672,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.6048906048906049,
+        "conditional_card_accuracy_given_true_event": 0.7387387387387387,
+        "card_nll": 0.2809831202030182,
+        "conditional_card_nll": 0.5866126418113708,
+        "position_labels": 777,
+        "position_nll": 2.380852222442627,
+        "position_accuracy_given_true_card": 0.3835263835263835,
+        "position_mean_tile_distance_given_true_card": 2.0069373757331013,
+        "joint_play_exact_accuracy": 0.2059202059202059,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.2090225832368797,
+          "event_brier": 0.06388457619432046,
+          "event_average_precision": 0.775416249621792,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.37505637795535296,
+          "event_brier": 0.11463028487672111,
+          "event_average_precision": 0.775416249621792,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 599,
+          "precision": 0.6830102622576967,
+          "recall": 0.7709137709137709,
+          "mean_absolute_error_seconds": 0.164440734557596
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 77,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 107,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 51,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 27,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 132,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 84,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 53,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 40,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 76,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 80,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 74,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 76,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.661835342645645
+    },
+    {
+      "epoch": 3,
+      "optimizer_steps_total": 1498,
+      "batches": 501,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.5456207597446061,
+        0.0,
+        1.9107996189665652
+      ],
+      "training_seconds": 57.17990912999994,
+      "valid_labels_per_training_second": 1052.9222749046376,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1057,
+        "play_precision": 0.6111636707663197,
+        "play_recall": 0.8314028314028314,
+        "eligible_balanced_error": 0.15894442519941976,
+        "card_accuracy": 0.8923271234606883,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.6512226512226512,
+        "conditional_card_accuracy_given_true_event": 0.7477477477477478,
+        "card_nll": 0.3573543429374695,
+        "conditional_card_nll": 0.5506810545921326,
+        "position_labels": 777,
+        "position_nll": 2.0790982246398926,
+        "position_accuracy_given_true_card": 0.4092664092664093,
+        "position_mean_tile_distance_given_true_card": 1.5769068827131003,
+        "joint_play_exact_accuracy": 0.2548262548262548,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.28980156821170894,
+          "event_brier": 0.09345905808814345,
+          "event_average_precision": 0.7872452524315996,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.520000879607072,
+          "event_brier": 0.1676967914816715,
+          "event_average_precision": 0.7872452524315996,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 657,
+          "precision": 0.6215704824976348,
+          "recall": 0.8455598455598455,
+          "mean_absolute_error_seconds": 0.1902587519025875
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 140,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 125,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 52,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 32,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 136,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 125,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 53,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 50,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 88,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 91,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 97,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 68,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.436452567577362
+    },
+    {
+      "epoch": 4,
+      "optimizer_steps_total": 1994,
+      "batches": 496,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.4986203324552926,
+        0.0,
+        1.7364523762897137
+      ],
+      "training_seconds": 54.21417703099996,
+      "valid_labels_per_training_second": 1110.5213303445312,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 885,
+        "play_precision": 0.6971751412429379,
+        "play_recall": 0.7940797940797941,
+        "eligible_balanced_error": 0.15163427658887157,
+        "card_accuracy": 0.9130091569308494,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.6357786357786358,
+        "conditional_card_accuracy_given_true_event": 0.7696267696267697,
+        "card_nll": 0.2753719687461853,
+        "conditional_card_nll": 0.5134310126304626,
+        "position_labels": 777,
+        "position_nll": 1.996899127960205,
+        "position_accuracy_given_true_card": 0.4247104247104247,
+        "position_mean_tile_distance_given_true_card": 1.5263157203799445,
+        "joint_play_exact_accuracy": 0.26383526383526384,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.2123887178974863,
+          "event_brier": 0.06426000780651142,
+          "event_average_precision": 0.8031833284443928,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.38109634875996556,
+          "event_brier": 0.11530393468737764,
+          "event_average_precision": 0.8031833284443928,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 626,
+          "precision": 0.7073446327683616,
+          "recall": 0.8056628056628057,
+          "mean_absolute_error_seconds": 0.15654952076677314
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 96,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 116,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 48,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 23,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 125,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 91,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 44,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 34,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 82,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 69,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 81,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 76,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.2722710967063904
+    },
+    {
+      "epoch": 5,
+      "optimizer_steps_total": 2494,
+      "batches": 500,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.45356849165260793,
+        0.0,
+        1.582139533340931
+      ],
+      "training_seconds": 55.76039950199993,
+      "valid_labels_per_training_second": 1079.726840871013,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 809,
+        "play_precision": 0.7292954264524104,
+        "play_recall": 0.7593307593307593,
+        "eligible_balanced_error": 0.16010941147156185,
+        "card_accuracy": 0.9201136722450268,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.6306306306306306,
+        "conditional_card_accuracy_given_true_event": 0.8018018018018018,
+        "card_nll": 0.2738839089870453,
+        "conditional_card_nll": 0.4783887267112732,
+        "position_labels": 777,
+        "position_nll": 1.9054726362228394,
+        "position_accuracy_given_true_card": 0.44787644787644787,
+        "position_mean_tile_distance_given_true_card": 1.4872125520410313,
+        "joint_play_exact_accuracy": 0.26383526383526384,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.21519935881916308,
+          "event_brier": 0.065591358622081,
+          "event_average_precision": 0.8039129811795132,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.3861395781078127,
+          "event_brier": 0.11769282309129199,
+          "event_average_precision": 0.8039129811795132,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 597,
+          "precision": 0.7379480840543882,
+          "recall": 0.7683397683397684,
+          "mean_absolute_error_seconds": 0.15577889447236182
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 67,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 100,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 47,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 24,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 100,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 66,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 53,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 35,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 84,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 71,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 82,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 80,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.1793565452098846
+    },
+    {
+      "epoch": 6,
+      "optimizer_steps_total": 2993,
+      "batches": 499,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.41630507256081684,
+        0.0,
+        1.5013435080139814
+      ],
+      "training_seconds": 57.21714768500033,
+      "valid_labels_per_training_second": 1052.2370029952265,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1127,
+        "play_precision": 0.5998225377107365,
+        "play_recall": 0.87001287001287,
+        "eligible_balanced_error": 0.14690420792854503,
+        "card_accuracy": 0.8953268077044522,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.7271557271557272,
+        "conditional_card_accuracy_given_true_event": 0.8275418275418276,
+        "card_nll": 0.32595279812812805,
+        "conditional_card_nll": 0.43835484981536865,
+        "position_labels": 777,
+        "position_nll": 1.8182389736175537,
+        "position_accuracy_given_true_card": 0.462033462033462,
+        "position_mean_tile_distance_given_true_card": 1.4226285715623408,
+        "joint_play_exact_accuracy": 0.33462033462033464,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.2721792459403163,
+          "event_brier": 0.07969103397077107,
+          "event_average_precision": 0.8171943732588385,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.4883805427042388,
+          "event_brier": 0.1429923538727659,
+          "event_average_precision": 0.8171943732588385,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 683,
+          "precision": 0.6060337178349601,
+          "recall": 0.879021879021879,
+          "mean_absolute_error_seconds": 0.1998535871156662
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 119,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 144,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 60,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 33,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 134,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 120,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 66,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 49,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 108,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 87,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 107,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 100,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.1441917717456818
+    },
+    {
+      "epoch": 7,
+      "optimizer_steps_total": 3490,
+      "batches": 497,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.37903998291468477,
+        0.0,
+        1.3989508080050739
+      ],
+      "training_seconds": 54.73509333699985,
+      "valid_labels_per_training_second": 1099.9524496892,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1534,
+        "play_precision": 0.4758800521512386,
+        "play_recall": 0.9395109395109396,
+        "eligible_balanced_error": 0.1762670511308361,
+        "card_accuracy": 0.8482791285127881,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.797940797940798,
+        "conditional_card_accuracy_given_true_event": 0.833976833976834,
+        "card_nll": 0.4309617877006531,
+        "conditional_card_nll": 0.40281185507774353,
+        "position_labels": 777,
+        "position_nll": 1.7533390522003174,
+        "position_accuracy_given_true_card": 0.4800514800514801,
+        "position_mean_tile_distance_given_true_card": 1.349735973557073,
+        "joint_play_exact_accuracy": 0.36936936936936937,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.3815483342096882,
+          "event_brier": 0.11863747952902585,
+          "event_average_precision": 0.8400702948700554,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.6846252466980638,
+          "event_brier": 0.21287529612941913,
+          "event_average_precision": 0.8400702948700554,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 739,
+          "precision": 0.4817470664928292,
+          "recall": 0.9510939510939511,
+          "mean_absolute_error_seconds": 0.23342354533152912
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 144,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 161,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 70,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 77,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 149,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 153,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 94,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 80,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 153,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 142,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 161,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 150,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.1843008399009705
+    },
+    {
+      "epoch": 8,
+      "optimizer_steps_total": 3989,
+      "batches": 499,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.3463068499504206,
+        0.0,
+        1.3247649348928838
+      ],
+      "training_seconds": 55.40311420599983,
+      "valid_labels_per_training_second": 1086.6898163186654,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1668,
+        "play_precision": 0.447841726618705,
+        "play_recall": 0.9613899613899614,
+        "eligible_balanced_error": 0.186577086141198,
+        "card_accuracy": 0.8320176823492264,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.8159588159588159,
+        "conditional_card_accuracy_given_true_event": 0.8442728442728443,
+        "card_nll": 0.3923586905002594,
+        "conditional_card_nll": 0.37693509459495544,
+        "position_labels": 777,
+        "position_nll": 1.6832656860351562,
+        "position_accuracy_given_true_card": 0.4671814671814672,
+        "position_mean_tile_distance_given_true_card": 1.2367579459591445,
+        "joint_play_exact_accuracy": 0.38481338481338484,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.34611958861243874,
+          "event_brier": 0.11871052543142425,
+          "event_average_precision": 0.853842887829318,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.6210542340598264,
+          "event_brier": 0.21300636489593233,
+          "event_average_precision": 0.853842887829318,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 754,
+          "precision": 0.4520383693045564,
+          "recall": 0.9703989703989704,
+          "mean_absolute_error_seconds": 0.22811671087533156
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 168,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 173,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 100,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 74,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 167,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 202,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 81,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 69,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 151,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 159,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 169,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 155,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 2.0756243765354156
+    },
+    {
+      "epoch": 9,
+      "optimizer_steps_total": 4485,
+      "batches": 496,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.3171499993186444,
+        0.0,
+        1.2763844369159592
+      ],
+      "training_seconds": 55.11217775099976,
+      "valid_labels_per_training_second": 1092.4264374384632,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1117,
+        "play_precision": 0.6347358997314234,
+        "play_recall": 0.9124839124839125,
+        "eligible_balanced_error": 0.11785902450631836,
+        "card_accuracy": 0.9098515945689928,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.7902187902187903,
+        "conditional_card_accuracy_given_true_event": 0.8532818532818532,
+        "card_nll": 0.24948664009571075,
+        "conditional_card_nll": 0.3364168703556061,
+        "position_labels": 777,
+        "position_nll": 1.5692845582962036,
+        "position_accuracy_given_true_card": 0.5186615186615187,
+        "position_mean_tile_distance_given_true_card": 1.1017312371283738,
+        "joint_play_exact_accuracy": 0.39768339768339767,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.20821796542522988,
+          "event_brier": 0.06226083972546131,
+          "event_average_precision": 0.8802658780390223,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.3736126246355258,
+          "event_brier": 0.11171675887282483,
+          "event_average_precision": 0.8802658780390223,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 715,
+          "precision": 0.640107430617726,
+          "recall": 0.9202059202059202,
+          "mean_absolute_error_seconds": 0.1853146853146853
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 121,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 125,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 64,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 41,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 117,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 150,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 63,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 51,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 93,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 96,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 107,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 89,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 1.8187711983919144
+    },
+    {
+      "epoch": 10,
+      "optimizer_steps_total": 4979,
+      "batches": 494,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.2946025499233199,
+        0.0,
+        1.212724573970565
+      ],
+      "training_seconds": 54.78539159100001,
+      "valid_labels_per_training_second": 1098.9425876421128,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 973,
+        "play_precision": 0.6988694758478932,
+        "play_recall": 0.8751608751608752,
+        "eligible_balanced_error": 0.11563423731967139,
+        "card_accuracy": 0.9223239658983264,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.7438867438867439,
+        "conditional_card_accuracy_given_true_event": 0.8416988416988417,
+        "card_nll": 0.2029707133769989,
+        "conditional_card_nll": 0.3547815680503845,
+        "position_labels": 777,
+        "position_nll": 1.5293493270874023,
+        "position_accuracy_given_true_card": 0.5366795366795367,
+        "position_mean_tile_distance_given_true_card": 1.0920365669341905,
+        "joint_play_exact_accuracy": 0.38996138996138996,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.15944920004424395,
+          "event_brier": 0.04847758724487941,
+          "event_average_precision": 0.8868675466150876,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.2861051572351957,
+          "event_brier": 0.08698499648982037,
+          "event_average_precision": 0.8868675466150876,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 687,
+          "precision": 0.7060637204522097,
+          "recall": 0.8841698841698842,
+          "mean_absolute_error_seconds": 0.16593886462882096
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 101,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 122,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 61,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 37,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 117,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 125,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 43,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 35,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 82,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 77,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 88,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 85,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 1.7323200404644012
+    },
+    {
+      "epoch": 11,
+      "optimizer_steps_total": 5475,
+      "batches": 496,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.27477677278370866,
+        0.0,
+        1.1519880950330728
+      ],
+      "training_seconds": 55.663215304999994,
+      "valid_labels_per_training_second": 1081.6119706723437,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 1111,
+        "play_precision": 0.6561656165616562,
+        "play_recall": 0.9382239382239382,
+        "eligible_balanced_error": 0.10026689031411154,
+        "card_accuracy": 0.9172718661193558,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.8172458172458172,
+        "conditional_card_accuracy_given_true_event": 0.8622908622908623,
+        "card_nll": 0.21224932372570038,
+        "conditional_card_nll": 0.31171226501464844,
+        "position_labels": 777,
+        "position_nll": 1.530845284461975,
+        "position_accuracy_given_true_card": 0.5186615186615187,
+        "position_mean_tile_distance_given_true_card": 1.1561553017219652,
+        "joint_play_exact_accuracy": 0.42084942084942084,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.1740111748872282,
+          "event_brier": 0.053123178283984766,
+          "event_average_precision": 0.8955418526665897,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.3122342078458083,
+          "event_brier": 0.09532073973109327,
+          "event_average_precision": 0.8955418526665897,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 732,
+          "precision": 0.6588658865886589,
+          "recall": 0.9420849420849421,
+          "mean_absolute_error_seconds": 0.17008196721311475
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 113,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 120,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 58,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 42,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 110,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 150,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 64,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 55,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 93,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 97,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 104,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 105,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 1.7430946081876755
+    },
+    {
+      "epoch": 12,
+      "optimizer_steps_total": 5979,
+      "batches": 504,
+      "valid_labels": 60206,
+      "mean_batch_event_card_position_loss": [
+        0.2561207686196126,
+        0.0,
+        1.0874843496703617
+      ],
+      "training_seconds": 54.90287632499985,
+      "valid_labels_per_training_second": 1096.5909990509074,
+      "monitor": {
+        "split": "monitor",
+        "labels": 6334,
+        "play_labels": 777,
+        "predicted_plays": 833,
+        "play_precision": 0.7779111644657863,
+        "play_recall": 0.833976833976834,
+        "eligible_balanced_error": 0.11661129241950165,
+        "card_accuracy": 0.9373223871171456,
+        "all_wait_accuracy": 0.8773287022418693,
+        "play_slot_accuracy": 0.7271557271557272,
+        "conditional_card_accuracy_given_true_event": 0.8571428571428571,
+        "card_nll": 0.16521139442920685,
+        "conditional_card_nll": 0.3122171461582184,
+        "position_labels": 777,
+        "position_nll": 1.5240097045898438,
+        "position_accuracy_given_true_card": 0.5212355212355212,
+        "position_mean_tile_distance_given_true_card": 1.1893369781270835,
+        "joint_play_exact_accuracy": 0.3667953667953668,
+        "natural_time": {
+          "labels": 6334,
+          "positive_prior": 0.12267129775813072,
+          "event_nll": 0.12691132508856307,
+          "event_brier": 0.03773512253444948,
+          "event_average_precision": 0.8925438691500778,
+          "constant_train_prior_nll": 0.40602802547634564,
+          "constant_train_prior_brier": 0.11789242872986413
+        },
+        "actionable_time": {
+          "labels": 3530,
+          "positive_prior": 0.22011331444759208,
+          "event_nll": 0.22772133288129132,
+          "event_brier": 0.06770942383376848,
+          "event_average_precision": 0.8925438691500778,
+          "constant_train_prior_nll": 0.527095182583017,
+          "constant_train_prior_brier": 0.1716786214759243
+        },
+        "event_matching": {
+          "tolerance_ticks": 10,
+          "tolerance_seconds": 0.5,
+          "one_to_one_matches": 649,
+          "precision": 0.7791116446578632,
+          "recall": 0.8352638352638353,
+          "mean_absolute_error_seconds": 0.12942989214175654
+        },
+        "trajectory_event_counts": [
+          {
+            "trajectory": 0,
+            "true_events": 88,
+            "predicted_events": 84,
+            "frames": 611
+          },
+          {
+            "trajectory": 1,
+            "true_events": 90,
+            "predicted_events": 97,
+            "frames": 611
+          },
+          {
+            "trajectory": 2,
+            "true_events": 39,
+            "predicted_events": 43,
+            "frames": 360
+          },
+          {
+            "trajectory": 3,
+            "true_events": 33,
+            "predicted_events": 28,
+            "frames": 360
+          },
+          {
+            "trajectory": 4,
+            "true_events": 86,
+            "predicted_events": 91,
+            "frames": 611
+          },
+          {
+            "trajectory": 5,
+            "true_events": 87,
+            "predicted_events": 109,
+            "frames": 611
+          },
+          {
+            "trajectory": 6,
+            "true_events": 32,
+            "predicted_events": 44,
+            "frames": 360
+          },
+          {
+            "trajectory": 7,
+            "true_events": 31,
+            "predicted_events": 39,
+            "frames": 360
+          },
+          {
+            "trajectory": 8,
+            "true_events": 73,
+            "predicted_events": 69,
+            "frames": 612
+          },
+          {
+            "trajectory": 9,
+            "true_events": 76,
+            "predicted_events": 80,
+            "frames": 612
+          },
+          {
+            "trajectory": 10,
+            "true_events": 70,
+            "predicted_events": 78,
+            "frames": 613
+          },
+          {
+            "trajectory": 11,
+            "true_events": 72,
+            "predicted_events": 71,
+            "frames": 613
+          }
+        ]
+      },
+      "selection_score": 1.6892210990190506
+    }
+  ],
+  "total_wall_seconds": 744.4502091299996,
+  "interpretation": "Causal same-version rule-teacher imitation; separate human expert pairing and real-device closed-loop gates remain independent."
+}

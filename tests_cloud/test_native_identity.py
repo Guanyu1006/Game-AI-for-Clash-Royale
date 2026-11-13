@@ -15,6 +15,7 @@ class FakeADB:
     def __init__(self, test):
         self.test = test
         self.calls = []
+        self.timeouts = {}
         self.bad_hash = False
         self.missing_hash = False
         self.changed_pid = False
@@ -35,6 +36,7 @@ class FakeADB:
 
     def __call__(self, label, argv, script, timeout):
         self.calls.append((label, argv, script))
+        self.timeouts[label] = timeout
         if label == 'adb-version':
             body = 'Android Debug Bridge version 1.0.41\nVersion synthetic-local-fixture\n'
         elif label.startswith('server-version-'):
@@ -112,6 +114,14 @@ class NativeIdentityTests(unittest.TestCase):
         with patch.object(identity, 'verify_manifest', return_value={'manifest': self.meta, 'fingerprint': 'fixture-version'}):
             return identity.collect_identity(self.manifest, self.folder / name,
                 serial='fixture-serial:5555', adb=self.adb, runner=self.runner, **options)
+
+    def test_slow_discovery_budget_preserves_full_file_hash_verification(self):
+        report = self.collect(adb_read_timeout=90)
+        self.assertTrue(report['checks_passed'])
+        self.assertEqual(self.runner.timeouts['discover-runtime'], 90)
+        self.assertEqual(self.runner.timeouts['verify-installed-files'], 180)
+        self.assertEqual(report['installed_update_files'], 652)
+        self.assertFalse(report['identity_written'])
 
     def test_complete_fixture_checks_new_apk_and_652_resources_without_identity_claim(self):
         report = self.collect()

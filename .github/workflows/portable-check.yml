@@ -6,6 +6,7 @@ on:
       - main
       - "setup/codespaces-*"
       - "dev/arena-lab-*"
+      - "dev/arena-next-*"
   pull_request:
     paths:
       - 'royale_*/**'

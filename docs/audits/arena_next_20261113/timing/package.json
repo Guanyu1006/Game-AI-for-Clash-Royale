@@ -1,0 +1,152 @@
+{
+  "schema": "arena-timing-audit-package-v1",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3291,
+      "sha256": "17b81b795f599cb5b8ecaccb0a8dd804fc4456f3f6edf1ff33253648a05d011e"
+    },
+    {
+      "path": "candidate/audit-summary.json",
+      "bytes": 13153,
+      "sha256": "1164c4ecb51e2f9d9c0dcf604e31efaba38b05531c4e4d17ccb1460e98b388a4"
+    },
+    {
+      "path": "candidate/deployment-parity.json",
+      "bytes": 532,
+      "sha256": "7af4fc57f81f8271185a0a6b243d21be612b51ae6fba6a6529921841cf9da483"
+    },
+    {
+      "path": "candidate/files.json",
+      "bytes": 1356,
+      "sha256": "e75a946a6bd1d1afbd2ce35d39c3d0bc5a14bbe319d198584aa3f20e5b96acf2"
+    },
+    {
+      "path": "candidate/frozen-before-test.json",
+      "bytes": 1126,
+      "sha256": "fcdee6ec8fcf3a88b789adfa1fee9db6069347e5c8f7b8812e3c5fa04021e600"
+    },
+    {
+      "path": "candidate/report.json",
+      "bytes": 95077,
+      "sha256": "58193a76e651f932182dbf32a42e723ff2041c694ed8f0065af730fee16cecd7"
+    },
+    {
+      "path": "candidate/test-predictions.npz",
+      "bytes": 142750,
+      "sha256": "43a227878c2b49a0870956e9fd7f2ada7d1281ed2d722bc8053d3ea74f83a386"
+    },
+    {
+      "path": "candidate/test_without_entities-predictions.npz",
+      "bytes": 139365,
+      "sha256": "f959da6cd248202d2f76f82bcbdc24f397565bd1e4d86b6e96d46c0a3fa8e433"
+    },
+    {
+      "path": "comparison-source.py.txt",
+      "bytes": 9673,
+      "sha256": "544076a51fe316a629e2dbac1ee5897b7de7395a3be6586d2c04b65f72aa6bd2"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 11869,
+      "sha256": "d3ca99aaf5f8b5669c5aefbdfdded84e05fa65053fffe45cfa63b26cf6a090ba"
+    },
+    {
+      "path": "contract-tests-final.log",
+      "bytes": 4272,
+      "sha256": "a2c981469d78a893ba102ddc6a9734091b6dc9d3a71351904801be76ca54c4ab"
+    },
+    {
+      "path": "dataset-index.json",
+      "bytes": 109369,
+      "sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1"
+    },
+    {
+      "path": "experiment-plan.json",
+      "bytes": 4199,
+      "sha256": "92a757b72687547a0a65694742d78f567bf3e8fd74bf7e1723206d58a3cc7e1e"
+    },
+    {
+      "path": "frozen-source.json",
+      "bytes": 1046,
+      "sha256": "926d029693fd14b756e193feac746f686c5dcc7ea417d7bb5aa7b1e071992943"
+    },
+    {
+      "path": "frozen_source/model.py.txt",
+      "bytes": 20343,
+      "sha256": "50f2e3d689cebade92647025bfe352681d3f1234542de01506416457b72a5ac0"
+    },
+    {
+      "path": "frozen_source/timing.py.txt",
+      "bytes": 8829,
+      "sha256": "d1d461621cccf89cd71a695fe292728f143985cf4ddd27ed693c2f7342d4e2ba"
+    },
+    {
+      "path": "frozen_source/timing_training.py.txt",
+      "bytes": 31140,
+      "sha256": "8454f4e46d14d09f42e23542dafe091120b2206a9d6cc543a7f9cc2e125e99ea"
+    },
+    {
+      "path": "logs/timing-joint-baseline-v1.log",
+      "bytes": 6883,
+      "sha256": "010b682a3102ab28f917d80c6af35f7abdd86e7a6cef27eae6e40a540fbf45b5"
+    },
+    {
+      "path": "logs/timing-v1-resume.log",
+      "bytes": 4833,
+      "sha256": "7b002c80e3da0de0b122fafc028065ce5d08e991c4b2fef9395da494e16a357d"
+    },
+    {
+      "path": "logs/timing-v1.log",
+      "bytes": 2208,
+      "sha256": "13c55dd2bd45db0472f0399811d43cd2854d82b1b8f3f1a9edcadb489f68a17b"
+    },
+    {
+      "path": "reference/audit-summary.json",
+      "bytes": 9374,
+      "sha256": "ccff52262c59aa4f703b4cbcfe37190dccdbfba8585247ebff0614b9e9b09f70"
+    },
+    {
+      "path": "reference/files.json",
+      "bytes": 1205,
+      "sha256": "9b4bf1d8719e7f288a01fb712f9ab32b70409e317cca45ef95b533283449276b"
+    },
+    {
+      "path": "reference/frozen-before-test.json",
+      "bytes": 628,
+      "sha256": "ef8a23432ef2ea82b15c2609c833470f362cf414eb21745e12f2bb76b7274cd9"
+    },
+    {
+      "path": "reference/report.json",
+      "bytes": 94506,
+      "sha256": "b3ee78cf0b699906aa4bb546ac96232cd788ff464da18a965cf9226becd13e98"
+    },
+    {
+      "path": "reference/test-predictions.npz",
+      "bytes": 126268,
+      "sha256": "17887be5279522c6ece679fe3e8a28a572c369af3604e3b8db5c7c06703d166b"
+    },
+    {
+      "path": "reference/test_without_entities-predictions.npz",
+      "bytes": 123713,
+      "sha256": "ef6c3290238cdcd90cdebcf9f06500fcca7b4658f1c5b1f8af8dbf61aea6cc83"
+    },
+    {
+      "path": "report-field-fix.json",
+      "bytes": 934,
+      "sha256": "904a88b98e1de6a65b4b2d1e2984569dcc0db2d82405f9c21e7b5db88b77726a"
+    }
+  ],
+  "total_bytes": 967942,
+  "training_data_origin": "same-version rule-teacher simulator",
+  "test_independent_battles": 10,
+  "test_perspectives": 20,
+  "test_control_ticks": 10840,
+  "test_confirmed_deployments": 1425,
+  "both_training_budgets_epochs": 12,
+  "both_training_budgets_optimizer_updates": 5979,
+  "candidate_checkpoint_sha256": "b368ec2aa4d22f463fe211ea9239530317a3daf1f31b1a83ec8389dcc4eef51b",
+  "reference_checkpoint_sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+  "candidate_outperformed_reference": false,
+  "interpretation_zh": "对齐数据上两者都能学习行动，本轮独立结构对照未显示时序候选收益。跨旧轮次差异存在数据、版本和预算等混杂，不能单因归因。"
+}

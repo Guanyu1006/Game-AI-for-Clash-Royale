@@ -1,0 +1,177 @@
+{
+  "schema": "arena-data-delivery-summary-v1",
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/data-external-repro-v1/external-pairing-audit.json",
+      "sha256": "02ecaec739a95309598583dbe0adbb36098da47a92dcfe3b3398349a59ac2afa",
+      "bytes": 15115
+    }
+  ],
+  "strictly_qualified_human_full_games": 0,
+  "cross_source_join_performed": false,
+  "receipts": [
+    {
+      "name": "tv-arena01-01600528.parquet",
+      "bytes": 488889400,
+      "sha256": "4cae91038343aa2eb3dce6af611b0041c934f5124d63b11bff9b101a726c192d",
+      "url": "https://huggingface.co/datasets/chrisrca/clash-royale-tv-replays/resolve/f3a750881e008e0daf237afd45736231b51a955a/arena_01/01600528-75d9-429a-bb4b-7c5f062600a5/frames.parquet",
+      "revision": "f3a750881e008e0daf237afd45736231b51a955a",
+      "license": "MIT dataset card; game artwork rights separately owned",
+      "local_path": "outputs/arena-next-20261113/data-external-repro-v1/raw/tv-arena01-01600528.parquet",
+      "reused": true,
+      "wall_seconds": 1.419274636999944
+    },
+    {
+      "name": "OYASSU_20230630_episodes_5.npy.xz",
+      "bytes": 198000,
+      "sha256": "6c7e1cc7b2aeb2b8429d9111204dc7d72cf0f9ca90bf0e09eab5554cc3c43e9f",
+      "url": "https://raw.githubusercontent.com/wty-yy/Clash-Royale-Replay-Dataset/ce86e10bedcf97762c3d207633f035cd12be8936/fast_hog_2.6/OYASSU_20230630_episodes_5.npy.xz",
+      "revision": "ce86e10bedcf97762c3d207633f035cd12be8936",
+      "license": "unspecified; no redistribution grant found",
+      "local_path": "outputs/arena-next-20261113/data-external-repro-v1/raw/OYASSU_20230630_episodes_5.npy.xz",
+      "reused": true,
+      "wall_seconds": 0.0391711980000764
+    },
+    {
+      "name": "OYASSU_20231105_episodes_9.npy.xz",
+      "bytes": 614388,
+      "sha256": "88ad968e5b99fe040b299718a7ed5ca59e80ff60fbd31c85d21ca25649c1f712",
+      "url": "https://raw.githubusercontent.com/wty-yy/Clash-Royale-Replay-Dataset/ce86e10bedcf97762c3d207633f035cd12be8936/fast_hog_2.6/OYASSU_20231105_episodes_9.npy.xz",
+      "revision": "ce86e10bedcf97762c3d207633f035cd12be8936",
+      "license": "unspecified; no redistribution grant found",
+      "local_path": "outputs/arena-next-20261113/data-external-repro-v1/raw/OYASSU_20231105_episodes_9.npy.xz",
+      "reused": true,
+      "wall_seconds": 0.04297434499994779
+    }
+  ],
+  "tv": {
+    "schema": "frame_id: int64\nimage: struct<bytes: binary, path: string>\n  child 0, bytes: binary\n  child 1, path: string\nhash: string",
+    "rows": 589,
+    "actual_image_decodes": 589,
+    "dimensions": {
+      "(540, 960)-RGB": 589
+    },
+    "reported_md5_matches_bgr": 589,
+    "duplicate_pixel_hashes": 0,
+    "source_sha256": "4cae91038343aa2eb3dce6af611b0041c934f5124d63b11bff9b101a726c192d",
+    "source_version_known": false,
+    "exact_frame_timestamps_known": false,
+    "full_match_coverage_verified": false,
+    "full_initial_config_known": false,
+    "expert_identity_verified": false,
+    "strong_state_alignment_accepted": false,
+    "purpose": "actual low-arena original pixels for vision audit/pretraining only",
+    "collector_commit": "08aafd87cb3707b779804918cc65f4ae430d37ab",
+    "upstream_sampling": "hash-deduplicated captures; first and last 40 changed frames removed; no precise capture timestamp"
+  },
+  "wty": [
+    {
+      "path": "outputs/arena-next-20261113/data-external-repro-v1/raw/OYASSU_20230630_episodes_5.npy.xz",
+      "source_sha256": "6c7e1cc7b2aeb2b8429d9111204dc7d72cf0f9ca90bf0e09eab5554cc3c43e9f",
+      "rows": 159,
+      "play_labels": 5,
+      "unit_rows": 934,
+      "ocr_first_seconds": 4,
+      "ocr_last_seconds": 36,
+      "audit": {
+        "reader": "inert_numpy_pickle_vm.v1",
+        "globals_executed": 0,
+        "reducer_functions_called": 0,
+        "allowed_symbol_names": [
+          "numpy dtype",
+          "numpy ndarray",
+          "numpy.core.multiarray _reconstruct"
+        ],
+        "opcode_counts": {
+          "PROTO": 1,
+          "GLOBAL": 3,
+          "BINPUT": 256,
+          "BININT1": 7636,
+          "TUPLE1": 2226,
+          "SHORT_BINBYTES": 941,
+          "TUPLE3": 1631,
+          "REDUCE": 1288,
+          "MARK": 2861,
+          "EMPTY_TUPLE": 1,
+          "BINUNICODE": 19,
+          "NEWFALSE": 1288,
+          "NEWTRUE": 3,
+          "NONE": 2671,
+          "BININT": 6,
+          "TUPLE": 1288,
+          "BUILD": 1288,
+          "EMPTY_LIST": 321,
+          "EMPTY_DICT": 1253,
+          "BINGET": 11526,
+          "SETITEMS": 1253,
+          "BINBYTES": 344,
+          "APPENDS": 320,
+          "LONG_BINPUT": 9058,
+          "LONG_BINGET": 158,
+          "APPEND": 1,
+          "STOP": 1
+        },
+        "compressed_bytes": 198000,
+        "unpacked_bytes": 1300521,
+        "npy_header": "{'descr': '|O', 'fortran_order': False, 'shape': ()}"
+      },
+      "errors": [],
+      "strong_state_alignment_accepted": false,
+      "reason": "Short historical visually inferred fragments; exact build, full config, authoritative entities and natural termination unavailable."
+    },
+    {
+      "path": "outputs/arena-next-20261113/data-external-repro-v1/raw/OYASSU_20231105_episodes_9.npy.xz",
+      "source_sha256": "88ad968e5b99fe040b299718a7ed5ca59e80ff60fbd31c85d21ca25649c1f712",
+      "rows": 216,
+      "play_labels": 7,
+      "unit_rows": 1585,
+      "ocr_first_seconds": 4,
+      "ocr_last_seconds": 47,
+      "audit": {
+        "reader": "inert_numpy_pickle_vm.v1",
+        "globals_executed": 0,
+        "reducer_functions_called": 0,
+        "allowed_symbol_names": [
+          "numpy dtype",
+          "numpy ndarray",
+          "numpy.core.multiarray _reconstruct"
+        ],
+        "opcode_counts": {
+          "PROTO": 1,
+          "GLOBAL": 3,
+          "BINPUT": 256,
+          "BININT1": 13533,
+          "TUPLE1": 3963,
+          "SHORT_BINBYTES": 1593,
+          "TUPLE3": 3149,
+          "REDUCE": 2373,
+          "MARK": 4825,
+          "EMPTY_TUPLE": 1,
+          "BINUNICODE": 19,
+          "NEWFALSE": 2373,
+          "NEWTRUE": 3,
+          "NONE": 4229,
+          "BININT": 6,
+          "TUPLE": 2373,
+          "BUILD": 2373,
+          "EMPTY_LIST": 435,
+          "EMPTY_DICT": 2018,
+          "BINGET": 20057,
+          "SETITEMS": 2018,
+          "BINBYTES": 777,
+          "APPENDS": 434,
+          "LONG_BINPUT": 16447,
+          "LONG_BINGET": 215,
+          "APPEND": 1,
+          "STOP": 1
+        },
+        "compressed_bytes": 614388,
+        "unpacked_bytes": 2569561,
+        "npy_header": "{'descr': '|O', 'fortran_order': False, 'shape': ()}"
+      },
+      "errors": [],
+      "strong_state_alignment_accepted": false,
+      "reason": "Short historical visually inferred fragments; exact build, full config, authoritative entities and natural termination unavailable."
+    }
+  ]
+}

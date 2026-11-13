@@ -16,6 +16,7 @@ class FakeADB:
                  check_outputs=None):
         self.pids = iter(pids)
         self.calls = []
+        self.timeouts = {}
         self.launch_stdout = launch_stdout
         self.launch_stderr = launch_stderr
         self.forwards = forwards
@@ -26,6 +27,7 @@ class FakeADB:
 
     def __call__(self, label, argv, script, timeout):
         self.calls.append((label, argv, script))
+        self.timeouts[label] = timeout
         if label == 'adb-version':
             text = 'Android Debug Bridge version 1.0.41\nVersion interface-only\n'
         elif label.startswith('server-version-'):
@@ -107,6 +109,15 @@ class NativeStartTests(unittest.TestCase):
         self.assertNotIn('immersive_confirmation', report)
         self.assertFalse(any(label == 'start-app' or label.startswith('poll-app-') for label, _, _ in runner.calls))
         self.assertFalse(any(script and ('am start' in script or 'svc power' in script) for _, _, script in runner.calls))
+
+    def test_slow_read_budget_preserves_one_launch_and_its_original_timeout(self):
+        report, runner = self.run_fixture([None, 2832], start=True, polls=1,
+                                          confirm_immersive=True, adb_read_timeout=90)
+        self.assertEqual(report['start_commands'], 1)
+        for label in ('check-app', 'poll-app-01', 'check-immersive', 'verify-immersive'):
+            self.assertEqual(runner.timeouts[label], 90)
+        self.assertEqual(runner.timeouts['start-app'], 60)
+        self.assertEqual(runner.timeouts['confirm-immersive'], 30)
 
     def test_empty_pid_poll_preserves_accepted_launch_and_reports_unknown_transport(self):
         report, runner = self.run_fixture([None], start=True, expected_status='unavailable',

@@ -1,0 +1,118 @@
+{
+  "schema": "arena-data-delivery-summary-v1",
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/data-alphaclash-ranked70-v1/video-audit.json",
+      "sha256": "5f509d4dfe4078a9551ec4b1910d021c7a12adba5a02cadecab4b6fb6e9cb468",
+      "bytes": 162072
+    },
+    {
+      "path": "outputs/arena-next-20261113/data-alphaclash/rank70-audit-v1.json",
+      "sha256": "85eea2addda84ae02b5a01090aa7299d558324d547970cf04c44988a7f7ca913",
+      "bytes": 66841
+    },
+    {
+      "path": "outputs/arena-next-20261113/data-alphaclash/download-progress.json",
+      "sha256": "9544d3246fb239310b40078634b530ff3e7ef92e43860db5aaf12deaaf841ae3",
+      "bytes": 73
+    },
+    {
+      "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/download-progress.json",
+      "sha256": "075e420f6df0ad23f07bb25cc8d35adbe8e1702338de36142601aa6bca75ad22",
+      "bytes": 70
+    },
+    {
+      "path": "outputs/arena-next-20261113/data-alphaclash/clock-audit.json",
+      "sha256": "7cb3b6fe41f41bd631e30728ffa9ff146d4406c64b6bbabfe52fb737749c9540",
+      "bytes": 1554
+    }
+  ],
+  "video": {
+    "schema": "arena-alphaclash-paired-video-audit-v1",
+    "revision": "cfcf165fa6fb0499aa75b49fc5936efec556ca61",
+    "group_counts": {
+      "train": 50,
+      "test": 10,
+      "validation": 10
+    },
+    "verified_containers": 70,
+    "original_recording_frames": 288659,
+    "boundary_fields_inside_video": 70,
+    "decoded_sample_frames": 0,
+    "exact_duplicate_video_groups": [],
+    "same_version_full_config_human_games": 0,
+    "games_with_native_action_labels": 0,
+    "game_seconds_conversion_applied": false,
+    "reason": "Use video PTS; README divide-by-four contradicts screen clocks; exact ticks/config/actions remain unknown.",
+    "plan_sha256": "ebd0a616c7f17803ee3e593de2c1b82732e86fe48290cc30fce24108fef21a27"
+  },
+  "visible_rank": {
+    "schema": "arena-visible-rank-audit-v1",
+    "plan_sha256": "ebd0a616c7f17803ee3e593de2c1b82732e86fe48290cc30fce24108fef21a27",
+    "revision": "cfcf165fa6fb0499aa75b49fc5936efec556ca61",
+    "method": "fixed-layout font-template OCR; recorded rank only, not account lookup",
+    "rank_read_games": 70,
+    "both_players_rank_read_games": 67,
+    "rank_read_games_per_split": {
+      "train": 50,
+      "test": 10,
+      "validation": 10
+    },
+    "human_action_labels_generated": false,
+    "limitation": "Rank OCR calibrated on five screenshots including source splits; these images are not an independent OCR test. Actor/decision test remains separate."
+  },
+  "all91_acquired_bytes": 3824872454,
+  "rank70_pinned_bytes": 3036022755,
+  "rank_seats": {
+    "top100": 51,
+    "101to200": 86,
+    "unknown": 3
+  },
+  "clock_audit": {
+    "schema": "arena-video-clock-audit-v1",
+    "stem": "20260729-235656_0100010101010101",
+    "samples": [
+      {
+        "frame_index": 600,
+        "video_pts_s": 11.389922,
+        "screen_clock_remaining_s": 156,
+        "measurement": "manual reading of unmodified original extracted PNG",
+        "image_path": "outputs/arena-next-20261113/data-alphaclash/raw/time-probe-01.png"
+      },
+      {
+        "frame_index": 1200,
+        "video_pts_s": 21.520422,
+        "screen_clock_remaining_s": 115,
+        "measurement": "manual reading of unmodified original extracted PNG",
+        "image_path": "outputs/arena-next-20261113/data-alphaclash/raw/time-probe-02.png"
+      },
+      {
+        "frame_index": 2400,
+        "video_pts_s": 41.742511,
+        "screen_clock_remaining_s": 34,
+        "measurement": "manual reading of unmodified original extracted PNG",
+        "image_path": "outputs/arena-next-20261113/data-alphaclash/raw/time-probe-03.png"
+      }
+    ],
+    "intervals": [
+      {
+        "video_dt_s": 10.1305,
+        "game_clock_dt_s": 41,
+        "observed_speed": 4.047184245594986
+      },
+      {
+        "video_dt_s": 20.222089,
+        "game_clock_dt_s": 81,
+        "observed_speed": 4.005520893514018
+      }
+    ],
+    "readme_divide_by_four_valid": false,
+    "observed_relation": "game dt approximately video PTS dt times 4 after speed settled; screen clock quantized to seconds",
+    "do_not_use": [
+      "sidecar.duration_s as video duration",
+      "frame_id/capture_fps for exact video PTS",
+      "video PTS divided by speed multiplier"
+    ],
+    "exact_engine_tick_alignment_verified": false
+  }
+}

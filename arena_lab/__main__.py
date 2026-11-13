@@ -10,10 +10,13 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser(description="Royale Arena Lab：环境、数据、模仿训练与闭环评估")
-    parser.add_argument("command", choices=("bootstrap", "benchmark", "train", "audit", "evaluate", "view"))
+    parser.add_argument("command", choices=("bootstrap", "benchmark", "train", "audit", "evaluate", "view",
+                                          "collect-paired", "align", "train-timing", "league", "selfplay"))
     args, rest = parser.parse_known_args()
-    if args.command in {"bootstrap", "benchmark", "train", "view"}:
-        modules = {"bootstrap": "bootstrap", "benchmark": "environment", "train": "training", "view": "replay_viewer"}
+    if args.command in {"bootstrap", "benchmark", "train", "view", "collect-paired", "align", "train-timing", "league", "selfplay"}:
+        modules = {"bootstrap": "bootstrap", "benchmark": "environment", "train": "training", "view": "replay_viewer",
+                   "collect-paired": "paired_data", "align": "alignment", "train-timing": "timing_training",
+                   "league": "league", "selfplay": "selfplay"}
         sys.argv = [sys.argv[0], *(["benchmark"] if args.command == "benchmark" else []), *rest]
         importlib.import_module("arena_lab."+modules[args.command]).main()
         return

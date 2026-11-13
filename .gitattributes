@@ -12,3 +12,4 @@
 /arena_lab/manifests/** -text
 /arena_lab/artifacts/** -text
 /docs/audits/arena_lab_20261113/** -text
+/docs/audits/arena_next_20261113/** -text

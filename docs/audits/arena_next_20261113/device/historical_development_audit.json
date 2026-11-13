@@ -1,0 +1,156 @@
+{
+  "schema": "arena-vision-native-development-audit.v1",
+  "scope": "same 7 historical frames used in implementation diagnosis; no independent test claim",
+  "frame_state_alignment": "native tick stable but pixel render tick unverified; labels are candidate alignments",
+  "source_version_fingerprint": "7d62f3e6385490b06ff1d376f5660efda4e7603319f963540449522b96c359b6",
+  "per_frame": [
+    {
+      "index": 0,
+      "scope": "opening_animation_excluded_from_unit_accuracy",
+      "raw_false_detections": 6,
+      "reason": "No battle HUD; now rejected by scene gate"
+    },
+    {
+      "index": 1,
+      "source_tick": 190,
+      "truth_units": 1,
+      "detected_units": 1,
+      "matches": [
+        {
+          "matched": true,
+          "native_entity_id": 5000006,
+          "native_card_id": 26000021,
+          "expected": "hog_rider",
+          "predicted": "hog_rider",
+          "class_correct": true,
+          "expected_side": "ally",
+          "predicted_side": "ally",
+          "side_correct": true,
+          "distance_tiles": 0.6479524857457566
+        }
+      ],
+      "known_hand_slots": 1,
+      "scope": "development_diagnostic_not_independent_test"
+    },
+    {
+      "index": 2,
+      "source_tick": 290,
+      "truth_units": 0,
+      "detected_units": 0,
+      "matches": [],
+      "known_hand_slots": 1,
+      "scope": "development_diagnostic_not_independent_test"
+    },
+    {
+      "index": 3,
+      "source_tick": 390,
+      "truth_units": 1,
+      "detected_units": 1,
+      "matches": [
+        {
+          "matched": true,
+          "native_entity_id": 5000007,
+          "native_card_id": 27000000,
+          "expected": "cannon",
+          "predicted": "goblin_cage",
+          "class_correct": false,
+          "expected_side": "ally",
+          "predicted_side": "ally",
+          "side_correct": true,
+          "distance_tiles": 1.2799365634155873
+        }
+      ],
+      "known_hand_slots": 0,
+      "scope": "development_diagnostic_not_independent_test"
+    },
+    {
+      "index": 4,
+      "source_tick": 490,
+      "truth_units": 1,
+      "detected_units": 1,
+      "matches": [
+        {
+          "matched": true,
+          "native_entity_id": 5000007,
+          "native_card_id": 27000000,
+          "expected": "cannon",
+          "predicted": "goblin_cage",
+          "class_correct": false,
+          "expected_side": "ally",
+          "predicted_side": "ally",
+          "side_correct": true,
+          "distance_tiles": 1.2799365634155873
+        }
+      ],
+      "known_hand_slots": 0,
+      "scope": "development_diagnostic_not_independent_test"
+    },
+    {
+      "index": 5,
+      "source_tick": 590,
+      "truth_units": 1,
+      "detected_units": 1,
+      "matches": [
+        {
+          "matched": true,
+          "native_entity_id": 5000007,
+          "native_card_id": 27000000,
+          "expected": "cannon",
+          "predicted": "cannon",
+          "class_correct": true,
+          "expected_side": "ally",
+          "predicted_side": "ally",
+          "side_correct": true,
+          "distance_tiles": 1.2823297295089306
+        }
+      ],
+      "known_hand_slots": 0,
+      "scope": "development_diagnostic_not_independent_test"
+    },
+    {
+      "index": 6,
+      "source_tick": 670,
+      "truth_units": 2,
+      "detected_units": 2,
+      "matches": [
+        {
+          "matched": true,
+          "native_entity_id": 5000007,
+          "native_card_id": 27000000,
+          "expected": "cannon",
+          "predicted": "cannon",
+          "class_correct": true,
+          "expected_side": "ally",
+          "predicted_side": "ally",
+          "side_correct": true,
+          "distance_tiles": 1.2616075959197572
+        },
+        {
+          "matched": true,
+          "native_entity_id": 5000011,
+          "native_card_id": 26000026,
+          "expected": "dart_goblin",
+          "predicted": "archer",
+          "class_correct": false,
+          "expected_side": "enemy",
+          "predicted_side": "enemy",
+          "side_correct": true,
+          "distance_tiles": 0.23832276621385665
+        }
+      ],
+      "known_hand_slots": 0,
+      "scope": "development_diagnostic_not_independent_test"
+    }
+  ],
+  "matched_units": 6,
+  "correct_class": 3,
+  "correct_side": 6,
+  "max_position_error_tiles": 1.2823297295089306,
+  "formal_accuracy_gate_passed": false,
+  "reasons": [
+    "development set reused",
+    "renderer temporal lag not calibrated",
+    "only 6 candidate matched instances",
+    "historical deck differs from supported eight-card hand templates"
+  ]
+}

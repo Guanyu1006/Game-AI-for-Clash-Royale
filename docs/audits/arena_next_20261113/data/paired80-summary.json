@@ -1,0 +1,155 @@
+{
+  "schema": "arena-data-delivery-summary-v1",
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/data-paired-v1/collection-report.json",
+      "sha256": "cec070ee8f53233dc4257ed1d5fe79b85d1b45abd696fc4902c5e5f130401183",
+      "bytes": 98732
+    },
+    {
+      "path": "outputs/arena-next-20261113/data-paired-v1/coverage-audit.json",
+      "sha256": "403b5449b938c81dd3a2396ccd21aa56a6afec5a692cb8096abea39287d0668c",
+      "bytes": 2041
+    }
+  ],
+  "collection": {
+    "planned_games": 80,
+    "completed_games": 80,
+    "failed_games": [],
+    "counts": {
+      "wait_labels": 77129,
+      "invalid_labels": 0,
+      "accepted": 11699,
+      "refused": 0,
+      "play_labels": 11699,
+      "joint_decisions": 44414
+    },
+    "wall_seconds": 434.85951715500005,
+    "schema": "arena-paired-collection-v1",
+    "source_kind": "rule_teacher_simulator",
+    "human_expert_demonstration": false,
+    "official_client_equivalence_verified": false,
+    "plan_sha256": "b9743506eda6ad0843221d7d36b0586788bbb93ae228d0d973948a66579bbdac",
+    "card_counts": {
+      "HogRider": 172,
+      "Knight": 1911,
+      "Skeletons": 2203,
+      "IceSpirits": 793,
+      "Log": 1435,
+      "Fireball": 823,
+      "Cannon": 615,
+      "ElectroSpirit": 849,
+      "Archer": 1213,
+      "Tesla": 181,
+      "Musketeer": 344,
+      "Giant": 196,
+      "Goblins": 536,
+      "Arrows": 423,
+      "Xbow": 5
+    },
+    "state_alignment_passed": true,
+    "throughput_including_compression_and_independent_replay": {
+      "joint_decisions_per_second": 102.13413354862648,
+      "complete_games_per_hour": 662.2828491467651
+    }
+  },
+  "coverage": {
+    "index_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
+    "dataset_audit": {
+      "train": {
+        "files": 120,
+        "battles": 60,
+        "steps": 66540,
+        "valid_labels": 66540,
+        "play_labels": 8730,
+        "ability_labels": 0,
+        "position_labels": 8730,
+        "visible_entity_rows": 66540
+      },
+      "validation": {
+        "files": 20,
+        "battles": 10,
+        "steps": 11448,
+        "valid_labels": 11448,
+        "play_labels": 1544,
+        "ability_labels": 0,
+        "position_labels": 1544,
+        "visible_entity_rows": 11448
+      },
+      "test": {
+        "files": 20,
+        "battles": 10,
+        "steps": 10840,
+        "valid_labels": 10840,
+        "play_labels": 1425,
+        "ability_labels": 0,
+        "position_labels": 1425,
+        "visible_entity_rows": 10840
+      }
+    },
+    "cards_per_split": {
+      "train": {
+        "HogRider": 129,
+        "Knight": 1426,
+        "Skeletons": 1637,
+        "IceSpirits": 597,
+        "Log": 1068,
+        "Fireball": 618,
+        "Cannon": 475,
+        "ElectroSpirit": 623,
+        "Archer": 894,
+        "Tesla": 131,
+        "Musketeer": 260,
+        "Giant": 153,
+        "Goblins": 403,
+        "Arrows": 314,
+        "Xbow": 2
+      },
+      "validation": {
+        "Musketeer": 43,
+        "Archer": 168,
+        "Fireball": 100,
+        "Knight": 259,
+        "ElectroSpirit": 119,
+        "IceSpirits": 98,
+        "Tesla": 26,
+        "Skeletons": 295,
+        "Log": 191,
+        "Cannon": 72,
+        "Giant": 23,
+        "Goblins": 72,
+        "Arrows": 60,
+        "HogRider": 18
+      },
+      "test": {
+        "HogRider": 25,
+        "Archer": 151,
+        "IceSpirits": 98,
+        "Skeletons": 271,
+        "Knight": 226,
+        "ElectroSpirit": 107,
+        "Log": 176,
+        "Cannon": 68,
+        "Tesla": 24,
+        "Fireball": 105,
+        "Musketeer": 41,
+        "Xbow": 3,
+        "Giant": 20,
+        "Goblins": 61,
+        "Arrows": 49
+      }
+    },
+    "fewer_than_20_per_split": {
+      "train": {
+        "Xbow": 2
+      },
+      "validation": {
+        "HogRider": 18,
+        "Xbow": 0
+      },
+      "test": {
+        "Xbow": 3
+      }
+    }
+  }
+}

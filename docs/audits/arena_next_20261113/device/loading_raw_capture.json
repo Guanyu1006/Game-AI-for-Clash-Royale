@@ -1,0 +1,15 @@
+{
+  "transport_started_ns": 3397228597229,
+  "transport_finished_ns": 3404583593526,
+  "host_encoded_ns": 3404630929815,
+  "info": {
+    "width": 360,
+    "height": 640,
+    "header_bytes": 16,
+    "raw_sha256": "6d5b2a379f0bf3bf63f89e2d9b1925c500e8488f1f1c00724cfb40dfa317572a",
+    "rgba_sha256": "b2eab2e96e1c94751425a42d1e435e41f8c48a5f1cd41ff4defb3931323ddc07",
+    "dataspace": 1
+  },
+  "source": "Android RGBA framebuffer; lossless host PNG encoding",
+  "elapsed_seconds": 7.402528070000244
+}

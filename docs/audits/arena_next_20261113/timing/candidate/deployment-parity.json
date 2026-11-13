@@ -1,0 +1,17 @@
+{
+  "schema": "arena-timing-deployment-parity-v1",
+  "checkpoint_sha256": "b368ec2aa4d22f463fe211ea9239530317a3daf1f31b1a83ec8389dcc4eef51b",
+  "source_split": "train",
+  "source_game_id": "paired-2026111300",
+  "source_sha256": "4be7c73bc5af9a5d87f4b4a6a6c2cd9dc1a6fd39894a096e7ac463490cd05311",
+  "frames": 128,
+  "predicted_events": 21,
+  "card_position_equal": true,
+  "hidden_state_close": true,
+  "reset_first_action_equal": true,
+  "time_fields": [
+    "elapsed_ticks",
+    "decision_ticks"
+  ],
+  "not_a_test_score": true
+}

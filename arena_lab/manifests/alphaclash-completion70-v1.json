@@ -1,0 +1,1202 @@
+{
+  "schema": "arena-alpha-completion-annotations-v1",
+  "plan_path": "arena_lab/manifests/alphaclash-ranked70-v1.json",
+  "plan_sha256": "ebd0a616c7f17803ee3e593de2c1b82732e86fe48290cc30fce24108fef21a27",
+  "source_revision": "cfcf165fa6fb0499aa75b49fc5936efec556ca61",
+  "review_input_sha256": "4d2cdd12be045fdc8dc0a08174a42646021faf3e5becf771fbdd4272724963ad",
+  "supplemental_opening_review_sha256": "1eab1156a89635a69802b2eaa26df68c2ba5208038094eea445fdce6c879e316",
+  "method": "Codex direct visual inspection of all 14 original contact sheets and 2 supplemental opening sheets; two ambiguous terminal frames also viewed at full resolution",
+  "criteria": "Opening player presentation present; terminal red/blue results presentation or decisive overtime crown animation. This verifies endpoint visual coverage, not all interior frames, winner labels or exact ticks.",
+  "games": [
+    {
+      "stem": "20260729-235656_0100010101010101",
+      "split": "train",
+      "video_sha256": "e1a9089e49a19bf67235de0f7cb50a963b1851648ca65d5f2dc4f9c4059bcb68",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260729-235656_0100010101010101/start.png",
+        "sha256": "8f021ab215c08c35e8fb5539b5a86aba15a1f3df7fcb251dd6c3b0474065556e",
+        "requested_seek_seconds": 4.62,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260729-235656_0100010101010101-tail.png",
+        "sha256": "30e8499e9c136bf0d11e8b50b61f7d497df14a305cc68df00498d96a55f3dfba",
+        "requested_seek_seconds": 83.51076699999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260729-235913_0100010101010101",
+      "split": "train",
+      "video_sha256": "f9c69a9a31f560d5dd7bacd0e8e0f54a5e30cdece9dd5798a838b4a8d4b148d3",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260729-235913_0100010101010101/start.png",
+        "sha256": "922f3396a22218c4664c23584388b27ec9fddaf26ac5f2209c2f5ff48138dd19",
+        "requested_seek_seconds": 4.38,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260729-235913_0100010101010101-tail.png",
+        "sha256": "9431440c269093481451b60d7bc9b1f844aa4c0236062136ff4c21355429ea97",
+        "requested_seek_seconds": 52.761333,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-000116_0101010101010101",
+      "split": "train",
+      "video_sha256": "e8340a0c820da79793de181b2897118fea8b214c220e8177002999dc832593e2",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-000116_0101010101010101/start.png",
+        "sha256": "9e5dfafd2ea77d95fd7587a7646ec2d4cf835323aecb6730c26fc343af0c994e",
+        "requested_seek_seconds": 4.12,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-000116_0101010101010101-tail.png",
+        "sha256": "b3962e7f889d39e5af9a425faedee874a46536d36312a3de39b548de0cf6002e",
+        "requested_seek_seconds": 82.88876699999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-000342_0101010101010101",
+      "split": "train",
+      "video_sha256": "889fc455a43c9b16e6555f1cf2236fe6c7f1e2cb3daee0f7f0302eb5db133d82",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-000342_0101010101010101/start.png",
+        "sha256": "e3749c24a73800ca886aeed47edb63a74c6abbad4436fdd047e6a125cef762fc",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-000342_0101010101010101-tail.png",
+        "sha256": "c9bbd7e8f686f0c4f7a1cf85fb0a550fbdbc3401b34ccf00388d73c0680507b4",
+        "requested_seek_seconds": 73.07666699999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-000549_0100010101010111",
+      "split": "train",
+      "video_sha256": "0f3f56951795fa49a295b16a94451a3c691298d2ca0949c12a168f1e2546a5f8",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-000549_0100010101010111/start.png",
+        "sha256": "10eed35dbf78af9006726ab642c1fb6691f4dcd6acfbf08d175f19db8faf6923",
+        "requested_seek_seconds": 4.0,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-000549_0100010101010111-tail.png",
+        "sha256": "5056c8752c88f3a2c2e723c268c935cb6c809e654f2dcc49d728c379bcf1dada",
+        "requested_seek_seconds": 49.511711,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-001134_0100010101010101",
+      "split": "train",
+      "video_sha256": "494104d722026cc44aaf8fe51113e0ed59a70036036c14606899db695529219f",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-001134_0100010101010101/start.png",
+        "sha256": "62e5c29e5c0256a258281b62668989a6b0a8ccde2eb0a67054c94a072782f434",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-001134_0100010101010101-tail.png",
+        "sha256": "4af6df92ba352caa6e76b5c03d5fecf17e8f9ff446c1180924de9520dc801ec5",
+        "requested_seek_seconds": 83.07411099999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-001404_0100010101010111",
+      "split": "train",
+      "video_sha256": "5e8296439008a8e3324a197ca01bd224d0c237f985dc04ab11f4347cf316e02e",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-001404_0100010101010111/start.png",
+        "sha256": "3843ee740cc6dfcbf65310a6565e8b23581aacbced6c4baed2d5cc8f0bae3b15",
+        "requested_seek_seconds": 3.94,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-001404_0100010101010111-tail.png",
+        "sha256": "62ff0c7d1371deaf05f85cd588dd98d9e61dc4876fa2080ea11ba6c932ca27e8",
+        "requested_seek_seconds": 51.0168,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-001554_0100010101010111",
+      "split": "test",
+      "video_sha256": "e5e61b35a1baf6496b8250f3c59b9a33e45eec6e514bb6e6b2653b422f1c58e3",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-001554_0100010101010111/start.png",
+        "sha256": "a4631e8c1f6020668773ab2fbcd6b1ff24986a90d43993e7864a1b6fe3fb9f94",
+        "requested_seek_seconds": 3.94,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-001554_0100010101010111-tail.png",
+        "sha256": "2db12c514b205c1462f872504d53824f3ff0305ff9344b754dc831d99da5dbb4",
+        "requested_seek_seconds": 82.76464399999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-001820_0100010101010101",
+      "split": "train",
+      "video_sha256": "1439b74b56f0c6957c29ba3aacbf6110c32e3d142c3e13a88ceedca100c6dca1",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-001820_0100010101010101/start.png",
+        "sha256": "7625be8f162c258bdc428c0c4da40ab213f7b9421d3373434742117eeb69d0ea",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-001820_0100010101010101-tail.png",
+        "sha256": "ee7fc29ba0a708832b2a33477ab886ed0693f141272f4b2bf9d916bca03fb44b",
+        "requested_seek_seconds": 79.71037799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-002038_0101010101010101",
+      "split": "train",
+      "video_sha256": "8b119178af110b772a19b3d366d0af5066d02524aa053b4e8e692e7383566096",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-002038_0101010101010101/start.png",
+        "sha256": "3be97414cac6a1c73f6a2ba1785c5740a09a4466d089c936fbe62a8992f3849c",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-002038_0101010101010101-tail.png",
+        "sha256": "fe27ecb489476a557387712dd03c67f4a634a69ff8cc27cef24568e7489ea69e",
+        "requested_seek_seconds": 59.897178000000004,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-002749_0100010101010101",
+      "split": "test",
+      "video_sha256": "83a2c7c292a424709ab022b4d145734f1e37b88e6506646fd2eae6064cb53426",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-002749_0100010101010101/start.png",
+        "sha256": "e52afc20c3e2f30b0560667eef5cd2600c7dcfdff0c7f36f6882f90f9b79db3b",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-002749_0100010101010101-tail.png",
+        "sha256": "2e797bfd463e649b0c1211a506ccff1b7ab394f9401c50c4aee29f913bb27c15",
+        "requested_seek_seconds": 82.954478,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-003023_0100010101010111",
+      "split": "validation",
+      "video_sha256": "8c1137a3a33957a15bf490f907b0151c3db60dc40fa3e3461feb42bea0391de7",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-003023_0100010101010111/start.png",
+        "sha256": "a53b017b730d4f589dd496fe3bd014bb48c2a8becb123dd9afce75ece50ae5fb",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-003023_0100010101010111-tail.png",
+        "sha256": "982bcd83845e35c64ddcede10641cc65f0d8e5f3bc688a1b147ad906357592e7",
+        "requested_seek_seconds": 82.52327799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-003249_0100010101010111",
+      "split": "train",
+      "video_sha256": "605a0f441d513c517e8b38dcfca288d601d3f6c5b1275351e5c53395b1620483",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-003249_0100010101010111/start.png",
+        "sha256": "938d2b5fbf259803970317d50e96d861cf2100aabaad880368b68fbfa721a9ae",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-003249_0100010101010111-tail.png",
+        "sha256": "1e20de7a0d83d047aedef695a648a4b0d128998a825b9b7d542bd79a828e97c1",
+        "requested_seek_seconds": 82.52117799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-003511_0101010101010111",
+      "split": "test",
+      "video_sha256": "aa9a6d64f880cb490172bfa9eb2b08bfa3bafea496a5f65d1ef47508877e0207",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-003511_0101010101010111/start.png",
+        "sha256": "7a68b66c3ed53264cc8c6ccb57a02e20ccd5a3302151d876f7f511ae1dd04e22",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-003511_0101010101010111-tail.png",
+        "sha256": "478165343accf280e930003e56d890829f522d2d0fe1858d8450f249adf265a5",
+        "requested_seek_seconds": 82.63748899999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-003735_0100010101010111",
+      "split": "train",
+      "video_sha256": "68edb40408b008209f2ab4f14418c92b1c2d6f753825dee25aa570ed9904d35d",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-003735_0100010101010111/start.png",
+        "sha256": "40611926bde2cfc46680dd31ea895f3c50aa9007b2ae153e02e6bd279ffc3fb0",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-003735_0100010101010111-tail.png",
+        "sha256": "56349317faede4e153c3a9b1d5a628306a7565890233468b213580c0037beeca",
+        "requested_seek_seconds": 53.018967,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-003940_0101000101010111",
+      "split": "train",
+      "video_sha256": "827b3aa08d66366e317f08bc34d47ad87ca20c51169fe3d73d4f01e19829c0c9",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-003940_0101000101010111/start.png",
+        "sha256": "de1e5c28c907a4b00f60d09c6b5ad523a3b7086260f21e77965b6379e4bdc68d",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-003940_0101000101010111-tail.png",
+        "sha256": "d3ae2509520c5ecae7ac02bdc7759026471d7a254c9aa7b7ca8706be72eb3279",
+        "requested_seek_seconds": 50.954756,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-004142_0100010101010101",
+      "split": "test",
+      "video_sha256": "912e86abe9347035a50ba3a1705960337b626c0cd284d8a34315b7aadd236d0a",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-004142_0100010101010101/start.png",
+        "sha256": "c73a725a04729033d9744a94d7f4192ddbfa3c55a4a85c4f191f6ac1260d76e7",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-004142_0100010101010101-tail.png",
+        "sha256": "fa84f3940f55470fd8ae5934adb15489280592937cad488691d4e1b5b0bfea2f",
+        "requested_seek_seconds": 77.196433,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-004617_0100010101010111",
+      "split": "train",
+      "video_sha256": "1557444bdda7dfcebbd0957d9c6223c2dfab8170a7ba8757ca77ebfb358dea94",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-004617_0100010101010111/start.png",
+        "sha256": "8c20fc59d06dbb5487c93bbc61da13dccb419b2bc51a55984bd4a8b0eaa5a8a8",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-004617_0100010101010111-tail.png",
+        "sha256": "04e76e0c8d64e190a171ad6823150d6064db3d6f39fd52fe80ed180b4ef2b60d",
+        "requested_seek_seconds": 83.08156699999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260730-004933_0100010101010101",
+      "split": "train",
+      "video_sha256": "f27d84ae26ae748eb82504b573fc1bf39e91bc3efa2bc99d64694ae98ed66449",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260730-004933_0100010101010101/start.png",
+        "sha256": "bee43184b83a2e17bd6f6adcecf197b529e989703183f202b56c33150b86e6b8",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260730-004933_0100010101010101-tail.png",
+        "sha256": "d2791cfba611b831b26dd498be4de43884c2c98a5450fec349314c11d29adab1",
+        "requested_seek_seconds": 82.957156,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-020140_0100010101010111",
+      "split": "train",
+      "video_sha256": "44291f0eb656a41af6ad74d775d1720e02687f63f41649bfff018d821823d902",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260731-020140_0100010101010111-opening.png",
+        "sha256": "4582e05df16434d356d418218a61f18c2d03aa4630802acdedf02a2dd943f567",
+        "requested_seek_seconds": 2.12,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-020140_0100010101010111-tail.png",
+        "sha256": "45218593b1e60cc1be36d934ce0ef6516367459aa3f1d68d8995a67c68ddf964",
+        "requested_seek_seconds": 50.834756,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-020529_0100010101010111",
+      "split": "train",
+      "video_sha256": "2ab7ecaa9372d82e6f05beb17a88c3840982e241d462a3a31923d74c488d5842",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260731-020529_0100010101010111-opening.png",
+        "sha256": "fc31f214b5f1351b5af9a480e4700fe4faf2746aece5a8b2cb7bd949b92b381f",
+        "requested_seek_seconds": 2.44,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-020529_0100010101010111-tail.png",
+        "sha256": "775cc0b51406378b2734b9d9e04636a6a434797ae63096664f92958d2ad981d4",
+        "requested_seek_seconds": 53.074211,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-020721_0100010101010101",
+      "split": "train",
+      "video_sha256": "e83ffd9be2b7f6ebfd59e3d6a3ff976383791a3ef03cb87f4ff566e6a6d63616",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-020721_0100010101010101/start.png",
+        "sha256": "1d90a2d0476809aceac4bcbb5aabca8f2afa9ced35534698f22e4eb2d71bb807",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-020721_0100010101010101-tail.png",
+        "sha256": "1b83ffd3bfa06dcc4cf12d990371302ac00fff8414efe4e5463d47f0b050b9f0",
+        "requested_seek_seconds": 51.075144,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-020912_0100010101010101",
+      "split": "train",
+      "video_sha256": "89ced5ff6c937def7b20880795d281ace40595e73f1e0def608a4154ef5dfe5c",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260731-020912_0100010101010101-opening.png",
+        "sha256": "9862ecf435434cd538800639db6c1736f3ec7a7a194a89e475ae4b84117582ba",
+        "requested_seek_seconds": 2.31,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-020912_0100010101010101-tail.png",
+        "sha256": "ebb5cc43b4d74b1fde43171e266846ea1e08bde8accc7b25803e463daeaed104",
+        "requested_seek_seconds": 58.009778,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-021101_0100010101010101",
+      "split": "train",
+      "video_sha256": "6816931937e44f8d83aa7f0fa7000f82fbfe692d2f4b65149108e30b63a42b64",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-021101_0100010101010101/start.png",
+        "sha256": "e0f4d4c74a9796dd06d1102819adec4048f7dafcce7cd76d35eb32d6031173a5",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-021101_0100010101010101-tail.png",
+        "sha256": "830859c20a0877512e0f682830d27f27ca7af7c78f1c8d90f4e8d6b0e0534b9e",
+        "requested_seek_seconds": 82.697222,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-021316_0100010001010111",
+      "split": "train",
+      "video_sha256": "a83dda9c7dce797c933818e1951641eb002a77f093dd8f8d78bebc85a55d64fa",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-021316_0100010001010111/start.png",
+        "sha256": "3ff62f9b5364077eaa5edd5ea34b5cb652458ba291be90ac568fa3ea520cbb98",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-021316_0100010001010111-tail.png",
+        "sha256": "a9f0305f575bc9af7f6dffb23ececa98eb05e8d4db22048e71b994ab0ce5a521",
+        "requested_seek_seconds": 51.703767,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-021643_0100010101010111",
+      "split": "train",
+      "video_sha256": "de67a513869c29e89706223fc17d7ee0cbc645a8356133c7ce4ed1977058f24b",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-021643_0100010101010111/start.png",
+        "sha256": "4189dc8f9e449f4b483c5fed9041dd801149e15134e81a7965ae58c9bde6a3cc",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-021643_0100010101010111-tail.png",
+        "sha256": "1b857af65406e679e97bb3be588e24583640390b9271f31252f66073a7736bb7",
+        "requested_seek_seconds": 63.2624,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-022256_0100010101010101",
+      "split": "train",
+      "video_sha256": "ee9bdf7a704d4f1dfd8a583293aca15388df17481131a40f88d5afe6efded8b2",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-022256_0100010101010101/start.png",
+        "sha256": "0f691b71f26ce69ddc147c27621cc4b3a67d51c1b0bd164e6a98cfd3b00f1be9",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-022256_0100010101010101-tail.png",
+        "sha256": "d74a656db3112886fa27af833bfd4766e225af7ba7c97e0ea139dac54011d669",
+        "requested_seek_seconds": 79.69523299999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-041814_0100010101010111",
+      "split": "train",
+      "video_sha256": "034b336f377bd6fc447a4639be9bc31005e86ba8a896ec4de09aafdb1020fbfd",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-041814_0100010101010111/start.png",
+        "sha256": "426beaa04e929c9b8a0300030cde1ae158312731210d74d6e517a01b4e209a5d",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-041814_0100010101010111-tail.png",
+        "sha256": "69a5613b9ce33d7282325128db985eacbf3b1fa5d2fcf23c07a123230361bb2b",
+        "requested_seek_seconds": 78.326989,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-042512_0101010101010111",
+      "split": "test",
+      "video_sha256": "9bc3466fd202101ba3e307122cece5b931173099d6267c128160209fd7d23722",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260731-042512_0101010101010111-opening.png",
+        "sha256": "03de6771275ebb4b5ebfde126509f1eebdaff9939cbcb6183421d5ddc209872f",
+        "requested_seek_seconds": 2.25,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-042512_0101010101010111-tail.png",
+        "sha256": "a05c4dd6d0e28584f06c525e120ec5e69c3677a1c62e7da961f7aca1f41814b4",
+        "requested_seek_seconds": 82.512289,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-042724_0100010101010111",
+      "split": "train",
+      "video_sha256": "f9b8e9a2de5507fa5a2f89a09465a3c34136271d01fcd3abf83731e40ac02266",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-042724_0100010101010111/start.png",
+        "sha256": "dea204288aec70d2aded6ec2b0c78f93cdf0e8c4f70cdffd67575b244f6d51e9",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-042724_0100010101010111-tail.png",
+        "sha256": "5ca0c57298015f326044806a7f15e8e669798012c9b2a4fe2639250b39040548",
+        "requested_seek_seconds": 82.50872199999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-042953_0100010101010111",
+      "split": "train",
+      "video_sha256": "df0f29f21b3e1e8427e7d0016564ec3b0542b3dfb9bb470892c60882f665d178",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-042953_0100010101010111/start.png",
+        "sha256": "9ffc2250205a74e4cd04c95302df7a4e9d329994f39032274d53ae80cd2717ac",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-042953_0100010101010111-tail.png",
+        "sha256": "41ab1b3da4f0c79a63a660f53ec9ffe70fa84dfb68635d1eafde82ae4849e695",
+        "requested_seek_seconds": 54.704989,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-111349_0101010101010111",
+      "split": "validation",
+      "video_sha256": "fd18e7b234b39342ec46b0daa5ba13a03fd515b079c06a6c90c9308e2ba5fda3",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-111349_0101010101010111/start.png",
+        "sha256": "42592f4e334bdde09b2fceb1a374d6076d9a580eabc1505d8a1727cad316ebfb",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-111349_0101010101010111-tail.png",
+        "sha256": "a71fa4a7065f07a8cb2301072b288375072794ddcea0fe0642ec32bebb6cb6ff",
+        "requested_seek_seconds": 83.20865599999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-111630_0101000101010111",
+      "split": "validation",
+      "video_sha256": "04a34b4df67c0fb97dcee46ed3fab82df5c125e254cb3c9346482cddcf70fa4c",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-111630_0101000101010111/start.png",
+        "sha256": "40be4fc43df9db6a2d18187b6133d4d47e09b86e03d1e4ea415a318c7e953e89",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-111630_0101000101010111-tail.png",
+        "sha256": "1954f402fe481b322ba4691267a66bdfe9d64d65fe7716ffa3a11375b05dd146",
+        "requested_seek_seconds": 83.02196699999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-112053_0100010101010101",
+      "split": "train",
+      "video_sha256": "9cf110f50b60684f94d6b69f6bcd1d4b6f57b19ab913d59c227d9634f97c8400",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-112053_0100010101010101/start.png",
+        "sha256": "bececee22b1ac7831c70ab325136acc48f970af401934bcb37b6d9c1d4f7c7cd",
+        "requested_seek_seconds": 3.94,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-112053_0100010101010101-tail.png",
+        "sha256": "e502e2e26c6f6776f7141b5894a41577f9a95ccb7ac8c320eb628355e119cc17",
+        "requested_seek_seconds": 82.83,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-112310_0100010101010111",
+      "split": "train",
+      "video_sha256": "84ab8a1a934a51d03d4d473f11cf32d7b0cf475d3c4af38791f65918c19969fa",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260731-112310_0100010101010111-opening.png",
+        "sha256": "39fb560d0f8496badbf1b6f177ab012863ad09aaa905dc8aec54c6576c82876b",
+        "requested_seek_seconds": 2.25,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-112310_0100010101010111-tail.png",
+        "sha256": "62618d22f02e4403a5b70cb302f84ef240818acdcb3348eda1aecbe8b815f054",
+        "requested_seek_seconds": 53.197333,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-201825_0100010101010111",
+      "split": "train",
+      "video_sha256": "363f50684886ebfb1b8f4a147f9bcf3b274a23eec1b9e30d0a8149e15caecf5a",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260731-201825_0100010101010111-opening.png",
+        "sha256": "412f9f9607020a02e07b17bb84b505971a3430efd62dc009abb24fd134901615",
+        "requested_seek_seconds": 2.19,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-201825_0100010101010111-tail.png",
+        "sha256": "666c69a0ebe3c0190f66ef1de68d9e615005e22e40a50d577dd88c1eb1e5e036",
+        "requested_seek_seconds": 49.269667,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-202120_0100010101010111",
+      "split": "validation",
+      "video_sha256": "6bc110167d7155d7d9f8d0d12fd4af95ed16d022bc0aabcee4e8aaf671e5a632",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-202120_0100010101010111/start.png",
+        "sha256": "bf405ae659f39a837b7fdc28ede6aee5e108bf63554898de1eac46fae53486fd",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-202120_0100010101010111-tail.png",
+        "sha256": "130c0fd31a3b31588650909d8c70eb0dd6090d344c6b3a20968bb109a950cc84",
+        "requested_seek_seconds": 77.01897799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-203119_0100010101010111",
+      "split": "train",
+      "video_sha256": "a11bae5740f4b68326ff22fc80d50605a7b8c3bc3f0c6d4ea54a9b9131a91e86",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-203119_0100010101010111/start.png",
+        "sha256": "77a8f2ff6855a607cd556302f9370dd3b506b389828361de392ccb28f3b370ed",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-203119_0100010101010111-tail.png",
+        "sha256": "13d5b79cd15212b94f4934bb2c3866ef508fac1c411a266e5bebc6890e150cb8",
+        "requested_seek_seconds": 69.2594,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-203503_0100010101010111",
+      "split": "train",
+      "video_sha256": "a4832b01656382aafc451d11987c17b53c324e8b4e4664b4947110a29c23c6ba",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-203503_0100010101010111/start.png",
+        "sha256": "eef8359b09299b02b3a582986797b3835af9126d1b597bb6ab6d2f10fcfb179b",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-203503_0100010101010111-tail.png",
+        "sha256": "6bdbefc59b169ce2240fa1cf42736ea7c4b1c0d84082d93a17ae62dd656aa103",
+        "requested_seek_seconds": 62.076411,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-204213_0101010101110101",
+      "split": "train",
+      "video_sha256": "6d60e84f39a71e2d2b57d1494d045a87b83b066991a6aa911f2a95ee10ad817f",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-204213_0101010101110101/start.png",
+        "sha256": "4f1331946f0d6778c680df26ca72500d7199d9ecfc8da9766582fdced30fdbac",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-204213_0101010101110101-tail.png",
+        "sha256": "39e66bed8296343b693a76bb6e1dbd15613f77e2bf35c9253a8a786b7d41f48f",
+        "requested_seek_seconds": 82.76817799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260731-205136_0101010101010111",
+      "split": "train",
+      "video_sha256": "c9b2fee399a1ff3db8fc39a00e4213b527d68f0d4a7c1a3f4a9eaffdeff2d7a3",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260731-205136_0101010101010111/start.png",
+        "sha256": "7cb4b26a6f617afffaa0902f8779ebc67649a7caf69c921e71b0158f934c5c1a",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260731-205136_0101010101010111-tail.png",
+        "sha256": "6d8476262ff8aaf10dcd61422d3f339e356caf0f2da038ce8ee983377cee92df",
+        "requested_seek_seconds": 51.201633,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-025915_0100010101010111",
+      "split": "validation",
+      "video_sha256": "df70fe24cf1019d109ccf589cdf256115db45479a2b4b76385ad6111a22feb69",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-025915_0100010101010111/start.png",
+        "sha256": "c3a649dad3d8c7a51d800d64f6f54228a4db7088f03a514196f2d93c45951479",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-025915_0100010101010111-tail.png",
+        "sha256": "52c4eb4fcca5bb6d4d5e15e86b96dadf0c30b5e49fbfeca13fe332f559923328",
+        "requested_seek_seconds": 50.9517,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-030053_0100010101010111",
+      "split": "train",
+      "video_sha256": "3ad48f9e9119ebc355c1a4f6875ca71f2da004d053df7bf1201a6e8e6477c934",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-030053_0100010101010111/start.png",
+        "sha256": "e2d467b484a2e3e03e7b8f0ba20bafc1e951e6d7d9da41d99895f6d0009db16b",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-030053_0100010101010111-tail.png",
+        "sha256": "8fb16bc5a78b2269c5f704f553c1d590797ac1ff94a06d9554b862921b609709",
+        "requested_seek_seconds": 82.456278,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-030305_0100010101010111",
+      "split": "train",
+      "video_sha256": "a64dbced0e31f31cf99b0db6bc74f3684d3726b84d9b5b4af820b0026706fb82",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-030305_0100010101010111/start.png",
+        "sha256": "0e013e388e984dbd3545262daeb9e6f382f06f784e92171d7fed540f6ba9571c",
+        "requested_seek_seconds": 3.94,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-030305_0100010101010111-tail.png",
+        "sha256": "f476fab249b59f4e4f55a8bd6c81f45f03aab1307d8fe90675c72974690e5317",
+        "requested_seek_seconds": 64.883378,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-030503_0101010101010111",
+      "split": "train",
+      "video_sha256": "a4515477c8eaeecde057fd2c9323f08d7dbbd5f7027307252ed87dd837135249",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-030503_0101010101010111/start.png",
+        "sha256": "9ed8e7804f299b4be688ba9b6da486488ba8eda342135024f389abe8a94c0674",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-030503_0101010101010111-tail.png",
+        "sha256": "61d84db1fd8489d894042e3a8cb1619ff0df12ebe73aae60e6a70bf1d63340b8",
+        "requested_seek_seconds": 51.012511,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-030643_0100010101010111",
+      "split": "validation",
+      "video_sha256": "dcde4478fa767e80e9dfdd34b1b17b35b4a785bc4e823a8c6a32c8dc5b460806",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260801-030643_0100010101010111-opening.png",
+        "sha256": "4acae9177e32751dd4a0534ccd556b507f66dd3b1960eef431f476b658ba56af",
+        "requested_seek_seconds": 2.38,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-030643_0100010101010111-tail.png",
+        "sha256": "bd141f95fc72338ed59a7767c96ea89eae5f468370e785216073cc2d5acca554",
+        "requested_seek_seconds": 53.009978000000004,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-031031_0101010101010101",
+      "split": "train",
+      "video_sha256": "31b1d05749f3dc2dc833f0d5ce688e153f82d63be88383a66d40ebf20720f358",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-031031_0101010101010101/start.png",
+        "sha256": "18b6ebeaaf45a1bbc1113dde113002d0d3ae826e7a3ec559bf8f7abb972cfdae",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-031031_0101010101010101-tail.png",
+        "sha256": "81df4955e11100fd2be1994dbc92dfa3a3d0b61e057e5be148ef25a9ba32ba2a",
+        "requested_seek_seconds": 82.700367,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-134119_0100010101010111",
+      "split": "train",
+      "video_sha256": "20a898a6885dc041c1e56eb80d192031fa95862cdf42dee253a2943f868fb0f5",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-134119_0100010101010111/start.png",
+        "sha256": "b3b146f2a58bc5b5ddee440b44db78b967f048d7282a211944a983db033c4d81",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-134119_0100010101010111-tail.png",
+        "sha256": "bb5f2f749fdf066bf25372c7bd6b2717d5705ee8ce21a702db410dbb6a44913f",
+        "requested_seek_seconds": 50.831267,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-134429_0100010101010111",
+      "split": "train",
+      "video_sha256": "b3c395d5d156264c6942017d21f9150948c6ba5bd16bf4716ef5a565c0fe6af9",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-134429_0100010101010111/start.png",
+        "sha256": "9e776898c33999652b214fdbffd5f119de82cf6154e6a29d1eea506640a5bc6d",
+        "requested_seek_seconds": 4.0,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-134429_0100010101010111-tail.png",
+        "sha256": "142d7c5480a74bdc020c17595d40542a5a88192c31ab8e5acbcaeeb369a07a24",
+        "requested_seek_seconds": 70.26895599999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-134636_0101010101010101",
+      "split": "train",
+      "video_sha256": "25a0a3f024ca3b3e22304773d51cf3cf0c0a4a588879fc419c5e8e75d4c08fbe",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-134636_0101010101010101/start.png",
+        "sha256": "6a383cee0bca922b58c144ad03389092c2365fdff9c769df613c54e5a80eabda",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-134636_0101010101010101-tail.png",
+        "sha256": "5c92344e9d7c91ba1a0e3d85ce46f460edbabce78245fb439586ced947ab1a56",
+        "requested_seek_seconds": 71.323011,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-134841_0100010101010101",
+      "split": "test",
+      "video_sha256": "c443ec31187f61015f6b39ebdc111ddf5cfa3617c89250ebf39c2b5616ea8ffc",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-134841_0100010101010101/start.png",
+        "sha256": "e8ff28460b9086ea7df27a1734bb5d06914361733b56bb0fd13a8407e9797f8b",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-134841_0100010101010101-tail.png",
+        "sha256": "26c8c6421a48bec1ba1052fa8dace212f5f828ed6917e777ad6034124e6e3c66",
+        "requested_seek_seconds": 75.521667,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-135310_0100010001010101",
+      "split": "train",
+      "video_sha256": "5b46f85bc25443450eab742e8458683935818d930b92437082d14071fbb62347",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-135310_0100010001010101/start.png",
+        "sha256": "d5ca8f4d452bf73bc571c82a7c433cb2acd9f7b134b7e3ca22e44de36a359aa6",
+        "requested_seek_seconds": 3.94,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-135310_0100010001010101-tail.png",
+        "sha256": "2979b76ecf36baaadd11dd5f92813852f0071cac4e08a20be7a185981a7c9394",
+        "requested_seek_seconds": 78.70941099999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-135530_0100010101010111",
+      "split": "train",
+      "video_sha256": "8012fe4d364f10e27c93979c65327088cf276da93519265b34e1d36bd94c97a7",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-135530_0100010101010111/start.png",
+        "sha256": "5ffbf49852683c4db688f9867cff26da6cf8a4f60fc765c588a997d2159a9ef7",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-135530_0100010101010111-tail.png",
+        "sha256": "9c4226c6341241f189dcce54ec96f7686ee835d68e11a16cc46e34800fb51ba8",
+        "requested_seek_seconds": 83.207911,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-135939_0101010101010101",
+      "split": "validation",
+      "video_sha256": "b5e944432fda9cfc7aab5514889144183bfa401f8c1a6e3237cc85e45fbf2564",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-135939_0101010101010101/start.png",
+        "sha256": "819abd75f549d110afddb4c9e3155046af90103dfb5ea64a48c906b4246a2ef3",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-135939_0101010101010101-tail.png",
+        "sha256": "f011c9aab1c41a619fe12707f052288b156796e05ebc55ee5c4f243d7d6de40c",
+        "requested_seek_seconds": 82.32677799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260801-140157_0100011001010111",
+      "split": "train",
+      "video_sha256": "f794912eb645dd313b1175246d88eb767f7a567c8120768b1947dedc1862f02b",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260801-140157_0100011001010111/start.png",
+        "sha256": "c43c3816348e13aab6f4ab20b3c1393d804991afd0bf507351f6cb3ae6da4b41",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260801-140157_0100011001010111-tail.png",
+        "sha256": "f690c2e7ada0bbef0bdb9b0116adfa5b7e6e7321b4aebe01822f59081d7132b2",
+        "requested_seek_seconds": 51.139889000000004,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-150903_0100010101010111",
+      "split": "train",
+      "video_sha256": "205e544944cf0e0b158142e51ca7952bbabe23d7b38e86ddb42c1a5f08d42e9c",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260802-150903_0100010101010111/start.png",
+        "sha256": "cc47041977d5692b01b6382116efc9f837352aecf5ef6aef29e92e7410e7b386",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-150903_0100010101010111-tail.png",
+        "sha256": "44e75fd4e45169209d9a71860f936f9e2d584c17702a24e2850f48ab2d4fbb98",
+        "requested_seek_seconds": 82.766978,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-151105_0100010101010111",
+      "split": "test",
+      "video_sha256": "14b31aca0a43784c8a7e5eb1ed2c260e0e80e112a9919b7097214bc722727b65",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260802-151105_0100010101010111-opening.png",
+        "sha256": "173ba74fafe4a47de87522e7239c301d641a7fcb73f731fa1abef5bbab333140",
+        "requested_seek_seconds": 2.38,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-151105_0100010101010111-tail.png",
+        "sha256": "8ae73c1b154525b7b2cc0f0d21393e1aefd91dc5a6a5a68632e90b5fc63725fc",
+        "requested_seek_seconds": 56.272833,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-151258_0100011001010111",
+      "split": "test",
+      "video_sha256": "2e803c845f6069c74b1330c847b5331afedc915d1b7fb3fdf646cd34b2bbee14",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260802-151258_0100011001010111-opening.png",
+        "sha256": "15e7cdc31e802f2a484ffd3c838934e7a320e79f9fa1743dadc591b2d58d9e14",
+        "requested_seek_seconds": 2.38,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-151258_0100011001010111-tail.png",
+        "sha256": "ac4bc3dfedd10bcab2743d6daba3b63b88e4e9adab38a4a44888a9a49b260c5d",
+        "requested_seek_seconds": 51.0118,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-151456_0100010101010111",
+      "split": "train",
+      "video_sha256": "9b455a259ac3348ea37e962863df82949112238f4afab299bd308c212adb2a6d",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash/frame-samples/20260802-151456_0100010101010111/start.png",
+        "sha256": "3f3983c5218aa0036b4f0471133f90360837832fc4e7173c44e80d6b96ae1c9c",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-151456_0100010101010111-tail.png",
+        "sha256": "e8510a2228392ed60458bbebffeb3b95f4f6c6545b12fe97b2e047b526466da5",
+        "requested_seek_seconds": 82.69667799999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-152547_0100010101010111",
+      "split": "train",
+      "video_sha256": "2b37e87d32c636e0b4d634569ba36aedf9d4f3f9270ee9061352fa74b0bd7e2e",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-152547_0100010101010111/start.png",
+        "sha256": "9c5e059ba2f05c0637ca026d9c85e3615221f3270bc80f000e0b20420aec4fe5",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-152547_0100010101010111-tail.png",
+        "sha256": "97df0402105c7ddc55574611efc15b5c01e3ce34ab9de84b93cf1335fef86822",
+        "requested_seek_seconds": 62.509822,
+        "visible_evidence": "decisive_crown_award_during_overtime"
+      }
+    },
+    {
+      "stem": "20260802-152809_0100010101010110",
+      "split": "train",
+      "video_sha256": "cc9fc9c601519219080da21d9da7300678e2816153a0d3d64300b75e6207e3ed",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-152809_0100010101010110/start.png",
+        "sha256": "592a42acb1427c81c40eb7681b16d3b70d2ce582b59e172fd9db44ebbbd110fe",
+        "requested_seek_seconds": 3.88,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-152809_0100010101010110-tail.png",
+        "sha256": "ab04acbb8b89e51259286b2b3beb5f8c1ab6fe15c1e27dc7305bc7f55c07b0f9",
+        "requested_seek_seconds": 82.389344,
+        "visible_evidence": "decisive_crown_award_during_overtime"
+      }
+    },
+    {
+      "stem": "20260802-200610_0100010101010101",
+      "split": "train",
+      "video_sha256": "a675110301ba6037c21d5cf50a612b3f6328e38ad1e7ef66989eb5765e6ee3a7",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-200610_0100010101010101/start.png",
+        "sha256": "06c8f53558e6d89eff484500a42e0f91d190f661e84a41c7d48fe5c3484054ef",
+        "requested_seek_seconds": 4.38,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-200610_0100010101010101-tail.png",
+        "sha256": "50c591654117747b2b9233001993d7fd0967210fa62262e790de1002a944536b",
+        "requested_seek_seconds": 76.390633,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-200823_0100010101010111",
+      "split": "train",
+      "video_sha256": "e6bb6e6842c5dfb2b662240c5c0e23a39b977d2d7aadcc329bfda723b59c7479",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-200823_0100010101010111/start.png",
+        "sha256": "6f3f20770647f20d62b1f6372c1fc846a28969af8fa9f47106f4ff31c655c3a9",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-200823_0100010101010111-tail.png",
+        "sha256": "c1ba62feb377f7903e83c92648ad82d9d4a656a145fc69e0971e41257138b4f1",
+        "requested_seek_seconds": 82.95591099999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-201050_0101010101010111",
+      "split": "train",
+      "video_sha256": "7efd90eca2f33adebb55af808599526686ce5fa798c80bcfa65c0f28fa21064e",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-201050_0101010101010111/start.png",
+        "sha256": "40b6c6fbf44c3fcdfe76f27c43fadb987e5e111b6f805a1768a5fbb6c0349c3d",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-201050_0101010101010111-tail.png",
+        "sha256": "ce2add9411c715fafa2e29c523502811fb6140e2d1d3825caeab5544b2c7c5ad",
+        "requested_seek_seconds": 82.94879999999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-201719_0100010101010101",
+      "split": "train",
+      "video_sha256": "b6c7cbb197d472e0960008bfaabf1d2aaeb69b5c697809b193c7dee707af5e4a",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-early-opening-v1/20260802-201719_0100010101010101-opening.png",
+        "sha256": "e0e16199c358f4209e920579a8d83b713cbed152e3c3946b723801121eb51ba1",
+        "requested_seek_seconds": 2.38,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-201719_0100010101010101-tail.png",
+        "sha256": "e460ff743fd58501e23d6ddd9e98d30f070bc20ab933e8731fd58298bb893eaf",
+        "requested_seek_seconds": 51.009389,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-202101_0100010101010101",
+      "split": "validation",
+      "video_sha256": "7abb978a197db859487b9af101175117acb66ef823c3450392b5673269d42b59",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-202101_0100010101010101/start.png",
+        "sha256": "b3d6878edc5040dec980dc0304c3aa7f6086572e2f6ec0737b1dd2a504536cd5",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-202101_0100010101010101-tail.png",
+        "sha256": "812994fc322abad09e5c5eb054201ffce7087a42e90a6ab1cac1082d02b0a150",
+        "requested_seek_seconds": 82.070156,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-202316_0101010101010111",
+      "split": "validation",
+      "video_sha256": "4d56a3de70a8bf19ad45cd6d90a0e20e62356917327c91efb8b83afe25f1b6f6",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-202316_0101010101010111/start.png",
+        "sha256": "30865e6bd5086c342b4095231b1db1b1a8ef7b163342896f3112dffd41b2910f",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-202316_0101010101010111-tail.png",
+        "sha256": "869a26c130bcca60bd78e6412c4c0d136d8718d0f5ea2d0050352e9ea35b309b",
+        "requested_seek_seconds": 82.63834399999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-202530_0100010101010111",
+      "split": "validation",
+      "video_sha256": "664c6885575db0fb92b4377e21ba0772aa1aab219df4b9ab717656a1ac482938",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-202530_0100010101010111/start.png",
+        "sha256": "52299827ed08323ee14e66a2ad77405f67149658564de12b3bb62fc577ab2aee",
+        "requested_seek_seconds": 3.75,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-202530_0100010101010111-tail.png",
+        "sha256": "b0fb8f1ab21edc5a7e8e127baa6321d6a8e5d548abcaa7e94f68a146ec7734c8",
+        "requested_seek_seconds": 82.70855599999999,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-202748_0100010101010111",
+      "split": "test",
+      "video_sha256": "41bf2f40543bcd08558556145e4d12a736ae0aeec2322bac29a4b08938136aca",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-202748_0100010101010111/start.png",
+        "sha256": "31f79bbb910987469f4321f85dfb4e115720d666270687bf9057429f48e14da4",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-202748_0100010101010111-tail.png",
+        "sha256": "07f448c37247a929a6147a93725814aec9d5e10d2d00d665f42386ee0a465d71",
+        "requested_seek_seconds": 51.019722,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    },
+    {
+      "stem": "20260802-202947_0100010101010111",
+      "split": "test",
+      "video_sha256": "fc2f2f1456d5cbe936d640c8209a86aeefc27b2ff1646d057ab989129b0afd7e",
+      "opening": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-supplement-v1/frame-samples/20260802-202947_0100010101010111/start.png",
+        "sha256": "310e241c15aff0e323368cb2efd782b710c3233430c68da10cfaa059464e05fb",
+        "requested_seek_seconds": 3.81,
+        "visible_evidence": "opening_player_presentation"
+      },
+      "terminal": {
+        "path": "outputs/arena-next-20261113/data-alphaclash-completion-v1/20260802-202947_0100010101010111-tail.png",
+        "sha256": "593350df5efd3a2a98d20205e0d76f882485381649a5428038396cf7d7403f7d",
+        "requested_seek_seconds": 53.956611,
+        "visible_evidence": "red_blue_result_banners"
+      }
+    }
+  ]
+}
