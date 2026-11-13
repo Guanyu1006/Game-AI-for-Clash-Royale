@@ -1,0 +1,183 @@
+{
+  "all_formal_games_natural": true,
+  "created_at_utc": "2026-11-13T17:22:49.090163+00:00",
+  "executed_deployments": 31916,
+  "files": {
+    "README.md": {
+      "bytes": 3310,
+      "sha256": "83e97571444bef370cc53251e3d820e243bd6af32c0646d33e51780c2b60ecda"
+    },
+    "execution-plan.json": {
+      "bytes": 93438,
+      "sha256": "d93a9121d091effd357e536d7aae537a3d8d42179faabe9c21fc314ce0523c26"
+    },
+    "foundation/episodes.jsonl": {
+      "bytes": 110274,
+      "sha256": "b795183f83a9687c536de2e3de09805add79d5ab9da37111b338a57e106829ff"
+    },
+    "foundation/plan.json": {
+      "bytes": 125675,
+      "sha256": "971ea84e9222390f9f24cc05f211420453c47fcca62f2b94ebf147b5bfb9abd4"
+    },
+    "foundation/summary.json": {
+      "bytes": 296,
+      "sha256": "d5e2a59497cae381166a903393b72383ea8fe87bbaf5d6cb12ed8c5491647a5b"
+    },
+    "frozen_source/baselines.py.txt": {
+      "bytes": 3851,
+      "sha256": "0a5603464eeaf0c7e18cb978d38b6772826beb7daf2a54c363731fa91f142388"
+    },
+    "frozen_source/environment.py.txt": {
+      "bytes": 51024,
+      "sha256": "00e185420294085a777beca65c9dda019cfc3508a893d72e8c744aa3374d55ae"
+    },
+    "frozen_source/evaluation.py.txt": {
+      "bytes": 27026,
+      "sha256": "201f318d825d72c9dd95b1ae9471e4d3015c48cfc21170c4fbc55366268a3a28"
+    },
+    "frozen_source/league.py.txt": {
+      "bytes": 23348,
+      "sha256": "0ed4c7303c53accd6fbec5ba3e2b028db0992d288b7b148b41e1f14c85be6dfb"
+    },
+    "frozen_source/league_acceptance.py.txt": {
+      "bytes": 11529,
+      "sha256": "8f1350ff6f5ecf897ce6a9b7a42691261d57d341ec439a36f31f2e5ca4243d79"
+    },
+    "frozen_source/model.py.txt": {
+      "bytes": 20343,
+      "sha256": "50f2e3d689cebade92647025bfe352681d3f1234542de01506416457b72a5ac0"
+    },
+    "frozen_source/timing.py.txt": {
+      "bytes": 8829,
+      "sha256": "d1d461621cccf89cd71a695fe292728f143985cf4ddd27ed693c2f7342d4e2ba"
+    },
+    "interrupted-ppo/episodes.jsonl": {
+      "bytes": 73461,
+      "sha256": "aafad0d36fd438a5660d46643e4f4274e063db6eb9282f0da7703f70bd18fea0"
+    },
+    "interrupted-ppo/plan.json": {
+      "bytes": 125675,
+      "sha256": "fa6d070505d95a51d78cad9bb1fd5fdb1c1feb0b267bb7c84d2080338a1bc46e"
+    },
+    "interruption-audit.json": {
+      "bytes": 4037,
+      "sha256": "85f706142c3ee05fea2442220704614f107be64a6e1dd081707aed3b946cc75d"
+    },
+    "joint/episodes.jsonl": {
+      "bytes": 110263,
+      "sha256": "edb9dd44b2b82a5a52190c51c66522ed990f3cc1a03bb3c0a3e10480a1564a4d"
+    },
+    "joint/plan.json": {
+      "bytes": 125675,
+      "sha256": "82d30b99ffa9048d1fb60340adb4c8aaa9279b5bb3163c38421a5ec442375442"
+    },
+    "joint/summary.json": {
+      "bytes": 297,
+      "sha256": "cdeeb668a3e4ab579d3f271b266a1ccda4e264d0407b99777fdabee58adac822"
+    },
+    "logs/prepare.log": {
+      "bytes": 891,
+      "sha256": "34a9262f214c2b24df12b23ffbd97bf211e8844a4fcedf9500e85ac94a0c5ad5"
+    },
+    "logs/resume.log": {
+      "bytes": 11614,
+      "sha256": "16ea85c55103106d7acb98ed4f321abf55d4a3aee963040a35ce352b61735ea5"
+    },
+    "logs/run.log": {
+      "bytes": 722,
+      "sha256": "1d089e0dece224e23704d85ff5300bb9cd7616fe712bac26179e7f880efded74"
+    },
+    "pool.json": {
+      "bytes": 37141,
+      "sha256": "042723bc39d9bd2d43d604bd5195e86725d8a2e2efda03930d9279e0c1c638f7"
+    },
+    "ppo/episodes.jsonl": {
+      "bytes": 110259,
+      "sha256": "b8578cbae150d20a2581b6a19960b4acb926f60efd33395677072eba68f50e0d"
+    },
+    "ppo/plan.json": {
+      "bytes": 125675,
+      "sha256": "fa6d070505d95a51d78cad9bb1fd5fdb1c1feb0b267bb7c84d2080338a1bc46e"
+    },
+    "ppo/summary.json": {
+      "bytes": 297,
+      "sha256": "6114ca195d2de2ca19d606530a23fb4f26d33b92b2a3792b4901eee6bf6a03dc"
+    },
+    "promotion-cases.json": {
+      "bytes": 79453,
+      "sha256": "c76dc32378b4ebfd4995f97eca627286323a7de3dc58ceaa9a2367b5c9c6b879"
+    },
+    "promotion-template.json": {
+      "bytes": 207269,
+      "sha256": "0e96aaa43c03b901ee4e8809016957f073013b9962154634456c02aeff5656e7"
+    },
+    "recovery-comparison.json": {
+      "bytes": 2882,
+      "sha256": "12073904edc974f22323a441f0e71a1092c7be4cfc7cae1753a509540067f813"
+    },
+    "report.json": {
+      "bytes": 10534,
+      "sha256": "05cd22a5230bccdf3a4cf13526e535215602e2008f916af08378caebc5f664ba"
+    },
+    "resource-context.json": {
+      "bytes": 1055,
+      "sha256": "e0c8c65c113033094567cd8624ce3e1e5653886067a99a4bae9ffb17c40a69a1"
+    },
+    "resource-samples.jsonl": {
+      "bytes": 1339,
+      "sha256": "cdc8c604de2646be4fce13d4d2856eaffd7a1db8be89e82c5a185733b69a86fb"
+    },
+    "selfplay/plan.json": {
+      "bytes": 13506,
+      "sha256": "22bdb514565fe7ff9bc24647c21b72080a65f8065d2f1c223a68be1e7800950f"
+    },
+    "selfplay/pool/pool.json": {
+      "bytes": 50211,
+      "sha256": "b999f1316946387c5d63f7f59699b3c170a26a0aa0cdea1081152533f7a7b84a"
+    },
+    "selfplay/report.json": {
+      "bytes": 438,
+      "sha256": "bf7aef50d7ab2ec10645c7699216980af99fb1dbfb0638f93f372425deae99a3"
+    },
+    "selfplay/round-000-attempt-000/episodes.json": {
+      "bytes": 2158,
+      "sha256": "b5c3561e503a44839dac5b77ebb3e4c04ba02c9d4079e73f413b5f691e3a71ef"
+    },
+    "selfplay/round-000-attempt-000/report.json": {
+      "bytes": 18898,
+      "sha256": "405f4278910c6cc7fee8892979e1d77edc376fbd94a416e106900881738ea53e"
+    },
+    "selfplay/round-001-attempt-000/episodes.json": {
+      "bytes": 2170,
+      "sha256": "217177b54af87e735ece0916ed060a03497db4010db9462d76bcc7e181677043"
+    },
+    "selfplay/round-001-attempt-000/report.json": {
+      "bytes": 18908,
+      "sha256": "4eb97eeb14419a110bb54462f1023f719feb3f17c3cd3a2a7b12e2a77006eb1a"
+    },
+    "selfplay/round-002-attempt-000/episodes.json": {
+      "bytes": 2216,
+      "sha256": "ddf961e37c733098f6bb4049fcdc438dabc8d91739bf3582cd90379c46c26d23"
+    },
+    "selfplay/round-002-attempt-000/report.json": {
+      "bytes": 18958,
+      "sha256": "062ea6e66497d424715c6ec194307441566422920c2977a32cbf59891ff7972e"
+    },
+    "selfplay/training-plan.json": {
+      "bytes": 4350,
+      "sha256": "eac17b09d6831325fc6025078fdb12a05449dbe90b319aabe10eed10d2708123"
+    },
+    "verify.py": {
+      "bytes": 8447,
+      "sha256": "816d60e96874c0a2882a7cfa9c737df4924a8194f38b50671221c72622158f30"
+    }
+  },
+  "formal_games": 450,
+  "joint_diagnostic_passed": false,
+  "ppo_promoted": false,
+  "preserved_completed_duplicate_games": 100,
+  "refused_deployments": 0,
+  "schema": "arena-independent-league-audit-package-v1",
+  "scope": "Fixed simulator version; no official ladder, expert-human-data or real-device strength claim",
+  "total_bytes_excluding_manifest": 1647742
+}

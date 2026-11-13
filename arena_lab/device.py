@@ -12,6 +12,7 @@ from dataclasses import asdict
 import hashlib
 import json
 import io
+import math
 import os
 from pathlib import Path
 import selectors
@@ -41,6 +42,8 @@ class ActionLedger:
         self.timeout_ns = int(timeout_seconds*1e9); self.pending = None; self.history = []
 
     def request(self, action, observed_ns, now_ns, max_age_ms=1000):
+        if not math.isfinite(max_age_ms) or max_age_ms <= 0:
+            raise ValueError("Screenshot age limit must be finite and positive")
         if self.pending is not None:
             raise RuntimeError("Outstanding action must be resolved; never resend automatically")
         if now_ns < observed_ns or (now_ns-observed_ns)/1e6 > max_age_ms:
@@ -95,8 +98,9 @@ class ActionLedger:
 
 class AdbTapActuator:
     """Two UI taps; success means shell transport only, no hidden state access."""
-    def __init__(self, adb, serial, port=5038, timeout=5.):
+    def __init__(self, adb, serial, port=5038, timeout=5., before_tap=None):
         self.adb, self.serial, self.port, self.timeout = str(adb), serial, port, timeout
+        self.before_tap = before_tap
         if not serial or serial.startswith("-") or any(c.isspace() for c in serial):
             raise ValueError("Explicit ADB serial required")
 
@@ -108,9 +112,17 @@ class AdbTapActuator:
         receipts = []
         for point in (hand_xy, target_xy):
             start = time.monotonic_ns()
-            result = subprocess.run(prefix+list(map(str, point)), capture_output=True, timeout=self.timeout)
+            try:
+                foreground = self.before_tap() if self.before_tap is not None else None
+                result = subprocess.run(prefix+list(map(str, point)), capture_output=True, timeout=self.timeout)
+            except (subprocess.SubprocessError, OSError, RuntimeError) as error:
+                receipts.append({"started_ns": start, "finished_ns": time.monotonic_ns(),
+                                 "returncode": None, "error": f"{type(error).__name__}: {error}",
+                                 "outcome_unknown": True})
+                break
             receipts.append({"started_ns": start, "finished_ns": time.monotonic_ns(),
-                             "returncode": result.returncode, "stderr": result.stderr.decode(errors="replace")[:1000]})
+                             "returncode": result.returncode, "foreground_check": foreground,
+                             "stderr": result.stderr.decode(errors="replace")[:1000]})
             if result.returncode: break
         return {"transport": "adb_input_tap", "receipts": receipts,
                 "accepted": len(receipts) == 2 and all(r["returncode"] == 0 for r in receipts),
@@ -299,6 +311,8 @@ def validate_controller_timing(controller, step_ticks):
 
 
 def run_native(args, policy=None):
+    if not math.isfinite(args.max_age_ms) or args.max_age_ms <= 0:
+        raise ValueError("Screenshot age limit must be finite and positive")
     from royale_phase2.backend import NativeBattleBackend
     from royale_phase2.cloud_frames import CloudAndroidBridge
     from royale_phase3.actions import PublicTeacher, match
@@ -459,6 +473,8 @@ def main():
     args = p.parse_args()
     if not 1 <= args.step_ticks <= 200 or not 1 <= args.decisions <= 2000 or not 0 <= args.frame_wait <= 10:
         p.error("Invalid bounded experiment configuration")
+    if not math.isfinite(args.max_age_ms) or args.max_age_ms <= 0:
+        p.error("Screenshot age limit must be finite and positive")
     run_native(args)
 
 

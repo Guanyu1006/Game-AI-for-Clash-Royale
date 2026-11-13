@@ -57,6 +57,8 @@ jobs:
           assert total['faulted_games'] == total['truncated_games'] == 0, total
           assert total['candidate_executed'] > 0, total
           PY
+      - name: Aligned imitation, self-play and masked-pixel delivery
+        run: python -m arena_lab check-delivery --output outputs/arena-ci/aligned-delivery
       - uses: actions/upload-artifact@v4
         if: always()
         with:

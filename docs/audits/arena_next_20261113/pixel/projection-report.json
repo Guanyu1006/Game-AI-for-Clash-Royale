@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "train": {
+      "frames": 29832,
+      "valid": 28932,
+      "plays": 1608,
+      "withheld_unobservable_labels": 900
+    },
+    "validation": {
+      "frames": 9966,
+      "valid": 9670,
+      "plays": 542,
+      "withheld_unobservable_labels": 296
+    },
+    "test": {
+      "frames": 9154,
+      "valid": 8879,
+      "plays": 467,
+      "withheld_unobservable_labels": 275
+    }
+  },
+  "source_index_sha256": "29cf941c53d7c0d7ff671bfef07cc1a1247c5691ccdc2ebebf1d08a7c554fb3a",
+  "index_sha256": "1f2e4749e75fb52d297c941f2753af0fb4bb5e445d46e92def611474da2feb89",
+  "pixel_detector_error_simulation": false,
+  "official_client_equivalence_verified": false,
+  "real_pixel_training": false
+}

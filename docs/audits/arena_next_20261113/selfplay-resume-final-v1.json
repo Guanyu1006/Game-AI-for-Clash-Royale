@@ -1,0 +1,184 @@
+{
+  "schema": "arena-ppo-final-resume-audit-v1",
+  "commit": "b1a05cb665aaaa3847294318cdd89ad277b30a34",
+  "sources": [
+    {
+      "path": "arena_lab/selfplay.py",
+      "sha256": "944fc6c4e6e891bd5bb1bc0f989c708bdcb2a8fb57c9e29598300b3929f696c7",
+      "bytes": 19959
+    },
+    {
+      "path": "arena_lab/league.py",
+      "sha256": "0ed4c7303c53accd6fbec5ba3e2b028db0992d288b7b148b41e1f14c85be6dfb",
+      "bytes": 23348
+    },
+    {
+      "path": "arena_lab/model.py",
+      "sha256": "50f2e3d689cebade92647025bfe352681d3f1234542de01506416457b72a5ac0",
+      "bytes": 20343
+    },
+    {
+      "path": "arena_lab/timing.py",
+      "sha256": "d1d461621cccf89cd71a695fe292728f143985cf4ddd27ed693c2f7342d4e2ba",
+      "bytes": 8829
+    },
+    {
+      "path": "arena_lab/environment.py",
+      "sha256": "00e185420294085a777beca65c9dda019cfc3508a893d72e8c744aa3374d55ae",
+      "bytes": 51024
+    },
+    {
+      "path": "arena_lab/evaluation.py",
+      "sha256": "201f318d825d72c9dd95b1ae9471e4d3015c48cfc21170c4fbc55366268a3a28",
+      "bytes": 27026
+    },
+    {
+      "path": "arena_lab/baselines.py",
+      "sha256": "0a5603464eeaf0c7e18cb978d38b6772826beb7daf2a54c363731fa91f142388",
+      "bytes": 3851
+    },
+    {
+      "path": "arena_lab/artifacts/imitation-full-v2.pt",
+      "sha256": "a3fdae3e8abf60b3186727f55859df5e65ceaf73296c437f565f748600690816",
+      "bytes": 1003840
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-resume-plan.json",
+      "sha256": "3d1e769bef64f0bf1f77e0f7176ab9de7d3dcab931592cb0cae19083e251aa93",
+      "bytes": 4350
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-uninterrupted-final-v1/plan.json",
+      "sha256": "3a3d2832d9d6bfb96c036e5b9b7a13b185ed011cb141fe29c8827e808f3ae983",
+      "bytes": 13375
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-resume-final-v1/plan.json",
+      "sha256": "3a3d2832d9d6bfb96c036e5b9b7a13b185ed011cb141fe29c8827e808f3ae983",
+      "bytes": 13375
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-uninterrupted-final-v1/report.json",
+      "sha256": "670e83fcca6d22acd27bc968aa9815d029c015823447bbb5c22a68f00d93d9a6",
+      "bytes": 438
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-resume-final-v1/report.json",
+      "sha256": "48ccde44b0dcb875117268be832dc285dbc1de81b57e0a0fd0d6ae5b193e90fb",
+      "bytes": 437
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-uninterrupted-final-v1/resume.pt",
+      "sha256": "e2d9e1f11396ae208d3213a8f0a7a2dfb66d67b3f07f93f3b32c27f0918d6c36",
+      "bytes": 3034884
+    },
+    {
+      "path": "outputs/arena-next-20261113/selfplay-resume-final-v1/resume.pt",
+      "sha256": "c58a78d0d1ec03b34747a898a6e50ce953cb9970e32ab412a06a962c177a4214",
+      "bytes": 3034244
+    }
+  ],
+  "all_checks_passed": true,
+  "checks": {
+    "model_exact": true,
+    "critic_exact": true,
+    "optimizer_exact": true,
+    "generator_exact": true,
+    "torch_rng_exact": true,
+    "python_rng_exact": true,
+    "current_exact": true,
+    "steps_exact": true,
+    "completed_rounds_exact": true,
+    "pool_state_exact": true,
+    "pool_sha256_exact": true,
+    "plan_exact": true,
+    "round_1_episodes_exact": true,
+    "round_1_optimization_exact": true,
+    "round_1_policy_file_exact": true,
+    "round_2_episodes_exact": true,
+    "round_2_optimization_exact": true,
+    "round_2_policy_file_exact": true,
+    "pfsp_probabilities_exact": true,
+    "all_natural_games": true,
+    "parent_chain_present": true,
+    "source_plan_hashes_match_final_code": true
+  },
+  "environment_steps_each": 1893,
+  "rounds": 2,
+  "natural_games_each": 4,
+  "episodes": [
+    {
+      "attempts": 54,
+      "decisions": 429,
+      "executed": 54,
+      "final_state_hash": "11515574731889609448",
+      "final_tick": 4289,
+      "opponent": "baseline-random",
+      "outcome": "win",
+      "refused": 0,
+      "seed": 510001,
+      "side": 0,
+      "status": "natural_end"
+    },
+    {
+      "attempts": 93,
+      "decisions": 612,
+      "executed": 93,
+      "final_state_hash": "10285145647501824952",
+      "final_tick": 6116,
+      "opponent": "policy-a3fdae3e8abf60b31867",
+      "outcome": "loss",
+      "refused": 0,
+      "seed": 510002,
+      "side": 1,
+      "status": "natural_end"
+    },
+    {
+      "attempts": 53,
+      "decisions": 428,
+      "executed": 53,
+      "final_state_hash": "12718137600837875571",
+      "final_tick": 4274,
+      "opponent": "policy-a3fdae3e8abf60b31867",
+      "outcome": "loss",
+      "refused": 0,
+      "seed": 510003,
+      "side": 0,
+      "status": "natural_end"
+    },
+    {
+      "attempts": 50,
+      "decisions": 424,
+      "executed": 50,
+      "final_state_hash": "13539426256031539101",
+      "final_tick": 4239,
+      "opponent": "baseline-scripted",
+      "outcome": "loss",
+      "refused": 0,
+      "seed": 510004,
+      "side": 1,
+      "status": "natural_end"
+    }
+  ],
+  "final_member": "policy-cc76ee59f3aed6e6a2f4",
+  "final_pfsp_probabilities": {
+    "baseline-random": 0.1560626985223036,
+    "baseline-scripted": 0.21572296644109934,
+    "policy-a3fdae3e8abf60b31867": 0.25974312940201627,
+    "policy-cc76ee59f3aed6e6a2f4": 0.18423560281729046,
+    "policy-fe9e714a9922dc4c6304": 0.18423560281729046
+  },
+  "source_implementation_sha256": {
+    "league.py": "0ed4c7303c53accd6fbec5ba3e2b028db0992d288b7b148b41e1f14c85be6dfb",
+    "model.py": "50f2e3d689cebade92647025bfe352681d3f1234542de01506416457b72a5ac0",
+    "selfplay.py": "944fc6c4e6e891bd5bb1bc0f989c708bdcb2a8fb57c9e29598300b3929f696c7",
+    "timing.py": "d1d461621cccf89cd71a695fe292728f143985cf4ddd27ed693c2f7342d4e2ba"
+  },
+  "torch_threads": 1,
+  "scope": "Final source: actually trained legacy entity-GRU checkpoint, real RoyaleSim games and PPO; stop after round 1 and new-process resume vs uninterrupted two rounds. Exact actor/critic/optimizer/all RNG/parent-aware PFSP/episode ends; timing policy strength and real-device behavior are not measured.",
+  "commands": [
+    ".venv-cloud/bin/python -m arena_lab.selfplay --checkpoint arena_lab/artifacts/imitation-full-v2.pt --output outputs/arena-next-20261113/selfplay-uninterrupted-final-v1 --plan outputs/arena-next-20261113/selfplay-resume-plan.json",
+    ".venv-cloud/bin/python -m arena_lab.selfplay --checkpoint arena_lab/artifacts/imitation-full-v2.pt --output outputs/arena-next-20261113/selfplay-resume-final-v1 --plan outputs/arena-next-20261113/selfplay-resume-plan.json --stop-after-round 1",
+    ".venv-cloud/bin/python -m arena_lab.selfplay --checkpoint arena_lab/artifacts/imitation-full-v2.pt --output outputs/arena-next-20261113/selfplay-resume-final-v1 --plan outputs/arena-next-20261113/selfplay-resume-plan.json --resume outputs/arena-next-20261113/selfplay-resume-final-v1/resume.pt"
+  ]
+}

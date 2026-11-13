@@ -1,0 +1,12 @@
+{
+  "schema": "arena-container-interruption-observation.v1",
+  "recorded_utc": "2026-11-13T17:17:35.788323+00:00",
+  "pid1_stat": "1 (sh) S 0 1 1 0 -1 4194560 14106 177874 20 65 4 37 159 226 20 0 1 0 439947 2641920 320 18446744073709551615 1 1 0 0 0 0 0 0 81922 0 0 0 17 3 0 0 0 0 0 0 0 0 0 0 0 0 0\n",
+  "pid1_start": "Fri Nov 13 16:50:40 2026",
+  "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "disk_free_bytes": 1569161216,
+  "device_vm_started_since_rebuild": false,
+  "root_cause": "unknown",
+  "oom_evidence": false,
+  "scope": "Current process/container observation; cgroup counters do not establish cause of prior container loss"
+}

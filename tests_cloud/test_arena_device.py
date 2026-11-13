@@ -31,6 +31,9 @@ class DeviceSafetyTests(unittest.TestCase):
 
     def test_stale_future_out_of_order_and_wrong_receipt_rejected(self):
         ledger = ActionLedger()
+        for bad_age in (float("nan"), float("inf"), float("-inf"), 0, -1):
+            with self.assertRaisesRegex(ValueError, "finite and positive"):
+                ledger.request({}, 20, 30, bad_age)
         with self.assertRaises(ValueError): ledger.request({}, 0, 2_000_000_000)
         with self.assertRaises(ValueError): ledger.request({}, 20, 10)
         row = ledger.request({}, 20, 30)

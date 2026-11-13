@@ -1,0 +1,233 @@
+{
+  "schema": "github-push-ci-audit-v1",
+  "checked_utc": "2026-11-13 16:29:37 UTC",
+  "branch": "dev/arena-next-20261113",
+  "commit": "b1a05cb665aaaa3847294318cdd89ad277b30a34",
+  "source_urls": [
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs?branch=dev%2Farena-next-20261113&event=push&per_page=10",
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43462936640/jobs"
+  ],
+  "query_event": "push",
+  "runs": [
+    {
+      "id": 43462936640,
+      "name": "Portable CPU checks",
+      "head_sha": "b1a05cb665aaaa3847294318cdd89ad277b30a34",
+      "status": "completed",
+      "conclusion": "success",
+      "event": "push",
+      "html_url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43462936640",
+      "created_at": "2026-11-13T16:27:45Z",
+      "updated_at": "2026-11-13T16:28:32Z",
+      "jobs": [
+        {
+          "id": 132014344616,
+          "name": "portable",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-13T16:27:47Z",
+          "completed_at": "2026-11-13T16:28:30Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Core dependencies only",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Restore reviewed assets",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Contract and migration checks",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Actual numeric training smoke",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Reload and validate the new numeric checkpoint",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Saved data, replay and approximate simulator",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 17,
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 18,
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 19,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43462936638,
+      "name": "Arena Lab reproducibility",
+      "head_sha": "b1a05cb665aaaa3847294318cdd89ad277b30a34",
+      "status": "completed",
+      "conclusion": "success",
+      "event": "push",
+      "html_url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43462936638",
+      "created_at": "2026-11-13T16:27:45Z",
+      "updated_at": "2026-11-13T16:28:51Z",
+      "jobs": [
+        {
+          "id": 132014344760,
+          "name": "cpu",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-13T16:27:48Z",
+          "completed_at": "2026-11-13T16:28:50Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Fixed host CPU dependencies",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Isolated hash-locked simulator",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Data, recurrent model, training and closed-loop contracts",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Real engine whole-battle benchmark",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Same-version causal pairs and independent complete-state replay",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Delivered checkpoint reload and paired whole games",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 19,
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 20,
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "number": 21,
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "arena_test_log_excerpt": [
+    "2026-11-13T16:28:32.0721748Z Ran 145 tests in 3.444s"
+  ],
+  "fixes_needed": false,
+  "test_suites": {
+  "arena": {
+    "tests_reported": 145,
+    "skipped": 3,
+    "summary_log_excerpt": [
+      "2026-11-13T16:28:32.0721748Z Ran 145 tests in 3.444s",
+      "2026-11-13T16:28:32.0722064Z OK (skipped=3)"
+    ],
+    "skip_reason": "3 optional pinned crforge JDK/build/tables tests; RoyaleSim and Torch tests ran"
+  },
+  "portable": {
+    "tests_reported": 607,
+    "skipped": 78,
+    "summary_log_excerpt": [
+      "2026-11-13T16:28:26.8976706Z Ran 607 tests in 29.265s",
+      "2026-11-13T16:28:26.8976981Z OK (skipped=78)"
+    ],
+    "scope": "Core-only dependencies; optional Torch/native/Chromium media checks remain skipped"
+  }
+}
+}

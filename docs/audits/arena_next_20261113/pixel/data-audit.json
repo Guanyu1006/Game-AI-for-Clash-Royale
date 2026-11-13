@@ -1,0 +1,32 @@
+{
+  "train": {
+    "files": 60,
+    "battles": 30,
+    "steps": 29832,
+    "valid_labels": 28932,
+    "play_labels": 1608,
+    "ability_labels": 0,
+    "position_labels": 1608,
+    "visible_entity_rows": 27326
+  },
+  "validation": {
+    "files": 20,
+    "battles": 10,
+    "steps": 9966,
+    "valid_labels": 9670,
+    "play_labels": 542,
+    "ability_labels": 0,
+    "position_labels": 542,
+    "visible_entity_rows": 9162
+  },
+  "test": {
+    "files": 20,
+    "battles": 10,
+    "steps": 9154,
+    "valid_labels": 8879,
+    "play_labels": 467,
+    "ability_labels": 0,
+    "position_labels": 467,
+    "visible_entity_rows": 8266
+  }
+}

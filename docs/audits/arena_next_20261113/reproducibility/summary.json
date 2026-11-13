@@ -1,0 +1,43 @@
+{
+  "schema": "arena-workspace-validation-v1",
+  "workspace_tests": {
+    "command": ".venv-cloud/bin/python tools/cloud/workspace.py test",
+    "tests": 624,
+    "skipped": 2,
+    "seconds": 76.557,
+    "exit_code": 0
+  },
+  "doctor": {
+    "command": ".venv-cloud/bin/python tools/cloud/workspace.py doctor",
+    "exit_code": 0,
+    "native_runtime_verified": false
+  },
+  "delivered_numeric_models": {
+    "models": 3,
+    "natural_games": 6,
+    "confirmed_plays": 522,
+    "refused": 0,
+    "scope": "reproducibility smoke, not promotion"
+  },
+  "source_logs": {
+    "workspace-tests-final.log": {
+      "source": "outputs/arena-next-20261113/workspace-tests-final.log",
+      "bytes": 126656,
+      "sha256": "9e22d375f97d7f76acc3201744a6be79bbeb32ca508d789a610c3009b4ab5e40"
+    },
+    "doctor-final.log": {
+      "source": "outputs/arena-next-20261113/doctor-final.log",
+      "bytes": 1633,
+      "sha256": "8db544c8e59f33f70e209be317524fdf7998776b82d9d10b7766c7536fb9d86a"
+    },
+    "vision-dependency-dry-run.log": {
+      "source": "outputs/arena-next-20261113/vision-dependency-dry-run.log",
+      "bytes": 1640,
+      "sha256": "a50aba4c8eb8b60c7533d007f505cd901dce440ef03d31a0c63bb8dc998bc803"
+    }
+  },
+  "notes": [
+    "Full raw logs preserved in ignored outputs, no runtime secrets copied",
+    "Pixel training and independent acceptance were concurrent; throughput is not an exclusive CPU peak"
+  ]
+}

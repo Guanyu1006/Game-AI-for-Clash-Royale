@@ -117,6 +117,26 @@
       "path": "outputs/arena-next-20261113/device-evidence/tests-adb-protocol.log",
       "bytes": 2521,
       "sha256": "7e06459f926e3e280d76d0f633289c9eee1a3fc4ab7e3af79bb7d7ab66a13a36"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-live-entry-final.log",
+      "bytes": 3421,
+      "sha256": "382a2adc0fccf66e2dfb346769f29e0a17e99b27511275f6e0d71a9ef7101caf"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/second-interruption.json",
+      "bytes": 675,
+      "sha256": "482346f04ee01fea90bf9c5d39a107e529f5c854a64f16ee5f2975713cc4fe37"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-live-finite-age.log",
+      "bytes": 3625,
+      "sha256": "6e5a2830ba0c99eba210373648ae1adc9d5e49d1a2b5f48c448ccdba642dd940"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-evidence/tests-live-transport-final.log",
+      "bytes": 4521,
+      "sha256": "322dc1a302ca0377a87530fa40beeda17f6328b75f84398931f01e447158abed"
     }
   ],
   "runtime_identity": {
@@ -236,10 +256,10 @@
     "real_time": false
   },
   "verification": {
-    "device_contract_tests": 14,
+    "device_contract_tests": 25,
     "recovery_contract_tests": 73,
     "interface_only": true,
-    "device_tests_log": "outputs/arena-next-20261113/device-evidence/tests-adb-protocol.log",
+    "device_tests_log": "outputs/arena-next-20261113/device-evidence/tests-live-transport-final.log",
     "recovery_logs": [
       "outputs/arena-next-20261113/device-evidence/recovery-tests.log",
       "outputs/arena-next-20261113/device-evidence/prepare-budget-tests.log",
@@ -314,6 +334,33 @@
     ],
     "configuration_equal": true,
     "cause_of_content_failure": "unknown",
-    "training_load_hypothesis_verified": false
+    "training_load_hypothesis_verified": false,
+    "raw_disk_same": true,
+    "raw_disk": "outputs/cloud/avm/20261020T123234.859513Z-vm/android.ext4",
+    "qcow_overlay_present": false,
+    "initramfs_sha256": "6df24b5b61c9d865ec2a258d28447b46ed628c6b74e26193b7e17fe6f3058821",
+    "historical_success_poll_seconds": [
+      295.5561604499817,
+      314.19998574256897
+    ],
+    "thread_snapshot_interpretation": "Java main epoll idle; SwiftShader task queue waiting; ARM Mainloop guest frames unresolved; two translation workers mmap; single snapshot cannot establish progress, deadlock, or root cause",
+    "next_diagnostic": "arena_lab.device_diagnostics: two current-PID snapshots of CPU/wchan/syscall/IO/maps/Surface/pressure"
+  },
+  "physical_adb_entry": {
+    "module": "arena_lab.device_live",
+    "implemented": true,
+    "integration_contract_tests": 11,
+    "actual_device_attempts": 0,
+    "fixed_layout": [
+      360,
+      640
+    ],
+    "scope": "already-open offline battle; at most one card attempt; stop after visual receipt because consumption remains unknown",
+    "game_consumption_verified": false,
+    "uses_native_oracle": false,
+    "unknown_game_time_resets_history": true,
+    "foreground_rechecked_before_each_tap": true,
+    "original_frame_age_rechecked_after_foreground_check": true,
+    "partial_transport_receipts_preserved": true
   }
 }

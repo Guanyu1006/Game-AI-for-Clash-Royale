@@ -1,0 +1,34 @@
+{
+  "checkpoint_sha256": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03",
+  "dataset_index_sha256": "1f2e4749e75fb52d297c941f2753af0fb4bb5e445d46e92def611474da2feb89",
+  "timing_config": {
+    "tick_hz": 20.0,
+    "decision_ticks": 10,
+    "event_threshold": 0.12120045721530914,
+    "hazard_temperature": 0.8633988554669888,
+    "hazard_log_scale": 0.009692202386748503
+  },
+  "selection_score": 2.3718712729188165,
+  "calibration": {
+    "hazard_temperature": 0.8633988554669888,
+    "hazard_log_scale": 0.009692202386748503,
+    "event_threshold": 0.12120045721530914,
+    "fit_balanced_error": 0.18346153846153845,
+    "fit_labels": 2360,
+    "fit_events": 260,
+    "method": "monotonic hazard log-rate temperature/scale fitted by natural event NLL; threshold minimizes balanced error, higher on ties"
+  },
+  "test_game_ids": [
+    "paired-410041",
+    "paired-410042",
+    "paired-410043",
+    "paired-410044",
+    "paired-410045",
+    "paired-410046",
+    "paired-410047",
+    "paired-410048",
+    "paired-410049",
+    "paired-410050"
+  ],
+  "tolerance_ticks": 10
+}

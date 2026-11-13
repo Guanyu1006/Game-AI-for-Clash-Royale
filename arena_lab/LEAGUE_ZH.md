@@ -63,3 +63,13 @@
 `outputs/arena-next-20261113/selfplay-resume-audit.json` 比较了旧已训练模型上的真实模拟器实验：各 4 场自然终局、1,893 个联合控制步，2 轮实际 PPO；一条在首轮停止并恢复，另一条连续运行。最终 actor、critic、历史对手池、RNG、动作数量、终局哈希及胜负均一致。这验证实现与恢复，不证明棋力提高。
 
 设计参考原始 [PPO 论文](https://arxiv.org/abs/1707.06347)与 [AlphaStar 联赛论文](https://storage.googleapis.com/deepmind-media/research/alphastar/AlphaStar_unformatted.pdf)。本实现是资源可复现的历史对手训练起点，没有宣称实现 AlphaStar 的规模或全部联赛角色。
+
+## 正式训练与独立晋升验收
+
+2026-11-13 的 `selfplay-timing-v1` 按预定计划完成 3 轮、每轮 8 局和 2 次 PPO 更新：24 局全部自然终局，11,761 个环境控制步，6 次新优化器更新，1,510 次确认消费、0 拒绝，训练进程实测 88.435 秒。三轮历史快照都保留，最终候选为 `policy-77de9550d937f4d56348`，此时训练池仍以原 timing 为 foundation。
+
+随后在独立验收池里让 timing、joint、最终 PPO 各执行相同的 150 个新案例。全部 450 局自然终局、31,916 次确认消费、0 拒绝；timing 为 86 胜 1 平 63 负，joint 为 84 胜 0 平 66 负，PPO 为 85 胜 1 平 64 负。完整分对手表、统计口径与恢复过程见 [ACCEPTANCE_ZH.md](ACCEPTANCE_ZH.md)。
+
+PPO 对随机／规则／固定 timing 的得分分别为 90%／30%／51%，相对 foundation 配对提升 +2／−4／0 个百分点，三组均未达到预定改善与显著性门槛，**不晋升**。joint 只作为预声明诊断，同样没有通过门槛，也未被事后选为新 foundation。模型已实际训练、能完成对局，与“已证明棋力提升”是不同结论。
+
+正式 450 局累计 236,366 个控制步，逐局累计 1,004.215 秒，带同机负载的实测吞吐 235.37 控制步／秒。环境中断留下的额外 100 局 PPO 回执被完整保留；冻结恢复后其全部已记录字段（除耗时）一致，但不作为额外独立样本。PPO 训练池、恢复文件和原报告在验收后保持原 SHA。[可移植审计包](../docs/audits/arena_next_20261113/league/README.md) 包含全部逐局证据及无需 Torch 的验证命令。

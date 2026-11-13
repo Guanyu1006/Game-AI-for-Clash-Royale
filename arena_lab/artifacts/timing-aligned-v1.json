@@ -9,9 +9,23 @@
   "training_steps": 5475,
   "parameters": 243334,
   "training_source": "same-version rule teacher, not human expert",
-  "status": "held-out causal imitation verified; frozen complete-game strength evaluation pending",
+  "status": "Frozen initial reference; 150 independent games completed; not a proven strong champion",
   "strong_imitation_delivery_gate_passed": false,
   "real_device_verified": false,
   "dataset_index_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
-  "sensitive_data_review": "Generated finite numeric weights and public experiment metadata; weights_only reload; no credentials or private source data"
+  "sensitive_data_review": "Generated finite numeric weights and public experiment metadata; weights_only reload; no credentials or private source data",
+  "independent_simulator_evaluation": {
+    "games": 150,
+    "natural": 150,
+    "win": 86,
+    "draw": 1,
+    "loss": 63,
+    "executed": 10433,
+    "refused": 0,
+    "faults": 0,
+    "truncated": 0,
+    "source": "docs/audits/arena_next_20261113/league/report.json"
+  },
+  "promotion_passed": false,
+  "is_frozen_foundation": true
 }

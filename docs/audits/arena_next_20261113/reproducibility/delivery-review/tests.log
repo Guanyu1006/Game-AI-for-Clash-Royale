@@ -1,0 +1,10 @@
+test_first_artifact_failure_is_saved_and_duplicate_selection_rejected (tests_cloud.test_arena_delivery.DeliveryScopeTests.test_first_artifact_failure_is_saved_and_duplicate_selection_rejected) ... ok
+test_missing_later_artifact_keeps_failure_and_pending_rows (tests_cloud.test_arena_delivery.DeliveryScopeTests.test_missing_later_artifact_keeps_failure_and_pending_rows) ... ok
+test_modified_episodes_rejected_before_and_after_scope_correction (tests_cloud.test_arena_delivery.DeliveryScopeTests.test_modified_episodes_rejected_before_and_after_scope_correction) ... ok
+test_relabel_preserves_raw_receipts_and_rebinds_hash (tests_cloud.test_arena_delivery.DeliveryScopeTests.test_relabel_preserves_raw_receipts_and_rebinds_hash) ... ok
+test_smoke_cases_have_stable_reserved_seed_and_exchange_configurations (tests_cloud.test_arena_delivery.DeliveryScopeTests.test_smoke_cases_have_stable_reserved_seed_and_exchange_configurations) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.015s
+
+OK

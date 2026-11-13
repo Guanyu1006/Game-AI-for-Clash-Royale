@@ -10,9 +10,23 @@
   "selfplay_environment_steps": 0,
   "parameters": 243045,
   "training_source": "same-version rule teacher and declared self-play, not human expert",
-  "status": "Frozen joint-classifier reference on aligned rule-teacher trajectories; complete-game evaluation pending",
+  "status": "Aligned imitation comparison; 150 independent games completed; diagnostic only, foundation not changed",
   "strong_imitation_delivery_gate_passed": false,
   "real_device_verified": false,
   "dataset_index_sha256": "641bece650374eb5401d35b4b8130bab6610ab8f525f270236450d9e8054e5d1",
-  "sensitive_data_review": "Generated finite numeric weights and public experiment metadata; weights_only reload; no credentials or private source data"
+  "sensitive_data_review": "Generated finite numeric weights and public experiment metadata; weights_only reload; no credentials or private source data",
+  "independent_simulator_evaluation": {
+    "games": 150,
+    "natural": 150,
+    "win": 84,
+    "draw": 0,
+    "loss": 66,
+    "executed": 10881,
+    "refused": 0,
+    "faults": 0,
+    "truncated": 0,
+    "source": "docs/audits/arena_next_20261113/league/report.json"
+  },
+  "promotion_passed": false,
+  "is_frozen_foundation": false
 }

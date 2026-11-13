@@ -53,6 +53,16 @@ nice -n 10 .venv-cloud/bin/python tools/cloud/native_prepare.py \
 
 默认截图是 Android PNG。`--capture-format raw` 使用当前有 root 的离线 Android `screencap` RGBA 数据，在宿主进行无损 PNG 编码；保留 raw/RGBA/PNG 哈希和分阶段时间。此模式不是对任意未 root 手机的承诺。独立 `AdbTapActuator` 可发送两次 UI tap，但本轮没有物理手机接入或真实 UI tap 验收，设备入口实际使用明确标记的 `offline_native_rpc`。
 
+物理 ADB 的独立入口已串联 PNG 截图、同一个 `PixelObserver`／`PixelModelController`、两次 UI 点击及后续视觉回执。仅适用于已经打开的离线 `nullsroyale.rel.free` 战斗、相同的 360×640 底方布局；每次截图先检查前台应用。不会启动应用、登录、匹配、缩放图片或调用原生状态。下面的 `YOUR_EXPLICIT_SERIAL` 必须换成用户指定设备：
+
+```bash
+.venv-cloud/bin/python -m arena_lab.device_live \
+  --serial YOUR_EXPLICIT_SERIAL --checkpoint arena_lab/artifacts/pixel-masked-v1.pt \
+  --output outputs/my-physical-pixel-attempt
+```
+
+实际运行时间未知，因此跟踪及模型记忆按缺测处理，不能声称 0.5 秒逻辑动作窗口已在物理设备校准。这个入口的 `--max-age-ms` 从截图检查开始计时，包含截图与推理，比暂停原生诊断的年龄定义更保守。没有独立消费回执，所以**首个出牌尝试后的截图一旦取得即停止**：即使手牌变化与圣水下降一致，仍记 `game_consumed=null`，不继续重复点击。截图或传输失败保留未结请求。这个有界入口供部署标定与回执验证，尚不是完整自动实战；当前真实物理设备调用次数为 0。
+
 可选 `--capture-format raw-persistent` 保留一个 `adb shell -T su 0 sh -s` 无 PTY 双向会话，每次仅发送固定 `screencap` 命令，仍逐帧执行截图，保持 360×640 和像素内容。`exec-out` 只转发输出，不能用于需要继续输入指令的持久会话，这一边界来自 [Android ADB 官方实现](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/client/commandline.cpp)。流按 Android 12 的 16 字节头及确切 RGBA 字节数拆帧；超时／半帧／格式变化会关闭并标记会话失效，不偷偷重连重读。接口测试覆盖分块输送、连续两帧不串帧、半帧和超时；**实际 Android 兼容性与加速倍数仍待下一轮实测**，不能从减少连接次数推出吞吐已达标。
 
 准备成功后，可在一局新的合法配置、同一暂停 native 状态下交替测量两种 raw 输送；各取 3 次，保留冷启动样本、完整字节／状态哈希和原始时延，不外推稳定 p95。该基准不会发送卡牌动作，也不是整局验收：
@@ -102,5 +112,15 @@ nice -n 10 .venv-cloud/bin/python tools/cloud/native_prepare.py \
 ## 后续集中验收顺序
 
 先停止并发训练，以低资源 VM 重试内容加载；若再次失败，保存 Android binder／Mainloop 活性、内容 ready、渲染与文件读取证据，定位具体阻塞再改工具。不可在空白屏幕上持续测推理而宣称战场识别完成。
+
+已经逐项对比 11 月 7 日成功与 11 月 13 日失败的启动参数：同一个 10 月 20 日 mutable RAW ext4、2 vCPU、3072 MiB、TCG TB64、5 FPS、内核、9p 与 initramfs；initramfs SHA256 均为 `6df24b5b61c9d865ec2a258d28447b46ed628c6b74e26193b7e17fe6f3058821`，不存在新 qcow overlay 链差异。两个历史成功内容轮询窗口为 295.6 秒与 314.2 秒。旧 debuggerd 中 Java 主线程在 epoll、SwiftShader 队列等候任务，ARM Mainloop 无可解析客体栈、两个翻译工作线程位于 mmap；单点栈不能判定死锁或根因。
+
+重试在内容状态持续约 4 分钟无变化时，使用下列有界只读诊断采两轮，结合线程 CPU／wait channel／syscall、进程 IO／maps 数、SurfaceFlinger 层与帧统计判断是否有进展。它不会启动或重启进程，不复用历史 PID，也不改 ready 位；访问失败和超时保留原始输出。仍需解释实际两轮结果，不能把工具存在当作根因已解决：
+
+```bash
+.venv-cloud/bin/python -m arena_lab.device_diagnostics \
+  --serial 127.0.0.1:15555 --output outputs/my-loading-diagnostics \
+  --samples 2 --interval 30 --timeout 90
+```
 
 进局后先用新截图独立标注 HUD 与单位，实测 fixed-8 手牌识别，修正 detector 的类混淆，并把开发标定帧与验收整局分离；之后运行短规则诊断与同输入的学习策略。配对审计再校准显示时延，最后做多种子完整自然终局、动作确认和 p95 延迟验收。缺少物理设备时保留物理设备验收未通过，Android 软件 VM 的结果独立报告。

@@ -1,0 +1,8 @@
+{
+  "path": "arena_lab/artifacts/aligned-joint-replay.html",
+  "bytes": 1454437,
+  "sha256": "d09a857f1a957a60fb8871b938faabec90a78c7a15e5b7a8050df2cfb0024791",
+  "frames": 252,
+  "source": "outputs/arena-next-20261113/replay-demo-v1",
+  "scope": "one predeclared qualitative simulator demonstration; no strength estimate; full original trace preserved in outputs"
+}
