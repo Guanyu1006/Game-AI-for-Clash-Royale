@@ -184,3 +184,5 @@
 较早的全项目回归为 539 项、0 失败、2 跳过；最终再次运行全项目回归时，运行环境发生进程重建，会话丢失、日志未结束，原因未确认，**该次不计为通过**。原始中断证据和各次测试适用范围见[本地验收记录](audits/arena_lab_20261113/local-validation-final.json)与[中断说明](audits/arena_lab_20261113/workspace-test-interruption.json)。
 
 最终提交使用 GitHub 的 `Arena Lab reproducibility` 工作流检查新模块、哈希锁定安装、实际整局步进和交付权重的两场换边完整对局；主分支的 `Portable CPU checks` 另检查核心依赖下的旧平台契约、数值训练和重新加载。它们与本机 Java 后端及真实浏览器验收分工不同，不能将 CI 跳过的环境能力算作已验证。此前首个实现提交的[成功回执](audits/arena_lab_20261113/github-ci-first-commit.json)保留，最终提交对应的 GitHub 运行链接以交付消息为准。
+
+提交 `272fb74` 的新系统工作流成功，核心依赖工作流发现三项能力推断测试会为读取 HERO 协议常量意外加载模拟器。该依赖边界已修复：纯推断使用按锁定 wheel 核验的协议契约，真实重演入口另核对运行时值；没有跳过原测试或给核心环境强加模拟器依赖。仅 NumPy 隔离环境修复前复现三项错误，修复后 7／7 通过；增加了禁止引擎导入与协议漂移拒绝回归。两套工作流现在都会在 `dev/arena-lab-*` 推送时运行，提前检查这类兼容问题，见[失败与修复证据](audits/arena_lab_20261113/github-ci-portable-compatibility.json)。

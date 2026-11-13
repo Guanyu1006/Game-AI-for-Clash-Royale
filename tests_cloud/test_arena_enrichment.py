@@ -1,14 +1,18 @@
 import hashlib
 import json
 from pathlib import Path
+import subprocess
+import sys
+import textwrap
 from types import SimpleNamespace
 import tempfile
 import unittest
+from unittest.mock import Mock, patch
 
 import numpy as np
 
 from arena_lab.enrichment import historical_deck_hypotheses
-from arena_lab.hypothesis_audit import unique_ability_hypothesis
+from arena_lab.hypothesis_audit import replay_hypothesis, unique_ability_hypothesis
 
 
 class HistoricalDeckTests(unittest.TestCase):
@@ -89,6 +93,46 @@ class AbilityHypothesisTests(unittest.TestCase):
         self.assertIsNone(unique_ability_hypothesis(env, 0, {0: 0}, cat)["selected"])
         env.state.entities[0].status_flags = 0
         self.assertIsNone(unique_ability_hypothesis(env, 0, {0: 2}, cat)["selected"])
+
+    def test_inference_imports_no_simulator_even_when_called_in_a_fresh_process(self):
+        # A fresh process catches both module-level and lazy helper imports;
+        # blocking bootstrap also prevents an installed local cache hiding this.
+        script = textwrap.dedent('''
+            import importlib.abc
+            import sys
+            from types import SimpleNamespace
+            class NoSimulator(importlib.abc.MetaPathFinder):
+                def find_spec(self, fullname, path=None, target=None):
+                    if fullname in {"arena_lab.environment", "arena_lab.bootstrap"} or fullname.split(".")[0] in {
+                        "royalegym", "royalesim", "gymnasium", "pettingzoo", "msgspec"
+                    }:
+                        raise AssertionError("Pure inference tried to import " + fullname)
+            sys.meta_path.insert(0, NoSimulator())
+            from arena_lab.hypothesis_audit import unique_ability_hypothesis
+            own = SimpleNamespace(abilities=[[1, 0, 2, 0, 0]])
+            env = SimpleNamespace(state=SimpleNamespace(players=[own, own], entities=[
+                SimpleNamespace(team=0, card_id=0, hp=100, status_flags=16, uid=7)]))
+            env.observe = lambda seat: {"legal_cards": [True] * 8}
+            result = unique_ability_hypothesis(env, 0, {0: 2}, [
+                {"card_id": 0, "name": "Knight", "champion": False}])
+            assert result["selected"]["living_own_hero_entity_uids"] == [7]
+            assert not result["original_source_ability_identity_verified"]
+            assert "arena_lab.environment" not in sys.modules
+            assert "arena_lab.bootstrap" not in sys.modules
+            print("pure-inference-without-engine")
+        ''')
+        result = subprocess.run([sys.executable, "-c", script], cwd=Path(__file__).resolve().parents[1],
+                                capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("pure-inference-without-engine", result.stdout)
+
+    def test_runtime_protocol_drift_is_rejected_before_arena_construction(self):
+        arena = Mock(side_effect=AssertionError("Arena must not be constructed after protocol drift"))
+        fake_environment = SimpleNamespace(ArenaConfig=Mock(), ArenaEnv=arena, STATUS_HERO=8)
+        with patch.dict(sys.modules, {"arena_lab.environment": fake_environment}):
+            with self.assertRaisesRegex(RuntimeError, "STATUS_HERO.*0.1.29"):
+                replay_hypothesis({}, {}, variant="base_unknown_abilities")
+        arena.assert_not_called()
 
 
 if __name__ == "__main__":

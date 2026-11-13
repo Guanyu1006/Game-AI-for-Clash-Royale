@@ -5,9 +5,12 @@ on:
     branches:
       - main
       - "setup/codespaces-*"
+      - "dev/arena-lab-*"
   pull_request:
     paths:
       - 'royale_*/**'
+      - 'arena_lab/**'
+      - 'configs/arena-lab/**'
       - 'tools/cloud/**'
       - 'tests_cloud/**'
       - 'tests_phase3/**'

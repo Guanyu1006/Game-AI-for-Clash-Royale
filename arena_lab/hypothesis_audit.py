@@ -18,6 +18,11 @@ from .replay_data import card_mapping, infer_cycle_openings, resolve_card
 
 VARIANTS = ("base_unknown_abilities", "historical_unknown_abilities", "historical_unique_ability")
 
+# Engine-independent contract from royalegym 0.1.29, protocol.py: STATUS_HERO = 16.
+# Its wheel SHA256 is locked in requirements-arena-lab-lock.txt. Real replay
+# checks this value against the loaded protocol before constructing an arena.
+_ROYALEGYM_STATUS_HERO = 1 << 4
+
 
 def unique_ability_hypothesis(env, seat: int, forms_by_id: dict[int, int], catalogue: list[dict]) -> dict:
     """Use only own public button, own living entity and declared deck evidence.
@@ -25,7 +30,6 @@ def unique_ability_hypothesis(env, seat: int, forms_by_id: dict[int, int], catal
     Uniqueness is necessary but does not prove the unidentified source button.
     Multiple living copies of one qualifying card still correspond to one button.
     """
-    from .environment import STATUS_HERO
     own = env.state.players[seat]
     legal = env.observe(seat)["legal_cards"]
     cards = {c["card_id"]: c for c in catalogue}
@@ -39,7 +43,7 @@ def unique_ability_hypothesis(env, seat: int, forms_by_id: dict[int, int], catal
                   "native_champion": bool(cards.get(cid, {}).get("champion", False))}
         # All own units are visible to this seat. Enemy state is never consulted.
         live = [e for e in env.state.entities if e.team == seat and e.card_id == cid and e.hp > 0]
-        hero_live = [e for e in live if e.status_flags & STATUS_HERO]
+        hero_live = [e for e in live if e.status_flags & _ROYALEGYM_STATUS_HERO]
         record["living_own_entity_uids"] = [int(e.uid) for e in live]
         record["living_own_hero_entity_uids"] = [int(e.uid) for e in hero_live]
         declared = cid in forms_by_id and (record["native_champion"] or forms_by_id[cid] == 2)
@@ -93,7 +97,9 @@ def _prepared_game(game: dict, hypothesis: dict, mapping: dict) -> dict:
 
 def replay_hypothesis(game: dict, prepared: dict, *, variant: str, seed: int = 0,
                       decision_ticks: int = 10) -> dict[str, Any]:
-    from .environment import ArenaConfig, ArenaEnv
+    from .environment import ArenaConfig, ArenaEnv, STATUS_HERO
+    if STATUS_HERO != _ROYALEGYM_STATUS_HERO:
+        raise RuntimeError("Loaded RoyaleGym STATUS_HERO differs from the pinned 0.1.29 audit contract")
     if variant not in VARIANTS:
         raise ValueError("Unknown audit variant")
     started = time.perf_counter()

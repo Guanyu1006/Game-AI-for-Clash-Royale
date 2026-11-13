@@ -1,0 +1,42 @@
+{
+  "schema": "arena-portable-ci-compatibility-v1",
+  "failing_commit": "272fb74d0913d5087d0bc9edca6645cc6f979a77",
+  "arena_workflow": {
+    "run_id": 43402771987,
+    "conclusion": "success"
+  },
+  "portable_workflow": {
+    "run_id": 43402771968,
+    "job_id": 131809498034,
+    "conclusion": "failure",
+    "tests": 539,
+    "errors": 3,
+    "skipped": 51
+  },
+  "failure": "Three pure AbilityHypothesisTests imported arena_lab.environment only for STATUS_HERO, triggering optional simulator activation in the core-dependencies job.",
+  "required_resolution": "Separate the pinned protocol constant from engine activation; retain all three tests and verify the constant against the real pinned protocol at the live audit entry. Do not add simulator or Torch to the core-only workflow.",
+  "model_and_data": "No training, dataset, checkpoint or completed evaluation result changes required.",
+  "resolution_applied": true,
+  "runtime_protocol_guard": "Pure helper uses pinned RoyaleGym 0.1.29 STATUS_HERO=16; live replay rejects any runtime mismatch before arena construction.",
+  "core_only_validation": {
+    "tests": 7,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.183,
+    "new_regressions": [
+      "fresh subprocess blocks all simulator/bootstrap imports while actually calling the helper",
+      "runtime HERO-bit drift rejected before constructing an arena"
+    ]
+  },
+  "logs": [
+    {
+      "path": "outputs/arena-lab-20261113/portable-helper-repair-before.log",
+      "sha256": "3906716ede6e9d5259a1ae8d59ddc780ebe98a448aca669899d581cdde463e97"
+    },
+    {
+      "path": "outputs/arena-lab-20261113/portable-helper-repair-core.log",
+      "sha256": "35869c710168389ee13b9157be2ab17b1e7ca6ef6000122b30cdf08d8ff4cdd6"
+    }
+  ],
+  "future_coverage": "Both workflows run on dev/arena-lab-* before main integration."
+}
