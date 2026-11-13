@@ -1,0 +1,53 @@
+name: Arena Lab reproducibility
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, 'dev/arena-lab-*']
+    paths: ['arena_lab/**', 'configs/arena-lab/**', 'tests_cloud/test_arena*', 'requirements-arena-lab*', 'requirements-codespaces*.txt', 'pyproject.toml', '.github/workflows/arena-lab-check.yml']
+  pull_request:
+    paths: ['arena_lab/**', 'configs/arena-lab/**', 'tests_cloud/test_arena*', 'requirements-arena-lab*', 'requirements-codespaces*.txt', 'pyproject.toml', '.github/workflows/arena-lab-check.yml']
+permissions:
+  contents: read
+jobs:
+  cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fixed host CPU dependencies
+        run: |
+          python -m pip install -r requirements-codespaces.txt
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu -r requirements-codespaces-ml.txt
+      - name: Isolated hash-locked simulator
+        run: python -m arena_lab bootstrap install
+      - name: Data, recurrent model, training and closed-loop contracts
+        run: python -m unittest discover -s tests_cloud -p 'test_arena*.py' -v
+      - name: Real engine whole-battle benchmark
+        run: python -m arena_lab benchmark --backend royalesim --seed 1729 --games 2 --decision-ticks 10 --output outputs/arena-ci/benchmark.json
+      - name: Delivered checkpoint reload and paired whole games
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          suite = json.loads(Path('configs/arena-lab/evaluation-suite-v1.json').read_text())
+          suite['cases'] = suite['cases'][:2]
+          suite['evaluation_options']['variants'] = ['model']
+          Path('outputs/arena-ci/smoke-suite.json').write_text(json.dumps(suite))
+          PY
+          python -m arena_lab evaluate --checkpoint arena_lab/artifacts/imitation-v1.pt --suite outputs/arena-ci/smoke-suite.json --output outputs/arena-ci/pretrained
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          total = json.loads(Path('outputs/arena-ci/pretrained/summary.json').read_text())['total']
+          assert total['attempted_games'] == total['natural_games'] == 2, total
+          assert total['faulted_games'] == total['truncated_games'] == 0, total
+          assert total['candidate_executed'] > 0, total
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: arena-cpu-evidence
+          path: outputs/arena-ci/

@@ -1,0 +1,34 @@
+{
+  "python": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/verification-venv/bin/python",
+  "base_prefix": "/usr/local",
+  "prefix": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/verification-venv",
+  "before_arena_activation": {
+    "numpy": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/verification-venv/lib/python3.12/site-packages/numpy/__init__.py",
+    "torch": null,
+    "gymnasium": null,
+    "cloudpickle": null,
+    "msgspec": null,
+    "jpype": null
+  },
+  "after_activation": {
+    "numpy": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/verification-venv/lib/python3.12/site-packages/numpy/__init__.py",
+    "gymnasium": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/python/gymnasium/__init__.py",
+    "cloudpickle": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/python/cloudpickle/__init__.py",
+    "msgspec": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/python/msgspec/__init__.py",
+    "jpype": "/workspaces/Game-AI-for-Clash-Royale/.cache/arena-lab/python/jpype/__init__.py"
+  },
+  "results": {
+    "royalesim": {
+      "natural_terminal": true,
+      "final_tick": 5979,
+      "accepted": 152,
+      "executed": 152
+    },
+    "crforge": {
+      "natural_terminal": true,
+      "final_tick": 3681,
+      "accepted": 66,
+      "executed": 66
+    }
+  }
+}

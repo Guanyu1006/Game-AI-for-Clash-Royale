@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "purpose": "Exclude all already evaluated v1 test game views from expanded-data final test",
+  "previous_index_sha256": "0c3b508bb0fdb4fce6a84ebfb166dec31330bec657fb6ea3c565afc2c6ddc90f",
+  "games": [
+    {
+      "game_id": "09be741b59065726c879502c61f9c1c70bc0e33d35d50ff6d21419784b2433ee",
+      "source_game_id": "00VY9URJ2JC2",
+      "source_sha256": "0556da2d58a097c0f8b22d6460610e8a4a1b6efb228e7856b877a428e0cb498f"
+    },
+    {
+      "game_id": "0c9468ce29671d86135dc3b5b7ec37baf79fda069c4a3f0fa9f91936d52fa1dc",
+      "source_game_id": "000YYVC29VGL",
+      "source_sha256": "ff483f627c55dce352372658193f4afd959c71291a6c73ffe4f2369363a60fcf"
+    },
+    {
+      "game_id": "0e9d38b9ff5077190e148d6a87f1fab65c91bdaa12e6f57a7b91d23bc7bc2fbc",
+      "source_game_id": "00RY9VPQJG0Q",
+      "source_sha256": "40aec75742e045e83bca0ca4798ab3cbce16c40b59c5fef2847ac3a516a801d5"
+    },
+    {
+      "game_id": "0f0f9fbcbaec44d3d07b4d4bc092c351db06130c8ea1163097233760f37a779d",
+      "source_game_id": "00RY9VY2QV98",
+      "source_sha256": "3dd8e3faad50f5bff740db6978abced79f51609d00c8cd487cb2372f94bc33ce"
+    },
+    {
+      "game_id": "322798029b5adcc17f09b7361e719c973fa873d9b405ca9c20922611499a688d",
+      "source_game_id": "00VYP2RJ9Q2L",
+      "source_sha256": "1c4c406e87dd5d7f65e25612fff78bbf7af8f4feb9a521c5e5642b31f0ecefd6"
+    },
+    {
+      "game_id": "379a2f8eddce655173e7d4760ef6318c8fae282ace7ab600fc9bb13e505fa12a",
+      "source_game_id": "000YYC9RCURV",
+      "source_sha256": "b7f0606c7faa73941f4881a5917c2836243c4cf0989cf13c149732064c93c79d"
+    },
+    {
+      "game_id": "3ac40da2f55ddec5aafe8ccd6c720ac0ff997073ec651bf0cc0795426323a8dc",
+      "source_game_id": "028YPLG28QYL",
+      "source_sha256": "7b97defc0c52e4f7a0690bd7252ff96cb9ed40ce77266740ab28ae02c79ceb5f"
+    },
+    {
+      "game_id": "43a8565e5e06373780027b2f30323f8f130a1ed86a699b3ef3ad8afccd278d1d",
+      "source_game_id": "00QYP0JQJU8R",
+      "source_sha256": "e817f7f16b092113e851cd6b046e21cc11ce1e255264b32d7fd0d8f92816384f"
+    },
+    {
+      "game_id": "504f578ecb93b486fa806fbba8967144ae476ccb215ebb78890458d149a3c1db",
+      "source_game_id": "00JY9VR0UVPG",
+      "source_sha256": "3667286d3ef6e1b0896674ce88765580e0b6ac4327d5d449bacd57bcb745be5b"
+    },
+    {
+      "game_id": "5367892c857385e91f786bac36061b9b8d8f8d2c2dc93acc7c4127c5ca23d0a1",
+      "source_game_id": "009YYV8QUUPL",
+      "source_sha256": "05ffe5da52b9a81a78a64772e03b9f3acf115824f77208d1289a8186247b8e56"
+    },
+    {
+      "game_id": "54dd81c2bb107833763b53e4c0cdc719f074fbebc01853e03850e164a2f0a4f7",
+      "source_game_id": "000YYCYLLPJQ",
+      "source_sha256": "e989f5155c13b12c0bb8a9157043c62bf56667debf830a48bca86b3076544ce8"
+    },
+    {
+      "game_id": "5c78ac2387402ca193f289f524eb39afb920bfbbcf4830b6ee5894a329830744",
+      "source_game_id": "008YYU2RJG9V",
+      "source_sha256": "2bc37e008a96da0da14d5f71a68f6cb2022365557df8f6990e97f2dedde77678"
+    },
+    {
+      "game_id": "69138572cb7cf6bf6b1bc0c2697dc59a2195c360fc8f086dd97e4f78eee29193",
+      "source_game_id": "00QYP2VUJYJ0",
+      "source_sha256": "3b7d1812bd1d6a6ee05a9030b61330b45d93cd23194154644ecc8bc9df8febb2"
+    },
+    {
+      "game_id": "73658bf765ad048c63654ef074a27943edbc9537eb5a2468ab09ca892757b724",
+      "source_game_id": "028YPLPQ8QQC",
+      "source_sha256": "64a6792ded9909ac805d0fab890ba509b674dac8b03a841bb9099975b70c35d6"
+    },
+    {
+      "game_id": "7d0ca454d1c50b9b3a1c46004f5478cb8f85d9ec30304a03919315edf24722c8",
+      "source_game_id": "02GY98PCPGPR",
+      "source_sha256": "f8695f38840e82ebbe2ccfa33df4b77d808278f83247521634569fe794364bd7"
+    },
+    {
+      "game_id": "8c559d371d8b4b31e4c2f545ff65b04a6b8b595cbe64a7968b77cab42c03dc03",
+      "source_game_id": "00PYYCUU0RYC",
+      "source_sha256": "3e415e2e9fa65ff98207435f9f712ec645068042235849e7258d41565c7486ad"
+    },
+    {
+      "game_id": "8f0f37b03540e1aa35a325be79ac03fd14b983d042c628dc79614f648e3dba4c",
+      "source_game_id": "029YPYPJVJCP",
+      "source_sha256": "ce4b5d0da0d136649d3a6833f6d7aeacdf06682ac992929a5c58df7a2717c158"
+    },
+    {
+      "game_id": "9b0b659091a3e0a4abc177a0462deab45b52522e6301f3e0b15b5e60d0d711c4",
+      "source_game_id": "00GY9CLYRR28",
+      "source_sha256": "178608b683ab834349c2b014ef2a417b7c7f595100d5a57dfe69ae9a34e825b5"
+    },
+    {
+      "game_id": "a0cccbc89917248cc176fd47576285c0b5a4c81acb102d6ef49a50f2d09351ce",
+      "source_game_id": "00UY9UQRYUQ8",
+      "source_sha256": "a3eea10fb300c5e7d1906562093259e969621896dbd35750227aeb1839e0fb65"
+    },
+    {
+      "game_id": "a9d28bd38e601f1f151877f9aad856225a4b8b16cc85848ab01a623d2e76474e",
+      "source_game_id": "00PYYU228LVG",
+      "source_sha256": "8c2361e403612e53966b233f883267d3adcede535ef0d203e07903c12a5e1f01"
+    },
+    {
+      "game_id": "bda08675518cdefa4f2d20edb81807edd34cf295ed434df098a85a1dc1e41456",
+      "source_game_id": "00CY9CVQJJYQ",
+      "source_sha256": "1f369224fb76c134eded00c99da913436b167e4620d654301d1c3de96dc9880c"
+    },
+    {
+      "game_id": "c9915263457bec36406fcb339a4187b24f618e130c0b20d97fe05dfd20d5829a",
+      "source_game_id": "022YY2QPQRY2",
+      "source_sha256": "cfd37e254b35622c2dfb7ba89c76b1754d74f6b42faaab67175201b793185ab2"
+    },
+    {
+      "game_id": "d7117e61b4246ce1300a722f488e180f485fdf203e740aeaf8aa3d41b081e70c",
+      "source_game_id": "00JYP2Y8C000",
+      "source_sha256": "0f9c4d02d9b9564f1b122ee5b71db614b8ea1ad6ce26076c0f4f30f0fdfb5291"
+    },
+    {
+      "game_id": "e0c7ba8c5c10d67869604fc0f00296dcce87078525601bf6164ed529ef28dfa5",
+      "source_game_id": "002YL8GVGYVG",
+      "source_sha256": "aeabf7328eb0852a2abd2dea3eb6662a79a77acd3baaac5bdb8772e9782b835e"
+    },
+    {
+      "game_id": "e41bd0aa6cdb3fd08fa1cd4852c8cc5eb535a7f1fd375fc0d7bcab4b5f4540a6",
+      "source_game_id": "028YPLRJQ0PU",
+      "source_sha256": "cae6d0f36ea05900173e0c041e8db312429af828e5dc9bb28d37c64ba957778f"
+    },
+    {
+      "game_id": "eb8418add2b0584cc1d7748caab58f0acce6fdbc4fa523c3d565ff5af449cc1f",
+      "source_game_id": "029YPYY2PR88",
+      "source_sha256": "c1e33a0283dc2dfe76345f14f64eb7eaba4b3eba50e483c0621ce396a46d277c"
+    },
+    {
+      "game_id": "f797b9f81c95d9905ee9280c011a7f9e65426917096cf39e25dcb7a342d83f40",
+      "source_game_id": "00GY9CY8QC0Y",
+      "source_sha256": "4f6ed088a6cc9d3a1516e076b45b8da64ee85f0f8381f62e85699ac07b85d18b"
+    }
+  ]
+}

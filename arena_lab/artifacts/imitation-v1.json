@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "file": "imitation-v1.pt",
+  "bytes": 1001536,
+  "sha256": "0ee4d54fd36c64e4bc30064ebd32f197420b0a3dd3863b3924f8ece13cfa7901",
+  "format": "arena-lab-public-entity-gru-v1; torch.load(weights_only=True)",
+  "source_run": "outputs/arena-lab-20261113/train-v1",
+  "training_steps": 1008,
+  "selected_epoch": 4,
+  "parameters": 243045,
+  "dataset_index_sha256": "0c3b508bb0fdb4fce6a84ebfb166dec31330bec657fb6ea3c565afc2c6ddc90f",
+  "trained": true,
+  "strong_imitation_delivery_gate_passed": false,
+  "status": "Counterfactual simulator imitation research checkpoint; closed loop passed, useful strength not established.",
+  "test_result": "Argmax all-WAIT; sampled model 5/24 in the predeclared suite, no demonstrated entity benefit.",
+  "sensitive_data_review": "Generated numeric weights and public experiment metadata; no credentials or private data; strict weights_only reload and finite tensor check passed.",
+  "replay": {
+    "file": "replay-v1.html",
+    "sha256": "2f8051db546252e479d94d92955903a3d82b8c2f6842bc4125aff156451b6d21",
+    "bytes": 544007,
+    "selection": "Fixed model episode0 from predeclared suite; not chosen by outcome",
+    "browser_verified": true
+  }
+}

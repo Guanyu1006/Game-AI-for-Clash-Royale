@@ -1,0 +1,250 @@
+{
+  "schema": "arena-wait-objective-audit-v1",
+  "date": "2026-11-13",
+  "language": "zh-CN",
+  "scope": {
+    "computed_from": "Frozen v1 train/validation labels, legal masks, history and source code only. No test metric was used to select weights, thresholds or design settings.",
+    "production_modified": false,
+    "v1_result_and_checkpoint_changed": false,
+    "new_training_implementation_written": false
+  },
+  "identity": {
+    "dataset_index": "data/arena-lab/derived-base-default6-v2/index.json",
+    "dataset_index_sha256": "0c3b508bb0fdb4fce6a84ebfb166dec31330bec657fb6ea3c565afc2c6ddc90f",
+    "teacher_sequences": 236,
+    "checkpoint": "outputs/arena-lab-20261113/train-v1/best.pt",
+    "checkpoint_sha256": "0ee4d54fd36c64e4bc30064ebd32f197420b0a3dd3863b3924f8ece13cfa7901",
+    "training_config": {
+      "epochs": 4,
+      "batch_size": 4,
+      "sequence": 32,
+      "learning_rate": 0.0003,
+      "weight_decay": 0.0001,
+      "position_loss_weight": 1.0,
+      "play_weight_cap": 8.0,
+      "seed": 1729,
+      "threads": 2
+    },
+    "actual_reconstruction_reset_options": {
+      "decks": "per-game globally constrained opening, see sequence metadata",
+      "seed": 0,
+      "shuffle": 0,
+      "forms": "all base hypothesis; source forms remain unknown",
+      "levels": [
+        [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      ],
+      "tower_levels": [
+        16,
+        16
+      ],
+      "elixir_milli": null,
+      "effective_opening_elixir_milli": [
+        6000,
+        6000
+      ],
+      "offset_ticks": 0,
+      "decision_ticks": 10
+    },
+    "reset_metadata_matches_provenance": true
+  },
+  "diagnosis": {
+    "confirmed_implementation_bug_causing_wait_collapse": false,
+    "conclusion": "未发现损失权重漏乘、掩码错杀合法teacher动作、槽位索引偏移或GRU跨局串线。现有加权多类CE与逐类argmax可以合理产生全WAIT；这是目标/解码结构与弱时间监督的限制，不能仅凭全WAIT推定实现错误。",
+    "static_mass_caveat": "39.886%是训练标签按cap8加权后、排除强制WAIT的静态非WAIT权重质量近似，不是模型实测概率或校准后的出牌率。每批独立归一化、状态特征、合法动作掩码与数据分布都会改变条件后验。",
+    "prior_illustration": "无区分特征的常数预测近似中，约60.1%的WAIT质量集中在一个类别，约39.9%的非WAIT质量分散于4个手牌槽；因此每槽可能均小于WAIT，而非WAIT总概率仍非零。该近似不等于实际网络输出。",
+    "slot_imbalance_finding": "训练4槽目标489/475/500/534，未见某槽缺失或严重失衡；1608/1998个出牌标签有4个合法非WAIT选项。",
+    "learning_evidence": "4个epoch的加权card loss下降、验证位置NLL下降、梯度范数非零；验证argmax非WAIT数每轮仍为0，支持模型在学习位置但未形成可触发的逐类argmax。"
+  },
+  "label_and_mask_statistics": {
+    "train": {
+      "files": 171,
+      "counts": {
+        "valid": 29046,
+        "play": 1998,
+        "wait": 27048,
+        "forced_wait": 2958,
+        "choice_wait": 24090
+      },
+      "nonwait_target_by_action": {
+        "1": 489,
+        "3": 500,
+        "4": 534,
+        "2": 475
+      },
+      "legal_nonwait_count_at_play": {
+        "4": 1608,
+        "1": 59,
+        "3": 211,
+        "2": 74,
+        "5": 46
+      },
+      "static_weighted_nonwait_mass_all_valid": 0.3714445064138316,
+      "static_weighted_nonwait_mass_excluding_forced_wait": 0.3988621051055547
+    },
+    "validation": {
+      "files": 34,
+      "counts": {
+        "valid": 4476,
+        "play": 312,
+        "wait": 4164,
+        "forced_wait": 444,
+        "choice_wait": 3720
+      },
+      "nonwait_target_by_action": {
+        "1": 56,
+        "4": 109,
+        "2": 74,
+        "3": 73
+      },
+      "legal_nonwait_count_at_play": {
+        "4": 246,
+        "5": 12,
+        "3": 38,
+        "2": 12,
+        "1": 4
+      },
+      "static_weighted_nonwait_mass_all_valid": 0.3747747747747748,
+      "static_weighted_nonwait_mass_excluding_forced_wait": 0.4015444015444015
+    }
+  },
+  "train_validation_history": [
+    {
+      "epoch": 1,
+      "optimizer_steps": 251,
+      "mean_batch_weighted_card_loss": 1.111593203953063,
+      "mean_batch_position_loss": 5.007698399137216,
+      "last_gradient_norm_before_clip": 7.89921236038208,
+      "validation_card_nll": 0.5218088035875393,
+      "validation_position_nll": 4.821073553501031,
+      "validation_predicted_nonwait_argmax": 0,
+      "validation_nonwait_labels": 312,
+      "validation_labels": 4476
+    },
+    {
+      "epoch": 2,
+      "optimizer_steps": 256,
+      "mean_batch_weighted_card_loss": 1.0691418591886759,
+      "mean_batch_position_loss": 4.527648523449898,
+      "last_gradient_norm_before_clip": 8.190512657165527,
+      "validation_card_nll": 0.6057984709499988,
+      "validation_position_nll": 4.798487649514125,
+      "validation_predicted_nonwait_argmax": 0,
+      "validation_nonwait_labels": 312,
+      "validation_labels": 4476
+    },
+    {
+      "epoch": 3,
+      "optimizer_steps": 252,
+      "mean_batch_weighted_card_loss": 1.0527833655240044,
+      "mean_batch_position_loss": 4.464741704009828,
+      "last_gradient_norm_before_clip": 5.970148086547852,
+      "validation_card_nll": 0.6376457600533909,
+      "validation_position_nll": 4.779869892658332,
+      "validation_predicted_nonwait_argmax": 0,
+      "validation_nonwait_labels": 312,
+      "validation_labels": 4476
+    },
+    {
+      "epoch": 4,
+      "optimizer_steps": 249,
+      "mean_batch_weighted_card_loss": 1.0466454187071468,
+      "mean_batch_position_loss": 4.378710243117857,
+      "last_gradient_norm_before_clip": 5.216481685638428,
+      "validation_card_nll": 0.5281545258825436,
+      "validation_position_nll": 4.668598311069684,
+      "validation_predicted_nonwait_argmax": 0,
+      "validation_nonwait_labels": 312,
+      "validation_labels": 4476
+    }
+  ],
+  "code_review": [
+    {
+      "path": "arena_lab/training.py:229",
+      "finding": "card CE仅取label_valid；非WAIT权重确实乘8后除以同批weight.sum，公式实现一致。它是每批加权均值，不是全数据全局分母，也不直接保证非WAIT整体argmax。"
+    },
+    {
+      "path": "arena_lab/training.py:243",
+      "finding": "位置loss仅部署1..4，按真实teacher手牌槽gather，并以位置标签数单独取均值；没有WAIT位置损失，也没有能力按钮位置损失。"
+    },
+    {
+      "path": "arena_lab/model.py:267",
+      "finding": "合法card mask与位置可行性结合；WAIT始终合法，空位置槽有dummy位置但对应card概率为零；未见softmax全负无穷或合法teacher被掩码的路径。"
+    },
+    {
+      "path": "arena_lab/training.py:375",
+      "finding": "每lane新局重置hidden，chunk间detach，padding无loss，下局前丢弃padding memory；未见跨局/跨seat状态混用。"
+    },
+    {
+      "path": "arena_lab/training.py:394",
+      "finding": "验证选模用未加权card NLL加单独位置NLL，而训练用加权card CE；两者目标并不完全一致，但配置与实现均已预声明，不是运行时漏权重。"
+    },
+    {
+      "path": "arena_lab/replay_data.py:94",
+      "finding": "全局未来出牌约束选初手/队列，属于hindsight条件的反事实模拟重建；不能宣称原始因果实战观察或官方状态真值。"
+    },
+    {
+      "path": "arena_lab/training.py:353",
+      "finding": "最终冻结checkpoint顶层reconstruction_reset_options已非空且与dataset_provenance一致；早期空字段快照已不适用。"
+    }
+  ],
+  "next_round_design_proposal": {
+    "status": "design_only; do not alter v1 or select using frozen test/96-game suite results",
+    "hardware": "CPU only, at most2 worker/torch threads; retain current public observation encoder and GRU. Added event/conditional heads are small and require no GPU.",
+    "factorization": {
+      "q": "q_t=P(nonWAIT|public history); force q_t=0 if no nonWAIT action is legal.",
+      "conditional_action": "r_t(j)=masked softmax over legal nonWAIT actions j=1..7 (4 deploy slots plus available ability buttons).",
+      "joint_probability": "P(WAIT)=1-q_t; P(action=j)=q_t*r_t(j); a deployment additionally uses P(position|j,history).",
+      "important_limit": "Factorization alone does not guarantee nonWAIT under joint MAP. Greedy WAIT may still be Bayes-optimal for uncertain timing. Keep probabilistic cadence/sampling and joint-vs-hierarchical decoding explicitly distinct, predeclare the decoder before held-out evaluation."
+    },
+    "losses": {
+      "event": "Binary event likelihood over valid choice timesteps; report forced-WAIT timesteps separately. If cost weighting or resampling is used, derive it only from train data and document probability recalibration on validation.",
+      "conditional_card": "Cross entropy over the actual nonWAIT class on qualified nonWAIT labels; legality mask retained.",
+      "position": "Conditional location loss only on qualified deployment labels; report its normalization and coefficient separately from timing.",
+      "normalization": "State explicitly whether head losses are per-event/per-frame/per-batch or one per-valid-frame joint NLL. Current separate mean losses are a valid multiobjective choice but do not equal a single calibrated joint-action NLL.",
+      "unknown_abilities": "v1 contains0 qualified ability labels; do not claim the ability head learned expert timing. Obtain separately qualified ability supervision or describe the head as unsupported by this dataset."
+    },
+    "recurrent_sampling": "Retain every chronological observation and invalid gap before supervised labels. Loss reweighting/downsampling must not remove history rows or compress elapsed time; keep whole-game/seat hidden resets and TBPTT detachment.",
+    "train_validation_diagnostics": [
+      "Event NLL/Brier/calibration and nonWAIT mass on choice frames, separate forced WAIT.",
+      "Event precision/recall and stochastic cadence on train/validation; slot accuracy conditional on true nonWAIT.",
+      "Conditional position distance/NLL and joint action likelihood; report all-WAIT and simple event-prior baselines.",
+      "One small train-only overfit/gradient-path diagnostic can distinguish optimization failure from irreducible timing ambiguity; it is a contract diagnostic, not strength evidence.",
+      "If component interference is suspected, measure train-batch gradient norms by objective before changing coefficients."
+    ],
+    "experiment_control": "Predeclare a small CPU-feasible variant set and fixed training budget; keep old v1 split grouping/holdout boundaries, deduplicate expanded data by whole battle, and reserve a new untouched strength suite if the old suite has informed designs. Choose weights/thresholds only using train/validation, freeze the selected checkpoint, then evaluate held-out games once.",
+    "data_boundary": "More archive coverage does not resolve unknown original build/forms/RNG/initial hand or hindsight opening selection. Keep counterfactual provenance and first-divergence masks."
+  },
+  "publication_review": {
+    "workflow_reviewed": ".github/workflows/arena-lab-check.yml",
+    "host_requirements_trigger_now_present": true,
+    "cache_and_raw_ignores_checked": [
+      ".cache/",
+      "data/",
+      "outputs/",
+      ".venv*/",
+      ".tmp/"
+    ],
+    "current_checkout_ci_static_blocker_found": false,
+    "clean_minimal_numpy_engine_validation": "previously verified on both backends; full Torch-enabled clean Actions execution is not claimed by this static audit",
+    "official_game_strength_claim": false
+  }
+}

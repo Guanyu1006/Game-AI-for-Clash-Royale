@@ -1,0 +1,9 @@
+# Audited CPython 3.12 / Linux x86_64 wheel hashes. Host NumPy: requirements-codespaces.txt.
+royalesim==0.1.51 --hash=sha256:1a83833012af3d0c4e58184a48856c0bf09dfffee21e026712a264efa7ed20d3
+royalegym==0.1.29 --hash=sha256:04859a1bb43f018dc5e379d8c923a467d0f149cabbfbd94f2d81481f95e1a60d
+gymnasium==1.4.0 --hash=sha256:1cb947c59e7c72d8eabb2c2274c00cd20948e69f8452a9ef4092223be24fdf0e
+pettingzoo==1.27.0 --hash=sha256:075a6ab7c32d32d9a674f1af395010198bf09c172341aa38fa5415461601ac61
+msgspec==0.22.0 --hash=sha256:99c401861c5bb3a57f7d6423ea7ed4352cd57aa3f04f4fbe9f3e3e4564a10f08
+cloudpickle==3.1.2 --hash=sha256:9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a
+Farama-Notifications==0.0.6 --hash=sha256:f84839188efa1ce5bb361c2a84881b2dc2c0d0d7fb661ff00421820170930935
+typing_extensions==4.16.0 --hash=sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8

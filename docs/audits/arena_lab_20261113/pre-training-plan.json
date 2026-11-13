@@ -1,0 +1,8 @@
+{
+  "purpose": "Configuration frozen before first real expert-source training",
+  "recorded_at_utc": "2026-11-13T08:20:03.004982+00:00",
+  "files": {
+    "configs/arena-lab/experiment-v1.json": "5f38e0669e1aa6b7b058e0737d4429806d4ef8cde7afc72aed4f3a4b7bae3a9d",
+    "configs/arena-lab/evaluation-suite-v1.json": "6ff569fa8e0f445b9d2eab79ef7fe5a967293339cf3d6b45c5716c98bcf49ab3"
+  }
+}

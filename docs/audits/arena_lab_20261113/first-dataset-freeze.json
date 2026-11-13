@@ -1,0 +1,80 @@
+{
+  "source_games": 212,
+  "teacher_sequences": 236,
+  "split_label_counts": {
+    "train": {
+      "teacher_sequences": 171,
+      "frames": 69340,
+      "valid_labels": 29046,
+      "valid_play_labels": 1998,
+      "valid_ability_labels": 0,
+      "valid_wait_labels": 27048,
+      "invalid_labels": 40294
+    },
+    "validation": {
+      "teacher_sequences": 34,
+      "frames": 12340,
+      "valid_labels": 4476,
+      "valid_play_labels": 312,
+      "valid_ability_labels": 0,
+      "valid_wait_labels": 4164,
+      "invalid_labels": 7864
+    },
+    "test": {
+      "teacher_sequences": 31,
+      "frames": 12000,
+      "valid_labels": 5641,
+      "valid_play_labels": 373,
+      "valid_ability_labels": 0,
+      "valid_wait_labels": 5268,
+      "invalid_labels": 6359
+    }
+  },
+  "first_divergence_reasons": {
+    "unknown-source-ability-not-submitted": 192,
+    "no-command-divergence-reached": 17,
+    "NO_DEPLOY": 2,
+    "OUT_OF_TERRITORY": 1
+  },
+  "aggregate_counts": {
+    "source_events": 17713,
+    "source_play_events": 16861,
+    "source_ability_events": 852,
+    "sampled_frames": 93680,
+    "sampled_wait_targets": 85614,
+    "valid_wait_labels": 36480,
+    "play_accepted": 13373,
+    "sampled_play_targets": 7696,
+    "valid_play_labels": 2683,
+    "sampled_ability_targets": 370,
+    "invalid_labels": 54517,
+    "label_reason:source-ability-identity-unavailable": 109,
+    "unknown_ability_events": 652,
+    "label_reason:state-after-first-command-divergence": 54281,
+    "events_not_reached_before_native_terminal": 3649,
+    "label_reason:state-window-containing-first-command-divergence": 104,
+    "same_side_multi_action_windows": 61,
+    "label_reason:same-side-multiple-source-actions-in-window": 17,
+    "play_native_refused": 10,
+    "label_reason:position-mask-rejects-quantized-source-target": 5,
+    "play_not_in_hand": 29,
+    "label_reason:card-mask-rejects-source-target-at-grid-observation": 1
+  },
+  "native_natural_terminal_games": 178,
+  "source_boundary_without_native_terminal_games": 34,
+  "winner_agreement_among_native_natural_terminals": {
+    "matched": 124,
+    "denominator": 178,
+    "comparison": "source winner mapped through data-i into native seat"
+  },
+  "exact_terminal_tick_matches": 0,
+  "strong_imitation_delivery_gate_passed": false,
+  "all_npz_hashes_shapes_masks_validated": true,
+  "cross_view_source_game_and_sha_split_leakage": false,
+  "index_path": "data/arena-lab/derived-base-default6-v2/index.json",
+  "index_sha256": "0c3b508bb0fdb4fce6a84ebfb166dec31330bec657fb6ea3c565afc2c6ddc90f",
+  "audit_sha256": "93827f52021bfa8c17223662f88e5bf613aa31a5d388b1f9f3d9b3528c936cab",
+  "reconstruction_config_sha256": "803b8aa3df48cf16123b101452b61ae0e19ced6ee9305ec08e068068f21512fc",
+  "frozen_at_utc": "2026-11-13T08:21:05.529465+00:00",
+  "opening_hindsight_conditioned_on_full_source_actions": true
+}

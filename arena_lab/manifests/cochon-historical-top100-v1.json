@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "repository": "Cochon123/clash-royale-replays",
+  "revision": "10cca44e9d863d06cf078f142d3e744f78698b0a",
+  "dataset_license": "MIT",
+  "license_url": "https://huggingface.co/datasets/Cochon123/clash-royale-replays/blob/10cca44e9d863d06cf078f142d3e744f78698b0a/README.md",
+  "additional_terms": "Dataset card restricts RoyaleAPI/Supercell material to research and personal projects; no official-client equivalence asserted",
+  "archive": {
+    "url": "https://huggingface.co/datasets/Cochon123/clash-royale-replays/resolve/10cca44e9d863d06cf078f142d3e744f78698b0a/snapshots/data-2026-11-01.tar.gz",
+    "full_bytes": 534361487,
+    "full_sha256": "01fa9b8973b67c8115547f815e9ca0218240fe928aa2f2f33a3c29f040ea7fc9",
+    "full_archive_downloaded": false
+  },
+  "snapshot_manifest": {
+    "url": "https://huggingface.co/datasets/Cochon123/clash-royale-replays/resolve/10cca44e9d863d06cf078f142d3e744f78698b0a/snapshots/data-2026-11-01.manifest.json",
+    "bytes": 10731198,
+    "sha256": "28be3b2f0a830921f126a1cb9e230d568436bbe9e1564e1ee2e4c4ce9ef9c9da"
+  },
+  "prefix": {
+    "bytes": 139991040,
+    "sha256": "a140d9fe121e39353e852b17148dc5a3746f67cf7a4710dd5337fa4be3983458",
+    "is_complete_archive": false
+  },
+  "expert_fact_table": {
+    "path": "historical-top100-202607.json",
+    "sha256": "24997a2359eea605014371f5a0d2a96932d9fb49df7bce2a07f41d38ddf157b1",
+    "records": 100,
+    "source_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+    "source_published": "2026-08-04",
+    "season": "2026-07",
+    "season_end": "2026-08-03",
+    "browser_extraction_local_raw_path": "data/arena-lab/raw/evidence/royaleapi-leaderboard-202607.browser.json",
+    "browser_extraction_sha256": "44bdaf5a03cdb2d6b5b44cacf2d1c9566ed3cd910561268a279aba1bca7c7500",
+    "evidence_method": "Browser-visible article rank/score/linked account IDs. Full article retained only as ignored local research evidence; committed table contains facts. Direct HTTP returned403 and was not treated as profile evidence."
+  },
+  "selection": "all complete raw snapshot members containing at least one exact historical-top100 account tag; no opponent auto-certification",
+  "sampling_limits": "bounded archive prefix in upstream tar order, not a random sample or complete archive",
+  "expected_normalized_games": 212,
+  "expected_teacher_seats": 236,
+  "sensitive_data_review": "public in-game account tags/names only; no login, API credentials, private accounts or messages"
+}

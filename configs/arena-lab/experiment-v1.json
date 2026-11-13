@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "purpose": "First predeclared imitation experiment; no test-driven tuning",
+  "source_dataset": "data/arena-lab/cochon-historical-top100-v1/source-index.json",
+  "training": {
+    "epochs": 4,
+    "batch_size": 4,
+    "sequence": 32,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "position_loss_weight": 1.0,
+    "play_weight_cap": 8.0,
+    "seed": 1729,
+    "threads": 2
+  },
+  "model_selection": "validation card_nll + position_nll only",
+  "test_policy": "Evaluate selected checkpoint once; same-weights entity ablation is diagnostic",
+  "closed_loop": {
+    "seeds": [
+      20261113,
+      20261114
+    ],
+    "opponents": [
+      "random",
+      "scripted"
+    ],
+    "variants": [
+      "model",
+      "model_without_entities",
+      "random",
+      "scripted"
+    ],
+    "candidate_sides": [
+      0,
+      1
+    ],
+    "deterministic": false,
+    "sampling": "Categorical policy, temperature1, fixed per-episode RNG; declared before first real training. Argmax offline metrics remain separate."
+  },
+  "limitations_to_measure": [
+    "expert and ordinary source seats must not be conflated",
+    "unknown original forms/levels/RNG/time semantics",
+    "fixed decision grid versus exact source events",
+    "reconstructed state drift and native action refusals",
+    "simulator-public state versus screen perception",
+    "strength only against declared simulated opponents"
+  ]
+}

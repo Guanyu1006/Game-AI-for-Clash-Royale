@@ -1,0 +1,11 @@
+# Simulator target only. Install with python -m arena_lab.bootstrap install.
+# Host NumPy remains in requirements-codespaces.txt; optional Torch in requirements-codespaces-ml.txt.
+# bootstrap deliberately never resolves or replaces the existing cloud environment.
+royalesim==0.1.51
+royalegym==0.1.29
+gymnasium==1.4.0
+pettingzoo==1.27.0
+msgspec==0.22.0
+cloudpickle==3.1.2
+Farama-Notifications==0.0.6
+typing_extensions==4.16.0

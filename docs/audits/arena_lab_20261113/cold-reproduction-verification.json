@@ -1,0 +1,28 @@
+{
+  "cold_reproduction_passed": true,
+  "fetched_into_independent_empty_directory": true,
+  "source_revision": "10cca44e9d863d06cf078f142d3e744f78698b0a",
+  "raw_prefix_sha256": "a140d9fe121e39353e852b17148dc5a3746f67cf7a4710dd5337fa4be3983458",
+  "manifest_sha256": "28be3b2f0a830921f126a1cb9e230d568436bbe9e1564e1ee2e4c4ce9ef9c9da",
+  "normalized_games": 212,
+  "teacher_seats": 236,
+  "whole_game_split": {
+    "train": 153,
+    "validation": 32,
+    "test": 27
+  },
+  "canonical_source_group_digest_sha256": "5a8adf4385c094117046ba32ea9d2b70698ad10a0897e5eeb92e1668b0dbaa0c",
+  "source_game_hash_teacher_split_equal_to_first_acquisition": true,
+  "counts": {
+    "raw_complete_members": 25597,
+    "no_certified_teacher_account": 25379,
+    "expert_account_candidate_members": 217,
+    "normalized_unique_games": 212,
+    "rejected_members": 6,
+    "rejected_expert_candidate_members": 5,
+    "unreadable_or_rejected_non_candidate_members": 1
+  },
+  "full_archive_downloaded": false,
+  "prefix_is_incomplete_archive": true,
+  "command": ".venv-cloud/bin/python -m arena_lab.data_sources fetch --output-dir data/arena-lab/repro-verify-v1"
+}

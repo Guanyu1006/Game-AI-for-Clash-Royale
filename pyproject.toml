@@ -20,11 +20,13 @@ yolo = ["ultralytics>=8.3,<9"]
 [project.scripts]
 royale-ai = "royale_ai.cli:main"
 royale-lab = "royale_lab.cli:main"
+arena-lab = "arena_lab.__main__:main"
 
 [tool.setuptools.packages.find]
-include = ["royale_ai*", "royale_lab*", "royale_phase2*", "royale_phase3*", "tools*"]
+include = ["royale_ai*", "royale_lab*", "royale_phase2*", "royale_phase3*", "arena_lab*", "tools*"]
 
 [tool.setuptools.package-data]
 royale_ai = ["data/*.json", "viewer.html"]
 royale_lab = ["web/*.html"]
 "tools.cloud" = ["*.html"]
+arena_lab = ["manifests/*.json", "artifacts/*.json", "artifacts/*.pt", "artifacts/*.html", "*.md"]

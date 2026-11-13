@@ -1,0 +1,256 @@
+{
+  "schema": "arena-environment-comparison-v1",
+  "measurement": "Local two-seat full games; public scripted vs random; includes actor observation and mask generation, no neural inference. Separate versions/rules, not an accuracy or policy-strength comparison.",
+  "evidence": [
+    "environment-tests.log",
+    "clean-environment-verification.json",
+    "opening-clock-elixir.json",
+    "bootstrap-crforge-replay.log"
+  ],
+  "versions": {
+    "royalesim": {
+      "wheel": "0.1.51",
+      "gym": "0.1.29",
+      "card_hash": "803ec02c7eac9fd3",
+      "vintage": "15.535.29 client (2026, LIVE build family)",
+      "source_compatibility": "historical family inference only; exact source match unknown"
+    },
+    "crforge": {
+      "commit": "69277c1002499da7c23932c303c41ac00bd82eaa",
+      "jdk": "21.0.13+9",
+      "data_version": "16.635.8",
+      "content_sha": "062a11e0500c03cc041f123413b1ef1846b539a4",
+      "source_compatibility": "no exact match established for historical raw HTML"
+    }
+  },
+  "cases": [
+    {
+      "backend": "royalesim",
+      "mode": "basic",
+      "seed": 7,
+      "scripted_seat": 0,
+      "natural_terminal": true,
+      "tick": 3600,
+      "winner": 0,
+      "joint_decisions_per_second": 707.4465269223558,
+      "step_latency_ms": {
+        "p50": 1.0580744999515446,
+        "p95": 2.0176248000097985
+      },
+      "accepted_total": 70,
+      "executed_total": 70,
+      "run_refused_total": 0,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [],
+      "artifact": "env-benchmark-royalesim.json"
+    },
+    {
+      "backend": "royalesim",
+      "mode": "basic",
+      "seed": 8,
+      "scripted_seat": 1,
+      "natural_terminal": true,
+      "tick": 3600,
+      "winner": 1,
+      "joint_decisions_per_second": 802.2164348750263,
+      "step_latency_ms": {
+        "p50": 0.9898925000015879,
+        "p95": 1.4905006501066964
+      },
+      "accepted_total": 67,
+      "executed_total": 67,
+      "run_refused_total": 0,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [],
+      "artifact": "env-benchmark-royalesim.json"
+    },
+    {
+      "backend": "royalesim",
+      "mode": "evolution-hero-champion-level16",
+      "seed": 7,
+      "scripted_seat": 0,
+      "natural_terminal": true,
+      "tick": 6085,
+      "winner": 0,
+      "joint_decisions_per_second": 678.7206730061537,
+      "step_latency_ms": {
+        "p50": 1.1776179999287706,
+        "p95": 1.8832886000382139
+      },
+      "accepted_total": 175,
+      "executed_total": 175,
+      "run_refused_total": 0,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [],
+      "artifact": "mechanism-royalesim.json"
+    },
+    {
+      "backend": "royalesim",
+      "mode": "evolution-hero-champion-level16",
+      "seed": 8,
+      "scripted_seat": 1,
+      "natural_terminal": true,
+      "tick": 3637,
+      "winner": 1,
+      "joint_decisions_per_second": 652.4280295523813,
+      "step_latency_ms": {
+        "p50": 1.1840044999189558,
+        "p95": 2.0717481496831156
+      },
+      "accepted_total": 79,
+      "executed_total": 79,
+      "run_refused_total": 0,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [],
+      "artifact": "mechanism-royalesim.json"
+    },
+    {
+      "backend": "crforge",
+      "mode": "basic",
+      "seed": 7,
+      "scripted_seat": 0,
+      "natural_terminal": true,
+      "tick": 3681,
+      "winner": 0,
+      "joint_decisions_per_second": 173.14376842848353,
+      "step_latency_ms": {
+        "p50": 4.067170000325859,
+        "p95": 13.337539599979198
+      },
+      "accepted_total": 69,
+      "executed_total": 67,
+      "run_refused_total": 2,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [
+        "none",
+        "none"
+      ],
+      "artifact": "env-benchmark-crforge.json"
+    },
+    {
+      "backend": "crforge",
+      "mode": "basic",
+      "seed": 8,
+      "scripted_seat": 1,
+      "natural_terminal": true,
+      "tick": 3681,
+      "winner": 1,
+      "joint_decisions_per_second": 239.35732752161235,
+      "step_latency_ms": {
+        "p50": 3.548231999957352,
+        "p95": 6.0071779998907004
+      },
+      "accepted_total": 70,
+      "executed_total": 68,
+      "run_refused_total": 2,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [
+        "none",
+        "none"
+      ],
+      "artifact": "env-benchmark-crforge.json"
+    },
+    {
+      "backend": "crforge",
+      "mode": "evolution-hero-champion-level16",
+      "seed": 7,
+      "scripted_seat": 0,
+      "natural_terminal": true,
+      "tick": 3681,
+      "winner": 0,
+      "joint_decisions_per_second": 210.23107339908415,
+      "step_latency_ms": {
+        "p50": 3.9686760001131915,
+        "p95": 7.11413520011774
+      },
+      "accepted_total": 87,
+      "executed_total": 83,
+      "run_refused_total": 4,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [
+        "none",
+        "none"
+      ],
+      "artifact": "mechanism-crforge.json"
+    },
+    {
+      "backend": "crforge",
+      "mode": "evolution-hero-champion-level16",
+      "seed": 8,
+      "scripted_seat": 1,
+      "natural_terminal": true,
+      "tick": 5157,
+      "winner": 1,
+      "joint_decisions_per_second": 241.4018163052027,
+      "step_latency_ms": {
+        "p50": 3.66862099986065,
+        "p95": 5.708437749831319
+      },
+      "accepted_total": 140,
+      "executed_total": 132,
+      "run_refused_total": 8,
+      "pending_by_seat": [
+        0,
+        0
+      ],
+      "not_modelled": 0,
+      "faults": [
+        "none",
+        "none"
+      ],
+      "artifact": "mechanism-crforge.json"
+    }
+  ],
+  "limitations": [
+    "No official-client observation-equivalence certification.",
+    "Crforge hidden-occupancy side channels not exhaustively independently tested; source code filters placement entities through SeatView.sees.",
+    "Source raw HTML does not establish initial hand/RNG, exact build, card forms, initial elixir or execution/input delay.",
+    "Simulator terminal results cannot establish ladder strength."
+  ],
+  "reproduction_commands": [
+    ".venv-cloud/bin/python -m arena_lab.bootstrap install",
+    ".venv-cloud/bin/python -m arena_lab.bootstrap install-crforge",
+    ".venv-cloud/bin/python -m unittest tests_cloud.test_arena_environment -v",
+    ".venv-cloud/bin/python -m arena_lab.environment benchmark --backend royalesim --seed 7 --games 2 --decision-ticks 10 --output outputs/arena-lab-20261113/env-benchmark-royalesim.json",
+    ".venv-cloud/bin/python -m arena_lab.environment benchmark --backend crforge --seed 7 --games 2 --decision-ticks 10 --output outputs/arena-lab-20261113/env-benchmark-crforge.json",
+    ".venv-cloud/bin/python -m arena_lab.environment benchmark --backend royalesim --seed 7 --games 2 --decision-ticks 10 --card-level 16 --decks-json outputs/arena-lab-20261113/mechanism-decks.json --output outputs/arena-lab-20261113/mechanism-royalesim.json",
+    ".venv-cloud/bin/python -m arena_lab.environment benchmark --backend crforge --seed 7 --games 2 --decision-ticks 10 --card-level 16 --decks-json outputs/arena-lab-20261113/mechanism-decks.json --output outputs/arena-lab-20261113/mechanism-crforge.json"
+  ],
+  "dependency_validation": {
+    "python": "CPython3.12 Linux x86_64",
+    "host_numpy": "2.2.6",
+    "isolated_target": "all non-NumPy simulator dependencies pinned+wheel-sha256 locked",
+    "clean_verification_venv": "no system-site-packages; NumPy only before target activation; Torch/Gym/msgspec/JPype absent",
+    "pip_check": "No broken requirements found",
+    "cache_size_observed": "1002 MiB including JDK/Gradle/source/tables/wheels/verification venv; under2GB",
+    "tests": "9/9 actual engine environment tests passed"
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "schema": "historical-forms-ability-audit-v1",
+  "source_index_sha256": "a6696be1227b00ebcd56d4f72b2ec9b397f3013abe97ef3b27fdbd1bc4cbbacb",
+  "historical_hypotheses_sha256": "3453b33fb6465f38f44bbfee1819174be9645f02f145e3c23d39a5b7a2e1374f",
+  "split": "train",
+  "eligible_games": 12,
+  "requested_limit": 5,
+  "selection": "first sorted game_id; no score-based selection",
+  "variants": [
+    "base_unknown_abilities",
+    "historical_unknown_abilities",
+    "historical_unique_ability"
+  ],
+  "games": [
+    {
+      "game_id": "078dced2d64dcccc4d7956ac4f48770303b358c258f93d1c2306ed8fda6f1f0e",
+      "source_id": "000YYUCQQ0Q9",
+      "path": "078dced2d64dcccc4d7956ac4f48770303b358c258f93d1c2306ed8fda6f1f0e.json",
+      "sha256": "e19cd72efc18e988e90721f8b7ce946ea6379092fa1fc66c0acb2bb9c0a2814e",
+      "counts": {
+        "base_unknown_abilities": {
+          "source_events": 61,
+          "source_ability_events": 4,
+          "sampled_frames": 860,
+          "valid_wait_labels": 195,
+          "valid_play_labels": 9,
+          "play_accepted": 57,
+          "invalid_labels": 656,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 4,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 654,
+          "events_not_reached_before_native_terminal": 0
+        },
+        "historical_unknown_abilities": {
+          "source_events": 61,
+          "source_ability_events": 4,
+          "sampled_frames": 828,
+          "valid_wait_labels": 195,
+          "valid_play_labels": 9,
+          "play_accepted": 56,
+          "invalid_labels": 624,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 4,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 622,
+          "events_not_reached_before_native_terminal": 1
+        },
+        "historical_unique_ability": {
+          "source_events": 61,
+          "source_ability_events": 4,
+          "sampled_frames": 856,
+          "valid_wait_labels": 795,
+          "valid_play_labels": 57,
+          "play_accepted": 57,
+          "valid_ability_labels": 4,
+          "ability_unique_hypotheses": 4,
+          "ability_accepted": 4,
+          "events_not_reached_before_native_terminal": 0
+        }
+      },
+      "first_divergence_ticks": {
+        "base_unknown_abilities": 1021,
+        "historical_unknown_abilities": 1021,
+        "historical_unique_ability": null
+      }
+    },
+    {
+      "game_id": "2745e9b2ca5cb8fb2b71c06e05f704a9339aa840edf4b7b58d5f29cf667b02ef",
+      "source_id": "022YPVPYPPPL",
+      "path": "2745e9b2ca5cb8fb2b71c06e05f704a9339aa840edf4b7b58d5f29cf667b02ef.json",
+      "sha256": "d6cd736a5c7f0520c7ae21e911c8b8bc85d343e471f3e25fab14780e0e90ddde",
+      "counts": {
+        "base_unknown_abilities": {
+          "source_events": 111,
+          "source_ability_events": 1,
+          "sampled_frames": 948,
+          "valid_wait_labels": 96,
+          "valid_play_labels": 12,
+          "play_accepted": 110,
+          "invalid_labels": 840,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 1,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 838,
+          "events_not_reached_before_native_terminal": 0
+        },
+        "historical_unknown_abilities": {
+          "source_events": 111,
+          "source_ability_events": 1,
+          "sampled_frames": 928,
+          "valid_wait_labels": 96,
+          "valid_play_labels": 12,
+          "play_accepted": 110,
+          "invalid_labels": 820,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 1,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 818,
+          "events_not_reached_before_native_terminal": 0
+        },
+        "historical_unique_ability": {
+          "source_events": 111,
+          "source_ability_events": 1,
+          "sampled_frames": 928,
+          "valid_wait_labels": 96,
+          "valid_play_labels": 12,
+          "play_accepted": 110,
+          "invalid_labels": 820,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:no-eligible-public-button": 1,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 818,
+          "events_not_reached_before_native_terminal": 0
+        }
+      },
+      "first_divergence_ticks": {
+        "base_unknown_abilities": 543,
+        "historical_unknown_abilities": 543,
+        "historical_unique_ability": 543
+      }
+    },
+    {
+      "game_id": "2f657ff47b0bc80aaec7a2e733deae851b55b36cf4651d592234e2bcc8d3e2d8",
+      "source_id": "00YY9VPUCGC0",
+      "path": "2f657ff47b0bc80aaec7a2e733deae851b55b36cf4651d592234e2bcc8d3e2d8.json",
+      "sha256": "68da9d18739e1d6c7ae810838358d3a08e439b73a2650e6e2e1e0fce6e624bed",
+      "counts": {
+        "base_unknown_abilities": {
+          "source_events": 146,
+          "source_ability_events": 5,
+          "sampled_frames": 1230,
+          "valid_wait_labels": 61,
+          "valid_play_labels": 5,
+          "play_accepted": 141,
+          "invalid_labels": 1164,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 5,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 1162,
+          "events_not_reached_before_native_terminal": 0
+        },
+        "historical_unknown_abilities": {
+          "source_events": 146,
+          "source_ability_events": 5,
+          "sampled_frames": 1226,
+          "valid_wait_labels": 61,
+          "valid_play_labels": 5,
+          "play_accepted": 141,
+          "invalid_labels": 1160,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 5,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 1158,
+          "events_not_reached_before_native_terminal": 0
+        },
+        "historical_unique_ability": {
+          "source_events": 146,
+          "source_ability_events": 5,
+          "sampled_frames": 1222,
+          "valid_wait_labels": 1078,
+          "valid_play_labels": 137,
+          "play_accepted": 141,
+          "valid_ability_labels": 5,
+          "ability_unique_hypotheses": 5,
+          "ability_accepted": 5,
+          "invalid_labels": 2,
+          "label_reason:multiple-source-actions-in-window": 2,
+          "events_not_reached_before_native_terminal": 0
+        }
+      },
+      "first_divergence_ticks": {
+        "base_unknown_abilities": 332,
+        "historical_unknown_abilities": 332,
+        "historical_unique_ability": null
+      }
+    },
+    {
+      "game_id": "44d59004c375c180c65e2efaaa9c6007f1b07ffca2b3041e60a4ac0b1bab23aa",
+      "source_id": "00RY9CV0C8QY",
+      "path": "44d59004c375c180c65e2efaaa9c6007f1b07ffca2b3041e60a4ac0b1bab23aa.json",
+      "sha256": "9bc07b7ef1bf409dd060697ee7e2121cde547f805c3c1086c08c35b15a6bcdc2",
+      "counts": {
+        "base_unknown_abilities": {
+          "source_events": 135,
+          "source_ability_events": 0,
+          "sampled_frames": 1228,
+          "valid_wait_labels": 1093,
+          "valid_play_labels": 135,
+          "play_accepted": 135,
+          "events_not_reached_before_native_terminal": 0
+        },
+        "historical_unknown_abilities": {
+          "source_events": 135,
+          "source_ability_events": 0,
+          "sampled_frames": 1058,
+          "valid_wait_labels": 951,
+          "valid_play_labels": 107,
+          "play_accepted": 107,
+          "events_not_reached_before_native_terminal": 28
+        },
+        "historical_unique_ability": {
+          "source_events": 135,
+          "source_ability_events": 0,
+          "sampled_frames": 1058,
+          "valid_wait_labels": 951,
+          "valid_play_labels": 107,
+          "play_accepted": 107,
+          "events_not_reached_before_native_terminal": 28
+        }
+      },
+      "first_divergence_ticks": {
+        "base_unknown_abilities": null,
+        "historical_unknown_abilities": null,
+        "historical_unique_ability": null
+      }
+    },
+    {
+      "game_id": "6641c08f906131e3ce6b606934d0f402cf3b41b01f7ab690f5fa73851584310f",
+      "source_id": "009YL0CP8GP9",
+      "path": "6641c08f906131e3ce6b606934d0f402cf3b41b01f7ab690f5fa73851584310f.json",
+      "sha256": "560bc4d2ec60a5c196ad30f9aada17052668a182482cc0a351b8dc36a5483a97",
+      "counts": {
+        "base_unknown_abilities": {
+          "source_events": 126,
+          "source_ability_events": 7,
+          "sampled_frames": 860,
+          "valid_wait_labels": 150,
+          "valid_play_labels": 6,
+          "play_accepted": 69,
+          "invalid_labels": 704,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 5,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 702,
+          "events_not_reached_before_native_terminal": 52
+        },
+        "historical_unknown_abilities": {
+          "source_events": 126,
+          "source_ability_events": 7,
+          "sampled_frames": 860,
+          "valid_wait_labels": 150,
+          "valid_play_labels": 6,
+          "play_accepted": 69,
+          "invalid_labels": 704,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:source-ability-identity-unknown-not-submitted": 5,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 702,
+          "events_not_reached_before_native_terminal": 52
+        },
+        "historical_unique_ability": {
+          "source_events": 126,
+          "source_ability_events": 7,
+          "sampled_frames": 1088,
+          "valid_wait_labels": 931,
+          "valid_play_labels": 93,
+          "play_accepted": 103,
+          "valid_ability_labels": 6,
+          "ability_unique_hypotheses": 6,
+          "ability_accepted": 6,
+          "invalid_labels": 58,
+          "label_reason:unknown-or-ambiguous-source-ability": 1,
+          "not_submitted:no-eligible-public-button": 1,
+          "label_reason:window-containing-first-command-divergence": 1,
+          "label_reason:after-first-command-divergence": 56,
+          "events_not_reached_before_native_terminal": 16
+        }
+      },
+      "first_divergence_ticks": {
+        "base_unknown_abilities": 783,
+        "historical_unknown_abilities": 783,
+        "historical_unique_ability": 5152
+      }
+    }
+  ],
+  "failures": [],
+  "aggregate_counts": {
+    "base_unknown_abilities": {
+      "source_events": 579,
+      "source_ability_events": 17,
+      "sampled_frames": 5126,
+      "valid_wait_labels": 1595,
+      "valid_play_labels": 167,
+      "play_accepted": 512,
+      "invalid_labels": 3364,
+      "label_reason:unknown-or-ambiguous-source-ability": 4,
+      "not_submitted:source-ability-identity-unknown-not-submitted": 15,
+      "label_reason:window-containing-first-command-divergence": 4,
+      "label_reason:after-first-command-divergence": 3356,
+      "events_not_reached_before_native_terminal": 52
+    },
+    "historical_unknown_abilities": {
+      "source_events": 579,
+      "source_ability_events": 17,
+      "sampled_frames": 4900,
+      "valid_wait_labels": 1453,
+      "valid_play_labels": 139,
+      "play_accepted": 483,
+      "invalid_labels": 3308,
+      "label_reason:unknown-or-ambiguous-source-ability": 4,
+      "not_submitted:source-ability-identity-unknown-not-submitted": 15,
+      "label_reason:window-containing-first-command-divergence": 4,
+      "label_reason:after-first-command-divergence": 3300,
+      "events_not_reached_before_native_terminal": 81
+    },
+    "historical_unique_ability": {
+      "source_events": 579,
+      "source_ability_events": 17,
+      "sampled_frames": 5152,
+      "valid_wait_labels": 3851,
+      "valid_play_labels": 406,
+      "play_accepted": 518,
+      "valid_ability_labels": 15,
+      "ability_unique_hypotheses": 15,
+      "ability_accepted": 15,
+      "events_not_reached_before_native_terminal": 44,
+      "invalid_labels": 880,
+      "label_reason:unknown-or-ambiguous-source-ability": 2,
+      "not_submitted:no-eligible-public-button": 2,
+      "label_reason:window-containing-first-command-divergence": 2,
+      "label_reason:after-first-command-divergence": 874,
+      "label_reason:multiple-source-actions-in-window": 2
+    }
+  },
+  "strong_imitation_delivery_gate_passed": false,
+  "training_labels_exported": false,
+  "source_data_modified": false,
+  "official_state_equivalence_verified": false
+}

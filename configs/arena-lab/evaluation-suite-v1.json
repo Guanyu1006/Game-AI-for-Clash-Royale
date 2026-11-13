@@ -1,0 +1,1960 @@
+{
+  "schema_version": 1,
+  "purpose": "Fixed before first real training. Separate matchup families, paired seats and fixed seeds; no tuning on this suite.",
+  "environment_config": {
+    "backend": "royalesim",
+    "decks": [
+      [
+        "Knight",
+        "Archer",
+        "Goblins",
+        "Giant",
+        "Musketeer",
+        "Fireball",
+        "Arrows",
+        "Skeletons"
+      ],
+      [
+        "Knight",
+        "Archer",
+        "Goblins",
+        "Giant",
+        "Musketeer",
+        "Fireball",
+        "Arrows",
+        "Skeletons"
+      ]
+    ],
+    "forms": null,
+    "levels": null,
+    "tower_levels": null,
+    "seed": 0,
+    "decision_ticks": 10,
+    "max_ticks": null,
+    "shuffle": 1,
+    "elixir_milli": null,
+    "engine_version": "0.1.51",
+    "expected_card_hash": "803ec02c7eac9fd3",
+    "command_delay_ticks": null,
+    "max_entities": 128,
+    "card_level": 11,
+    "tower_level": 11,
+    "crforge_data_version": "16.635.8",
+    "crforge_expected_content_sha": "062a11e0500c03cc041f123413b1ef1846b539a4",
+    "tower_types": null
+  },
+  "cases": [
+    {
+      "case_id": "matchup-0-seed-20261113-random-side-0",
+      "seed": 20261113,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261113-random-side-1",
+      "seed": 20261113,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261113-scripted-side-0",
+      "seed": 20261113,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261113-scripted-side-1",
+      "seed": 20261113,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261114-random-side-0",
+      "seed": 20261114,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261114-random-side-1",
+      "seed": 20261114,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261114-scripted-side-0",
+      "seed": 20261114,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-0-seed-20261114-scripted-side-1",
+      "seed": 20261114,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261113-random-side-0",
+      "seed": 20261113,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261113-random-side-1",
+      "seed": 20261113,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261113-scripted-side-0",
+      "seed": 20261113,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261113-scripted-side-1",
+      "seed": 20261113,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261114-random-side-0",
+      "seed": 20261114,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261114-random-side-1",
+      "seed": 20261114,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261114-scripted-side-0",
+      "seed": 20261114,
+      "decks": [
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-1-seed-20261114-scripted-side-1",
+      "seed": 20261114,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "Xbow",
+          "Archer",
+          "Knight",
+          "Tesla",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261113-random-side-0",
+      "seed": 20261113,
+      "decks": [
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261113-random-side-1",
+      "seed": 20261113,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261113-scripted-side-0",
+      "seed": 20261113,
+      "decks": [
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261113-scripted-side-1",
+      "seed": 20261113,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261114-random-side-0",
+      "seed": 20261114,
+      "decks": [
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261114-random-side-1",
+      "seed": 20261114,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "random",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261114-scripted-side-0",
+      "seed": 20261114,
+      "decks": [
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ],
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ]
+      ],
+      "candidate_side": 0,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    },
+    {
+      "case_id": "matchup-2-seed-20261114-scripted-side-1",
+      "seed": 20261114,
+      "decks": [
+        [
+          "HogRider",
+          "Musketeer",
+          "Knight",
+          "Cannon",
+          "Fireball",
+          "Log",
+          "Skeletons",
+          "IceSpirits"
+        ],
+        [
+          "ArcherQueen",
+          "RoyalHogs",
+          "RoyalRecruits",
+          "Fireball",
+          "Arrows",
+          "Cannon",
+          "Goblins",
+          "ElectroSpirit"
+        ]
+      ],
+      "candidate_side": 1,
+      "opponent": "scripted",
+      "reset_options": {
+        "levels": [
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ]
+        ],
+        "tower_levels": [
+          16,
+          16
+        ],
+        "forms": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "shuffle": 1
+      }
+    }
+  ],
+  "evaluation_options": {
+    "variants": [
+      "model",
+      "model_without_entities",
+      "random",
+      "scripted"
+    ],
+    "deterministic": false,
+    "max_decisions": 1500,
+    "max_wall_seconds": 120,
+    "trace_every": 4,
+    "trace_max_bytes": 5000000
+  },
+  "sampling": "Categorical temperature1, seeded per episode; no post-test argmax selection.",
+  "source_independence": "Handwritten deck matchups and fresh engine RNG, not source battle playback.",
+  "limitations": "Base-form, level16 simulator suite; no official live-client perception or ladder evidence."
+}

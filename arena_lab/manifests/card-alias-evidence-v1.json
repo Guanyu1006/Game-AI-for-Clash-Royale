@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "card_table_path": ".cache/arena-lab/python/royalesim/data/derived/cards.json",
+  "card_table_sha256": "6cdc78a82d2be466cb528952e234c51753f51d8a4f38851bd0d3df58e9b9d5fa",
+  "card_table_fnv1a64": "803ec02c7eac9fd3",
+  "aliases": [
+    {
+      "source_slug": "heal-spirit",
+      "native_name": "Heal",
+      "evidence": {
+        "summon": {
+          "character": "HealSpirit",
+          "count": 1,
+          "source": "spells_other.Heal.SummonCharacter"
+        },
+        "damage_source": "projectiles.HealSpiritProjectile.Damage"
+      },
+      "native_probe": "outputs/arena-lab-20261113/card-wrapper-mechanism-probe.json",
+      "native_observed_unit": "HealSpirit",
+      "catalogue_kind_note": "SPELL is a deploy/summon wrapper, not evidence of legacy Heal Spell"
+    },
+    {
+      "source_slug": "void",
+      "native_name": "DarkMagic",
+      "native_cost": 5,
+      "evidence": {
+        "action_graph": {
+          "roots": {
+            "OnLifeTimeEndAction": "DarkMagicAOE.OnLifeTimeEndAction",
+            "OnStartingAction": "DarkMagicAOE.OnStartingAction"
+          },
+          "class_types": [
+            "ActionGroup",
+            "ActionLaserBall",
+            "ActionPlayEffect",
+            "ActionSpawn"
+          ],
+          "spawns": [
+            "BuffType:DarkMagicAOE_Damage_lv3",
+            "BuffType:DarkMagicAOE_Damage_lv2",
+            "BuffType:DarkMagicAOE_Damage_lv1"
+          ],
+          "mechanic": true
+        },
+        "strike_tiers": 3,
+        "max_units_per_list": [
+          1,
+          4
+        ]
+      },
+      "official_url": "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+      "official_date": "2026-08-04",
+      "official_mechanic_fact": "Void cost3 to5; target-count tiers1/2-4/5+; source capture period overlaps this change",
+      "version_equivalence": false
+    },
+    {
+      "source_slug": "spirit-empress",
+      "native_name": "MergeMaiden",
+      "evidence": {
+        "variant": {
+          "options": [
+            {
+              "trigger_milli": 6000,
+              "precast_pending_ms": 1200,
+              "card": "MergeMaiden_Mounted"
+            },
+            {
+              "trigger_milli": 3000,
+              "precast_pending_ms": 1200,
+              "card": "MergeMaiden_Normal"
+            }
+          ],
+          "use_projected_time_summon": true,
+          "mirror_uses_root_spell": false,
+          "source": "spells_other.MergeMaiden.Options (2 entries)"
+        }
+      },
+      "official_url": "https://supercell.com/en/games/clashroyale/blog/news/new-season-dress-to-empress",
+      "official_date": "2025-07-07",
+      "official_mechanic_fact": "Spirit Empress ground3 elixir and flying6 elixir",
+      "native_probe": "outputs/arena-lab-20261113/card-wrapper-mechanism-probe.json",
+      "native_observed_units": [
+        "MergeMaiden_Normal",
+        "MergeMaiden_Mounted"
+      ]
+    },
+    {
+      "source_slug": "rune-giant",
+      "native_name": "GiantBuffer",
+      "evidence": {
+        "explicit_internal_target_filter": "friendly_troops_for_rune_giant",
+        "max_targets": 2,
+        "attack_amount": 3,
+        "cost": 4
+      },
+      "official_url": "https://supercell.com/en/games/clashroyale/blog/news/final-august-balance-changes-826/",
+      "official_date": "2026-08-04",
+      "mechanic_fact": "Rune Giant enchants allied troops; native target filter names rune_giant explicitly; two allies, every third attack"
+    }
+  ]
+}

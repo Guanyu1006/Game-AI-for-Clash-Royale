@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "purpose": "Full fixed snapshot expansion with unchanged training hyperparameters. No test-guided tuning.",
+  "source_dataset": "data/arena-lab/full-v2/cochon-historical-top100-full-v2/source-index.json",
+  "training": {
+    "epochs": 4,
+    "batch_size": 4,
+    "sequence": 32,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "position_loss_weight": 1.0,
+    "play_weight_cap": 8.0,
+    "seed": 1729,
+    "threads": 2
+  },
+  "model_selection": "validation card_nll + position_nll only",
+  "test_policy": "Only new game IDs in the test split are scored; all earlier test games remain saved and are not promoted to train/validation.",
+  "closed_loop": {
+    "seeds": [
+      20261115,
+      20261116
+    ],
+    "opponents": [
+      "random",
+      "scripted"
+    ],
+    "variants": [
+      "model",
+      "model_without_entities",
+      "random",
+      "scripted"
+    ],
+    "candidate_sides": [
+      0,
+      1
+    ],
+    "deterministic": false,
+    "sampling": "Categorical policy, temperature1, fixed per-episode RNG; declared before first real training. Argmax offline metrics remain separate.",
+    "previous_checkpoint_baseline": "After full-data training freezes, run v1 model on the exact same new cases for paired comparison; no further selection."
+  },
+  "limitations_to_measure": [
+    "expert and ordinary source seats must not be conflated",
+    "unknown original forms/levels/RNG/time semantics",
+    "fixed decision grid versus exact source events",
+    "reconstructed state drift and native action refusals",
+    "simulator-public state versus screen perception",
+    "strength only against declared simulated opponents"
+  ],
+  "previous_test_exclusion": "configs/arena-lab/previously-evaluated-test-v1.json"
+}

@@ -1,0 +1,1818 @@
+{
+  "schema": "historical-leaderboard-deck-hyperlinks-v1",
+  "source_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+  "season": "2026-07",
+  "season_end": "2026-08-03",
+  "publication_date": "2026-08-04",
+  "retrieved_utc": "2026-11-13",
+  "representation": "public blog hyperlinks, not per-game loadout evidence",
+  "extraction": "Rank sections and their deck hyperlinks resolved by read-only browser tool. Some targets return 403; the published hyperlink is evidence for the candidate deck, not target-page contents.",
+  "original_match_proof": false,
+  "original_replay_fields_unchanged": true,
+  "account_evidence_sha256": "24997a2359eea605014371f5a0d2a96932d9fb49df7bce2a07f41d38ddf157b1",
+  "resolved_hyperlink_facts_sha256": "dbc6dc89910d27099a70f1582d22b74c01662eb38b914f8bc178c16b6927c25f",
+  "rows_sha256": "72e572dd022a6eb80b57644e431b444a81d38f7624c6f69bd02a1595a7682660",
+  "rows_sha256_encoding": "UTF-8 JSON rows, ensure_ascii=false, sort_keys=true, separators=comma/colon",
+  "rows": [
+    {
+      "rank": 1,
+      "name": "Nicoco",
+      "tag": "G0CYJ00J",
+      "account_url": "https://royaleapi.com/player/G0CYJ00J",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,battle-ram-ev1,giant-skeleton,mother-witch,royal-ghost-ev1,vines,wizard-hero,zappies",
+      "cards": [
+        "barbarian-barrel",
+        "battle-ram-ev1",
+        "giant-skeleton",
+        "mother-witch",
+        "royal-ghost-ev1",
+        "vines",
+        "wizard-hero",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Wero",
+      "tag": "8J9LQVVYJ",
+      "account_url": "https://royaleapi.com/player/8J9LQVVYJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,battle-ram-ev1,giant-skeleton,mother-witch,royal-ghost-ev1,vines,wizard-hero,zappies",
+      "cards": [
+        "barbarian-barrel",
+        "battle-ram-ev1",
+        "giant-skeleton",
+        "mother-witch",
+        "royal-ghost-ev1",
+        "vines",
+        "wizard-hero",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Betfas",
+      "tag": "PLYV2VJLJ",
+      "account_url": "https://royaleapi.com/player/PLYV2VJLJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archers-ev1,electro-spirit,fireball,knight-hero,skeletons,tesla-ev1,the-log,x-bow",
+      "cards": [
+        "archers-ev1",
+        "electro-spirit",
+        "fireball",
+        "knight-hero",
+        "skeletons",
+        "tesla-ev1",
+        "the-log",
+        "x-bow"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Damien",
+      "tag": "R2PLLVCY8",
+      "account_url": "https://royaleapi.com/player/R2PLLVCY8",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/earthquake,electro-spirit,firecracker-ev1,hog-rider,mighty-miner,skeletons,tesla-ev1,the-log",
+      "cards": [
+        "earthquake",
+        "electro-spirit",
+        "firecracker-ev1",
+        "hog-rider",
+        "mighty-miner",
+        "skeletons",
+        "tesla-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Dess",
+      "tag": "UJRR9RJUL",
+      "account_url": "https://royaleapi.com/player/UJRR9RJUL",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bowler,executioner-ev1,freeze,golden-knight,graveyard,inferno-dragon-ev1,tornado,zappies",
+      "cards": [
+        "bowler",
+        "executioner-ev1",
+        "freeze",
+        "golden-knight",
+        "graveyard",
+        "inferno-dragon-ev1",
+        "tornado",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Moon",
+      "tag": "8022RY8YU",
+      "account_url": "https://royaleapi.com/player/8022RY8YU",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,cannon-ev1,fire-spirit,giant-snowball-ev1,goblin-drill,knight-hero,rocket,skeletons",
+      "cards": [
+        "bomber",
+        "cannon-ev1",
+        "fire-spirit",
+        "giant-snowball-ev1",
+        "goblin-drill",
+        "knight-hero",
+        "rocket",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "코코 (Coco)",
+      "tag": "2VGG29RJ2",
+      "account_url": "https://royaleapi.com/player/2VGG29RJ2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/berserker,bomb-tower,fire-spirit,goblin-barrel-ev1,ice-spirit,magic-archer-hero,royal-delivery,wall-breakers-ev1",
+      "cards": [
+        "berserker",
+        "bomb-tower",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "ice-spirit",
+        "magic-archer-hero",
+        "royal-delivery",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Hypno",
+      "tag": "208RCR2CC0",
+      "account_url": "https://royaleapi.com/player/208RCR2CC0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dart-goblin,fire-spirit,goblin-barrel-ev1,goblins-hero,ice-spirit,rocket,valkyrie-ev1,wall-breakers",
+      "cards": [
+        "dart-goblin",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "goblins-hero",
+        "ice-spirit",
+        "rocket",
+        "valkyrie-ev1",
+        "wall-breakers"
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Welcome",
+      "tag": "2VQ9PRQ9Y",
+      "account_url": "https://royaleapi.com/player/2VQ9PRQ9Y",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/balloon,fireball,lava-hound,mega-minion-hero,skeleton-dragons,tombstone,valkyrie-ev1,zap-ev1",
+      "cards": [
+        "balloon",
+        "fireball",
+        "lava-hound",
+        "mega-minion-hero",
+        "skeleton-dragons",
+        "tombstone",
+        "valkyrie-ev1",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "SoTired",
+      "tag": "222GCQ0GGJ",
+      "account_url": "https://royaleapi.com/player/222GCQ0GGJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon-ev1,fireball,hog-rider,ice-golem-hero,ice-spirit,musketeer,skeletons-ev1,the-log",
+      "cards": [
+        "cannon-ev1",
+        "fireball",
+        "hog-rider",
+        "ice-golem-hero",
+        "ice-spirit",
+        "musketeer",
+        "skeletons-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 11,
+      "name": "Wero",
+      "tag": "20QCPCGCJU",
+      "account_url": "https://royaleapi.com/player/20QCPCGCJU",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,battle-ram-ev1,giant-skeleton,mother-witch,royal-ghost-ev1,vines,wizard-hero,zappies",
+      "cards": [
+        "barbarian-barrel",
+        "battle-ram-ev1",
+        "giant-skeleton",
+        "mother-witch",
+        "royal-ghost-ev1",
+        "vines",
+        "wizard-hero",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 12,
+      "name": "ChetiFLGod",
+      "tag": "YVJJL0JJ",
+      "account_url": "https://royaleapi.com/player/YVJJL0JJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bowler-hero,fisherman,giant-skeleton,mother-witch,royal-ghost-ev1,royal-hogs-ev1,zappies",
+      "cards": [
+        "arrows",
+        "bowler-hero",
+        "fisherman",
+        "giant-skeleton",
+        "mother-witch",
+        "royal-ghost-ev1",
+        "royal-hogs-ev1",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 13,
+      "name": "Hypno",
+      "tag": "UC0QJ2CU9",
+      "account_url": "https://royaleapi.com/player/UC0QJ2CU9",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dart-goblin,fire-spirit,goblin-barrel-ev1,goblins-hero,ice-spirit,rocket,valkyrie-ev1,wall-breakers",
+      "cards": [
+        "dart-goblin",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "goblins-hero",
+        "ice-spirit",
+        "rocket",
+        "valkyrie-ev1",
+        "wall-breakers"
+      ]
+    },
+    {
+      "rank": 14,
+      "name": "Luca",
+      "tag": "20PURRGR2",
+      "account_url": "https://royaleapi.com/player/20PURRGR2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bomber,elite-barbarians,golem,lumberjack-ev1,night-witch,phoenix,zap-ev1",
+      "cards": [
+        "arrows",
+        "bomber",
+        "elite-barbarians",
+        "golem",
+        "lumberjack-ev1",
+        "night-witch",
+        "phoenix",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 15,
+      "name": "Tourist",
+      "tag": "C89L0002L",
+      "account_url": "https://royaleapi.com/player/C89L0002L",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bandit,battle-ram-ev1,golden-knight,mega-knight-ev1,mother-witch,royal-ghost,zappies",
+      "cards": [
+        "arrows",
+        "bandit",
+        "battle-ram-ev1",
+        "golden-knight",
+        "mega-knight-ev1",
+        "mother-witch",
+        "royal-ghost",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 16,
+      "name": "Ian77",
+      "tag": "Y9R22RQ2",
+      "account_url": "https://royaleapi.com/player/Y9R22RQ2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/earthquake,electro-spirit,firecracker-ev1,hog-rider,mighty-miner,skeletons,tesla-ev1,the-log",
+      "cards": [
+        "earthquake",
+        "electro-spirit",
+        "firecracker-ev1",
+        "hog-rider",
+        "mighty-miner",
+        "skeletons",
+        "tesla-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 17,
+      "name": "이지후 (Ijihu)",
+      "tag": "20PRCUJ0LR",
+      "account_url": "https://royaleapi.com/player/20PRCUJ0LR",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dart-goblin,goblin-barrel-ev1,ice-spirit,inferno-tower,knight-hero,princess,skeleton-army-ev1,the-log",
+      "cards": [
+        "dart-goblin",
+        "goblin-barrel-ev1",
+        "ice-spirit",
+        "inferno-tower",
+        "knight-hero",
+        "princess",
+        "skeleton-army-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 18,
+      "name": "ManuelRay",
+      "tag": "U9PPVP0L0",
+      "account_url": "https://royaleapi.com/player/U9PPVP0L0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 19,
+      "name": "Mohamed Light",
+      "tag": "U2LYQJQVY",
+      "account_url": "https://royaleapi.com/player/U2LYQJQVY",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,bats-ev1,graveyard,ice-golem-hero,mortar,musketeer-hero,poison,skeletons",
+      "cards": [
+        "barbarian-barrel",
+        "bats-ev1",
+        "graveyard",
+        "ice-golem-hero",
+        "mortar",
+        "musketeer-hero",
+        "poison",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 20,
+      "name": "ManuelRay",
+      "tag": "U0YP8VUC9",
+      "account_url": "https://royaleapi.com/player/U0YP8VUC9",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 21,
+      "name": "Moon",
+      "tag": "20YGQLGYJC",
+      "account_url": "https://royaleapi.com/player/20YGQLGYJC",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,cannon-ev1,fire-spirit,giant-snowball-ev1,goblin-drill,knight-hero,rocket,skeletons",
+      "cards": [
+        "bomber",
+        "cannon-ev1",
+        "fire-spirit",
+        "giant-snowball-ev1",
+        "goblin-drill",
+        "knight-hero",
+        "rocket",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 22,
+      "name": "Sofiane",
+      "tag": "2Q9JG29RL",
+      "account_url": "https://royaleapi.com/player/2Q9JG29RL",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 23,
+      "name": "Pompeyo",
+      "tag": "YP9VPGUUG",
+      "account_url": "https://royaleapi.com/player/YP9VPGUUG",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/balloon-hero,fireball,goblin-cage-ev1,ice-golem,inferno-dragon-ev1,mega-minion,miner,zap",
+      "cards": [
+        "balloon-hero",
+        "fireball",
+        "goblin-cage-ev1",
+        "ice-golem",
+        "inferno-dragon-ev1",
+        "mega-minion",
+        "miner",
+        "zap"
+      ]
+    },
+    {
+      "rank": 24,
+      "name": "Kimchi",
+      "tag": "PCUP9YLVG",
+      "account_url": "https://royaleapi.com/player/PCUP9YLVG",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,cannon-cart,fireball,goblins-hero,minions,mortar-ev1,rascals,skeleton-barrel-ev1",
+      "cards": [
+        "barbarian-barrel",
+        "cannon-cart",
+        "fireball",
+        "goblins-hero",
+        "minions",
+        "mortar-ev1",
+        "rascals",
+        "skeleton-barrel-ev1"
+      ]
+    },
+    {
+      "rank": 25,
+      "name": "Planet",
+      "tag": "VCQLPP2UR",
+      "account_url": "https://royaleapi.com/player/VCQLPP2UR",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/executioner-ev1,goblins-hero,hog-rider,ice-spirit,rocket,the-log,tornado,valkyrie-ev1",
+      "cards": [
+        "executioner-ev1",
+        "goblins-hero",
+        "hog-rider",
+        "ice-spirit",
+        "rocket",
+        "the-log",
+        "tornado",
+        "valkyrie-ev1"
+      ]
+    },
+    {
+      "rank": 26,
+      "name": "Samuel Bassotto",
+      "tag": "PCJ29YJJ",
+      "account_url": "https://royaleapi.com/player/PCJ29YJJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,cannon-ev1,fire-spirit,giant-snowball-ev1,goblin-drill,knight-hero,rocket,skeletons",
+      "cards": [
+        "bomber",
+        "cannon-ev1",
+        "fire-spirit",
+        "giant-snowball-ev1",
+        "goblin-drill",
+        "knight-hero",
+        "rocket",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 27,
+      "name": "Rakan",
+      "tag": "JQ2V2JJ8G",
+      "account_url": "https://royaleapi.com/player/JQ2V2JJ8G",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,balloon-hero,barbarians-ev1,bomber,giant-snowball,inferno-dragon-ev1,lava-hound,void",
+      "cards": [
+        "arrows",
+        "balloon-hero",
+        "barbarians-ev1",
+        "bomber",
+        "giant-snowball",
+        "inferno-dragon-ev1",
+        "lava-hound",
+        "void"
+      ]
+    },
+    {
+      "rank": 28,
+      "name": "Julian Sosa",
+      "tag": "PP2UY0P00",
+      "account_url": "https://royaleapi.com/player/PP2UY0P00",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/baby-dragon-ev1,balloon,barbarian-barrel,bowler,freeze,inferno-dragon-ev1,knight-hero,tornado",
+      "cards": [
+        "baby-dragon-ev1",
+        "balloon",
+        "barbarian-barrel",
+        "bowler",
+        "freeze",
+        "inferno-dragon-ev1",
+        "knight-hero",
+        "tornado"
+      ]
+    },
+    {
+      "rank": 29,
+      "name": "Turan",
+      "tag": "P8P0Q8CJ",
+      "account_url": "https://royaleapi.com/player/P8P0Q8CJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 30,
+      "name": "TTV : AgonyKing",
+      "tag": "VQVUPJC2R",
+      "account_url": "https://royaleapi.com/player/VQVUPJC2R",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/giant,heal-spirit,mini-pekka-hero,sparky,tornado,vines,wizard-ev1,zap-ev1",
+      "cards": [
+        "giant",
+        "heal-spirit",
+        "mini-pekka-hero",
+        "sparky",
+        "tornado",
+        "vines",
+        "wizard-ev1",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 31,
+      "name": "Simo",
+      "tag": "VC9PYQ028",
+      "account_url": "https://royaleapi.com/player/VC9PYQ028",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,battle-ram-ev1,electro-wizard,golden-knight,lumberjack,mother-witch,pekka,royal-ghost-ev1",
+      "cards": [
+        "arrows",
+        "battle-ram-ev1",
+        "electro-wizard",
+        "golden-knight",
+        "lumberjack",
+        "mother-witch",
+        "pekka",
+        "royal-ghost-ev1"
+      ]
+    },
+    {
+      "rank": 32,
+      "name": "Tourist",
+      "tag": "V02VR8JVP",
+      "account_url": "https://royaleapi.com/player/V02VR8JVP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bandit,battle-ram-ev1,golden-knight,mega-knight-ev1,mother-witch,royal-ghost,zappies",
+      "cards": [
+        "arrows",
+        "bandit",
+        "battle-ram-ev1",
+        "golden-knight",
+        "mega-knight-ev1",
+        "mother-witch",
+        "royal-ghost",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 33,
+      "name": "Mohamad Parsa",
+      "tag": "UGVJP9VVV",
+      "account_url": "https://royaleapi.com/player/UGVJP9VVV",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/baby-dragon-ev1,balloon-hero,bomber,dark-prince,electro-wizard,freeze,pekka-ev1,tornado",
+      "cards": [
+        "baby-dragon-ev1",
+        "balloon-hero",
+        "bomber",
+        "dark-prince",
+        "electro-wizard",
+        "freeze",
+        "pekka-ev1",
+        "tornado"
+      ]
+    },
+    {
+      "rank": 34,
+      "name": "Agony King",
+      "tag": "RGLQ0Q0RP",
+      "account_url": "https://royaleapi.com/player/RGLQ0Q0RP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/giant,heal-spirit,mini-pekka-hero,sparky,tornado,vines,wizard-ev1,zap-ev1",
+      "cards": [
+        "giant",
+        "heal-spirit",
+        "mini-pekka-hero",
+        "sparky",
+        "tornado",
+        "vines",
+        "wizard-ev1",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 35,
+      "name": "Night Graveyard",
+      "tag": "220JL80LUC",
+      "account_url": "https://royaleapi.com/player/220JL80LUC",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bowler-hero,giant,giant-snowball-ev1,graveyard,guards,witch-ev1,zappies",
+      "cards": [
+        "arrows",
+        "bowler-hero",
+        "giant",
+        "giant-snowball-ev1",
+        "graveyard",
+        "guards",
+        "witch-ev1",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 36,
+      "name": "Lrip",
+      "tag": "V28PYR282",
+      "account_url": "https://royaleapi.com/player/V28PYR282",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archers-ev1,elite-barbarians,elixir-collector,heal-spirit,knight-ev1,monk,rage,three-musketeers",
+      "cards": [
+        "archers-ev1",
+        "elite-barbarians",
+        "elixir-collector",
+        "heal-spirit",
+        "knight-ev1",
+        "monk",
+        "rage",
+        "three-musketeers"
+      ]
+    },
+    {
+      "rank": 37,
+      "name": "Yerson",
+      "tag": "GQYLLP9R0",
+      "account_url": "https://royaleapi.com/player/GQYLLP9R0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon,fireball,hog-rider,ice-golem-hero,ice-spirit,musketeer-hero,skeletons-ev1,the-log",
+      "cards": [
+        "cannon",
+        "fireball",
+        "hog-rider",
+        "ice-golem-hero",
+        "ice-spirit",
+        "musketeer-hero",
+        "skeletons-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 38,
+      "name": "Yamal✖️Waguri",
+      "tag": "UYUVCY298",
+      "account_url": "https://royaleapi.com/player/UYUVCY298",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,cannon-cart,fireball,goblins-hero,minions,mortar-ev1,rascals,skeleton-barrel-ev1",
+      "cards": [
+        "barbarian-barrel",
+        "cannon-cart",
+        "fireball",
+        "goblins-hero",
+        "minions",
+        "mortar-ev1",
+        "rascals",
+        "skeleton-barrel-ev1"
+      ]
+    },
+    {
+      "rank": 39,
+      "name": "Wallace",
+      "tag": "YJPPGL00",
+      "account_url": "https://royaleapi.com/player/YJPPGL00",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,electro-spirit,fireball,fisherman,hunter-ev1,monk,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter-ev1",
+        "monk",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 40,
+      "name": "우 (Woo)",
+      "tag": "U2YVYGGV2",
+      "account_url": "https://royaleapi.com/player/U2YVYGGV2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archers-ev1,barbarian-barrel,bomb-tower,goblinstein,graveyard,ice-spirit,poison,skeletons-ev1",
+      "cards": [
+        "archers-ev1",
+        "barbarian-barrel",
+        "bomb-tower",
+        "goblinstein",
+        "graveyard",
+        "ice-spirit",
+        "poison",
+        "skeletons-ev1"
+      ]
+    },
+    {
+      "rank": 41,
+      "name": "Ryan",
+      "tag": "2YP2ULCQ",
+      "account_url": "https://royaleapi.com/player/2YP2ULCQ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bowler,executioner-ev1,freeze,golden-knight,graveyard,inferno-dragon-ev1,tornado,zappies",
+      "cards": [
+        "bowler",
+        "executioner-ev1",
+        "freeze",
+        "golden-knight",
+        "graveyard",
+        "inferno-dragon-ev1",
+        "tornado",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 42,
+      "name": "Hypno",
+      "tag": "UL0JRU8JY",
+      "account_url": "https://royaleapi.com/player/UL0JRU8JY",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dart-goblin,fire-spirit,goblin-barrel-ev1,goblins-hero,ice-spirit,rocket,valkyrie-ev1,wall-breakers",
+      "cards": [
+        "dart-goblin",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "goblins-hero",
+        "ice-spirit",
+        "rocket",
+        "valkyrie-ev1",
+        "wall-breakers"
+      ]
+    },
+    {
+      "rank": 43,
+      "name": "NateJ",
+      "tag": "GPR2CPGLY",
+      "account_url": "https://royaleapi.com/player/GPR2CPGLY",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dark-prince-hero,electro-spirit,miner,rocket,royal-delivery,skeletons-ev1,tesla-ev1,the-log",
+      "cards": [
+        "dark-prince-hero",
+        "electro-spirit",
+        "miner",
+        "rocket",
+        "royal-delivery",
+        "skeletons-ev1",
+        "tesla-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 44,
+      "name": "Dess",
+      "tag": "CRLJ2JQVG",
+      "account_url": "https://royaleapi.com/player/CRLJ2JQVG",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bowler,executioner-ev1,freeze,golden-knight,graveyard,guards,inferno-dragon-ev1,tornado",
+      "cards": [
+        "bowler",
+        "executioner-ev1",
+        "freeze",
+        "golden-knight",
+        "graveyard",
+        "guards",
+        "inferno-dragon-ev1",
+        "tornado"
+      ]
+    },
+    {
+      "rank": 45,
+      "name": "RoNaLD",
+      "tag": "V8PP0080C",
+      "account_url": "https://royaleapi.com/player/V8PP0080C",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,dark-prince,fireball,giant-hero,mega-minion-hero,prince,rage,zap-ev1",
+      "cards": [
+        "bomber",
+        "dark-prince",
+        "fireball",
+        "giant-hero",
+        "mega-minion-hero",
+        "prince",
+        "rage",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 46,
+      "name": "レイリー (Ryley)",
+      "tag": "C0V0UQ9UY",
+      "account_url": "https://royaleapi.com/player/C0V0UQ9UY",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/berserker,bomb-tower,fire-spirit,goblin-barrel-ev1,ice-spirit,magic-archer-hero,royal-delivery,wall-breakers-ev1",
+      "cards": [
+        "berserker",
+        "bomb-tower",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "ice-spirit",
+        "magic-archer-hero",
+        "royal-delivery",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 47,
+      "name": "Morten",
+      "tag": "R09228V",
+      "account_url": "https://royaleapi.com/player/R09228V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bandit,battle-ram-ev1,golden-knight,mega-knight-ev1,mother-witch,royal-ghost,zappies",
+      "cards": [
+        "arrows",
+        "bandit",
+        "battle-ram-ev1",
+        "golden-knight",
+        "mega-knight-ev1",
+        "mother-witch",
+        "royal-ghost",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 48,
+      "name": "건휘왔당 (Gunhwi)",
+      "tag": "2GGR2GPQ0",
+      "account_url": "https://royaleapi.com/player/2GGR2GPQ0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bandit,battle-ram-ev1,electro-wizard,golden-knight,mother-witch,ronin,royal-ghost-ev1",
+      "cards": [
+        "arrows",
+        "bandit",
+        "battle-ram-ev1",
+        "electro-wizard",
+        "golden-knight",
+        "mother-witch",
+        "ronin",
+        "royal-ghost-ev1"
+      ]
+    },
+    {
+      "rank": 49,
+      "name": "Mohammad Reza",
+      "tag": "LYYRJ82U0",
+      "account_url": "https://royaleapi.com/player/LYYRJ82U0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,battle-ram-ev1,giant-skeleton,mother-witch,royal-ghost-ev1,vines,wizard-hero,zappies",
+      "cards": [
+        "barbarian-barrel",
+        "battle-ram-ev1",
+        "giant-skeleton",
+        "mother-witch",
+        "royal-ghost-ev1",
+        "vines",
+        "wizard-hero",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 50,
+      "name": "Takuma",
+      "tag": "2UJ2QQJJP",
+      "account_url": "https://royaleapi.com/player/2UJ2QQJJP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/berserker,bomb-tower,fire-spirit,goblin-barrel-ev1,ice-spirit,magic-archer-hero,royal-delivery,wall-breakers-ev1",
+      "cards": [
+        "berserker",
+        "bomb-tower",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "ice-spirit",
+        "magic-archer-hero",
+        "royal-delivery",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 51,
+      "name": "Tanjiro",
+      "tag": "208R8PQJP9",
+      "account_url": "https://royaleapi.com/player/208R8PQJP9",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,dark-prince,fireball,giant-hero,mega-minion-hero,prince,rage,zap-ev1",
+      "cards": [
+        "bomber",
+        "dark-prince",
+        "fireball",
+        "giant-hero",
+        "mega-minion-hero",
+        "prince",
+        "rage",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 52,
+      "name": "Seta",
+      "tag": "QPUV9YCC9",
+      "account_url": "https://royaleapi.com/player/QPUV9YCC9",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,cannon-ev1,earthquake,electro-spirit,firecracker-ev1,hog-rider,mighty-miner,skeletons",
+      "cards": [
+        "barbarian-barrel",
+        "cannon-ev1",
+        "earthquake",
+        "electro-spirit",
+        "firecracker-ev1",
+        "hog-rider",
+        "mighty-miner",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 53,
+      "name": "ZQuentino",
+      "tag": "RRLV0GQCV",
+      "account_url": "https://royaleapi.com/player/RRLV0GQCV",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,goblin-cage-ev1,heal-spirit,lumberjack-ev1,phoenix,royal-giant",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "goblin-cage-ev1",
+        "heal-spirit",
+        "lumberjack-ev1",
+        "phoenix",
+        "royal-giant"
+      ]
+    },
+    {
+      "rank": 54,
+      "name": "Saleh",
+      "tag": "UPC88P9LU",
+      "account_url": "https://royaleapi.com/player/UPC88P9LU",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archer-queen,bomber-ev1,cannon-ev1,earthquake,ice-spirit,royal-delivery,royal-hogs,skeletons",
+      "cards": [
+        "archer-queen",
+        "bomber-ev1",
+        "cannon-ev1",
+        "earthquake",
+        "ice-spirit",
+        "royal-delivery",
+        "royal-hogs",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 55,
+      "name": "Hypno",
+      "tag": "VLL8YQC9G",
+      "account_url": "https://royaleapi.com/player/VLL8YQC9G",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dart-goblin,fire-spirit,goblin-barrel-ev1,goblins-hero,ice-spirit,rocket,valkyrie-ev1,wall-breakers",
+      "cards": [
+        "dart-goblin",
+        "fire-spirit",
+        "goblin-barrel-ev1",
+        "goblins-hero",
+        "ice-spirit",
+        "rocket",
+        "valkyrie-ev1",
+        "wall-breakers"
+      ]
+    },
+    {
+      "rank": 56,
+      "name": "Fan",
+      "tag": "CVVCU2JJ8",
+      "account_url": "https://royaleapi.com/player/CVVCU2JJ8",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/balloon,barbarian-barrel-hero,bomb-tower,giant-snowball,ice-golem-hero,miner,musketeer,skeletons-ev1",
+      "cards": [
+        "balloon",
+        "barbarian-barrel-hero",
+        "bomb-tower",
+        "giant-snowball",
+        "ice-golem-hero",
+        "miner",
+        "musketeer",
+        "skeletons-ev1"
+      ]
+    },
+    {
+      "rank": 57,
+      "name": "Zyn｜Dary✨️夕方",
+      "tag": "2RPVJ088V",
+      "account_url": "https://royaleapi.com/player/2RPVJ088V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,cannon-cart,fireball,goblin-gang,goblinstein,ice-wizard,minion-horde-ev1,mortar-ev1",
+      "cards": [
+        "barbarian-barrel",
+        "cannon-cart",
+        "fireball",
+        "goblin-gang",
+        "goblinstein",
+        "ice-wizard",
+        "minion-horde-ev1",
+        "mortar-ev1"
+      ]
+    },
+    {
+      "rank": 58,
+      "name": "Friend",
+      "tag": "CVR2G2LCJ",
+      "account_url": "https://royaleapi.com/player/CVR2G2LCJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/balloon-hero,bomber,fireball,giant-snowball,inferno-dragon-ev1,lava-hound,minions,skeleton-army-ev1",
+      "cards": [
+        "balloon-hero",
+        "bomber",
+        "fireball",
+        "giant-snowball",
+        "inferno-dragon-ev1",
+        "lava-hound",
+        "minions",
+        "skeleton-army-ev1"
+      ]
+    },
+    {
+      "rank": 59,
+      "name": "Faust",
+      "tag": "R0UC9VR2V",
+      "account_url": "https://royaleapi.com/player/R0UC9VR2V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,goblin-cage-ev1,heal-spirit,lumberjack-ev1,phoenix,royal-giant",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "goblin-cage-ev1",
+        "heal-spirit",
+        "lumberjack-ev1",
+        "phoenix",
+        "royal-giant"
+      ]
+    },
+    {
+      "rank": 60,
+      "name": "Basim",
+      "tag": "R8RJ9Q90",
+      "account_url": "https://royaleapi.com/player/R8RJ9Q90",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,fireball,flying-machine,goblin-cage-ev1,golden-knight,royal-hogs,royal-recruits-ev1,zappies",
+      "cards": [
+        "barbarian-barrel",
+        "fireball",
+        "flying-machine",
+        "goblin-cage-ev1",
+        "golden-knight",
+        "royal-hogs",
+        "royal-recruits-ev1",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 61,
+      "name": "むぎ (Mugi)",
+      "tag": "2CLV2RP0",
+      "account_url": "https://royaleapi.com/player/2CLV2RP0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bats-ev1,bomb-tower,fire-spirit,magic-archer-hero,miner,skeletons,the-log,wall-breakers-ev1",
+      "cards": [
+        "bats-ev1",
+        "bomb-tower",
+        "fire-spirit",
+        "magic-archer-hero",
+        "miner",
+        "skeletons",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 62,
+      "name": "Klaim",
+      "tag": "VYVYRJYL8",
+      "account_url": "https://royaleapi.com/player/VYVYRJYL8",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dart-goblin,fireball,goblin-drill,inferno-tower,skeleton-army-ev1,skeleton-king,the-log,wall-breakers-ev1",
+      "cards": [
+        "dart-goblin",
+        "fireball",
+        "goblin-drill",
+        "inferno-tower",
+        "skeleton-army-ev1",
+        "skeleton-king",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 63,
+      "name": "Turan",
+      "tag": "8YG02JJVG",
+      "account_url": "https://royaleapi.com/player/8YG02JJVG",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 64,
+      "name": "LonDex Play",
+      "tag": "JYG0G0Y9P",
+      "account_url": "https://royaleapi.com/player/JYG0G0Y9P",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,barbarian-barrel,knight-ev1,little-prince,mega-minion-hero,pekka,ram-rider,zap",
+      "cards": [
+        "arrows",
+        "barbarian-barrel",
+        "knight-ev1",
+        "little-prince",
+        "mega-minion-hero",
+        "pekka",
+        "ram-rider",
+        "zap"
+      ]
+    },
+    {
+      "rank": 65,
+      "name": "Mohamed Light",
+      "tag": "UYL8820RJ",
+      "account_url": "https://royaleapi.com/player/UYL8820RJ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bats-ev1,bomb-tower,fire-spirit,magic-archer-hero,miner,skeletons,the-log,wall-breakers-ev1",
+      "cards": [
+        "bats-ev1",
+        "bomb-tower",
+        "fire-spirit",
+        "magic-archer-hero",
+        "miner",
+        "skeletons",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 66,
+      "name": "Juancho",
+      "tag": "229Y29RLYC",
+      "account_url": "https://royaleapi.com/player/229Y29RLYC",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/berserker,goblins-hero,inferno-tower,miner,minion-horde-ev1,princess,the-log,wall-breakers-ev1",
+      "cards": [
+        "berserker",
+        "goblins-hero",
+        "inferno-tower",
+        "miner",
+        "minion-horde-ev1",
+        "princess",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 67,
+      "name": "I Alex",
+      "tag": "JJ0P22Y0Y",
+      "account_url": "https://royaleapi.com/player/JJ0P22Y0Y",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,balloon,bats-ev1,bomber,freeze,giant-hero,minions,skeletons-ev1",
+      "cards": [
+        "arrows",
+        "balloon",
+        "bats-ev1",
+        "bomber",
+        "freeze",
+        "giant-hero",
+        "minions",
+        "skeletons-ev1"
+      ]
+    },
+    {
+      "rank": 68,
+      "name": "Hadi",
+      "tag": "222LJ8Y8",
+      "account_url": "https://royaleapi.com/player/222LJ8Y8",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,dark-prince,fireball,giant-hero,mega-minion-hero,prince,rage,zap-ev1",
+      "cards": [
+        "bomber",
+        "dark-prince",
+        "fireball",
+        "giant-hero",
+        "mega-minion-hero",
+        "prince",
+        "rage",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 69,
+      "name": "FurkanArabacı",
+      "tag": "989P0PCCR",
+      "account_url": "https://royaleapi.com/player/989P0PCCR",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 70,
+      "name": "Mohamed Light",
+      "tag": "UJJ2YVLQR",
+      "account_url": "https://royaleapi.com/player/UJJ2YVLQR",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bats-ev1,bomb-tower,fire-spirit,magic-archer-hero,miner,skeletons,the-log,wall-breakers-ev1",
+      "cards": [
+        "bats-ev1",
+        "bomb-tower",
+        "fire-spirit",
+        "magic-archer-hero",
+        "miner",
+        "skeletons",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 71,
+      "name": "ᴍᴇᴇᴋᴏ ❦ ɴᴀʀɪɴ",
+      "tag": "UU0VYL8J2",
+      "account_url": "https://royaleapi.com/player/UU0VYL8J2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bowler,freeze,graveyard,inferno-dragon-ev1,knight-ev1,tornado,wizard-hero,zappies",
+      "cards": [
+        "bowler",
+        "freeze",
+        "graveyard",
+        "inferno-dragon-ev1",
+        "knight-ev1",
+        "tornado",
+        "wizard-hero",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 72,
+      "name": "ماجد (Majed)",
+      "tag": "VJ0LY90G0",
+      "account_url": "https://royaleapi.com/player/VJ0LY90G0",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,balloon,bats,freeze,giant-skeleton,inferno-dragon-ev1,skeleton-army-ev1,skeleton-king",
+      "cards": [
+        "arrows",
+        "balloon",
+        "bats",
+        "freeze",
+        "giant-skeleton",
+        "inferno-dragon-ev1",
+        "skeleton-army-ev1",
+        "skeleton-king"
+      ]
+    },
+    {
+      "rank": 73,
+      "name": "Juninho",
+      "tag": "VL0GVGGR9",
+      "account_url": "https://royaleapi.com/player/VL0GVGGR9",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,electro-spirit,goblin-cage-ev1,minions,monk,royal-giant,vines,witch-ev1",
+      "cards": [
+        "barbarian-barrel",
+        "electro-spirit",
+        "goblin-cage-ev1",
+        "minions",
+        "monk",
+        "royal-giant",
+        "vines",
+        "witch-ev1"
+      ]
+    },
+    {
+      "rank": 74,
+      "name": "Brqko",
+      "tag": "CRYUCRVUG",
+      "account_url": "https://royaleapi.com/player/CRYUCRVUG",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archer-queen,cannon-ev1,earthquake,ice-spirit,royal-delivery,royal-hogs-ev1,skeletons,the-log",
+      "cards": [
+        "archer-queen",
+        "cannon-ev1",
+        "earthquake",
+        "ice-spirit",
+        "royal-delivery",
+        "royal-hogs-ev1",
+        "skeletons",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 75,
+      "name": "往日之影✨瓜呱",
+      "tag": "UVUJJ009V",
+      "account_url": "https://royaleapi.com/player/UVUJJ009V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon-ev1,fireball,hog-rider,ice-golem,ice-spirit,musketeer-hero,skeletons-ev1,the-log",
+      "cards": [
+        "cannon-ev1",
+        "fireball",
+        "hog-rider",
+        "ice-golem",
+        "ice-spirit",
+        "musketeer-hero",
+        "skeletons-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 76,
+      "name": "Huseein",
+      "tag": "QJYLCQQJP",
+      "account_url": "https://royaleapi.com/player/QJYLCQQJP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,barbarian-barrel-hero,electro-spirit,flying-machine,goblin-cage-ev1,royal-hogs,royal-recruits-ev1,zappies",
+      "cards": [
+        "arrows",
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "flying-machine",
+        "goblin-cage-ev1",
+        "royal-hogs",
+        "royal-recruits-ev1",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 77,
+      "name": "Stalker",
+      "tag": "QG9LCJ29",
+      "account_url": "https://royaleapi.com/player/QG9LCJ29",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon-cart,electro-spirit,fireball,goblins-hero,minions,mortar-ev1,rascals,skeleton-barrel-ev1",
+      "cards": [
+        "cannon-cart",
+        "electro-spirit",
+        "fireball",
+        "goblins-hero",
+        "minions",
+        "mortar-ev1",
+        "rascals",
+        "skeleton-barrel-ev1"
+      ]
+    },
+    {
+      "rank": 78,
+      "name": "NateJ",
+      "tag": "LRYQU2V",
+      "account_url": "https://royaleapi.com/player/LRYQU2V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/dark-prince-hero,electro-spirit,miner,rocket,royal-delivery,skeletons-ev1,tesla-ev1,the-log",
+      "cards": [
+        "dark-prince-hero",
+        "electro-spirit",
+        "miner",
+        "rocket",
+        "royal-delivery",
+        "skeletons-ev1",
+        "tesla-ev1",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 79,
+      "name": "Geister",
+      "tag": "2CYR8LCUP",
+      "account_url": "https://royaleapi.com/player/2CYR8LCUP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/baby-dragon,barbarian-barrel,battle-healer,electro-dragon-ev1,elixir-golem,goblin-cage-ev1,monk,tornado",
+      "cards": [
+        "baby-dragon",
+        "barbarian-barrel",
+        "battle-healer",
+        "electro-dragon-ev1",
+        "elixir-golem",
+        "goblin-cage-ev1",
+        "monk",
+        "tornado"
+      ]
+    },
+    {
+      "rank": 80,
+      "name": "RW",
+      "tag": "CRCRCVY0V",
+      "account_url": "https://royaleapi.com/player/CRCRCVY0V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 81,
+      "name": "Saif",
+      "tag": "89G9RCP2",
+      "account_url": "https://royaleapi.com/player/89G9RCP2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,executioner-ev1,freeze,giant-snowball-ev1,hog-rider,monk,ronin,zappies",
+      "cards": [
+        "bomber",
+        "executioner-ev1",
+        "freeze",
+        "giant-snowball-ev1",
+        "hog-rider",
+        "monk",
+        "ronin",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 82,
+      "name": "Brqko",
+      "tag": "V8VP8YGJ2",
+      "account_url": "https://royaleapi.com/player/V8VP8YGJ2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archer-queen,cannon-ev1,earthquake,ice-spirit,royal-delivery,royal-hogs-ev1,skeletons,the-log",
+      "cards": [
+        "archer-queen",
+        "cannon-ev1",
+        "earthquake",
+        "ice-spirit",
+        "royal-delivery",
+        "royal-hogs-ev1",
+        "skeletons",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 83,
+      "name": "SeeOk",
+      "tag": "YUY92PP9",
+      "account_url": "https://royaleapi.com/player/YUY92PP9",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/baby-dragon,barbarian-barrel-hero,goblin-cage-ev1,graveyard,ice-wizard,knight-ev1,poison,skeletons",
+      "cards": [
+        "baby-dragon",
+        "barbarian-barrel-hero",
+        "goblin-cage-ev1",
+        "graveyard",
+        "ice-wizard",
+        "knight-ev1",
+        "poison",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 84,
+      "name": "にゃんにゃんまる巡査部長 (Nyanyanmaru)",
+      "tag": "208YP2822J",
+      "account_url": "https://royaleapi.com/player/208YP2822J",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archer-queen,cannon-ev1,earthquake,ice-spirit,royal-delivery,royal-hogs-ev1,skeletons,the-log",
+      "cards": [
+        "archer-queen",
+        "cannon-ev1",
+        "earthquake",
+        "ice-spirit",
+        "royal-delivery",
+        "royal-hogs-ev1",
+        "skeletons",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 85,
+      "name": "SMAP",
+      "tag": "GYJP0G9JR",
+      "account_url": "https://royaleapi.com/player/GYJP0G9JR",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/giant-hero,heal-spirit,mini-pekka,minions,sparky,tornado,wizard-ev1,zap-ev1",
+      "cards": [
+        "giant-hero",
+        "heal-spirit",
+        "mini-pekka",
+        "minions",
+        "sparky",
+        "tornado",
+        "wizard-ev1",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 86,
+      "name": "Lucas Xit",
+      "tag": "2R09LUYPQ",
+      "account_url": "https://royaleapi.com/player/2R09LUYPQ",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bomber,dark-prince,fireball,giant-hero,mega-minion-hero,prince,rage,zap-ev1",
+      "cards": [
+        "bomber",
+        "dark-prince",
+        "fireball",
+        "giant-hero",
+        "mega-minion-hero",
+        "prince",
+        "rage",
+        "zap-ev1"
+      ]
+    },
+    {
+      "rank": 87,
+      "name": "Dess",
+      "tag": "GUPVGVQQV",
+      "account_url": "https://royaleapi.com/player/GUPVGVQQV",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bowler,executioner-ev1,freeze,golden-knight,graveyard,guards,inferno-dragon-ev1,tornado",
+      "cards": [
+        "bowler",
+        "executioner-ev1",
+        "freeze",
+        "golden-knight",
+        "graveyard",
+        "guards",
+        "inferno-dragon-ev1",
+        "tornado"
+      ]
+    },
+    {
+      "rank": 88,
+      "name": "Osama",
+      "tag": "CPGRQ8VQV",
+      "account_url": "https://royaleapi.com/player/CPGRQ8VQV",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,fireball,flying-machine,goblin-cage-ev1,golden-knight,royal-hogs,royal-recruits-ev1,zappies",
+      "cards": [
+        "barbarian-barrel",
+        "fireball",
+        "flying-machine",
+        "goblin-cage-ev1",
+        "golden-knight",
+        "royal-hogs",
+        "royal-recruits-ev1",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 89,
+      "name": "Rambooo",
+      "tag": "YUQYJV08",
+      "account_url": "https://royaleapi.com/player/YUQYJV08",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/boss-bandit,elite-barbarians,executioner-ev1,freeze,guards,hog-rider,minion-horde-ev1,zap",
+      "cards": [
+        "boss-bandit",
+        "elite-barbarians",
+        "executioner-ev1",
+        "freeze",
+        "guards",
+        "hog-rider",
+        "minion-horde-ev1",
+        "zap"
+      ]
+    },
+    {
+      "rank": 90,
+      "name": "Majed",
+      "tag": "J9PPYQCR",
+      "account_url": "https://royaleapi.com/player/J9PPYQCR",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel-hero,electro-spirit,fireball,fisherman,hunter,royal-ghost-ev1,royal-giant-ev1,skeletons",
+      "cards": [
+        "barbarian-barrel-hero",
+        "electro-spirit",
+        "fireball",
+        "fisherman",
+        "hunter",
+        "royal-ghost-ev1",
+        "royal-giant-ev1",
+        "skeletons"
+      ]
+    },
+    {
+      "rank": 91,
+      "name": "ぐりこ (Guriko)",
+      "tag": "RJ2UPC900",
+      "account_url": "https://royaleapi.com/player/RJ2UPC900",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bats-ev1,berserker,bomb-tower,fire-spirit,magic-archer-hero,miner,the-log,wall-breakers-ev1",
+      "cards": [
+        "bats-ev1",
+        "berserker",
+        "bomb-tower",
+        "fire-spirit",
+        "magic-archer-hero",
+        "miner",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 92,
+      "name": "Hunter",
+      "tag": "P8LRG9UP",
+      "account_url": "https://royaleapi.com/player/P8LRG9UP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon-cart,electro-spirit,fireball,goblins-hero,minions,mortar-ev1,rascals,skeleton-barrel-ev1",
+      "cards": [
+        "cannon-cart",
+        "electro-spirit",
+        "fireball",
+        "goblins-hero",
+        "minions",
+        "mortar-ev1",
+        "rascals",
+        "skeleton-barrel-ev1"
+      ]
+    },
+    {
+      "rank": 93,
+      "name": "Maverick",
+      "tag": "2228PCVL0V",
+      "account_url": "https://royaleapi.com/player/2228PCVL0V",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,barbarian-barrel,flying-machine,goblin-cage-ev1,golden-knight,royal-hogs,royal-recruits-ev1,zappies",
+      "cards": [
+        "arrows",
+        "barbarian-barrel",
+        "flying-machine",
+        "goblin-cage-ev1",
+        "golden-knight",
+        "royal-hogs",
+        "royal-recruits-ev1",
+        "zappies"
+      ]
+    },
+    {
+      "rank": 94,
+      "name": "Grnbur",
+      "tag": "V2PRPRLQP",
+      "account_url": "https://royaleapi.com/player/V2PRPRLQP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bandit,barbarian-barrel,boss-bandit,executioner-ev1,giant-snowball-ev1,lightning,ram-rider,royal-ghost",
+      "cards": [
+        "bandit",
+        "barbarian-barrel",
+        "boss-bandit",
+        "executioner-ev1",
+        "giant-snowball-ev1",
+        "lightning",
+        "ram-rider",
+        "royal-ghost"
+      ]
+    },
+    {
+      "rank": 95,
+      "name": "Adriel",
+      "tag": "9CPCC890",
+      "account_url": "https://royaleapi.com/player/9CPCC890",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/barbarian-barrel,bomb-tower,goblinstein,magic-archer-hero,miner,skeletons,tornado,wall-breakers-ev1",
+      "cards": [
+        "barbarian-barrel",
+        "bomb-tower",
+        "goblinstein",
+        "magic-archer-hero",
+        "miner",
+        "skeletons",
+        "tornado",
+        "wall-breakers-ev1"
+      ]
+    },
+    {
+      "rank": 96,
+      "name": "Luminary",
+      "tag": "9ULPU0QL",
+      "account_url": "https://royaleapi.com/player/9ULPU0QL",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon-cart,electro-spirit,fireball,goblins-hero,minions,mortar-ev1,rascals,skeleton-barrel-ev1",
+      "cards": [
+        "cannon-cart",
+        "electro-spirit",
+        "fireball",
+        "goblins-hero",
+        "minions",
+        "mortar-ev1",
+        "rascals",
+        "skeleton-barrel-ev1"
+      ]
+    },
+    {
+      "rank": 97,
+      "name": "Rafael",
+      "tag": "CCP2J000R",
+      "account_url": "https://royaleapi.com/player/CCP2J000R",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/arrows,bowler-hero,giant,giant-snowball-ev1,graveyard,guards,musketeer-ev1,night-witch",
+      "cards": [
+        "arrows",
+        "bowler-hero",
+        "giant",
+        "giant-snowball-ev1",
+        "graveyard",
+        "guards",
+        "musketeer-ev1",
+        "night-witch"
+      ]
+    },
+    {
+      "rank": 98,
+      "name": "Koh",
+      "tag": "CRUGCURRP",
+      "account_url": "https://royaleapi.com/player/CRUGCURRP",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/cannon-ev1,goblins,ice-spirit,mighty-miner,princess-ev1,rocket,royal-delivery,the-log",
+      "cards": [
+        "cannon-ev1",
+        "goblins",
+        "ice-spirit",
+        "mighty-miner",
+        "princess-ev1",
+        "rocket",
+        "royal-delivery",
+        "the-log"
+      ]
+    },
+    {
+      "rank": 99,
+      "name": "Raad",
+      "tag": "20YCGYYCJ2",
+      "account_url": "https://royaleapi.com/player/20YCGYYCJ2",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/archers-ev1,arrows,barbarians,bowler-hero,giant,giant-snowball-ev1,graveyard,minions",
+      "cards": [
+        "archers-ev1",
+        "arrows",
+        "barbarians",
+        "bowler-hero",
+        "giant",
+        "giant-snowball-ev1",
+        "graveyard",
+        "minions"
+      ]
+    },
+    {
+      "rank": 100,
+      "name": "Mohamed Light",
+      "tag": "GU2YR209R",
+      "account_url": "https://royaleapi.com/player/GU2YR209R",
+      "account_evidence_url": "https://royaleapi.com/blog/leaderboard-decks-august-2026",
+      "deck_url": "https://royaleapi.com/decks/stats/bats-ev1,bomb-tower,fire-spirit,magic-archer-hero,miner,skeletons,the-log,wall-breakers-ev1",
+      "cards": [
+        "bats-ev1",
+        "bomb-tower",
+        "fire-spirit",
+        "magic-archer-hero",
+        "miner",
+        "skeletons",
+        "the-log",
+        "wall-breakers-ev1"
+      ]
+    }
+  ]
+}
