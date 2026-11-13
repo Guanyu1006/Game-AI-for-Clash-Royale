@@ -1,5 +1,7 @@
 # 候选引擎审计导航与数据分母
 
+2026 年 11 月 13 日核查：[本项目协作分支状态](collaboration_sync_20261113.json)、[外部上游版本与独立快照](upstream_sync_20261113.json)、[AI 20 胜及榜首宣称的来源与边界](clash_ai_claims_20261113.json)。中文说明见[同步核查](../UPSTREAM_SYNC_20261113_ZH.md)及[事件和技术分析](../research/CLASH_ROYALE_AI_20261113_ZH.md)。
+
 2026 年 11 月 7 日主分支同步：见[中文同步说明](../MAIN_SYNC_20261107_ZH.md)、[本轮验证记录](main_sync_20261107.json)及[干净环境 CI 修复验证](main_sync_ci_20261107.json)。旧日期的实验记录继续保留；本次 Git 同步不扩大原生或策略强度结论。
 
 本轮原生系统与闭环的机器可读状态见 [native_loop_20261020.json](native_loop_20261020.json)；状态按实际闭环、轨迹和浏览器回执记录；历史失败保留。

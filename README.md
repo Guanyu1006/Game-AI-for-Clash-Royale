@@ -2,6 +2,8 @@
 
 > **直接读代码：** [当前仓库框架图与核心函数地图](research/CODE_MAP_ZH.md)，包含训练、真实对局、视频流程、活跃依赖与可暂时不读的历史代码；[可缩放总图](research/CODE_MAP.svg)。
 
+> **远端核查（2026-11-13）：** 上次上传后，本项目远端和开发分支没有尚未纳入 `main` 的提交，也没有待合并 PR。外部项目新版另存为研究快照，当前运行版本保留。见[同步核查与变更分析](docs/UPSTREAM_SYNC_20261113_ZH.md)和[AI 20 胜、榜首事件及技术路线核查](docs/research/CLASH_ROYALE_AI_20261113_ZH.md)。
+
 > **主分支同步（2026-11-07）：** 当前共同开发基线统一为 `main`，纳入 `dev/main-start-20261020` 的科研工作台、原生连接与回放等已有更改。变更范围、验证结果、运行命令和未验收项见[本次同步说明](docs/MAIN_SYNC_20261107_ZH.md)。下面带日期的旧交接记录继续作为历史参考。
 
 > **当前科研入口（2026-11-07）：** `.venv-cloud/bin/python tools/cloud/workspace.py research`，打开私有 **8770**。配置集中在 `research/system.json`，数据、参考模型与新结果使用 `research/` 固定运行目录。先读[当前系统总指南：运行、代码层级、依赖与验收](research/README.md)；[模型接入](research/MODEL_INTEGRATION_ZH.md)和[性能与真实视频实测](research/PERFORMANCE_AND_MEDIA_ZH.md)解释具体改动位置与限制。离线训练已通过；本轮无画面原生模型两局均自然终局、确认出牌90次，一胜一负；完整原版录像和连续拖牌人机尚未通过。以下历史入口、证据与 Windows 启动器继续保留，各自验收不互相替代。

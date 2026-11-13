@@ -1,0 +1,370 @@
+{
+  "schema": "royale-clash-ai-public-claims-review.v1",
+  "reviewed_at_asia_shanghai": "2026-11-13T14:50:08.595732+08:00",
+  "scope": "2026-11-13可公开读取的皇室战争AI20胜与官方排位榜首宣称。只读查询；没有登录账号、联系作者或操作游戏。",
+  "summary": {
+    "twenty_wins": "发现作者一手20胜投稿和较长第一视角标题；本轮未完成账号徽章及完整20局独立核验。",
+    "global_rank_one": "11月10日起多语言社区热议Clasher；可交叉确认账号及官方排位前列，但未取得赛季结束第一证据，不能写成定榜冠军。",
+    "project_identity": "水母20胜、Clasher、Vegetable Leaf、FirstLight、Lvx_Seraph和Counterpush之间的所有权、权重和训练方法关联未证实。",
+    "official_response": "未找到针对此事件的可核实Supercell个案回应；封号消息存在相反说法。"
+  },
+  "claim_assessments": [
+    {
+      "claim": "指定AI在2026CRL20胜挑战通关",
+      "status": "developer_claim_with_public_video_metadata; not_independently_verified",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S09"
+      ],
+      "remaining_checks": [
+        "匹配账号标签和2026挑战胜场徽章",
+        "检查连续录像、20胜终点和人工接管情况",
+        "明确对局模式和是否国际服"
+      ]
+    },
+    {
+      "claim": "AI取得国际服排位全球第一",
+      "status": "community_claim_with_top_ladder_account_corroboration; historical_rank1_not_independently_verified",
+      "source_ids": [
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S13",
+        "S15"
+      ],
+      "remaining_checks": [
+        "取得带时间的官方/公开API历史榜首记录",
+        "核实AI控制及完整比赛分母",
+        "区分赛中瞬时第一和赛季结束第一"
+      ]
+    },
+    {
+      "claim": "该AI没有额外隐藏信息或不公平反应优势",
+      "status": "unknown",
+      "source_ids": [
+        "S04",
+        "S06"
+      ],
+      "remaining_checks": [
+        "公开actor输入与命令注入链路",
+        "测量端到端延迟及观察可见性",
+        "验证未使用对手私有牌序或未来下牌信息"
+      ]
+    },
+    {
+      "claim": "Supercell已经确认并封禁全部相关账号",
+      "status": "unsupported_and_conflicting_community_reports",
+      "source_ids": [
+        "S06",
+        "S14"
+      ],
+      "remaining_checks": [
+        "寻找官方针对特定账号公告或可验证封禁回执"
+      ]
+    }
+  ],
+  "important_distinctions": [
+    "紫水晶在该语境是排位术语，不是由标题确认的AI作者姓名。",
+    "局部/本地重建回放不能替代官方客户端原始全程录像。",
+    "2026挑战徽章17胜即可获得，徽章图片本身不等于20胜。",
+    "公开账号胜负和排名不能独立认证是AI操控；同昵称不能代替账号标签。",
+    "本轮未发现赛季结束全球第一证据，也没有无敌或全卡组超人结论。"
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "url": "https://www.bilibili.com/video/BV1XZxi6tEkz/",
+      "author": "_水母Jellyfish_",
+      "author_bilibili_uid": 35927505,
+      "published_at_asia_shanghai": "2026-10-30T20:57:39+08:00",
+      "title": "AI大人表演皇室战争20胜（最后三把）",
+      "duration": "12:18",
+      "description_as_returned_by_public_api": "这个是半成品模型，单卡100训练了十几个小时。抱着试一试的心态打了一下20胜，没想到过了。还有强的多的模型正在训练。",
+      "evidence_type": "primary_publication_metadata",
+      "supports": [
+        "作者公开自称AI通过20胜，投稿只覆盖标题所说的最后三局。",
+        "作者自述半成品模型“单卡100训练了十几个小时”；原文未明确GPU具体型号。"
+      ],
+      "does_not_establish": [
+        "未观看并逐局核查视频，不能确认完整20局、精确战绩、账号标签、是否无人干预。",
+        "没有对应官方API挑战徽章记录；无法确认与Clasher或Vegetable Leaf同一模型。"
+      ],
+      "collection": {
+        "method": "Bilibili public search API metadata; video contents not independently watched",
+        "raw_metadata": "outputs/cloud/sync-review-20261113/news-evidence/bilibili-ai-run-search-0.json"
+      }
+    },
+    {
+      "id": "S02",
+      "url": "https://www.bilibili.com/video/BV1Dxx468ESe/",
+      "author": "_水母Jellyfish_",
+      "author_bilibili_uid": 35927505,
+      "published_at_asia_shanghai": "2026-11-01T18:52:52+08:00",
+      "title": "【第一视角】AI 大人疑似已经能随手打出 20 胜 唯一输的一把是断网了（忘记录声音了）",
+      "duration": "38:35",
+      "description_as_returned_by_public_api": "-",
+      "evidence_type": "primary_publication_metadata",
+      "supports": [
+        "同一投稿者2026-11-01发布38分35秒第一视角20胜宣称。"
+      ],
+      "does_not_establish": [
+        "标题不是独立验收；未核对录像是否连续覆盖20局。",
+        "断网导致唯一败局属于标题自述；未独立确认20比1。"
+      ],
+      "collection": {
+        "method": "Bilibili public search API metadata; video contents not independently watched",
+        "raw_metadata": "outputs/cloud/sync-review-20261113/news-evidence/bilibili-ai-run-search-0.json"
+      }
+    },
+    {
+      "id": "S03",
+      "url": "https://www.bilibili.com/video/BV18CWu6MEXf/",
+      "author": "小汐酱_",
+      "author_bilibili_uid": 3546846108584077,
+      "published_at_asia_shanghai": "2026-11-10T16:10:27+08:00",
+      "title": "皇室战争ai Clasher 紫水晶登顶回放",
+      "duration": "50:1",
+      "description_as_returned_by_public_api": "录制回放仅作为个人学习使用(我觉得我还真能学ai打法) 但是评论讨论任何话题都是可以的\n回放由royale api获取下牌数据后 接入本地回放工具得到\n8-2 输了一次飞桶一次墓园 墓园被15级骷髅限制了一点 内战稳赢ai可能有对手14级蝙蝠的因素",
+      "evidence_type": "primary_publication_metadata",
+      "supports": [
+        "2026-11-10已有针对Clasher的50分钟对局展示。",
+        "投稿者说明使用RoyaleAPI下牌记录接入本地回放工具，样本8胜2负。"
+      ],
+      "does_not_establish": [
+        "展示是本地重建，不能作为客户端原始逐帧录像。",
+        "不能由画面单独证明操作者是AI、隐藏信息权限、公平延迟或完整天梯登顶过程。",
+        "投稿者小汐酱_未自称模型作者；标题中的紫水晶是排位术语。"
+      ],
+      "collection": {
+        "method": "Bilibili public search API metadata; video contents not independently watched",
+        "raw_metadata": "outputs/cloud/sync-review-20261113/news-evidence/bilibili-ai-run-search-0.json"
+      }
+    },
+    {
+      "id": "S04",
+      "url": "https://www.bilibili.com/video/BV1y9WX6JEFu/",
+      "author": "Moody_bili",
+      "author_bilibili_uid": 351264872,
+      "published_at_asia_shanghai": "2026-11-12T15:02:10+08:00",
+      "title": "【自存】14级蝙蝠前20...皇室AI &quot;vegetable leaf&quot;对局录制",
+      "duration": "44:7",
+      "description_as_returned_by_public_api": "仅自存。记录天梯里的 AI 账号 vegetable leaf 的 12 局对局，无意引起争议。\n对局用秋名佬的项目 + 脚本录制，部分对局有倍速，对局没有声音。\n目前尚不知道这个 AI 是否比人类对手先读到下牌信息。\n每局时间戳见置顶评论。",
+      "evidence_type": "primary_publication_metadata",
+      "supports": [
+        "2026-11-12投稿者报告保存Vegetable Leaf的12局。",
+        "作者明确使用秋名项目和脚本重建，部分倍速。"
+      ],
+      "does_not_establish": [
+        "不是原始客户端录像；作者明确不知道该AI是否提前读到出牌信息。",
+        "不能确认与Clasher或水母是同一团队。"
+      ],
+      "collection": {
+        "method": "Bilibili public search API metadata; video contents not independently watched",
+        "raw_metadata": "outputs/cloud/sync-review-20261113/news-evidence/bilibili-ai-run-search-0.json"
+      }
+    },
+    {
+      "id": "S05",
+      "url": "https://www.reddit.com/r/ClashRoyale/comments/1xsg4xy/ai_account_reached_top_1_in_the_world_bruh/",
+      "author": "u/tawoolyp",
+      "published_date_displayed": "2026-11-10",
+      "evidence_type": "community_firsthand_post_and_comments",
+      "supports": [
+        "该日期已有Clasher为全球排位第一且由AI控制的社区讨论。"
+      ],
+      "does_not_establish": [
+        "本轮未取得可读原始榜单截图和封闭验证过程；帖子与评论不能独立证明AI控制。",
+        "评论把Counterpush演示拿来作证，存在混淆不同项目的问题。"
+      ]
+    },
+    {
+      "id": "S06",
+      "url": "https://www.reddit.com/r/ClashRoyale/comments/1xtytap/the_top_1_player_in_ranked_is_a_ai_account/",
+      "author": "u/Sad-Personality-2385",
+      "published_date_displayed": "2026-11-12",
+      "evidence_type": "community_post_with_links",
+      "supports": [
+        "热议指向Boss的视频及OJ跟进。",
+        "存在已封禁和未封禁两种相反评论；有人称号主在Twitter承认使用中国bot。"
+      ],
+      "linked_videos": [
+        "https://www.youtube.com/watch?v=7AYl-F9OTm8",
+        "https://www.youtube.com/watch?v=-xq6cVHxPqk"
+      ],
+      "does_not_establish": [
+        "未找到被引用的号主原始Twitter声明；不能把转述当作已核实自认。",
+        "社区关于封号的说法矛盾，未找到本事件Supercell个案公告。",
+        "Clasher是通用游戏昵称，名称本身无法证明AI。"
+      ]
+    },
+    {
+      "id": "S07",
+      "url": "https://www.deckshop.pro/cn/spy/top/global/players",
+      "author": "Deck Shop public player leaderboard",
+      "published_date": null,
+      "retrieved_date_asia_shanghai": "2026-11-13",
+      "evidence_type": "public_statistics_cross_check",
+      "supports": [
+        "索引可读页面将Clasher绑定账号#PLPJP9Y88。",
+        "多个语言索引把该账号列在当期前列；不同缓存时刻名次不一致。"
+      ],
+      "example_indexed_snapshot": {
+        "name": "Clasher",
+        "tag": "PLPJP9Y88",
+        "rank": 15,
+        "rating": 2574
+      },
+      "does_not_establish": [
+        "动态页面与缓存不能证明2026-11-10历史瞬时榜首，也不能证明赛季结束第一。",
+        "统计成绩不提供操作者身份或是否AI控制。"
+      ]
+    },
+    {
+      "id": "S08",
+      "url": "https://www.royaletools.com/leaderboards",
+      "author": "RoyaleTools public leaderboard",
+      "published_date": null,
+      "retrieved_date_asia_shanghai": "2026-11-13",
+      "evidence_type": "public_statistics_cross_check",
+      "supports": [
+        "索引将Vegetable Leaf/AK✨Vege Leaf绑定#VPJJYPUJL，并显示其为前列账号。"
+      ],
+      "does_not_establish": [
+        "名字和部落变动，须按标签比较。",
+        "无法由名字中AI或discord部落名判断实际控制方法。",
+        "未核实该号与Clasher或水母的所有权关系。"
+      ]
+    },
+    {
+      "id": "S09",
+      "url": "https://royaleapi.com/blog/crl-2026-20-win-challenge-details?lang=en",
+      "author": [
+        "Alpe123",
+        "SML (See-ming Lee)"
+      ],
+      "published_date": "2026-10-25",
+      "evidence_type": "primary_statistics_provider_event_documentation",
+      "supports": [
+        "2026年CRL20胜挑战：2026-10-26 09:00 UTC至2026-11-02 09:00 UTC。",
+        "挑战徽章17胜起即可获得，游戏内相同外观；真实胜场写入RoyaleAPI个人资料徽章。",
+        "20胜才可获得当年专属Goblin CRL 2026表情。"
+      ],
+      "does_not_establish": [
+        "活动说明不证明任何指定AI账号获得20胜。"
+      ]
+    },
+    {
+      "id": "S10",
+      "url": "https://linux.do/t/topic/3046165",
+      "author": "Lvx_Seraph (Lvx Seraph)",
+      "published_date": "2026-10-19",
+      "published_time_displayed": "11:59; page timezone not specified",
+      "evidence_type": "developer_self_report",
+      "supports": [
+        "作者自报从4B Qwen加决策头转向CNN、Entity Attention、Temporal Transformer、自回归动作头。",
+        "自报约2.95亿有效状态帧模仿学习，再PPO加GAE；通用和卡组专精交叉对战、自对战与困难样本。",
+        "自报逆向ARM64 libg.so，在headless宿主按tick推进并行采样。",
+        "作者回复称和FirstLight是不同方向。"
+      ],
+      "linked_demo": {
+        "short_url": "https://b23.tv/OU6HAF9",
+        "resolved_video_url": "https://www.bilibili.com/video/BV1SZnJ6oEi3/",
+        "uploader_uid_in_redirect": 549000490
+      },
+      "does_not_establish": [
+        "没有可验证的开源仓库、checkpoint或原始实验日志；全部方法仍是作者自述。",
+        "该演示上传者uid与水母35927505不同，未发现身份关联证据。",
+        "不能把这套方法归给Clasher、Vegetable Leaf或水母。"
+      ]
+    },
+    {
+      "id": "S11",
+      "url": "https://www.reddit.com/r/ClashRoyale/comments/1xqgs5q/day_7_of_training_my_clash_royale_ai_a_top_200/",
+      "author": "Counterpush project developer (Reddit author handle not independently captured)",
+      "published_date_displayed": "2026-11-07",
+      "evidence_type": "developer_clarification",
+      "supports": [
+        "作者明确表示运行在自建版本和网站，不在真实天梯、不涉及真实账号。",
+        "作者自报百万局自博弈，训练示范采用1.3秒延迟；这些仍需独立复现。"
+      ],
+      "does_not_establish": [
+        "不是Clasher官方榜首的证明；网友转引不能建立同一项目关系。"
+      ]
+    },
+    {
+      "id": "S12",
+      "url": "https://www.bilibili.com/video/BV17Zb46JE9h/",
+      "author": "真的无名呢",
+      "author_bilibili_uid": 489698237,
+      "published_at_asia_shanghai": "2026-09-07T11:51:58+08:00",
+      "title": "我训练了一个皇室战争AI，它自己打上了名人堂",
+      "duration": "86:42",
+      "description_as_returned_by_public_api": "FirstLight CR 现已完全开源：https://github.com/Jaasssoooonnnnn/FirstLight_CR，欢迎来GitHub给这个刚出生的皇室战争 AI 点颗 Star⭐\n\n我训练了一个会自己玩《皇室战争》的 AI——FirstLight CR。\n\n从24万场真人回放开始模仿学习，再通过 PPO、自博弈不断强化，最终训练出了通用模型和 2.6 速猪专精模型，并使用速猪模型将账号打上了名人堂。\n\n项目包含离线对战环境、模仿学习、PPO 自博弈训练代码、预训练模型、回放重建与",
+      "evidence_type": "primary_publication_metadata",
+      "supports": [
+        "FirstLight CR作者视频明确链接https://github.com/Jaasssoooonnnnn/FirstLight_CR。",
+        "作者自报24万场回放IL、PPO自博弈及2.6速猪上名人堂。"
+      ],
+      "does_not_establish": [
+        "这一发布早于11月Clasher事件；未证实是其模型。",
+        "本审查未读取该项目全部训练结果，不能据视频简介认定20胜或全球第一。"
+      ],
+      "collection": {
+        "method": "Bilibili public search API metadata; video contents not independently watched",
+        "raw_metadata": "outputs/cloud/sync-review-20261113/news-evidence/bilibili-ai-run-search-0.json"
+      }
+    },
+    {
+      "id": "S13",
+      "url": "https://www.youtube.com/watch?v=7AYl-F9OTm8",
+      "author": "Boss",
+      "published_date": null,
+      "title": "AI is Ruining Clash Royale",
+      "evidence_type": "creator_follow_up",
+      "supports": [
+        "视频存在的链接来自11月12日热帖；RoyaleAPI创作者页索引能检索该标题。"
+      ],
+      "secondary_metadata_url": "https://royaleapi.com/content/boss",
+      "does_not_establish": [
+        "YouTube内容受抓取限制，未独立观看其论证或逐局验证。",
+        "不是Supercell官方公告。"
+      ]
+    },
+    {
+      "id": "S14",
+      "url": "https://www.youtube.com/watch?v=-xq6cVHxPqk",
+      "author": "Orange Juice Gaming (OJ; attribution from linked community post)",
+      "published_date": null,
+      "title": "How will Supercell address the AI cheaters?",
+      "evidence_type": "creator_follow_up",
+      "supports": [
+        "可读YouTube页面标题；Reddit11月12日评论提供该链接。"
+      ],
+      "does_not_establish": [
+        "未独立观看；标题提问不等同Supercell已采取某种行动。"
+      ]
+    },
+    {
+      "id": "S15",
+      "url": "https://tvgram.ru/mir_supercell/16571",
+      "author": "Мир Supercell (@mir_supercell; fan news channel)",
+      "published_at_displayed": "2026-11-10 14:42 MSK",
+      "evidence_type": "community_news_corroboration",
+      "supports": [
+        "同日俄语社区已讨论Clasher官方排位第一，并链接中文回放。"
+      ],
+      "does_not_establish": [
+        "频道名字含Supercell并非官方声明。",
+        "新闻引用回放，不能提供与录像独立的AI控制认证。"
+      ]
+    }
+  ],
+  "collection_limits": [
+    "若干Bilibili视频页、动态API和RoyaleAPI个人页不可读或返回HTTP412/403；已保留可读公开搜索API元数据，未登录绕过。",
+    "YouTube内容抓取受限，未把标题或二创解说当成逐局验收。",
+    "未找到水母AI的已核实GitHub、论文、详细方法帖或与Clasher的可靠身份链。",
+    "动态排行榜的不同索引快照时刻不同；排名仅作账号和前列水平交叉线索。"
+  ]
+}

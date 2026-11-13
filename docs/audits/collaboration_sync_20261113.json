@@ -1,0 +1,73 @@
+{
+  "schema": "royale-collaboration-sync-review.v1",
+  "checked_at_utc": "2026-11-13T06:52:00Z",
+  "scope": "User clarified: primarily this repository's remote and friend's development branches.",
+  "repository": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale",
+  "last_uploaded_main": "ceec6b9b54058e1e097373ee857ee7f663a6efba",
+  "local_main_before_report": "ceec6b9b54058e1e097373ee857ee7f663a6efba",
+  "remote_main": "ceec6b9b54058e1e097373ee857ee7f663a6efba",
+  "remote_pushed_at": "2026-11-07T10:21:09Z",
+  "ahead": 0,
+  "behind": 0,
+  "branches": [
+    {
+      "name": "main",
+      "sha": "ceec6b9b54058e1e097373ee857ee7f663a6efba"
+    },
+    {
+      "name": "dev/main-start-20261020",
+      "sha": "9f1768a13ad791d4d3dde437ecd52c468b34ec45",
+      "commits_not_in_main": 0
+    }
+  ],
+  "local_development_branch": {
+    "name": "dev/main-start-20261020",
+    "sha": "7392e3ca0c18a96dfd7f5993cb52bb83e60dce1e",
+    "commits_not_in_main": 0
+  },
+  "open_pull_requests": 0,
+  "advertised_pull_head_refs": 0,
+  "reported_public_forks": 0,
+  "action": "No incoming code merge was necessary. Add this review and research notes to main; preserve all development branch refs.",
+  "limits": [
+    "Covers the configured origin, its advertised branches and pull refs, accessible pull requests, and GitHub's public fork metadata.",
+    "A friend's unpushed work or independent repository with no remote/PR relation is not observable."
+  ],
+  "verification": {
+    "doctor": {
+      "exit_code": 0,
+      "asset_integrity": "pass",
+      "asset_files": 572,
+      "windows_launchers_preserved": true,
+      "native_runtime_verified": false,
+      "log": "outputs/cloud/sync-review-20261113/doctor.log"
+    },
+    "no_application_or_dependency_changes": true,
+    "review_artifacts": {
+      "status": "pass",
+      "path": "outputs/cloud/sync-review-20261113/verification.json",
+      "sha256": "b3fc3b5dfec74e21d1935c558bbf4f9cf35bb4c97b7067d68e47cd7f3436dc8e",
+      "scope": "JSON parse, new document local links, 1621 source blobs, 2 ZIP CRCs, 4 pinned manifest hashes"
+    }
+  },
+  "commands": [
+    "git fetch origin",
+    "git branch -avv",
+    "git log --oneline origin/main..origin/dev/main-start-20261020",
+    "git log --oneline main..dev/main-start-20261020",
+    "git rev-list --left-right --count main...origin/main",
+    "git ls-remote origin 'refs/heads/*' 'refs/pull/*/head'",
+    ".venv-cloud/bin/python tools/cloud/workspace.py doctor"
+  ],
+  "related_reports": [
+    "docs/audits/upstream_sync_20261113.json",
+    "docs/audits/clash_ai_claims_20261113.json"
+  ],
+  "last_remote_recheck_utc": "2026-11-13T06:53:00Z",
+  "refactor_policy": {
+    "user_instruction": "同步朋友已推送的重构，之后开发以同步的版本为准",
+    "source_status": "Not found in configured origin, open PRs or accessible related repository search; repository/branch link requested.",
+    "merge_authorized": true,
+    "implemented": false
+  }
+}

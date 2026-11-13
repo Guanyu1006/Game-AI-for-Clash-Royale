@@ -4,6 +4,7 @@
 
 ## 文件入口
 
+- [AI 20 胜、榜首事件及技术路线核查](CLASH_ROYALE_AI_20261113_ZH.md)：2026-11-13，区分账号成绩、作者自报、公开代码与尚未验证的关联；附[远端与上游同步说明](../UPSTREAM_SYNC_20261113_ZH.md)。
 - [大厂游戏 AI 论文的评价方法与皇室战争迁移设计](BIG_TECH_GAME_AI_EVALUATION_ZH.md)：OpenAI Five、VPT、Dreamer、SIMA、MineDojo、Voyager及微软、腾讯、索尼相关评价设计。
 - [皇室战争 AI 系统评测调研与 Benchmark 设计草案](BENCHMARK_DESIGN_ZH.md)：2026-10-18新增，直接相关论文、评价方法迁移、实验矩阵、统计与论文证据设计。
 - [33 篇逐项中文分析](PAPERS.md)：问题、输入输出、方法、作者实验、边界和本项目用途。
