@@ -1,0 +1,47 @@
+{
+  "schema": "arena-event-timing-design-v1",
+  "status": "proposed_not_run",
+  "date": "2026-11-13",
+  "scope": "下一轮确定性闭环模仿实验的预拟议；本文件不构成训练完成、阈值校准或棋力提升证据。",
+  "basis": {
+    "allowed_evidence": [
+      "已审查的训练实现与训练集 WAIT 目标审计",
+      "train-full-v2/history.jsonl 中的训练与验证记录"
+    ],
+    "validation_labels": 10532,
+    "validation_play_labels": 644,
+    "validation_argmax_predicted_plays_epochs_1_to_4": [0, 10, 22, 127],
+    "validation_epoch4_play_precision": 0.2283464566929134,
+    "validation_epoch4_play_recall": 0.04503105590062112,
+    "finding": "尚未发现 loss、合法动作 mask 或 GRU 状态的确定实现错误。验证记录说明出手并非严格恒零，但时机、选牌仍弱；继续增加相同目标的轮数不是充分解释或解决方案。",
+    "prior_weight_note": "先前 v1 的 39.9% 仅为静态加权标签质量近似，不是模型实测出手概率。",
+    "no_test_files_read_for_this_design": true
+  },
+  "stage_a_frozen_checkpoint_diagnostic": {
+    "purpose": "先区分联合 argmax 的 WAIT 偏好与事件分数本身没有时机信息，避免直接重训掩盖问题。",
+    "event_score": "用合法非WAIT logits 的 logsumexp 减 WAIT logit；没有合法非WAIT时事件概率强制为0。",
+    "deterministic_decoder": "事件概率达到冻结阈值才出手；非WAIT动作取条件 argmax，部署位置取对应卡槽条件 argmax。禁止随机采样、固定出手节拍或强制最低出手数。",
+    "calibration": "仅在整局分组的 validation-fit 拟合低容量单调温度/截距校准，报告未校准与校准后的事件 NLL、Brier、PR-AUC及常数训练先验基线。不得直接将加权 softmax 当真实概率。",
+    "threshold": "在 validation-fit 的候选阈值上最小化 0.5*FPR+0.5*FNR；并列优先更高阈值。全部WAIT与全部出手的该风险均为0.5，不能据此冒充学会时机。阈值、校准参数和解码算法一起写入不可变元数据。"
+  },
+  "stage_b_if_event_signal_is_inadequate": {
+    "structure": "保留公开实体/空间编码和 GRU，增加二元出手事件头；非WAIT类别头仅学习事件发生时的卡槽/能力条件分布，位置头仅学习部署事件的位置。能力没有正标签时明确无专家能力监督，不能宣称学会技能。",
+    "objective": "显式分别归一化事件 BCE、真实事件上的条件类别 CE、真实部署上的位置 CE；事件正负权重仅由训练集可出手帧先验固定。记录各头 loss、样本数和梯度，防止稀疏正例被槽位拆分和 WAIT 总量淹没。",
+    "history": "保留所有过去公开状态、无标签间隔和合法 WAIT 历史；不能抽掉负帧来改变 GRU 时钟，不能使用未来动作、原始未知状态或事后推断信息而不保留现有 provenance 限制。",
+    "cpu_budget": "至多一次小规模预声明结构对照，沿用现有轻量编码器、两条CPU线程和最多4轮；不做大规模网格搜索。"
+  },
+  "validation_and_leakage_controls": {
+    "grouping": "以原始 source_game_id/source SHA 分组；同局双席、重建变体和重复来源不可跨组。用预先固定的盐和哈希划分，保存 ID 清单与 SHA。",
+    "new_training_partition": "如执行 stage B，先从原训练整局中固定内部 monitor 集，用于轮次选择；原验证整局固定分为 validation-fit 与 validation-check，前者仅校准和选阈值，后者只做一次冻结后的诊断。",
+    "existing_checkpoint_caveat": "stage A 使用的既有权重已按整个原验证集选轮，因此再切 validation-check 仍是开发诊断，不能称全新独立验收。",
+    "freeze": "模型、校准、阈值、合法动作规则、数据划分、environment identity、level/forms/reset_options与解码版本必须在最终验收前冻结。",
+    "test": "本轮已看过的 test、对局结果与对照结果不参与任何阈值、结构或轮次选择；下一轮若主张独立提升，需预先封存未使用的整局/新对局种子作为一次性 holdout。不得重复用现有测试套件调参。"
+  },
+  "required_measurements": [
+    "validation-check 事件 PR-AUC 相对训练先验、校准质量、balanced risk、precision/recall、逐局出手率及全部WAIT基线",
+    "真实事件条件下的卡槽/能力准确率、部署位置距离和完整动作正确率，不能只报是否出手",
+    "阈值冻结后确定性完整双方对局：候选方实际执行/拒绝、等待比例、自然终局、故障与截断，以及固定对手和换边配对结果",
+    "事件分数或选牌没有验证区分力时如实失败；非零出手数本身不是模仿成功或棋力提升"
+  ],
+  "recommendation": "值得在下一轮做一次有门槛的确定性事件诊断；仅当验证支持时再做事件分解结构对照。本轮保留已冻结结果，不再运行校准、重训或测试。"
+}

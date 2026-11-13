@@ -1,0 +1,9 @@
+{
+  "recorded_at_utc": "2026-11-13T08:48:39.208271+00:00",
+  "stage": "After first probe, before full-data reconstruction completion or training; hyperparameters unchanged",
+  "files": {
+    "configs/arena-lab/experiment-full-v2.json": "2033a489f68207eed2ebca71592891b278b8112a694d4f9aff575cc63d743467",
+    "configs/arena-lab/evaluation-suite-full-v2.json": "d10e82669bc283d7392ee4ce2084aa88dc000d7c18c923dea5badc94a7930e25",
+    "configs/arena-lab/previously-evaluated-test-v1.json": "fbc883dc2180d83e6256a89258b08d99cef630501b2c836adecea9333cf2c57f"
+  }
+}

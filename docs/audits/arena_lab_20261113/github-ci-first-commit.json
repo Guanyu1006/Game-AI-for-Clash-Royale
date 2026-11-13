@@ -1,0 +1,68 @@
+{
+  "commit": "f4ab26db1e2b353cb0028508c6ef9e74ddbcbb3a",
+  "run_id": 43396995656,
+  "url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43396995656",
+  "status": "completed",
+  "conclusion": "success",
+  "trigger": "push",
+  "started_at": "2026-11-13T08:55:04Z",
+  "completed_at": "2026-11-13T08:55:49Z",
+  "jobs": [
+    {
+      "id": 131790233063,
+      "name": "cpu",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fixed host CPU dependencies",
+          "conclusion": "success"
+        },
+        {
+          "name": "Isolated hash-locked simulator",
+          "conclusion": "success"
+        },
+        {
+          "name": "Data, recurrent model, training and closed-loop contracts",
+          "conclusion": "success"
+        },
+        {
+          "name": "Real engine whole-battle benchmark",
+          "conclusion": "success"
+        },
+        {
+          "name": "Delivered checkpoint reload and paired whole games",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "scope": "Fresh GitHub Ubuntu CPU runner; pinned dependencies, contract tests, simulator full games and packaged v1 checkpoint paired games; crforge build is locally validated separately."
+}

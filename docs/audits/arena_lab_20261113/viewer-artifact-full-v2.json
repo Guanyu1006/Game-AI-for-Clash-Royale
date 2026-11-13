@@ -1,0 +1,47 @@
+{
+  "schema": "arena-viewer-delivery-v2",
+  "checkpoint_sha256": "a3fdae3e8abf60b3186727f55859df5e65ceaf73296c437f565f748600690816",
+  "selection": "Fixed model episode0 from frozen expanded-data suite; not chosen by outcome",
+  "episode": {
+    "case_id": "matchup-0-seed-20261115-random-side-0",
+    "seed": 20261115,
+    "candidate_side": 0,
+    "status": "natural_end",
+    "outcome": "win",
+    "simulated_seconds": 214.65,
+    "candidate_accepted": 54,
+    "candidate_refused": 0,
+    "candidate_executed": 54
+  },
+  "public_observation_frames": 108,
+  "public_trace_sha256": "4dd3bf3cb1dddbb94706e928a1543ebde47dc29b559c7d053c1c9e4f1cbde492",
+  "trace_size_limited": false,
+  "browser_verified": true,
+  "copies": [
+    {
+      "source": "outputs/arena-lab-20261113/trained-policy-benchmark-full-v2-1threads.json",
+      "file": "docs/audits/arena_lab_20261113/trained-policy-benchmark-full-v2-1threads.json",
+      "bytes": 18522,
+      "sha256": "139322db503dbc626f4630721cac3af277b52f716e741767c70155d24e219c4f"
+    },
+    {
+      "source": "outputs/arena-lab-20261113/trained-policy-benchmark-full-v2-2threads.json",
+      "file": "docs/audits/arena_lab_20261113/trained-policy-benchmark-full-v2-2threads.json",
+      "bytes": 18523,
+      "sha256": "d170ebec1015b7e0b433150fec12c109d6dec32c047cf024e05035b1f27caf14"
+    },
+    {
+      "source": "outputs/arena-lab-20261113/trained-viewer-full-v2/browser-check-reviewed/report.json",
+      "file": "docs/audits/arena_lab_20261113/browser-full-v2.json",
+      "bytes": 1174,
+      "sha256": "2b9fa4f1eaf776f6fc7cf93fbcc7450099c0b44679e2e56d87f8319ad25f5c2d"
+    },
+    {
+      "source": "outputs/arena-lab-20261113/trained-viewer-full-v2/replay-reviewed.html",
+      "file": "arena_lab/artifacts/replay-full-v2.html",
+      "bytes": 663378,
+      "sha256": "4e91f9df7f344b4584432b0ea0e38ef63494c9ecc6c8c93ba5f6107ae62a97f2"
+    }
+  ],
+  "interpretation": "Simulator public-state replay, not official footage or evidence of expert strength."
+}

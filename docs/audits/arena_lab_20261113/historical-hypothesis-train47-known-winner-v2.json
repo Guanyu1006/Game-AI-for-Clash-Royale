@@ -1,0 +1,1392 @@
+{
+  "schema": "historical-hypothesis-descriptive-comparison-v1",
+  "split": "train",
+  "audit_summary_sha256": "0b185a9522ba6558399476cd333434a4b2f2fc6ac1eb497cdcdd45d7f2b85c90",
+  "source_index_sha256": "ccbb9ac2462cf046c763541cb2e9fc195b801a3abe937ebf284fd6f4d5e058fb",
+  "historical_hypotheses_sha256": "7c242a9c6e20da82db511966d256abbc7e53b26b0ff75c5e941cc8016a840775",
+  "eligible_games": 47,
+  "requested_limit": 47,
+  "completed_games": 47,
+  "failed_games": [],
+  "selected_game_ids": [
+    "0121c2874e797f1fd5bd8695ee605b5fb4e6d26f484a94d78bc1974a1106069e",
+    "033414cfa131548e8cb9c96d0b54026fd613e86410d3f8794fa95c4d095a9a59",
+    "078dced2d64dcccc4d7956ac4f48770303b358c258f93d1c2306ed8fda6f1f0e",
+    "0d284968e09c8f52ccc99a4ec956cf8fc9853a2e12fbcf0db66ee41796f36af4",
+    "14530e4aa837799044b1df3db14288cf8a2be4551261b9a7349f441e29919408",
+    "1cc828c4b0c5315d502ce76ffa9f0afe4ef186b89697d3dcd877793fc7752448",
+    "2745e9b2ca5cb8fb2b71c06e05f704a9339aa840edf4b7b58d5f29cf667b02ef",
+    "2ed9974a8988d04daa3a328993defe13a7cad6409ee22c215c2557a96c820e5c",
+    "2f3cce36dcacc0d1599f803372967b3ecb81d4ee4b4687068be0e1d036cb0ad1",
+    "2f578808e1166d1e9b129619dc2ad184bc81a2c8096fbca6c28a2da58062c9e2",
+    "2f657ff47b0bc80aaec7a2e733deae851b55b36cf4651d592234e2bcc8d3e2d8",
+    "4241f837d2bb95c5b00feb0bec6147d634c7bd5404e239a6fff52e27b4b66557",
+    "4439bf24083b60e1436be38718f10c2877079e73efd0396d9db841cdd09f9cb2",
+    "44d59004c375c180c65e2efaaa9c6007f1b07ffca2b3041e60a4ac0b1bab23aa",
+    "4659222d2c4f354468f9ddd112554d3ea2d206cdbd72f789bc1bfe0a8bdf731b",
+    "4c425eb8e34a25fce52c1b994ab28238f6c6db29e8328350a898747d5f86fb76",
+    "6641c08f906131e3ce6b606934d0f402cf3b41b01f7ab690f5fa73851584310f",
+    "672df3cbc8d6737473a5be8a3d7c43e4ed073a867a933e77086108e9067d2186",
+    "79f3c76f4b14b8e2c022c48475c9abb4cd1a774cafbb6c589cc4372ec09eee3f",
+    "8434929b50efc4a3adf196cbac6434228e174381e3dc01fd43aad912d493cdbf",
+    "883356bf2c901bca04f8aa5d65387792d380e9d85dfa88fde00aaaadaeea40ed",
+    "8f19c1bf16c8024fd0657d42a149982df1ed0f6335cc8b004f6e3b5debd2102a",
+    "91e330cd870fc847c6f501f52056f3fe0720b01c84a6f7b764b7fa5cbac8f25c",
+    "9e0a6a86398c9032251f1da183ae0f583d6337f27ef7c555b2b7f2f9ed239cf9",
+    "a1aaa8a9ac11bd5ae7fa7185d2c6a78a8c73b8ed4d698fc500024cfcc4cbb17c",
+    "a861e04ac2b6c3ae667954b0799680fd672fde6bf8103eb910363e48a7c95223",
+    "a8ab85a9690f28d05845a2629ba401d46be52c5a4327642b5260706f7de00dee",
+    "ac967a974896d6059204cffcc63537f7656f57bc0aec77192dfcd34032cfd69e",
+    "b0cd51124c741541ecad5cc673310f433a4a7591987c3050662f1f9d7889bcd5",
+    "bea2c3b61e9d7a9a9ddc40bdd46ca37fe4489e20ff5231af7e4036af3f380f9b",
+    "bf4d8b8f0aa293bf5efaa025844944343b8e454897a92cb477274d9c1f251248",
+    "c4dd631f4f9e53fa9cc9fc15748f117d8afe573f40b7dad61b9c2d76b555a0d2",
+    "c76cdb1b3f67c192a2994aa2014ac26688bb38184f4089cc9464d2d7ce4928b0",
+    "cd2067023286e1bfc918ca4510f23276ca0d626d8a4df73c50c76629e01ea102",
+    "ce288447afbdb37f8fb818c80484397a32cfb6cf9d697701dfa335524be399e7",
+    "ce3886821484d2da0aa42fffc02dbb4b1406db36aabbe2423a5f6ed8f4a75e4e",
+    "cfc24209eb7fad92d8e8d31506d36c1b45181d93975349b3fee01a9029a9739e",
+    "d0e1203289151f898fe4877557feee14933cd25b1e93b5e3f95f501a5d017491",
+    "d8f5cef9ed205a06a48ed0d79381aba8ed263ad9976d4745d168ee90a61873f2",
+    "db54e598445ae6188d4f977de93ff328514a8784c46f519f0994094b75f93b36",
+    "de55ea6db226685fd9b2601c72815fe428579ff55dd3dfc8b974d28b830dea47",
+    "e03ea35ecdfa92168eb5c02bb5efc464cf50e763776ada3a8fd61165056923ee",
+    "e37070717226ca7dcc2799505b638aa52ae7d9a11509b8f65608ee918d148b81",
+    "e3f1cb1b8fd8812d859894c91eaf8b177a806d53e8223b29eda690befa6092ca",
+    "efe5064a48dd7c63b2c2d287b81944545168b5964ed8335356773ac84be3ac89",
+    "f6c07ab278e70f6c768add4c9e748290bd07df932d002b3fb5e6e714b932f8e7",
+    "fdb898906accbdd2aa99160286f9f96258b839088f260b4ef94a24e070021c00"
+  ],
+  "variants": {
+    "base_unknown_abilities": {
+      "counts": {
+        "source_events": 3884,
+        "source_ability_events": 197,
+        "sampled_frames": 38830,
+        "valid_wait_labels": 14850,
+        "valid_play_labels": 1091,
+        "play_accepted": 3137,
+        "invalid_labels": 22889,
+        "label_reason:unknown-or-ambiguous-source-ability": 44,
+        "not_submitted:source-ability-identity-unknown-not-submitted": 150,
+        "label_reason:window-containing-first-command-divergence": 44,
+        "label_reason:after-first-command-divergence": 22796,
+        "events_not_reached_before_native_terminal": 596,
+        "games": 47,
+        "source_winner_known_games": 46,
+        "source_winner_unknown_games": 1,
+        "no_first_command_divergence_games": 3,
+        "all_source_events_reached_games": 28,
+        "all_source_events_reached_without_command_divergence_games": 3,
+        "ability_events_reached": 150,
+        "ability_events_not_reached": 47,
+        "natural_end_games": 41,
+        "source_boundary_without_natural_end_games": 6,
+        "truncated_games": 0,
+        "natural_source_winner_known_games": 40,
+        "natural_source_winner_unknown_games": 1,
+        "natural_winner_matches_source_games": 27,
+        "natural_crowns_match_source_games": 25,
+        "natural_terminal_tick_exact_matches": 0,
+        "label_reason:multiple-source-actions-in-window": 5,
+        "play_refused": 1
+      },
+      "valid_grid_windows": 15941,
+      "valid_grid_fraction": 0.4105330929693536,
+      "natural_winner_agreement": {
+        "matches": 27,
+        "known_source_winner_denominator": 40,
+        "unknown_source_winner_games": 1,
+        "definition": "Winner agreement only among native natural endings with a known source winner; unknown is never an agreement"
+      },
+      "reached_unknown_ability_reasons": {
+        "source-ability-identity-unknown-not-submitted": 150
+      },
+      "native_refusal_reasons": {
+        "NO_DEPLOY": 1
+      },
+      "first_command_divergence_reasons": {
+        "source-ability-identity-unknown-not-submitted": 44
+      },
+      "natural_terminal_tick_error": {
+        "definition": "native minus source end tick, among native natural endings only",
+        "n": 41,
+        "minimum": -2641,
+        "median": -128,
+        "maximum": -3,
+        "median_absolute": 128
+      }
+    },
+    "historical_unknown_abilities": {
+      "counts": {
+        "source_events": 3884,
+        "source_ability_events": 197,
+        "sampled_frames": 38648,
+        "valid_wait_labels": 14610,
+        "valid_play_labels": 1041,
+        "play_accepted": 3108,
+        "invalid_labels": 22997,
+        "label_reason:unknown-or-ambiguous-source-ability": 43,
+        "not_submitted:source-ability-identity-unknown-not-submitted": 156,
+        "label_reason:window-containing-first-command-divergence": 43,
+        "label_reason:after-first-command-divergence": 22906,
+        "events_not_reached_before_native_terminal": 619,
+        "games": 47,
+        "source_winner_known_games": 46,
+        "source_winner_unknown_games": 1,
+        "no_first_command_divergence_games": 4,
+        "all_source_events_reached_games": 26,
+        "all_source_events_reached_without_command_divergence_games": 2,
+        "ability_events_reached": 156,
+        "ability_events_not_reached": 41,
+        "natural_end_games": 39,
+        "source_boundary_without_natural_end_games": 8,
+        "truncated_games": 0,
+        "natural_source_winner_known_games": 38,
+        "natural_source_winner_unknown_games": 1,
+        "natural_winner_matches_source_games": 27,
+        "natural_crowns_match_source_games": 25,
+        "natural_terminal_tick_exact_matches": 0,
+        "label_reason:multiple-source-actions-in-window": 5,
+        "play_refused": 1
+      },
+      "valid_grid_windows": 15651,
+      "valid_grid_fraction": 0.40496274063340926,
+      "natural_winner_agreement": {
+        "matches": 27,
+        "known_source_winner_denominator": 38,
+        "unknown_source_winner_games": 1,
+        "definition": "Winner agreement only among native natural endings with a known source winner; unknown is never an agreement"
+      },
+      "reached_unknown_ability_reasons": {
+        "source-ability-identity-unknown-not-submitted": 156
+      },
+      "native_refusal_reasons": {
+        "NO_DEPLOY": 1
+      },
+      "first_command_divergence_reasons": {
+        "source-ability-identity-unknown-not-submitted": 43
+      },
+      "natural_terminal_tick_error": {
+        "definition": "native minus source end tick, among native natural endings only",
+        "n": 39,
+        "minimum": -2641,
+        "median": -153,
+        "maximum": -3,
+        "median_absolute": 153
+      }
+    },
+    "historical_unique_ability": {
+      "counts": {
+        "source_events": 3884,
+        "source_ability_events": 197,
+        "sampled_frames": 39614,
+        "valid_wait_labels": 29820,
+        "valid_play_labels": 2387,
+        "play_accepted": 3217,
+        "valid_ability_labels": 121,
+        "ability_unique_hypotheses": 134,
+        "ability_accepted": 134,
+        "events_not_reached_before_native_terminal": 494,
+        "games": 47,
+        "source_winner_known_games": 46,
+        "source_winner_unknown_games": 1,
+        "no_first_command_divergence_games": 30,
+        "all_source_events_reached_games": 29,
+        "all_source_events_reached_without_command_divergence_games": 18,
+        "ability_events_reached": 170,
+        "ability_events_not_reached": 27,
+        "natural_end_games": 40,
+        "source_boundary_without_natural_end_games": 7,
+        "truncated_games": 0,
+        "natural_source_winner_known_games": 39,
+        "natural_source_winner_unknown_games": 1,
+        "natural_winner_matches_source_games": 29,
+        "natural_crowns_match_source_games": 28,
+        "natural_terminal_tick_exact_matches": 0,
+        "invalid_labels": 7286,
+        "label_reason:public-mask-rejects-grid-label": 11,
+        "label_reason:multiple-source-actions-in-window": 12,
+        "not_submitted:no-eligible-public-button": 34,
+        "label_reason:window-containing-first-command-divergence": 17,
+        "label_reason:after-first-command-divergence": 7230,
+        "label_reason:unknown-or-ambiguous-source-ability": 16,
+        "not_submitted:ambiguous-public-buttons": 2,
+        "play_refused": 2,
+        "not_submitted:source-card-absent-from-hypothesis-hand": 1
+      },
+      "valid_grid_windows": 32328,
+      "valid_grid_fraction": 0.8160751249558237,
+      "natural_winner_agreement": {
+        "matches": 29,
+        "known_source_winner_denominator": 39,
+        "unknown_source_winner_games": 1,
+        "definition": "Winner agreement only among native natural endings with a known source winner; unknown is never an agreement"
+      },
+      "reached_unknown_ability_reasons": {
+        "no-eligible-public-button": 34,
+        "ambiguous-public-buttons": 2
+      },
+      "native_refusal_reasons": {
+        "NOT_ENOUGH_ELIXIR": 1,
+        "NO_DEPLOY": 1
+      },
+      "first_command_divergence_reasons": {
+        "no-eligible-public-button": 14,
+        "ambiguous-public-buttons": 2,
+        "NO_DEPLOY": 1
+      },
+      "natural_terminal_tick_error": {
+        "definition": "native minus source end tick, among native natural endings only",
+        "n": 40,
+        "minimum": -2558,
+        "median": -129.5,
+        "maximum": -3,
+        "median_absolute": 129.5
+      }
+    }
+  },
+  "paired_game_results": [
+    {
+      "game_id": "0121c2874e797f1fd5bd8695ee605b5fb4e6d26f484a94d78bc1974a1106069e",
+      "source_id": "090PPL0QVPCC",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 31,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1903,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 31,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1903,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 54,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "033414cfa131548e8cb9c96d0b54026fd613e86410d3f8794fa95c4d095a9a59",
+      "source_id": "09R9JYU2YJJP",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 56,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 56,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 56,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "078dced2d64dcccc4d7956ac4f48770303b358c258f93d1c2306ed8fda6f1f0e",
+      "source_id": "000YYUCQQ0Q9",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1021,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1021,
+          "unreached_source_events": 1
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 57,
+          "valid_ability_windows": 4,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "0d284968e09c8f52ccc99a4ec956cf8fc9853a2e12fbcf0db66ee41796f36af4",
+      "source_id": "09R9JYU2LPP0",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 15,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1342,
+          "unreached_source_events": 1
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 15,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1342,
+          "unreached_source_events": 1
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 22,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "14530e4aa837799044b1df3db14288cf8a2be4551261b9a7349f441e29919408",
+      "source_id": "02QY8V00UQ9Q",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 90,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 4222,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 90,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 4222,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 97,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": 4618,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "1cc828c4b0c5315d502ce76ffa9f0afe4ef186b89697d3dcd877793fc7752448",
+      "source_id": "09QP99QY9PRY",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 42,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2961,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 42,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2961,
+          "unreached_source_events": 56
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 59,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 55
+        }
+      }
+    },
+    {
+      "game_id": "2745e9b2ca5cb8fb2b71c06e05f704a9339aa840edf4b7b58d5f29cf667b02ef",
+      "source_id": "022YPVPYPPPL",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 543,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 543,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 543,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "2ed9974a8988d04daa3a328993defe13a7cad6409ee22c215c2557a96c820e5c",
+      "source_id": "09QP99UQUU2C",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "2f3cce36dcacc0d1599f803372967b3ecb81d4ee4b4687068be0e1d036cb0ad1",
+      "source_id": "02LY8UUJ8JPV",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 611,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 611,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 611,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "2f578808e1166d1e9b129619dc2ad184bc81a2c8096fbca6c28a2da58062c9e2",
+      "source_id": "02QY8VQ0U2Q9",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 24,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1971,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 24,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1971,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 24,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1971,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "2f657ff47b0bc80aaec7a2e733deae851b55b36cf4651d592234e2bcc8d3e2d8",
+      "source_id": "00YY9VPUCGC0",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 332,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 332,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 137,
+          "valid_ability_windows": 5,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "4241f837d2bb95c5b00feb0bec6147d634c7bd5404e239a6fff52e27b4b66557",
+      "source_id": "08VPPLRGY0GU",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 28,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2464,
+          "unreached_source_events": 7
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 28,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2464,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 65,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": 4095,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "4439bf24083b60e1436be38718f10c2877079e73efd0396d9db841cdd09f9cb2",
+      "source_id": "08PY2GGUPJGU",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 2,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 315,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 2,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 315,
+          "unreached_source_events": 25
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 55,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 25
+        }
+      }
+    },
+    {
+      "game_id": "44d59004c375c180c65e2efaaa9c6007f1b07ffca2b3041e60a4ac0b1bab23aa",
+      "source_id": "00RY9CV0C8QY",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 135,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 107,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 28
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 107,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 28
+        }
+      }
+    },
+    {
+      "game_id": "4659222d2c4f354468f9ddd112554d3ea2d206cdbd72f789bc1bfe0a8bdf731b",
+      "source_id": "098PPLY8J8PL",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1201,
+          "unreached_source_events": 76
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1201,
+          "unreached_source_events": 76
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 105,
+          "valid_ability_windows": 10,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 15
+        }
+      }
+    },
+    {
+      "game_id": "4c425eb8e34a25fce52c1b994ab28238f6c6db29e8328350a898747d5f86fb76",
+      "source_id": "08VPPY9PP2UP",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 66,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 4021,
+          "unreached_source_events": 56
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 66,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 4021,
+          "unreached_source_events": 23
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 92,
+          "valid_ability_windows": 3,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 30
+        }
+      }
+    },
+    {
+      "game_id": "6641c08f906131e3ce6b606934d0f402cf3b41b01f7ab690f5fa73851584310f",
+      "source_id": "009YL0CP8GP9",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 783,
+          "unreached_source_events": 52
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 783,
+          "unreached_source_events": 52
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 93,
+          "valid_ability_windows": 6,
+          "first_command_divergence_tick": 5152,
+          "unreached_source_events": 16
+        }
+      }
+    },
+    {
+      "game_id": "672df3cbc8d6737473a5be8a3d7c43e4ed073a867a933e77086108e9067d2186",
+      "source_id": "000YYUCQQ2UC",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1051,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1051,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 18,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "79f3c76f4b14b8e2c022c48475c9abb4cd1a774cafbb6c589cc4372ec09eee3f",
+      "source_id": "09QP99UUCU0L",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 405,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 405,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 11,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "8434929b50efc4a3adf196cbac6434228e174381e3dc01fd43aad912d493cdbf",
+      "source_id": "09PP99GYUPQU",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 687,
+          "unreached_source_events": 64
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 6,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 687,
+          "unreached_source_events": 64
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 97,
+          "valid_ability_windows": 12,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "883356bf2c901bca04f8aa5d65387792d380e9d85dfa88fde00aaaadaeea40ed",
+      "source_id": "08YY2RLJL08V",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 551,
+          "unreached_source_events": 1
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 551,
+          "unreached_source_events": 3
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 60,
+          "valid_ability_windows": 6,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "8f19c1bf16c8024fd0657d42a149982df1ed0f6335cc8b004f6e3b5debd2102a",
+      "source_id": "00JYP28RVQLQ",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1012,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1012,
+          "unreached_source_events": 1
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 80,
+          "valid_ability_windows": 9,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "91e330cd870fc847c6f501f52056f3fe0720b01c84a6f7b764b7fa5cbac8f25c",
+      "source_id": "089Y2R8VJP00",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 726,
+          "unreached_source_events": 12
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 726,
+          "unreached_source_events": 12
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 56,
+          "valid_ability_windows": 3,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 12
+        }
+      }
+    },
+    {
+      "game_id": "9e0a6a86398c9032251f1da183ae0f583d6337f27ef7c555b2b7f2f9ed239cf9",
+      "source_id": "008YYVRRC0PG",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 469,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 469,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 4,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 469,
+          "unreached_source_events": 50
+        }
+      }
+    },
+    {
+      "game_id": "a1aaa8a9ac11bd5ae7fa7185d2c6a78a8c73b8ed4d698fc500024cfcc4cbb17c",
+      "source_id": "09QP99VR28P2",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1167,
+          "unreached_source_events": 3
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 10,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1167,
+          "unreached_source_events": 37
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 48,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 57
+        }
+      }
+    },
+    {
+      "game_id": "a861e04ac2b6c3ae667954b0799680fd672fde6bf8103eb910363e48a7c95223",
+      "source_id": "02QY8VLJUGRU",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1034,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1034,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1034,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "a8ab85a9690f28d05845a2629ba401d46be52c5a4327642b5260706f7de00dee",
+      "source_id": "092PPL29CC0C",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 76,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 3882,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 76,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 3882,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 109,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": 5041,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "ac967a974896d6059204cffcc63537f7656f57bc0aec77192dfcd34032cfd69e",
+      "source_id": "09J9JQYLU2YG",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 45,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 3132,
+          "unreached_source_events": 47
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 45,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 3132,
+          "unreached_source_events": 36
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 51,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": 3498,
+          "unreached_source_events": 35
+        }
+      }
+    },
+    {
+      "game_id": "b0cd51124c741541ecad5cc673310f433a4a7591987c3050662f1f9d7889bcd5",
+      "source_id": "099P999UQRP0",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 37,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2177,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 37,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2177,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 41,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "bea2c3b61e9d7a9a9ddc40bdd46ca37fe4489e20ff5231af7e4036af3f380f9b",
+      "source_id": "08LY2R2GG9UV",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 2,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 272,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 2,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 272,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 26,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "bf4d8b8f0aa293bf5efaa025844944343b8e454897a92cb477274d9c1f251248",
+      "source_id": "008YYU0QJGUU",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 856,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 856,
+          "unreached_source_events": 1
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 856,
+          "unreached_source_events": 1
+        }
+      }
+    },
+    {
+      "game_id": "c4dd631f4f9e53fa9cc9fc15748f117d8afe573f40b7dad61b9c2d76b555a0d2",
+      "source_id": "00JYP28RUP2R",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 867,
+          "unreached_source_events": 22
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 867,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 61,
+          "valid_ability_windows": 11,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "c76cdb1b3f67c192a2994aa2014ac26688bb38184f4089cc9464d2d7ce4928b0",
+      "source_id": "08UPPQ2V2Q99",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 16,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1843,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 16,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1843,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 28,
+          "valid_ability_windows": 1,
+          "first_command_divergence_tick": 2757,
+          "unreached_source_events": 2
+        }
+      }
+    },
+    {
+      "game_id": "cd2067023286e1bfc918ca4510f23276ca0d626d8a4df73c50c76629e01ea102",
+      "source_id": "08VPPLRRG2G9",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 7,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 698,
+          "unreached_source_events": 2
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 7,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 698,
+          "unreached_source_events": 2
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 41,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 1
+        }
+      }
+    },
+    {
+      "game_id": "ce288447afbdb37f8fb818c80484397a32cfb6cf9d697701dfa335524be399e7",
+      "source_id": "08PY2GJR2VJR",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1191,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1191,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 64,
+          "valid_ability_windows": 3,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "ce3886821484d2da0aa42fffc02dbb4b1406db36aabbe2423a5f6ed8f4a75e4e",
+      "source_id": "09PP99GYVR8V",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 665,
+          "unreached_source_events": 69
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 5,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 665,
+          "unreached_source_events": 69
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 32,
+          "valid_ability_windows": 2,
+          "first_command_divergence_tick": 2804,
+          "unreached_source_events": 50
+        }
+      }
+    },
+    {
+      "game_id": "cfc24209eb7fad92d8e8d31506d36c1b45181d93975349b3fee01a9029a9739e",
+      "source_id": "002YYUVC9L08",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 31,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2314,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 31,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2314,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 31,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2314,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "d0e1203289151f898fe4877557feee14933cd25b1e93b5e3f95f501a5d017491",
+      "source_id": "08PY2J8YCRY0",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 7,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 756,
+          "unreached_source_events": 8
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 7,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 756,
+          "unreached_source_events": 8
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 46,
+          "valid_ability_windows": 4,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 8
+        }
+      }
+    },
+    {
+      "game_id": "d8f5cef9ed205a06a48ed0d79381aba8ed263ad9976d4745d168ee90a61873f2",
+      "source_id": "090PPLL820J9",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 7,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 521,
+          "unreached_source_events": 15
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 7,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 521,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 61,
+          "valid_ability_windows": 4,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 15
+        }
+      }
+    },
+    {
+      "game_id": "db54e598445ae6188d4f977de93ff328514a8784c46f519f0994094b75f93b36",
+      "source_id": "02QY8V99PU08",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 29,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2125,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 29,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2125,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 29,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2125,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "de55ea6db226685fd9b2601c72815fe428579ff55dd3dfc8b974d28b830dea47",
+      "source_id": "090PPLLVGLPR",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 91,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 4261,
+          "unreached_source_events": 54
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 69,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 79
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 69,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 79
+        }
+      }
+    },
+    {
+      "game_id": "e03ea35ecdfa92168eb5c02bb5efc464cf50e763776ada3a8fd61165056923ee",
+      "source_id": "089Y2JLGLRC0",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 13,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1707,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 13,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1707,
+          "unreached_source_events": 1
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 40,
+          "valid_ability_windows": 3,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "e37070717226ca7dcc2799505b638aa52ae7d9a11509b8f65608ee918d148b81",
+      "source_id": "09QP9YPY028Y",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 11,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 634,
+          "unreached_source_events": 8
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 11,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 634,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 11,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 634,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "e3f1cb1b8fd8812d859894c91eaf8b177a806d53e8223b29eda690befa6092ca",
+      "source_id": "00RY9CV0L02G",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1116,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 12,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1116,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 54,
+          "valid_ability_windows": 3,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "efe5064a48dd7c63b2c2d287b81944545168b5964ed8335356773ac84be3ac89",
+      "source_id": "08YY2JG2PLCR",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1077,
+          "unreached_source_events": 0
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 9,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1077,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 42,
+          "valid_ability_windows": 4,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "f6c07ab278e70f6c768add4c9e748290bd07df932d002b3fb5e6e714b932f8e7",
+      "source_id": "02QY8V98UQQQ",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 34,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2214,
+          "unreached_source_events": 55
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 34,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2214,
+          "unreached_source_events": 0
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 34,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 2214,
+          "unreached_source_events": 0
+        }
+      }
+    },
+    {
+      "game_id": "fdb898906accbdd2aa99160286f9f96258b839088f260b4ef94a24e070021c00",
+      "source_id": "02LY90GY9VYV",
+      "variants": {
+        "base_unknown_abilities": {
+          "valid_play_windows": 13,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1085,
+          "unreached_source_events": 44
+        },
+        "historical_unknown_abilities": {
+          "valid_play_windows": 13,
+          "valid_ability_windows": 0,
+          "first_command_divergence_tick": 1085,
+          "unreached_source_events": 44
+        },
+        "historical_unique_ability": {
+          "valid_play_windows": 75,
+          "valid_ability_windows": 7,
+          "first_command_divergence_tick": null,
+          "unreached_source_events": 15
+        }
+      }
+    }
+  ],
+  "sum_variant_replay_wall_seconds": 154.2929052110003,
+  "model_scoring_performed": false,
+  "training_labels_exported": false,
+  "source_data_modified": false,
+  "strong_imitation_delivery_gate_passed": false,
+  "limitations": [
+    "Historical account/deck snapshots do not prove original match forms or ability identity.",
+    "Every opening uses future source actions as offline constraints; original RNG, hand, build and levels remain unknown.",
+    "Uniquely legal public ability mapping remains a hypothesis, even when native execution accepts it.",
+    "Variants can terminate at different times: compare paired games and retain their differing sampled/reached denominators.",
+    "No original entity-state trace exists to certify the reconstructed observations; winner/crown agreement is insufficient.",
+    "These are command-reconstruction diagnostics, not policy wins or an estimate of live-game strength."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "complete_archive": true,
+  "source_index_path": "data/arena-lab/full-v2/cochon-historical-top100-full-v2/source-index.json",
+  "source_index_sha256": "ccbb9ac2462cf046c763541cb2e9fc195b801a3abe937ebf284fd6f4d5e058fb",
+  "archive_sha256": "01fa9b8973b67c8115547f815e9ca0218240fe928aa2f2f33a3c29f040ea7fc9",
+  "raw_denominator": {
+    "raw_complete_members": 64275,
+    "no_certified_teacher_account": 63687,
+    "expert_account_candidate_members": 586,
+    "normalized_unique_games": 574,
+    "rejected_members": 14,
+    "rejected_expert_candidate_members": 12,
+    "unreadable_or_rejected_non_candidate_members": 2
+  },
+  "unique_source_games": 574,
+  "teacher_sequences": 682,
+  "prefix_games_preserved": 212,
+  "new_source_games": 362,
+  "prefix_game_id_source_sha_teacher_split_all_equal": true,
+  "splits": {
+    "train": 446,
+    "validation": 63,
+    "test": 65
+  },
+  "source_events": 47063,
+  "source_play_events": 44825,
+  "source_ability_events": 2238,
+  "source_form_values": {
+    "('NoneType', 'None')": 47063
+  },
+  "capture_min": "2026-07-26T23:39:25.225Z",
+  "capture_max": "2026-08-11T18:39:38.046Z",
+  "raw_selected_bytes": 50156690,
+  "excluded_reasons": {
+    "Source lacks two complete unique eight-card decks": 10,
+    "'utf-32-be' codec can't decode bytes in position 127144-127145: truncated data": 1,
+    "Empty or out-of-terminal source timeline": 2,
+    "'utf-32-be' codec can't decode byte 0x00 in position 73020: truncated data": 1
+  },
+  "reconstruction_started": true,
+  "reconstruction_config": "same default6/level16/base hypothesis/seed0/shuffle0/offset0/grid10/strict first-divergence invalidation as prefix-v2; no quality relaxation",
+  "unknown_card_identity_games": [
+    {
+      "source_id": "08GPV929P9PL",
+      "split": "test",
+      "unknown_deck_seats": [
+        0,
+        1
+      ],
+      "unknown_nonability_events": 54,
+      "teacher_seats": [
+        0
+      ]
+    },
+    {
+      "source_id": "08GPV929R2QJ",
+      "split": "train",
+      "unknown_deck_seats": [
+        0,
+        1
+      ],
+      "unknown_nonability_events": 44,
+      "teacher_seats": [
+        0
+      ]
+    },
+    {
+      "source_id": "08UPPQPCUCVU",
+      "split": "train",
+      "unknown_deck_seats": [
+        0,
+        1
+      ],
+      "unknown_nonability_events": 45,
+      "teacher_seats": [
+        0
+      ]
+    }
+  ],
+  "source_records_with_eight_fully_identified_cards_per_deck": 571
+}

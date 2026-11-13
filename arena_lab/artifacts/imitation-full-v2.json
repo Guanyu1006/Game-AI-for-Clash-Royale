@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "file": "imitation-full-v2.pt",
+  "bytes": 1003840,
+  "sha256": "a3fdae3e8abf60b3186727f55859df5e65ceaf73296c437f565f748600690816",
+  "format": "arena-lab-public-entity-gru-v1; torch.load(weights_only=True)",
+  "source_run": "outputs/arena-lab-20261113/train-full-v2",
+  "training_steps": 3361,
+  "selected_epoch": 4,
+  "parameters": 243045,
+  "dataset_index_sha256": "9c69d41cda5dbfeb26fb021f8ac81eb351c7396b26b59cb8318e58192d87d9a8",
+  "trained": true,
+  "strong_imitation_delivery_gate_passed": false,
+  "status": "Counterfactual simulator imitation research checkpoint; 96/96 evaluation games naturally ended, useful strength not established.",
+  "previous_test_exclusion_sha256": "fbc883dc2180d83e6256a89258b08d99cef630501b2c836adecea9333cf2c57f",
+  "sensitive_data_review": "Generated numeric weights and public experiment metadata; no credentials or private data; strict weights_only reload and finite tensor check passed.",
+  "test_result": "Fresh 37-battle offline test: play recall 0.02857142857, joint play exact accuracy 0.002040816327. Frozen sampled closed-loop model 7/24, versus scripted 0/12.",
+  "replay": {
+    "file": "replay-full-v2.html",
+    "sha256": "4e91f9df7f344b4584432b0ea0e38ef63494c9ecc6c8c93ba5f6107ae62a97f2",
+    "bytes": 663378,
+    "selection": "Fixed model episode0 from frozen expanded-data suite; not chosen by outcome",
+    "browser_verified": true,
+    "frames": 108,
+    "public_trace_sha256": "4dd3bf3cb1dddbb94706e928a1543ebde47dc29b559c7d053c1c9e4f1cbde492"
+  },
+  "evaluation": {
+    "suite": "configs/arena-lab/evaluation-suite-full-v2.json",
+    "suite_sha256": "d10e82669bc283d7392ee4ce2084aa88dc000d7c18c923dea5badc94a7930e25",
+    "summary": "docs/audits/arena_lab_20261113/evaluation-full-v2.json",
+    "summary_sha256": "9e8d0fbf13204de22886ee406bc881a45fbf4b2db0bec4e7037ac6a17658253a"
+  }
+}

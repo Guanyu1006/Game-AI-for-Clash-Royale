@@ -1,0 +1,50 @@
+{
+  "schema": "royale-cloud-doctor.v1",
+  "system": "Linux",
+  "machine": "x86_64",
+  "python": "3.12.11 (main, Jul  1 2025, 05:29:09) [GCC 12.2.0]",
+  "executable": "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+  "root": "/workspaces/Game-AI-for-Clash-Royale",
+  "logical_cpus": 4,
+  "memory": {
+    "total_bytes": 16770465792,
+    "available_bytes": 13378813952,
+    "swap_total_bytes": 0,
+    "swap_free_bytes": 0,
+    "total_gib": 15.61871337890625,
+    "available_gib": 12.459991455078125,
+    "scope": "Visible host /proc/meminfo only; not Android guest allocation, container cgroup memory limit, or proof that a requested machine upgrade completed",
+    "status": "available",
+    "source": "/proc/meminfo"
+  },
+  "disk_free_bytes": 6793523200,
+  "modules": {
+    "numpy": true,
+    "torch": true,
+    "pyarrow": true,
+    "gymnasium": true
+  },
+  "codespaces_environment": true,
+  "offline_workbench": true,
+  "native": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "binder_devices": {
+      "/dev/binder": false,
+      "/dev/binderfs/binder-control": false,
+      "/dev/ashmem": false
+    },
+    "docker": null,
+    "docker_info": null,
+    "native_runtime_verified": false,
+    "rpc_calls": 0,
+    "privileged_containers_tested": false,
+    "reason": "This read-only check does not prove Android/probe/assets compatibility. Native deployment requires a separate actual reset/play/terminal acceptance."
+  },
+  "assets": {
+    "status": "pass",
+    "files": 572,
+    "scope": "Reviewed portable payload integrity only; no native or strength claim"
+  },
+  "local_windows_launchers_preserved": true
+}

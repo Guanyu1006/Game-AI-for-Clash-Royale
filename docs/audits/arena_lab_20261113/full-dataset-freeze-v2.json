@@ -1,0 +1,114 @@
+{
+  "source_record_games": 574,
+  "source_teacher_seats": 682,
+  "source_total_events": 47063,
+  "source_play_events": 44825,
+  "source_ability_events": 2238,
+  "source_winner_unknown_games": 11,
+  "reconstructed_source_games": 571,
+  "teacher_sequences": 679,
+  "rejected_games": [
+    {
+      "game_id": "0ccd21f0ca6373f4cc29b5082f69c7997a647103c685c7ae31701c55d5358779",
+      "source_game_id": "08GPV929P9PL",
+      "reason": "Unsupported source card: _invalid",
+      "source_events": 105
+    },
+    {
+      "game_id": "0e64285d473fcaefadd7384c1dd0aa9e0ae3951032e723f0b31721312cfdc11b",
+      "source_game_id": "08GPV929R2QJ",
+      "reason": "Unsupported source card: _invalid",
+      "source_events": 86
+    },
+    {
+      "game_id": "74f8993611dc0e747eb588dbfa84ae83028e0055bf1a96403b22e6b2b3bb7a65",
+      "source_game_id": "08UPPQPCUCVU",
+      "reason": "Unsupported source card: _invalid",
+      "source_events": 87
+    }
+  ],
+  "events_in_excluded_games": 278,
+  "split_source_games": {
+    "train": 444,
+    "validation": 63,
+    "test": 64
+  },
+  "split_label_counts": {
+    "train": {
+      "teacher_sequences": 534,
+      "frames": 217055,
+      "valid_labels": 98512,
+      "valid_play_labels": 6181,
+      "valid_ability_labels": 0,
+      "valid_wait_labels": 92331,
+      "invalid_labels": 118543
+    },
+    "validation": {
+      "teacher_sequences": 71,
+      "frames": 26703,
+      "valid_labels": 10532,
+      "valid_play_labels": 644,
+      "valid_ability_labels": 0,
+      "valid_wait_labels": 9888,
+      "invalid_labels": 16171
+    },
+    "test": {
+      "teacher_sequences": 74,
+      "frames": 29093,
+      "valid_labels": 14406,
+      "valid_play_labels": 863,
+      "valid_ability_labels": 0,
+      "valid_wait_labels": 13543,
+      "invalid_labels": 14687
+    }
+  },
+  "first_divergence_reasons": {
+    "unknown-source-ability-not-submitted": 508,
+    "no-command-divergence-reached": 48,
+    "NO_DEPLOY": 12,
+    "OUT_OF_TERRITORY": 2,
+    "source-card-absent-from-hypothesis-hand": 1
+  },
+  "reconstructed_aggregate_counts": {
+    "source_events": 46785,
+    "source_play_events": 44548,
+    "source_ability_events": 2237,
+    "sampled_frames": 272851,
+    "sampled_wait_targets": 250525,
+    "valid_wait_labels": 115762,
+    "play_accepted": 35533,
+    "sampled_play_targets": 21281,
+    "valid_play_labels": 7688,
+    "sampled_ability_targets": 1045,
+    "invalid_labels": 149401,
+    "label_reason:source-ability-identity-unavailable": 316,
+    "unknown_ability_events": 1733,
+    "label_reason:state-after-first-command-divergence": 148725,
+    "events_not_reached_before_native_terminal": 9354,
+    "label_reason:state-window-containing-first-command-divergence": 296,
+    "same_side_multi_action_windows": 142,
+    "label_reason:same-side-multiple-source-actions-in-window": 42,
+    "play_native_refused": 42,
+    "label_reason:position-mask-rejects-quantized-source-target": 17,
+    "play_not_in_hand": 123,
+    "label_reason:card-mask-rejects-source-target-at-grid-observation": 5
+  },
+  "native_natural_terminal_games": 488,
+  "source_boundary_without_native_terminal_games": 83,
+  "winner_agreement": {
+    "matched": 328,
+    "comparable_natural_terminal_games": 477,
+    "natural_terminal_with_unknown_source_winner": 11,
+    "note": "source winner mapped through data-i; equal crowns without explicit outcome stay unknown"
+  },
+  "exact_terminal_tick_matches": 0,
+  "all_npz_hashes_shapes_masks_validated": true,
+  "common_prefix_teacher_npz_byte_identical": 236,
+  "prefix_frozen_index_unchanged": true,
+  "cross_view_source_group_id_sha_split_leakage": false,
+  "strong_imitation_delivery_gate_passed": false,
+  "index_path": "data/arena-lab/full-v2/derived-base-default6-v1/index.json",
+  "index_sha256": "3d2f9c0e039b7616e26491ea4963be9ee5bab9419b1e8e9389d2bdeb3e714a19",
+  "audit_sha256": "50fe631bf3bfc4abee19523e609ea45f44cb5e3def01af1d54117552df92726f",
+  "frozen_at_utc": "2026-11-13T09:01:19.844870+00:00"
+}

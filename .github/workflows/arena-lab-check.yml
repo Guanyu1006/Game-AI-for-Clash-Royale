@@ -32,12 +32,12 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          suite = json.loads(Path('configs/arena-lab/evaluation-suite-v1.json').read_text())
+          suite = json.loads(Path('configs/arena-lab/evaluation-suite-full-v2.json').read_text())
           suite['cases'] = suite['cases'][:2]
           suite['evaluation_options']['variants'] = ['model']
           Path('outputs/arena-ci/smoke-suite.json').write_text(json.dumps(suite))
           PY
-          python -m arena_lab evaluate --checkpoint arena_lab/artifacts/imitation-v1.pt --suite outputs/arena-ci/smoke-suite.json --output outputs/arena-ci/pretrained
+          python -m arena_lab evaluate --checkpoint arena_lab/artifacts/imitation-full-v2.pt --suite outputs/arena-ci/smoke-suite.json --output outputs/arena-ci/pretrained
           python - <<'PY'
           import json
           from pathlib import Path

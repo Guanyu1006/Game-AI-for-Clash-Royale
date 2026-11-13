@@ -1,0 +1,29 @@
+{
+  "schema": "arena-public-replay-browser-check-v1",
+  "status": "passed",
+  "html": "outputs/arena-lab-20261113/trained-viewer-full-v2/replay-reviewed.html",
+  "html_sha256": "4e91f9df7f344b4584432b0ea0e38ef63494c9ecc6c8c93ba5f6107ae62a97f2",
+  "page_errors": [],
+  "unexpected_network_requests": [],
+  "checks": [
+    "trained_metadata_and_four_own_hand_slots",
+    "next_and_previous_frame",
+    "seek_to_fixed_middle_frame",
+    "twenty_times_playback_and_pause",
+    "visible_entity_canvas_and_public_details",
+    "spell_or_projectile_has_no_fabricated_health",
+    "zero_javascript_errors_and_zero_network_requests"
+  ],
+  "scope": "Real offline Chromium controls and saved simulator-public observations; not official game pixels",
+  "browser_version": "134.0.6998.35",
+  "trained": true,
+  "checkpoint_sha256": "a3fdae3e8abf60b3186727f55859df5e65ceaf73296c437f565f748600690816",
+  "case_id": "matchup-0-seed-20261115-random-side-0",
+  "frames": 108,
+  "initial_clock": "0.0 秒 · 1/108",
+  "next_clock": "2.0 秒 · 2/108",
+  "seek_clock": "108.0 秒 · 55/108",
+  "play_clock": "110.0 秒 · 56/108",
+  "sampled_canvas_colors": 89,
+  "screenshot": "replay.png"
+}

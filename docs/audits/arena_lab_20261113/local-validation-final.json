@@ -1,0 +1,39 @@
+{
+  "schema": "arena-local-validation-v1",
+  "records": [
+    {
+      "log": "outputs/arena-lab-20261113/arena-tests-after-restart.log",
+      "sha256": "1835bef36900034336c3010daf769ea04bdc3baea27a5bfaf3328f38558bb22a",
+      "tests": 80,
+      "seconds": 11.474,
+      "result": "OK",
+      "scope": "80 related tests passed before final exception-only evaluator repair"
+    },
+    {
+      "log": "outputs/arena-lab-20261113/evaluation-ending-write-fault-tests.log",
+      "sha256": "f00ffbc0b3dd625cc56f58e47ed306c0dacfddeead72a4bffa18e9a293e92608",
+      "tests": 10,
+      "seconds": 0.985,
+      "result": "OK",
+      "scope": "10 evaluator tests including new terminal-trace failure regression after repair"
+    },
+    {
+      "log": "outputs/arena-lab-20261113/workspace-tests-release.log",
+      "sha256": "b281be43f1c598f29854bb568c1d3b47b32d6b69320bd1d1d05cb7228031d103",
+      "tests": 539,
+      "seconds": 77.234,
+      "result": "OK (skipped=2)",
+      "scope": "earlier broad workspace regression; not exact final tree"
+    },
+    {
+      "log": "outputs/arena-lab-20261113/comparison-contracts-final.log",
+      "sha256": "e4093fec1c86d43a8a60a0806552aa2f638aa834d629db08802325466f14b750",
+      "tests": 10,
+      "seconds": 0.087,
+      "result": "OK",
+      "scope": "final duplicate-input comparator guard; every saved formal paired result and SHA receipt reproduced exactly"
+    }
+  ],
+  "interrupted_run": "workspace-test-interruption.json",
+  "final_exact_tree_validation": "GitHub Arena Lab reproducibility and Portable CPU checks; final links recorded in delivery response."
+}

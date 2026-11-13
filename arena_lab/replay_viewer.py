@@ -117,6 +117,7 @@ let index=0,playing=false,timer=null,painted=[];
 const pad=27,aw=canvas.width-2*pad,ah=canvas.height-2*pad;
 const point=(x,y)=>[pad+x*aw,pad+(1-y)*ah];
 const feature=(row,name,fallback=0)=>fields[name]===undefined?fallback:row[fields[name]];
+const healthLabel=row=>(feature(row,"spell")>.5||feature(row,"projectile")>.5)?"血量：不适用":`血量比例：${(feature(row,"hp_ratio")*100).toFixed(1)}%`;
 const cardName=id=>id>0?(data.cards[id-1]||`未知卡牌 ${id}`):"空槽";
 function entityName(row){
  let base=data.entity_fields.length;
@@ -158,7 +159,7 @@ function schedule(){if(!playing)return;if(index>=data.frames.length-1){stop();re
 el("play").addEventListener("click",()=>{if(playing){stop();return;}if(index>=data.frames.length-1)index=0;playing=true;text(el("play"),"暂停");draw();schedule();});
 el("back").addEventListener("click",()=>{stop();index=Math.max(0,index-1);draw();});el("next").addEventListener("click",()=>{stop();index=Math.min(data.frames.length-1,index+1);draw();});
 el("timeline").max=String(data.frames.length-1);el("timeline").addEventListener("input",event=>{stop();index=Number(event.target.value);draw();});el("speed").addEventListener("change",()=>{if(playing){clearTimeout(timer);schedule();}});
-canvas.addEventListener("click",event=>{const rect=canvas.getBoundingClientRect(),x=(event.clientX-rect.left)*canvas.width/rect.width,y=(event.clientY-rect.top)*canvas.height/rect.height;const found=painted.map(item=>({...item,d:Math.hypot(item.x-x,item.y-y)})).sort((a,b)=>a.d-b.d)[0];if(!found||found.d>30)return;const row=found.row;text(el("selected"),`${feature(row,"own_team")>.5?"己方":"对方可见"} ${found.name}\n坐标：(${feature(row,"x").toFixed(3)}, ${feature(row,"y").toFixed(3)})\n血量比例：${(feature(row,"hp_ratio")*100).toFixed(1)}%${feature(row,"out_of_arena")>.5?"\n位置已裁到边界，出界幅度未知":""}`);});
+canvas.addEventListener("click",event=>{const rect=canvas.getBoundingClientRect(),x=(event.clientX-rect.left)*canvas.width/rect.width,y=(event.clientY-rect.top)*canvas.height/rect.height;const found=painted.map(item=>({...item,d:Math.hypot(item.x-x,item.y-y)})).sort((a,b)=>a.d-b.d)[0];if(!found||found.d>30)return;const row=found.row;text(el("selected"),`${feature(row,"own_team")>.5?"己方":"对方可见"} ${found.name}\n坐标：(${feature(row,"x").toFixed(3)}, ${feature(row,"y").toFixed(3)})\n${healthLabel(row)}${feature(row,"out_of_arena")>.5?"\n位置已裁到边界，出界幅度未知":""}`);});
 text(el("training"),data.trained?"检查点：已完成训练":"检查点：未训练／接口验证");text(el("sampling"),`每 ${data.trace_every} 次联合决策采样${data.trace_size_limited?" · 已达 trace 体积上限":""}`);text(el("result"),`结束：${data.episode.status} / ${data.episode.outcome||"无有效胜负"}`);
 const detailPairs=[["后端",data.backend],["观察协议",data.observation_version],["策略",data.episode.variant],["案例",data.episode.case_id],["玩家座位",data.episode.candidate_side],["种子",data.episode.seed],["实际接收／拒绝",`${data.episode.candidate_accepted??"未知"} / ${data.episode.candidate_refused??"未知"}`]];
 for(const [key,value]of detailPairs){const dt=document.createElement("dt"),dd=document.createElement("dd");text(dt,key);text(dd,value);el("details").append(dt,dd);}

@@ -1,0 +1,20 @@
+{
+  "schema": "arena-delivery-test-interruption-v1",
+  "command": ".venv-cloud/bin/python tools/cloud/workspace.py test",
+  "log": "outputs/arena-lab-20261113/workspace-tests-delivery-final.log",
+  "log_sha256": "00bc06162a0d05878f56f99727e8d17663aa99866fddb92670de728c8671f491",
+  "result": "interrupted; no final test summary or exit code",
+  "observation": "exec session 83095 disappeared; subsequent PID1 elapsed time and /proc/uptime indicated runtime reconstruction. Test log stopped during an existing native HTTP contract test.",
+  "cause": "unknown; current cgroup oom counters do not establish previous-runtime cause",
+  "preserved_completed_experiments": [
+    "train-v1",
+    "train-full-v2",
+    "evaluation-v1",
+    "evaluation-full-v2",
+    "evaluation-v1-reference",
+    "trained-policy-benchmark-full-v2-1threads.json",
+    "trained-policy-benchmark-full-v2-2threads.json",
+    "trained-viewer-full-v2/browser-check-reviewed"
+  ],
+  "replacement_validation": "Separate final arena tests and exact-commit GitHub workflows; interrupted run is not counted as a pass."
+}

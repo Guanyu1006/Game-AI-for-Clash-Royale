@@ -86,17 +86,26 @@ def check_replay(html: str | Path, output: str | Path, *, require_trained: bool 
                 colors = page.locator("#arena").evaluate("canvas=>{const p=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height).data;const c=new Set();for(let i=0;i<p.length;i+=400)c.add(p.slice(i,i+4).join(','));return c.size;}")
                 assert colors > 8, "Battlefield canvas is blank or unexpectedly uniform"
                 report["sampled_canvas_colors"] = colors
-                sparse = frames[middle]["visible_entities_sparse"][0]
-                values = dict(zip(sparse["indices"], sparse["values"]))
                 fields = {name: index for index, name in enumerate(payload["entity_fields"])}
-                x, y = values.get(fields["x"], 0), values.get(fields["y"], 0)
+                rows = [dict(zip(sparse["indices"], sparse["values"])) for sparse in frames[middle]["visible_entities_sparse"]]
+                has_no_hp = lambda row: row.get(fields.get("spell"), 0) > .5 or row.get(fields.get("projectile"), 0) > .5
+                health_row = next(row for row in rows if not has_no_hp(row))
                 canvas = page.locator("#arena")
                 box = canvas.bounding_box()
-                canvas.click(position={"x": (27 + x * 486) / 540 * box["width"],
-                                       "y": (27 + (1 - y) * 846) / 900 * box["height"]})
+                def click_entity(row):
+                    x, y = row.get(fields["x"], 0), row.get(fields["y"], 0)
+                    canvas.click(position={"x": (27 + x * 486) / 540 * box["width"],
+                                           "y": (27 + (1 - y) * 846) / 900 * box["height"]})
+                click_entity(health_row)
                 expect(page.locator("#selected")).to_contain_text("坐标")
                 expect(page.locator("#selected")).to_contain_text("血量比例")
                 report["checks"].append("visible_entity_canvas_and_public_details")
+                nonhealth_row = next((row for row in rows if has_no_hp(row)), None)
+                if nonhealth_row:
+                    click_entity(nonhealth_row)
+                    expect(page.locator("#selected")).to_contain_text("血量：不适用")
+                    report["checks"].append("spell_or_projectile_has_no_fabricated_health")
+                    click_entity(health_row)
                 page.screenshot(path=str(output / "replay.png"), full_page=True)
                 report["screenshot"] = "replay.png"
                 assert not report["page_errors"], "Browser emitted JavaScript errors"

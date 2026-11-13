@@ -387,7 +387,8 @@ def evaluate_policy(
                         trace.write({"kind": "ending", "status": row["status"], "winner": row["winner"],
                                      "tick": row.get("final_tick"), "state_hash": row.get("final_state_hash")})
                     except Exception as exc:
-                        row.update(status="fault", termination_reason="exception", error_type=type(exc).__name__, error=str(exc))
+                        row.update(status="fault", winner=None, outcome=None, termination_reason="exception",
+                                   error_type=type(exc).__name__, error=str(exc))
                     finally:
                         row["trace"] = trace.close()
                         row["model_latency"] = _latencies(latencies)

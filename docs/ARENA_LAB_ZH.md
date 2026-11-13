@@ -4,6 +4,8 @@
 
 本次目标是把训练环境、专家数据和闭环策略放在一条可审计的链路上。代码能运行、数据有高手身份、重演能对齐、策略棋力提升，是四个独立结论。实际结果与下一阶段门槛见[交付与差距报告](ARENA_LAB_RESULTS_20261113_ZH.md)。详细实现见[数据说明](../arena_lab/DATA_ZH.md)与[模型说明](../arena_lab/MODEL_ZH.md)。
 
+默认复现流程使用完整固定快照 `full-v2`：574 份来源整局、682 个认证老师席位，严格排除 3 个未知卡牌局后重建为 571 局、679 个老师序列。首轮压缩前缀的 212 局作为历史入口保留。完整数据已经冻结；完整权重和回放的发布、训练与评估是否完成，以结果报告中的实际证据为准。
+
 ## 系统如何工作
 
 ```mermaid
@@ -70,27 +72,66 @@ Cochon 的回放库以排行榜为采集入口，随后会扩展对手账号，�
 .venv-cloud/bin/python -m arena_lab bootstrap install
 .venv-cloud/bin/python -m arena_lab bootstrap check
 .venv-cloud/bin/python -m arena_lab bootstrap install-crforge
-.venv-cloud/bin/python -m arena_lab benchmark --backend royalesim --seed 1729 --games 2 --decision-ticks 10 --output outputs/arena-local/environment.json
-.venv-cloud/bin/python -m arena_lab benchmark --backend crforge --seed 1729 --games 2 --decision-ticks 10 --output outputs/arena-local/crforge.json
+.venv-cloud/bin/python -m arena_lab benchmark --backend royalesim --seed 1729 --games 2 --decision-ticks 10 --card-level 16 --output outputs/arena-local/environment.json
+.venv-cloud/bin/python -m arena_lab benchmark --backend crforge --seed 1729 --games 2 --decision-ticks 10 --card-level 16 --output outputs/arena-local/crforge.json
 ```
 
 依赖安装到 `.cache/arena-lab/`，不覆盖原 `.venv-cloud` 和 Windows 环境。主机数值依赖沿用 `requirements-codespaces.txt` 与 `requirements-codespaces-ml.txt`。首次安装需要网络，此后的模型推理和模拟对局不访问官方游戏服务。
 
-获取、重建、训练和评估接受明确的输入与新输出目录。以下命令从固定公开源下载约 144 MiB 数据；首次模拟器及 Java 缓存另占约 1 GiB。原始记录与实验结果均保存在仓库内：
+获取、重建、训练和评估接受明确的输入与新输出目录。以下默认流程取得完整固定快照，先保存完整重建，再为实验排除此前已用于模型测试评分的 27 个 test 原局。它们继续留在完整 index 中，不进入新训练、验证或正式测试；新测试只保留 37 个未用于首轮测试评分的原局、43 个老师序列。
+
+完整归档是 **534,361,487 字节**，逐文件 manifest 为 10,731,198 字节。归档中的全部 raw 原文展开累计约 4.75 GB，但获取器流式扫描 tar，只保存匹配的原文，不会把这 4.75 GB 全量解包。当前一次完整获取与重建约占 0.75 GB：归档及 manifest 约 545 MB、选取原文/规范化/来源索引约 66 MB、679 份派生 NPZ 与审计 JSON 约 129 MB。这些是磁盘文件合计，不含内存中的逐局数组、训练和评估记录。两套已安装后端的 `.cache/arena-lab/` 当前另占约 1 GiB；评估 trace 与重复实验会另增空间。所有目录均在仓库内。
 
 ```bash
-.venv-cloud/bin/python -m arena_lab.data_sources fetch --output-dir data/arena-local
-.venv-cloud/bin/python -m arena_lab.replay_data --source-index data/arena-local/cochon-historical-top100-v1/source-index.json --destination data/arena-local/derived
-.venv-cloud/bin/python -m arena_lab audit --index data/arena-local/derived/index.json
-.venv-cloud/bin/python -m arena_lab train --index data/arena-local/derived/index.json --output outputs/arena-local/train --epochs 4 --batch-size 4 --sequence 32 --threads 2
-.venv-cloud/bin/python -m arena_lab evaluate --checkpoint outputs/arena-local/train/best.pt --suite configs/arena-lab/evaluation-suite-v1.json --output outputs/arena-local/evaluation
-.venv-cloud/bin/python -m arena_lab view --evaluation outputs/arena-local/evaluation --variant model --episode 0 --output outputs/arena-local/replay.html
-.venv-cloud/bin/python -m arena_lab.policy_benchmark --checkpoint outputs/arena-local/train/best.pt --output outputs/arena-local/policy-benchmark.json
+.venv-cloud/bin/python -m arena_lab.data_sources fetch --full --output-dir data/arena-local/full-v2
+.venv-cloud/bin/python -m arena_lab.replay_data --source-index data/arena-local/full-v2/cochon-historical-top100-full-v2/source-index.json --destination data/arena-local/full-v2/derived-base-default6-v1
+.venv-cloud/bin/python -m arena_lab audit --index data/arena-local/full-v2/derived-base-default6-v1/index.json
+.venv-cloud/bin/python -m arena_lab.experiment --index data/arena-local/full-v2/derived-base-default6-v1/index.json --previous configs/arena-lab/previously-evaluated-test-v1.json --output data/arena-local/full-v2/experiment-index.json
+.venv-cloud/bin/python -m arena_lab audit --index data/arena-local/full-v2/experiment-index.json
+.venv-cloud/bin/python -m arena_lab train --index data/arena-local/full-v2/experiment-index.json --output outputs/arena-local/full-v2/train --epochs 4 --batch-size 4 --sequence 32 --learning-rate 0.0003 --weight-decay 0.0001 --position-loss-weight 1.0 --play-weight-cap 8.0 --seed 1729 --threads 2
+.venv-cloud/bin/python -m arena_lab evaluate --checkpoint outputs/arena-local/full-v2/train/best.pt --suite configs/arena-lab/evaluation-suite-full-v2.json --output outputs/arena-local/full-v2/evaluation
+.venv-cloud/bin/python -m arena_lab view --evaluation outputs/arena-local/full-v2/evaluation --variant model --episode 0 --output outputs/arena-local/full-v2/replay.html
+.venv-cloud/bin/python -m arena_lab.policy_benchmark --checkpoint outputs/arena-local/full-v2/train/best.pt --output outputs/arena-local/full-v2/policy-benchmark.json
 ```
 
-已实际训练的输入是 `data/arena-lab/derived-base-default6-v2/index.json`，首轮结果在 `outputs/arena-lab-20261113/`。上面的 `arena-local` 留作新复现实验。每次新实验使用新目录，保留既有证据。首轮选模及对照原则提前保存在 `configs/arena-lab/experiment-v1.json`，96 局矩阵保存在 `configs/arena-lab/evaluation-suite-v1.json`。
+已冻结的完整重建输入为 `data/arena-lab/full-v2/derived-base-default6-v1/index.json`。上面的 `arena-local/full-v2` 留作新复现实验；派生目录、实验 index 与训练输出应使用新路径，已有文件不覆盖。`arena_lab.experiment` 核对旧 test 的原局指纹、source ID 和原始 SHA，按固定身份排除，不按分数选样本。
 
-只想加载交付权重运行完整对局时，无需重新下载或重建训练数据。在安装模拟依赖和主机 Torch 后运行：
+完整轮的超参数与对照原则预先保存在 [`experiment-full-v2.json`](../configs/arena-lab/experiment-full-v2.json)，上面的训练参数与其一致。闭环使用 [`evaluation-suite-full-v2.json`](../configs/arena-lab/evaluation-suite-full-v2.json)：24 个换边/卡组/种子/对手条件，4 种策略变体，共 96 局。套件按每局 reset 明确使用等级和塔等级 16、基础形态、随机初手，不能仅根据环境构造器的默认等级 11 判断实际评估配置。它与重建中的 `shuffle=0` 事后约束开局分别记录。
+
+上面的命令在训练完成后从该次运行的 `best.pt` 继续评估。本次实际完整轮训练已经完成，正式输入为 `data/arena-lab/full-v2/derived-base-default6-v1/unseen-test-index.json`；全部 96 局自然结束，具体成绩见结果报告。
+
+## 直接运行完整轮权重
+
+不重新下载训练数据也能运行已交付权重。先完成模拟依赖与主机 Torch 安装，再运行：
+
+```bash
+.venv-cloud/bin/python -m arena_lab evaluate --checkpoint arena_lab/artifacts/imitation-full-v2.pt --suite configs/arena-lab/evaluation-suite-full-v2.json --output outputs/arena-local/full-v2-pretrained
+.venv-cloud/bin/python -m arena_lab view --evaluation outputs/arena-local/full-v2-pretrained --variant model --episode 0 --output outputs/arena-local/full-v2-pretrained.html
+```
+
+约 1 MB 的[真实训练权重清单](../arena_lab/artifacts/imitation-full-v2.json)绑定 SHA256、3,361 次训练更新、数据与测试排除指纹。加载通过 `weights_only=True` 检查纯张量、环境身份及观察协议。它仍是棋力未达标的研究模型，不能直接用于不同版本或 crforge。
+
+可直接打开[完整轮固定对局回放](../arena_lab/artifacts/replay-full-v2.html)。它保存 model 第 0 局的 108 个公开观察帧，原局长 214.65 秒、54 次部署全部执行，未按胜负挑选。真实 Chromium 已验证播放、单步、拖动、实体详情和法术血量不适用等 7 项检查，JavaScript 错误和外部网络请求均为 0。需要 Codespaces 预览时，运行下方相同的静态服务器，访问 `/replay-full-v2.html`。该页面展示模拟器公开状态，不能称为官方游戏录屏。
+
+新旧权重的同场对照也可独立复现：先跑上面的完整模型评估，再执行：
+
+```bash
+.venv-cloud/bin/python -m arena_lab evaluate --checkpoint arena_lab/artifacts/imitation-v1.pt --suite configs/arena-lab/evaluation-suite-v1-reference.json --output outputs/arena-local/v1-reference
+.venv-cloud/bin/python -m arena_lab.compare_evaluations --candidate outputs/arena-local/full-v2-pretrained --reference outputs/arena-local/v1-reference --output outputs/arena-local/full-v2-versus-v1.json
+```
+
+比较工具核对完整案例、环境、动作解码及证据哈希；失败和截断单列，不能丢弃后宣称胜率提升。
+
+## 首轮历史入口与已有产物
+
+首轮使用固定快照的约 139.99 MB 压缩前缀及 10.73 MB manifest，合计约 144 MiB 下载；并非完整归档。其 212 局重建输入是 `data/arena-lab/derived-base-default6-v2/index.json`，原始 236 个老师 NPZ 在完整重建中逐字节保留一致。首轮结果在 `outputs/arena-lab-20261113/`，预先声明的配置为 `configs/arena-lab/experiment-v1.json` 与 `configs/arena-lab/evaluation-suite-v1.json`。如需单独复现这段历史数据，使用新的历史目录：
+
+```bash
+.venv-cloud/bin/python -m arena_lab.data_sources fetch --output-dir data/arena-local/prefix-v1
+.venv-cloud/bin/python -m arena_lab.replay_data --source-index data/arena-local/prefix-v1/cochon-historical-top100-v1/source-index.json --destination data/arena-local/prefix-v1/derived
+```
+
+只想加载已交付的**首轮历史权重**运行完整对局时，无需重新下载或重建训练数据。在安装模拟依赖和主机 Torch 后运行：
 
 ```bash
 .venv-cloud/bin/python -m arena_lab evaluate --checkpoint arena_lab/artifacts/imitation-v1.pt --suite configs/arena-lab/evaluation-suite-v1.json --output outputs/arena-local/pretrained-evaluation
@@ -107,7 +148,7 @@ Cochon 的回放库以排行榜为采集入口，随后会扩展对手账号，�
 .venv-cloud/bin/python -m http.server 8773 --bind 0.0.0.0 --directory arena_lab/artifacts
 ```
 
-该页面显示 2 秒间隔采样的 90 帧，不插造帧间过程；它通过了实际 Chromium 的播放、单步和拖动检查。当前可视化只验收 Royale public-v2，crforge 的额外未知血量字段布局会被显式拒绝。
+该首轮页面显示 2 秒间隔采样的 90 帧，不插造帧间过程；它通过了实际 Chromium 的播放、单步和拖动检查。这项验收对应 `replay-v1.html`，完整轮页面需要独立记录。当前可视化只验收 Royale public-v2，crforge 的额外未知血量字段布局会被显式拒绝。
 
 ## 如何判读结果与接下来的重点
 

@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 import numpy as np
 
@@ -148,6 +149,40 @@ class ArenaEvaluationTests(unittest.TestCase):
                 self.assertEqual(report["total"][metric], 2)
                 self.assertEqual(report["total"]["natural_games"], 0)
                 self.assertIsNone(report["total"]["win_rate_natural"])
+
+    def test_ending_trace_write_failure_clears_previously_assigned_result(self):
+        from arena_lab.evaluation import _PublicTrace
+        original_write = _PublicTrace.write
+        attempted_endings = []
+
+        def fail_ending(trace, frame):
+            if frame["kind"] == "ending":
+                attempted_endings.append(dict(frame))
+                raise OSError("intentional ending-trace write failure")
+            return original_write(trace, frame)
+
+        output = self.directory / "ending-write-fault"
+        with mock.patch.object(_PublicTrace, "write", new=fail_ending):
+            report = evaluate_policy(self.checkpoint, output, cases=self.cases,
+                                     env_factory=_FakeArena, variants=("model",), trace_every=1)
+        # Both fixture battles reached the fake environment's terminal result
+        # before the write failed; one was a win and the other a model loss.
+        self.assertEqual(len(attempted_endings), 2)
+        self.assertTrue(all(row["status"] == "natural_end" and row["winner"] == 1 for row in attempted_endings))
+        self.assertEqual(report["total"]["attempted_games"], 2)
+        self.assertEqual(report["total"]["faulted_games"], 2)
+        self.assertEqual(report["total"]["natural_games"], 0)
+        self.assertEqual(report["total"]["wins"], 0)
+        self.assertEqual(report["total"]["losses"], 0)
+        self.assertIsNone(report["total"]["score_natural"])
+        rows = [json.loads(line) for line in (output / "episodes.jsonl").read_text().splitlines()]
+        self.assertEqual(len(rows), 2)
+        for row in rows:
+            self.assertEqual(row["status"], "fault")
+            self.assertEqual(row["joint_steps"], 3)
+            self.assertEqual(row["error_type"], "OSError")
+            self.assertIsNone(row["winner"])
+            self.assertIsNone(row["outcome"])
 
     def test_evaluator_budget_is_truncation(self):
         report = evaluate_policy(self.checkpoint, self.directory / "budget", cases=self.cases,
