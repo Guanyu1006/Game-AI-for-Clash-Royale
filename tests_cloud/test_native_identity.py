@@ -214,6 +214,19 @@ class NativeIdentityTests(unittest.TestCase):
             parsed = subprocess.run(['bash', '-n'], input=script.encode(), capture_output=True)
             self.assertEqual(parsed.returncode, 0, parsed.stderr.decode())
 
+    @unittest.skipUnless(shutil.which('bash'), 'Optional local shell parser unavailable')
+    def test_pid_guard_persists_actual_pid_and_refuses_hashes_after_change_or_exit(self):
+        for actual, returncode in [('998878', 0), ('998878 998879', 0), ('', 1)]:
+            with self.subTest(actual=actual):
+                prelude = ('id() { printf "0\\n"; }\n'
+                           f'pidof() {{ printf "%s" "{actual}"; return {returncode}; }}\n')
+                result = subprocess.run(['bash'], input=(prelude + identity.verification_script(
+                    self.package, {'pid': 998877}, ['/unused/never-hashed'])).encode(), capture_output=True)
+                self.assertEqual(result.returncode, 32)
+                self.assertIn(f'PROCESS_GUARD_ACTUAL_PID={actual}\n'.encode(), result.stdout)
+                self.assertIn(b'refusing stale identity', result.stderr)
+                self.assertNotIn(b'HASHES_BEGIN', result.stdout)
+
     def test_actual_server_version_reader_only_uses_host_version(self):
         connection = Mock()
         connection.recv.side_effect = [b'OKAY', b'0004', b'0029']

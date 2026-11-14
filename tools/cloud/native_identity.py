@@ -196,7 +196,22 @@ def verification_script(package, found, paths):
     quoted = ' '.join(shlex.quote(p) for p in paths)
     return f'''set -eu
 [ "$(id -u)" = 0 ] || exit 31
-[ "$(pidof {shlex.quote(package)})" = {found['pid']} ] || exit 32
+guard_pid="$(pidof {shlex.quote(package)} || true)"
+printf 'PROCESS_GUARD_EXPECTED_PID={found['pid']}\\nPROCESS_GUARD_ACTUAL_PID=%s\\n' "$guard_pid"
+if [ "$guard_pid" != {found['pid']} ]; then
+    printf 'Application PID changed, disappeared or is ambiguous before installed-file verification; refusing stale identity.\\n' >&2
+    for guard_candidate in {found['pid']} $guard_pid; do
+        case "$guard_candidate" in ''|*[!0-9]*) continue;; esac
+        printf 'PROCESS_GUARD_STAT_PID=%s\\n' "$guard_candidate"
+        if [ -r "/proc/$guard_candidate/stat" ]; then
+            cat "/proc/$guard_candidate/stat" || true
+            printf '\\n'
+        else
+            printf 'PROCESS_GUARD_STAT_UNAVAILABLE\\n'
+        fi
+    done
+    exit 32
+fi
 printf 'HASHES_BEGIN\\n'
 sha256sum {quoted}
 printf 'HASHES_END\\n'
