@@ -12,8 +12,17 @@ from .device import write
 
 PACKAGE = "nullsroyale.rel.free"
 SCRIPT = r'''
-game_pid=$(pidof nullsroyale.rel.free)
-case "$game_pid" in ''|*[!0-9]*) echo "No unique current game PID"; exit 21;; esac
+game_pids=$(pidof nullsroyale.rel.free || true)
+echo "PACKAGE_PID_CANDIDATES=$game_pids"
+case "$game_pids" in ''|*[!0-9\ ]) echo "No valid current game PID candidates"; exit 21;; esac
+set -- $game_pids
+if [ "$#" -eq 0 ]; then echo "No current game PID candidates"; exit 21; fi
+if [ "$#" -gt 4 ]; then echo "Too many game PID candidates; diagnostic bound is 4"; exit 22; fi
+for game_pid in "$@"; do
+  case "$game_pid" in *[1-9]*) :;; *) echo "Game PID must be positive"; exit 21;; esac
+done
+echo "IDENTITY_SELECTION=none; diagnostic candidates only"
+for game_pid in "$@"; do
 echo "GAME_PID=$game_pid"
 cat /proc/$game_pid/cmdline
 echo
@@ -23,12 +32,9 @@ for leaf in stat status io schedstat; do
 done
 echo MAPS_COUNT
 wc -l /proc/$game_pid/maps
-echo MEMORY
-cat /proc/meminfo
-echo PRESSURE
-cat /proc/pressure/cpu /proc/pressure/io /proc/pressure/memory
-echo DATA_FILESYSTEM
-df -k /data
+echo PROCESS_CHILDREN
+cat /proc/$game_pid/task/$game_pid/children
+echo
 for task in /proc/$game_pid/task/*; do
   echo "THREAD=$task"
   cat "$task/comm" "$task/stat" "$task/wchan" "$task/syscall" "$task/schedstat"
@@ -36,6 +42,15 @@ for task in /proc/$game_pid/task/*; do
 done
 echo GAME_FILE_MAPPINGS
 grep -E 'libg.so|libndk_translation|vulkan|pastel|base.apk' /proc/$game_pid/maps
+echo PROCESS_IDENTITY_END
+cat /proc/$game_pid/stat
+done
+echo MEMORY
+cat /proc/meminfo
+echo PRESSURE
+cat /proc/pressure/cpu /proc/pressure/io /proc/pressure/memory
+echo DATA_FILESYSTEM
+df -k /data
 echo SURFACE_LAYERS
 dumpsys SurfaceFlinger --list
 echo SURFACE_GLOBAL_LATENCY
@@ -44,8 +59,6 @@ echo GRAPHICS_FRAMESTATS
 dumpsys gfxinfo nullsroyale.rel.free framestats
 echo CURRENT_WINDOW
 dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp|Surface|hasSurface'
-echo PROCESS_IDENTITY_END
-cat /proc/$game_pid/stat
 '''
 
 
@@ -58,7 +71,8 @@ def collect(args):
     (root/"read-only-guest-script.sh").write_text(SCRIPT)
     report = {"schema": "arena-device-loading-diagnostics.v1", "package": PACKAGE,
               "started_utc": datetime.now(timezone.utc).isoformat(),
-              "mutation_commands": [], "root_cause": "unknown", "samples": []}
+              "mutation_commands": [], "root_cause": "unknown", "samples": [],
+              "pid_scope": "At most four exact package-name candidates; no identity selection or acceptance"}
     write(root/"report.json", report)
     prefix = [str(args.adb), "-H", "127.0.0.1", "-P", str(args.port), "-s", args.serial,
               "shell", "-T", "su", "0", "sh", "-s"]

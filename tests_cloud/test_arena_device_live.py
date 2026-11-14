@@ -2,13 +2,14 @@ import json
 from pathlib import Path
 import tempfile
 import subprocess
+import shutil
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
 from arena_lab.device_live import AdbPngCapture, run_live, tap_coordinates, verify_before_tap
 from arena_lab.device import AdbTapActuator
-from arena_lab.device_diagnostics import collect
+from arena_lab.device_diagnostics import collect, SCRIPT
 from arena_lab.vision import ScreenCalibration
 
 
@@ -145,6 +146,27 @@ class LiveDeviceContractTests(unittest.TestCase):
             self.assertEqual(report, persisted)
             self.assertIn("FileNotFoundError", report["samples"][0]["error"])
             self.assertEqual(report["root_cause"], "unknown")
+
+    @unittest.skipUnless(shutil.which("bash"), "Optional local shell unavailable")
+    def test_diagnostic_retains_both_candidates_without_selecting_identity(self):
+        prelude = ('pidof() { printf "998877 998878"; }\n'
+                   'cat() { :; }; wc() { :; }; grep() { :; }; df() { :; }; dumpsys() { :; }\n')
+        result = subprocess.run(["bash"], input=(prelude + SCRIPT).encode(), capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        self.assertIn(b"GAME_PID=998877\n", result.stdout)
+        self.assertIn(b"GAME_PID=998878\n", result.stdout)
+        self.assertIn(b"IDENTITY_SELECTION=none", result.stdout)
+        self.assertEqual(result.stdout.count(b"PROCESS_IDENTITY_END\n"), 2)
+
+    @unittest.skipUnless(shutil.which("bash"), "Optional local shell unavailable")
+    def test_diagnostic_rejects_missing_invalid_or_excess_candidates_before_reads(self):
+        for pids, code in [("", 21), ("   ", 21), ("0", 21), ("000", 21),
+                           ("998877 0", 21), ("998877;invalid", 21), ("1 2 3 4 5", 22)]:
+            with self.subTest(pids=pids):
+                prelude = f'pidof() {{ printf "%s" "{pids}"; }}\ncat() {{ echo UNEXPECTED_READ; }}\n'
+                result = subprocess.run(["bash"], input=(prelude + SCRIPT).encode(), capture_output=True)
+                self.assertEqual(result.returncode, code)
+                self.assertNotIn(b"UNEXPECTED_READ", result.stdout)
 
 
 if __name__ == "__main__": unittest.main()
