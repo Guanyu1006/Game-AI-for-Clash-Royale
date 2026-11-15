@@ -8,7 +8,8 @@ from types import SimpleNamespace
 import unittest
 
 from arena_lab.device import (ActionLedger, PixelPolicy, RawAndroidCapture, PersistentRawAndroidCapture, native_level_audit,
-                              advance_control_window, validate_controller_timing, visual_consistency)
+                              advance_control_window, configure_render_speed, validate_controller_timing,
+                              validate_render_speed, visual_consistency)
 from arena_lab.vision import PixelObserver, ScreenCalibration, UnitTracker
 
 
@@ -18,6 +19,24 @@ def det(x=20, side="enemy", label="knight"):
 
 
 class DeviceSafetyTests(unittest.TestCase):
+    def test_render_multiplier_preserves_paused_native_tick(self):
+        calls = []
+        class Engine:
+            def debug_state(self): return {"tick": 90}
+            def _request(self, command):
+                calls.append(command)
+                return {"ok": True, "mode": "native-render", "paused": True, "tick": 90, "speed": .25}
+        receipt = configure_render_speed(Engine(), .25)
+        self.assertEqual(calls, ["speed 0.25"])
+        self.assertEqual(receipt["tick"], 90)
+        for key, bad in [("paused", False), ("tick", 91), ("speed", 1.), ("mode", "headless")]:
+            class InvalidReceipt(Engine):
+                def _request(self, command): return {**receipt, key: bad}
+            with self.assertRaisesRegex(RuntimeError, "paused clock boundary"):
+                configure_render_speed(InvalidReceipt(), .25)
+        for bad in [float("nan"), float("inf"), 0, -1, .3, True, "0.25"]:
+            with self.assertRaises(ValueError): validate_render_speed(bad)
+
     def test_wait_preserves_policy_horizon_without_first_tick_pause(self):
         events = []
         class Engine:

@@ -330,9 +330,28 @@ def advance_control_window(engine, step_ticks, confirm_first_tick=None):
     return state
 
 
+def validate_render_speed(speed):
+    if type(speed) not in (int, float) or not math.isfinite(speed) or speed not in (.25, .5, 1., 2., 4.):
+        raise ValueError("Native render speed must be one of 0.25, 0.5, 1, 2, 4")
+    return float(speed)
+
+
+def configure_render_speed(engine, speed):
+    """Change only the stock playback multiplier while the exact clock is paused."""
+    speed = validate_render_speed(speed)
+    before = engine.debug_state()
+    receipt = engine._request(f"speed {speed:g}")
+    if (receipt.get("ok") is not True or receipt.get("mode") != "native-render"
+            or receipt.get("paused") is not True or receipt.get("tick") != before["tick"]
+            or receipt.get("speed") != speed):
+        raise RuntimeError("Native render speed receipt did not preserve the paused clock boundary")
+    return deepcopy(receipt)
+
+
 def run_native(args, policy=None):
     if not math.isfinite(args.max_age_ms) or args.max_age_ms <= 0:
         raise ValueError("Screenshot age limit must be finite and positive")
+    render_speed = validate_render_speed(getattr(args, "render_speed", 1.))
     from royale_phase2.backend import NativeBattleBackend
     from royale_phase2.cloud_frames import CloudAndroidBridge
     from royale_phase3.actions import PublicTeacher, match
@@ -373,8 +392,11 @@ def run_native(args, policy=None):
                 configuration["battle"]["hbd"][seat]["kt"] = args.level
             write(root/"initialization.json", configuration)
             state = engine.reset(configuration)
+            speed_receipt = configure_render_speed(engine, render_speed) if render_speed != 1. else None
             render_status = engine._request("status")
             report["render_control"] = {
+                "requested_native_protocol_speed": render_speed,
+                "speed_change_receipt": speed_receipt,
                 "native_protocol_speed": render_status.get("speed"),
                 "paused_at_initial_capture": render_status.get("paused"),
                 "initial_native_tick": state["tick"], "tick_hz": 20,
@@ -496,6 +518,8 @@ def main():
     p.add_argument("--seed", type=int, default=20261121); p.add_argument("--decisions", type=int, default=12)
     p.add_argument("--level", type=int, choices=range(1, 17), default=16)
     p.add_argument("--step-ticks", type=int, default=100); p.add_argument("--frame-wait", type=float, default=1.1)
+    p.add_argument("--render-speed", type=float, choices=(.25, .5, 1., 2., 4.), default=1.,
+                   help="Stock native playback multiplier; exact policy step_ticks and 20Hz logical time stay unchanged")
     p.add_argument("--max-age-ms", type=float, default=2000)
     p.add_argument("--capture-format", choices=["png", "raw", "raw-persistent"], default="png")
     p.add_argument("--checkpoint", help="Strict masked-pixel-v3 trained checkpoint; omission uses diagnostic rule")
