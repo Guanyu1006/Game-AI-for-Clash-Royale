@@ -1,0 +1,129 @@
+{
+  "schema": "arena-device-post-rebuild-audit.v1",
+  "recorded_utc": "2026-11-14T14:22:21.057997+00:00",
+  "attempt_started_utc": "2026-11-13T17:25:42.354917+00:00",
+  "content_poll_rows": 76,
+  "first_content_poll_utc": "2026-11-13T17:31:05.289299+00:00",
+  "content_ready_observed": true,
+  "first_content_ready_utc": "2026-11-13T17:37:35.304463+00:00",
+  "content_poll_elapsed_seconds": 390.015163898468,
+  "ready_not_battle": true,
+  "identity_discovery_pid": 1883,
+  "identity_verified": false,
+  "identity_failed_command": "verify-installed-files",
+  "failed_command_exit": 32,
+  "failed_command_stdout_bytes": 0,
+  "failed_guard": "[ \"$(pidof nullsroyale.rel.free)\" = 1883 ] || exit 32",
+  "interpretation": "Current package PID no longer equalled discovery PID 1883 before hashing; no installed-file hashes were produced. Old failure does not distinguish exit, restart or multiple PIDs. Content readiness was reached; this attempt did not fail because of its content timeout.",
+  "concurrent_debuggerd": {
+    "script": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/focused-stage.sh",
+    "requested_dump_log_utc": "2026-11-13T17:37:43.084+00:00",
+    "causality_established": false
+  },
+  "loading_progress": {
+    "differences": {
+      "read_bytes": 434176,
+      "rchar": 23622378,
+      "VmRSS": 52800,
+      "MemAvailable": -37176,
+      "maps": 63,
+      "gfx_frames": 0
+    },
+    "mainloop_cpu_tick_delta": 1694,
+    "mainloop_tid": 2130,
+    "deadlock_established": false,
+    "interpretation": "CPU, virtual-memory maps, RSS and IO progressed between samples; no rendered gfx frame count progress was recorded. Readiness followed later. A static pointer alone did not prove a hang."
+  },
+  "persistent_capture": {
+    "capture_started_ns": 7257870871779,
+    "capture_finished_ns": 7263364470702,
+    "capture_ms": 5493.598923,
+    "frame_sha256": "e6f411550ecc36ec78270a7bee4a376eb7a08c1e1e88af541c20a958ab25f5f6",
+    "transport": {
+      "transport_started_ns": 7257870872781,
+      "request_sent_ns": 7257875468048,
+      "transport_finished_ns": 7263319626718,
+      "host_encoded_ns": 7263364341871,
+      "session_started_ns": 7257873957028,
+      "info": {
+        "width": 360,
+        "height": 640,
+        "header_bytes": 16,
+        "raw_sha256": "116b4890588fe286902dc0f0fa12d64d3931f987a25ed029b27601c7795c812b",
+        "rgba_sha256": "0b150fd32588b1daca5569992ebe559c0102c837306b1af4c44d35128ec58366",
+        "dataspace": 1
+      },
+      "source": "persistent Android shell, one raw screencap per request; lossless host PNG",
+      "stderr_path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/persistent-loading.stderr"
+    },
+    "scope": "Actual current loading/menu screen; no battle or throughput acceptance"
+  },
+  "new_native_battles": 0,
+  "new_battle_frames": 0,
+  "new_card_requests": 0,
+  "physical_device_attempts": 0,
+  "learned_pixel_closed_loop": false,
+  "paired_transport_benchmark": false,
+  "sources": [
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-post-rebuild/report.json",
+      "bytes": 3466,
+      "sha256": "370e14e6167f635c898280e877288a7f18f83e16ef56f88342549e34b51bcf86"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-post-rebuild/content-status.jsonl",
+      "bytes": 97377,
+      "sha256": "dadc223c205ff41923548fef8e6e8952ef4bc8da52b4c114ccbd74bb7969041b"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-post-rebuild/identity-check/report.json",
+      "bytes": 7682,
+      "sha256": "dff3f40e65becf62fa874a5a80503f16cfa6b197e62862af16bc612683c2f501"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-post-rebuild/identity-check/05-discover-runtime.stdout.log",
+      "bytes": 282833,
+      "sha256": "986b13241a4979de9399f3f41b28bef56a7c1f171ae1bb74e91d7ce5e62edbf1"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-post-rebuild/identity-check/07-verify-installed-files.stdin.sh",
+      "bytes": 133071,
+      "sha256": "e27995ad2d0f942b071638c22e8dcb3b3537bcd196982c9fbfa4f67c4b7a0022"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-prepare-post-rebuild/identity-check/07-verify-installed-files.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/report.json",
+      "bytes": 597,
+      "sha256": "baf50433582ff6a6fd5a93bc65a72aac95c87768470c036353abf307a776ec20"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/two-sample-analysis.json",
+      "bytes": 39589,
+      "sha256": "03953f37196967b63a9df080ca1a673e64e1dcff70d458ae03cb7f8cd86d322d"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/persistent-loading.json",
+      "bytes": 1001,
+      "sha256": "6d4658be3f63f5adb97063481c57d94fec471b7e818b3b0b5aa0bd0c820bf540"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/persistent-loading.png",
+      "bytes": 4102,
+      "sha256": "e6f411550ecc36ec78270a7bee4a376eb7a08c1e1e88af541c20a958ab25f5f6"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/focused-stage.sh",
+      "bytes": 348,
+      "sha256": "0c466764cde605d69a8d26831eb37c3ed50cefe3b210cd54f6acb35d48887036"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-loading-diagnostics-post-rebuild/focused-stage.stdout.txt",
+      "bytes": 127644,
+      "sha256": "7bd07614de701e22f9ba8adaa76df266513e42f3ddce6a3d26f49eb746d818cb"
+    }
+  ]
+}

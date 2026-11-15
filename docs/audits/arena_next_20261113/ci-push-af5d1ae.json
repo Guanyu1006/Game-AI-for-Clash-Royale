@@ -1,0 +1,345 @@
+{
+  "schema": "github-push-ci-audit-v2",
+  "checked_utc": "2026-11-13 17:33:04 UTC",
+  "repository": "Guanyu1006/Game-AI-for-Clash-Royale",
+  "branch": "dev/arena-next-20261113",
+  "commit": "af5d1aef8169147c37988f8bebaad08d5724cb7f",
+  "query_event": "push",
+  "source_urls": [
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs?branch=dev%2Farena-next-20261113&event=push&per_page=10",
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43473348054/jobs",
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/jobs/132050705236/logs",
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43473348069/jobs",
+    "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/jobs/132050705491/logs"
+  ],
+  "runs": [
+    {
+      "id": 43473348054,
+      "name": "Arena Lab reproducibility",
+      "head_sha": "af5d1aef8169147c37988f8bebaad08d5724cb7f",
+      "status": "completed",
+      "conclusion": "success",
+      "event": "push",
+      "html_url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43473348054",
+      "created_at": "2026-11-13T17:29:47Z",
+      "updated_at": "2026-11-13T17:30:44Z",
+      "jobs": [
+        {
+          "id": 132050705236,
+          "name": "cpu",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-13T17:29:51Z",
+          "completed_at": "2026-11-13T17:30:44Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@v5",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Fixed host CPU dependencies",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Isolated hash-locked simulator",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Data, recurrent model, training and closed-loop contracts",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Real engine whole-battle benchmark",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Same-version causal pairs and independent complete-state replay",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Delivered checkpoint reload and paired whole games",
+              "conclusion": "success"
+            },
+            {
+              "number": 10,
+              "name": "Aligned imitation, self-play and masked-pixel delivery",
+              "conclusion": "success"
+            },
+            {
+              "number": 11,
+              "name": "Run actions/upload-artifact@v4",
+              "conclusion": "success"
+            },
+            {
+              "number": 21,
+              "name": "Post Run actions/setup-python@v5",
+              "conclusion": "success"
+            },
+            {
+              "number": 22,
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "number": 23,
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43473348069,
+      "name": "Portable CPU checks",
+      "head_sha": "af5d1aef8169147c37988f8bebaad08d5724cb7f",
+      "status": "completed",
+      "conclusion": "success",
+      "event": "push",
+      "html_url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43473348069",
+      "created_at": "2026-11-13T17:29:47Z",
+      "updated_at": "2026-11-13T17:30:56Z",
+      "jobs": [
+        {
+          "id": 132050705491,
+          "name": "portable",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-13T17:29:51Z",
+          "completed_at": "2026-11-13T17:30:55Z",
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "number": 3,
+              "name": "Run actions/setup-python@v5",
+              "conclusion": "success"
+            },
+            {
+              "number": 4,
+              "name": "Core dependencies only",
+              "conclusion": "success"
+            },
+            {
+              "number": 5,
+              "name": "Restore reviewed assets",
+              "conclusion": "success"
+            },
+            {
+              "number": 6,
+              "name": "Contract and migration checks",
+              "conclusion": "success"
+            },
+            {
+              "number": 7,
+              "name": "Actual numeric training smoke",
+              "conclusion": "success"
+            },
+            {
+              "number": 8,
+              "name": "Reload and validate the new numeric checkpoint",
+              "conclusion": "success"
+            },
+            {
+              "number": 9,
+              "name": "Saved data, replay and approximate simulator",
+              "conclusion": "success"
+            },
+            {
+              "number": 17,
+              "name": "Post Run actions/setup-python@v5",
+              "conclusion": "success"
+            },
+            {
+              "number": 18,
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "number": 19,
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "test_suites": {
+    "arena": {
+      "tests_reported": 161,
+      "skipped": 3,
+      "test_wall_seconds": 4.651,
+      "summary_log_excerpt": [
+        "2026-11-13T17:30:19.4585540Z Ran 161 tests in 4.651s",
+        "2026-11-13T17:30:19.4585769Z OK (skipped=3)"
+      ],
+      "skip_reasons": [
+        "'optional pinned crforge JDK/build/tables not installed'"
+      ]
+    },
+    "portable": {
+      "tests_reported": 623,
+      "skipped": 80,
+      "test_wall_seconds": 29.232,
+      "summary_log_excerpt": [
+        "2026-11-13T17:30:30.6914368Z Ran 623 tests in 29.232s",
+        "2026-11-13T17:30:30.6914570Z OK (skipped=80)"
+      ],
+      "skip_reasons": [
+        "'Optional CPU Torch unavailable'",
+        "'Optional Pillow not installed'",
+        "'optional pinned crforge JDK/build/tables not installed'",
+        "'optional arena target not installed; run arena_lab.bootstrap install'",
+        "'Optional CPU Torch is not installed'",
+        "'Optional Torch unavailable'",
+        "'CPU Torch is optional'",
+        "'CPU Torch optional'",
+        "'缺少 ffmpeg；请在项目 .cache/native-tools/bin 或 .venv-cloud/bin 准备工具，或显式指定路径'",
+        "'Optional CPU Torch not installed'",
+        "'显式指定仓库内输出目录才启动 Chromium；默认测试不增加浏览器负载'",
+        "'显式指定仓库内新目录才运行 Chromium；默认不增加浏览器负载'"
+      ]
+    }
+  },
+  "aligned_delivery": {
+    "command": "python -m arena_lab check-delivery --output outputs/arena-ci/aligned-delivery",
+    "source_job_id": 132050705236,
+    "source_step_number": 10,
+    "model_count": 4,
+    "attempted_games": 8,
+    "natural_games": 8,
+    "candidate_attempts": 571,
+    "candidate_executed": 565,
+    "candidate_refused": 6,
+    "all_receipts_accounted": true,
+    "all_models_passed": true,
+    "all_models_two_natural_games": true,
+    "all_checkpoint_shas_match_committed_manifests": true,
+    "manifest_verification": "Read each arena_lab/artifacts/<name>.json from exact audited commit using git show; compared manifest.sha256 with the CI model result.",
+    "models": {
+      "timing-aligned-v1": {
+        "attempted": 2,
+        "decisions_per_second": 616.2086784382801,
+        "episodes_sha256": "bfd8fefd2c9fb3cf26fcbba5315f54a6b7574d47b928db4552254a065c7fbe8e",
+        "natural": 2,
+        "plan_sha256": "2df2a15fc8afe69c102790b612128dbd30711cce57b52baa5fce01fd7ce0e4f5",
+        "wall_seconds": 1.728310614999998,
+        "wins": 0,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "37ffdb3dff3d27b7c922ac9ee0ad3ca846696c523d5a47540410192777fa8956",
+          "summary_sha256": "faf7d49c801c86337fe91e5011745560d79d17bee1987939fa63e9766b720fa4"
+        },
+        "attempts": 143,
+        "executed": 143,
+        "refused": 0,
+        "checkpoint_sha256": "b368ec2aa4d22f463fe211ea9239530317a3daf1f31b1a83ec8389dcc4eef51b",
+        "observation_version": "arena-public-v2",
+        "passed": true,
+        "status": "passed"
+      },
+      "imitation-aligned-joint-v1": {
+        "attempted": 2,
+        "decisions_per_second": 669.2258608989791,
+        "episodes_sha256": "c4f5fbe9fe7b95d8e62cc5a9f29001106dcf4e25b8e5099fe09e31ce2eb26827",
+        "natural": 2,
+        "plan_sha256": "8d71b8e450c15bd4e8fe964f3aaaf4ef980bafce6554b2af511cc56dadb15292",
+        "wall_seconds": 1.8334617229999992,
+        "wins": 1,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "8d865ce76efac0f88b0db1e48bf3dfe11b9df0a73b57541c22da0cf8404740d8",
+          "summary_sha256": "41983f15cfaf165725b8900bdfdc38b16fe6b9ddd8c5b537fd6f2fbbbfeda596"
+        },
+        "attempts": 178,
+        "executed": 178,
+        "refused": 0,
+        "checkpoint_sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+        "observation_version": "arena-public-v2",
+        "passed": true,
+        "status": "passed"
+      },
+      "selfplay-aligned-v1": {
+        "attempted": 2,
+        "decisions_per_second": 614.9325016047289,
+        "episodes_sha256": "5d56d99a25d019ae9511275f0dffa4fc4bb0f407c4add8668d032dd0f03870c9",
+        "natural": 2,
+        "plan_sha256": "8a6abe9b8ec42473656b35e2a223955bbcb67e0054b404c14433eb5110ea78b6",
+        "wall_seconds": 1.837600056999996,
+        "wins": 0,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "fe87eeea258fe89dac725a68c4626148acdd70f5b267def854e34f6fc63db3b4",
+          "summary_sha256": "500d82bfe13c483905e20f34096c5f49be1f8d21cf1794c6994e1acead5e9e68"
+        },
+        "attempts": 161,
+        "executed": 161,
+        "refused": 0,
+        "checkpoint_sha256": "77de9550d937f4d56348c2c14dcffb63dedef70d8b29a1b3dfbdfd7db20a3df6",
+        "observation_version": "arena-public-v2",
+        "passed": true,
+        "status": "passed"
+      },
+      "pixel-masked-v1": {
+        "attempted": 2,
+        "decisions_per_second": 523.0315005447651,
+        "episodes_sha256": "aed8e3b56a351c9808080a261fb86a3e630153d2e15e0faab7529556764b91f6",
+        "natural": 2,
+        "plan_sha256": "cc7dc6910f940d7ed32d665dbcdecf93f2e9fefa00ee4f417141b908ddff4416",
+        "wall_seconds": 1.866044395000003,
+        "wins": 1,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "ae602929e4ca9b7a9a9e3e316da41f7e066ddf0da7a6d3b78e659dcbff0612ac",
+          "summary_sha256": "c1c7c24fcf7b1375e766411d4905e49b087bf1aa4b813405fa087738a26eec39"
+        },
+        "attempts": 89,
+        "executed": 83,
+        "refused": 6,
+        "checkpoint_sha256": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03",
+        "observation_version": "arena-masked-pixel-v3",
+        "passed": true,
+        "status": "passed"
+      }
+    }
+  },
+  "fixes_needed": false,
+  "local_training_or_game_reruns": false,
+  "scope": "GitHub clean-checkout reproducibility and functional checkpoint delivery only. These eight delivery-smoke games are not the separately frozen 450 numeric / 40 masked evaluation games and cannot establish promotion or real-device acceptance.",
+  "limitations": [
+    "Portable suite intentionally uses core-only dependencies; optional Torch, native simulator, media and Chromium checks listed in skip_reasons did not run there. Arena suite installed Torch and hash-locked RoyaleSim, with three optional crforge JDK/build/tables tests skipped.",
+    "Pixel checkpoint consumes simulator-derived masked projections; CI does not demonstrate real screenshots, detector performance, official-client equivalence or physical-device execution.",
+    "Pixel delivery passed with 6 refusals out of 89 attempts (83 consumed). The functional delivery gate allows refusals with complete receipts and some successful actions; it does not imply the <=1% independent reliability target passed.",
+    "CI log-reported plan and episode hashes are recorded here. Individual episode artifacts were uploaded by the successful workflow but were not separately downloaded during this review."
+  ]
+}

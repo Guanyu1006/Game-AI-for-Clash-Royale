@@ -1,0 +1,277 @@
+{
+  "schema": "arena-device-pixel-short-audit.v1",
+  "recorded_utc": "2026-11-15T01:40:11.889407+00:00",
+  "scope": "Actual Android screenshot input and bounded policy execution; no action or combat closed-loop acceptance",
+  "status": "completed",
+  "configuration": {
+    "connection": "outputs/arena-next-20261113/device-prepare-20261114-clean-restart/connection.json",
+    "output": "outputs/arena-next-20261113/device-pixel-short-20261114",
+    "assets": ".cache/arena-lab/vision",
+    "seed": 20261121,
+    "decisions": 12,
+    "level": 11,
+    "step_ticks": 10,
+    "frame_wait": 1.1,
+    "max_age_ms": 2000,
+    "capture_format": "raw-persistent",
+    "checkpoint": "arena_lab/artifacts/pixel-masked-v1.pt"
+  },
+  "checkpoint_sha256": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03",
+  "frames": 13,
+  "decisions": 12,
+  "wait_decisions": 12,
+  "scene_ready_frames": 0,
+  "requests": 0,
+  "consumed": 0,
+  "initial_tick": 90,
+  "final_tick": 210,
+  "confirmed_elapsed_ticks": 120,
+  "confirmed_game_seconds": 6,
+  "elapsed_seconds": 210.833498039,
+  "natural_terminal": false,
+  "outstanding_action": false,
+  "physical_device": false,
+  "real_time_closed_loop_passed": false,
+  "state_render_alignment_verified": false,
+  "actor_input": "screenshot_pixels_only; logical elapsed feedback from own confirmed advance",
+  "interpretation": "VS entry overlay persisted and HUD remained unavailable. Background units move, but this does not demonstrate card selection, deployment or combat. No hidden state was used to fill missing actor HUD.",
+  "hypotheses_not_established": [
+    "scene reuse across benchmark and pixel run",
+    "presentation/logic timing under short synchronized advances"
+  ],
+  "per_frame": [
+    {
+      "frame_sha256": "52748390a40b1bb0341424540e21224e4061f47a1b04738b93ec5bcb59340c29",
+      "tick": 90,
+      "capture_ms": 2884.777017,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "281d4fc78386df4a7439b051af1d7cad4e28cb9769b174cdb43fc60d6a648f18",
+      "tick": 100,
+      "capture_ms": 1911.10241,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "4e066ca5a92a21f44a8ed49621625f5b8513db3047fcd1bf8d0385fea5ddff7f",
+      "tick": 110,
+      "capture_ms": 2276.188894,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "324bca8a306ebe346605193e279a9a25fde3ed66283d4f425face6795c36b4b9",
+      "tick": 120,
+      "capture_ms": 2209.008026,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "174e841aab58f8f1c3eb11015df676ded6b689d4d2ae9e94ad11d4eaf9dd264e",
+      "tick": 130,
+      "capture_ms": 2605.603509,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "13fc608cd46ba36f23988a0e938a6aaafe5cf53a7416246a94720f7acc2728fe",
+      "tick": 140,
+      "capture_ms": 2224.320327,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "c57b1445c1e698f8f43363d5060e9b93ea3d4699882782e819f54c00ae12766f",
+      "tick": 150,
+      "capture_ms": 2143.340252,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "f3e58cc966049852aab16e7f40e8e374587c731526c1d5adca52ed209e3ad63e",
+      "tick": 160,
+      "capture_ms": 2210.443223,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "e31a10efe238cc68d40d9403be4b45bf6b446771da56f6ee09a05a544696a935",
+      "tick": 170,
+      "capture_ms": 2400.57646,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "8fa8f9383e5bedb723be36f609f79946cdf9bcb49832e2ede3fff897f7a50ea9",
+      "tick": 180,
+      "capture_ms": 2044.16653,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "d8f8140920ec77a4e8a0fbd7c26122a4a819d2bc6ba5bdded976df4df6ff80d2",
+      "tick": 190,
+      "capture_ms": 2059.907935,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "b3742ff2adca0dbf106125caafa861faf6bf3b2e1d2e35d53e3f2ae5ba20ec0a",
+      "tick": 200,
+      "capture_ms": 2067.169081,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    },
+    {
+      "frame_sha256": "95f8f382bf1adda7ad05bc116382f89d44025b3ed2e43aa6df908e1017f5b291",
+      "tick": 210,
+      "capture_ms": 2158.118112,
+      "scene_ready": false,
+      "render_freshness_verified": false
+    }
+  ],
+  "decision_receipts": [
+    {
+      "iteration": 0,
+      "before_tick": 90,
+      "after_tick": 100,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 988.319729,
+      "advance_ms": 15406.578388
+    },
+    {
+      "iteration": 1,
+      "before_tick": 100,
+      "after_tick": 110,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.516614,
+      "advance_ms": 4879.004656
+    },
+    {
+      "iteration": 2,
+      "before_tick": 110,
+      "after_tick": 120,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.154789,
+      "advance_ms": 8756.159211
+    },
+    {
+      "iteration": 3,
+      "before_tick": 120,
+      "after_tick": 130,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.302696,
+      "advance_ms": 6098.503734
+    },
+    {
+      "iteration": 4,
+      "before_tick": 130,
+      "after_tick": 140,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 3.324491,
+      "advance_ms": 6700.274563
+    },
+    {
+      "iteration": 5,
+      "before_tick": 140,
+      "after_tick": 150,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.058208,
+      "advance_ms": 5410.470253
+    },
+    {
+      "iteration": 6,
+      "before_tick": 150,
+      "after_tick": 160,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.844144,
+      "advance_ms": 6169.759632
+    },
+    {
+      "iteration": 7,
+      "before_tick": 160,
+      "after_tick": 170,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.962745,
+      "advance_ms": 5989.252787
+    },
+    {
+      "iteration": 8,
+      "before_tick": 170,
+      "after_tick": 180,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.599208,
+      "advance_ms": 6767.922899
+    },
+    {
+      "iteration": 9,
+      "before_tick": 180,
+      "after_tick": 190,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 15.44801,
+      "advance_ms": 8142.919794
+    },
+    {
+      "iteration": 10,
+      "before_tick": 190,
+      "after_tick": 200,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.326318,
+      "advance_ms": 8104.265972
+    },
+    {
+      "iteration": 11,
+      "before_tick": 200,
+      "after_tick": 210,
+      "kind": "wait",
+      "reason": "learned_event_wait_or_unknown_hand",
+      "decision_ms": 4.326458,
+      "advance_ms": 6785.500572
+    }
+  ],
+  "source_files": [
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-short-20261114/report.json",
+      "bytes": 263080,
+      "sha256": "50a399fe9772ab1aa32341b2b7a2cbae826294434855a43ea203c1e255794135"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-short-20261114/decisions.jsonl",
+      "bytes": 7508,
+      "sha256": "77be1997ad5590bcd1349e465a836cf9b7f5ecafaa4a1374bc269c3313a3eeab"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-short-20261114/observations.jsonl",
+      "bytes": 73476,
+      "sha256": "33060728683d4b882ba3110d0b8c95041e457bc8b42c06412548ff0c8b6b83a6"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-short-20261114/captures.jsonl",
+      "bytes": 17805,
+      "sha256": "79d395f6d3673fb9d3ded9aed29af900f7cffad275e28f196ffa8ec29cf22a3e"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-short-20261114/initialization.json",
+      "bytes": 2406,
+      "sha256": "66bcafb5ecd74fc8d07a432554d45a3e6101aed3dfcc91e30c8f916643bc9c84"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-short-20261114/level-audit.json",
+      "bytes": 2015,
+      "sha256": "d1ec8a969dcaac01a2d0c0310041a5db29feab3cf12df4b5ff2d6adc776c4c9b"
+    }
+  ]
+}

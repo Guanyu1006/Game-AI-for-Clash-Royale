@@ -1,0 +1,126 @@
+{
+  "schema": "arena-remote-ci-verification-v1",
+  "repository": "Guanyu1006/Game-AI-for-Clash-Royale",
+  "branch": "dev/arena-next-20261113",
+  "source_sha": "ad19c003b33828da87fa1887a3300f5e342b0f6e",
+  "checked_at_utc": "2026-11-14T14:26:33.908Z",
+  "query_url": "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs?branch=dev%2Farena-next-20261113&per_page=10",
+  "source_sha_verified_in_checkout_log": true,
+  "observed_workflows_for_source_sha": [
+    "Portable CPU checks"
+  ],
+  "scope": "Remote push CI for native PID evidence fix. No local training or games rerun; no new Arena or device acceptance claimed.",
+  "run": {
+    "id": 43604729876,
+    "name": "Portable CPU checks",
+    "path": ".github/workflows/portable-check.yml",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "created_at": "2026-11-14T14:24:49Z",
+    "updated_at": "2026-11-14T14:25:29Z",
+    "url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43604729876"
+  },
+  "jobs": [
+    {
+      "id": 132476809913,
+      "name": "portable",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "number": 3,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Core dependencies only",
+          "number": 4,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore reviewed assets",
+          "number": 5,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Contract and migration checks",
+          "number": 6,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Actual numeric training smoke",
+          "number": 7,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Reload and validate the new numeric checkpoint",
+          "number": 8,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Saved data, replay and approximate simulator",
+          "number": 9,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "number": 17,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "number": 18,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "number": 19,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "total": 624,
+    "skipped": 80,
+    "passed": 544,
+    "failures": 0,
+    "errors": 0,
+    "wall_seconds": 24.487,
+    "method": "Counts from decoded GitHub Actions job log, not inferred from local tests.",
+    "summary_log_lines": [
+      "2026-11-14T14:25:15.2025532Z test_pid_guard_persists_actual_pid_and_refuses_hashes_after_change_or_exit (tests_cloud.test_native_identity.NativeIdentityTests.test_pid_guard_persists_actual_pid_and_refuses_hashes_after_change_or_exit) ... ok",
+      "2026-11-14T14:25:23.9488011Z Ran 624 tests in 24.487s",
+      "2026-11-14T14:25:23.9488222Z OK (skipped=80)"
+    ],
+    "logs_source": "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/jobs/132476809913/logs"
+  },
+  "limits": [
+    "Portable workflow uses core dependencies; optional Torch/engine checks may be skipped.",
+    "Successful CI is code and reproducibility evidence, not actual device runtime or policy strength acceptance."
+  ]
+}

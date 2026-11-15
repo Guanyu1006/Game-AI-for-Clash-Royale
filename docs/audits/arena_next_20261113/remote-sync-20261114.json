@@ -1,0 +1,38 @@
+{
+  "schema": "arena-remote-sync-observation.v1",
+  "recorded_utc": "2026-11-14T14:20:30.848395+00:00",
+  "repository": "Guanyu1006/Game-AI-for-Clash-Royale",
+  "previous_observed_main": "9f6efce39b669bba5b296cf490e7445d15bebd1a",
+  "fetched_main": "ceec6b9b54058e1e097373ee857ee7f663a6efba",
+  "task_branch": "dev/arena-next-20261113",
+  "task_head_at_observation": "af5d1aef8169147c37988f8bebaad08d5724cb7f",
+  "fetch_reported_forced_remote_ref_update": true,
+  "fetched_main_is_ancestor_of_task_head": true,
+  "new_main_commits_not_in_task_branch": 0,
+  "open_pull_requests_at_observation": 0,
+  "new_friend_refactor_found": false,
+  "interpretation": "Remote main moved to an earlier commit already contained in the task branch. The actor and reason are unknown; no new refactor is evidenced.",
+  "publish_policy": "Preserve all commits; re-fetch before publishing and allow only a normal fast-forward push. Stop and integrate if new divergent commits appear.",
+  "unrelated_workspace_files_left_untouched": [
+    "docs/audits/storage_review_20261114.json",
+    "docs/audits/storage_review_20261114_inventory.json"
+  ],
+  "initial_publication": {
+    "recorded_utc": "2026-11-14T14:27:50.333843+00:00",
+    "command": "git push origin HEAD:main",
+    "before": "ceec6b9b54058e1e097373ee857ee7f663a6efba",
+    "after": "ad19c003b33828da87fa1887a3300f5e342b0f6e",
+    "result": "successful fast-forward",
+    "force_used": false,
+    "scope": "All task code, trained weights and primary evidence; final narrative and ongoing device attempt evidence follow in a separate commit."
+  },
+  "diagnostic_publication": {
+    "recorded_utc": "2026-11-14T14:46:37.710215+00:00",
+    "command": "git push origin HEAD:main",
+    "before": "ad19c003b33828da87fa1887a3300f5e342b0f6e",
+    "after": "a20cceb0c9e028e1e6c2c10598a2ead01b5fb9e3",
+    "result": "successful fast-forward",
+    "force_used": false,
+    "validation": "Both dev and main CI passed; final narrative/device evidence still pending."
+  }
+}

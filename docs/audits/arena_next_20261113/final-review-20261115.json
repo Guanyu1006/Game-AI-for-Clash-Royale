@@ -1,0 +1,270 @@
+{
+  "schema": "arena-final-delivery-readonly-review.v1",
+  "recorded_utc": "2026-11-15T01:40:58.072899+00:00",
+  "review_label": "2026-11-15 release review; experiment identifiers retain their original UTC dates",
+  "source_commit_reviewed": "a20cceb0c9e028e1e6c2c10598a2ead01b5fb9e3",
+  "scope": "Read-only local validation of frozen evidence, CI summaries, current source identity and delivery claims. No training, games, device commands, downloads or remote queries were started by this review.",
+  "json_files_parsed_before_this_review": 115,
+  "package_checks": [
+    {
+      "path": "docs/audits/arena_next_20261113/data/manifest.json",
+      "files_verified": 7,
+      "bytes_verified": 42248,
+      "passed": true
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/timing/package.json",
+      "files_verified": 27,
+      "bytes_verified": 967942,
+      "passed": true
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/league/package.json",
+      "files_verified": 42,
+      "bytes_verified": 1647742,
+      "passed": true
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/pixel/content-manifest.json",
+      "files_verified": 36,
+      "bytes_verified": 1406137,
+      "passed": true
+    }
+  ],
+  "package_total_files": 112,
+  "package_total_bytes": 4064069,
+  "delivered_models": [
+    {
+      "manifest": "arena_lab/artifacts/timing-aligned-v1.json",
+      "file": "arena_lab/artifacts/timing-aligned-v1.pt",
+      "bytes": 1004263,
+      "sha256": "b368ec2aa4d22f463fe211ea9239530317a3daf1f31b1a83ec8389dcc4eef51b",
+      "matches_main_ci": true
+    },
+    {
+      "manifest": "arena_lab/artifacts/imitation-aligned-joint-v1.json",
+      "file": "arena_lab/artifacts/imitation-aligned-joint-v1.pt",
+      "bytes": 1001331,
+      "sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+      "matches_main_ci": true
+    },
+    {
+      "manifest": "arena_lab/artifacts/selfplay-aligned-v1.json",
+      "file": "arena_lab/artifacts/selfplay-aligned-v1.pt",
+      "bytes": 1005031,
+      "sha256": "77de9550d937f4d56348c2c14dcffb63dedef70d8b29a1b3dfbdfd7db20a3df6",
+      "matches_main_ci": true
+    },
+    {
+      "manifest": "arena_lab/artifacts/pixel-masked-v1.json",
+      "file": "arena_lab/artifacts/pixel-masked-v1.pt",
+      "bytes": 1330919,
+      "sha256": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03",
+      "matches_main_ci": true
+    }
+  ],
+  "ci_summary_internal_checks": {
+    "source_sha_matches_reviewed_commit": true,
+    "main_runs": [
+      {
+        "name": "Portable CPU checks",
+        "run_id": 43606301553,
+        "total": 626,
+        "passed": 546,
+        "skipped": 80,
+        "conclusion": "success"
+      },
+      {
+        "name": "Arena Lab reproducibility",
+        "run_id": 43606301598,
+        "total": 163,
+        "passed": 160,
+        "skipped": 3,
+        "conclusion": "success"
+      }
+    ],
+    "four_model_smoke_totals": {
+      "games": 8,
+      "attempts": 571,
+      "executed": 565,
+      "refused": 6,
+      "natural": 8
+    },
+    "scope": "Functionality, reload and complete-game action accounting; not policy promotion, low-refusal acceptance or device acceptance. Remote run results were read from existing receipts and were not re-fetched in this review."
+  },
+  "stable_evidence_bindings": [
+    {
+      "path": "docs/audits/arena_next_20261113/data/manifest.json",
+      "bytes": 1486,
+      "sha256": "9d67818e27c10412e13ddc2ea8fc32c31215ea4e2731a95349bc98ee1e9c3ce0"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/timing/package.json",
+      "bytes": 5187,
+      "sha256": "dbe30072f6593229437dad404620b6e73a3cd52f3ca9a38f9948f952339d2489"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/league/package.json",
+      "bytes": 6633,
+      "sha256": "109ac6e2fbbdcbc2907a6bd7d87c98b31971467167f47b425bba9bb01291bc12"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/pixel/content-manifest.json",
+      "bytes": 5071,
+      "sha256": "6bd77cfb5918db89dcc12ebf03939b04891b806b23322f38259e9840fd6aa951"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/paired80-summary.json",
+      "bytes": 3880,
+      "sha256": "8fdc1ebd92653f405c95a4fc62210675716689a935ce366ca460640817bbdc95"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/alpha70-summary.json",
+      "bytes": 4340,
+      "sha256": "8b47bfdab2eb4d46e22c83b2e4d8dc0cc08a654a0ced29137b22e24cb5e71528"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/data/alpha70-completion-summary.json",
+      "bytes": 15634,
+      "sha256": "e2ecfd678baf25a811551961e54c35af98d3bfe20863fa1baa4bf5fe3078f6b5"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/pixel/summary.json",
+      "bytes": 6750,
+      "sha256": "a4ce6c3d23c75e6d9669663fa4882612ea1884a1e4b17692e18e5adda77b369b"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/league/report.json",
+      "bytes": 10534,
+      "sha256": "05cd22a5230bccdf3a4cf13526e535215602e2008f916af08378caebc5f664ba"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/timing/comparison.json",
+      "bytes": 11869,
+      "sha256": "d3ca99aaf5f8b5669c5aefbdfdded84e05fa65053fffe45cfa63b26cf6a090ba"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-main-a20cceb.json",
+      "bytes": 14321,
+      "sha256": "16e51128099367bb7145b683d01e119e89e2d97ab55cd1089f12d24e8ab44a5f"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-main-ad19c00.json",
+      "bytes": 13129,
+      "sha256": "0903de29643e013d3f7407d004324a300ac53174a0464b24ba4d2ac6f8e74812"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-push-a20cceb.json",
+      "bytes": 14188,
+      "sha256": "de0531b02a24f1a827efcf3b5aa7055b6cb1584f95c9741ca8dc7f32772be50f"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-push-ad19c00.json",
+      "bytes": 4113,
+      "sha256": "e6357eafbe91f9ac6a5f1c120f5b53f32529023e03ad9e08629849b03f62c0d3"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-push-af5d1ae.json",
+      "bytes": 13766,
+      "sha256": "828b97065a1e3b4b01cfc786d4fcdbdc202c71f045f419b37507762f5a398517"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-push-b1a05cb.json",
+      "bytes": 7362,
+      "sha256": "92700eb3b18f40415d9cfa6bc40432d659d22c644ac52fa16d6b18d37828780b"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/remote-sync-20261114.json",
+      "bytes": 1999,
+      "sha256": "bd8a93bf1123fb0012fc8a6ed479745df7bf3bde82e1f1c8d24fd2b6373c0bfc"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/short_pixel_20261114.json",
+      "bytes": 8652,
+      "sha256": "a526e8915cf3f53373bcafe5fc5e2d298e19319422fb5ea6f5efe08d1f807343"
+    }
+  ],
+  "document_review": {
+    "files_read": [
+      "README.md",
+      "docs/GITHUB_CODESPACES_ZH.md",
+      "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "arena_lab/VISION_ZH.md",
+      "docs/audits/arena_next_20261113/device/README.md"
+    ],
+    "main_report_relative_links_checked": [
+      "../arena_lab/PAIRED_DATA_ZH.md",
+      "../arena_lab/TIMING_ZH.md",
+      "../arena_lab/LEAGUE_ZH.md",
+      "../arena_lab/VISION_ZH.md",
+      "../arena_lab/PIXEL_MODEL_ZH.md",
+      "../arena_lab/artifacts/aligned-joint-replay.html",
+      "audits/arena_next_20261113/ci-main-a20cceb.json",
+      "audits/arena_next_20261113/remote-sync-20261114.json"
+    ],
+    "main_report_statistics_consistent_with_frozen_evidence": true,
+    "main_report_negative_results_retained": [
+      "human_same_version_full_config_pairs_remain_zero",
+      "timing_structure_did_not_outperform_joint_classifier",
+      "ppo_not_promoted_after_450_frozen_games",
+      "pixel_independent_refusal_rate_exceeds_one_percent",
+      "physical_device_and_official_live_client_not_accepted"
+    ],
+    "documents_not_hash_bound_because_final_edits_are_in_progress": true
+  },
+  "device_short_attempt_observed_not_frozen_by_this_review": {
+    "path": "outputs/arena-next-20261113/device-pixel-short-20261114",
+    "frames": 13,
+    "decisions": 12,
+    "wait_decisions": 12,
+    "scene_ready_true_frames": 0,
+    "policy_requests": 0,
+    "policy_consumed": 0,
+    "initial_tick": 90,
+    "end_tick": 210,
+    "game_seconds_advanced": 6.0,
+    "wall_seconds": 210.833498039,
+    "natural_terminal": false,
+    "result_finalized": false,
+    "opponent_card_events": 2,
+    "limits": [
+      "Opponent actions are separate from policy requests and cannot be counted as learned-policy consumption.",
+      "These are framebuffer captures; render-state tick alignment and render freshness remain unverified.",
+      "All WAIT while scene_ready is false is not closed-loop combat.",
+      "This attempt is not a full game, physical-device acceptance, real-time acceptance or evidence of policy strength."
+    ],
+    "no_hash_binding": "Raw ongoing follow-up runs are not bound. The frozen short-attempt summary device/short_pixel_20261114.json is separately bound and verified in device_short_receipt_verified."
+  },
+  "git_refs_at_review": {
+    "HEAD": "a20cceb0c9e028e1e6c2c10598a2ead01b5fb9e3",
+    "main": "9f6efce39b669bba5b296cf490e7445d15bebd1a",
+    "origin/main": "a20cceb0c9e028e1e6c2c10598a2ead01b5fb9e3",
+    "origin/dev/arena-next-20261113": "a20cceb0c9e028e1e6c2c10598a2ead01b5fb9e3"
+  },
+  "release_checklist": [
+    "Add final device attempt receipt and current device facts to the main report and device guide; preserve earlier failure receipts as historical scopes.",
+    "Report client-local completion date separately from original UTC experiment identifiers.",
+    "Fast-forward local main to the published source before handing the workspace back; at review local main was still 9f6efce while origin/main was a20cceb.",
+    "Commit only task documentation and curated small evidence; preserve unrelated storage_review_20261114*.json without staging or modification.",
+    "Re-fetch before the final ordinary fast-forward publication and verify final exact-source CI when source changes.",
+    "Do not describe all four user acceptance goals as met: same-version human truth, policy promotion and real-device combat gates remain open."
+  ],
+  "acceptance": {
+    "frozen_evidence_integrity_passed": true,
+    "reviewed_source_ci_passed": true,
+    "four_model_functionality_reproduced_in_ci": true,
+    "human_expert_same_version_alignment_passed": false,
+    "ppo_promotion_passed": false,
+    "pixel_low_refusal_gate_passed": false,
+    "learned_pixel_combat_verified": false,
+    "physical_device_closed_loop_passed": false,
+    "international_competitive_capability_verified": false
+  },
+  "device_short_receipt_verified": {
+    "path": "docs/audits/arena_next_20261113/device/short_pixel_20261114.json",
+    "source_files_sha256_and_bytes_verified": 6,
+    "frame_sha256_verified": 13,
+    "observed_statistics_match_frozen_receipt": true,
+    "combat_acceptance": false
+  }
+}

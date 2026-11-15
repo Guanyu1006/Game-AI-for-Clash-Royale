@@ -1,0 +1,358 @@
+{
+  "schema": "arena-main-ci-verification-v1",
+  "repository": "Guanyu1006/Game-AI-for-Clash-Royale",
+  "branch": "main",
+  "source_sha": "ad19c003b33828da87fa1887a3300f5e342b0f6e",
+  "checked_at_utc": "2026-11-14T14:29:54.495Z",
+  "query_url": "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs?branch=main&per_page=10",
+  "main_runs_verified_separately_from_dev_same_sha": true,
+  "runs": [
+    {
+      "id": 43604945395,
+      "name": "Arena Lab reproducibility",
+      "path": ".github/workflows/arena-lab-check.yml",
+      "event": "push",
+      "head_branch": "main",
+      "head_sha": "ad19c003b33828da87fa1887a3300f5e342b0f6e",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-14T14:27:23Z",
+      "updated_at": "2026-11-14T14:28:29Z",
+      "url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43604945395",
+      "checkout_sha_log_line": "2026-11-14T14:27:31.0986342Z ad19c003b33828da87fa1887a3300f5e342b0f6e",
+      "jobs": [
+        {
+          "id": 132477475633,
+          "name": "cpu",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Fixed host CPU dependencies",
+              "number": 4,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Isolated hash-locked simulator",
+              "number": 5,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Data, recurrent model, training and closed-loop contracts",
+              "number": 6,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Real engine whole-battle benchmark",
+              "number": 7,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Same-version causal pairs and independent complete-state replay",
+              "number": 8,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Delivered checkpoint reload and paired whole games",
+              "number": 9,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Aligned imitation, self-play and masked-pixel delivery",
+              "number": 10,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "number": 11,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "number": 21,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "number": 22,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "number": 23,
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "tests": {
+        "total": 161,
+        "skipped": 3,
+        "passed": 158,
+        "failures": 0,
+        "errors": 0,
+        "wall_seconds": 3.216
+      },
+      "test_summary_log_lines": [
+        "2026-11-14T14:28:00.5517938Z Ran 161 tests in 3.216s",
+        "2026-11-14T14:28:00.5518290Z OK (skipped=3)"
+      ],
+      "log_source": "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/jobs/132477475633/logs"
+    },
+    {
+      "id": 43604945358,
+      "name": "Portable CPU checks",
+      "path": ".github/workflows/portable-check.yml",
+      "event": "push",
+      "head_branch": "main",
+      "head_sha": "ad19c003b33828da87fa1887a3300f5e342b0f6e",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-11-14T14:27:23Z",
+      "updated_at": "2026-11-14T14:28:14Z",
+      "url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43604945358",
+      "checkout_sha_log_line": "2026-11-14T14:27:33.8282829Z ad19c003b33828da87fa1887a3300f5e342b0f6e",
+      "jobs": [
+        {
+          "id": 132477475678,
+          "name": "portable",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "number": 2,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "number": 3,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Core dependencies only",
+              "number": 4,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Restore reviewed assets",
+              "number": 5,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Contract and migration checks",
+              "number": 6,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Actual numeric training smoke",
+              "number": 7,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Reload and validate the new numeric checkpoint",
+              "number": 8,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Saved data, replay and approximate simulator",
+              "number": 9,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "number": 17,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "number": 18,
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "tests": {
+        "total": 624,
+        "skipped": 80,
+        "passed": 544,
+        "failures": 0,
+        "errors": 0,
+        "wall_seconds": 27.676
+      },
+      "test_summary_log_lines": [
+        "2026-11-14T14:28:10.9210989Z Ran 624 tests in 27.676s",
+        "2026-11-14T14:28:10.9211259Z OK (skipped=80)"
+      ],
+      "log_source": "https://api.github.com/repos/Guanyu1006/Game-AI-for-Clash-Royale/actions/jobs/132477475678/logs"
+    }
+  ],
+  "delivered_models": {
+    "method": "Decoded Arena job output from hash-checked check-delivery; all four checkpoint hashes matched reviewed model manifests.",
+    "models": {
+      "timing-aligned-v1": {
+        "attempted": 2,
+        "decisions_per_second": 441.83411376117766,
+        "episodes_sha256": "95e401f3755597e4fecb23b4ae3da82cf82cecbeee0f26cd41f12e779d39b54e",
+        "natural": 2,
+        "plan_sha256": "96ccea7e4642ac9a797fb5aa46ca960941ebb06ad8a355f650f6526f37d8c088",
+        "wall_seconds": 2.410406907999999,
+        "wins": 0,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "37ffdb3dff3d27b7c922ac9ee0ad3ca846696c523d5a47540410192777fa8956",
+          "summary_sha256": "ba3c620d01a69928e38e272054efe797a015586962e3e25d17f62a98baeb1a61"
+        },
+        "attempts": 143,
+        "executed": 143,
+        "refused": 0,
+        "checkpoint_sha256": "b368ec2aa4d22f463fe211ea9239530317a3daf1f31b1a83ec8389dcc4eef51b",
+        "observation_version": "arena-public-v2",
+        "passed": true,
+        "status": "passed"
+      },
+      "imitation-aligned-joint-v1": {
+        "attempted": 2,
+        "decisions_per_second": 477.3234394135394,
+        "episodes_sha256": "56d04be0f75df6477fb0bff71d6a5a8779488546dfb8cdb5c143967d29586006",
+        "natural": 2,
+        "plan_sha256": "15c4ed21443880b5976c88bb788bcbed5f3014a3b3ddaf4e68d49264b8d7f6fc",
+        "wall_seconds": 2.5705840079999973,
+        "wins": 1,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "8d865ce76efac0f88b0db1e48bf3dfe11b9df0a73b57541c22da0cf8404740d8",
+          "summary_sha256": "46b5982804e00e539a4bd7324724a1b4d11e76731d9b786d616a9344eccd3051"
+        },
+        "attempts": 178,
+        "executed": 178,
+        "refused": 0,
+        "checkpoint_sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8",
+        "observation_version": "arena-public-v2",
+        "passed": true,
+        "status": "passed"
+      },
+      "selfplay-aligned-v1": {
+        "attempted": 2,
+        "decisions_per_second": 431.9707388006376,
+        "episodes_sha256": "c0dd730d65773181a48886aa719fd14b17659166ba9e452f6ec0d7a3885e15d6",
+        "natural": 2,
+        "plan_sha256": "3c99e16680866e502b567c622cefe0238c735d0b670b550834b61d6b850c1799",
+        "wall_seconds": 2.615917928000016,
+        "wins": 0,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "fe87eeea258fe89dac725a68c4626148acdd70f5b267def854e34f6fc63db3b4",
+          "summary_sha256": "c2bbbc3907e3053e9fa388995715b2617dd8c1d00ee1afba1c12597d7d43f54d"
+        },
+        "attempts": 161,
+        "executed": 161,
+        "refused": 0,
+        "checkpoint_sha256": "77de9550d937f4d56348c2c14dcffb63dedef70d8b29a1b3dfbdfd7db20a3df6",
+        "observation_version": "arena-public-v2",
+        "passed": true,
+        "status": "passed"
+      },
+      "pixel-masked-v1": {
+        "attempted": 2,
+        "decisions_per_second": 375.13930962578536,
+        "episodes_sha256": "1c70113e31179e5c918f38c25e2ed2dacadececa2e5c33e14ac3d6948561fd28",
+        "natural": 2,
+        "plan_sha256": "f16db4f85647b16bc8078bb11efa15ff0b52b79de308147d209fae77221bb0b3",
+        "wall_seconds": 2.601700155000003,
+        "wins": 1,
+        "partition": "delivery_smoke_not_promotion",
+        "scope": "Hash/reload/complete-game smoke only; not strength or device acceptance",
+        "original_runner_receipts": {
+          "plan_sha256": "ae602929e4ca9b7a9a9e3e316da41f7e066ddf0da7a6d3b78e659dcbff0612ac",
+          "summary_sha256": "3140a3166dbecc5d698d6b00fc943de069b2120577392fb67ac7f56010ad83b5"
+        },
+        "attempts": 89,
+        "executed": 83,
+        "refused": 6,
+        "checkpoint_sha256": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03",
+        "observation_version": "arena-masked-pixel-v3",
+        "passed": true,
+        "status": "passed"
+      }
+    },
+    "totals": {
+      "games": 8,
+      "natural": 8,
+      "attempts": 571,
+      "executed": 565,
+      "refused": 6
+    },
+    "all_hashes_match": true,
+    "all_model_checks_passed": true,
+    "scope": "Functional smoke and complete request accounting; not promotion or device acceptance. Six refusals are from pixel model."
+  },
+  "remote_artifact": {
+    "name": "arena-cpu-evidence",
+    "id": 14117462957,
+    "url": "https://github.com/Guanyu1006/Game-AI-for-Clash-Royale/actions/runs/43604945395/artifacts/14117462957",
+    "bytes": 4951415,
+    "zip_sha256": "13eef3fca2a204742832ec54d6e159a875188df3416e31c891d77fa90c52111f"
+  },
+  "limits": [
+    "Portable and Arena optional checks are reported as skipped, not passed.",
+    "No local training or evaluation launched during this verification.",
+    "CI success does not supersede failed PPO promotion, pixel reliability or unfinished physical/native device gates."
+  ]
+}

@@ -63,7 +63,7 @@ nice -n 10 .venv-cloud/bin/python tools/cloud/native_prepare.py \
 
 实际运行时间未知，因此跟踪及模型记忆按缺测处理，不能声称 0.5 秒逻辑动作窗口已在物理设备校准。这个入口的 `--max-age-ms` 从截图检查开始计时，包含截图与推理，比暂停原生诊断的年龄定义更保守。没有独立消费回执，所以**首个出牌尝试后的截图一旦取得即停止**：即使手牌变化与圣水下降一致，仍记 `game_consumed=null`，不继续重复点击。截图或传输失败保留未结请求。这个有界入口供部署标定与回执验证，尚不是完整自动实战；当前真实物理设备调用次数为 0。
 
-可选 `--capture-format raw-persistent` 保留一个 `adb shell -T su 0 sh -s` 无 PTY 双向会话，每次仅发送固定 `screencap` 命令，仍逐帧执行截图，保持 360×640 和像素内容。`exec-out` 只转发输出，不能用于需要继续输入指令的持久会话，这一边界来自 [Android ADB 官方实现](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/client/commandline.cpp)。流按 Android 12 的 16 字节头及确切 RGBA 字节数拆帧；超时／半帧／格式变化会关闭并标记会话失效，不偷偷重连重读。接口测试覆盖分块输送、连续两帧不串帧、半帧和超时；**实际 Android 兼容性与加速倍数仍待下一轮实测**，不能从减少连接次数推出吞吐已达标。
+可选 `--capture-format raw-persistent` 保留一个 `adb shell -T su 0 sh -s` 无 PTY 双向会话，每次仅发送固定 `screencap` 命令，仍逐帧执行截图，保持 360×640 和像素内容。`exec-out` 只转发输出，不能用于需要继续输入指令的持久会话，这一边界来自 [Android ADB 官方实现](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/client/commandline.cpp)。流按 Android 12 的 16 字节头及确切 RGBA 字节数拆帧；超时／半帧／格式变化会关闭并标记会话失效，不偷偷重连重读。接口测试覆盖分块输送、连续两帧不串帧、半帧和超时。已在实际 Android 加载黑帧上成功取得一帧，耗时 5.494 秒；**尚无战斗画面上的连续采集与配对加速结果**，不能从减少连接次数推出吞吐已达标。
 
 准备成功后，可在一局新的合法配置、同一暂停 native 状态下交替测量两种 raw 输送；各取 3 次，保留冷启动样本、完整字节／状态哈希和原始时延，不外推稳定 p95。该基准不会发送卡牌动作，也不是整局验收：
 
@@ -108,6 +108,12 @@ nice -n 10 .venv-cloud/bin/python tools/cloud/native_prepare.py \
 另外对历史同指纹 7 帧进行了开发诊断。修正 HUD 误检区域、蓝方颜色识别和圣水分隔线后，6 个能粗略匹配的单位里类型正确 3 个、颜色侧别正确 6 个；其中炮被识别成哥布林牢笼、吹箭哥布林被识别成弓箭手。平均坐标误差与时钟绑定尚未经独立校准，样本又参与过修正，因此这些数值**不是独立测试准确率**。历史记录见 `device-historical/development-audit.json`。初始 VS 画面现在必须先检测到手牌和圣水 HUD，才会把目标交给策略。
 
 最近的开发测试覆盖未知数据、请求与执行区别、顺序与超时、跟踪过期、像素无损、布局拒绝和等级证据。测试通过只证明这些接口边界，不替代新设备闭环试验。
+
+第二轮低资源 VM 的准备于 17:25:42 UTC 开始，内容轮询在 17:37:35 UTC 首次同时读到 `contentReady=true`、`coldReady=true`，轮询历时 390.015 秒。因此这次并非内容加载超时。后续 identity 首次读取的 PID 为 1883，但在哈希检查前的 PID 守卫以 exit 32 拒绝；输出为空，尚未开始读取安装文件哈希。旧日志只能证明包的当前 PID 已不等于 1883，不能区分进程退出、重启或多 PID，也不能写成资源哈希错误。
+
+两次只读线程采样之间，Mainloop CPU 增加 1694 tick，映射数增加 63，RSS 增加约 52 MiB，进程读取也有进展；`gfx_frames` 未变化。这些数据支持“加载仍有活动”，不能凭内容指针未变化判为死锁。同一时间段曾运行 `debuggerd -b`，17:37:43 日志有 dump 请求，与 identity 检查交叠；尚无因果证据。详见已提交的 [第二轮审计](../docs/audits/arena_next_20261113/device/post_rebuild_result.json)。
+
+为保留下次失败原因，identity 的 PID 守卫现在输出预期／实际 PID，以及这些 PID 可读的 `/proc/PID/stat`；进程消失、变更或多 PID 仍立即拒绝，不自动重新采样、重试哈希或写 connection。13 项 identity 测试通过，包含进程消失和多 PID 的真实 shell 守卫测试。2026-11-14 14:16:31 UTC 的新容器中旧 QEMU／ADB 均已不存在；重建原因未知，新尝试使用新 attempt 与全新 identity，不复用旧连接。
 
 ## 后续集中验收顺序
 
