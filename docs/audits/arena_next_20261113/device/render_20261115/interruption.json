@@ -1,0 +1,27 @@
+{
+  "schema": "arena-device-interruption.v1",
+  "recorded_utc": "2026-11-15T02:38:00.996270+00:00",
+  "observed_pid1_started_utc": "2026-11-15T02:11:15+00:00",
+  "qemu_adb_native_processes_present": false,
+  "cause": "unknown; no evidence identifying the restart sender, OOM or game failure",
+  "original_report": {
+    "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/report.json",
+    "bytes": 263053,
+    "sha256": "642477fb98e32a6f7bfdc6752d88330c03bdcfbe5132b554f455d66f73af394f"
+  },
+  "original_report_status_preserved": "running",
+  "planned_decisions": 24,
+  "durably_completed_decisions": 12,
+  "durably_saved_frames": 13,
+  "last_durable_tick": 210,
+  "last_controlled_game_seconds": 6.0,
+  "last_saved_state_finalized": false,
+  "candidate_requests": 2,
+  "candidate_consumed": 2,
+  "all_durable_candidate_requests_have_consumption_and_visual_attempt_rows": true,
+  "unrecorded_inflight_native_work_after_last_receipt": "unknown",
+  "natural_terminal_verified": false,
+  "independent_followup_seed_20261124_executed": false,
+  "recovery_actions": "Read-only host/file audit only; no device restart, connection reuse or action replay",
+  "last_source_mtime_utc": "2026-11-15T02:06:40.233045+00:00"
+}

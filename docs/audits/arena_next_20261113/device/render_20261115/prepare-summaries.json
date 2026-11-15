@@ -1,0 +1,94 @@
+{
+  "device-prepare-20261114-clean-restart": {
+    "original_report": {
+      "path": "outputs/arena-next-20261113/device-prepare-20261114-clean-restart/report.json",
+      "bytes": 5844,
+      "sha256": "67f5b6ee595eb281df7b8122e584f9ae34f410060ac05e1da275581f55c7f770"
+    },
+    "original_identity": {
+      "path": "outputs/arena-next-20261113/device-prepare-20261114-clean-restart/identity.json",
+      "bytes": 5520,
+      "sha256": "ad9e2d2ab265d0dfb071bc612055f5bec086db4bdb4e572ac8282bbfef4766c9"
+    },
+    "status": "prepared",
+    "started_utc": "2026-11-14T14:35:01.986699+00:00",
+    "finished_utc": "2026-11-14T14:41:43.197146+00:00",
+    "runtime_stability": {
+      "status": "verified_window",
+      "requested_seconds": 60,
+      "started_utc": "2026-11-14T14:40:37.430512+00:00",
+      "checks_attempted": 9,
+      "checks_passed": 9,
+      "poll_interval_seconds": 5,
+      "adb_timeout_seconds": 90.0,
+      "probe_timeout_seconds": 5,
+      "stability_verified": true,
+      "scope": "Finite process/content availability checks; no battle/renderer acceptance or future uptime guarantee",
+      "expected_identity": {
+        "pid": 2413,
+        "process_start_ticks": 96433
+      },
+      "final_current_identity": {
+        "pid": 2413,
+        "process_start_ticks": 96433,
+        "process_state": "S"
+      },
+      "elapsed_seconds": 65.550555627,
+      "finished_utc": "2026-11-14T14:41:42.981067+00:00"
+    },
+    "content_poll_elapsed_seconds": 232.5450382232666,
+    "app_restart": true,
+    "identity_verified": true,
+    "connection_original": {
+      "path": "outputs/arena-next-20261113/device-prepare-20261114-clean-restart/connection.json",
+      "bytes": 450,
+      "sha256": "b307b293fb731ecaba95b6779855d8959775579303037fb8dd69ed1cb96f629c"
+    }
+  },
+  "device-prepare-render-20261115": {
+    "original_report": {
+      "path": "outputs/arena-next-20261113/device-prepare-render-20261115/report.json",
+      "bytes": 5300,
+      "sha256": "943d0ac02b4cde17fc2c7309461c77a20bcb4efeaa8fc44d52affeabd3cdc2e1"
+    },
+    "original_identity": {
+      "path": "outputs/arena-next-20261113/device-prepare-render-20261115/identity.json",
+      "bytes": 5408,
+      "sha256": "d9600bc97cd5709f4fe852d651ac1fdde2d8fe3976c52d3ce3edc02d9374a400"
+    },
+    "status": "prepared",
+    "started_utc": "2026-11-15T01:39:24.158559+00:00",
+    "finished_utc": "2026-11-15T01:51:55.896888+00:00",
+    "runtime_stability": {
+      "status": "verified_window",
+      "requested_seconds": 60,
+      "started_utc": "2026-11-15T01:50:50.491144+00:00",
+      "checks_attempted": 9,
+      "checks_passed": 9,
+      "poll_interval_seconds": 5,
+      "adb_timeout_seconds": 90.0,
+      "probe_timeout_seconds": 5,
+      "stability_verified": true,
+      "scope": "Finite process/content availability checks; no battle/renderer acceptance or future uptime guarantee",
+      "expected_identity": {
+        "pid": 1783,
+        "process_start_ticks": 35661
+      },
+      "final_current_identity": {
+        "pid": 1783,
+        "process_start_ticks": 35661,
+        "process_state": "S"
+      },
+      "elapsed_seconds": 65.19119567200005,
+      "finished_utc": "2026-11-15T01:51:55.682340+00:00"
+    },
+    "content_poll_elapsed_seconds": 315.4100024700165,
+    "app_restart": false,
+    "identity_verified": true,
+    "connection_original": {
+      "path": "outputs/arena-next-20261113/device-prepare-render-20261115/connection.json",
+      "bytes": 443,
+      "sha256": "9842bcec134f8d7ffd66259178a9bf0cdb607378ca33417be446a9622d35e86f"
+    }
+  }
+}

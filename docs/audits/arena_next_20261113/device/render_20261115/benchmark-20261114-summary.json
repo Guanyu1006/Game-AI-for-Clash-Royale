@@ -1,0 +1,82 @@
+{
+  "original_report": {
+    "path": "outputs/arena-next-20261113/device-capture-benchmark-20261114/report.json",
+    "bytes": 10296,
+    "sha256": "01e6c679f6292439f19c4f5172bc59d356cf4bc548679705014713eb8be14490"
+  },
+  "status": "completed",
+  "scope": "One paused generation1 tick90 scene; alternating raw/persistent capture; six frames were entry VS imagery, not active HUD battle benchmark",
+  "samples": [
+    {
+      "transport": "raw",
+      "capture_ms": 6987.697249,
+      "frame_sha256": "e6f411550ecc36ec78270a7bee4a376eb7a08c1e1e88af541c20a958ab25f5f6",
+      "state_tick_before": 90,
+      "state_tick_after": 90,
+      "generation_before": 1,
+      "generation_after": 1
+    },
+    {
+      "transport": "raw-persistent",
+      "capture_ms": 5659.991869,
+      "frame_sha256": "e6f411550ecc36ec78270a7bee4a376eb7a08c1e1e88af541c20a958ab25f5f6",
+      "state_tick_before": 90,
+      "state_tick_after": 90,
+      "generation_before": 1,
+      "generation_after": 1
+    },
+    {
+      "transport": "raw-persistent",
+      "capture_ms": 4449.470938,
+      "frame_sha256": "7f1121e1069974563ccd8df04930280597a0ccc32c4b2b80c346bddc28d13ef0",
+      "state_tick_before": 90,
+      "state_tick_after": 90,
+      "generation_before": 1,
+      "generation_after": 1
+    },
+    {
+      "transport": "raw",
+      "capture_ms": 2767.139779,
+      "frame_sha256": "91a489ecf7628edcb7ba6b5dbf0d347b016c4c530bd56047fe16d42b090c81e7",
+      "state_tick_before": 90,
+      "state_tick_after": 90,
+      "generation_before": 1,
+      "generation_after": 1
+    },
+    {
+      "transport": "raw",
+      "capture_ms": 2718.334014,
+      "frame_sha256": "68506fe4fe505f2b357f34dfab0a6bffef8131ff8059d408689d5e2e28929f6e",
+      "state_tick_before": 90,
+      "state_tick_after": 90,
+      "generation_before": 1,
+      "generation_after": 1
+    },
+    {
+      "transport": "raw-persistent",
+      "capture_ms": 2192.236641,
+      "frame_sha256": "ffdfbb7650f30e48e1000a9bf30e4a5a34bb2ae8ab72671e19fff1ed7c9c939f",
+      "state_tick_before": 90,
+      "state_tick_after": 90,
+      "generation_before": 1,
+      "generation_after": 1
+    }
+  ],
+  "summary": {
+    "raw": {
+      "count": 3,
+      "median_ms": 2767.139779,
+      "minimum_ms": 2718.334014,
+      "maximum_ms": 6987.697249
+    },
+    "raw-persistent": {
+      "count": 3,
+      "median_ms": 4449.470938,
+      "minimum_ms": 2192.236641,
+      "maximum_ms": 5659.991869
+    }
+  },
+  "steady_p95_verified": false,
+  "paired_speedup_verified": false,
+  "render_freshness_verified": false
+}

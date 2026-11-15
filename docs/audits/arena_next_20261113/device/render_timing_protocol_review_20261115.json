@@ -1,0 +1,719 @@
+{
+  "schema": "native-render-timing-protocol-review.v1",
+  "checked_utc": "2026-11-15T02:36:14.072386+00:00",
+  "scope": "Independent local read-only source/binary/saved-log review. No ADB, RPC, VM, application calls, compilation, downloads, or mutation of pinned assets were performed.",
+  "status": "partial_native_pixel_actions_observed_root_cause_not_established",
+  "bindings": [
+    {
+      "path": "third_party/phase2/firstlight/user-provided/lib/arm64-v8a/libg.so",
+      "bytes": 27554368,
+      "sha256": "110aa2b5cac391c498645e072b0d88729428c2c2845e7e2737ca8ee979059783"
+    },
+    {
+      "path": "shared_assets/project/third_party/phase2/firstlight/native_runner/probe/cr_replay_probe.cpp",
+      "bytes": 402459,
+      "sha256": "8ec2b7dd568ab6f646a7d608372d5f042362d025def2be28657e4b4e3b6b2354"
+    },
+    {
+      "path": ".cache/native-tools/qemu/root/usr/lib/x86_64-linux-gnu/libcapstone.so.4",
+      "bytes": 6663072,
+      "sha256": "faae0495d13e17b65ef579358dada70ee98b609b575d5a56951e073280660acd"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-render-probe-logcat-20261115.txt",
+      "bytes": 7971,
+      "sha256": "d65c5ca0413469034f2ef4ff0867a16f1ac17b31bf274d2ef7a49ec6ab5e9243"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/report.json",
+      "bytes": 263053,
+      "sha256": "642477fb98e32a6f7bfdc6752d88330c03bdcfbe5132b554f455d66f73af394f"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/observations.jsonl",
+      "bytes": 82665,
+      "sha256": "03499714b0f9f408ef29e93dbc06e0aef93e37e346d3a42c4a09b8f3e6adfe84"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/captures.jsonl",
+      "bytes": 15494,
+      "sha256": "8db5b9ea31c307c0a9d289bfdf5a4c2ff43f062a504f36b97f28e273a83f0ebf"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/decisions.jsonl",
+      "bytes": 7642,
+      "sha256": "0b4064796b696b69061ed414445aac81c174d0b4aad55abfd1ef3adbda64b092"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/wire.jsonl",
+      "bytes": 975501,
+      "sha256": "d7708f8ff6cda2f591ea2228e057d6b95f42c6a6f20290b12ad1016ed9eeb8a3"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/consumption.jsonl",
+      "bytes": 4840,
+      "sha256": "d7e2173061b36095a09cf4c22ba1c17225609d6b614c22e82ab332010117ec75"
+    },
+    {
+      "path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115/initialization.json",
+      "bytes": 2406,
+      "sha256": "e041275cd271cadebc5342c7b8db289c46d0233cb38fd9429ca897ef401c90f2"
+    },
+    {
+      "path": "outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/native/wire.jsonl",
+      "bytes": 1267314,
+      "sha256": "3a347b43590c51871b922898774d2b64a5076421eb1990529dccbb27f3a24e4d"
+    },
+    {
+      "path": "outputs/cloud/native-archives/source-20261024t073115.952441z-b08237/frames/index.jsonl",
+      "bytes": 7692,
+      "sha256": "2e2085057e615d78d65eea3ab6526896fb12f9b29354f14a9a7cc654a9a9e101"
+    }
+  ],
+  "binary_review": {
+    "architecture": "ELF AArch64 little-endian",
+    "tool": "Existing libcapstone.so.4 shipped with repository-local QEMU dependency; ctypes cs_open(CS_ARCH_ARM64,0) and cs_disasm over small PT_LOAD ranges",
+    "method": "Decode existing ELF program headers, map virtual offsets to file positions, disassemble only listed slices; no binary patching or execution.",
+    "source_function_offsets": {
+      "full_update": "0xc88bbc",
+      "clock": "0xc890bc",
+      "alternate_update": "0xc899e0",
+      "lifecycle": "0xc87620"
+    },
+    "disassembly": [
+      {
+        "name": "full_update_clock_delta_cap",
+        "start": "0xc88c60",
+        "end_exclusive": "0xc88c80",
+        "instructions": [
+          {
+            "offset": "0xc88c60",
+            "bytes": "a8999952",
+            "instruction": "movz w8, #0xcccd"
+          },
+          {
+            "offset": "0xc88c64",
+            "bytes": "e00313aa",
+            "instruction": "mov x0, x19"
+          },
+          {
+            "offset": "0xc88c68",
+            "bytes": "88b9a772",
+            "instruction": "movk w8, #0x3dcc, lsl #16"
+          },
+          {
+            "offset": "0xc88c6c",
+            "bytes": "0001271e",
+            "instruction": "fmov s0, w8"
+          },
+          {
+            "offset": "0xc88c70",
+            "bytes": "2021201e",
+            "instruction": "fcmp s9, s0"
+          },
+          {
+            "offset": "0xc88c74",
+            "bytes": "00cc291e",
+            "instruction": "fcsel s0, s0, s9, gt"
+          },
+          {
+            "offset": "0xc88c78",
+            "bytes": "00082a1e",
+            "instruction": "fmul s0, s0, s10"
+          },
+          {
+            "offset": "0xc88c7c",
+            "bytes": "10010094",
+            "instruction": "bl #0xc890bc"
+          }
+        ]
+      },
+      {
+        "name": "full_update_component_update",
+        "start": "0xc88e54",
+        "end_exclusive": "0xc88ea0",
+        "instructions": [
+          {
+            "offset": "0xc88e54",
+            "bytes": "4a09291e",
+            "instruction": "fmul s10, s10, s9"
+          },
+          {
+            "offset": "0xc88e58",
+            "bytes": "681a43b9",
+            "instruction": "ldr w8, [x19, #0x318]"
+          },
+          {
+            "offset": "0xc88e5c",
+            "bytes": "1f050071",
+            "instruction": "cmp w8, #1"
+          },
+          {
+            "offset": "0xc88e60",
+            "bytes": "0b010054",
+            "instruction": "b.lt #0xc88e80"
+          },
+          {
+            "offset": "0xc88e64",
+            "bytes": "1772ec97",
+            "instruction": "bl #0x7a56c0"
+          },
+          {
+            "offset": "0xc88e68",
+            "bytes": "611a43b9",
+            "instruction": "ldr w1, [x19, #0x318]"
+          },
+          {
+            "offset": "0xc88e6c",
+            "bytes": "cb72ec97",
+            "instruction": "bl #0x7a5998"
+          },
+          {
+            "offset": "0xc88e70",
+            "bytes": "800000b4",
+            "instruction": "cbz x0, #0xc88e80"
+          },
+          {
+            "offset": "0xc88e74",
+            "bytes": "6141621e",
+            "instruction": "fcvt s1, d11"
+          },
+          {
+            "offset": "0xc88e78",
+            "bytes": "4041201e",
+            "instruction": "fmov s0, s10"
+          },
+          {
+            "offset": "0xc88e7c",
+            "bytes": "ce68ec97",
+            "instruction": "bl #0x7a31b4"
+          },
+          {
+            "offset": "0xc88e80",
+            "bytes": "a8a26439",
+            "instruction": "ldrb w8, [x21, #0x928]"
+          },
+          {
+            "offset": "0xc88e84",
+            "bytes": "e8000035",
+            "instruction": "cbnz w8, #0xc88ea0"
+          },
+          {
+            "offset": "0xc88e88",
+            "bytes": "602a40f9",
+            "instruction": "ldr x0, [x19, #0x50]"
+          },
+          {
+            "offset": "0xc88e8c",
+            "bytes": "4041201e",
+            "instruction": "fmov s0, s10"
+          },
+          {
+            "offset": "0xc88e90",
+            "bytes": "2141201e",
+            "instruction": "fmov s1, s9"
+          },
+          {
+            "offset": "0xc88e94",
+            "bytes": "080040f9",
+            "instruction": "ldr x8, [x0]"
+          },
+          {
+            "offset": "0xc88e98",
+            "bytes": "08f544f9",
+            "instruction": "ldr x8, [x8, #0x9e8]"
+          },
+          {
+            "offset": "0xc88e9c",
+            "bytes": "00013fd6",
+            "instruction": "blr x8"
+          }
+        ]
+      },
+      {
+        "name": "full_update_unscaled_controller_time",
+        "start": "0xc88ea0",
+        "end_exclusive": "0xc88eb8",
+        "instructions": [
+          {
+            "offset": "0xc88ea0",
+            "bytes": "686240b9",
+            "instruction": "ldr w8, [x19, #0x60]"
+          },
+          {
+            "offset": "0xc88ea4",
+            "bytes": "c8030034",
+            "instruction": "cbz w8, #0xc88f1c"
+          },
+          {
+            "offset": "0xc88ea8",
+            "bytes": "606640bd",
+            "instruction": "ldr s0, [x19, #0x64]"
+          },
+          {
+            "offset": "0xc88eac",
+            "bytes": "1f090071",
+            "instruction": "cmp w8, #2"
+          },
+          {
+            "offset": "0xc88eb0",
+            "bytes": "0128291e",
+            "instruction": "fadd s1, s0, s9"
+          },
+          {
+            "offset": "0xc88eb4",
+            "bytes": "616600bd",
+            "instruction": "str s1, [x19, #0x64]"
+          }
+        ]
+      },
+      {
+        "name": "alternate_update_clock_and_component",
+        "start": "0xc89a24",
+        "end_exclusive": "0xc89a54",
+        "instructions": [
+          {
+            "offset": "0xc89a24",
+            "bytes": "0041201e",
+            "instruction": "fmov s0, s8"
+          },
+          {
+            "offset": "0xc89a28",
+            "bytes": "e00313aa",
+            "instruction": "mov x0, x19"
+          },
+          {
+            "offset": "0xc89a2c",
+            "bytes": "a4fdff97",
+            "instruction": "bl #0xc890bc"
+          },
+          {
+            "offset": "0xc89a30",
+            "bytes": "602a40f9",
+            "instruction": "ldr x0, [x19, #0x50]"
+          },
+          {
+            "offset": "0xc89a34",
+            "bytes": "000100b4",
+            "instruction": "cbz x0, #0xc89a54"
+          },
+          {
+            "offset": "0xc89a38",
+            "bytes": "080040f9",
+            "instruction": "ldr x8, [x0]"
+          },
+          {
+            "offset": "0xc89a3c",
+            "bytes": "01f144f9",
+            "instruction": "ldr x1, [x8, #0x9e0]"
+          },
+          {
+            "offset": "0xc89a40",
+            "bytes": "0041201e",
+            "instruction": "fmov s0, s8"
+          },
+          {
+            "offset": "0xc89a44",
+            "bytes": "fdfb40a9",
+            "instruction": "ldp x29, x30, [sp, #8]"
+          },
+          {
+            "offset": "0xc89a48",
+            "bytes": "f30f40f9",
+            "instruction": "ldr x19, [sp, #0x18]"
+          },
+          {
+            "offset": "0xc89a4c",
+            "bytes": "e80742fc",
+            "instruction": "ldr d8, [sp], #0x20"
+          },
+          {
+            "offset": "0xc89a50",
+            "bytes": "20001fd6",
+            "instruction": "br x1"
+          }
+        ]
+      },
+      {
+        "name": "clock_fixed_rate_accumulator",
+        "start": "0xc89120",
+        "end_exclusive": "0xc89160",
+        "instructions": [
+          {
+            "offset": "0xc89120",
+            "bytes": "604640bd",
+            "instruction": "ldr s0, [x19, #0x44]"
+          },
+          {
+            "offset": "0xc89124",
+            "bytes": "0190261e",
+            "instruction": "fmov s1, #20.00000000"
+          },
+          {
+            "offset": "0xc89128",
+            "bytes": "69a64c39",
+            "instruction": "ldrb w9, [x19, #0x329]"
+          },
+          {
+            "offset": "0xc8912c",
+            "bytes": "0028281e",
+            "instruction": "fadd s0, s0, s8"
+          },
+          {
+            "offset": "0xc89130",
+            "bytes": "3f010071",
+            "instruction": "cmp w9, #0"
+          },
+          {
+            "offset": "0xc89134",
+            "bytes": "0108211e",
+            "instruction": "fmul s1, s0, s1"
+          },
+          {
+            "offset": "0xc89138",
+            "bytes": "604600bd",
+            "instruction": "str s0, [x19, #0x44]"
+          },
+          {
+            "offset": "0xc8913c",
+            "bytes": "2800381e",
+            "instruction": "fcvtzs w8, s1"
+          },
+          {
+            "offset": "0xc89140",
+            "bytes": "087da80a",
+            "instruction": "bic w8, w8, w8, asr #31"
+          },
+          {
+            "offset": "0xc89144",
+            "bytes": "09059f1a",
+            "instruction": "csinc w9, w8, wzr, eq"
+          },
+          {
+            "offset": "0xc89148",
+            "bytes": "68324739",
+            "instruction": "ldrb w8, [x19, #0x1cc]"
+          },
+          {
+            "offset": "0xc8914c",
+            "bytes": "3f050071",
+            "instruction": "cmp w9, #1"
+          },
+          {
+            "offset": "0xc89150",
+            "bytes": "2a859f1a",
+            "instruction": "csinc w10, w9, wzr, hi"
+          },
+          {
+            "offset": "0xc89154",
+            "bytes": "1f010071",
+            "instruction": "cmp w8, #0"
+          },
+          {
+            "offset": "0xc89158",
+            "bytes": "36018a1a",
+            "instruction": "csel w22, w9, w10, eq"
+          },
+          {
+            "offset": "0xc8915c",
+            "bytes": "f5079f1a",
+            "instruction": "cset w21, ne"
+          }
+        ]
+      }
+    ]
+  },
+  "proven_source_protocol": [
+    {
+      "location": "cr_replay_probe.cpp:7180",
+      "fact": "advance-native arms an exact logical target and clears paused; successful response requires matching generation/manager, target reached or natural terminal, and no advancing outer controller update active. No presentation-frame acknowledgement is required."
+    },
+    {
+      "location": "cr_replay_probe.cpp:7943",
+      "fact": "game_state_step_hook stores the logical tick and sets global paused when the exact target or a readable terminal is reached."
+    },
+    {
+      "location": "cr_replay_probe.cpp:7580",
+      "fact": "full_update_hook caches paused at entry and writes stock controller speed=0 when paused, otherwise requested playback speed; then invokes the stock full update."
+    },
+    {
+      "location": "cr_replay_probe.cpp:7669",
+      "fact": "alternate_update_hook independently reads paused and passes zero delta when paused; otherwise requested speed times incoming delta. This alone does not prove full and alternate always run consecutively in the same frame."
+    },
+    {
+      "location": "cr_replay_probe.cpp:7244",
+      "fact": "speed accepts 0.25,0.5,1,2,4; temporarily closes the advancing gate, waits for an in-flight update, changes the multiplier, restores prior paused flag, and returns ok/mode/speed/paused/tick."
+    },
+    {
+      "location": "cr_replay_probe.cpp:6491 and :6884",
+      "fact": "configure-native and native reset restore speed=1; diagnostic speed must be set after reset and checked at the same paused tick."
+    }
+  ],
+  "proven_binary_observations": [
+    {
+      "offsets": [
+        "0xc88c60",
+        "0xc88c78",
+        "0xc88c7c"
+      ],
+      "fact": "In the ordinary full-update branch, the clock receives min(effective incoming delta, approximately 0.1 seconds) multiplied by the stock playback speed."
+    },
+    {
+      "offsets": [
+        "0xc89120",
+        "0xc8913c"
+      ],
+      "fact": "The clock adds its received delta to controller+0x44 and converts accumulated seconds at 20Hz into a step count. Nearby flags can force/adjust stepping; this is not a universal proof that every update performs at most two ticks."
+    },
+    {
+      "offsets": [
+        "0xc88e54",
+        "0xc88e88",
+        "0xc88e9c"
+      ],
+      "fact": "After clock returns, full update invokes a virtual method at vtable+0x9e8 on controller+0x50, passing effective delta times speed and the unscaled effective delta. Unlike the ordinary clock input, those deltas are not capped to 0.1 at this call site. Component class and exact HUD/VS ownership remain unidentified."
+    },
+    {
+      "offsets": [
+        "0xc88ea8",
+        "0xc88eb4"
+      ],
+      "fact": "A separate controller timer at +0x64 adds the unscaled effective delta. This establishes multiple time domains; its relationship to the visible VS overlay is not decoded."
+    },
+    {
+      "offsets": [
+        "0xc89a2c",
+        "0xc89a30",
+        "0xc89a50"
+      ],
+      "fact": "Alternate update calls clock itself, then invokes a different virtual method at vtable+0x9e0 on controller+0x50 with its received delta. Full update has no direct call to alternate within the examined function."
+    }
+  ],
+  "saved_log_observations": {
+    "path": "outputs/arena-next-20261113/device-render-probe-logcat-20261115.txt",
+    "generation": 1,
+    "process_id": 1783,
+    "controller": "0x7545454d8b30",
+    "context": "These are the first-scene speed=1 callbacks, not callbacks recorded from the later quarter-speed generation=2.",
+    "full_update_excerpt": [
+      "11-15 01:53:17.148  1783  2001 I CRNativeProbe: native controller full update #1 controller=0x7545454d8b30 state=8 dt=0.000000 speed=1.00 paused=0",
+      "11-15 01:53:19.890  1783  2001 I CRNativeProbe: native controller full update #2 controller=0x7545454d8b30 state=8 dt=8.461454 speed=1.00 paused=0",
+      "11-15 01:53:43.902  1783  2001 I CRNativeProbe: native controller full update #3 controller=0x7545454d8b30 state=8 dt=1.187974 speed=1.00 paused=0"
+    ],
+    "clock_excerpt": [
+      "11-15 01:53:17.159  1783  2001 I CRNativeProbe: native controller clock #1 controller=0x7545454d8b30 state=8 suspended=0 dt=0.000000 accumulator=0.000000 speed=1.00 manager=0x754527139560 world=0x7545454dc340 worldState=3 globalPause=0 gameApp=0x7545552f1390 gameAppPause=0 gameAppState=0",
+      "11-15 01:53:19.908  1783  2001 I CRNativeProbe: native controller clock #2 controller=0x7545454d8b30 state=8 suspended=0 dt=0.100000 accumulator=-0.050000 speed=1.00 manager=0x754527139560 world=0x7545454dc340 worldState=3 globalPause=0 gameApp=0x7545552f1390 gameAppPause=0 gameAppState=0",
+      "11-15 01:53:43.923  1783  2001 I CRNativeProbe: native controller clock #3 controller=0x7545454d8b30 state=8 suspended=0 dt=0.100000 accumulator=0.000000 speed=1.00 manager=0x754527139560 world=0x7545454dc340 worldState=3 globalPause=0 gameApp=0x7545552f1390 gameAppPause=0 gameAppState=0"
+    ],
+    "fact": "Observed full incoming deltas include 8.461454 and 1.187974 seconds, while the corresponding clock callbacks both receive 0.100000 seconds. The source/binary time-domain difference therefore occurs in an actual saved run."
+  },
+  "quarter_partial": {
+    "report_status": "running",
+    "frames": 13,
+    "completed_decisions": 12,
+    "wait_decisions": 10,
+    "play_decisions": 2,
+    "requests": 2,
+    "consumed": 2,
+    "initial_tick": 90,
+    "final_tick": 210,
+    "ready_frames": [
+      {
+        "frame_index": 6,
+        "tick": 150,
+        "frame_sha256": "160a0b207d0a58c7718980f1baf2ba3d8b464844fcefc1280d88ca25c26ef784"
+      },
+      {
+        "frame_index": 7,
+        "tick": 160,
+        "frame_sha256": "d2a659e23adf86ae7d42a260dcf414762546ce1d5fe87b07d570e2a7cecb5541"
+      },
+      {
+        "frame_index": 8,
+        "tick": 170,
+        "frame_sha256": "5e43f91226708d391c1f318e35d7344bf3c51360e5ff650cb817535520b38caf"
+      },
+      {
+        "frame_index": 9,
+        "tick": 180,
+        "frame_sha256": "60451c0390d17dc685788ca2ded90c0202956c74ad7041a52c962b1eea1b5552"
+      },
+      {
+        "frame_index": 10,
+        "tick": 190,
+        "frame_sha256": "a3146402c760a326204abc25af606feceae545999fef0aa1672c26d1c7b275b6"
+      },
+      {
+        "frame_index": 11,
+        "tick": 200,
+        "frame_sha256": "f6a8d0ed689dbf2dfe76c290478a8e4f1b2bbd6962f5eaa7b3f28d17e67c7849"
+      },
+      {
+        "frame_index": 12,
+        "tick": 210,
+        "frame_sha256": "ed63385d945e24fdaf1c53facff58d46343a8c4b8ae5458d7bf237843b0ecf33"
+      }
+    ],
+    "render_control": {
+      "requested_native_protocol_speed": 0.25,
+      "speed_change_receipt": {
+        "ok": true,
+        "mode": "native-render",
+        "speed": 0.25,
+        "paused": true,
+        "tick": 90
+      },
+      "native_protocol_speed": 0.25,
+      "paused_at_initial_capture": true,
+      "initial_native_tick": 90,
+      "tick_hz": 20,
+      "policy_window_ticks": 10,
+      "wait_window": "one exact advance; no candidate consumption receipt required",
+      "request_window": "advance one tick, confirm consumption, then remaining ticks",
+      "wall_seconds_equal_game_seconds": false,
+      "presentation_time_alignment_verified": false
+    },
+    "speed_commands": [
+      {
+        "command": "speed 0.25",
+        "response": {
+          "ok": true,
+          "mode": "native-render",
+          "speed": 0.25,
+          "paused": true,
+          "tick": 90
+        }
+      }
+    ],
+    "native_version_fingerprints": [
+      "7d62f3e6385490b06ff1d376f5660efda4e7603319f963540449522b96c359b6"
+    ],
+    "source_path": "outputs/arena-next-20261113/device-pixel-speed-quarter-20261115",
+    "generation": 2,
+    "planned_decisions": 24,
+    "completion": "Interrupted prefix; report retained status=running and no natural terminal was established. Never count this as 24 completed decisions or a complete match.",
+    "first_ready_observation": "frame 6 at logical tick150; frames6 through12 marked scene_ready=true by screenshot observer. Manual pixel review is recorded separately by the root/device audit.",
+    "consumption": [
+      {
+        "request_id": "e1003af2-0256-4466-86a4-85a15ff1d369",
+        "card_id": 26000003,
+        "status": "native_consumed",
+        "consumed": true,
+        "automatic_retry": false,
+        "receipts": [
+          {
+            "generation": 2,
+            "registered_at_tick": 150,
+            "actual_execution_tick": 151,
+            "card_consumed": true,
+            "card_event": [
+              6,
+              151,
+              1,
+              26000003,
+              5
+            ],
+            "consumption_status": "confirmed_native_card_event"
+          }
+        ]
+      },
+      {
+        "request_id": "63befbd2-5b4b-4872-a17f-8b0896436f47",
+        "card_id": 26000001,
+        "status": "native_consumed",
+        "consumed": true,
+        "automatic_retry": false,
+        "receipts": [
+          {
+            "generation": 2,
+            "registered_at_tick": 170,
+            "actual_execution_tick": 171,
+            "card_consumed": true,
+            "card_event": [
+              7,
+              171,
+              1,
+              26000001,
+              3
+            ],
+            "consumption_status": "confirmed_native_card_event"
+          }
+        ]
+      }
+    ],
+    "actor_boundary": "Screenshot pixels and controller-owned confirmed elapsed ticks feed the actor. Native rich state and consumption event contents remain audit/feedback evidence; they must not fill unknown actor HUD fields.",
+    "causal_limitation": "This quarter-speed development run differs in seed, scene generation, prior warm-up/cache state and renderer history from the speed=1 failures. It shows a successful short screenshot-policy-action-consumption chain, not a controlled proof that speed alone caused recovery.",
+    "device_limitation": "Software Android12/QEMU TCG, offline-native RPC actuator; no physical-device, official online, exact pixel-to-state timing or real-time acceptance."
+  },
+  "historical_comparison": {
+    "path": "outputs/cloud/native-archives/source-20261024t073115.952441z-b08237",
+    "initial_tick": 90,
+    "hud_visible_frame_tick": 190,
+    "capture_tick_interval": 100,
+    "actual_90_to_190_advance_commands": [
+      "advance-native 20",
+      "advance-native 20",
+      "advance-native 12",
+      "advance-native 1",
+      "advance-native 7",
+      "advance-native 20",
+      "advance-native 20"
+    ],
+    "fact": "capture_ticks=100 is a screenshot interval, not a single 100-tick native advance. The successful historical replay used speed1 and synchronized paused advances, with source actions and multiple registration boundaries.",
+    "limitation": "Different decks, levels, actions, initialization and process conditions; historical success does not isolate the current renderer defect or establish exact state/render alignment."
+  },
+  "candidate_mechanisms": [
+    {
+      "hypothesis": "Large presentation delta interacts poorly with entry-animation or scene transitions while logical time is capped.",
+      "support": "Actual full deltas above one second coexist with clock input0.1; full component updates receive different, uncapped time inputs. Quarter playback changes component deltas and update opportunities.",
+      "unproven": "No decoded VS/HUD component or animation threshold has been linked to a failing branch, and quarter was not a paired equal-condition comparison.",
+      "falsifier": "Same full-delta distribution and identical scene state reproduce recovery/failure independently of speed, or directly traced VS state progresses correctly despite the overlay."
+    },
+    {
+      "hypothesis": "Frequent synchronized pause boundaries change the controller/presentation lifecycle.",
+      "support": "The global pause flag changes at an internal logic boundary, with separate cached/current reads in outer hooks; removing WAIT's unnecessary 1+9 split is well-defined and preserves the trained horizon.",
+      "unproven": "One-window10tick speed1 still had unavailable HUD in a fresh-scene development run. Boundary removal alone has not established a cure.",
+      "falsifier": "Matched cases with equal tick horizon and delta show no renderer difference between one10 and 1+9, or the overlay persists under unrestricted continuous playback."
+    },
+    {
+      "hypothesis": "Scene reuse and warmed runtime state contribute to recovery.",
+      "support": "The successful partial quarter prefix is generation2 in an already-running app, whereas an earlier fresh first scene failed.",
+      "unproven": "This is a confound, not evidence of a specific reuse bug or a requirement to reuse a scene.",
+      "falsifier": "Fresh-app first-scene quarter and second-scene speed1 counterbalanced repetitions separate multiplier from generation/order effects."
+    }
+  ],
+  "minimum_risk_next_diagnostics": [
+    {
+      "order": 1,
+      "action": "Retain and audit the interrupted quarter prefix before further execution. Bind PNGs, capture/state/decision/consumption records and the interruption; do not resume an unknown in-flight mutation or overwrite the failed/successful prefixes.",
+      "criterion": "Two distinct confirmed native card events and seven observer-ready frames remain attributable to their source hashes."
+    },
+    {
+      "order": 2,
+      "action": "When a single VM is available again, run a separate predeclared renderer diagnostic with identical initialization and seed, both actors disabled until first HUD, exact10tick boundaries, speed1 versus0.25, fresh process/scene cases and counterbalanced order. Keep frames and speed/tick receipts.",
+      "criterion": "Compare tick and wall-time to first visible HUD plus later frame freshness. Treat repetitions as renderer diagnostics, not new independent strategy-strength test games."
+    },
+    {
+      "order": 3,
+      "action": "Collect existing read-only probe logs immediately after each new scene. The current probe emits only the first three full/clock/alternate callbacks per loaded generation, so record generation/controller addresses and do not infer whole-run callback counts from these prefixes.",
+      "criterion": "Measure actual full input delta, clock delta, speed, pause guards and lifecycle for each compared scene; no source modification needed."
+    },
+    {
+      "order": 4,
+      "action": "If a separate resume/pause diagnostic is needed, disable policies/actions, preserve entry tick/generation and request receipts, perform one bounded diagnostic interval, then pause once and capture actual returned tick. Discard that scene for formal10tick actor acceptance and reset explicitly before policy trials.",
+      "criterion": "Continuous playback may distinguish target-boundary effects from general scene/animation failure. A wall-time budget cannot guarantee an exact tick count under TCG; any overshoot is reported, not relabeled as10tick."
+    },
+    {
+      "order": 5,
+      "action": "If controlled comparisons remain inconclusive, design a separate versioned instrumentation build that traces the actual controller+0x50 virtual methods and VS/HUD lifecycle with delta/tick/generation/frame identities. Preserve pinned source and fingerprint; do not silently patch locked assets.",
+      "criterion": "Only a directly traced failure/recovery and independent paired pixel/state validation can justify a presentation-clock repair and stronger state-alignment claim."
+    }
+  ],
+  "prohibited_conclusions": [
+    "Do not claim a TCG frame normally consumes all10ticks: the ordinary full-update clock input is capped to0.1 before speed.",
+    "Do not claim full update only advances the world or that all presentation lives in alternate.",
+    "Do not claim quarter prefix was all WAIT or failed to act; two actions were confirmed consumed.",
+    "Do not claim the24step diagnostic completed, a natural match ended, speed caused recovery, or physical/official real-time closed-loop acceptance passed.",
+    "Do not change the trained10tick horizon, synthesize game imagery, or expose hidden state to the actor to bypass missing HUD."
+  ]
+}

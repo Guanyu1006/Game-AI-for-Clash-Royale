@@ -1,0 +1,40 @@
+{
+  "schema": "arena-device-pixel-predeclared.v1",
+  "created_utc": "2026-11-15T01:45:17.695706+00:00",
+  "seed": 20261122,
+  "level_requested": 11,
+  "decisions": 12,
+  "step_ticks": 10,
+  "frame_wait_seconds": 1.1,
+  "capture_format": "raw",
+  "native_protocol_speed_expected": 1,
+  "runtime": "fresh Android app process, first native scene; no preceding benchmark",
+  "change": "candidate WAIT advances one 10-tick window; candidate request retains 1+9 confirmation",
+  "unchanged": [
+    "checkpoint",
+    "threshold",
+    "public-only pixel actor",
+    "20Hz logical feedback",
+    "level settings",
+    "calibration"
+  ],
+  "acceptance_requires": [
+    "actual HUD scene_ready",
+    "at least one candidate request with independent native consumed receipt"
+  ],
+  "not_claimed": [
+    "natural terminal match",
+    "physical device",
+    "official online client",
+    "real-time latency",
+    "rendered-state freshness"
+  ],
+  "source_sha256": {
+    "arena_lab/device.py": "1c24930b50ab1b7ba2e98033458da7fc72a20264cbcaa1a3280e7cb2a2dcb8e9",
+    "arena_lab/vision.py": "4bff125cb26ff900b131fec6211594bce52866c6895b0c8861f4d0d0d5584c74",
+    "arena_lab/pixel_policy.py": "174169b45b404609c41c557afc565cdca1076bfbecbdc54dc4ed6b87394091fb",
+    "royale_phase2/backend.py": "b8196e15f881e186e3e5890ec98b32abb3bc993d3f30db338917d93871a71bdc",
+    "third_party/phase2/firstlight/native_runner/probe/cr_replay_probe.cpp": "8ec2b7dd568ab6f646a7d608372d5f042362d025def2be28657e4b4e3b6b2354",
+    "arena_lab/artifacts/pixel-masked-v1.pt": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03"
+  }
+}

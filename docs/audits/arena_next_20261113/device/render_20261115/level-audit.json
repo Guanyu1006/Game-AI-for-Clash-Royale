@@ -1,0 +1,125 @@
+{
+  "requested_card_level": 11,
+  "requested_minimum_card_level": 11,
+  "requested_king_levels": [
+    11,
+    11
+  ],
+  "configuration_accepted": true,
+  "actual_levels_verified": false,
+  "actual_levels": null,
+  "reason": "cr-minimal.v4 has no independently validated level field/decoder",
+  "state_tick": 90,
+  "native_hand_rows": [
+    {
+      "owner": 0,
+      "hand": [
+        [
+          0,
+          26000003,
+          5,
+          1354770432,
+          26000003
+        ],
+        [
+          1,
+          26000001,
+          3,
+          813705216,
+          26000001
+        ],
+        [
+          2,
+          28000001,
+          3,
+          838871040,
+          28000001
+        ],
+        [
+          3,
+          28000000,
+          4,
+          1103112192,
+          28000000
+        ]
+      ]
+    },
+    {
+      "owner": 1,
+      "hand": [
+        [
+          0,
+          26000014,
+          4,
+          1090529280,
+          26000014
+        ],
+        [
+          1,
+          28000000,
+          4,
+          1103112192,
+          28000000
+        ],
+        [
+          2,
+          26000003,
+          5,
+          1354770432,
+          26000003
+        ],
+        [
+          3,
+          26000001,
+          3,
+          813705216,
+          26000001
+        ]
+      ]
+    }
+  ],
+  "native_entity_hp_rows": [
+    {
+      "id": 5000000,
+      "owner": 0,
+      "card_id": -1,
+      "hp": 4824,
+      "max_hp": 4824
+    },
+    {
+      "id": 5000001,
+      "owner": 0,
+      "card_id": -1,
+      "hp": 3052,
+      "max_hp": 3052
+    },
+    {
+      "id": 5000002,
+      "owner": 0,
+      "card_id": -1,
+      "hp": 3052,
+      "max_hp": 3052
+    },
+    {
+      "id": 5000003,
+      "owner": 1,
+      "card_id": -1,
+      "hp": 4824,
+      "max_hp": 4824
+    },
+    {
+      "id": 5000004,
+      "owner": 1,
+      "card_id": -1,
+      "hp": 3052,
+      "max_hp": 3052
+    },
+    {
+      "id": 5000005,
+      "owner": 1,
+      "card_id": -1,
+      "hp": 3052,
+      "max_hp": 3052
+    }
+  ]
+}

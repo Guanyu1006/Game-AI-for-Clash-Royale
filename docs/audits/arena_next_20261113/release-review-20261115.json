@@ -1,0 +1,445 @@
+{
+  "schema": "arena-release-readonly-review.v1",
+  "recorded_utc": "2026-11-15T02:43:54.085128+00:00",
+  "source_commit_validated": "580395274453ed40156ccc2529b42cb76138b591",
+  "scope": "Final documentation/evidence verification after the interrupted device run. No training, games, ADB calls, VM starts, or action retries were performed. Source code remains the exact CI-validated commit; documentation/evidence will be published in its descendant commit.",
+  "previous_frozen_package_review": "docs/audits/arena_next_20261113/final-review-20261115.json",
+  "json_files_parsed": 130,
+  "model_bytes_and_shas_verified_against_exact_main_ci": [
+    {
+      "path": "arena_lab/artifacts/timing-aligned-v1.pt",
+      "bytes": 1004263,
+      "sha256": "b368ec2aa4d22f463fe211ea9239530317a3daf1f31b1a83ec8389dcc4eef51b"
+    },
+    {
+      "path": "arena_lab/artifacts/imitation-aligned-joint-v1.pt",
+      "bytes": 1001331,
+      "sha256": "2f4fb8ecd6aba2adcd5e708e7e7274805001956bbe0088f99447f125c6e6f2d8"
+    },
+    {
+      "path": "arena_lab/artifacts/selfplay-aligned-v1.pt",
+      "bytes": 1005031,
+      "sha256": "77de9550d937f4d56348c2c14dcffb63dedef70d8b29a1b3dfbdfd7db20a3df6"
+    },
+    {
+      "path": "arena_lab/artifacts/pixel-masked-v1.pt",
+      "bytes": 1330919,
+      "sha256": "a17c8fa67393fc38d691f5001fdaee17f4f4b9c5d8117ad6a2c0000a2d442f03"
+    }
+  ],
+  "protocol_source_bindings_verified": 13,
+  "device_source_bindings_verified": 17,
+  "device_original_png_and_state_hash_pairs_verified": 13,
+  "device_package_verifier": "21 bound files / 13 frames / 12 of 24 decisions / 2 independent native consumptions; passed",
+  "source_ci": {
+    "branch": "main",
+    "commit": "580395274453ed40156ccc2529b42cb76138b591",
+    "evidence": "docs/audits/arena_next_20261113/ci-main-5803952.json",
+    "arena_tests": 167,
+    "arena_skipped": 3,
+    "portable_tests": 630,
+    "portable_skipped": 80,
+    "games": 8,
+    "natural": 8,
+    "requests": 571,
+    "executed": 565,
+    "refused": 6,
+    "scope": "Functional reproducibility and accounting, not promotion or device qualification"
+  },
+  "doctor_log": {
+    "path": "outputs/arena-next-20261113/release-doctor-20261115T0237.log",
+    "bytes": 1633,
+    "sha256": "69bd0644e9d4b3d49750713125c0d013fb1761019c0cb253624b36029a8f43fe"
+  },
+  "doctor": {
+    "schema": "royale-cloud-doctor.v1",
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.11 (main, Jul  1 2025, 05:29:09) [GCC 12.2.0]",
+    "executable": "/workspaces/Game-AI-for-Clash-Royale/.venv-cloud/bin/python",
+    "root": "/workspaces/Game-AI-for-Clash-Royale",
+    "logical_cpus": 4,
+    "memory": {
+      "total_bytes": 16770469888,
+      "available_bytes": 13602304000,
+      "swap_total_bytes": 0,
+      "swap_free_bytes": 0,
+      "total_gib": 15.618717193603516,
+      "available_gib": 12.668132781982422,
+      "scope": "Visible host /proc/meminfo only; not Android guest allocation, container cgroup memory limit, or proof that a requested machine upgrade completed",
+      "status": "available",
+      "source": "/proc/meminfo"
+    },
+    "disk_free_bytes": 1391046656,
+    "modules": {
+      "numpy": true,
+      "torch": true,
+      "pyarrow": true,
+      "gymnasium": true
+    },
+    "codespaces_environment": true,
+    "offline_workbench": true,
+    "native": {
+      "system": "Linux",
+      "machine": "x86_64",
+      "binder_devices": {
+        "/dev/binder": false,
+        "/dev/binderfs/binder-control": false,
+        "/dev/ashmem": false
+      },
+      "docker": null,
+      "docker_info": null,
+      "native_runtime_verified": false,
+      "rpc_calls": 0,
+      "privileged_containers_tested": false,
+      "reason": "This read-only check does not prove Android/probe/assets compatibility. Native deployment requires a separate actual reset/play/terminal acceptance."
+    },
+    "assets": {
+      "status": "pass",
+      "files": 572,
+      "scope": "Reviewed portable payload integrity only; no native or strength claim"
+    },
+    "local_windows_launchers_preserved": true
+  },
+  "final_gates": {
+    "strict_same_version_full_config_human_games": 0,
+    "timing_outperformed_joint_baseline": false,
+    "ppo_promoted": false,
+    "pixel_independent_refusal_rate": 0.043782837127845885,
+    "pixel_one_percent_refusal_gate_passed": false,
+    "device_saved_frames": 13,
+    "device_durable_decisions": 12,
+    "device_planned_decisions": 24,
+    "device_ready_frames": 7,
+    "device_confirmed_consumptions": 2,
+    "device_fully_consistent_visual_receipts": 1,
+    "device_completed_full_match": false,
+    "device_full_budget_completed": false,
+    "render_freshness_verified": false,
+    "physical_device_calls": 0,
+    "official_real_time_acceptance_passed": false,
+    "container_rebuild_root_cause_known": false
+  },
+  "relative_document_links_verified": [
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "../arena_lab/PAIRED_DATA_ZH.md"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "../arena_lab/TIMING_ZH.md"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "../arena_lab/LEAGUE_ZH.md"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/device/short_pixel_20261114.json"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/device/render_20261115/summary.json"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/device/render_20261115/quarter-frame12.png"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/device/render_timing_protocol_review_20261115.json"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "../arena_lab/VISION_ZH.md"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "../arena_lab/PIXEL_MODEL_ZH.md"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "../arena_lab/artifacts/aligned-joint-replay.html"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/ci-main-5803952.json"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/release-review-20261115.json"
+    },
+    {
+      "document": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "target": "audits/arena_next_20261113/remote-sync-20261114.json"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "PIXEL_MODEL_ZH.md"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/post_rebuild_result.json"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/render_20261115/summary.json"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/render_20261115/quarter-frame06.png"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/render_20261115/quarter-frame07.png"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/render_20261115/quarter-frame12.png"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/render_20261115/interruption.json"
+    },
+    {
+      "document": "arena_lab/VISION_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/device/render_timing_protocol_review_20261115.json"
+    },
+    {
+      "document": "arena_lab/PIXEL_MODEL_ZH.md",
+      "target": "../docs/audits/arena_next_20261113/pixel/summary.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "manifest.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "pre_retry_failure_summary.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "loading_raw_capture.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "historical_development_audit.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "post_rebuild_result.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "../../../../arena_lab/VISION_ZH.md"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "short_pixel_20261114.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/summary.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/interruption.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/prepare-summaries.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/benchmark-20261114-summary.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_timing_protocol_review_20261115.json"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/quarter-frame06.png"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/quarter-frame07.png"
+    },
+    {
+      "document": "docs/audits/arena_next_20261113/device/README.md",
+      "target": "render_20261115/quarter-frame12.png"
+    }
+  ],
+  "git_diff_check_passed": true,
+  "stable_bindings": [
+    {
+      "path": "README.md",
+      "bytes": 13888,
+      "sha256": "1466230a1a6a737276fa8dd15978c3f89d214315d51b4b4a3782a269b5365f8d"
+    },
+    {
+      "path": "docs/ARENA_NEXT_DELIVERY_ZH.md",
+      "bytes": 30253,
+      "sha256": "80554929bbb05027096a357c6dfd7ed578a89c8872629dce4a3006038d6fbb6e"
+    },
+    {
+      "path": "arena_lab/VISION_ZH.md",
+      "bytes": 21145,
+      "sha256": "76e95502d0e62d9a9b3ebe0a7f6d84f7bbacc9b8ea82a341d47120426aad986a"
+    },
+    {
+      "path": "arena_lab/PIXEL_MODEL_ZH.md",
+      "bytes": 8581,
+      "sha256": "257969d472106b5ab84adbd669d1f553ec4991827c9ae8e052675a2424373bb3"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/README.md",
+      "bytes": 4886,
+      "sha256": "f7552e0d2f535d0c8ec96dec27fa28c2e6cf9672deb65650b36d7dddceca71e7"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-main-25cef35.json",
+      "bytes": 15011,
+      "sha256": "e3f6abaf73527c2c74d1cab2050d70dfafad88e7c2484e36283d70a6bac68b2b"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-push-25cef35.json",
+      "bytes": 15014,
+      "sha256": "cc8f3132a2238183d28d7cba5414b5386a01516818f66b5fa3f0c20389fa936e"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-main-5803952.json",
+      "bytes": 15095,
+      "sha256": "5273bf499f9430c871f9f12c1198eb72142ecde2f3eb9086a5292b0f040ce0d6"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/ci-push-5803952.json",
+      "bytes": 15107,
+      "sha256": "6e67e7c8e272ad89a353860de60c4913404c44c45b32ad828af56ef1bdbc408e"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_timing_protocol_review_20261115.json",
+      "bytes": 29200,
+      "sha256": "d9ef24c0034a842c92496d5b6e6d9c0a0b1bea0d3abf579c6ccd0adc99fad4e2"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/acknowledgements.jsonl",
+      "bytes": 2639,
+      "sha256": "c489faa746cc8aa473f29c8a4572c2b6ac3baeaab02efbe5347d333827850a68"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/actions.jsonl",
+      "bytes": 5221,
+      "sha256": "c3277158f1eff4345b9839bbf561202d7e4cbc70c726e77c2fdf8d0a32f2822c"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/baseline-plan.json",
+      "bytes": 1607,
+      "sha256": "2279709acf77c6f70b582d2b9956533d4d84101d6f84c3266e45a09abe181b29"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/benchmark-20261114-summary.json",
+      "bytes": 2543,
+      "sha256": "b0cf1c582a763cba8ca4aa5aff2dec93a1ee82508f50011051b91b6d0bcf9a08"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/captures.jsonl",
+      "bytes": 15494,
+      "sha256": "8db5b9ea31c307c0a9d289bfdf5a4c2ff43f062a504f36b97f28e273a83f0ebf"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/consumption.jsonl",
+      "bytes": 4840,
+      "sha256": "d7e2173061b36095a09cf4c22ba1c17225609d6b614c22e82ab332010117ec75"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/decisions.jsonl",
+      "bytes": 7642,
+      "sha256": "0b4064796b696b69061ed414445aac81c174d0b4aad55abfd1ef3adbda64b092"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/initialization.json",
+      "bytes": 2406,
+      "sha256": "e041275cd271cadebc5342c7b8db289c46d0233cb38fd9429ca897ef401c90f2"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/interruption.json",
+      "bytes": 1235,
+      "sha256": "b1f52ea04d5bab7258bf78cb1540e5e13e3e3e5f6e692046fceb3e34d21d88a2"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/level-audit.json",
+      "bytes": 2016,
+      "sha256": "6cc424038344a8bdcc1b7676309e042aad8d571a5eaea75ae0f930096432c39c"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/observations.jsonl",
+      "bytes": 82665,
+      "sha256": "03499714b0f9f408ef29e93dbc06e0aef93e37e346d3a42c4a09b8f3e6adfe84"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/package.json",
+      "bytes": 3397,
+      "sha256": "09cc169f2dbb5a65b6e11be30fa1b63cebef7e8d1e6f838aec29c923afe40035"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/prepare-summaries.json",
+      "bytes": 3565,
+      "sha256": "992a3df50a3caeac3ed11909287e4dc55b1c740009b6736754d79519de0e0ee2"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/quarter-frame06.png",
+      "bytes": 362379,
+      "sha256": "160a0b207d0a58c7718980f1baf2ba3d8b464844fcefc1280d88ca25c26ef784"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/quarter-frame07.png",
+      "bytes": 358410,
+      "sha256": "d2a659e23adf86ae7d42a260dcf414762546ce1d5fe87b07d570e2a7cecb5541"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/quarter-frame12.png",
+      "bytes": 352508,
+      "sha256": "ed63385d945e24fdaf1c53facff58d46343a8c4b8ae5458d7bf237843b0ecf33"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/quarter-plan.json",
+      "bytes": 1710,
+      "sha256": "f551c4a2054664fc63ce090aafdc28c5c6bd1db79a575db38b32268245c728af"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/render-speed-tests.log",
+      "bytes": 3207,
+      "sha256": "002964ec048db4e845c29c42820fbcd73276813218fa07d564ef84b22e11b70f"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/requests.jsonl",
+      "bytes": 1262,
+      "sha256": "fd2c43132be29edea87ca60560072d4f19c17bb605b3520c5aa4b95d49165822"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/summary.json",
+      "bytes": 17255,
+      "sha256": "62119bece8d5cdf78908d48ca62d60fb17b0b73980a17a2dabc37267ee25b34e"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/verify.py",
+      "bytes": 3581,
+      "sha256": "6a778bbbfdf2a76cd53d9b24a4e94cba7bc0577092634e4328ebb78be2b622c8"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/device/render_20261115/wait-window-tests.log",
+      "bytes": 3046,
+      "sha256": "8346d7b77013b86104e7c68915aea03ffbfdd391f8305537958462567843ca6a"
+    },
+    {
+      "path": "docs/audits/arena_next_20261113/final-review-20261115.json",
+      "bytes": 10917,
+      "sha256": "01d6da10031ab447d1aca34ab5d6f28123e3ce0d86fc134458e0c7fb76ede69d"
+    }
+  ],
+  "excluded_unrelated_untracked_files": [
+    "docs/audits/storage_review_20261114.json",
+    "docs/audits/storage_review_20261114_inventory.json"
+  ]
+}
