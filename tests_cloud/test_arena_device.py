@@ -8,7 +8,7 @@ from types import SimpleNamespace
 import unittest
 
 from arena_lab.device import (ActionLedger, PixelPolicy, RawAndroidCapture, PersistentRawAndroidCapture, native_level_audit,
-                              validate_controller_timing, visual_consistency)
+                              advance_control_window, validate_controller_timing, visual_consistency)
 from arena_lab.vision import PixelObserver, ScreenCalibration, UnitTracker
 
 
@@ -18,6 +18,42 @@ def det(x=20, side="enemy", label="knight"):
 
 
 class DeviceSafetyTests(unittest.TestCase):
+    def test_wait_preserves_policy_horizon_without_first_tick_pause(self):
+        events = []
+        class Engine:
+            def advance_exact_ticks(self, ticks):
+                events.append(("advance", ticks))
+                return {"tick": 100, "finalized": False}
+        state = advance_control_window(Engine(), 10)
+        self.assertEqual(state["tick"], 100)
+        self.assertEqual(events, [("advance", 10)])
+
+    def test_request_is_confirmed_before_remaining_control_ticks(self):
+        events = []
+        class Engine:
+            tick = 90
+            def advance_exact_ticks(self, ticks):
+                self.tick += ticks; events.append(("advance", self.tick))
+                return {"tick": self.tick, "finalized": False}
+        engine = Engine()
+        def confirm(): events.append(("confirm", engine.tick))
+        state = advance_control_window(engine, 10, confirm)
+        self.assertEqual(events, [("advance", 91), ("confirm", 91), ("advance", 100)])
+        self.assertEqual(state["tick"]-90, 10)
+
+    def test_terminal_receipt_shortens_window_without_extra_advance(self):
+        events = []
+        class Engine:
+            def advance_exact_ticks(self, ticks):
+                events.append(("advance", ticks))
+                return {"tick": 91, "finalized": True}
+        state = advance_control_window(Engine(), 10, lambda: events.append(("confirm", 91)))
+        self.assertEqual(events, [("advance", 1), ("confirm", 91)])
+        self.assertEqual(state["tick"]-90, 1)
+        events.clear()
+        self.assertTrue(advance_control_window(Engine(), 10)["finalized"])
+        self.assertEqual(events, [("advance", 10)])
+
     def test_ack_is_not_execution_and_duplicate_cannot_resend(self):
         ledger = ActionLedger(1)
         row = ledger.request({"kind": "play_card"}, 0, 20)

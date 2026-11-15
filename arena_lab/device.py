@@ -310,6 +310,26 @@ def validate_controller_timing(controller, step_ticks):
                          "explicitly use the checkpoint horizon; variable-horizon deployment is unverified")
 
 
+def advance_control_window(engine, step_ticks, confirm_first_tick=None):
+    """Preserve one policy horizon without pausing an idle window at tick one.
+
+    A candidate request needs its independent consumption receipt immediately
+    after the execution tick. With no candidate request, the native scheduler
+    still executes the opponent's queued action at its exact tick; a host pause
+    at that boundary adds no evidence and creates an avoidable rendering
+    synchronization boundary.
+    """
+    if type(step_ticks) is not int or not 1 <= step_ticks <= 200:
+        raise ValueError("Control window must contain 1..200 native ticks")
+    if confirm_first_tick is None:
+        return engine.advance_exact_ticks(step_ticks)
+    state = engine.advance_exact_ticks(1)
+    confirm_first_tick()
+    if not state["finalized"] and step_ticks > 1:
+        state = engine.advance_exact_ticks(step_ticks-1)
+    return state
+
+
 def run_native(args, policy=None):
     if not math.isfinite(args.max_age_ms) or args.max_age_ms <= 0:
         raise ValueError("Screenshot age limit must be finite and positive")
@@ -353,6 +373,17 @@ def run_native(args, policy=None):
                 configuration["battle"]["hbd"][seat]["kt"] = args.level
             write(root/"initialization.json", configuration)
             state = engine.reset(configuration)
+            render_status = engine._request("status")
+            report["render_control"] = {
+                "native_protocol_speed": render_status.get("speed"),
+                "paused_at_initial_capture": render_status.get("paused"),
+                "initial_native_tick": state["tick"], "tick_hz": 20,
+                "policy_window_ticks": args.step_ticks,
+                "wait_window": "one exact advance; no candidate consumption receipt required",
+                "request_window": "advance one tick, confirm consumption, then remaining ticks",
+                "wall_seconds_equal_game_seconds": False,
+                "presentation_time_alignment_verified": False}
+            write(root/"report.json", report)
             write(root/"level-audit.json", native_level_audit(configuration, state))
             opponent = PublicTeacher("cycle", args.seed+1)
             version = engine.export_journal()["version_fingerprint"]
@@ -406,14 +437,12 @@ def run_native(args, policy=None):
                     engine.schedule_card(0, other["card"], other["x"], other["y"], state["tick"]+1,
                                          request_id="opponent:"+str(uuid.uuid4()))
                 before_tick = state["tick"]; advance_start = time.monotonic_ns()
-                state = engine.advance_exact_ticks(1)
-                if request:
+                def confirm_first_tick():
                     feedback = engine.execution_feedback([request["request_id"]])
                     ledger.consume(request["request_id"], time.monotonic_ns(),
                                    feedback[0].get("card_consumed") if feedback else None, feedback)
                     append(root/"consumption.jsonl", deepcopy(ledger.pending))
-                if not state["finalized"] and args.step_ticks > 1:
-                    state = engine.advance_exact_ticks(args.step_ticks-1)
+                state = advance_control_window(engine, args.step_ticks, confirm_first_tick if request else None)
                 advance_finish = time.monotonic_ns()
                 # This is the receipt for this controller's own exact advance,
                 # not a hidden world clock input. Terminal may shorten a step.
